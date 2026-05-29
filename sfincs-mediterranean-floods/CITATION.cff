@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the associated manuscript."
+title: "sfincs-flood-reproduction: enhanced SFINCS reproduction of three Mediterranean flood archetypes"
+authors:
+  - family-names: Papaioannou
+    given-names: Vassilios
+    orcid: "https://orcid.org/0000-0001-6598-7107"
+    affiliation: "Information Technologies Institute, Centre for Research and Technology Hellas (CERTH), Thessaloniki, Greece"
+  - family-names: Valsamis
+    given-names: Dimitrios
+    affiliation: "Information Technologies Institute, Centre for Research and Technology Hellas (CERTH), Thessaloniki, Greece"
+  - family-names: Anagnostopoulos
+    given-names: "Christos G. E."
+    affiliation: "Information Technologies Institute, Centre for Research and Technology Hellas (CERTH), Thessaloniki, Greece"
+  - family-names: Moumtzidou
+    given-names: Anastasia
+    affiliation: "Information Technologies Institute, Centre for Research and Technology Hellas (CERTH), Thessaloniki, Greece"
+  - family-names: Gialampoukidis
+    given-names: Ilias
+    affiliation: "Information Technologies Institute, Centre for Research and Technology Hellas (CERTH), Thessaloniki, Greece"
+  - family-names: Vrochidis
+    given-names: Stefanos
+    affiliation: "Information Technologies Institute, Centre for Research and Technology Hellas (CERTH), Thessaloniki, Greece"
+  - family-names: Kompatsiaris
+    given-names: Ioannis
+    affiliation: "Information Technologies Institute, Centre for Research and Technology Hellas (CERTH), Thessaloniki, Greece"
+license: MIT
+repository-code: "https://github.com/vaspapa79/sfincs-mediterranean-floods"
+date-released: 2026-05-28
+keywords:
+  - flood inundation modelling
+  - SFINCS
+  - Mediterranean flash floods
+  - Copernicus EMS validation
+  - Storm Daniel
+  - satellite precipitation

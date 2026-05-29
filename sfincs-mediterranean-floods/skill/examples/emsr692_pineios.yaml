@@ -1,0 +1,88 @@
+# EMSR692 Storm Daniel / Pineios (September 2023) — example template.
+#
+# Bbox here is a starting point for the small Pineios domain that lives
+# in implementation/pineios_sfincs/. Replace it with the bbox the user
+# actually wants. AOI list is illustrative — verify against
+# https://mapping.emergency.copernicus.eu/activations/EMSR692/.
+
+event:
+  id: EMSR692
+  name: Pineios
+  slug: pineios
+  date: 2023-09-06
+  location: "Thessaly, Greece — Pineios River basin"
+  reason: "Storm Daniel — extreme rainfall over central Greece, multi-day flooding"
+
+window:
+  spinup_days: 1
+  pre_event_days: 3
+  post_event_days: 4
+
+bbox:
+  west: 21.9
+  south: 39.3
+  east: 23.0
+  north: 40.0
+  era5_buffer_deg: 0.2
+
+crs:
+  epsg: 32634
+
+grid:
+  res: 150
+  rotated: false
+  subgrid_pixels: 4
+  manning_land: 0.04
+  manning_sea: 0.02
+
+paths:
+  work_dir: C:/Users/vaspapa/Desktop/ELKAK/implementation/pineios_sfincs_emsr692
+  deliverable_dir: C:/Users/vaspapa/Desktop/ELKAK/deliverable_pineios_emsr692
+  zip_dir: C:/Users/vaspapa/Desktop/ELKAK
+
+env:
+  python: C:/Users/vaspapa/AppData/Local/miniforge3/envs/sfincs-viz/python.exe
+  hydromt: C:/Users/vaspapa/AppData/Local/miniforge3/envs/sfincs-viz/Scripts/hydromt.exe
+  sfincs_exe: C:/Users/vaspapa/Desktop/ELKAK/implementation/SFINCS_bin/SFINCS_v2.3.0_mt_Faber_release_exe/sfincs.exe
+  gdal_data: C:/Users/vaspapa/AppData/Local/miniforge3/envs/sfincs-viz/Library/share/gdal
+  gdalbuildvrt: C:/Users/vaspapa/AppData/Local/miniforge3/envs/sfincs-viz/Library/bin/gdalbuildvrt.exe
+  cds_key_file: ~/.cdsapirc
+
+# TODO: enumerate the actual EMSR692 AOIs from the Copernicus EMS website.
+# Common ones include 01KARDITSA, 02LARISSA, 03VOLOS, 04MAGNESIA…
+ems:
+  base_url: https://cems-mapping-website.s3.eu-west-1.amazonaws.com/static/activations
+  aois:
+    - 01KARDITSA
+    - 02LARISSA
+    - 03VOLOS
+    - 04MAGNESIA
+  iterations:
+    - REFERENCE_OVERVIEW_v1
+    - REFERENCE_OVERVIEW_v2
+    - DELINEATION_OVERVIEW_v1
+    - DELINEATION_OVERVIEW_v2
+    - DELINEATION_OVERVIEW-MONIT01_v1
+    - DELINEATION_OVERVIEW-MONIT01_v2
+    - DELINEATION_OVERVIEW-MONIT02_v1
+    - DELINEATION_OVERVIEW-MONIT02_v2
+
+animation:
+  canvas_width: 940
+  basemap_zoom: 12
+  basemap_buffer_m: 3000
+  mp4:
+    fps: 12
+    dpi: 110
+    bitrate_kbps: 4000
+  cities:
+    - {name: Larissa, lat: 39.6390, lon: 22.4191}
+    - {name: Karditsa, lat: 39.3640, lon: 21.9216}
+    - {name: Trikala, lat: 39.5550, lon: 21.7682}
+    - {name: Volos, lat: 39.3681, lon: 22.9426}
+    - {name: Lake Karla, lat: 39.479, lon: 22.85}
+  glofas_reach:
+    lat_min: 39.4
+    lat_max: 39.7
+    lon_min: 22.2
+    lon_max: 22.9

@@ -1,0 +1,80 @@
+# EMSR122 Strymonas (March 2015) — enlarged bbox, the run we just refreshed.
+
+event:
+  id: EMSR122
+  name: Strymonas
+  slug: strymonas
+  date: 2015-03-31
+  location: "Central Macedonia, Greece — Strymonas River basin"
+  reason: "Heavy rainfall + Lake Kerkini spillway + transboundary inflow"
+
+window:
+  spinup_days: 1
+  pre_event_days: 3
+  post_event_days: 3
+
+bbox:
+  west: 22.8
+  south: 40.6
+  east: 24.0
+  north: 41.4
+  era5_buffer_deg: 0.2
+
+crs:
+  epsg: 32634
+
+grid:
+  res: 150
+  rotated: false
+  subgrid_pixels: 4
+  manning_land: 0.04
+  manning_sea: 0.02
+
+paths:
+  work_dir: C:/Users/vaspapa/Desktop/ELKAK/implementation/emsr122_sfincs
+  deliverable_dir: C:/Users/vaspapa/Desktop/ELKAK/deliverable_strimonas_emsr122
+  zip_dir: C:/Users/vaspapa/Desktop/ELKAK
+
+env:
+  python: C:/Users/vaspapa/AppData/Local/miniforge3/envs/sfincs-viz/python.exe
+  hydromt: C:/Users/vaspapa/AppData/Local/miniforge3/envs/sfincs-viz/Scripts/hydromt.exe
+  sfincs_exe: C:/Users/vaspapa/Desktop/ELKAK/implementation/SFINCS_bin/SFINCS_v2.3.0_mt_Faber_release_exe/sfincs.exe
+  gdal_data: C:/Users/vaspapa/AppData/Local/miniforge3/envs/sfincs-viz/Library/share/gdal
+  gdalbuildvrt: C:/Users/vaspapa/AppData/Local/miniforge3/envs/sfincs-viz/Library/bin/gdalbuildvrt.exe
+  cds_key_file: ~/.cdsapirc
+
+ems:
+  base_url: https://cems-mapping-website.s3.eu-west-1.amazonaws.com/static/activations
+  aois:
+    - 01STRYMONAS
+    - 02BALTOTOPI
+    - 03ACHINOS
+    - 04MAVROTHALASSA
+  iterations:
+    - REFERENCE_OVERVIEW_v2
+    - DELINEATION_OVERVIEW_v2
+    - DELINEATION_OVERVIEW-MONIT01_v1
+    - DELINEATION_OVERVIEW-MONIT01_v2
+    - DELINEATION_OVERVIEW-MONIT02_v1
+    - DELINEATION_OVERVIEW-MONIT03_v1
+
+animation:
+  canvas_width: 920
+  basemap_zoom: 12
+  basemap_buffer_m: 3000
+  mp4:
+    fps: 12
+    dpi: 110
+    bitrate_kbps: 4000
+  cities:
+    - {name: Serres, lat: 41.0853, lon: 23.5483}
+    - {name: Sidirokastro, lat: 41.2347, lon: 23.3897}
+    - {name: Nigrita, lat: 40.9036, lon: 23.4956}
+    - {name: Amfipoli, lat: 40.8167, lon: 23.8500}
+    - {name: Kerkini Lake, lat: 41.21, lon: 23.13}
+    - {name: Thessaloniki, lat: 40.6401, lon: 22.9444}
+  glofas_reach:
+    lat_min: 40.7
+    lat_max: 41.3
+    lon_min: 23.2
+    lon_max: 23.8

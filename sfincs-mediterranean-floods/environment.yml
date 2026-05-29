@@ -1,0 +1,36 @@
+# Conda environment for the sfincs-flood-reproduction pipeline.
+#   conda env create -f environment.yml
+#   conda activate sfincs-viz
+#
+# Versions follow the manuscript "Software" statement: HydroMT v0.10.1,
+# HydroMT-SFINCS v1.2.2. The SFINCS binary (v2.3.0, release
+# mt_Faber_release_2025.02) is a separate Deltares download, not a conda
+# package. The OpenBLAS pin avoids a numpy.dot regression observed with
+# mkl 2026 on Windows/miniforge.
+name: sfincs-viz
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - hydromt=0.10.1
+  - hydromt_sfincs=1.2.2
+  - xarray
+  - netCDF4
+  - h5netcdf
+  - numpy
+  - scipy
+  - pandas
+  - pyproj
+  - pyogrio
+  - shapely
+  - geopandas
+  - rasterio
+  - rioxarray
+  - matplotlib
+  - pillow
+  - imageio-ffmpeg
+  - pyyaml
+  - requests
+  - cdsapi
+  - earthaccess
+  - libblas=*=*openblas

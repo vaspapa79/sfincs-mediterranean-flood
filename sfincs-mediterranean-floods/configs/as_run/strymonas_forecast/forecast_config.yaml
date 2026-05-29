@@ -1,0 +1,67 @@
+# Strymonas — operational SFINCS rain-on-grid forecast.
+# Same EMSR122 bbox / UTM zone / grid as the historical reproduction,
+# but driven by an ECMWF IFS 0.25° forecast (Open-Meteo) instead of ERA5.
+# No EMS validation (the event hasn't happened yet).
+
+event:
+  id: null
+  name: Strymonas Forecast
+  slug: strymonas_forecast
+  date: 2026-05-23                      # forecast issue date (tref)
+  location: "Central Macedonia, Greece — Strymonas River basin"
+  reason: "Operational forecast over the EMSR122 domain (no observed event)"
+
+# Forecast window: 5 days from tref. No spin-up days (we start from a dry
+# state at tref); no pre/post window since the event hasn't happened.
+forecast:
+  horizon_hours: 120          # 5 days hourly
+  model: ecmwf_ifs025         # Open-Meteo model id
+  api_base: https://api.open-meteo.com/v1/forecast
+  precip_grid_step_deg: 0.25  # native IFS resolution
+
+bbox:
+  west: 22.8
+  south: 40.6
+  east: 24.0
+  north: 41.4
+  buffer_deg: 0.25            # padding for the forecast grid sample
+
+crs:
+  epsg: 32634                  # UTM 34N
+
+grid:
+  res: 150
+  rotated: false
+  subgrid_pixels: 4
+  manning_land: 0.04
+  manning_sea: 0.02
+
+paths:
+  work_dir: C:/Users/vaspapa/Desktop/ELKAK/implementation/strymonas_forecast
+  deliverable_dir: C:/Users/vaspapa/Desktop/ELKAK/deliverable_strymonas_forecast
+  zip_dir: C:/Users/vaspapa/Desktop/ELKAK
+  # Reuse the EMSR122 DEM + WorldCover + basemap tiles (already downloaded)
+  reuse_data_dir: C:/Users/vaspapa/Desktop/ELKAK/implementation/emsr122_sfincs/data
+  manning_lookup: C:/Users/vaspapa/Desktop/ELKAK/.claude/skills/sfincs-flood-reproduction/manning_lookup.csv
+
+env:
+  python: C:/Users/vaspapa/AppData/Local/miniforge3/envs/sfincs-viz/python.exe
+  hydromt: C:/Users/vaspapa/AppData/Local/miniforge3/envs/sfincs-viz/Scripts/hydromt.exe
+  sfincs_exe: C:/Users/vaspapa/Desktop/ELKAK/implementation/SFINCS_bin/SFINCS_v2.3.0_mt_Faber_release_exe/sfincs.exe
+  gdal_data: C:/Users/vaspapa/AppData/Local/miniforge3/envs/sfincs-viz/Library/share/gdal
+
+animation:
+  canvas_width: 920
+  basemap_zoom: 12
+  basemap_buffer_m: 3000
+  mp4:
+    fps: 12
+    dpi: 110
+    bitrate_kbps: 4000
+  cities:
+    - {name: Serres,        lat: 41.0853, lon: 23.5483}
+    - {name: Sidirokastro,  lat: 41.2347, lon: 23.3897}
+    - {name: Nigrita,       lat: 40.9036, lon: 23.4956}
+    - {name: Amfipoli,      lat: 40.8167, lon: 23.8500}
+    - {name: Kerkini Lake,  lat: 41.21,   lon: 23.13}
+    - {name: Thessaloniki,  lat: 40.6401, lon: 22.9444}

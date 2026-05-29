@@ -1,0 +1,107 @@
+# EMSR257 — Mandra / Western Attica (15 November 2017) flash flood
+#
+# Event: an intense convective storm dumped ~300 mm in ~8 h on Pateras
+# Mountain; runoff funneled through the Soures and Agia Aikaterini
+# streams into the town of Mandra. 24 fatalities, ~12 km² inundated.
+# Single short pulse — different archetype from the multi-day Pineios
+# (EMSR692) and the transboundary Strymonas (EMSR122) reruns.
+#
+# Copernicus EMS rapid-mapping activation: EMSR257 "Flood in Attika -
+# Greece", activated 19 Nov 2017. Only GRADING products were delivered
+# (no DELINEATION/MONIT iterations); the observed flood polygons live
+# in *_observed_event_a.shp inside each GRADING ZIP. Three AOIs:
+#   01 MANDRA          (23.471-23.545, 38.024-38.088) — GRADING v2
+#   02 NEAPERAMOS      (23.393-23.470, 37.987-38.037) — GRADING v2
+#   03 LAKKAKALOGIROU  (23.348-23.403, 37.976-38.038) — GRADING v1
+
+event:
+  id: EMSR257
+  name: Mandra
+  slug: mandra
+  date: 2017-11-15
+  location: "Western Attica, Greece — Soures and Agia Aikaterini stream basins"
+  reason: "Convective storm on Pateras Mt — urban flash flood through Mandra"
+
+# Flash-flood timing: the rainfall pulse + runoff response fit comfortably
+# inside a 24 h window, draining to the Saronic Gulf within hours.
+window:
+  spinup_days: 1
+  pre_event_days: 2
+  post_event_days: 2
+
+# Bbox covers all three EMSR257 AOIs plus the Pateras Mt headwaters
+# (~38.13 N) to the north and the Saronic Gulf coast (~37.95 N) to the
+# south. Roughly 26 x 28 km.
+bbox:
+  west: 23.30
+  south: 37.95
+  east: 23.60
+  north: 38.20
+  era5_buffer_deg: 0.2
+
+# Western Attica sits cleanly inside UTM zone 34N (18-24 E).
+crs:
+  epsg: 32634
+
+# Urban flash flood at ~12 km² catchment scale: 50 m base + 4x subgrid
+# (effective 12.5 m for storage/conveyance) resolves street-scale flow
+# paths. ~290k base cells over the 26x28 km bbox.
+grid:
+  res: 50
+  rotated: false
+  subgrid_pixels: 4
+  manning_land: 0.04
+  manning_sea: 0.02
+
+paths:
+  work_dir: C:/Users/vaspapa/Desktop/ELKAK/implementation/mandra_sfincs
+  deliverable_dir: C:/Users/vaspapa/Desktop/ELKAK/deliverable_mandra_emsr257
+  zip_dir: C:/Users/vaspapa/Desktop/ELKAK
+
+env:
+  python: C:/Users/vaspapa/AppData/Local/miniforge3/envs/sfincs-viz/python.exe
+  hydromt: C:/Users/vaspapa/AppData/Local/miniforge3/envs/sfincs-viz/Scripts/hydromt.exe
+  sfincs_exe: C:/Users/vaspapa/Desktop/ELKAK/implementation/SFINCS_bin/SFINCS_v2.3.0_mt_Faber_release_exe/sfincs.exe
+  gdal_data: C:/Users/vaspapa/AppData/Local/miniforge3/envs/sfincs-viz/Library/share/gdal
+  gdalbuildvrt: C:/Users/vaspapa/AppData/Local/miniforge3/envs/sfincs-viz/Library/bin/gdalbuildvrt.exe
+  cds_key_file: ~/.cdsapirc
+
+# AOIs verified against https://mapping.emergency.copernicus.eu/activations/EMSR257/
+# Iterations: only GRADING_MAP products exist. Two version strings cover
+# all three AOIs (Mandra v2, Nea Peramos v2, Lakka Kalogirou v1).
+# Note: EMSR257 GRADING polygons live in *_observed_event_a.shp, not
+# *crisis_information_poly.shp — download_ems.py picks up both patterns.
+ems:
+  base_url: https://cems-mapping-website.s3.eu-west-1.amazonaws.com/static/activations
+  aois:
+    - 01MANDRA
+    - 02NEAPERAMOS
+    - 03LAKKAKALOGIROU
+  iterations:
+    - 02GRADING_MAP_v1
+    - 02GRADING_MAP_v2
+
+animation:
+  canvas_width: 920
+  basemap_zoom: 13          # tighter than basin runs — urban scale
+  basemap_buffer_m: 2000
+  mp4:
+    fps: 12
+    dpi: 110
+    bitrate_kbps: 4000
+  cities:
+    - {name: Mandra,            lat: 38.0700, lon: 23.5050}
+    - {name: Magoula,           lat: 38.0744, lon: 23.5300}
+    - {name: Nea Peramos,       lat: 38.0125, lon: 23.4258}
+    - {name: Lakka Kalogirou,   lat: 38.0080, lon: 23.3750}
+    - {name: Elefsina,          lat: 38.0397, lon: 23.5447}
+    - {name: Aspropyrgos,       lat: 38.0617, lon: 23.5945}
+    - {name: Pateras (summit),  lat: 38.1283, lon: 23.4350}
+  # GloFAS 0.1 deg is too coarse to resolve the Soures / Agia Aikaterini
+  # streams (catchment ~12 km²). This sub-box just picks up the nearest
+  # non-zero reach for the headline-stat panel — interpret with care.
+  glofas_reach:
+    lat_min: 38.05
+    lat_max: 38.15
+    lon_min: 23.40
+    lon_max: 23.60

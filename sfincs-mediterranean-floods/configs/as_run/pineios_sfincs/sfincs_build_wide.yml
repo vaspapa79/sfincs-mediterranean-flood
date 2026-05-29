@@ -1,0 +1,51 @@
+setup_config:
+  tref: 20230903 000000
+  tstart: 20230904 000000
+  tstop: 20230908 000000
+  dtout: 3600
+  dthisout: 600
+  outputformat: net
+  alpha: 0.5
+  manning_land: 0.04
+  manning_sea: 0.02
+  rgh_lev_land: 0
+  zsini: 0
+  huthresh: 0.01
+  advection: 1
+
+setup_grid_from_region:
+  region:
+    bbox: [21.84, 39.31, 22.99, 40.02]
+  res: 150
+  crs: 32634
+  rotated: false
+
+setup_dep:
+  datasets_dep:
+    - elevtn: copdem30
+
+setup_mask_active:
+  zmin: -2
+  zmax: 400
+  fill_area: 20
+  drop_area: 5
+
+setup_mask_bounds:
+  btype: waterlevel
+  zmax: 0
+  reset_bounds: true
+
+setup_subgrid:
+  datasets_dep:
+    - elevtn: copdem30
+  datasets_rgh:
+    - lulc: esa_worldcover_2021
+      reclass_table: C:/Users/vaspapa/Desktop/ELKAK/implementation/pineios_sfincs/manning_lookup.csv
+  nr_subgrid_pixels: 4
+  nrmax: 4000
+  write_dep_tif: false
+  write_man_tif: false
+
+setup_precip_forcing_from_grid:
+  precip: era5_hourly
+  aggregate: false
