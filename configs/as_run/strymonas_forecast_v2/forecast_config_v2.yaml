@@ -1,0 +1,49 @@
+event: {id: null, name: Strymonas Forecast (v2), slug: strymonas_forecast_v2, date: 2026-05-23,
+  location: "Central Macedonia, Greece \u2014 Strymonas River basin"}
+window: {antecedent_days: 14, horizon_hours: 120, forecast_model: ecmwf_ifs025, forecast_api_base: 'https://ensemble-api.open-meteo.com/v1/ensemble',
+  precip_grid_step_deg: 0.25}
+ensemble:
+  total_members: 51
+  cluster_to: 8
+  members_to_run: [0, 12, 29, 31, 37, 38, 44, 48]
+bbox: {west: 22.8, south: 40.6, east: 24.0, north: 41.4, buffer_deg: 0.25}
+crs: {epsg: 32634}
+grid: {res: 150, rotated: false, subgrid_pixels: 4, manning_land: 0.04, manning_sea: 0.02,
+  zmin: 0.5, zmax: 250, fill_area_km2: 20, drop_area_km2: 5}
+infiltration:
+  enabled: true
+  hsg: B
+  amc: 2
+  cn_lookup: {10: 65, 20: 65, 30: 72, 40: 76, 50: 88, 60: 80, 70: 99, 80: 99, 90: 85,
+    95: 85, 100: 70}
+upstream_q:
+  enabled: true
+  src_points:
+  - {name: kerkini_outlet, lon: 23.2, lat: 41.08}
+  glofas_product: cems-glofas-forecast
+  glofas_system_version: operational
+  glofas_hmodel: lisflood
+  glofas_product_type: control_forecast
+  glofas_leadtime_hours: [24, 48, 72, 96, 120]
+coastal: {zsini: 0.0}
+paths: {work_dir: 'C:/Users/vaspapa/Desktop/ELKAK/implementation/strymonas_forecast_v2',
+  deliverable_dir: 'C:/Users/vaspapa/Desktop/ELKAK/deliverable_strymonas_forecast_v2',
+  zip_dir: 'C:/Users/vaspapa/Desktop/ELKAK', reuse_data_dir: 'C:/Users/vaspapa/Desktop/ELKAK/implementation/emsr122_sfincs/data',
+  manning_lookup: 'C:/Users/vaspapa/Desktop/ELKAK/.claude/skills/sfincs-flood-reproduction/manning_lookup.csv'}
+env: {python: 'C:/Users/vaspapa/AppData/Local/miniforge3/envs/sfincs-viz/python.exe',
+  hydromt: 'C:/Users/vaspapa/AppData/Local/miniforge3/envs/sfincs-viz/Scripts/hydromt.exe',
+  sfincs_exe: 'C:/Users/vaspapa/Desktop/ELKAK/implementation/SFINCS_bin/SFINCS_v2.3.0_mt_Faber_release_exe/sfincs.exe',
+  gdal_data: 'C:/Users/vaspapa/AppData/Local/miniforge3/envs/sfincs-viz/Library/share/gdal',
+  cds_key_file: ~/.cdsapirc}
+animation:
+  canvas_width: 920
+  basemap_zoom: 12
+  basemap_buffer_m: 3000
+  mp4: {fps: 12, dpi: 110, bitrate_kbps: 4000}
+  cities:
+  - {name: Serres, lat: 41.0853, lon: 23.5483}
+  - {name: Sidirokastro, lat: 41.2347, lon: 23.3897}
+  - {name: Nigrita, lat: 40.9036, lon: 23.4956}
+  - {name: Amfipoli, lat: 40.8167, lon: 23.85}
+  - {name: Kerkini Lake, lat: 41.21, lon: 23.13}
+  - {name: Thessaloniki, lat: 40.6401, lon: 22.9444}

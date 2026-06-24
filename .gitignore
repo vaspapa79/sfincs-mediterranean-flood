@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# Pipeline run-time inputs/outputs (downloaded or regenerated locally)
+**/data/
+**/model/
+**/deliverable*/
+*.nc
+*.vrt
+*.tif
+*.mp4
+*.zip
+
+# Machine-local env/paths override (R1) — never commit; see machine.local.example.yaml
+skill/machine.local.yaml
+machine.local.yaml
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

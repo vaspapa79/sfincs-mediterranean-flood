@@ -1,0 +1,38 @@
+# machine.local.yaml — per-machine env/paths override  (R1 portability)
+#
+# WHY: examples/*.yaml carry the *author machine's* absolute env/paths as a
+# frozen as-run record. They won't resolve on any other box. Copy this file to
+#   skill/machine.local.yaml      (gitignored — never committed)
+# and edit the values for your machine. _common.load_config() layers it over the
+# loaded YAML; with no override file present, behaviour is unchanged.
+#
+# Precedence (low -> high):
+#   committed YAML  <  author->local root remap  <  this file's env/paths
+#   <  SFINCS_* env vars  <  ~ / ${VAR} / %VAR% expansion
+#
+# You may instead (or additionally) set env vars: SFINCS_PYTHON, SFINCS_HYDROMT,
+# SFINCS_EXE, SFINCS_GDAL_DATA, SFINCS_GDALBUILDVRT, SFINCS_WORK_DIR,
+# SFINCS_DELIVERABLE_DIR, SFINCS_ZIP_DIR, or point SFINCS_MACHINE_CONFIG at a
+# file elsewhere.
+
+# Root remap: rewrites every committed env/paths value that starts with
+# author_root so it lives under local_root instead. This is what makes the
+# per-event work_dir / deliverable_dir / sfincs_exe paths resolve without
+# touching the committed YAMLs.
+author_root: C:/Users/vaspapa/Desktop/ELKAK
+local_root:  D:/ELKAK
+
+# Tool paths that live INSIDE the conda env (not under the ELKAK root, so the
+# remap can't reach them) — set explicitly to your sfincs-viz env.
+env:
+  python:       C:/Users/<you>/.../envs/sfincs-viz/python.exe
+  hydromt:      C:/Users/<you>/.../envs/sfincs-viz/Scripts/hydromt.exe
+  gdal_data:    C:/Users/<you>/.../envs/sfincs-viz/Library/share/gdal
+  gdalbuildvrt: C:/Users/<you>/.../envs/sfincs-viz/Library/bin/gdalbuildvrt.exe
+  # sfincs_exe is under the ELKAK root, so the root remap already handles it.
+
+# Optional: override paths explicitly (otherwise the root remap handles them).
+# paths:
+#   work_dir:        D:/ELKAK/implementation/<event>
+#   deliverable_dir: D:/ELKAK/deliverable_<event>
+#   zip_dir:         D:/ELKAK
