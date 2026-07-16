@@ -60,5 +60,5 @@ record only — drive reproduction from `skill/examples/`.
 
 ## Data & code availability
 - **GitHub:** https://github.com/vaspapa79/sfincs-mediterranean-flood
-- **Zenodo:** https://doi.org/10.5281/zenodo.20523154
+- **Zenodo:** https://doi.org/10.5281/zenodo.20829572
 - Licence: **MIT** (see [LICENSE](LICENSE)). Cite via [CITATION.cff](CITATION.cff).
