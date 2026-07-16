@@ -1,0 +1,94 @@
+# EMSR773 Valencia DANA (29 Oct 2024) — held-out event, ENHANCED (frozen rule).
+#
+# One of the two non-Greek held-out events: the frozen a-priori activation rule
+# (established on the three Greek events) is applied blind here.
+#   R1 IMERG · R2 gauge-anchored bias (convective cores sub-grid) · R3 upstream-Q
+#   ON (Magro/Jucar) · R4 SCS-CN OFF (peak intensity > HSG-B capacity) ·
+#   R5 inverse-barometer ON (Mediterranean) · R6 wind ON.
+# Result (this config): strict CSI 0.082, HR 0.996 vs EMSR773; SEDI 0.625
+# (beside the flagship Pineios) — low strict CSI is over-prediction, not a
+# skill deficit. See manuscript Sect. 4.4 / 5.4.
+
+event:
+  id: EMSR773
+  name: Valencia
+  slug: valencia
+  date: 2024-10-29
+  location: "Valencia, Spain — Barranco del Poyo / Magro / Turia-Jucar (DANA)"
+  reason: "October 2024 DANA — extreme convective rainfall, flash flooding, ~230 fatalities"
+
+window:
+  spinup_days: 3
+  pre_event_days: 2
+  post_event_days: 2
+
+rain_source: imerg_half_hourly
+# R2 gauge-anchored bias (convective cores at Chiva/Turis are sub-grid at the
+# 0.1 deg IMERG footprint). Apply after step 06 with:
+#   python skill/scripts/bias_correct_imerg.py --config <this> --target-mm 350 \
+#     --event-start "2024-10-29 00:00" --event-end "2024-10-30 00:00" \
+#     --watershed-bbox=-0.75,39.33,-0.30,39.55
+# (x4.14 factor -> 350 mm Poyo-Turia areal mean; provisional pending AEMET.)
+
+bbox:
+  west: -0.90
+  south: 39.05
+  east: 0.05
+  north: 39.75
+  era5_buffer_deg: 0.3
+
+crs:
+  epsg: 32630          # UTM zone 30N (Spanish Mediterranean coast)
+
+grid:
+  res: 100
+  rotated: false
+  subgrid_pixels: 4
+  manning_land: 0.04
+  manning_sea: 0.02
+  zmin: -2
+  zmax: 300
+  fill_area_km2: 20
+  drop_area_km2: 5
+
+coastal_bc:
+  enabled: true        # R5
+  pavbnd: 1
+  tide_source: none
+  tide_note: "Western Mediterranean microtidal; astronomical tide neglected, sea level via IB from ERA5 MSLP."
+
+wind_pressure:
+  enabled: true        # R6
+  source: era5
+
+infiltration:
+  enabled: false       # R4 OFF — peak intensities exceed HSG-B saturated capacity
+  hsg: B
+  amc: 2
+  cn_lookup: {10: 65, 20: 65, 30: 72, 40: 76, 50: 88, 60: 80, 70: 99, 80: 99, 90: 85, 95: 85, 100: 70}
+
+upstream_q:
+  enabled: true        # R3 — catchments >= ~120 km2 (4 x GloFAS cell)
+  src_points:
+    - {name: magro, lon: -0.68, lat: 39.20}   # Magro (-> Jucar)
+    - {name: jucar, lon: -0.34, lat: 39.16}   # Jucar at Sueca
+    - {name: turia, lon: -0.55, lat: 39.52}   # Turia
+
+paths:
+  work_dir: C:/Users/vaspapa/Desktop/ELKAK/implementation/valencia_sfincs_enhanced
+  deliverable_dir: C:/Users/vaspapa/Desktop/ELKAK/deliverable_valencia_emsr773_enhanced
+  zip_dir: C:/Users/vaspapa/Desktop/ELKAK
+
+env:
+  python: C:/Users/vaspapa/AppData/Local/miniforge3/envs/sfincs-viz/python.exe
+  hydromt: C:/Users/vaspapa/AppData/Local/miniforge3/envs/sfincs-viz/Scripts/hydromt.exe
+  sfincs_exe: C:/Users/vaspapa/Desktop/ELKAK/implementation/SFINCS_bin/SFINCS_v2.3.0_mt_Faber_release_exe/sfincs.exe
+  gdal_data: C:/Users/vaspapa/AppData/Local/miniforge3/envs/sfincs-viz/Library/share/gdal
+  gdalbuildvrt: C:/Users/vaspapa/AppData/Local/miniforge3/envs/sfincs-viz/Library/bin/gdalbuildvrt.exe
+  cds_key_file: ~/.cdsapirc
+
+ems:
+  base_url: https://rapidmapping.emergency.copernicus.eu/backend
+  activation: EMSR773
+  aois: []             # auto-discovered from the rapidmapping API
+  iterations: [DEL, DEL_MONIT01, DEL_MONIT02, DEL_MONIT03]
