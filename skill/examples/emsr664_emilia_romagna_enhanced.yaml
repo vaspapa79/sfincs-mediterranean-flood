@@ -1,0 +1,91 @@
+# EMSR664 Emilia-Romagna (16-17 May 2023) — held-out event, ENHANCED (frozen rule).
+#
+# One of the two non-Greek held-out events: the frozen a-priori activation rule
+# (established on the three Greek events) is applied blind here.
+#   R1 IMERG · R2 raw (broad synoptic band, supra-grid — no bias) · R3 upstream-Q
+#   ON (Apennine rivers) · R4 SCS-CN OFF (AMC-III, soils pre-wetted by the
+#   2-3 May episode) · R5 inverse-barometer ON (Adriatic) · R6 wind ON.
+# Result (this config): strict CSI 0.185, HR 0.932 vs EMSR664 — within 0.002 of
+# the same-archetype Strymonas development event. See manuscript Sect. 4.5.
+
+event:
+  id: EMSR664
+  name: Emilia-Romagna
+  slug: emilia_romagna
+  date: 2023-05-17
+  location: "Emilia-Romagna, Italy — Lamone/Senio/Savio/Montone/Ronco (May 2023)"
+  reason: ">500-yr rainfall on saturated Apennine catchments, levee breaches, ~17 fatalities"
+
+window:
+  spinup_days: 14      # long — captures the 2-3 May pre-event that saturated soils (AMC-III)
+  pre_event_days: 3
+  post_event_days: 4
+
+rain_source: imerg_half_hourly
+# R2 raw IMERG (no bias): the rain fell as a broad quasi-stationary band,
+# supra-grid at the 0.1 deg footprint.
+
+bbox:
+  west: 11.35
+  south: 44.00
+  east: 12.55
+  north: 44.75
+  era5_buffer_deg: 0.3
+
+crs:
+  epsg: 32632          # UTM zone 32N (northern Italy)
+
+grid:
+  res: 150
+  rotated: false
+  subgrid_pixels: 4
+  manning_land: 0.04
+  manning_sea: 0.02
+  zmin: -2
+  zmax: 300
+  fill_area_km2: 20
+  drop_area_km2: 5
+
+coastal_bc:
+  enabled: true        # R5 (Adriatic)
+  pavbnd: 1
+  tide_source: none
+  tide_note: "Adriatic tide (~0.3-0.8 m) neglected as a first approximation; IB from ERA5 MSLP retained."
+
+wind_pressure:
+  enabled: true        # R6
+  source: era5
+
+infiltration:
+  enabled: false       # R4 OFF — AMC-III, soils pre-wetted by the 2-3 May episode
+  hsg: B
+  amc: 3
+  cn_lookup: {10: 65, 20: 65, 30: 72, 40: 76, 50: 88, 60: 80, 70: 99, 80: 99, 90: 85, 95: 85, 100: 70}
+
+upstream_q:
+  enabled: true        # R3
+  src_points:
+    - {name: lamone,  lon: 11.90, lat: 44.24}
+    - {name: senio,   lon: 11.83, lat: 44.27}
+    - {name: montone, lon: 11.98, lat: 44.18}
+    - {name: ronco,   lon: 12.03, lat: 44.13}
+    - {name: savio,   lon: 12.10, lat: 44.06}
+
+paths:
+  work_dir: C:/Users/vaspapa/Desktop/ELKAK/implementation/emilia_sfincs_enhanced
+  deliverable_dir: C:/Users/vaspapa/Desktop/ELKAK/deliverable_emilia_emsr664_enhanced
+  zip_dir: C:/Users/vaspapa/Desktop/ELKAK
+
+env:
+  python: C:/Users/vaspapa/AppData/Local/miniforge3/envs/sfincs-viz/python.exe
+  hydromt: C:/Users/vaspapa/AppData/Local/miniforge3/envs/sfincs-viz/Scripts/hydromt.exe
+  sfincs_exe: C:/Users/vaspapa/Desktop/ELKAK/implementation/SFINCS_bin/SFINCS_v2.3.0_mt_Faber_release_exe/sfincs.exe
+  gdal_data: C:/Users/vaspapa/AppData/Local/miniforge3/envs/sfincs-viz/Library/share/gdal
+  gdalbuildvrt: C:/Users/vaspapa/AppData/Local/miniforge3/envs/sfincs-viz/Library/bin/gdalbuildvrt.exe
+  cds_key_file: ~/.cdsapirc
+
+ems:
+  base_url: https://rapidmapping.emergency.copernicus.eu/backend
+  activation: EMSR664
+  aois: []             # 8 AOIs (Forli, Lugo, Castel Bolognese, Faenza, Cesena, Budrio, Ravenna, Montalbano)
+  iterations: [DEL, DEL_MONIT01, DEL_MONIT02, DEL_MONIT03]
