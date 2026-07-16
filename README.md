@@ -2,19 +2,29 @@
 
 Reproduction code, per-event configurations and validation harness for the manuscript:
 
-> **Enhanced-forcing SFINCS reproduction of three Mediterranean flood archetypes, validated
-> against Copernicus EMS.** *(Natural Hazards, in review.)*
+> **A configuration-driven enhanced-forcing framework for reduced-complexity flood-inundation
+> modelling: cross-scale SFINCS evaluation under a frozen a-priori rule across five Mediterranean
+> events.** 
 
-A single enhanced-forcing **SFINCS** toolkit, configured per event, reproduces three Greek floods
-spanning four orders of magnitude in area — **Mandra** (EMSR257, 2017), **Strymonas** (EMSR122,
-2015) and **Pineios / Storm Daniel** (EMSR692, 2023) — each built from one YAML over public-domain
-inputs (Copernicus DEM, ESA WorldCover, GPM IMERG, ERA5, GloFAS-v4) and validated pixel-wise against
-**Copernicus EMS** rapid-mapping flood polygons. The repo reproduces every numerical result in the
-manuscript from public inputs.
+A single **SFINCS** instance, built from one YAML per event over public-domain inputs (Copernicus
+DEM, ESA WorldCover, GPM IMERG, ERA5, GloFAS-v4), is evaluated under a **frozen a-priori activation
+rule** that maps catchment and event properties to a configuration *before any run is scored*. The
+rule is established on three Greek development events — **Mandra** (EMSR257, 2017), **Strymonas**
+(EMSR122, 2015) and **Pineios / Storm Daniel** (EMSR692, 2023), spanning **three orders of magnitude**
+in catchment area — and applied **blind** to two non-Greek held-out events, the **2024 Valencia
+DANA** (EMSR773) and the **2023 Emilia-Romagna flood** (EMSR664). Every reproduction is validated
+pixel-wise against **Copernicus EMS** rapid-mapping flood polygons; the repo reproduces every
+numerical result in the manuscript from public inputs.
 
-**Headline result.** The Storm-Daniel / Pineios catastrophe reproduces at **CSI = 0.456, HR = 0.947**
-(peak-threshold CSI 0.515) over a 4642 km² evaluation mask — the upper range of continental-scale
-flood-model benchmarks. Strymonas v3 = 0.183 / 0.328; Mandra = 0.106 / 0.873.
+**Headline results.**
+- *Flagship* — the Storm-Daniel / Pineios catastrophe reproduces at **CSI = 0.456, HR = 0.947**
+  (peak-threshold CSI 0.515) over a 4642 km² mask — the upper range of continental-scale benchmarks.
+  Strymonas v3 = 0.183 / 0.328; Mandra = 0.106 / 0.873.
+- *Held-out (blind frozen rule)* — Emilia-Romagna **CSI = 0.185** (≈ Strymonas, same multi-catchment
+  archetype); Valencia **CSI = 0.082, HR = 0.996** (≈ Mandra, over-prediction-limited).
+- *Bias-insensitive skill* — Valencia's **SEDI = 0.625** sits beside the flagship Pineios (0.636):
+  the frozen rule locates the extreme flood correctly out of sample, so the low strict CSI is a
+  metric artefact of over-prediction, not a skill deficit.
 
 ## Repository layout
 ```
