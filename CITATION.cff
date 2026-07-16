@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite the associated manuscript."
-title: "sfincs-flood-reproduction: enhanced SFINCS reproduction of three Mediterranean flood archetypes"
+title: "sfincs-mediterranean-floods: a configuration-driven enhanced-forcing SFINCS framework evaluated under a frozen a-priori rule across five Mediterranean flood events"
 authors:
   - family-names: Papaioannou
     given-names: Vassilios
@@ -34,3 +34,6 @@ keywords:
   - Copernicus EMS validation
   - Storm Daniel
   - satellite precipitation
+  - frozen a-priori activation rule
+  - held-out validation
+  - bias-insensitive verification (SEDI)
