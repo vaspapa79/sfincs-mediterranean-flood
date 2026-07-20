@@ -10,8 +10,11 @@ Per event, dump:
 from __future__ import annotations
 
 import os
-os.environ.setdefault("GDAL_DATA",
-                      r"C:\Users\vaspapa\AppData\Local\miniforge3\envs\sfincs-viz\Library\share\gdal")
+# GDAL_DATA: derive from the active conda env (portable across machines); if no
+# env is active, let rasterio fall back to its bundled data.
+_conda_prefix = os.environ.get("CONDA_PREFIX")
+if _conda_prefix:
+    os.environ.setdefault("GDAL_DATA", os.path.join(_conda_prefix, "Library", "share", "gdal"))
 
 import sys
 from pathlib import Path
@@ -25,11 +28,17 @@ from rasterio.transform import from_bounds
 from shapely import from_wkb
 from shapely.ops import transform as shp_transform
 
-SKILL = Path(r"C:\Users\vaspapa\Desktop\ELKAK\.claude\skills\sfincs-flood-reproduction")
+# _anim_common lives in the repo's own skill/scripts. Override with
+# SFINCS_SKILL_DIR if you keep the pipeline skill elsewhere.
+SKILL = Path(os.environ.get("SFINCS_SKILL_DIR",
+                            str(Path(__file__).resolve().parents[1] / "skill")))
 sys.path.insert(0, str(SKILL / "scripts"))
 from _anim_common import open_sfincs
 
-ROOT = Path(r"C:\Users\vaspapa\Desktop\ELKAK\implementation")
+# Author dev-audit tool: reads the local multi-GB SFINCS output runs, which are
+# NOT part of the public repo. Point SFINCS_IMPL_DIR at your outputs tree to run it.
+ROOT = Path(os.environ.get("SFINCS_IMPL_DIR",
+                           str(Path(__file__).resolve().parents[1] / "implementation")))
 
 EVENTS = {
     "mandra":    {"dir": "mandra_sfincs_enhanced",    "epsg": 32634},
