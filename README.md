@@ -58,6 +58,13 @@ python validation/aggregate_metrics_v2.py                                       
 Baseline = drop `_enhanced`. The `configs/as_run/` files carry absolute author-machine paths and are a
 record only — drive reproduction from `skill/examples/`.
 
+> **Note on paths in the example configs.** The `env:`/`paths:` blocks in each
+> `skill/examples/*.yaml` record the *as-run* author-machine paths (e.g.
+> `C:/Users/.../ELKAK/...`, `D:/ELKAK/...`) as provenance — this is expected, not
+> a defect. They are remapped to your machine by the `skill/machine.local.yaml`
+> override (copied from `machine.local.example.yaml` in the Quickstart above); the
+> committed YAMLs are never edited. Run `--check` to confirm every path resolves.
+
 ## Data & code availability
 - **GitHub:** https://github.com/vaspapa79/sfincs-mediterranean-flood
 - **Zenodo:** https://doi.org/10.5281/zenodo.20829572

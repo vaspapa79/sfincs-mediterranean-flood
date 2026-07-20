@@ -15,8 +15,8 @@ Adds to the v1 validator:
         TP_random = (TP+FN)(TP+FP)/(TP+FP+FN+TN).
     GSS is invariant to base-rate skew and is the standard
     alternative to CSI for events with a small wet fraction.
-  * Frequency-bias ratio B = (TP+FP)/(TP+FN) — under (>1) or
-    over (<1) prediction diagnostic.
+  * Frequency-bias ratio B = (TP+FP)/(TP+FN) — over (>1) or
+    under (<1) prediction diagnostic.
   * F2 score = recall-weighted F1 — relevant for early-warning where
     a missed flood (FN) is operationally more costly than a false alarm.
   * Threshold sweep: same as v1, plus reports the threshold that
