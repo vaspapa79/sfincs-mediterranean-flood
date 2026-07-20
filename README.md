@@ -1,10 +1,9 @@
-# sfincs-mediterranean-floods
+# sfincs-mediterranean-flood
 
 Reproduction code, per-event configurations and validation harness for the manuscript:
 
-> **A configuration-driven enhanced-forcing framework for reduced-complexity flood-inundation
-> modelling: cross-scale SFINCS evaluation under a frozen a-priori rule across five Mediterranean
-> events.** 
+> **Enhanced-forcing SFINCS hindcasts of Mediterranean flood archetypes, validated against the
+> Copernicus Emergency Management Service.**
 
 A single **SFINCS** instance, built from one YAML per event over public-domain inputs (Copernicus
 DEM, ESA WorldCover, GPM IMERG, ERA5, GloFAS-v4), is evaluated under a **frozen a-priori activation
@@ -22,9 +21,10 @@ numerical result in the manuscript from public inputs.
   Strymonas v3 = 0.183 / 0.328; Mandra = 0.106 / 0.873.
 - *Held-out (blind frozen rule)* — Emilia-Romagna **CSI = 0.185** (≈ Strymonas, same multi-catchment
   archetype); Valencia **CSI = 0.082, HR = 0.996** (≈ Mandra, over-prediction-limited).
-- *Bias-insensitive skill* — Valencia's **SEDI = 0.625** sits beside the flagship Pineios (0.636):
-  the frozen rule locates the extreme flood correctly out of sample, so the low strict CSI is a
-  metric artefact of over-prediction, not a skill deficit.
+- *Discrimination vs. bias* — SEDI and PSS are base-rate-robust discrimination scores (Ferro and
+  Stephenson, 2011), reported alongside the frequency bias. Valencia's **SEDI = 0.625** shows the
+  frozen rule locates the extreme flood out of sample, while **B = 12.2** remains an operational
+  false-alarm cost.
 
 ## Repository layout
 ```
@@ -67,5 +67,5 @@ record only — drive reproduction from `skill/examples/`.
 
 ## Data & code availability
 - **GitHub:** https://github.com/vaspapa79/sfincs-mediterranean-flood
-- **Zenodo:** https://doi.org/10.5281/zenodo.20829572
+- **Zenodo:** cite the **concept DOI** [10.5281/zenodo.20523154](https://doi.org/10.5281/zenodo.20523154) (resolves to all versions); this release is v1.1.0, [10.5281/zenodo.20829572](https://doi.org/10.5281/zenodo.20829572).
 - Licence: **MIT** (see [LICENSE](LICENSE)). Cite via [CITATION.cff](CITATION.cff).
