@@ -11,6 +11,10 @@ Reports per event:
   * model vs observed inundation overlap
   * peak depth, peak flooded area
   * spin-up sanity check
+
+Development-audit tool: requires an author-side outputs tree (set SFINCS_IMPL_DIR)
+and is NOT part of the reproduction path — reproduction uses skill/ +
+validation/validate_event_v2.py.
 """
 from __future__ import annotations
 

@@ -6,6 +6,10 @@ Per event, dump:
   * EMS AOI bbox (UTM)
   * Q injection point coords (UTM and lat/lon)
   * Per-AOI: model wet vs obs wet
+
+Development-audit tool: requires an author-side outputs tree (set SFINCS_IMPL_DIR)
+and is NOT part of the reproduction path — reproduction uses skill/ +
+validation/validate_event_v2.py.
 """
 from __future__ import annotations
 
