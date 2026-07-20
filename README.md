@@ -12,8 +12,10 @@ rule is established on three Greek development events — **Mandra** (EMSR257, 2
 (EMSR122, 2015) and **Pineios / Storm Daniel** (EMSR692, 2023), spanning **three orders of magnitude**
 in catchment area — and applied **blind** to two non-Greek held-out events, the **2024 Valencia
 DANA** (EMSR773) and the **2023 Emilia-Romagna flood** (EMSR664). Every reproduction is validated
-pixel-wise against **Copernicus EMS** rapid-mapping flood polygons; the repo reproduces every
-numerical result in the manuscript from public inputs.
+pixel-wise against **Copernicus EMS** rapid-mapping flood polygons; the repo reproduces every reported
+skill score **exactly** from the committed inputs (the SFINCS solver is deterministic). Rebuilding the
+forcing from scratch shifts only the small discharge-driven Strymonas flood, by ≤ 0.001 CSI; canonical
+values are the authors' archived outputs (see [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md)).
 
 **Headline results.**
 - *Flagship* — the Storm-Daniel / Pineios catastrophe reproduces at **CSI = 0.456, HR = 0.947**
