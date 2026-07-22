@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite the associated manuscript."
-title: "sfincs-mediterranean-floods: a configuration-driven enhanced-forcing SFINCS framework evaluated under a frozen a-priori rule across five Mediterranean flood events"
+title: "sfincs-mediterranean-flood: a configuration-driven, enhanced-forcing SFINCS framework reproducing five Mediterranean flood events under a frozen a-priori rule, validated against the Copernicus Emergency Management Service"
 authors:
   - family-names: Papaioannou
     given-names: Vassilios
@@ -26,7 +26,8 @@ authors:
     affiliation: "Information Technologies Institute, Centre for Research and Technology Hellas (CERTH), Thessaloniki, Greece"
 license: MIT
 repository-code: "https://github.com/vaspapa79/sfincs-mediterranean-flood"
-date-released: 2026-05-28
+version: "1.2.0"
+date-released: 2026-07-22
 keywords:
   - flood inundation modelling
   - SFINCS
