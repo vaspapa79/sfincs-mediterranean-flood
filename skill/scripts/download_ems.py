@@ -95,12 +95,23 @@ def _download_rapidmapping(base: str, event_id: str, dest: Path,
             if p.get("monitoring") and p.get("monitoringNumber"):
                 ptype = f"{ptype}_MONIT{int(p['monitoringNumber']):02d}"
             vnum = int(v.get("number") or 1)
-            stem = f"{event_id}_{aoi_tag}_{ptype}_v{vnum}"
+            # Prefer the API's authoritative downloadPath: GRADING products live under
+            # a "GRA_PRODUCT" folder, not the "{ptype}" path the stem convention assumes,
+            # so the constructed URL 404s for them. downloadPath is the real ZIP location
+            # for every product family (delineation and grading alike).
+            dl = p.get("downloadPath")
+            if dl:
+                url = dl
+                stem = dl.rstrip("/").rsplit("/", 1)[-1]
+                if stem.endswith(".zip"):
+                    stem = stem[:-4]
+            else:
+                stem = f"{event_id}_{aoi_tag}_{ptype}_v{vnum}"
+                url = f"{base.rstrip('/')}/{event_id}/{aoi_tag}/{ptype}/{stem}.zip"
             sub = dest / stem
             if sub.exists() and any(sub.glob("*.shp")):
                 print(f"  skip (cached): {sub.name}")
                 continue
-            url = f"{base.rstrip('/')}/{event_id}/{aoi_tag}/{ptype}/{stem}.zip"
             try:
                 req = urllib.request.Request(url, headers=headers)
                 with urllib.request.urlopen(req, timeout=300) as r:
@@ -168,6 +179,7 @@ def main():
         "*GRA_*observed_event_a.shp",
         "*DEL_MONIT*observedEventA*.shp",
         "*DEL_MONIT*observed_event*.shp",
+        "*GRA_PRODUCT*observedEventA*.shp",
     ]
     shp_paths = []
     for pat in pats:

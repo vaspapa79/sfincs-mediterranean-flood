@@ -2,11 +2,11 @@
 #
 # One of the two non-Greek held-out events: the frozen a-priori activation rule
 # (established on the three Greek events) is applied blind here.
-#   R1 IMERG · R2 gauge-anchored bias (convective cores sub-grid) · R3 upstream-Q
+#   R1 IMERG · R2 literature-anchored bias (convective cores sub-grid) · R3 upstream-Q
 #   ON (Magro/Jucar) · R4 SCS-CN OFF (peak intensity > HSG-B capacity) ·
 #   R5 inverse-barometer ON (Mediterranean) · R6 wind ON.
-# Result (this config): strict CSI 0.082, HR 0.996 vs EMSR773; SEDI 0.625
-# (beside the flagship Pineios) — low strict CSI is over-prediction, not a
+# Result (this config): strict CSI 0.094, HR 0.989 vs EMSR773; SEDI 0.658
+# (at the flagship Pineios level) — low strict CSI is over-prediction, not a
 # skill deficit. See manuscript Sect. 4.4 / 5.4.
 
 event:
@@ -23,12 +23,20 @@ window:
   post_event_days: 2
 
 rain_source: imerg_half_hourly
-# R2 gauge-anchored bias (convective cores at Chiva/Turis are sub-grid at the
-# 0.1 deg IMERG footprint). Apply after step 06 with:
-#   python skill/scripts/bias_correct_imerg.py --config <this> --target-mm 350 \
-#     --event-start "2024-10-29 00:00" --event-end "2024-10-30 00:00" \
-#     --watershed-bbox=-0.75,39.33,-0.30,39.55
-# (x4.14 factor -> 350 mm Poyo-Turia areal mean; provisional pending AEMET.)
+# R2: literature-anchored IMERG bias correction ON — the convective cores
+# (Chiva ~491 mm/8h, Turis ~772 mm/day) are point/sub-grid at the 0.1 deg IMERG
+# footprint. Multiplicative scaling over the 24-h event window so the watershed-mean
+# total matches the peer-reviewed AREAL estimate for the Rambla de Poyo (this bbox is
+# centred on it): 164 mm, the AEMET+PWS combined 24-h catchment-average of Rombeek,
+# Hrachowitz & Uijlenhoet (2025), HESS 29:6715 (Catchment 4; AEMET-only 124 mm and
+# PWS-only 154 mm bracket it). Yields x1.94 (raw watershed total 84.5 mm), event peak
+# 306 -> 143 mm/h. Applied by run_pipeline.py step 06b via bias_correct_imerg.py.
+rain_bias_correct:
+  enabled: true
+  target_mm: 164           # 24-h areal-mean (mm) — Rombeek et al. 2025, Catchment 4 = Rambla de Poyo (AEMET+PWS)
+  watershed_bbox: [-0.75, 39.33, -0.30, 39.55]   # minlon,minlat,maxlon,maxlat — Rambla de Poyo catchment, ~941 km2
+  event_start: "2024-10-29 00:00"                # UTC
+  event_end:   "2024-10-30 00:00"
 
 bbox:
   west: -0.90

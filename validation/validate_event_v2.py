@@ -129,6 +129,42 @@ def _list_shps(ems_dir, patterns):
     return sorted(out)
 
 
+def _select_obs_shps(ems_dir):
+    """Observed-flood shapefiles for the truth union, with per-AOI product preference.
+
+    Copernicus EMS ships DELINEATION products (crisis SAR flood mapping, incl.
+    monitoring iterations) and GRADING products (post-event, optical/aerial damage
+    grading). Where an area of interest has a delineation product we use it and drop
+    that AOI's grading — delineation is the higher-quality crisis flood extent; AOIs
+    that ship grading only (e.g. the seven downstream EMSR664 towns) contribute their
+    grading observed-event polygons. This reproduces the manuscript's held-out truth
+    unions: EMSR773/Valencia uses its delineation AOIs (its grading-monitoring AOI is a
+    separate product family and is not merged), and EMSR664/Emilia-Romagna unions the
+    Forli delineation with the seven grading AOIs. Single-product development events
+    (Strymonas delineation, Mandra grading) group under one tier and are unaffected.
+    """
+    import re
+    cand = _list_shps(ems_dir, [
+        "*DELINEATION*MONIT*crisis_information_poly.shp",
+        "*GRADING*observed_event_a.shp",
+        "*GRA_*observed_event_a.shp",
+        "*DEL_MONIT*observedEventA*.shp",
+        "*DEL_MONIT*observed_event*.shp",
+        "*GRA_PRODUCT*observedEventA*.shp",
+    ])
+    groups = {}
+    for p in cand:
+        m = re.search(r"AOI(\d+)", p.name)
+        key = ("aoi", m.group(1)) if m else ("dir", p.parent.name)
+        is_del = ("DEL_MONIT" in p.name) or ("DELINEATION" in p.name)
+        g = groups.setdefault(key, {"DEL": [], "GRA": []})
+        g["DEL" if is_del else "GRA"].append(p)
+    obs = []
+    for tiers in groups.values():
+        obs.extend(tiers["DEL"] or tiers["GRA"])
+    return sorted(obs)
+
+
 def _contingency_full(model_wet, ems_wet, mask):
     """Compute full contingency table + standard + advanced metrics."""
     import numpy as np
@@ -175,13 +211,7 @@ def _validate_ems_v2(cfg, s):
     import numpy as np
 
     ems_dir = cfg.paths["data_dir"] / "ems_polygons"
-    obs_shps = _list_shps(ems_dir, [
-        "*DELINEATION*MONIT*crisis_information_poly.shp",
-        "*GRADING*observed_event_a.shp",
-        "*GRA_*observed_event_a.shp",
-        "*DEL_MONIT*observedEventA*.shp",
-        "*DEL_MONIT*observed_event*.shp",
-    ])
+    obs_shps = _select_obs_shps(ems_dir)
     aoi_shps = _list_shps(ems_dir, [
         "*area_of_interest.shp",
         "*area_of_interest_a.shp",
