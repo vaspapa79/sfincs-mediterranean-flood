@@ -1,0 +1,133 @@
+# EMSR933 Crete, 30 Sep – 5 Oct 2026 — ENHANCED: output of the frozen rule R (Box 1, frozen 2026-07-15).
+#
+# Third held-out event, the first PROSPECTIVE one (EMS activation 2026-10-04 11:02 UTC). Every on/off
+# state below is the rule's output from catchment and event metadata, derived in the Stage-1 rule
+# ledger (reproduction/emsr933/rule_ledger.md) before any model run and without reference to the EMS
+# extents or to any score:
+#   R1 IMERG (Late Run V07 — declared deviation, Final does not exist yet) · R2 OFF — raw IMERG
+#   (orographic/synoptic band, L_c >= footprint; the alternative reading is the labelled file
+#   emsr933_crete_enhanced_R2on.yaml — DECISION FOR PAPAIOANNOU) · R3 OFF (no stream >= 120 km2 enters
+#   the domain: island-wide domain has no land boundary) · R4 OFF (AMC-III: five-day wet spell) ·
+#   R5 ON (domain contains sea cells) · R6 ON.
+# GAP-1 (dx) and GAP-2 (z_max) are not fixed by R — provisional values flagged for the author.
+
+event:
+  id: EMSR933
+  name: Crete
+  slug: crete
+  date: 2026-10-01          # EMS eventTime 2026-10-01T07:00 UTC (API snapshot 2026-10-09T12:47:20Z)
+  location: "Crete, Greece — Lefka Ori / Psiloritis / Dikti massifs and the N, NE and SE coasts"
+  reason: "Quasi-stationary cut-off low over the E Mediterranean, persistent N–NE flow, five-day orographic rainfall (NOA)"
+
+window:
+  spinup_days: 7            # multi-day event convention (Table 2: Pineios, Strymonas 7 d)
+  pre_event_days: 3         # -> tstart 2026-09-28 00:00
+  post_event_days: 4        # -> tstop  2026-10-06 00:00
+
+# R1: IMERG half-hourly. DECLARED DEVIATION: Final Run V07 for Oct 2026 is published ~late Jan 2027;
+# the Late Run V07 (GPM_3IMERGHHL, V07C, 528/528 granules on 2026-10-09) is used now, a Final re-run is
+# a follow-up task. The string form `rain_source: imerg_half_hourly` would select Final.
+rain_source: {name: imerg_half_hourly, product: late}
+
+# R2: OFF in this file — raw IMERG. A-priori reading: a quasi-stationary cut-off low with persistent
+# N–NE flow produced a five-day orographic rain band fixed to the massifs (Lefka Ori ~30 km, Psiloritis
+# ~25 km, Dikti ~20 km across), i.e. core scale L_c >= the 0.1 deg (~11 km) footprint -> raw IMERG
+# (the Emilia-Romagna branch). The opposite reading (embedded orographic-convective cores narrower
+# than ~11 km, the Pineios/Pelion branch) is prepared in emsr933_crete_enhanced_R2on.yaml.
+rain_bias_correct:
+  enabled: false
+
+bbox:                       # island-wide domain (ledger §5)
+  west: 23.40
+  south: 34.80
+  east: 26.40
+  north: 35.70
+  era5_buffer_deg: 0.3
+
+crs:
+  epsg: 32634               # UTM 34N for the whole island; k <= 1.00216 at 26.0 E (ledger §5)
+
+grid:
+  res: 100                  # GAP-1: R does not fix dx; Table 2 / S4 conventions -> Valencia analogue (100 m). Alternatives in ledger §5.
+  rotated: false
+  subgrid_pixels: 4
+  manning_land: 0.04
+  manning_sea: 0.02
+  zmin: -2
+  zmax: 2500                # GAP-2: 250/400 m convention would exclude the plateaus/massifs (AOI terrain to 2329 m)
+  fill_area_km2: 20
+  drop_area_km2: 5
+
+coastal_bc:
+  enabled: true             # R5: every candidate domain contains sea cells (GLO-30 <= 0 m)
+  pavbnd: 1
+  tide_source: none
+  tide_note: "Aegean / Libyan Sea microtidal — astronomical tide neglected; sea level via the inverse barometer from ERA5 MSLP. See F5_VERIFY.md for the state of this mechanism in the harness."
+
+wind_pressure:
+  enabled: true             # R6
+  source: era5
+
+infiltration:
+  enabled: false            # R4 OFF: AMC-III — five-day wet spell (30 Sep–5 Oct), orographic intensities above HSG-B capacity
+  hsg: B
+  amc: 3
+  cn_lookup: {10: 65, 20: 65, 30: 72, 40: 76, 50: 88, 60: 80, 70: 99, 80: 99, 90: 85, 95: 85, 100: 70}
+
+upstream_q:
+  enabled: false            # R3 OFF: no stream with upstream area >= 120 km2 crosses the domain edge (island; ledger §3)
+  src_points: []
+
+paths:
+  work_dir: C:/Users/vaspapa/Desktop/ELKAK/implementation/emsr933_crete_enhanced
+  deliverable_dir: C:/Users/vaspapa/Desktop/ELKAK/deliverable_crete_emsr933_enhanced
+  zip_dir: C:/Users/vaspapa/Desktop/ELKAK
+
+env:
+  python: C:/Users/vaspapa/AppData/Local/miniforge3/envs/sfincs-viz/python.exe
+  hydromt: C:/Users/vaspapa/AppData/Local/miniforge3/envs/sfincs-viz/Scripts/hydromt.exe
+  sfincs_exe: C:/Users/vaspapa/Desktop/ELKAK/implementation/SFINCS_bin/SFINCS_v2.3.0_mt_Faber_release_exe/sfincs.exe
+  gdal_data: C:/Users/vaspapa/AppData/Local/miniforge3/envs/sfincs-viz/Library/share/gdal
+  gdalbuildvrt: C:/Users/vaspapa/AppData/Local/miniforge3/envs/sfincs-viz/Library/bin/gdalbuildvrt.exe
+  cds_key_file: ~/.cdsapirc
+
+ems:
+  base_url: https://rapidmapping.emergency.copernicus.eu/backend
+  activation: EMSR933
+  aois:                     # documentation only (API auto-discovery); 8 AOIs on 2026-10-09
+    - AOI01_Kastelli
+    - AOI02_Irakleio
+    - AOI03_Tzermiado
+    - AOI04_Agios_Ioannis
+    - AOI05_Anogeia
+    - AOI06_Agios_Nikolaos
+    - AOI07_Omalos
+    - AOI08_Monastiraki
+  iterations: [DEL, DEL_MONIT01, DEL_MONIT02, DEL_MONIT03]
+  include_del_product: true          # AOI03 first delineation is a DEL_PRODUCT package (F2 switch)
+  exclude_not_analysed: true         # Stage-4 switch (F6-i): notAnalysedA polygons leave the evaluation mask
+  truth_cutoff_snapshot_utc: "2026-10-09T12:47:20Z"
+
+notes:
+  - "R1 deviation: IMERG Late Run V07 (GPM_3IMERGHHL) instead of Final Run V07; Final re-run when published (~late Jan 2027)."
+  - "ERA5 for 27 Sep–5 Oct 2026 is ERA5T (expver 0005); prep_inputs.py records the expver per step."
+  - "R3 did not trigger, so the GloFAS EWDS vocabulary change (F3) is not needed for this event."
+  - "Provisional truth: packages of the 2026-10-09T12:47:20Z API snapshot only; pipeline step 01 skipped at Stage 2/4 and data/ems_polygons populated from the snapshot."
+  - "GAP-1 dx and GAP-2 z_max are not fixed by rule R; provisional values follow the Table 2 / S4 conventions and await the author decision (ledger §5)."
+  - "Harness state inherited from v1.3.0 (F5_VERIFY.md): half-hourly IMERG is applied x2 and 30 min early by hydromt_sfincs defaults; tspinup = 0 (antecedent days are a download window, not simulated); the inverse-barometer boundary has no water-level forcing. Option (a)/(b)/(c) is the author's decision before Stage 2/3."
+
+animation:
+  canvas_width: 940
+  basemap_zoom: 11
+  basemap_buffer_m: 3000
+  mp4: {fps: 12, dpi: 110, bitrate_kbps: 4000}
+  cities:
+    - {name: Heraklion, lat: 35.3387, lon: 25.1442}
+    - {name: Chania, lat: 35.5138, lon: 24.0180}
+    - {name: Rethymno, lat: 35.3647, lon: 24.4820}
+    - {name: Agios Nikolaos, lat: 35.1911, lon: 25.7147}
+    - {name: Ierapetra, lat: 35.0105, lon: 25.7389}
+    - {name: Tzermiado, lat: 35.1842, lon: 25.4852}
+    - {name: Kastelli, lat: 35.2099, lon: 25.3361}
+    - {name: Anogeia, lat: 35.2905, lon: 24.8812}
+    - {name: Omalos, lat: 35.3351, lon: 23.8972}

@@ -1,0 +1,203 @@
+{
+  "utc": "2026-10-09T13:49:18Z",
+  "configs": {
+    "emsr933_crete.yaml": {
+      "label": "EMSR933 Crete",
+      "slug": "crete",
+      "date": "2026-10-01",
+      "window": {
+        "spinup_days": 7,
+        "pre_event_days": 3,
+        "post_event_days": 4
+      },
+      "tref": "2026-09-21T00:00:00",
+      "tstart": "2026-09-28T00:00:00",
+      "tstop": "2026-10-06T00:00:00",
+      "bbox": {
+        "west": 23.4,
+        "south": 34.8,
+        "east": 26.4,
+        "north": 35.7,
+        "era5_buffer_deg": 0.3
+      },
+      "cds_area_NWSE": [
+        36.0,
+        23.099999999999998,
+        34.5,
+        26.7
+      ],
+      "epsg": 32634,
+      "grid": {
+        "res": 100,
+        "rotated": false,
+        "subgrid_pixels": 4,
+        "manning_land": 0.04,
+        "manning_sea": 0.02,
+        "zmin": -2.0,
+        "zmax": 2500.0,
+        "fill_area_km2": 20.0,
+        "drop_area_km2": 5.0
+      },
+      "dem_tiles": [
+        "N34E023",
+        "N34E024",
+        "N34E025",
+        "N34E026",
+        "N35E023",
+        "N35E024",
+        "N35E025",
+        "N35E026"
+      ],
+      "worldcover_tiles": [
+        "N33E021",
+        "N33E024"
+      ],
+      "rain_source": "era5_hourly",
+      "imerg_product": "final",
+      "rain_bias_correct": {
+        "enabled": false,
+        "target_mm": 200.0,
+        "watershed_bbox": null,
+        "event_start": null,
+        "event_end": null
+      },
+      "coastal_bc": {
+        "enabled": false,
+        "pavbnd": 1,
+        "tide_source": "none",
+        "tide_note": "Aegean microtidal (<5 cm M2; Tsimplis & Bryden 2000) \u2014 tide neglected."
+      },
+      "wind_pressure": {
+        "enabled": false,
+        "source": "era5"
+      },
+      "infiltration_enabled": false,
+      "infiltration_amc": 2,
+      "upstream_q": {
+        "enabled": false,
+        "src_points": [],
+        "glofas_var": "discharge"
+      },
+      "ems_switches": {
+        "activation": "EMSR933",
+        "include_del_product": true,
+        "exclude_not_analysed": true,
+        "truth_cutoff_snapshot_utc": "2026-10-09T12:47:20Z"
+      },
+      "paths_resolved": {
+        "work_dir": "D:\\ELKAK\\implementation\\emsr933_crete",
+        "data_dir": "D:\\ELKAK\\implementation\\emsr933_crete\\data",
+        "model_dir": "D:\\ELKAK\\implementation\\emsr933_crete\\model",
+        "deliverable_dir": "D:\\ELKAK\\deliverable_crete_emsr933",
+        "zip_dir": "D:\\ELKAK",
+        "manning_lookup": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\skill\\manning_lookup.csv",
+        "era5_extracted_dir": "D:\\ELKAK\\implementation\\emsr933_crete\\data\\era5_extracted",
+        "glofas_extracted_dir": "D:\\ELKAK\\implementation\\emsr933_crete\\data\\glofas_extracted"
+      },
+      "rendered": [
+        "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\emsr933\\validate\\emsr933_crete\\data_catalog.yml",
+        "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\emsr933\\validate\\emsr933_crete\\sfincs_build.yml"
+      ],
+      "preflight_rc": 0
+    },
+    "emsr933_crete_enhanced.yaml": {
+      "label": "EMSR933 Crete",
+      "slug": "crete",
+      "date": "2026-10-01",
+      "window": {
+        "spinup_days": 7,
+        "pre_event_days": 3,
+        "post_event_days": 4
+      },
+      "tref": "2026-09-21T00:00:00",
+      "tstart": "2026-09-28T00:00:00",
+      "tstop": "2026-10-06T00:00:00",
+      "bbox": {
+        "west": 23.4,
+        "south": 34.8,
+        "east": 26.4,
+        "north": 35.7,
+        "era5_buffer_deg": 0.3
+      },
+      "cds_area_NWSE": [
+        36.0,
+        23.099999999999998,
+        34.5,
+        26.7
+      ],
+      "epsg": 32634,
+      "grid": {
+        "res": 100,
+        "rotated": false,
+        "subgrid_pixels": 4,
+        "manning_land": 0.04,
+        "manning_sea": 0.02,
+        "zmin": -2.0,
+        "zmax": 2500.0,
+        "fill_area_km2": 20.0,
+        "drop_area_km2": 5.0
+      },
+      "dem_tiles": [
+        "N34E023",
+        "N34E024",
+        "N34E025",
+        "N34E026",
+        "N35E023",
+        "N35E024",
+        "N35E025",
+        "N35E026"
+      ],
+      "worldcover_tiles": [
+        "N33E021",
+        "N33E024"
+      ],
+      "rain_source": "imerg_half_hourly",
+      "imerg_product": "late",
+      "rain_bias_correct": {
+        "enabled": false,
+        "target_mm": 200.0,
+        "watershed_bbox": null,
+        "event_start": null,
+        "event_end": null
+      },
+      "coastal_bc": {
+        "enabled": true,
+        "pavbnd": 1,
+        "tide_source": "none",
+        "tide_note": "Aegean / Libyan Sea microtidal \u2014 astronomical tide neglected; sea level via the inverse barometer from ERA5 MSLP. See F5_VERIFY.md for the state of this mechanism in the harness."
+      },
+      "wind_pressure": {
+        "enabled": true,
+        "source": "era5"
+      },
+      "infiltration_enabled": false,
+      "infiltration_amc": 3,
+      "upstream_q": {
+        "enabled": false,
+        "src_points": [],
+        "glofas_var": "discharge"
+      },
+      "ems_switches": {
+        "activation": "EMSR933",
+        "include_del_product": true,
+        "exclude_not_analysed": true,
+        "truth_cutoff_snapshot_utc": "2026-10-09T12:47:20Z"
+      },
+      "paths_resolved": {
+        "work_dir": "D:\\ELKAK\\implementation\\emsr933_crete_enhanced",
+        "data_dir": "D:\\ELKAK\\implementation\\emsr933_crete_enhanced\\data",
+        "model_dir": "D:\\ELKAK\\implementation\\emsr933_crete_enhanced\\model",
+        "deliverable_dir": "D:\\ELKAK\\deliverable_crete_emsr933_enhanced",
+        "zip_dir": "D:\\ELKAK",
+        "manning_lookup": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\skill\\manning_lookup.csv",
+        "era5_extracted_dir": "D:\\ELKAK\\implementation\\emsr933_crete_enhanced\\data\\era5_extracted",
+        "glofas_extracted_dir": "D:\\ELKAK\\implementation\\emsr933_crete_enhanced\\data\\glofas_extracted"
+      },
+      "rendered": [
+        "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\emsr933\\validate\\emsr933_crete_enhanced\\data_catalog.yml",
+        "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\emsr933\\validate\\emsr933_crete_enhanced\\sfincs_build.yml"
+      ],
+      "preflight_rc": 0
+    }
+  }
+}

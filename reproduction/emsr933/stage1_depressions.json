@@ -1,0 +1,506 @@
+{
+  "utc": "2026-10-09T13:38:33Z",
+  "grid_m_approx": [
+    76,
+    93
+  ],
+  "depth_threshold_m": 0.5,
+  "aois": [
+    {
+      "number": 1,
+      "name": "Kastelli",
+      "n_components": 93,
+      "total_km2_depth_gt_0p5": 6.62,
+      "largest_components": [
+        {
+          "area_km2": 3.19,
+          "max_depth_m": 17.0,
+          "floor_m": 297.9,
+          "spill_level_m": 314.9,
+          "volume_below_spill_Mm3": 19.0,
+          "deepest_cell_lonlat": [
+            25.2529,
+            35.2062
+          ],
+          "centroid_lonlat": [
+            25.2738,
+            35.2038
+          ],
+          "internal_catchment_km2": 441.3,
+          "n_inlets": 201,
+          "n_cells_90m": 454
+        },
+        {
+          "area_km2": 0.69,
+          "max_depth_m": 7.5,
+          "floor_m": 311.6,
+          "spill_level_m": 319.1,
+          "volume_below_spill_Mm3": 2.9,
+          "deepest_cell_lonlat": [
+            25.3037,
+            35.2563
+          ],
+          "centroid_lonlat": [
+            25.3089,
+            35.2544
+          ],
+          "internal_catchment_km2": 16.6,
+          "n_inlets": 65,
+          "n_cells_90m": 99
+        },
+        {
+          "area_km2": 0.54,
+          "max_depth_m": 23.6,
+          "floor_m": 183.5,
+          "spill_level_m": 207.1,
+          "volume_below_spill_Mm3": 9.0,
+          "deepest_cell_lonlat": [
+            25.4029,
+            35.2496
+          ],
+          "centroid_lonlat": [
+            25.4044,
+            35.2468
+          ],
+          "internal_catchment_km2": 190.2,
+          "n_inlets": 52,
+          "n_cells_90m": 77
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "name": "Irakleio",
+      "n_components": 63,
+      "total_km2_depth_gt_0p5": 0.94,
+      "largest_components": [
+        {
+          "area_km2": 0.19,
+          "max_depth_m": 7.3,
+          "floor_m": 20.7,
+          "spill_level_m": 28.1,
+          "volume_below_spill_Mm3": 0.7,
+          "deepest_cell_lonlat": [
+            25.0979,
+            35.3212
+          ],
+          "centroid_lonlat": [
+            25.0975,
+            35.3194
+          ],
+          "internal_catchment_km2": 94.0,
+          "n_inlets": 30,
+          "n_cells_90m": 27
+        },
+        {
+          "area_km2": 0.04,
+          "max_depth_m": 1.6,
+          "floor_m": 56.6,
+          "spill_level_m": 58.2,
+          "volume_below_spill_Mm3": 0.0,
+          "deepest_cell_lonlat": [
+            25.0979,
+            35.2371
+          ],
+          "centroid_lonlat": [
+            25.0976,
+            35.2361
+          ],
+          "internal_catchment_km2": 106.1,
+          "n_inlets": 13,
+          "n_cells_90m": 5
+        },
+        {
+          "area_km2": 0.04,
+          "max_depth_m": 7.2,
+          "floor_m": 350.1,
+          "spill_level_m": 357.3,
+          "volume_below_spill_Mm3": 0.1,
+          "deepest_cell_lonlat": [
+            25.1579,
+            35.2413
+          ],
+          "centroid_lonlat": [
+            25.1579,
+            35.2411
+          ],
+          "internal_catchment_km2": 8.1,
+          "n_inlets": 11,
+          "n_cells_90m": 5
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "name": "Tzermiado",
+      "n_components": 69,
+      "total_km2_depth_gt_0p5": 37.6,
+      "largest_components": [
+        {
+          "area_km2": 35.76,
+          "max_depth_m": 81.8,
+          "floor_m": 807.8,
+          "spill_level_m": 889.6,
+          "volume_below_spill_Mm3": 1979.0,
+          "deepest_cell_lonlat": [
+            25.4296,
+            35.1921
+          ],
+          "centroid_lonlat": [
+            25.4754,
+            35.1789
+          ],
+          "internal_catchment_km2": 223.3,
+          "n_inlets": 557,
+          "n_cells_90m": 5095
+        },
+        {
+          "area_km2": 0.8,
+          "max_depth_m": 16.8,
+          "floor_m": 918.3,
+          "spill_level_m": 935.1,
+          "volume_below_spill_Mm3": 5.0,
+          "deepest_cell_lonlat": [
+            25.4854,
+            35.2204
+          ],
+          "centroid_lonlat": [
+            25.4856,
+            35.2158
+          ],
+          "internal_catchment_km2": 6.9,
+          "n_inlets": 78,
+          "n_cells_90m": 114
+        },
+        {
+          "area_km2": 0.06,
+          "max_depth_m": 8.2,
+          "floor_m": 942.1,
+          "spill_level_m": 950.3,
+          "volume_below_spill_Mm3": 0.2,
+          "deepest_cell_lonlat": [
+            25.4237,
+            35.1262
+          ],
+          "centroid_lonlat": [
+            25.4248,
+            35.1267
+          ],
+          "internal_catchment_km2": 12.6,
+          "n_inlets": 13,
+          "n_cells_90m": 9
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "name": "Agios Ioannis",
+      "n_components": 11,
+      "total_km2_depth_gt_0p5": 0.16,
+      "largest_components": [
+        {
+          "area_km2": 0.08,
+          "max_depth_m": 12.6,
+          "floor_m": 19.1,
+          "spill_level_m": 31.8,
+          "volume_below_spill_Mm3": 0.5,
+          "deepest_cell_lonlat": [
+            25.8187,
+            35.0129
+          ],
+          "centroid_lonlat": [
+            25.8182,
+            35.0145
+          ],
+          "internal_catchment_km2": 4.6,
+          "n_inlets": 19,
+          "n_cells_90m": 11
+        },
+        {
+          "area_km2": 0.01,
+          "max_depth_m": 4.3,
+          "floor_m": 19.9,
+          "spill_level_m": 24.2,
+          "volume_below_spill_Mm3": 0.0,
+          "deepest_cell_lonlat": [
+            25.8421,
+            35.0187
+          ],
+          "centroid_lonlat": [
+            25.8421,
+            35.0192
+          ],
+          "internal_catchment_km2": 11.1,
+          "n_inlets": 5,
+          "n_cells_90m": 2
+        },
+        {
+          "area_km2": 0.01,
+          "max_depth_m": 9.2,
+          "floor_m": 228.0,
+          "spill_level_m": 237.2,
+          "volume_below_spill_Mm3": 0.1,
+          "deepest_cell_lonlat": [
+            25.9213,
+            35.0596
+          ],
+          "centroid_lonlat": [
+            25.9213,
+            35.0592
+          ],
+          "internal_catchment_km2": 11.2,
+          "n_inlets": 5,
+          "n_cells_90m": 2
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "name": "Anogeia",
+      "n_components": 119,
+      "total_km2_depth_gt_0p5": 5.42,
+      "largest_components": [
+        {
+          "area_km2": 1.35,
+          "max_depth_m": 29.4,
+          "floor_m": 284.4,
+          "spill_level_m": 313.8,
+          "volume_below_spill_Mm3": 19.9,
+          "deepest_cell_lonlat": [
+            24.9112,
+            35.3563
+          ],
+          "centroid_lonlat": [
+            24.9076,
+            35.3544
+          ],
+          "internal_catchment_km2": 12.6,
+          "n_inlets": 125,
+          "n_cells_90m": 193
+        },
+        {
+          "area_km2": 0.55,
+          "max_depth_m": 18.9,
+          "floor_m": 175.8,
+          "spill_level_m": 194.7,
+          "volume_below_spill_Mm3": 4.2,
+          "deepest_cell_lonlat": [
+            24.8079,
+            35.3479
+          ],
+          "centroid_lonlat": [
+            24.8152,
+            35.3489
+          ],
+          "internal_catchment_km2": 103.7,
+          "n_inlets": 87,
+          "n_cells_90m": 79
+        },
+        {
+          "area_km2": 0.41,
+          "max_depth_m": 13.2,
+          "floor_m": 119.4,
+          "spill_level_m": 132.7,
+          "volume_below_spill_Mm3": 2.5,
+          "deepest_cell_lonlat": [
+            24.7596,
+            35.3588
+          ],
+          "centroid_lonlat": [
+            24.7647,
+            35.3602
+          ],
+          "internal_catchment_km2": 447.0,
+          "n_inlets": 81,
+          "n_cells_90m": 59
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "name": "Agios Nikolaos",
+      "n_components": 61,
+      "total_km2_depth_gt_0p5": 5.93,
+      "largest_components": [
+        {
+          "area_km2": 1.56,
+          "max_depth_m": 17.2,
+          "floor_m": 309.7,
+          "spill_level_m": 326.9,
+          "volume_below_spill_Mm3": 19.3,
+          "deepest_cell_lonlat": [
+            25.6554,
+            35.2596
+          ],
+          "centroid_lonlat": [
+            25.6546,
+            35.2595
+          ],
+          "internal_catchment_km2": 13.6,
+          "n_inlets": 84,
+          "n_cells_90m": 223
+        },
+        {
+          "area_km2": 1.56,
+          "max_depth_m": 29.1,
+          "floor_m": 125.5,
+          "spill_level_m": 154.6,
+          "volume_below_spill_Mm3": 31.2,
+          "deepest_cell_lonlat": [
+            25.6638,
+            35.2079
+          ],
+          "centroid_lonlat": [
+            25.6608,
+            35.2049
+          ],
+          "internal_catchment_km2": 6.7,
+          "n_inlets": 88,
+          "n_cells_90m": 222
+        },
+        {
+          "area_km2": 0.58,
+          "max_depth_m": 40.2,
+          "floor_m": 282.5,
+          "spill_level_m": 322.8,
+          "volume_below_spill_Mm3": 15.4,
+          "deepest_cell_lonlat": [
+            25.6354,
+            35.2571
+          ],
+          "centroid_lonlat": [
+            25.637,
+            35.2584
+          ],
+          "internal_catchment_km2": 39.9,
+          "n_inlets": 44,
+          "n_cells_90m": 83
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "name": "Omalos",
+      "n_components": 100,
+      "total_km2_depth_gt_0p5": 10.4,
+      "largest_components": [
+        {
+          "area_km2": 5.51,
+          "max_depth_m": 44.0,
+          "floor_m": 1034.6,
+          "spill_level_m": 1078.6,
+          "volume_below_spill_Mm3": 125.6,
+          "deepest_cell_lonlat": [
+            23.9079,
+            35.3488
+          ],
+          "centroid_lonlat": [
+            23.8972,
+            35.3351
+          ],
+          "internal_catchment_km2": 24.8,
+          "n_inlets": 183,
+          "n_cells_90m": 786
+        },
+        {
+          "area_km2": 2.43,
+          "max_depth_m": 308.3,
+          "floor_m": 238.2,
+          "spill_level_m": 546.5,
+          "volume_below_spill_Mm3": 273.6,
+          "deepest_cell_lonlat": [
+            23.9604,
+            35.2837
+          ],
+          "centroid_lonlat": [
+            23.9587,
+            35.2892
+          ],
+          "internal_catchment_km2": 38.9,
+          "n_inlets": 161,
+          "n_cells_90m": 347
+        },
+        {
+          "area_km2": 0.54,
+          "max_depth_m": 83.3,
+          "floor_m": 1667.9,
+          "spill_level_m": 1751.2,
+          "volume_below_spill_Mm3": 24.2,
+          "deepest_cell_lonlat": [
+            24.0146,
+            35.3496
+          ],
+          "centroid_lonlat": [
+            24.0136,
+            35.348
+          ],
+          "internal_catchment_km2": 15.6,
+          "n_inlets": 39,
+          "n_cells_90m": 77
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "name": "Monastiraki",
+      "n_components": 6,
+      "total_km2_depth_gt_0p5": 0.09,
+      "largest_components": [
+        {
+          "area_km2": 0.04,
+          "max_depth_m": 21.9,
+          "floor_m": 499.1,
+          "spill_level_m": 521.0,
+          "volume_below_spill_Mm3": 0.5,
+          "deepest_cell_lonlat": [
+            25.8412,
+            35.0838
+          ],
+          "centroid_lonlat": [
+            25.8421,
+            35.0838
+          ],
+          "internal_catchment_km2": 6.1,
+          "n_inlets": 11,
+          "n_cells_90m": 5
+        },
+        {
+          "area_km2": 0.02,
+          "max_depth_m": 3.4,
+          "floor_m": 74.6,
+          "spill_level_m": 78.1,
+          "volume_below_spill_Mm3": 0.0,
+          "deepest_cell_lonlat": [
+            25.8387,
+            35.1279
+          ],
+          "centroid_lonlat": [
+            25.8387,
+            35.1279
+          ],
+          "internal_catchment_km2": 0.3,
+          "n_inlets": 5,
+          "n_cells_90m": 3
+        },
+        {
+          "area_km2": 0.01,
+          "max_depth_m": 2.2,
+          "floor_m": 32.1,
+          "spill_level_m": 34.2,
+          "volume_below_spill_Mm3": 0.0,
+          "deepest_cell_lonlat": [
+            25.8279,
+            35.1062
+          ],
+          "centroid_lonlat": [
+            25.8275,
+            35.1062
+          ],
+          "internal_catchment_km2": 4.9,
+          "n_inlets": 5,
+          "n_cells_90m": 2
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2215 @@
+{
+ "generated": "2026-10-09T16:34:57",
+ "python": "C:\\Users\\dvalsamis\\AppData\\Local\\anaconda3\\envs\\sfincs-viz\\python.exe",
+ "xarray": "2026.4.0",
+ "pandas": "3.0.3",
+ "repo_worktree": "D:/ELKAK/sfincs-mediterranean-floods/.worktrees/emsr933-crete",
+ "sfincs_behaviour_relied_on": "SFINCS integrates from tstart to tstop (manual 'Time management': model runtime = tref/tstart/tstop; tspinup is a damping period AFTER tstart). Forcing stamped before tstart (times are seconds/minutes since tref) lies outside the integration window and is not simulated. Local evidence: sfincs_map.nc first output time == tstart for all five runs.",
+ "events": {
+  "pineios": {
+   "label": "Pineios EMSR692 enh.",
+   "model_dir": "D:/ELKAK/implementation/pineios_sfincs_enhanced/model_author_ref",
+   "data_dir": "D:/ELKAK/implementation/pineios_sfincs_enhanced/data",
+   "yaml": {
+    "file": "D:/ELKAK/sfincs-mediterranean-floods/.worktrees/emsr933-crete/skill/examples/emsr692_pineios_enhanced.yaml",
+    "event_date": "2023-09-06",
+    "spinup_days": 7,
+    "pre_event_days": 3,
+    "post_event_days": 4,
+    "EventCfg.tref": "2023-08-27 00:00",
+    "EventCfg.tstart": "2023-09-03 00:00",
+    "EventCfg.tstop": "2023-09-11 00:00",
+    "rain_bias_correct_enabled": true,
+    "infiltration_enabled": false,
+    "upstream_q_enabled": true
+   },
+   "inp": {
+    "file": "D:/ELKAK/implementation/pineios_sfincs_enhanced/model_author_ref/sfincs.inp",
+    "tref": "20230827 000000",
+    "tstart": "20230903 000000",
+    "tstop": "20230911 000000",
+    "tspinup": "0.0",
+    "spinup_meteo": "absent",
+    "t0out": "absent",
+    "dtout": "3600",
+    "dthisout": "600",
+    "dtmaxout": "86400",
+    "dtrstout": "0.0",
+    "trstout": "-999.0",
+    "dtwnd": "1800.0",
+    "dtmax": "60.0",
+    "zsini": "0",
+    "inifile": "absent",
+    "rstfile": "absent",
+    "bzsfile": "absent",
+    "bndfile": "absent",
+    "netamprfile": "precip_2d.nc",
+    "netampfile": "press_2d.nc",
+    "netamuamvfile": "wind_2d.nc",
+    "srcfile": "sfincs.src",
+    "disfile": "sfincs.dis",
+    "scsfile": "absent",
+    "qinf": "0.0"
+   },
+   "inp_parsed": {
+    "tref": "2023-08-27 00:00",
+    "tstart": "2023-09-03 00:00",
+    "tstop": "2023-09-11 00:00",
+    "tspinup_s": 0.0,
+    "zsini_m": 0.0,
+    "dtout_s": 3600.0
+   },
+   "inp_matches_EventCfg": {
+    "tref": true,
+    "tstart": true,
+    "tstop": true
+   },
+   "sfincs_build_yml": {
+    "file": "D:/ELKAK/implementation/pineios_sfincs_enhanced/sfincs_build.yml",
+    "pattern": "^\\s*(tref|tstart|tstop|zsini):",
+    "hits": {
+     "2": "  tref: 20230827 000000",
+     "3": "  tstart: 20230903 000000",
+     "4": "  tstop: 20230911 000000",
+     "12": "  zsini: 0"
+    },
+    "n_hits": 4
+   },
+   "derived": {
+    "sim_duration_days_tstop_minus_tstart": 8.0,
+    "gap_days_tstart_minus_tref": 7.0,
+    "days_simulated_before_event_date_tstart_to_eventdate": 3.0,
+    "days_simulated_after_event_date_eventdate_to_tstop": 5.0,
+    "days_forcing_window_not_simulated_tref_to_tstart": 7.0,
+    "antecedent_tref_to_tstart_inside_[tstart,tstop]": false,
+    "stated_spinup_days": 7,
+    "stated_in": "manuscript v5",
+    "stated_equals_spinup_days_yaml": true,
+    "stated_equals_gap_tstart_minus_tref": true
+   },
+   "forcing_in_model_dir": {
+    "netamprfile": {
+     "file": "D:/ELKAK/implementation/pineios_sfincs_enhanced/model_author_ref/precip_2d.nc",
+     "n": 385,
+     "first": "2023-09-03 00:00",
+     "last": "2023-09-11 00:00",
+     "step_min": 30,
+     "units": "minutes since 2023-08-27",
+     "calendar": "proleptic_gregorian",
+     "raw_dtype": "float64",
+     "xarray_default_dtype": "datetime64[ns]",
+     "xarray_default_decodes_to_datetime64": true,
+     "steps_before_tstart": 0,
+     "forcing_exists_before_tstart": false,
+     "covers_tstart_to_tstop": true,
+     "totals": {
+      "var": "Precipitation",
+      "step_h": 0.5,
+      "domain_mean_mm_before_tstart": 0.0,
+      "n_steps_before_tstart": 0,
+      "domain_mean_mm_tstart_to_tstop": 751.44,
+      "n_steps_tstart_to_tstop": 384
+     }
+    },
+    "netampfile": {
+     "file": "D:/ELKAK/implementation/pineios_sfincs_enhanced/model_author_ref/press_2d.nc",
+     "n": 193,
+     "first": "2023-09-03 00:00",
+     "last": "2023-09-11 00:00",
+     "step_min": 60,
+     "units": "minutes since 2023-08-27",
+     "calendar": "proleptic_gregorian",
+     "raw_dtype": "float64",
+     "xarray_default_dtype": "datetime64[ns]",
+     "xarray_default_decodes_to_datetime64": true,
+     "steps_before_tstart": 0,
+     "forcing_exists_before_tstart": false,
+     "covers_tstart_to_tstop": true
+    },
+    "netamuamvfile": {
+     "file": "D:/ELKAK/implementation/pineios_sfincs_enhanced/model_author_ref/wind_2d.nc",
+     "n": 193,
+     "first": "2023-09-03 00:00",
+     "last": "2023-09-11 00:00",
+     "step_min": 60,
+     "units": "minutes since 2023-08-27",
+     "calendar": "proleptic_gregorian",
+     "raw_dtype": "float64",
+     "xarray_default_dtype": "datetime64[ns]",
+     "xarray_default_decodes_to_datetime64": true,
+     "steps_before_tstart": 0,
+     "forcing_exists_before_tstart": false,
+     "covers_tstart_to_tstop": true
+    },
+    "disfile": {
+     "file": "D:/ELKAK/implementation/pineios_sfincs_enhanced/model_author_ref/sfincs.dis",
+     "n_rows": 361,
+     "n_sources": 4,
+     "time_unit": "seconds since tref (sfincs.inp)",
+     "first_s": 0.0,
+     "last_s": 1296000.0,
+     "first": "2023-08-27 00:00",
+     "last": "2023-09-11 00:00",
+     "step_s": 3600.0,
+     "n_rows_before_tstart": 168,
+     "forcing_exists_before_tstart": true
+    },
+    "srcfile": {
+     "file": "D:/ELKAK/implementation/pineios_sfincs_enhanced/model_author_ref/sfincs.src",
+     "n_points": 4
+    },
+    "bzsfile": "absent"
+   },
+   "sfincs_map_nc": {
+    "time": {
+     "file": "D:/ELKAK/implementation/pineios_sfincs_enhanced/model_author_ref/sfincs_map.nc",
+     "n": 193,
+     "first": "2023-09-03 00:00",
+     "last": "2023-09-11 00:00",
+     "step_min": 60,
+     "units": "seconds since 2023-08-27 00:00:00",
+     "calendar": null,
+     "raw_dtype": "float32",
+     "xarray_default_dtype": "datetime64[ns]",
+     "xarray_default_decodes_to_datetime64": true
+    },
+    "timemax": {
+     "file": "D:/ELKAK/implementation/pineios_sfincs_enhanced/model_author_ref/sfincs_map.nc",
+     "n": 8,
+     "first": "2023-09-04 00:00",
+     "last": "2023-09-11 00:00",
+     "step_min": 1440,
+     "units": "seconds since 2023-08-27 00:00:00",
+     "calendar": null,
+     "raw_dtype": "float32",
+     "xarray_default_dtype": "datetime64[ns]",
+     "xarray_default_decodes_to_datetime64": true
+    },
+    "first_output_equals_tstart": true,
+    "last_output_equals_tstop": true
+   },
+   "hydromt_log": {
+    "file": "D:/ELKAK/implementation/pineios_sfincs_enhanced/model_author_ref/hydromt.log",
+    "sliced": {
+     "precip": true,
+     "wind": true,
+     "pressure": true
+    },
+    "slicing_tuples": {
+     "precip": "datetime.datetime(2023, 9, 3, 0, 0), datetime.datetime(2023, 9, 11, 0, 0)",
+     "wind": "datetime.datetime(2023, 9, 3, 0, 0), datetime.datetime(2023, 9, 11, 0, 0)",
+     "pressure": "datetime.datetime(2023, 9, 3, 0, 0), datetime.datetime(2023, 9, 11, 0, 0)"
+    },
+    "imerg_source_as_run": "C:\\Users\\vaspapa\\Desktop\\ELKAK\\implementation\\pineios_sfincs_enhanced\\data\\imerg_pineios.nc"
+   },
+   "raw_downloads": {
+    "imerg_pineios.nc": {
+     "file": "D:/ELKAK/implementation/pineios_sfincs_enhanced/data/imerg_pineios.nc",
+     "n": 721,
+     "first": "2023-08-27 00:00",
+     "last": "2023-09-11 00:00",
+     "step_min": 30,
+     "units": "minutes since 2017-01-01",
+     "calendar": "proleptic_gregorian",
+     "raw_dtype": "float64",
+     "xarray_default_dtype": "datetime64[ns]",
+     "xarray_default_decodes_to_datetime64": true,
+     "steps_before_tstart": 336,
+     "steps_in_[tref,tstart)": 336,
+     "first_equals_tref": true,
+     "last_equals_tstop": true,
+     "totals": {
+      "var": "precip",
+      "step_h": 0.5,
+      "domain_mean_mm_before_tstart": 1.75,
+      "n_steps_before_tstart": 336,
+      "domain_mean_mm_tstart_to_tstop": 378.69,
+      "n_steps_tstart_to_tstop": 384
+     }
+    },
+    "imerg_pineios.raw.nc": {
+     "file": "D:/ELKAK/implementation/pineios_sfincs_enhanced/data/imerg_pineios.raw.nc",
+     "n": 721,
+     "first": "2023-08-27 00:00",
+     "last": "2023-09-11 00:00",
+     "step_min": 30,
+     "units": "seconds since 1980-01-06T00:00:00+00:00",
+     "calendar": "julian",
+     "raw_dtype": "int32",
+     "xarray_default_dtype": "object",
+     "xarray_default_decodes_to_datetime64": false,
+     "steps_before_tstart": 336,
+     "steps_in_[tref,tstart)": 336,
+     "first_equals_tref": true,
+     "last_equals_tstop": true
+    },
+    "era5_pineios.nc": {
+     "file": "D:/ELKAK/implementation/pineios_sfincs_enhanced/data/era5_pineios.nc",
+     "n": 744,
+     "first": "2023-08-01 00:00",
+     "last": "2023-09-30 23:00",
+     "step_min": [
+      60,
+      21660
+     ],
+     "units": "seconds since 1970-01-01",
+     "calendar": "proleptic_gregorian",
+     "raw_dtype": "int32",
+     "xarray_default_dtype": "datetime64[ns]",
+     "xarray_default_decodes_to_datetime64": true,
+     "steps_before_tstart": 432,
+     "steps_in_[tref,tstart)": 168,
+     "first_equals_tref": false,
+     "last_equals_tstop": false
+    },
+    "glofas_pineios_clean.nc": {
+     "file": "D:/ELKAK/implementation/pineios_sfincs_enhanced/data/glofas_pineios_clean.nc",
+     "n": 16,
+     "first": "2023-08-27 00:00",
+     "last": "2023-09-11 00:00",
+     "step_min": 1440,
+     "units": "days since 2023-08-27",
+     "calendar": "proleptic_gregorian",
+     "raw_dtype": "int32",
+     "xarray_default_dtype": "datetime64[ns]",
+     "xarray_default_decodes_to_datetime64": true,
+     "steps_before_tstart": 7,
+     "steps_in_[tref,tstart)": 7,
+     "first_equals_tref": true,
+     "last_equals_tstop": true
+    },
+    "q_outlet.csv": {
+     "file": "D:/ELKAK/implementation/pineios_sfincs_enhanced/data/q_outlet.csv",
+     "n": 361,
+     "first": "2023-08-27 00:00",
+     "last": "2023-09-11 00:00",
+     "n_cols": 4,
+     "first_equals_tref": true
+    }
+   },
+   "deliverable_docs": {
+    "README.md": {
+     "file": "D:/ELKAK/deliverables/bundles/deliverable_daniel_emsr692_enhanced/README.md",
+     "pattern": "Simulation window",
+     "hits": {
+      "15": "- **Simulation window**: 2023-09-03 → 2023-09-11 UTC (7 d total, 7 d spin-up)"
+     },
+     "n_hits": 1
+    },
+    "4_docs/results.md": {
+     "file": "D:/ELKAK/deliverables/bundles/deliverable_daniel_emsr692_enhanced/4_docs/results.md",
+     "pattern": "Spin-up|Simulation window",
+     "hits": {
+      "21": "| Simulation window | 2023-09-03 00:00:00 UTC → 2023-09-11 00:00:00 UTC (7 d) |",
+      "22": "| Spin-up | 2023-08-27 00:00:00 UTC → 2023-09-03 00:00:00 UTC (7 d) |"
+     },
+     "n_hits": 2
+    },
+    "4_docs/methodology.md": {
+     "file": "D:/ELKAK/deliverables/bundles/deliverable_daniel_emsr692_enhanced/4_docs/methodology.md",
+     "pattern": "`tref`",
+     "hits": {
+      "12": "| `tref`  | 2023-08-27 00:00:00 | spin-up reference time (7 d before tstart) |"
+     },
+     "n_hits": 1
+    }
+   },
+   "key": "pineios"
+  },
+  "strymonas": {
+   "label": "Strymonas EMSR122 v3",
+   "model_dir": "D:/ELKAK/implementation/emsr122_sfincs_v3/model_author_ref",
+   "data_dir": "D:/ELKAK/implementation/emsr122_sfincs_v3/data",
+   "yaml": {
+    "file": "D:/ELKAK/sfincs-mediterranean-floods/.worktrees/emsr933-crete/skill/examples/emsr122_strymonas_enhanced.yaml",
+    "event_date": "2015-03-31",
+    "spinup_days": 7,
+    "pre_event_days": 3,
+    "post_event_days": 3,
+    "EventCfg.tref": "2015-03-21 00:00",
+    "EventCfg.tstart": "2015-03-28 00:00",
+    "EventCfg.tstop": "2015-04-04 00:00",
+    "rain_bias_correct_enabled": false,
+    "infiltration_enabled": true,
+    "upstream_q_enabled": true
+   },
+   "inp": {
+    "file": "D:/ELKAK/implementation/emsr122_sfincs_v3/model_author_ref/sfincs.inp",
+    "tref": "20150321 000000",
+    "tstart": "20150328 000000",
+    "tstop": "20150404 000000",
+    "tspinup": "0.0",
+    "spinup_meteo": "absent",
+    "t0out": "absent",
+    "dtout": "3600",
+    "dthisout": "600",
+    "dtmaxout": "86400",
+    "dtrstout": "0.0",
+    "trstout": "-999.0",
+    "dtwnd": "1800.0",
+    "dtmax": "60.0",
+    "zsini": "0",
+    "inifile": "absent",
+    "rstfile": "absent",
+    "bzsfile": "absent",
+    "bndfile": "absent",
+    "netamprfile": "precip_2d.nc",
+    "netampfile": "press_2d.nc",
+    "netamuamvfile": "wind_2d.nc",
+    "srcfile": "sfincs.src",
+    "disfile": "sfincs.dis",
+    "scsfile": "sfincs.scs",
+    "qinf": "absent"
+   },
+   "inp_parsed": {
+    "tref": "2015-03-21 00:00",
+    "tstart": "2015-03-28 00:00",
+    "tstop": "2015-04-04 00:00",
+    "tspinup_s": 0.0,
+    "zsini_m": 0.0,
+    "dtout_s": 3600.0
+   },
+   "inp_matches_EventCfg": {
+    "tref": true,
+    "tstart": true,
+    "tstop": true
+   },
+   "sfincs_build_yml": {
+    "file": "D:/ELKAK/implementation/emsr122_sfincs_v3/sfincs_build.yml",
+    "pattern": "^\\s*(tref|tstart|tstop|zsini):",
+    "hits": {
+     "2": "  tref: 20150321 000000",
+     "3": "  tstart: 20150328 000000",
+     "4": "  tstop: 20150404 000000",
+     "12": "  zsini: 0"
+    },
+    "n_hits": 4
+   },
+   "derived": {
+    "sim_duration_days_tstop_minus_tstart": 7.0,
+    "gap_days_tstart_minus_tref": 7.0,
+    "days_simulated_before_event_date_tstart_to_eventdate": 3.0,
+    "days_simulated_after_event_date_eventdate_to_tstop": 4.0,
+    "days_forcing_window_not_simulated_tref_to_tstart": 7.0,
+    "antecedent_tref_to_tstart_inside_[tstart,tstop]": false,
+    "stated_spinup_days": 7,
+    "stated_in": "manuscript v5",
+    "stated_equals_spinup_days_yaml": true,
+    "stated_equals_gap_tstart_minus_tref": true
+   },
+   "forcing_in_model_dir": {
+    "netamprfile": {
+     "file": "D:/ELKAK/implementation/emsr122_sfincs_v3/model_author_ref/precip_2d.nc",
+     "n": 673,
+     "first": "2015-03-21 00:00",
+     "last": "2015-04-04 00:00",
+     "step_min": 30,
+     "units": "minutes since 2015-03-21",
+     "calendar": "julian",
+     "raw_dtype": "float64",
+     "xarray_default_dtype": "object",
+     "xarray_default_decodes_to_datetime64": false,
+     "steps_before_tstart": 336,
+     "forcing_exists_before_tstart": true,
+     "covers_tstart_to_tstop": true,
+     "totals": {
+      "var": "Precipitation",
+      "step_h": 0.5,
+      "domain_mean_mm_before_tstart": 84.19,
+      "n_steps_before_tstart": 336,
+      "domain_mean_mm_tstart_to_tstop": 12.9,
+      "n_steps_tstart_to_tstop": 336
+     }
+    },
+    "netampfile": {
+     "file": "D:/ELKAK/implementation/emsr122_sfincs_v3/model_author_ref/press_2d.nc",
+     "n": 169,
+     "first": "2015-03-28 00:00",
+     "last": "2015-04-04 00:00",
+     "step_min": 60,
+     "units": "minutes since 2015-03-21",
+     "calendar": "proleptic_gregorian",
+     "raw_dtype": "float64",
+     "xarray_default_dtype": "datetime64[ns]",
+     "xarray_default_decodes_to_datetime64": true,
+     "steps_before_tstart": 0,
+     "forcing_exists_before_tstart": false,
+     "covers_tstart_to_tstop": true
+    },
+    "netamuamvfile": {
+     "file": "D:/ELKAK/implementation/emsr122_sfincs_v3/model_author_ref/wind_2d.nc",
+     "n": 169,
+     "first": "2015-03-28 00:00",
+     "last": "2015-04-04 00:00",
+     "step_min": 60,
+     "units": "minutes since 2015-03-21",
+     "calendar": "proleptic_gregorian",
+     "raw_dtype": "float64",
+     "xarray_default_dtype": "datetime64[ns]",
+     "xarray_default_decodes_to_datetime64": true,
+     "steps_before_tstart": 0,
+     "forcing_exists_before_tstart": false,
+     "covers_tstart_to_tstop": true
+    },
+    "disfile": {
+     "file": "D:/ELKAK/implementation/emsr122_sfincs_v3/model_author_ref/sfincs.dis",
+     "n_rows": 337,
+     "n_sources": 2,
+     "time_unit": "seconds since tref (sfincs.inp)",
+     "first_s": 0.0,
+     "last_s": 1209600.0,
+     "first": "2015-03-21 00:00",
+     "last": "2015-04-04 00:00",
+     "step_s": 3600.0,
+     "n_rows_before_tstart": 168,
+     "forcing_exists_before_tstart": true
+    },
+    "srcfile": {
+     "file": "D:/ELKAK/implementation/emsr122_sfincs_v3/model_author_ref/sfincs.src",
+     "n_points": 2
+    },
+    "bzsfile": "absent"
+   },
+   "sfincs_map_nc": {
+    "time": {
+     "file": "D:/ELKAK/implementation/emsr122_sfincs_v3/model_author_ref/sfincs_map.nc",
+     "n": 169,
+     "first": "2015-03-28 00:00",
+     "last": "2015-04-04 00:00",
+     "step_min": 60,
+     "units": "seconds since 2015-03-21 00:00:00",
+     "calendar": null,
+     "raw_dtype": "float32",
+     "xarray_default_dtype": "datetime64[ns]",
+     "xarray_default_decodes_to_datetime64": true
+    },
+    "timemax": {
+     "file": "D:/ELKAK/implementation/emsr122_sfincs_v3/model_author_ref/sfincs_map.nc",
+     "n": 7,
+     "first": "2015-03-29 00:00",
+     "last": "2015-04-04 00:00",
+     "step_min": 1440,
+     "units": "seconds since 2015-03-21 00:00:00",
+     "calendar": null,
+     "raw_dtype": "float32",
+     "xarray_default_dtype": "datetime64[ns]",
+     "xarray_default_decodes_to_datetime64": true
+    },
+    "first_output_equals_tstart": true,
+    "last_output_equals_tstop": true
+   },
+   "hydromt_log": {
+    "file": "D:/ELKAK/implementation/emsr122_sfincs_v3/model_author_ref/hydromt.log",
+    "sliced": {
+     "precip": false,
+     "wind": true,
+     "pressure": true
+    },
+    "slicing_tuples": {
+     "precip": null,
+     "wind": "datetime.datetime(2015, 3, 28, 0, 0), datetime.datetime(2015, 4, 4, 0, 0)",
+     "pressure": "datetime.datetime(2015, 3, 28, 0, 0), datetime.datetime(2015, 4, 4, 0, 0)"
+    },
+    "imerg_source_as_run": "C:\\Users\\vaspapa\\Desktop\\ELKAK\\implementation\\emsr122_sfincs_enhanced\\data\\imerg_strymonas.nc"
+   },
+   "raw_downloads": {
+    "imerg_strymonas.nc": {
+     "file": "D:/ELKAK/implementation/emsr122_sfincs_v3/data/imerg_strymonas.nc",
+     "n": 673,
+     "first": "2015-03-21 00:00",
+     "last": "2015-04-04 00:00",
+     "step_min": 30,
+     "units": "seconds since 1980-01-06T00:00:00+00:00",
+     "calendar": "julian",
+     "raw_dtype": "int32",
+     "xarray_default_dtype": "object",
+     "xarray_default_decodes_to_datetime64": false,
+     "steps_before_tstart": 336,
+     "steps_in_[tref,tstart)": 336,
+     "first_equals_tref": true,
+     "last_equals_tstop": true,
+     "totals": {
+      "var": "precip",
+      "step_h": 0.5,
+      "domain_mean_mm_before_tstart": 44.57,
+      "n_steps_before_tstart": 336,
+      "domain_mean_mm_tstart_to_tstop": 6.84,
+      "n_steps_tstart_to_tstop": 336
+     }
+    },
+    "imerg_strymonas.raw.nc": "absent",
+    "era5_strymonas.nc": {
+     "file": "D:/ELKAK/implementation/emsr122_sfincs_v3/data/era5_strymonas.nc",
+     "n": 408,
+     "first": "2015-03-01 00:00",
+     "last": "2015-04-30 23:00",
+     "step_min": [
+      60,
+      31740
+     ],
+     "units": "seconds since 1970-01-01",
+     "calendar": "proleptic_gregorian",
+     "raw_dtype": "int32",
+     "xarray_default_dtype": "datetime64[ns]",
+     "xarray_default_decodes_to_datetime64": true,
+     "steps_before_tstart": 120,
+     "steps_in_[tref,tstart)": 24,
+     "first_equals_tref": false,
+     "last_equals_tstop": false
+    },
+    "glofas_strymonas_clean.nc": {
+     "file": "D:/ELKAK/implementation/emsr122_sfincs_v3/data/glofas_strymonas_clean.nc",
+     "n": 61,
+     "first": "2015-03-02 00:00",
+     "last": "2015-05-01 00:00",
+     "step_min": 1440,
+     "units": "seconds since 1970-01-01",
+     "calendar": "proleptic_gregorian",
+     "raw_dtype": "int32",
+     "xarray_default_dtype": "datetime64[ns]",
+     "xarray_default_decodes_to_datetime64": true,
+     "steps_before_tstart": 26,
+     "steps_in_[tref,tstart)": 7,
+     "first_equals_tref": false,
+     "last_equals_tstop": false
+    },
+    "q_outlet.csv": {
+     "file": "D:/ELKAK/implementation/emsr122_sfincs_v3/data/q_outlet.csv",
+     "n": 337,
+     "first": "2015-03-21 00:00",
+     "last": "2015-04-04 00:00",
+     "n_cols": 2,
+     "first_equals_tref": true
+    }
+   },
+   "deliverable_docs": {
+    "README.md": {
+     "file": "D:/ELKAK/deliverables/bundles/deliverable_strymonas_emsr122_enhanced/README.md",
+     "pattern": "Simulation window",
+     "hits": {
+      "15": "- **Simulation window**: 2015-03-28 → 2015-04-04 UTC (6 d total, 7 d spin-up)"
+     },
+     "n_hits": 1
+    },
+    "4_docs/results.md": {
+     "file": "D:/ELKAK/deliverables/bundles/deliverable_strymonas_emsr122_enhanced/4_docs/results.md",
+     "pattern": "Spin-up|Simulation window",
+     "hits": {
+      "21": "| Simulation window | 2015-03-28 00:00:00 UTC → 2015-04-04 00:00:00 UTC (6 d) |",
+      "22": "| Spin-up | 2015-03-21 00:00:00 UTC → 2015-03-28 00:00:00 UTC (7 d) |"
+     },
+     "n_hits": 2
+    },
+    "4_docs/methodology.md": {
+     "file": "D:/ELKAK/deliverables/bundles/deliverable_strymonas_emsr122_enhanced/4_docs/methodology.md",
+     "pattern": "`tref`",
+     "hits": {
+      "12": "| `tref`  | 2015-03-21 00:00:00 | spin-up reference time (7 d before tstart) |"
+     },
+     "n_hits": 1
+    }
+   },
+   "key": "strymonas"
+  },
+  "mandra": {
+   "label": "Mandra EMSR257 enh.",
+   "model_dir": "D:/ELKAK/implementation/mandra_sfincs_enhanced/model_author_ref",
+   "data_dir": "D:/ELKAK/implementation/mandra_sfincs_enhanced/data",
+   "yaml": {
+    "file": "D:/ELKAK/sfincs-mediterranean-floods/.worktrees/emsr933-crete/skill/examples/emsr257_mandra_enhanced.yaml",
+    "event_date": "2017-11-15",
+    "spinup_days": 1,
+    "pre_event_days": 2,
+    "post_event_days": 2,
+    "EventCfg.tref": "2017-11-12 00:00",
+    "EventCfg.tstart": "2017-11-13 00:00",
+    "EventCfg.tstop": "2017-11-18 00:00",
+    "rain_bias_correct_enabled": true,
+    "infiltration_enabled": false,
+    "upstream_q_enabled": false
+   },
+   "inp": {
+    "file": "D:/ELKAK/implementation/mandra_sfincs_enhanced/model_author_ref/sfincs.inp",
+    "tref": "20171112 000000",
+    "tstart": "20171113 000000",
+    "tstop": "20171118 000000",
+    "tspinup": "0.0",
+    "spinup_meteo": "absent",
+    "t0out": "absent",
+    "dtout": "3600",
+    "dthisout": "600",
+    "dtmaxout": "86400",
+    "dtrstout": "0.0",
+    "trstout": "-999.0",
+    "dtwnd": "1800.0",
+    "dtmax": "60.0",
+    "zsini": "0",
+    "inifile": "absent",
+    "rstfile": "absent",
+    "bzsfile": "absent",
+    "bndfile": "absent",
+    "netamprfile": "precip_2d.nc",
+    "netampfile": "press_2d.nc",
+    "netamuamvfile": "wind_2d.nc",
+    "srcfile": "absent",
+    "disfile": "absent",
+    "scsfile": "absent",
+    "qinf": "0.0"
+   },
+   "inp_parsed": {
+    "tref": "2017-11-12 00:00",
+    "tstart": "2017-11-13 00:00",
+    "tstop": "2017-11-18 00:00",
+    "tspinup_s": 0.0,
+    "zsini_m": 0.0,
+    "dtout_s": 3600.0
+   },
+   "inp_matches_EventCfg": {
+    "tref": true,
+    "tstart": true,
+    "tstop": true
+   },
+   "sfincs_build_yml": {
+    "file": "D:/ELKAK/implementation/mandra_sfincs_enhanced/sfincs_build.yml",
+    "pattern": "^\\s*(tref|tstart|tstop|zsini):",
+    "hits": {
+     "2": "  tref: 20171112 000000",
+     "3": "  tstart: 20171113 000000",
+     "4": "  tstop: 20171118 000000",
+     "12": "  zsini: 0"
+    },
+    "n_hits": 4
+   },
+   "derived": {
+    "sim_duration_days_tstop_minus_tstart": 5.0,
+    "gap_days_tstart_minus_tref": 1.0,
+    "days_simulated_before_event_date_tstart_to_eventdate": 2.0,
+    "days_simulated_after_event_date_eventdate_to_tstop": 3.0,
+    "days_forcing_window_not_simulated_tref_to_tstart": 1.0,
+    "antecedent_tref_to_tstart_inside_[tstart,tstop]": false,
+    "stated_spinup_days": 1,
+    "stated_in": "manuscript v5",
+    "stated_equals_spinup_days_yaml": true,
+    "stated_equals_gap_tstart_minus_tref": true
+   },
+   "forcing_in_model_dir": {
+    "netamprfile": {
+     "file": "D:/ELKAK/implementation/mandra_sfincs_enhanced/model_author_ref/precip_2d.nc",
+     "n": 241,
+     "first": "2017-11-13 00:00",
+     "last": "2017-11-18 00:00",
+     "step_min": 30,
+     "units": "minutes since 2017-11-12",
+     "calendar": "proleptic_gregorian",
+     "raw_dtype": "float64",
+     "xarray_default_dtype": "datetime64[ns]",
+     "xarray_default_decodes_to_datetime64": true,
+     "steps_before_tstart": 0,
+     "forcing_exists_before_tstart": false,
+     "covers_tstart_to_tstop": true,
+     "totals": {
+      "var": "Precipitation",
+      "step_h": 0.5,
+      "domain_mean_mm_before_tstart": 0.0,
+      "n_steps_before_tstart": 0,
+      "domain_mean_mm_tstart_to_tstop": 456.24,
+      "n_steps_tstart_to_tstop": 240
+     }
+    },
+    "netampfile": {
+     "file": "D:/ELKAK/implementation/mandra_sfincs_enhanced/model_author_ref/press_2d.nc",
+     "n": 121,
+     "first": "2017-11-13 00:00",
+     "last": "2017-11-18 00:00",
+     "step_min": 60,
+     "units": "minutes since 2017-11-12",
+     "calendar": "proleptic_gregorian",
+     "raw_dtype": "float64",
+     "xarray_default_dtype": "datetime64[ns]",
+     "xarray_default_decodes_to_datetime64": true,
+     "steps_before_tstart": 0,
+     "forcing_exists_before_tstart": false,
+     "covers_tstart_to_tstop": true
+    },
+    "netamuamvfile": {
+     "file": "D:/ELKAK/implementation/mandra_sfincs_enhanced/model_author_ref/wind_2d.nc",
+     "n": 121,
+     "first": "2017-11-13 00:00",
+     "last": "2017-11-18 00:00",
+     "step_min": 60,
+     "units": "minutes since 2017-11-12",
+     "calendar": "proleptic_gregorian",
+     "raw_dtype": "float64",
+     "xarray_default_dtype": "datetime64[ns]",
+     "xarray_default_decodes_to_datetime64": true,
+     "steps_before_tstart": 0,
+     "forcing_exists_before_tstart": false,
+     "covers_tstart_to_tstop": true
+    },
+    "disfile": "absent",
+    "srcfile": "absent",
+    "bzsfile": "absent"
+   },
+   "sfincs_map_nc": {
+    "time": {
+     "file": "D:/ELKAK/implementation/mandra_sfincs_enhanced/model_author_ref/sfincs_map.nc",
+     "n": 121,
+     "first": "2017-11-13 00:00",
+     "last": "2017-11-18 00:00",
+     "step_min": 60,
+     "units": "seconds since 2017-11-12 00:00:00",
+     "calendar": null,
+     "raw_dtype": "float32",
+     "xarray_default_dtype": "datetime64[ns]",
+     "xarray_default_decodes_to_datetime64": true
+    },
+    "timemax": {
+     "file": "D:/ELKAK/implementation/mandra_sfincs_enhanced/model_author_ref/sfincs_map.nc",
+     "n": 5,
+     "first": "2017-11-14 00:00",
+     "last": "2017-11-18 00:00",
+     "step_min": 1440,
+     "units": "seconds since 2017-11-12 00:00:00",
+     "calendar": null,
+     "raw_dtype": "float32",
+     "xarray_default_dtype": "datetime64[ns]",
+     "xarray_default_decodes_to_datetime64": true
+    },
+    "first_output_equals_tstart": true,
+    "last_output_equals_tstop": true
+   },
+   "hydromt_log": {
+    "file": "D:/ELKAK/implementation/mandra_sfincs_enhanced/model_author_ref/hydromt.log",
+    "sliced": {
+     "precip": true,
+     "wind": true,
+     "pressure": true
+    },
+    "slicing_tuples": {
+     "precip": "datetime.datetime(2017, 11, 13, 0, 0), datetime.datetime(2017, 11, 18, 0, 0)",
+     "wind": "datetime.datetime(2017, 11, 13, 0, 0), datetime.datetime(2017, 11, 18, 0, 0)",
+     "pressure": "datetime.datetime(2017, 11, 13, 0, 0), datetime.datetime(2017, 11, 18, 0, 0)"
+    },
+    "imerg_source_as_run": "C:\\Users\\vaspapa\\Desktop\\ELKAK\\implementation\\mandra_sfincs_enhanced\\data\\imerg_mandra.nc"
+   },
+   "raw_downloads": {
+    "imerg_mandra.nc": {
+     "file": "D:/ELKAK/implementation/mandra_sfincs_enhanced/data/imerg_mandra.nc",
+     "n": 289,
+     "first": "2017-11-12 00:00",
+     "last": "2017-11-18 00:00",
+     "step_min": 30,
+     "units": "minutes since 2017-01-01",
+     "calendar": "proleptic_gregorian",
+     "raw_dtype": "float64",
+     "xarray_default_dtype": "datetime64[ns]",
+     "xarray_default_decodes_to_datetime64": true,
+     "steps_before_tstart": 48,
+     "steps_in_[tref,tstart)": 48,
+     "first_equals_tref": true,
+     "last_equals_tstop": true,
+     "totals": {
+      "var": "precip",
+      "step_h": 0.5,
+      "domain_mean_mm_before_tstart": 0.99,
+      "n_steps_before_tstart": 48,
+      "domain_mean_mm_tstart_to_tstop": 227.26,
+      "n_steps_tstart_to_tstop": 240
+     }
+    },
+    "imerg_mandra.raw.nc": {
+     "file": "D:/ELKAK/implementation/mandra_sfincs_enhanced/data/imerg_mandra.raw.nc",
+     "n": 289,
+     "first": "2017-11-12 00:00",
+     "last": "2017-11-18 00:00",
+     "step_min": 30,
+     "units": "seconds since 1980-01-06T00:00:00+00:00",
+     "calendar": "julian",
+     "raw_dtype": "int32",
+     "xarray_default_dtype": "object",
+     "xarray_default_decodes_to_datetime64": false,
+     "steps_before_tstart": 48,
+     "steps_in_[tref,tstart)": 48,
+     "first_equals_tref": true,
+     "last_equals_tstop": true
+    },
+    "era5_mandra.nc": {
+     "file": "D:/ELKAK/implementation/mandra_sfincs_enhanced/data/era5_mandra.nc",
+     "n": 168,
+     "first": "2017-11-12 00:00",
+     "last": "2017-11-18 23:00",
+     "step_min": 60,
+     "units": "seconds since 1970-01-01",
+     "calendar": "proleptic_gregorian",
+     "raw_dtype": "int32",
+     "xarray_default_dtype": "datetime64[ns]",
+     "xarray_default_decodes_to_datetime64": true,
+     "steps_before_tstart": 24,
+     "steps_in_[tref,tstart)": 24,
+     "first_equals_tref": true,
+     "last_equals_tstop": false
+    },
+    "glofas_mandra_clean.nc": {
+     "file": "D:/ELKAK/implementation/mandra_sfincs_enhanced/data/glofas_mandra_clean.nc",
+     "n": 30,
+     "first": "2017-11-02 00:00",
+     "last": "2017-12-01 00:00",
+     "step_min": 1440,
+     "units": "seconds since 1970-01-01",
+     "calendar": "proleptic_gregorian",
+     "raw_dtype": "int32",
+     "xarray_default_dtype": "datetime64[ns]",
+     "xarray_default_decodes_to_datetime64": true,
+     "steps_before_tstart": 11,
+     "steps_in_[tref,tstart)": 1,
+     "first_equals_tref": false,
+     "last_equals_tstop": false
+    },
+    "q_outlet.csv": "absent"
+   },
+   "deliverable_docs": {
+    "README.md": {
+     "file": "D:/ELKAK/deliverables/bundles/deliverable_mandra_emsr257_enhanced/README.md",
+     "pattern": "Simulation window",
+     "hits": {
+      "15": "- **Simulation window**: 2017-11-13 → 2017-11-18 UTC (4 d total, 1 d spin-up)"
+     },
+     "n_hits": 1
+    },
+    "4_docs/results.md": {
+     "file": "D:/ELKAK/deliverables/bundles/deliverable_mandra_emsr257_enhanced/4_docs/results.md",
+     "pattern": "Spin-up|Simulation window",
+     "hits": {
+      "21": "| Simulation window | 2017-11-13 00:00:00 UTC → 2017-11-18 00:00:00 UTC (4 d) |",
+      "22": "| Spin-up | 2017-11-12 00:00:00 UTC → 2017-11-13 00:00:00 UTC (1 d) |"
+     },
+     "n_hits": 2
+    },
+    "4_docs/methodology.md": {
+     "file": "D:/ELKAK/deliverables/bundles/deliverable_mandra_emsr257_enhanced/4_docs/methodology.md",
+     "pattern": "`tref`",
+     "hits": {
+      "12": "| `tref`  | 2017-11-12 00:00:00 | spin-up reference time (1 d before tstart) |"
+     },
+     "n_hits": 1
+    }
+   },
+   "key": "mandra"
+  },
+  "valencia": {
+   "label": "Valencia EMSR773",
+   "model_dir": "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/model",
+   "data_dir": "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/data",
+   "yaml": {
+    "file": "D:/ELKAK/sfincs-mediterranean-floods/.worktrees/emsr933-crete/skill/examples/emsr773_valencia_enhanced.yaml",
+    "event_date": "2024-10-29",
+    "spinup_days": 3,
+    "pre_event_days": 2,
+    "post_event_days": 2,
+    "EventCfg.tref": "2024-10-24 00:00",
+    "EventCfg.tstart": "2024-10-27 00:00",
+    "EventCfg.tstop": "2024-11-01 00:00",
+    "rain_bias_correct_enabled": true,
+    "infiltration_enabled": false,
+    "upstream_q_enabled": true
+   },
+   "inp": {
+    "file": "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/model/sfincs.inp",
+    "tref": "20241024 000000",
+    "tstart": "20241027 000000",
+    "tstop": "20241101 000000",
+    "tspinup": "0.0",
+    "spinup_meteo": "absent",
+    "t0out": "absent",
+    "dtout": "3600",
+    "dthisout": "600",
+    "dtmaxout": "86400",
+    "dtrstout": "0.0",
+    "trstout": "-999.0",
+    "dtwnd": "1800.0",
+    "dtmax": "60.0",
+    "zsini": "0",
+    "inifile": "absent",
+    "rstfile": "absent",
+    "bzsfile": "absent",
+    "bndfile": "absent",
+    "netamprfile": "precip_2d.nc",
+    "netampfile": "press_2d.nc",
+    "netamuamvfile": "wind_2d.nc",
+    "srcfile": "sfincs.src",
+    "disfile": "sfincs.dis",
+    "scsfile": "absent",
+    "qinf": "0.0"
+   },
+   "inp_parsed": {
+    "tref": "2024-10-24 00:00",
+    "tstart": "2024-10-27 00:00",
+    "tstop": "2024-11-01 00:00",
+    "tspinup_s": 0.0,
+    "zsini_m": 0.0,
+    "dtout_s": 3600.0
+   },
+   "inp_matches_EventCfg": {
+    "tref": true,
+    "tstart": true,
+    "tstop": true
+   },
+   "sfincs_build_yml": {
+    "file": "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/sfincs_build.yml",
+    "pattern": "^\\s*(tref|tstart|tstop|zsini):",
+    "hits": {
+     "2": "  tref: 20241024 000000",
+     "3": "  tstart: 20241027 000000",
+     "4": "  tstop: 20241101 000000",
+     "12": "  zsini: 0"
+    },
+    "n_hits": 4
+   },
+   "derived": {
+    "sim_duration_days_tstop_minus_tstart": 5.0,
+    "gap_days_tstart_minus_tref": 3.0,
+    "days_simulated_before_event_date_tstart_to_eventdate": 2.0,
+    "days_simulated_after_event_date_eventdate_to_tstop": 3.0,
+    "days_forcing_window_not_simulated_tref_to_tstart": 3.0,
+    "antecedent_tref_to_tstart_inside_[tstart,tstop]": false,
+    "stated_spinup_days": 3,
+    "stated_in": "held-out YAML",
+    "stated_equals_spinup_days_yaml": true,
+    "stated_equals_gap_tstart_minus_tref": true
+   },
+   "forcing_in_model_dir": {
+    "netamprfile": {
+     "file": "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/model/precip_2d.nc",
+     "n": 241,
+     "first": "2024-10-27 00:00",
+     "last": "2024-11-01 00:00",
+     "step_min": 30,
+     "units": "minutes since 2024-10-24",
+     "calendar": "proleptic_gregorian",
+     "raw_dtype": "float64",
+     "xarray_default_dtype": "datetime64[ns]",
+     "xarray_default_decodes_to_datetime64": true,
+     "steps_before_tstart": 0,
+     "forcing_exists_before_tstart": false,
+     "covers_tstart_to_tstop": true,
+     "totals": {
+      "var": "Precipitation",
+      "step_h": 0.5,
+      "domain_mean_mm_before_tstart": 0.0,
+      "n_steps_before_tstart": 0,
+      "domain_mean_mm_tstart_to_tstop": 383.73,
+      "n_steps_tstart_to_tstop": 240
+     }
+    },
+    "netampfile": {
+     "file": "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/model/press_2d.nc",
+     "n": 121,
+     "first": "2024-10-27 00:00",
+     "last": "2024-11-01 00:00",
+     "step_min": 60,
+     "units": "minutes since 2024-10-24",
+     "calendar": "proleptic_gregorian",
+     "raw_dtype": "float64",
+     "xarray_default_dtype": "datetime64[ns]",
+     "xarray_default_decodes_to_datetime64": true,
+     "steps_before_tstart": 0,
+     "forcing_exists_before_tstart": false,
+     "covers_tstart_to_tstop": true
+    },
+    "netamuamvfile": {
+     "file": "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/model/wind_2d.nc",
+     "n": 121,
+     "first": "2024-10-27 00:00",
+     "last": "2024-11-01 00:00",
+     "step_min": 60,
+     "units": "minutes since 2024-10-24",
+     "calendar": "proleptic_gregorian",
+     "raw_dtype": "float64",
+     "xarray_default_dtype": "datetime64[ns]",
+     "xarray_default_decodes_to_datetime64": true,
+     "steps_before_tstart": 0,
+     "forcing_exists_before_tstart": false,
+     "covers_tstart_to_tstop": true
+    },
+    "disfile": {
+     "file": "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/model/sfincs.dis",
+     "n_rows": 193,
+     "n_sources": 3,
+     "time_unit": "seconds since tref (sfincs.inp)",
+     "first_s": 0.0,
+     "last_s": 691200.0,
+     "first": "2024-10-24 00:00",
+     "last": "2024-11-01 00:00",
+     "step_s": 3600.0,
+     "n_rows_before_tstart": 72,
+     "forcing_exists_before_tstart": true
+    },
+    "srcfile": {
+     "file": "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/model/sfincs.src",
+     "n_points": 3
+    },
+    "bzsfile": "absent"
+   },
+   "sfincs_map_nc": {
+    "time": {
+     "file": "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/model/sfincs_map.nc",
+     "n": 121,
+     "first": "2024-10-27 00:00",
+     "last": "2024-11-01 00:00",
+     "step_min": 60,
+     "units": "seconds since 2024-10-24 00:00:00",
+     "calendar": null,
+     "raw_dtype": "float32",
+     "xarray_default_dtype": "datetime64[ns]",
+     "xarray_default_decodes_to_datetime64": true
+    },
+    "timemax": {
+     "file": "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/model/sfincs_map.nc",
+     "n": 5,
+     "first": "2024-10-28 00:00",
+     "last": "2024-11-01 00:00",
+     "step_min": 1440,
+     "units": "seconds since 2024-10-24 00:00:00",
+     "calendar": null,
+     "raw_dtype": "float32",
+     "xarray_default_dtype": "datetime64[ns]",
+     "xarray_default_decodes_to_datetime64": true
+    },
+    "first_output_equals_tstart": true,
+    "last_output_equals_tstop": true
+   },
+   "hydromt_log": {
+    "file": "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/model/hydromt.log",
+    "sliced": {
+     "precip": true,
+     "wind": true,
+     "pressure": true
+    },
+    "slicing_tuples": {
+     "precip": "datetime.datetime(2024, 10, 27, 0, 0), datetime.datetime(2024, 11, 1, 0, 0)",
+     "wind": "datetime.datetime(2024, 10, 27, 0, 0), datetime.datetime(2024, 11, 1, 0, 0)",
+     "pressure": "datetime.datetime(2024, 10, 27, 0, 0), datetime.datetime(2024, 11, 1, 0, 0)"
+    },
+    "imerg_source_as_run": "C:\\Users\\vaspapa\\Desktop\\ELKAK2\\NHESS\\runs\\valencia_emsr773\\data\\imerg_valencia.nc"
+   },
+   "raw_downloads": {
+    "imerg_valencia.nc": {
+     "file": "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/data/imerg_valencia.nc",
+     "n": 385,
+     "first": "2024-10-24 00:00",
+     "last": "2024-11-01 00:00",
+     "step_min": 30,
+     "units": "minutes since 2017-01-01",
+     "calendar": "proleptic_gregorian",
+     "raw_dtype": "float64",
+     "xarray_default_dtype": "datetime64[ns]",
+     "xarray_default_decodes_to_datetime64": true,
+     "steps_before_tstart": 144,
+     "steps_in_[tref,tstart)": 144,
+     "first_equals_tref": true,
+     "last_equals_tstop": true,
+     "totals": {
+      "var": "precip",
+      "step_h": 0.5,
+      "domain_mean_mm_before_tstart": 19.28,
+      "n_steps_before_tstart": 144,
+      "domain_mean_mm_tstart_to_tstop": 192.57,
+      "n_steps_tstart_to_tstop": 240
+     }
+    },
+    "imerg_valencia.raw.nc": {
+     "file": "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/data/imerg_valencia.raw.nc",
+     "n": 385,
+     "first": "2024-10-24 00:00",
+     "last": "2024-11-01 00:00",
+     "step_min": 30,
+     "units": "seconds since 1980-01-06T00:00:00+00:00",
+     "calendar": "julian",
+     "raw_dtype": "int32",
+     "xarray_default_dtype": "object",
+     "xarray_default_decodes_to_datetime64": false,
+     "steps_before_tstart": 144,
+     "steps_in_[tref,tstart)": 144,
+     "first_equals_tref": true,
+     "last_equals_tstop": true
+    },
+    "era5_valencia.nc": {
+     "file": "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/data/era5_valencia.nc",
+     "n": 408,
+     "first": "2024-10-01 00:00",
+     "last": "2024-11-30 23:00",
+     "step_min": [
+      60,
+      31740
+     ],
+     "units": "seconds since 1970-01-01",
+     "calendar": "proleptic_gregorian",
+     "raw_dtype": "int32",
+     "xarray_default_dtype": "datetime64[ns]",
+     "xarray_default_decodes_to_datetime64": true,
+     "steps_before_tstart": 96,
+     "steps_in_[tref,tstart)": 72,
+     "first_equals_tref": false,
+     "last_equals_tstop": false
+    },
+    "glofas_valencia_clean.nc": {
+     "file": "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/data/glofas_valencia_clean.nc",
+     "n": 61,
+     "first": "2024-10-02 00:00",
+     "last": "2024-12-01 00:00",
+     "step_min": 1440,
+     "units": "seconds since 1970-01-01",
+     "calendar": "proleptic_gregorian",
+     "raw_dtype": "int32",
+     "xarray_default_dtype": "datetime64[ns]",
+     "xarray_default_decodes_to_datetime64": true,
+     "steps_before_tstart": 25,
+     "steps_in_[tref,tstart)": 3,
+     "first_equals_tref": false,
+     "last_equals_tstop": false
+    },
+    "q_outlet.csv": {
+     "file": "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/data/q_outlet.csv",
+     "n": 193,
+     "first": "2024-10-24 00:00",
+     "last": "2024-11-01 00:00",
+     "n_cols": 3,
+     "first_equals_tref": true
+    }
+   },
+   "deliverable_docs": {
+    "README.md": {
+     "file": "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/deliverable/README.md",
+     "pattern": "Simulation window",
+     "hits": {
+      "15": "- **Simulation window**: 2024-10-27 → 2024-11-01 UTC (4 d total, 3 d spin-up)"
+     },
+     "n_hits": 1
+    },
+    "4_docs/results.md": {
+     "file": "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/deliverable/4_docs/results.md",
+     "pattern": "Spin-up|Simulation window",
+     "hits": {
+      "21": "| Simulation window | 2024-10-27 00:00:00 UTC → 2024-11-01 00:00:00 UTC (4 d) |",
+      "22": "| Spin-up | 2024-10-24 00:00:00 UTC → 2024-10-27 00:00:00 UTC (3 d) |"
+     },
+     "n_hits": 2
+    },
+    "4_docs/methodology.md": {
+     "file": "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/deliverable/4_docs/methodology.md",
+     "pattern": "`tref`",
+     "hits": {
+      "12": "| `tref`  | 2024-10-24 00:00:00 | spin-up reference time (3 d before tstart) |"
+     },
+     "n_hits": 1
+    }
+   },
+   "key": "valencia"
+  },
+  "emilia": {
+   "label": "Emilia-Romagna EMSR664",
+   "model_dir": "D:/ELKAK/ELKAK2/NHESS/runs/emilia_emsr664/model",
+   "data_dir": "D:/ELKAK/ELKAK2/NHESS/runs/emilia_emsr664/data",
+   "yaml": {
+    "file": "D:/ELKAK/sfincs-mediterranean-floods/.worktrees/emsr933-crete/skill/examples/emsr664_emilia_romagna_enhanced.yaml",
+    "event_date": "2023-05-17",
+    "spinup_days": 14,
+    "pre_event_days": 3,
+    "post_event_days": 4,
+    "EventCfg.tref": "2023-04-30 00:00",
+    "EventCfg.tstart": "2023-05-14 00:00",
+    "EventCfg.tstop": "2023-05-22 00:00",
+    "rain_bias_correct_enabled": false,
+    "infiltration_enabled": false,
+    "upstream_q_enabled": true
+   },
+   "inp": {
+    "file": "D:/ELKAK/ELKAK2/NHESS/runs/emilia_emsr664/model/sfincs.inp",
+    "tref": "20230430 000000",
+    "tstart": "20230514 000000",
+    "tstop": "20230522 000000",
+    "tspinup": "0.0",
+    "spinup_meteo": "absent",
+    "t0out": "absent",
+    "dtout": "3600",
+    "dthisout": "600",
+    "dtmaxout": "86400",
+    "dtrstout": "0.0",
+    "trstout": "-999.0",
+    "dtwnd": "1800.0",
+    "dtmax": "60.0",
+    "zsini": "0",
+    "inifile": "absent",
+    "rstfile": "absent",
+    "bzsfile": "absent",
+    "bndfile": "absent",
+    "netamprfile": "precip_2d.nc",
+    "netampfile": "press_2d.nc",
+    "netamuamvfile": "wind_2d.nc",
+    "srcfile": "sfincs.src",
+    "disfile": "sfincs.dis",
+    "scsfile": "absent",
+    "qinf": "0.0"
+   },
+   "inp_parsed": {
+    "tref": "2023-04-30 00:00",
+    "tstart": "2023-05-14 00:00",
+    "tstop": "2023-05-22 00:00",
+    "tspinup_s": 0.0,
+    "zsini_m": 0.0,
+    "dtout_s": 3600.0
+   },
+   "inp_matches_EventCfg": {
+    "tref": true,
+    "tstart": true,
+    "tstop": true
+   },
+   "sfincs_build_yml": {
+    "file": "D:/ELKAK/ELKAK2/NHESS/runs/emilia_emsr664/sfincs_build.yml",
+    "pattern": "^\\s*(tref|tstart|tstop|zsini):",
+    "hits": {
+     "2": "  tref: 20230430 000000",
+     "3": "  tstart: 20230514 000000",
+     "4": "  tstop: 20230522 000000",
+     "12": "  zsini: 0"
+    },
+    "n_hits": 4
+   },
+   "derived": {
+    "sim_duration_days_tstop_minus_tstart": 8.0,
+    "gap_days_tstart_minus_tref": 14.0,
+    "days_simulated_before_event_date_tstart_to_eventdate": 3.0,
+    "days_simulated_after_event_date_eventdate_to_tstop": 5.0,
+    "days_forcing_window_not_simulated_tref_to_tstart": 14.0,
+    "antecedent_tref_to_tstart_inside_[tstart,tstop]": false,
+    "stated_spinup_days": 14,
+    "stated_in": "held-out YAML",
+    "stated_equals_spinup_days_yaml": true,
+    "stated_equals_gap_tstart_minus_tref": true
+   },
+   "forcing_in_model_dir": {
+    "netamprfile": {
+     "file": "D:/ELKAK/ELKAK2/NHESS/runs/emilia_emsr664/model/precip_2d.nc",
+     "n": 1057,
+     "first": "2023-04-30 00:00",
+     "last": "2023-05-22 00:00",
+     "step_min": 30,
+     "units": "minutes since 2023-04-30",
+     "calendar": "julian",
+     "raw_dtype": "float64",
+     "xarray_default_dtype": "object",
+     "xarray_default_decodes_to_datetime64": false,
+     "steps_before_tstart": 672,
+     "forcing_exists_before_tstart": true,
+     "covers_tstart_to_tstop": true,
+     "totals": {
+      "var": "Precipitation",
+      "step_h": 0.5,
+      "domain_mean_mm_before_tstart": 204.63,
+      "n_steps_before_tstart": 672,
+      "domain_mean_mm_tstart_to_tstop": 202.18,
+      "n_steps_tstart_to_tstop": 384
+     }
+    },
+    "netampfile": {
+     "file": "D:/ELKAK/ELKAK2/NHESS/runs/emilia_emsr664/model/press_2d.nc",
+     "n": 193,
+     "first": "2023-05-14 00:00",
+     "last": "2023-05-22 00:00",
+     "step_min": 60,
+     "units": "minutes since 2023-04-30",
+     "calendar": "proleptic_gregorian",
+     "raw_dtype": "float64",
+     "xarray_default_dtype": "datetime64[ns]",
+     "xarray_default_decodes_to_datetime64": true,
+     "steps_before_tstart": 0,
+     "forcing_exists_before_tstart": false,
+     "covers_tstart_to_tstop": true
+    },
+    "netamuamvfile": {
+     "file": "D:/ELKAK/ELKAK2/NHESS/runs/emilia_emsr664/model/wind_2d.nc",
+     "n": 193,
+     "first": "2023-05-14 00:00",
+     "last": "2023-05-22 00:00",
+     "step_min": 60,
+     "units": "minutes since 2023-04-30",
+     "calendar": "proleptic_gregorian",
+     "raw_dtype": "float64",
+     "xarray_default_dtype": "datetime64[ns]",
+     "xarray_default_decodes_to_datetime64": true,
+     "steps_before_tstart": 0,
+     "forcing_exists_before_tstart": false,
+     "covers_tstart_to_tstop": true
+    },
+    "disfile": {
+     "file": "D:/ELKAK/ELKAK2/NHESS/runs/emilia_emsr664/model/sfincs.dis",
+     "n_rows": 529,
+     "n_sources": 5,
+     "time_unit": "seconds since tref (sfincs.inp)",
+     "first_s": 0.0,
+     "last_s": 1900800.0,
+     "first": "2023-04-30 00:00",
+     "last": "2023-05-22 00:00",
+     "step_s": 3600.0,
+     "n_rows_before_tstart": 336,
+     "forcing_exists_before_tstart": true
+    },
+    "srcfile": {
+     "file": "D:/ELKAK/ELKAK2/NHESS/runs/emilia_emsr664/model/sfincs.src",
+     "n_points": 5
+    },
+    "bzsfile": "absent"
+   },
+   "sfincs_map_nc": {
+    "time": {
+     "file": "D:/ELKAK/ELKAK2/NHESS/runs/emilia_emsr664/model/sfincs_map.nc",
+     "n": 193,
+     "first": "2023-05-14 00:00",
+     "last": "2023-05-22 00:00",
+     "step_min": 60,
+     "units": "seconds since 2023-04-30 00:00:00",
+     "calendar": null,
+     "raw_dtype": "float32",
+     "xarray_default_dtype": "datetime64[ns]",
+     "xarray_default_decodes_to_datetime64": true
+    },
+    "timemax": {
+     "file": "D:/ELKAK/ELKAK2/NHESS/runs/emilia_emsr664/model/sfincs_map.nc",
+     "n": 8,
+     "first": "2023-05-15 00:00",
+     "last": "2023-05-22 00:00",
+     "step_min": 1440,
+     "units": "seconds since 2023-04-30 00:00:00",
+     "calendar": null,
+     "raw_dtype": "float32",
+     "xarray_default_dtype": "datetime64[ns]",
+     "xarray_default_decodes_to_datetime64": true
+    },
+    "first_output_equals_tstart": true,
+    "last_output_equals_tstop": true
+   },
+   "hydromt_log": {
+    "file": "D:/ELKAK/ELKAK2/NHESS/runs/emilia_emsr664/model/hydromt.log",
+    "sliced": {
+     "precip": false,
+     "wind": true,
+     "pressure": true
+    },
+    "slicing_tuples": {
+     "precip": null,
+     "wind": "datetime.datetime(2023, 5, 14, 0, 0), datetime.datetime(2023, 5, 22, 0, 0)",
+     "pressure": "datetime.datetime(2023, 5, 14, 0, 0), datetime.datetime(2023, 5, 22, 0, 0)"
+    },
+    "imerg_source_as_run": "C:\\Users\\vaspapa\\Desktop\\ELKAK2\\NHESS\\runs\\emilia_emsr664\\data\\imerg_emilia_romagna.nc"
+   },
+   "raw_downloads": {
+    "imerg_emilia_romagna.nc": {
+     "file": "D:/ELKAK/ELKAK2/NHESS/runs/emilia_emsr664/data/imerg_emilia_romagna.nc",
+     "n": 1057,
+     "first": "2023-04-30 00:00",
+     "last": "2023-05-22 00:00",
+     "step_min": 30,
+     "units": "seconds since 1980-01-06T00:00:00+00:00",
+     "calendar": "julian",
+     "raw_dtype": "int32",
+     "xarray_default_dtype": "object",
+     "xarray_default_decodes_to_datetime64": false,
+     "steps_before_tstart": 672,
+     "steps_in_[tref,tstart)": 672,
+     "first_equals_tref": true,
+     "last_equals_tstop": true,
+     "totals": {
+      "var": "precip",
+      "step_h": 0.5,
+      "domain_mean_mm_before_tstart": 100.53,
+      "n_steps_before_tstart": 672,
+      "domain_mean_mm_tstart_to_tstop": 96.68,
+      "n_steps_tstart_to_tstop": 384
+     }
+    },
+    "imerg_emilia_romagna.raw.nc": "absent",
+    "era5_emilia_romagna.nc": {
+     "file": "D:/ELKAK/ELKAK2/NHESS/runs/emilia_emsr664/data/era5_emilia_romagna.nc",
+     "n": 1104,
+     "first": "2023-04-01 00:00",
+     "last": "2023-05-30 23:00",
+     "step_min": [
+      60,
+      10140
+     ],
+     "units": "seconds since 1970-01-01",
+     "calendar": "proleptic_gregorian",
+     "raw_dtype": "int32",
+     "xarray_default_dtype": "datetime64[ns]",
+     "xarray_default_decodes_to_datetime64": true,
+     "steps_before_tstart": 864,
+     "steps_in_[tref,tstart)": 336,
+     "first_equals_tref": false,
+     "last_equals_tstop": false
+    },
+    "glofas_emilia_romagna_clean.nc": {
+     "file": "D:/ELKAK/ELKAK2/NHESS/runs/emilia_emsr664/data/glofas_emilia_romagna_clean.nc",
+     "n": 61,
+     "first": "2023-04-02 00:00",
+     "last": "2023-06-01 00:00",
+     "step_min": 1440,
+     "units": "seconds since 1970-01-01",
+     "calendar": "proleptic_gregorian",
+     "raw_dtype": "int32",
+     "xarray_default_dtype": "datetime64[ns]",
+     "xarray_default_decodes_to_datetime64": true,
+     "steps_before_tstart": 42,
+     "steps_in_[tref,tstart)": 14,
+     "first_equals_tref": false,
+     "last_equals_tstop": false
+    },
+    "q_outlet.csv": {
+     "file": "D:/ELKAK/ELKAK2/NHESS/runs/emilia_emsr664/data/q_outlet.csv",
+     "n": 529,
+     "first": "2023-04-30 00:00",
+     "last": "2023-05-22 00:00",
+     "n_cols": 5,
+     "first_equals_tref": true
+    }
+   },
+   "deliverable_docs": {
+    "README.md": {
+     "file": "D:/ELKAK/ELKAK2/NHESS/runs/emilia_emsr664/deliverable/README.md",
+     "pattern": "Simulation window",
+     "hits": {
+      "15": "- **Simulation window**: 2023-05-14 → 2023-05-22 UTC (7 d total, 14 d spin-up)"
+     },
+     "n_hits": 1
+    },
+    "4_docs/results.md": {
+     "file": "D:/ELKAK/ELKAK2/NHESS/runs/emilia_emsr664/deliverable/4_docs/results.md",
+     "pattern": "Spin-up|Simulation window",
+     "hits": {
+      "21": "| Simulation window | 2023-05-14 00:00:00 UTC → 2023-05-22 00:00:00 UTC (7 d) |",
+      "22": "| Spin-up | 2023-04-30 00:00:00 UTC → 2023-05-14 00:00:00 UTC (14 d) |"
+     },
+     "n_hits": 2
+    },
+    "4_docs/methodology.md": {
+     "file": "D:/ELKAK/ELKAK2/NHESS/runs/emilia_emsr664/deliverable/4_docs/methodology.md",
+     "pattern": "`tref`",
+     "hits": {
+      "12": "| `tref`  | 2023-04-30 00:00:00 | spin-up reference time (14 d before tstart) |"
+     },
+     "n_hits": 1
+    }
+   },
+   "key": "emilia"
+  }
+ },
+ "code_quotes": {
+  "_common.window_defaults": {
+   "file": "D:/ELKAK/sfincs-mediterranean-floods/.worktrees/emsr933-crete/skill/scripts/_common.py",
+   "anchor": "\"spinup_days\": int\\(w\\.get\\(\"spinup_days\"",
+   "found": true,
+   "line": 215,
+   "lines": {
+    "215": "            \"spinup_days\": int(w.get(\"spinup_days\", 1)),",
+    "216": "            \"pre_event_days\": int(w.get(\"pre_event_days\", 3)),",
+    "217": "            \"post_event_days\": int(w.get(\"post_event_days\", 3)),"
+   }
+  },
+  "_common.tref": {
+   "file": "D:/ELKAK/sfincs-mediterranean-floods/.worktrees/emsr933-crete/skill/scripts/_common.py",
+   "anchor": "def tref\\(self\\)",
+   "found": true,
+   "line": 221,
+   "lines": {
+    "221": "    def tref(self) -> dt.datetime:",
+    "222": "        w = self.window",
+    "223": "        d = self.event_date - dt.timedelta(days=w[\"pre_event_days\"] + w[\"spinup_days\"])",
+    "224": "        return dt.datetime.combine(d, dt.time())"
+   }
+  },
+  "_common.tstart": {
+   "file": "D:/ELKAK/sfincs-mediterranean-floods/.worktrees/emsr933-crete/skill/scripts/_common.py",
+   "anchor": "def tstart\\(self\\)",
+   "found": true,
+   "line": 227,
+   "lines": {
+    "227": "    def tstart(self) -> dt.datetime:",
+    "228": "        w = self.window",
+    "229": "        d = self.event_date - dt.timedelta(days=w[\"pre_event_days\"])",
+    "230": "        return dt.datetime.combine(d, dt.time())"
+   }
+  },
+  "_common.tstop": {
+   "file": "D:/ELKAK/sfincs-mediterranean-floods/.worktrees/emsr933-crete/skill/scripts/_common.py",
+   "anchor": "def tstop\\(self\\)",
+   "found": true,
+   "line": 233,
+   "lines": {
+    "233": "    def tstop(self) -> dt.datetime:",
+    "234": "        # tstop is midnight at the START of the day after the last simulated",
+    "235": "        # day. With post_event_days=3 and event=03-31, the sim covers 03-31,",
+    "236": "        # 04-01, 04-02, 04-03 — so tstop = 04-04 00:00.",
+    "237": "        w = self.window",
+    "238": "        d = self.event_date + dt.timedelta(days=w[\"post_event_days\"] + 1)",
+    "239": "        return dt.datetime.combine(d, dt.time())"
+   }
+  },
+  "template.setup_config": {
+   "file": "D:/ELKAK/sfincs-mediterranean-floods/.worktrees/emsr933-crete/skill/templates/sfincs_build.yml.tmpl",
+   "anchor": "^setup_config:",
+   "found": true,
+   "line": 1,
+   "lines": {
+    "1": "setup_config:",
+    "2": "  tref: $tref",
+    "3": "  tstart: $tstart",
+    "4": "  tstop: $tstop"
+   }
+  },
+  "template.zsini": {
+   "file": "D:/ELKAK/sfincs-mediterranean-floods/.worktrees/emsr933-crete/skill/templates/sfincs_build.yml.tmpl",
+   "anchor": "^\\s*zsini:",
+   "found": true,
+   "line": 12,
+   "lines": {
+    "12": "  zsini: 0"
+   }
+  },
+  "build_model.render": {
+   "file": "D:/ELKAK/sfincs-mediterranean-floods/.worktrees/emsr933-crete/skill/scripts/build_model.py",
+   "anchor": "\"tref\": cfg\\.tref\\.strftime",
+   "found": true,
+   "line": 114,
+   "lines": {
+    "114": "        \"tref\": cfg.tref.strftime(\"%Y%m%d %H%M%S\"),",
+    "115": "        \"tstart\": cfg.tstart.strftime(\"%Y%m%d %H%M%S\"),",
+    "116": "        \"tstop\": cfg.tstop.strftime(\"%Y%m%d %H%M%S\"),"
+   }
+  },
+  "build_model.dis_from_tref": {
+   "file": "D:/ELKAK/sfincs-mediterranean-floods/.worktrees/emsr933-crete/skill/scripts/build_model.py",
+   "anchor": "tref = cfg\\.tref",
+   "found": true,
+   "line": 89,
+   "lines": {
+    "89": "    tref = cfg.tref",
+    "90": "    dis_path = model_dir / \"sfincs.dis\"",
+    "91": "    with open(dis_path, \"w\") as f:",
+    "92": "        for ts, row in df.iterrows():",
+    "93": "            t_sec = (ts.to_pydatetime() - tref).total_seconds()"
+   }
+  },
+  "prep_q.hours_tref_tstop": {
+   "file": "D:/ELKAK/sfincs-mediterranean-floods/.worktrees/emsr933-crete/skill/scripts/prep_q_at_outlets.py",
+   "anchor": "pd\\.date_range\\(cfg\\.tref, cfg\\.tstop",
+   "found": true,
+   "line": 70,
+   "lines": {
+    "70": "    hours = pd.date_range(cfg.tref, cfg.tstop, freq=\"h\")"
+   }
+  },
+  "download_imerg.window": {
+   "file": "D:/ELKAK/sfincs-mediterranean-floods/.worktrees/emsr933-crete/skill/scripts/download_imerg.py",
+   "anchor": "t0 = cfg\\.tref\\.isoformat\\(\\)",
+   "found": true,
+   "line": 67,
+   "lines": {
+    "67": "    t0 = cfg.tref.isoformat()",
+    "68": "    t1 = cfg.tstop.isoformat()"
+   }
+  },
+  "download_era5.window": {
+   "file": "D:/ELKAK/sfincs-mediterranean-floods/.worktrees/emsr933-crete/skill/scripts/download_era5.py",
+   "anchor": "cur = cfg\\.tref",
+   "found": true,
+   "line": 26,
+   "lines": {
+    "26": "    cur = cfg.tref",
+    "27": "    while cur <= cfg.tstop:"
+   }
+  },
+  "download_glofas.window": {
+   "file": "D:/ELKAK/sfincs-mediterranean-floods/.worktrees/emsr933-crete/skill/scripts/download_glofas.py",
+   "anchor": "cfg\\.tref\\.year",
+   "found": true,
+   "line": 40,
+   "lines": {
+    "40": "    years = sorted({cfg.tref.year, cfg.tstop.year})",
+    "41": "    months = sorted({f\"{cfg.tref.month:02d}\", f\"{cfg.tstop.month:02d}\"})"
+   }
+  },
+  "package_deliverable.spinup_fields": {
+   "file": "D:/ELKAK/sfincs-mediterranean-floods/.worktrees/emsr933-crete/skill/scripts/package_deliverable.py",
+   "anchor": "\"tref\": cfg\\.tref\\.strftime",
+   "found": true,
+   "line": 123,
+   "lines": {
+    "123": "        \"tref\": cfg.tref.strftime(\"%Y-%m-%d %H:%M:%S\"),",
+    "124": "        \"tstart\": cfg.tstart.strftime(\"%Y-%m-%d %H:%M:%S\"),",
+    "125": "        \"tstop\": cfg.tstop.strftime(\"%Y-%m-%d %H:%M:%S\"),",
+    "126": "        \"tstart_str\": cfg.tstart.strftime(\"%Y-%m-%d\"),",
+    "127": "        \"tstop_str\": cfg.tstop.strftime(\"%Y-%m-%d\"),",
+    "128": "        \"spinup_days\": cfg.window[\"spinup_days\"],"
+   }
+  },
+  "bias_correct_imerg.time_reencode": {
+   "file": "D:/ELKAK/sfincs-mediterranean-floods/.worktrees/emsr933-crete/skill/scripts/bias_correct_imerg.py",
+   "anchor": "calendar=julian",
+   "found": true,
+   "line": 138,
+   "lines": {
+    "137": "    # Convert times to numpy datetime64 with proleptic_gregorian calendar",
+    "138": "    # to prevent SFINCS from misinterpreting (cf. precip_2d.nc calendar=julian",
+    "139": "    # caused 13-day offset, suppressing all rainfall in the simulation window)."
+   }
+  },
+  "bias_correct_imerg.encoding": {
+   "file": "D:/ELKAK/sfincs-mediterranean-floods/.worktrees/emsr933-crete/skill/scripts/bias_correct_imerg.py",
+   "anchor": "\"calendar\": \"proleptic_gregorian\"",
+   "found": true,
+   "line": 165,
+   "lines": {
+    "164": "    encoding = {\"time\": {\"units\": \"minutes since 2017-01-01 00:00:00\",",
+    "165": "                          \"calendar\": \"proleptic_gregorian\","
+   }
+  },
+  "hydromt_sfincs.get_model_time": {
+   "file": "C:/Users/dvalsamis/AppData/Local/anaconda3/envs/sfincs-viz/Lib/site-packages/hydromt_sfincs/sfincs.py",
+   "anchor": "def get_model_time\\(self\\)",
+   "found": true,
+   "line": 3825,
+   "lines": {
+    "3825": "    def get_model_time(self):",
+    "3826": "        \"\"\"Return (tstart, tstop) tuple with parsed model start and end time\"\"\"",
+    "3827": "        tstart = utils.parse_datetime(self.config[\"tstart\"])",
+    "3828": "        tstop = utils.parse_datetime(self.config[\"tstop\"])",
+    "3829": "        return tstart, tstop"
+   }
+  },
+  "hydromt_sfincs.precip_time_tuple": {
+   "file": "C:/Users/dvalsamis/AppData/Local/anaconda3/envs/sfincs-viz/Lib/site-packages/hydromt_sfincs/sfincs.py",
+   "anchor": "time_tuple=self\\.get_model_time\\(\\)",
+   "found": true,
+   "line": 2377,
+   "lines": {
+    "2373": "        precip = self.data_catalog.get_rasterdataset(",
+    "2374": "            precip,",
+    "2375": "            bbox=self.bbox,",
+    "2376": "            buffer=2,",
+    "2377": "            time_tuple=self.get_model_time(),"
+   }
+  },
+  "hydromt_sfincs.precip_cumulative": {
+   "file": "C:/Users/dvalsamis/AppData/Local/anaconda3/envs/sfincs-viz/Lib/site-packages/hydromt_sfincs/sfincs.py",
+   "anchor": "precip = precip / \\(time_interval / 3600\\)",
+   "found": true,
+   "line": 2395,
+   "lines": {
+    "2393": "        if cumulative_input:",
+    "2394": "            # convert to mm/hr by dividing by the time interval in seconds",
+    "2395": "            precip = precip / (time_interval / 3600)"
+   }
+  },
+  "hydromt_sfincs.tspinup_default": {
+   "file": "C:/Users/dvalsamis/AppData/Local/anaconda3/envs/sfincs-viz/Lib/site-packages/hydromt_sfincs/sfincs_input.py",
+   "anchor": "self\\.tspinup = 0\\.0",
+   "found": true,
+   "line": 26,
+   "lines": {
+    "26": "        self.tspinup = 0.0"
+   }
+  },
+  "hydromt.slice_condition": {
+   "file": "C:/Users/dvalsamis/AppData/Local/anaconda3/envs/sfincs-viz/Lib/site-packages/hydromt/data_adapter/rasterdataset.py",
+   "anchor": "def _slice_temporal_dimension",
+   "found": true,
+   "line": 561,
+   "lines": {
+    "561": "    def _slice_temporal_dimension(",
+    "562": "        ds: Data,",
+    "563": "        time_tuple: Optional[TimeRange],",
+    "564": "        logger: Logger = logger,",
+    "565": "    ):",
+    "566": "        if (",
+    "567": "            \"time\" in ds.dims",
+    "568": "            and ds[\"time\"].size > 1",
+    "569": "            and np.issubdtype(ds[\"time\"].dtype, np.datetime64)",
+    "570": "        ):",
+    "571": "            if time_tuple is not None:",
+    "572": "                logger.debug(f\"Slicing time dim {time_tuple}\")",
+    "573": "                ds = ds.sel({\"time\": slice(*time_tuple)})",
+    "574": "        if has_no_data(ds):"
+   }
+  },
+  "hydromt_sfincs.dir": "C:/Users/dvalsamis/AppData/Local/anaconda3/envs/sfincs-viz/Lib/site-packages/hydromt_sfincs",
+  "hydromt.dir": "C:/Users/dvalsamis/AppData/Local/anaconda3/envs/sfincs-viz/Lib/site-packages/hydromt"
+ },
+ "manuscript": {
+  "file": "D:/ELKAK/manuscript/text/paper_v5_text.txt",
+  "pattern": "Spin-up \\(d\\)|uses an antecedent spin-up|7-day spin-up|1-day spin-up",
+  "hits": {
+   "53": "Spin-up (d) | 1 | 7 | 7",
+   "73": "Where upstream inflow drives a substantial part of the inundation we inject daily GloFAS-v4 reanalysis discharge (Harrigan et al. 2020) at named point sources, interpolated to the model clock: enabled for Pineios (four inflow points) and Strymonas (two, at the Kerkini outlet and Angitis), disabled for Mandra, whose ~10 km² sub-catchments fall below the GloFAS grid. Each run uses an antecedent spin-up — 1 d for the single-burst Mandra event, 7 d for Pineios and Strymonas — the longer window wetting the unsaturated zone so the curve-number response reflects catchment wetness at onset, essential for Storm Daniel's high antecedent runoff coefficients Dimitriou et al. 2024.",
+   "92": "EMS validation uses the wide-Thessaly configuration (the event is in Section 2.3): a 98 × 80 km domain at 150-m base grid with 4× sub-grid (37.5 m effective), 262,465 active cells to zmax = 400 m, with water-level boundary cells at the Thermaikos outlet (inverse-barometer ~25 cm). The run uses all five upgrades: gauge-bias-corrected IMERG (resolving the embedded Pelion convection ERA5 smooths); ERA5 wind and pressure; SCS-CN with AMC-II→III scaling for the saturated post-August soil; and GloFAS-v4 discharge at four reach points. The GloFAS-v4 reanalysis at these reaches peaks ~3580 m³ s⁻¹, ~50–80% above the ~1900–2300 m³ s⁻¹ observed at Larissa (Dimitriou et al. 2024) (a documented medicane over-prediction); the canonical run, however, injected a near-constant placeholder series at these points, and an audit re-run with the full time-varying GloFAS series (peak 118 m³ s⁻¹ at the lowest-zb channel cell; Appendix B) returned identical headline metrics — confirming the Pineios flood is rainfall-dominated and the edge-cell inflows are negligible against the in-domain runoff. A 7-day spin-up wets the basin to the high antecedent runoff coefficients of Dimitriou et al. 2024 (simulation 03–11 September).",
+   "125": "The domain spans ~26 × 28 km on a 569 × 542 grid at 50 m (162,335 active cells), with 4 × 4 sub-grid sampling giving 12.5 m effective resolution — enough to capture the central Mandra street geometry to first order without a dual-drainage solver. Three upgrades are applied over the baseline rain-on-grid run: gauge-bias-corrected IMERG Final V07 precipitation; ERA5 wind and pressure (a ~5 cm inverse-barometer term at the Saronic boundary, kept for protocol consistency); and SCS-CN disabled. The bias correction is essential — over the 14–15 November window the raw IMERG watershed-mean total is only ~23 mm against the gauge-based 158–300 mm, the convective core being sub-grid at the 0.1° (~11 km) IMERG resolution; a ×8.55 factor over that window scales it to 200 mm, after which the peak intensity (~44 mm h⁻¹, maximum-cell ~109 mm h⁻¹) agrees with radar (Lagouvardos et al. 2017). Infiltration is disabled per the Appendix A sweep — any non-zero CN absorbs the rainfall and suppresses the flood, while the post-fire catchment is near-impervious. GloFAS is not injected; the simulation covers 13–18 November after a 1-day spin-up.",
+   "154": "The domain spans ~100 × 90 km on a 611 × 690 grid at 150 m (Table 2), with a ~4666 km² active mask from below Kerkini to the gulf and along the Angitis. Enhanced forcing combines all five upgrades: IMERG precipitation; ERA5 wind and pressure with the inverse-barometer term at the gulf boundary; SCS-CN infiltration (HSG-B, AMC-II) with a 7-day spin-up; and GloFAS-v4 discharge at two inflow points — the Kerkini outlet capturing the spillway release and the Angitis confluence."
+  },
+  "n_hits": 5
+ },
+ "manual": {
+  "pdf": "D:/ELKAK/implementation/SFINCS_bin/SFINCS_v2.3.0_mt_Faber_release_manual_report.pdf",
+  "pdf_exists": true,
+  "pdftotext": "C:\\Program Files\\Git\\mingw64\\bin\\pdftotext.EXE",
+  "method": "pdftotext -layout run in this session (temp file deleted)",
+  "quotes": {
+   "time_management": {
+    "found": true,
+    "line": 1749,
+    "text": "The required model runtime can be specified by setting a reference date (tref), start date (tstart) and stop date (tstop)."
+   },
+   "tref": {
+    "found": true,
+    "line": 3467,
+    "text": "Reference date in `yyyymmdd HHMMSS'"
+   },
+   "tstart": {
+    "found": true,
+    "line": 3475,
+    "text": "Start date in `yyyymmdd HHMMSS'"
+   },
+   "tstop": {
+    "found": true,
+    "line": 3483,
+    "text": "Stop date in `yyyymmdd HHMMSS'"
+   },
+   "tspinup": {
+    "found": true,
+    "line": 3314,
+    "text": "Duration of spinup period after tstart, where the water level variation at the boundary is dampened, between values in the `bzsfile' input and the value of `zsini' (even if using rstfile as initial condition)"
+   },
+   "spinup_meteo": {
+    "found": true,
+    "line": 3333,
+    "text": "Option to also apply spinup to the meteo forcing, default is off (0)"
+   },
+   "zsini": {
+    "found": true,
+    "line": 2966,
+    "text": "Initial water level in entire domain - where above bed level."
+   },
+   "dis_time_ref": {
+    "found": true,
+    "line": 2020,
+    "text": "Then in the file `sfincs.dis' the discharge time-series are specified per input location. Times are specified in seconds with respect to SFINCS' internal reference time `tref', as specified in sfincs.inp."
+   },
+   "rain_time_ref": {
+    "found": true,
+    "line": 2290,
+    "text": "Rain input in mm/hr, times are specified in seconds with respect to SFINCS' internal reference time `tref', as specified in sfincs.inp."
+   },
+   "restart_spinup": {
+    "found": true,
+    "line": 1723,
+    "text": "In order to run SFINCS without spinup of water levels in a subsequent simulation, the waterlevels at the final time step of the former can be saved as binary-file using either the specification of a specific time you want to have the restartfile"
+   }
+  }
+ },
+ "files_read": {
+  "C:/Users/dvalsamis/AppData/Local/anaconda3/envs/sfincs-viz/Lib/site-packages/hydromt/data_adapter/rasterdataset.py": {
+   "bytes": 38143,
+   "mtime": "2025-02-27T11:13:31"
+  },
+  "C:/Users/dvalsamis/AppData/Local/anaconda3/envs/sfincs-viz/Lib/site-packages/hydromt_sfincs/sfincs.py": {
+   "bytes": 171668,
+   "mtime": "2025-12-02T16:12:40"
+  },
+  "C:/Users/dvalsamis/AppData/Local/anaconda3/envs/sfincs-viz/Lib/site-packages/hydromt_sfincs/sfincs_input.py": {
+   "bytes": 6410,
+   "mtime": "2025-12-02T16:12:40"
+  },
+  "D:/ELKAK/ELKAK2/NHESS/runs/emilia_emsr664/data/era5_emilia_romagna.nc": {
+   "bytes": 859300,
+   "mtime": "2026-07-15T16:28:56"
+  },
+  "D:/ELKAK/ELKAK2/NHESS/runs/emilia_emsr664/data/glofas_emilia_romagna_clean.nc": {
+   "bytes": 240588,
+   "mtime": "2026-07-15T16:28:57"
+  },
+  "D:/ELKAK/ELKAK2/NHESS/runs/emilia_emsr664/data/imerg_emilia_romagna.nc": {
+   "bytes": 1152813,
+   "mtime": "2026-07-15T16:28:50"
+  },
+  "D:/ELKAK/ELKAK2/NHESS/runs/emilia_emsr664/data/q_outlet.csv": {
+   "bytes": 32459,
+   "mtime": "2026-07-15T16:29:02"
+  },
+  "D:/ELKAK/ELKAK2/NHESS/runs/emilia_emsr664/deliverable/4_docs/methodology.md": {
+   "bytes": 3695,
+   "mtime": "2026-07-15T16:49:09"
+  },
+  "D:/ELKAK/ELKAK2/NHESS/runs/emilia_emsr664/deliverable/4_docs/results.md": {
+   "bytes": 4121,
+   "mtime": "2026-07-15T16:49:09"
+  },
+  "D:/ELKAK/ELKAK2/NHESS/runs/emilia_emsr664/deliverable/README.md": {
+   "bytes": 2825,
+   "mtime": "2026-07-15T16:49:09"
+  },
+  "D:/ELKAK/ELKAK2/NHESS/runs/emilia_emsr664/model/hydromt.log": {
+   "bytes": 11710,
+   "mtime": "2026-07-15T16:30:22"
+  },
+  "D:/ELKAK/ELKAK2/NHESS/runs/emilia_emsr664/model/precip_2d.nc": {
+   "bytes": 983615,
+   "mtime": "2026-07-15T16:30:21"
+  },
+  "D:/ELKAK/ELKAK2/NHESS/runs/emilia_emsr664/model/press_2d.nc": {
+   "bytes": 68365,
+   "mtime": "2026-07-15T16:30:21"
+  },
+  "D:/ELKAK/ELKAK2/NHESS/runs/emilia_emsr664/model/sfincs.dis": {
+   "bytes": 23067,
+   "mtime": "2026-07-15T16:30:25"
+  },
+  "D:/ELKAK/ELKAK2/NHESS/runs/emilia_emsr664/model/sfincs.inp": {
+   "bytes": 1614,
+   "mtime": "2026-07-15T16:30:25"
+  },
+  "D:/ELKAK/ELKAK2/NHESS/runs/emilia_emsr664/model/sfincs.src": {
+   "bytes": 115,
+   "mtime": "2026-07-15T16:30:24"
+  },
+  "D:/ELKAK/ELKAK2/NHESS/runs/emilia_emsr664/model/sfincs_map.nc": {
+   "bytes": 184131117,
+   "mtime": "2026-07-15T16:43:00"
+  },
+  "D:/ELKAK/ELKAK2/NHESS/runs/emilia_emsr664/model/wind_2d.nc": {
+   "bytes": 112177,
+   "mtime": "2026-07-15T16:30:22"
+  },
+  "D:/ELKAK/ELKAK2/NHESS/runs/emilia_emsr664/sfincs_build.yml": {
+   "bytes": 1127,
+   "mtime": "2026-07-15T16:29:03"
+  },
+  "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/data/era5_valencia.nc": {
+   "bytes": 282812,
+   "mtime": "2026-07-15T15:37:48"
+  },
+  "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/data/glofas_valencia_clean.nc": {
+   "bytes": 200036,
+   "mtime": "2026-07-15T15:37:48"
+  },
+  "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/data/imerg_valencia.nc": {
+   "bytes": 367080,
+   "mtime": "2026-07-15T20:28:49"
+  },
+  "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/data/imerg_valencia.raw.nc": {
+   "bytes": 369614,
+   "mtime": "2026-07-15T20:28:49"
+  },
+  "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/data/q_outlet.csv": {
+   "bytes": 10421,
+   "mtime": "2026-07-15T15:37:54"
+  },
+  "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/deliverable/4_docs/methodology.md": {
+   "bytes": 3654,
+   "mtime": "2026-07-15T16:10:08"
+  },
+  "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/deliverable/4_docs/results.md": {
+   "bytes": 4112,
+   "mtime": "2026-07-15T16:10:08"
+  },
+  "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/deliverable/README.md": {
+   "bytes": 2802,
+   "mtime": "2026-07-15T16:10:08"
+  },
+  "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/model/hydromt.log": {
+   "bytes": 11669,
+   "mtime": "2026-07-15T20:30:49"
+  },
+  "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/model/precip_2d.nc": {
+   "bytes": 193372,
+   "mtime": "2026-07-15T20:30:49"
+  },
+  "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/model/press_2d.nc": {
+   "bytes": 50865,
+   "mtime": "2026-07-15T20:30:49"
+  },
+  "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/model/sfincs.dis": {
+   "bytes": 5538,
+   "mtime": "2026-07-15T20:30:52"
+  },
+  "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/model/sfincs.inp": {
+   "bytes": 1614,
+   "mtime": "2026-07-15T20:30:52"
+  },
+  "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/model/sfincs.src": {
+   "bytes": 69,
+   "mtime": "2026-07-15T20:30:52"
+  },
+  "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/model/sfincs_map.nc": {
+   "bytes": 179898560,
+   "mtime": "2026-07-15T20:59:19"
+  },
+  "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/model/wind_2d.nc": {
+   "bytes": 77177,
+   "mtime": "2026-07-15T20:30:49"
+  },
+  "D:/ELKAK/ELKAK2/NHESS/runs/valencia_emsr773/sfincs_build.yml": {
+   "bytes": 1126,
+   "mtime": "2026-07-15T20:29:18"
+  },
+  "D:/ELKAK/deliverables/bundles/deliverable_daniel_emsr692_enhanced/4_docs/methodology.md": {
+   "bytes": 3678,
+   "mtime": "2026-05-27T19:59:46"
+  },
+  "D:/ELKAK/deliverables/bundles/deliverable_daniel_emsr692_enhanced/4_docs/results.md": {
+   "bytes": 4142,
+   "mtime": "2026-05-27T19:59:46"
+  },
+  "D:/ELKAK/deliverables/bundles/deliverable_daniel_emsr692_enhanced/README.md": {
+   "bytes": 2789,
+   "mtime": "2026-05-27T19:59:46"
+  },
+  "D:/ELKAK/deliverables/bundles/deliverable_mandra_emsr257_enhanced/4_docs/methodology.md": {
+   "bytes": 3661,
+   "mtime": "2026-05-26T22:03:32"
+  },
+  "D:/ELKAK/deliverables/bundles/deliverable_mandra_emsr257_enhanced/4_docs/results.md": {
+   "bytes": 4128,
+   "mtime": "2026-05-26T22:03:32"
+  },
+  "D:/ELKAK/deliverables/bundles/deliverable_mandra_emsr257_enhanced/README.md": {
+   "bytes": 2800,
+   "mtime": "2026-05-26T22:03:32"
+  },
+  "D:/ELKAK/deliverables/bundles/deliverable_strymonas_emsr122_enhanced/4_docs/methodology.md": {
+   "bytes": 3711,
+   "mtime": "2026-05-27T19:29:18"
+  },
+  "D:/ELKAK/deliverables/bundles/deliverable_strymonas_emsr122_enhanced/4_docs/results.md": {
+   "bytes": 4158,
+   "mtime": "2026-05-27T19:29:18"
+  },
+  "D:/ELKAK/deliverables/bundles/deliverable_strymonas_emsr122_enhanced/README.md": {
+   "bytes": 2817,
+   "mtime": "2026-05-27T19:29:18"
+  },
+  "D:/ELKAK/implementation/SFINCS_bin/SFINCS_v2.3.0_mt_Faber_release_manual_report.pdf": {
+   "bytes": 39094464,
+   "mtime": "2025-11-19T15:35:14"
+  },
+  "D:/ELKAK/implementation/emsr122_sfincs_v3/data/era5_strymonas.nc": {
+   "bytes": 237108,
+   "mtime": "2026-06-19T12:48:43"
+  },
+  "D:/ELKAK/implementation/emsr122_sfincs_v3/data/glofas_strymonas_clean.nc": {
+   "bytes": 190756,
+   "mtime": "2026-06-19T14:33:11"
+  },
+  "D:/ELKAK/implementation/emsr122_sfincs_v3/data/imerg_strymonas.nc": {
+   "bytes": 543795,
+   "mtime": "2026-05-27T19:20:54"
+  },
+  "D:/ELKAK/implementation/emsr122_sfincs_v3/data/q_outlet.csv": {
+   "bytes": 12804,
+   "mtime": "2026-06-19T12:49:09"
+  },
+  "D:/ELKAK/implementation/emsr122_sfincs_v3/model_author_ref/hydromt.log": {
+   "bytes": 12283,
+   "mtime": "2026-05-27T23:11:30"
+  },
+  "D:/ELKAK/implementation/emsr122_sfincs_v3/model_author_ref/precip_2d.nc": {
+   "bytes": 594556,
+   "mtime": "2026-05-27T23:11:30"
+  },
+  "D:/ELKAK/implementation/emsr122_sfincs_v3/model_author_ref/press_2d.nc": {
+   "bytes": 79209,
+   "mtime": "2026-05-27T23:11:30"
+  },
+  "D:/ELKAK/implementation/emsr122_sfincs_v3/model_author_ref/sfincs.dis": {
+   "bytes": 7776,
+   "mtime": "2026-05-27T23:11:30"
+  },
+  "D:/ELKAK/implementation/emsr122_sfincs_v3/model_author_ref/sfincs.inp": {
+   "bytes": 1621,
+   "mtime": "2026-05-27T23:11:30"
+  },
+  "D:/ELKAK/implementation/emsr122_sfincs_v3/model_author_ref/sfincs.src": {
+   "bytes": 44,
+   "mtime": "2026-05-27T23:11:44"
+  },
+  "D:/ELKAK/implementation/emsr122_sfincs_v3/model_author_ref/sfincs_map.nc": {
+   "bytes": 5843037,
+   "mtime": "2026-05-27T23:14:00"
+  },
+  "D:/ELKAK/implementation/emsr122_sfincs_v3/model_author_ref/wind_2d.nc": {
+   "bytes": 85193,
+   "mtime": "2026-05-27T23:11:30"
+  },
+  "D:/ELKAK/implementation/emsr122_sfincs_v3/sfincs_build.yml": {
+   "bytes": 1138,
+   "mtime": "2026-06-19T12:49:09"
+  },
+  "D:/ELKAK/implementation/mandra_sfincs_enhanced/data/era5_mandra.nc": {
+   "bytes": 31812,
+   "mtime": "2026-06-19T13:17:16"
+  },
+  "D:/ELKAK/implementation/mandra_sfincs_enhanced/data/glofas_mandra_clean.nc": {
+   "bytes": 24848,
+   "mtime": "2026-06-19T13:17:16"
+  },
+  "D:/ELKAK/implementation/mandra_sfincs_enhanced/data/imerg_mandra.nc": {
+   "bytes": 77996,
+   "mtime": "2026-06-22T16:37:05"
+  },
+  "D:/ELKAK/implementation/mandra_sfincs_enhanced/data/imerg_mandra.raw.nc": {
+   "bytes": 81298,
+   "mtime": "2026-05-26T20:34:26"
+  },
+  "D:/ELKAK/implementation/mandra_sfincs_enhanced/model_author_ref/hydromt.log": {
+   "bytes": 11833,
+   "mtime": "2026-05-26T21:48:06"
+  },
+  "D:/ELKAK/implementation/mandra_sfincs_enhanced/model_author_ref/precip_2d.nc": {
+   "bytes": 64093,
+   "mtime": "2026-05-26T21:48:06"
+  },
+  "D:/ELKAK/implementation/mandra_sfincs_enhanced/model_author_ref/press_2d.nc": {
+   "bytes": 39249,
+   "mtime": "2026-05-26T21:48:06"
+  },
+  "D:/ELKAK/implementation/mandra_sfincs_enhanced/model_author_ref/sfincs.inp": {
+   "bytes": 1568,
+   "mtime": "2026-05-26T21:48:06"
+  },
+  "D:/ELKAK/implementation/mandra_sfincs_enhanced/model_author_ref/sfincs_map.nc": {
+   "bytes": 59521254,
+   "mtime": "2026-05-26T22:02:38"
+  },
+  "D:/ELKAK/implementation/mandra_sfincs_enhanced/model_author_ref/wind_2d.nc": {
+   "bytes": 45233,
+   "mtime": "2026-05-26T21:48:06"
+  },
+  "D:/ELKAK/implementation/mandra_sfincs_enhanced/sfincs_build.yml": {
+   "bytes": 1095,
+   "mtime": "2026-06-19T13:17:18"
+  },
+  "D:/ELKAK/implementation/pineios_sfincs_enhanced/data/era5_pineios.nc": {
+   "bytes": 426612,
+   "mtime": "2026-06-19T12:52:26"
+  },
+  "D:/ELKAK/implementation/pineios_sfincs_enhanced/data/glofas_pineios_clean.nc": {
+   "bytes": 13452,
+   "mtime": "2026-06-19T12:52:26"
+  },
+  "D:/ELKAK/implementation/pineios_sfincs_enhanced/data/imerg_pineios.nc": {
+   "bytes": 532392,
+   "mtime": "2026-06-22T17:47:33"
+  },
+  "D:/ELKAK/implementation/pineios_sfincs_enhanced/data/imerg_pineios.raw.nc": {
+   "bytes": 534463,
+   "mtime": "2026-05-27T20:38:02"
+  },
+  "D:/ELKAK/implementation/pineios_sfincs_enhanced/data/q_outlet.csv": {
+   "bytes": 35031,
+   "mtime": "2026-06-19T12:52:27"
+  },
+  "D:/ELKAK/implementation/pineios_sfincs_enhanced/model_author_ref/hydromt.log": {
+   "bytes": 11849,
+   "mtime": "2026-05-27T20:47:40"
+  },
+  "D:/ELKAK/implementation/pineios_sfincs_enhanced/model_author_ref/precip_2d.nc": {
+   "bytes": 320888,
+   "mtime": "2026-05-27T20:47:40"
+  },
+  "D:/ELKAK/implementation/pineios_sfincs_enhanced/model_author_ref/press_2d.nc": {
+   "bytes": 86121,
+   "mtime": "2026-05-27T20:47:40"
+  },
+  "D:/ELKAK/implementation/pineios_sfincs_enhanced/model_author_ref/sfincs.dis": {
+   "bytes": 13045,
+   "mtime": "2026-05-27T20:47:42"
+  },
+  "D:/ELKAK/implementation/pineios_sfincs_enhanced/model_author_ref/sfincs.inp": {
+   "bytes": 1614,
+   "mtime": "2026-05-27T20:47:42"
+  },
+  "D:/ELKAK/implementation/pineios_sfincs_enhanced/model_author_ref/sfincs.src": {
+   "bytes": 92,
+   "mtime": "2026-05-27T20:47:42"
+  },
+  "D:/ELKAK/implementation/pineios_sfincs_enhanced/model_author_ref/sfincs_map.nc": {
+   "bytes": 136916034,
+   "mtime": "2026-05-27T21:08:52"
+  },
+  "D:/ELKAK/implementation/pineios_sfincs_enhanced/model_author_ref/wind_2d.nc": {
+   "bytes": 92105,
+   "mtime": "2026-05-27T20:47:40"
+  },
+  "D:/ELKAK/implementation/pineios_sfincs_enhanced/sfincs_build.yml": {
+   "bytes": 1099,
+   "mtime": "2026-06-19T12:52:28"
+  },
+  "D:/ELKAK/manuscript/text/paper_v5_text.txt": {
+   "bytes": 88480,
+   "mtime": "2026-06-19T14:03:28"
+  },
+  "D:/ELKAK/sfincs-mediterranean-floods/.worktrees/emsr933-crete/skill/examples/emsr122_strymonas_enhanced.yaml": {
+   "bytes": 3920,
+   "mtime": "2026-10-09T15:40:33"
+  },
+  "D:/ELKAK/sfincs-mediterranean-floods/.worktrees/emsr933-crete/skill/examples/emsr257_mandra_enhanced.yaml": {
+   "bytes": 5388,
+   "mtime": "2026-10-09T15:40:33"
+  },
+  "D:/ELKAK/sfincs-mediterranean-floods/.worktrees/emsr933-crete/skill/examples/emsr664_emilia_romagna_enhanced.yaml": {
+   "bytes": 3326,
+   "mtime": "2026-10-09T15:40:33"
+  },
+  "D:/ELKAK/sfincs-mediterranean-floods/.worktrees/emsr933-crete/skill/examples/emsr692_pineios_enhanced.yaml": {
+   "bytes": 6121,
+   "mtime": "2026-10-09T15:40:33"
+  },
+  "D:/ELKAK/sfincs-mediterranean-floods/.worktrees/emsr933-crete/skill/examples/emsr773_valencia_enhanced.yaml": {
+   "bytes": 4143,
+   "mtime": "2026-10-09T15:40:33"
+  },
+  "D:/ELKAK/sfincs-mediterranean-floods/.worktrees/emsr933-crete/skill/scripts/_common.py": {
+   "bytes": 19598,
+   "mtime": "2026-10-09T16:24:10"
+  },
+  "D:/ELKAK/sfincs-mediterranean-floods/.worktrees/emsr933-crete/skill/scripts/bias_correct_imerg.py": {
+   "bytes": 7496,
+   "mtime": "2026-10-09T15:40:33"
+  },
+  "D:/ELKAK/sfincs-mediterranean-floods/.worktrees/emsr933-crete/skill/scripts/build_model.py": {
+   "bytes": 5851,
+   "mtime": "2026-10-09T15:40:33"
+  },
+  "D:/ELKAK/sfincs-mediterranean-floods/.worktrees/emsr933-crete/skill/scripts/download_era5.py": {
+   "bytes": 2271,
+   "mtime": "2026-10-09T15:40:33"
+  },
+  "D:/ELKAK/sfincs-mediterranean-floods/.worktrees/emsr933-crete/skill/scripts/download_glofas.py": {
+   "bytes": 2167,
+   "mtime": "2026-10-09T15:40:33"
+  },
+  "D:/ELKAK/sfincs-mediterranean-floods/.worktrees/emsr933-crete/skill/scripts/download_imerg.py": {
+   "bytes": 5975,
+   "mtime": "2026-10-09T16:24:14"
+  },
+  "D:/ELKAK/sfincs-mediterranean-floods/.worktrees/emsr933-crete/skill/scripts/package_deliverable.py": {
+   "bytes": 10937,
+   "mtime": "2026-10-09T15:40:33"
+  },
+  "D:/ELKAK/sfincs-mediterranean-floods/.worktrees/emsr933-crete/skill/scripts/prep_q_at_outlets.py": {
+   "bytes": 3840,
+   "mtime": "2026-10-09T15:40:33"
+  },
+  "D:/ELKAK/sfincs-mediterranean-floods/.worktrees/emsr933-crete/skill/templates/sfincs_build.yml.tmpl": {
+   "bytes": 1001,
+   "mtime": "2026-10-09T15:40:33"
+  }
+ },
+ "quote_anchors_not_found": []
+}

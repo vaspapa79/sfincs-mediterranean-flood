@@ -1,0 +1,4678 @@
+{
+ "generated": "2026-10-09T16:37:34",
+ "script": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\emsr933\\f5\\f5_d_volume.py",
+ "python": "3.11.15",
+ "numpy": "2.4.6",
+ "netCDF4": "1.7.4",
+ "files_read": [
+  {
+   "path": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\model_author_ref\\sfincs.inp",
+   "exists": true,
+   "size_bytes": 1614,
+   "mtime": "2026-05-27T20:47:42",
+   "sha256": "b2b5a0ae94f7596b30f0d16bb48d24de4660927f2887c112c05f4e61a7236dad"
+  },
+  {
+   "path": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\model_author_ref\\precip_2d.nc",
+   "exists": true,
+   "size_bytes": 320888,
+   "mtime": "2026-05-27T20:47:40",
+   "sha256": "9072228ba3dc24e9dfaec3982afe540d42dfad776ed23e4ae919d88a274be673"
+  },
+  {
+   "path": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\model\\precip_2d.nc",
+   "exists": true,
+   "size_bytes": 320887,
+   "mtime": "2026-06-19T12:52:57",
+   "sha256": "8db4a0a7112b253398d5c326571914c3df766863be529d77b5adfdafa727ccd1"
+  },
+  {
+   "path": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\model_author_ref\\sfincs_map.nc",
+   "exists": true,
+   "size_bytes": 136916034,
+   "mtime": "2026-05-27T21:08:52"
+  },
+  {
+   "path": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\data\\imerg_pineios.nc",
+   "exists": true,
+   "size_bytes": 532392,
+   "mtime": "2026-06-22T17:47:33",
+   "sha256": "48abe957cbd504fc9bab6fa1ceb774652da475cd6bd55760121284b4a19e2d31"
+  },
+  {
+   "path": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\data\\imerg_pineios.raw.nc",
+   "exists": true,
+   "size_bytes": 534463,
+   "mtime": "2026-05-27T20:38:02",
+   "sha256": "21a53e3fc9faf78bc5a5df244a4d902aee6ad472cbc1c9c7d047e6e36b9864fa"
+  },
+  {
+   "path": "D:\\ELKAK\\implementation\\mandra_sfincs_enhanced\\model_author_ref\\sfincs.inp",
+   "exists": true,
+   "size_bytes": 1568,
+   "mtime": "2026-05-26T21:48:06",
+   "sha256": "82b57767affa9eaf68a8bf7514f150bdf0a5b1ace565b7b7db6b3db3dd08f917"
+  },
+  {
+   "path": "D:\\ELKAK\\implementation\\mandra_sfincs_enhanced\\model_author_ref\\precip_2d.nc",
+   "exists": true,
+   "size_bytes": 64093,
+   "mtime": "2026-05-26T21:48:06",
+   "sha256": "cf98bea9094abb25bfee462e6530d6eeaeccf09eef5c9bb7a503a5ac22980dd6"
+  },
+  {
+   "path": "D:\\ELKAK\\implementation\\mandra_sfincs_enhanced\\model\\precip_2d.nc",
+   "exists": true,
+   "size_bytes": 64092,
+   "mtime": "2026-06-19T13:17:53",
+   "sha256": "6a122ae3b10a6e132057e7fc6803446055492da66d970487c3e57b5791b395cd"
+  },
+  {
+   "path": "D:\\ELKAK\\implementation\\mandra_sfincs_enhanced\\model_author_ref\\sfincs_map.nc",
+   "exists": true,
+   "size_bytes": 59521254,
+   "mtime": "2026-05-26T22:02:38"
+  },
+  {
+   "path": "D:\\ELKAK\\implementation\\mandra_sfincs_enhanced\\data\\imerg_mandra.nc",
+   "exists": true,
+   "size_bytes": 77996,
+   "mtime": "2026-06-22T16:37:05",
+   "sha256": "11eb246e8b094875f8f3ceef96197e928b21111fb87d40a52a1dd0ac83e9c707"
+  },
+  {
+   "path": "D:\\ELKAK\\implementation\\mandra_sfincs_enhanced\\data\\imerg_mandra.raw.nc",
+   "exists": true,
+   "size_bytes": 81298,
+   "mtime": "2026-05-26T20:34:26",
+   "sha256": "fc53a3e2ac6e93a94c9003ed8b1f4a7758ed6a5cce002f28c07dd37ba2dfd6ac"
+  },
+  {
+   "path": "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\valencia_emsr773\\model\\sfincs.inp",
+   "exists": true,
+   "size_bytes": 1614,
+   "mtime": "2026-07-15T20:30:52",
+   "sha256": "66e48c7881246fc70178ae451f631d45fac24f1a4eb0561926f90c8f45061baa"
+  },
+  {
+   "path": "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\valencia_emsr773\\model\\precip_2d.nc",
+   "exists": true,
+   "size_bytes": 193372,
+   "mtime": "2026-07-15T20:30:49",
+   "sha256": "abb981e2f4f2528483559d7af26267195e13c42f1954b4722f42b217eccb701f"
+  },
+  {
+   "path": "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\valencia_emsr773\\model\\sfincs_map.nc",
+   "exists": true,
+   "size_bytes": 179898560,
+   "mtime": "2026-07-15T20:59:19"
+  },
+  {
+   "path": "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\valencia_emsr773\\data\\imerg_valencia.nc",
+   "exists": true,
+   "size_bytes": 367080,
+   "mtime": "2026-07-15T20:28:49",
+   "sha256": "8bd9f12cfa12c9bdcb1413d4dfafa697f9d70763ee127e8ae47de2e97b8ff06f"
+  },
+  {
+   "path": "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\valencia_emsr773\\data\\imerg_valencia.raw.nc",
+   "exists": true,
+   "size_bytes": 369614,
+   "mtime": "2026-07-15T20:28:49",
+   "sha256": "8faee51622618d74287f728775046e7caef2b4f8bf6c384584d42049c8e8c40b"
+  },
+  {
+   "path": "D:\\ELKAK\\ELKAK2\\NHESS\\R1_verification\\task_valencia_anchor\\rerun_v164\\model\\sfincs.inp",
+   "exists": true,
+   "size_bytes": 1614,
+   "mtime": "2026-07-15T20:30:52",
+   "sha256": "66e48c7881246fc70178ae451f631d45fac24f1a4eb0561926f90c8f45061baa"
+  },
+  {
+   "path": "D:\\ELKAK\\ELKAK2\\NHESS\\R1_verification\\task_valencia_anchor\\rerun_v164\\model\\precip_2d.nc",
+   "exists": true,
+   "size_bytes": 193372,
+   "mtime": "2026-07-21T13:04:18",
+   "sha256": "c42bee92ea85306e3abdc939af82c4f3e63f8fe479eb99d6df02ac145e1fbb1f"
+  },
+  {
+   "path": "D:\\ELKAK\\ELKAK2\\NHESS\\R1_verification\\task_valencia_anchor\\rerun_v164\\model\\sfincs_map.nc",
+   "exists": true,
+   "size_bytes": 181959003,
+   "mtime": "2026-07-21T13:41:35"
+  }
+ ],
+ "missing_files": [],
+ "runs": [
+  {
+   "key": "pineios_enhanced",
+   "event": "Pineios / Storm Daniel (EMSR692), enhanced",
+   "model_dir": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\model_author_ref",
+   "sfincs_inp": {
+    "path": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\model_author_ref\\sfincs.inp",
+    "exists": true,
+    "size_bytes": 1614,
+    "mtime": "2026-05-27T20:47:42",
+    "sha256": "b2b5a0ae94f7596b30f0d16bb48d24de4660927f2887c112c05f4e61a7236dad"
+   },
+   "inp": {
+    "tref": "20230827 000000",
+    "tstart": "20230903 000000",
+    "tstop": "20230911 000000",
+    "precip_keyword": "netamprfile",
+    "precip_file": "precip_2d.nc",
+    "dtwnd": "1800.0",
+    "epsg": "32634",
+    "x0": "571682.0",
+    "y0": "4351515.0",
+    "dx": "150",
+    "dy": "150",
+    "mmax": "666",
+    "nmax": "536",
+    "other_precip_keywords_present": []
+   },
+   "model_precip": {
+    "file": {
+     "path": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\model_author_ref\\precip_2d.nc",
+     "exists": true,
+     "size_bytes": 320888,
+     "mtime": "2026-05-27T20:47:40",
+     "sha256": "9072228ba3dc24e9dfaec3982afe540d42dfad776ed23e4ae919d88a274be673"
+    },
+    "var_name": "Precipitation",
+    "units": "mm/h",
+    "long_name": "Gauge-bias-corrected IMERG precipitation",
+    "global_attrs": {
+     "units": "mm/h",
+     "long_name": "Gauge-bias-corrected IMERG precipitation",
+     "_FillValue": "nan"
+    },
+    "dims": [
+     "time",
+     "y",
+     "x"
+    ],
+    "shape": [
+     385,
+     13,
+     15
+    ],
+    "crs_name": "WGS 84 / UTM zone 34N",
+    "epsg": 32634,
+    "coordinate_names": [
+     "time",
+     "y",
+     "x"
+    ],
+    "projected": true,
+    "x_first": 555797.6106064842,
+    "x_last": 688276.7491875971,
+    "dx_m": 9462.795612936607,
+    "y_first": 4447545.002373394,
+    "y_last": 4333991.455018154,
+    "dy_m": -9462.79561293684,
+    "lonlat_extent_of_cell_centres": {
+     "lon_min": 21.64576892450084,
+     "lon_max": 23.210670230859932,
+     "lat_min": 39.13476651379317,
+     "lat_max": 40.17642640824229
+    },
+    "time_units": "minutes since 2023-08-27",
+    "time_calendar": "proleptic_gregorian",
+    "time": {
+     "first": "2023-09-03T00:00:00",
+     "last": "2023-09-11T00:00:00",
+     "count": 385,
+     "step_minutes": 30.0,
+     "uniform": true,
+     "span_hours": 192.0
+    },
+    "n_nan": 0,
+    "n_negative": 0,
+    "max_rate_mm_h": 139.61012268066406,
+    "last_frame_max_mm_h": 0.0
+   },
+   "duplicate_model_folders": [
+    {
+     "path": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\model\\precip_2d.nc",
+     "same_shape": true,
+     "arrays_identical": true,
+     "max_abs_diff_mm_h": 0.0,
+     "times_identical": true
+    }
+   ],
+   "event_window_utc": [
+    "2023-09-04T00:00:00",
+    "2023-09-08T00:00:00"
+   ],
+   "bbox_lonlat": [
+    22.0,
+    39.4,
+    22.95,
+    40.0
+   ],
+   "bbox_in_model_crs_corners_xy": [
+    [
+     586102.9,
+     4361643.5
+    ],
+    [
+     667905.4,
+     4362980.5
+    ],
+    [
+     666457.1,
+     4429578.4
+    ],
+    [
+     585360.5,
+     4428236.1
+    ]
+   ],
+   "bbox_cell_selection_rule_model": "precip_2d cell centres inverse-projected to lon/lat (pyproj, EPSG:32634 -> 4326); centre inside bbox, inclusive",
+   "active_mask": {
+    "file": {
+     "path": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\model_author_ref\\sfincs_map.nc",
+     "exists": true,
+     "size_bytes": 136916034,
+     "mtime": "2026-05-27T21:08:52"
+    },
+    "n_cells": 356976,
+    "n_active": 262465,
+    "msk_values": [
+     0,
+     1,
+     2
+    ],
+    "n_active_mapped_into_precip_grid": 262465,
+    "n_precip_cells_with_active_weight": 90,
+    "rule": "each active SFINCS cell (msk>0 in sfincs_map.nc) assigned to the precip_2d cell whose centre is nearest; weight = number of active cells per precip_2d cell"
+   },
+   "model_totals": {
+    "domain_all_cells": {
+     "region": "all precip_2d cells",
+     "n_cells": 195,
+     "n_nan_values": 0,
+     "event_window": {
+      "T0": "2023-09-04T00:00:00",
+      "T1": "2023-09-08T00:00:00",
+      "dt_hours": 0.5,
+      "file_covers_window": true,
+      "n_stamps_pc_fwd": 192,
+      "total_pc_fwd_mm": 746.8989625748916,
+      "n_stamps_incl": 193,
+      "total_incl_mm": 746.9709207974183,
+      "n_intervals_trap": 192,
+      "total_trap_mm": 746.9332649897115
+     },
+     "whole_file": {
+      "n_stamps": 385,
+      "dt_hours": 0.5,
+      "total_pc_fwd_mm": 751.4444294082526,
+      "total_trap_mm": 751.4444294082526
+     },
+     "peak_region_mean_rate_mm_h": 25.50925983282236,
+     "peak_region_mean_rate_time": "2023-09-05T01:00:00"
+    },
+    "bbox": {
+     "region": "cells with centre in lon/lat bbox",
+     "n_cells": 58,
+     "n_nan_values": 0,
+     "event_window": {
+      "T0": "2023-09-04T00:00:00",
+      "T1": "2023-09-08T00:00:00",
+      "dt_hours": 0.5,
+      "file_covers_window": true,
+      "n_stamps_pc_fwd": 192,
+      "total_pc_fwd_mm": 783.1249244094922,
+      "n_stamps_incl": 193,
+      "total_incl_mm": 783.2451840181802,
+      "n_intervals_trap": 192,
+      "total_trap_mm": 783.1817658652134
+     },
+     "whole_file": {
+      "n_stamps": 385,
+      "dt_hours": 0.5,
+      "total_pc_fwd_mm": 789.6445134290461,
+      "total_trap_mm": 789.6445134290461
+     },
+     "peak_region_mean_rate_mm_h": 33.10709409056039,
+     "peak_region_mean_rate_time": "2023-09-05T01:00:00",
+     "bias_window": {
+      "T0": "2023-09-04T00:00:00",
+      "T1": "2023-09-08T23:30:00",
+      "dt_hours": 0.5,
+      "file_covers_window": true,
+      "n_stamps_pc_fwd": 239,
+      "total_pc_fwd_mm": 787.052152187692,
+      "n_stamps_incl": 240,
+      "total_incl_mm": 787.1240487388046,
+      "n_intervals_trap": 239,
+      "total_trap_mm": 787.0848121146254,
+      "note": "same stamps as the IMERG bias window, applied to the model file's time axis"
+     }
+    },
+    "sfincs_grid_rectangle": {
+     "region": "cells with centre inside the SFINCS grid rectangle (x0,y0,mmax*dx,nmax*dy)",
+     "n_cells": 99,
+     "n_nan_values": 0,
+     "event_window": {
+      "T0": "2023-09-04T00:00:00",
+      "T1": "2023-09-08T00:00:00",
+      "dt_hours": 0.5,
+      "file_covers_window": true,
+      "n_stamps_pc_fwd": 192,
+      "total_pc_fwd_mm": 790.8185776351113,
+      "n_stamps_incl": 193,
+      "total_incl_mm": 790.9476536230344,
+      "n_intervals_trap": 192,
+      "total_trap_mm": 790.8807762988251
+     },
+     "whole_file": {
+      "n_stamps": 385,
+      "dt_hours": 0.5,
+      "total_pc_fwd_mm": 797.6405711007691,
+      "total_trap_mm": 797.640571100769
+     },
+     "peak_region_mean_rate_mm_h": 31.069608731703326,
+     "peak_region_mean_rate_time": "2023-09-05T01:00:00"
+    },
+    "active_cell_weighted": {
+     "region": "weighted by active SFINCS cells per precip_2d cell",
+     "n_cells": 90,
+     "n_nan_values": 0,
+     "event_window": {
+      "T0": "2023-09-04T00:00:00",
+      "T1": "2023-09-08T00:00:00",
+      "dt_hours": 0.5,
+      "file_covers_window": true,
+      "n_stamps_pc_fwd": 192,
+      "total_pc_fwd_mm": 834.1372997047633,
+      "n_stamps_incl": 193,
+      "total_incl_mm": 834.2906226680971,
+      "n_intervals_trap": 192,
+      "total_trap_mm": 834.2110042813389
+     },
+     "whole_file": {
+      "n_stamps": 385,
+      "dt_hours": 0.5,
+      "total_pc_fwd_mm": 842.7977711298372,
+      "total_trap_mm": 842.7977711298372
+     },
+     "peak_region_mean_rate_mm_h": 33.88757246792143,
+     "peak_region_mean_rate_time": "2023-09-05T01:00:00",
+     "bias_window": {
+      "T0": "2023-09-04T00:00:00",
+      "T1": "2023-09-08T23:30:00",
+      "dt_hours": 0.5,
+      "file_covers_window": true,
+      "n_stamps_pc_fwd": 239,
+      "total_pc_fwd_mm": 839.6431684807922,
+      "n_stamps_incl": 240,
+      "total_incl_mm": 839.7169992002824,
+      "n_intervals_trap": 239,
+      "total_trap_mm": 839.6771269354458
+     }
+    }
+   },
+   "imerg": {
+    "imerg_bc": {
+     "file": {
+      "path": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\data\\imerg_pineios.nc",
+      "exists": true,
+      "size_bytes": 532392,
+      "mtime": "2026-06-22T17:47:33",
+      "sha256": "48abe957cbd504fc9bab6fa1ceb774652da475cd6bd55760121284b4a19e2d31"
+     },
+     "var_name": "precip",
+     "units": "mm/h",
+     "units_attr_Units": null,
+     "long_name": "Gauge-bias-corrected IMERG precipitation",
+     "dims": [
+      "time",
+      "latitude",
+      "longitude"
+     ],
+     "shape": [
+      721,
+      11,
+      16
+     ],
+     "coordinate_names": [
+      "time",
+      "latitude",
+      "longitude"
+     ],
+     "projected": false,
+     "crs": "EPSG:4326 (lat/lon, 0.1 deg)",
+     "lon_first": 21.649999618530273,
+     "lon_last": 23.149999618530273,
+     "lat_first": 39.14999771118164,
+     "lat_last": 40.14999771118164,
+     "lon_centres": [
+      21.65,
+      21.75,
+      21.85,
+      21.95,
+      22.05,
+      22.15,
+      22.25,
+      22.35,
+      22.45,
+      22.55,
+      22.65,
+      22.75,
+      22.85,
+      22.95,
+      23.05,
+      23.15
+     ],
+     "lat_centres": [
+      39.15,
+      39.25,
+      39.35,
+      39.45,
+      39.55,
+      39.65,
+      39.75,
+      39.85,
+      39.95,
+      40.05,
+      40.15
+     ],
+     "time_units": "minutes since 2017-01-01",
+     "time_calendar_attr": "proleptic_gregorian",
+     "time": {
+      "first": "2023-08-27T00:00:00",
+      "last": "2023-09-11T00:00:00",
+      "count": 721,
+      "step_minutes": 30.0,
+      "uniform": true,
+      "span_hours": 360.0
+     },
+     "time_decoding": {},
+     "global_attrs": {
+      "source": "GPM IMERG Final V07 half-hourly",
+      "spatial_resolution": "0.1 deg",
+      "temporal_resolution": "30 min",
+      "bias_correction": "Multiplicative scaling 2.725x applied to event window 2023-09-04 00:00 to 2023-09-08 23:30 so watershed bbox (22.0,39.4,22.95,40.0) 24-h total matches 400.0 mm gauge-based estimate",
+      "bias_correction_reference": "Diakakis et al. 2019; Nikolopoulos et al. 2013; Anagnostou et al. 2009"
+     },
+     "keyword_attrs": {
+      "global:source": "GPM IMERG Final V07 half-hourly",
+      "global:bias_correction": "Multiplicative scaling 2.725x applied to event window 2023-09-04 00:00 to 2023-09-08 23:30 so watershed bbox (22.0,39.4,22.95,40.0) 24-h total matches 400.0 mm gauge-based estimate",
+      "global:bias_correction_reference": "Diakakis et al. 2019; Nikolopoulos et al. 2013; Anagnostou et al. 2009",
+      "precip:long_name": "Gauge-bias-corrected IMERG precipitation"
+     },
+     "bias_correction_parsed": {
+      "factor": 2.725,
+      "window_start": "2023-09-04T00:00",
+      "window_end": "2023-09-08T23:30",
+      "bbox": [
+       22.0,
+       39.4,
+       22.95,
+       40.0
+      ],
+      "target_mm": 400.0
+     },
+     "n_nan": 0,
+     "n_negative": 0,
+     "max_rate_mm_h": 69.80506134033203,
+     "bbox_cell_selection_rule": "cell centres compared in float32 against float32 bbox bounds, inclusive (replicates bias_correct_imerg.py's xarray comparison)",
+     "bbox_cells_selected": {
+      "n": 60,
+      "lon_centres": [
+       22.05,
+       22.15,
+       22.25,
+       22.35,
+       22.45,
+       22.55,
+       22.65,
+       22.75,
+       22.85,
+       22.95
+      ],
+      "lat_centres": [
+       39.45,
+       39.55,
+       39.65,
+       39.75,
+       39.85,
+       39.95
+      ],
+      "n_with_float64_tolerance_1e_4": 60
+     },
+     "totals": {
+      "domain_all_cells": {
+       "region": "all IMERG cells in file",
+       "n_cells": 176,
+       "n_nan_values": 0,
+       "event_window": {
+        "T0": "2023-09-04T00:00:00",
+        "T1": "2023-09-08T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 192,
+        "total_pc_fwd_mm": 376.4036152431667,
+        "n_stamps_incl": 193,
+        "total_incl_mm": 376.4597333682839,
+        "n_intervals_trap": 192,
+        "total_trap_mm": 376.4288490484098
+       },
+       "model_time_span": {
+        "T0": "2023-09-03T00:00:00",
+        "T1": "2023-09-11T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 384,
+        "total_pc_fwd_mm": 378.6927004206492,
+        "n_stamps_incl": 385,
+        "total_incl_mm": 378.6927004206492,
+        "n_intervals_trap": 384,
+        "total_trap_mm": 378.6926151933784
+       },
+       "whole_file": {
+        "n_stamps": 721,
+        "dt_hours": 0.5,
+        "total_pc_fwd_mm": 380.44326856020115,
+        "total_trap_mm": 380.443112310202
+       },
+       "peak_region_mean_rate_mm_h": 12.511787564620715,
+       "peak_region_mean_rate_time": "2023-09-05T01:30:00"
+      },
+      "bbox": {
+       "region": "IMERG cells with centre in bbox (float32 rule)",
+       "n_cells": 60,
+       "n_nan_values": 0,
+       "event_window": {
+        "T0": "2023-09-04T00:00:00",
+        "T1": "2023-09-08T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 192,
+        "total_pc_fwd_mm": 398.27440453562883,
+        "n_stamps_incl": 193,
+        "total_incl_mm": 398.3345734861369,
+        "n_intervals_trap": 192,
+        "total_trap_mm": 398.3016508528963
+       },
+       "model_time_span": {
+        "T0": "2023-09-03T00:00:00",
+        "T1": "2023-09-11T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 384,
+        "total_pc_fwd_mm": 401.40475457164774,
+        "n_stamps_incl": 385,
+        "total_incl_mm": 401.40475457164774,
+        "n_intervals_trap": 384,
+        "total_trap_mm": 401.4047545716477
+       },
+       "whole_file": {
+        "n_stamps": 721,
+        "dt_hours": 0.5,
+        "total_pc_fwd_mm": 402.41783787845634,
+        "total_trap_mm": 402.4178378784564
+       },
+       "peak_region_mean_rate_mm_h": 16.52852428058783,
+       "peak_region_mean_rate_time": "2023-09-05T01:30:00"
+      },
+      "sfincs_grid_rectangle": {
+       "region": "IMERG cells whose centre projects inside the SFINCS grid rectangle",
+       "n_cells": 84,
+       "n_nan_values": 0,
+       "event_window": {
+        "T0": "2023-09-04T00:00:00",
+        "T1": "2023-09-08T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 192,
+        "total_pc_fwd_mm": 395.83806449474235,
+        "n_stamps_incl": 193,
+        "total_incl_mm": 395.93521059036163,
+        "n_intervals_trap": 192,
+        "total_trap_mm": 395.883880474782
+       },
+       "model_time_span": {
+        "T0": "2023-09-03T00:00:00",
+        "T1": "2023-09-11T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 384,
+        "total_pc_fwd_mm": 399.3403584713759,
+        "n_stamps_incl": 385,
+        "total_incl_mm": 399.3403584713759,
+        "n_intervals_trap": 384,
+        "total_trap_mm": 399.3403584713759
+       },
+       "whole_file": {
+        "n_stamps": 721,
+        "dt_hours": 0.5,
+        "total_pc_fwd_mm": 400.7421441510032,
+        "total_trap_mm": 400.7421441510031
+       },
+       "peak_region_mean_rate_mm_h": 15.268641631518092,
+       "peak_region_mean_rate_time": "2023-09-05T01:30:00"
+      }
+     },
+     "bias_window_bbox": {
+      "T0": "2023-09-04T00:00:00",
+      "T1": "2023-09-08T23:30:00",
+      "dt_hours": 0.5,
+      "file_covers_window": true,
+      "n_stamps_pc_fwd": 239,
+      "total_pc_fwd_mm": 399.92802893362625,
+      "n_stamps_incl": 240,
+      "total_incl_mm": 400.0000046216418,
+      "n_intervals_trap": 239,
+      "total_trap_mm": 399.9611786196474,
+      "note": "window and bbox as stated in imerg_<slug>.nc:bias_correction; 'total_incl_mm' is the script's rule"
+     }
+    },
+    "imerg_raw": {
+     "file": {
+      "path": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\data\\imerg_pineios.raw.nc",
+      "exists": true,
+      "size_bytes": 534463,
+      "mtime": "2026-05-27T20:38:02",
+      "sha256": "21a53e3fc9faf78bc5a5df244a4d902aee6ad472cbc1c9c7d047e6e36b9864fa"
+     },
+     "var_name": "precip",
+     "units": "mm/h",
+     "units_attr_Units": "mm/hr",
+     "long_name": "Precipitation (IMERG Final V07 calibrated)",
+     "dims": [
+      "time",
+      "latitude",
+      "longitude"
+     ],
+     "shape": [
+      721,
+      11,
+      16
+     ],
+     "coordinate_names": [
+      "time",
+      "latitude",
+      "longitude"
+     ],
+     "projected": false,
+     "crs": "EPSG:4326 (lat/lon, 0.1 deg)",
+     "lon_first": 21.649999618530273,
+     "lon_last": 23.149999618530273,
+     "lat_first": 39.14999771118164,
+     "lat_last": 40.14999771118164,
+     "lon_centres": [
+      21.65,
+      21.75,
+      21.85,
+      21.95,
+      22.05,
+      22.15,
+      22.25,
+      22.35,
+      22.45,
+      22.55,
+      22.65,
+      22.75,
+      22.85,
+      22.95,
+      23.05,
+      23.15
+     ],
+     "lat_centres": [
+      39.15,
+      39.25,
+      39.35,
+      39.45,
+      39.55,
+      39.65,
+      39.75,
+      39.85,
+      39.95,
+      40.05,
+      40.15
+     ],
+     "time_units": "seconds since 1980-01-06T00:00:00+00:00",
+     "time_calendar_attr": "julian",
+     "time": {
+      "first": "2023-08-27T00:00:00",
+      "last": "2023-09-11T00:00:00",
+      "count": 721,
+      "step_minutes": 30.0,
+      "uniform": true,
+      "span_hours": 360.0
+     },
+     "time_decoding": {
+      "time_decoded_with_file_calendar_first_last": [
+       "2023-08-27T00:00:00",
+       "2023-09-11T00:00:00"
+      ],
+      "time_decoded_as_standard_first_last": [
+       "2023-08-27T00:00:00",
+       "2023-09-11T00:00:00"
+      ],
+      "note": "file declares calendar='julian'; stamps used here are decoded with the standard (Gregorian) calendar, which matches the bias-corrected file's stamps"
+     },
+     "global_attrs": {
+      "source": "GPM IMERG Final V07 half-hourly",
+      "spatial_resolution": "0.1 deg",
+      "temporal_resolution": "30 min"
+     },
+     "keyword_attrs": {
+      "global:source": "GPM IMERG Final V07 half-hourly"
+     },
+     "bias_correction_parsed": null,
+     "n_nan": 0,
+     "n_negative": 0,
+     "max_rate_mm_h": 25.619998931884766,
+     "bbox_cell_selection_rule": "cell centres compared in float32 against float32 bbox bounds, inclusive (replicates bias_correct_imerg.py's xarray comparison)",
+     "bbox_cells_selected": {
+      "n": 60,
+      "lon_centres": [
+       22.05,
+       22.15,
+       22.25,
+       22.35,
+       22.45,
+       22.55,
+       22.65,
+       22.75,
+       22.85,
+       22.95
+      ],
+      "lat_centres": [
+       39.45,
+       39.55,
+       39.65,
+       39.75,
+       39.85,
+       39.95
+      ],
+      "n_with_float64_tolerance_1e_4": 60
+     },
+     "totals": {
+      "domain_all_cells": {
+       "region": "all IMERG cells in file",
+       "n_cells": 176,
+       "n_nan_values": 0,
+       "event_window": {
+        "T0": "2023-09-04T00:00:00",
+        "T1": "2023-09-08T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 192,
+        "total_pc_fwd_mm": 138.14843433476796,
+        "n_stamps_incl": 193,
+        "total_incl_mm": 138.1690309251902,
+        "n_intervals_trap": 192,
+        "total_trap_mm": 138.1576956981814
+       },
+       "model_time_span": {
+        "T0": "2023-09-03T00:00:00",
+        "T1": "2023-09-11T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 384,
+        "total_pc_fwd_mm": 139.6225820232913,
+        "n_stamps_incl": 385,
+        "total_incl_mm": 139.6225820232913,
+        "n_intervals_trap": 384,
+        "total_trap_mm": 139.62249679602047
+       },
+       "whole_file": {
+        "n_stamps": 721,
+        "dt_hours": 0.5,
+        "total_pc_fwd_mm": 141.3731501628433,
+        "total_trap_mm": 141.37299391284415
+       },
+       "peak_region_mean_rate_mm_h": 4.592102171853185,
+       "peak_region_mean_rate_time": "2023-09-05T01:30:00"
+      },
+      "bbox": {
+       "region": "IMERG cells with centre in bbox (float32 rule)",
+       "n_cells": 60,
+       "n_nan_values": 0,
+       "event_window": {
+        "T0": "2023-09-04T00:00:00",
+        "T1": "2023-09-08T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 192,
+        "total_pc_fwd_mm": 146.17549666636623,
+        "n_stamps_incl": 193,
+        "total_incl_mm": 146.19757999925253,
+        "n_intervals_trap": 192,
+        "total_trap_mm": 146.18549666615826
+       },
+       "model_time_span": {
+        "T0": "2023-09-03T00:00:00",
+        "T1": "2023-09-11T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 384,
+        "total_pc_fwd_mm": 148.2135799350993,
+        "n_stamps_incl": 385,
+        "total_incl_mm": 148.2135799350993,
+        "n_intervals_trap": 384,
+        "total_trap_mm": 148.21357993509932
+       },
+       "whole_file": {
+        "n_stamps": 721,
+        "dt_hours": 0.5,
+        "total_pc_fwd_mm": 149.22666324190794,
+        "total_trap_mm": 149.22666324190797
+       },
+       "peak_region_mean_rate_mm_h": 6.066333187619845,
+       "peak_region_mean_rate_time": "2023-09-05T01:30:00"
+      },
+      "sfincs_grid_rectangle": {
+       "region": "IMERG cells whose centre projects inside the SFINCS grid rectangle",
+       "n_cells": 84,
+       "n_nan_values": 0,
+       "event_window": {
+        "T0": "2023-09-04T00:00:00",
+        "T1": "2023-09-08T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 192,
+        "total_pc_fwd_mm": 145.28130615656707,
+        "n_stamps_incl": 193,
+        "total_incl_mm": 145.31696091761944,
+        "n_intervals_trap": 192,
+        "total_trap_mm": 145.29812163235397
+       },
+       "model_time_span": {
+        "T0": "2023-09-03T00:00:00",
+        "T1": "2023-09-11T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 384,
+        "total_pc_fwd_mm": 147.34517514201193,
+        "n_stamps_incl": 385,
+        "total_incl_mm": 147.34517514201193,
+        "n_intervals_trap": 384,
+        "total_trap_mm": 147.3451751420119
+       },
+       "whole_file": {
+        "n_stamps": 721,
+        "dt_hours": 0.5,
+        "total_pc_fwd_mm": 148.74696082163914,
+        "total_trap_mm": 148.74696082163916
+       },
+       "peak_region_mean_rate_mm_h": 5.603928457058611,
+       "peak_region_mean_rate_time": "2023-09-05T01:30:00"
+      }
+     },
+     "bias_window_bbox": {
+      "T0": "2023-09-04T00:00:00",
+      "T1": "2023-09-08T23:30:00",
+      "dt_hours": 0.5,
+      "file_covers_window": true,
+      "n_stamps_pc_fwd": 239,
+      "total_pc_fwd_mm": 146.78241331909473,
+      "n_stamps_incl": 240,
+      "total_incl_mm": 146.80882998509333,
+      "n_intervals_trap": 239,
+      "total_trap_mm": 146.79457998544288,
+      "note": "window and bbox as stated in imerg_<slug>.nc:bias_correction; 'total_incl_mm' is the script's rule"
+     }
+    }
+   },
+   "bias_correction_as_recorded": {
+    "factor": 2.725,
+    "window_start": "2023-09-04T00:00",
+    "window_end": "2023-09-08T23:30",
+    "bbox": [
+     22.0,
+     39.4,
+     22.95,
+     40.0
+    ],
+    "target_mm": 400.0
+   },
+   "pointwise_check": {
+    "imerg_bc": {
+     "n_precip2d_cells_inside_imerg_extent": 191,
+     "n_precip2d_cells_total": 195,
+     "n_precip2d_cells_outside_imerg_extent": 4,
+     "max_rate_in_cells_outside_imerg_extent_mm_h": 0.0,
+     "rule": "precip_2d cell centre -> lon/lat -> nearest IMERG cell centre (<= 0.05 deg); ratio = model / IMERG where IMERG > 1e-6 mm/h",
+     "shift_0": {
+      "alignment": "model stamp t <-> IMERG stamp t + 0 min",
+      "n_model_frames_matched": 385,
+      "n_cell_time_pairs": 30470,
+      "ratio_median": 1.87,
+      "ratio_min": 0.0,
+      "ratio_max": 1318.0,
+      "frac_pairs_model_equals_2x_imerg": 0.019,
+      "frac_pairs_model_equals_1x_imerg": 0.0037,
+      "n_pairs_not_2x": 29891,
+      "n_pairs_not_2x_on_outer_ring_of_precip2d_grid": 6879,
+      "n_interior_pairs": 23484,
+      "frac_interior_pairs_model_equals_2x_imerg": 0.0201
+     },
+     "shift_1": {
+      "alignment": "model stamp t <-> IMERG stamp t + 30 min",
+      "n_cells_with_non_2x_pairs": 4,
+      "n_non_2x_pairs_with_model_zero": 59,
+      "non_2x_cells_distance_to_imerg_cell_edge_deg": {
+       "min": 0.0003,
+       "max": 0.0023
+      },
+      "n_non_2x_pairs_equal_2x_adjacent_imerg_cell": 639,
+      "sum_model_over_sum_2x_imerg_all_pairs": 1.0006,
+      "depth_share_of_non_2x_pairs": 0.021,
+      "n_model_frames_matched": 384,
+      "n_cell_time_pairs": 30469,
+      "ratio_median": 2.0,
+      "ratio_min": 0.0,
+      "ratio_max": 82.0,
+      "frac_pairs_model_equals_2x_imerg": 0.979,
+      "frac_pairs_model_equals_1x_imerg": 0.0,
+      "n_pairs_not_2x": 639,
+      "n_pairs_not_2x_on_outer_ring_of_precip2d_grid": 0,
+      "n_interior_pairs": 23483,
+      "frac_interior_pairs_model_equals_2x_imerg": 0.9728,
+      "per_frame_median_ratio_runs": [
+       {
+        "value": null,
+        "start": "2023-09-03T00:00:00",
+        "end": "2023-09-03T10:00:00",
+        "n_frames": 21
+       },
+       {
+        "value": 2.0,
+        "start": "2023-09-03T10:30:00",
+        "end": "2023-09-03T12:30:00",
+        "n_frames": 5
+       },
+       {
+        "value": null,
+        "start": "2023-09-03T13:00:00",
+        "end": "2023-09-03T16:30:00",
+        "n_frames": 8
+       },
+       {
+        "value": 2.0,
+        "start": "2023-09-03T17:00:00",
+        "end": "2023-09-03T17:00:00",
+        "n_frames": 1
+       },
+       {
+        "value": 1.0,
+        "start": "2023-09-03T17:30:00",
+        "end": "2023-09-03T17:30:00",
+        "n_frames": 1
+       },
+       {
+        "value": null,
+        "start": "2023-09-03T18:00:00",
+        "end": "2023-09-03T19:30:00",
+        "n_frames": 4
+       },
+       {
+        "value": 2.0,
+        "start": "2023-09-03T20:00:00",
+        "end": "2023-09-09T14:00:00",
+        "n_frames": 277
+       },
+       {
+        "value": null,
+        "start": "2023-09-09T14:30:00",
+        "end": "2023-09-09T15:00:00",
+        "n_frames": 2
+       },
+       {
+        "value": 1.0,
+        "start": "2023-09-09T15:30:00",
+        "end": "2023-09-09T15:30:00",
+        "n_frames": 1
+       },
+       {
+        "value": 2.0,
+        "start": "2023-09-09T16:00:00",
+        "end": "2023-09-09T19:30:00",
+        "n_frames": 8
+       },
+       {
+        "value": null,
+        "start": "2023-09-09T20:00:00",
+        "end": "2023-09-10T00:00:00",
+        "n_frames": 9
+       },
+       {
+        "value": 1.0,
+        "start": "2023-09-10T00:30:00",
+        "end": "2023-09-10T01:00:00",
+        "n_frames": 2
+       },
+       {
+        "value": null,
+        "start": "2023-09-10T01:30:00",
+        "end": "2023-09-10T11:00:00",
+        "n_frames": 20
+       },
+       {
+        "value": 2.0,
+        "start": "2023-09-10T11:30:00",
+        "end": "2023-09-10T14:00:00",
+        "n_frames": 6
+       },
+       {
+        "value": null,
+        "start": "2023-09-10T14:30:00",
+        "end": "2023-09-10T23:30:00",
+        "n_frames": 19
+       }
+      ]
+     }
+    },
+    "imerg_raw": {
+     "n_precip2d_cells_inside_imerg_extent": 191,
+     "n_precip2d_cells_total": 195,
+     "n_precip2d_cells_outside_imerg_extent": 4,
+     "max_rate_in_cells_outside_imerg_extent_mm_h": 0.0,
+     "rule": "precip_2d cell centre -> lon/lat -> nearest IMERG cell centre (<= 0.05 deg); ratio = model / IMERG where IMERG > 1e-6 mm/h",
+     "shift_0": {
+      "alignment": "model stamp t <-> IMERG stamp t + 0 min",
+      "n_model_frames_matched": 385,
+      "n_cell_time_pairs": 30470,
+      "ratio_median": 5.072,
+      "ratio_min": 0.0,
+      "ratio_max": 3591.065,
+      "frac_pairs_model_equals_2x_imerg": 0.0016,
+      "frac_pairs_model_equals_1x_imerg": 0.0001,
+      "n_pairs_not_2x": 30420,
+      "n_pairs_not_2x_on_outer_ring_of_precip2d_grid": 6984,
+      "n_interior_pairs": 23484,
+      "frac_interior_pairs_model_equals_2x_imerg": 0.002
+     },
+     "shift_1": {
+      "alignment": "model stamp t <-> IMERG stamp t + 30 min",
+      "n_cells_with_non_2x_pairs": 191,
+      "n_non_2x_pairs_with_model_zero": 59,
+      "non_2x_cells_distance_to_imerg_cell_edge_deg": {
+       "min": 0.0001,
+       "max": 0.0487
+      },
+      "n_non_2x_pairs_equal_2x_adjacent_imerg_cell": 127,
+      "sum_model_over_sum_2x_imerg_all_pairs": 2.7134,
+      "depth_share_of_non_2x_pairs": 0.9972,
+      "n_model_frames_matched": 384,
+      "n_cell_time_pairs": 30469,
+      "ratio_median": 5.449,
+      "ratio_min": 0.0,
+      "ratio_max": 223.42,
+      "frac_pairs_model_equals_2x_imerg": 0.0189,
+      "frac_pairs_model_equals_1x_imerg": 0.0,
+      "n_pairs_not_2x": 29893,
+      "n_pairs_not_2x_on_outer_ring_of_precip2d_grid": 6889,
+      "n_interior_pairs": 23483,
+      "frac_interior_pairs_model_equals_2x_imerg": 0.0204,
+      "per_frame_median_ratio_runs": [
+       {
+        "value": null,
+        "start": "2023-09-03T00:00:00",
+        "end": "2023-09-03T10:00:00",
+        "n_frames": 21
+       },
+       {
+        "value": 2.0,
+        "start": "2023-09-03T10:30:00",
+        "end": "2023-09-03T12:30:00",
+        "n_frames": 5
+       },
+       {
+        "value": null,
+        "start": "2023-09-03T13:00:00",
+        "end": "2023-09-03T16:30:00",
+        "n_frames": 8
+       },
+       {
+        "value": 2.0,
+        "start": "2023-09-03T17:00:00",
+        "end": "2023-09-03T17:00:00",
+        "n_frames": 1
+       },
+       {
+        "value": 1.0,
+        "start": "2023-09-03T17:30:00",
+        "end": "2023-09-03T17:30:00",
+        "n_frames": 1
+       },
+       {
+        "value": null,
+        "start": "2023-09-03T18:00:00",
+        "end": "2023-09-03T19:30:00",
+        "n_frames": 4
+       },
+       {
+        "value": 2.0,
+        "start": "2023-09-03T20:00:00",
+        "end": "2023-09-03T23:00:00",
+        "n_frames": 7
+       },
+       {
+        "value": 5.449,
+        "start": "2023-09-03T23:30:00",
+        "end": "2023-09-08T23:00:00",
+        "n_frames": 240
+       },
+       {
+        "value": 2.0,
+        "start": "2023-09-08T23:30:00",
+        "end": "2023-09-09T14:00:00",
+        "n_frames": 30
+       },
+       {
+        "value": null,
+        "start": "2023-09-09T14:30:00",
+        "end": "2023-09-09T15:00:00",
+        "n_frames": 2
+       },
+       {
+        "value": 1.0,
+        "start": "2023-09-09T15:30:00",
+        "end": "2023-09-09T15:30:00",
+        "n_frames": 1
+       },
+       {
+        "value": 2.0,
+        "start": "2023-09-09T16:00:00",
+        "end": "2023-09-09T19:30:00",
+        "n_frames": 8
+       },
+       {
+        "value": null,
+        "start": "2023-09-09T20:00:00",
+        "end": "2023-09-10T00:00:00",
+        "n_frames": 9
+       },
+       {
+        "value": 1.0,
+        "start": "2023-09-10T00:30:00",
+        "end": "2023-09-10T01:00:00",
+        "n_frames": 2
+       },
+       {
+        "value": null,
+        "start": "2023-09-10T01:30:00",
+        "end": "2023-09-10T11:00:00",
+        "n_frames": 20
+       },
+       {
+        "value": 2.0,
+        "start": "2023-09-10T11:30:00",
+        "end": "2023-09-10T14:00:00",
+        "n_frames": 6
+       },
+       {
+        "value": null,
+        "start": "2023-09-10T14:30:00",
+        "end": "2023-09-10T23:30:00",
+        "n_frames": 19
+       }
+      ]
+     }
+    }
+   },
+   "ratios": {
+    "model/imerg_bc | event window | domain_all_cells | total_pc_fwd_mm": 1.984,
+    "model/imerg_bc | event window | domain_all_cells | total_trap_mm": 1.984,
+    "model/imerg_bc | model time span [tstart,tstop) | domain_all_cells | total_pc_fwd_mm": 1.984,
+    "model/imerg_raw | event window | domain_all_cells | total_pc_fwd_mm": 5.406,
+    "model/imerg_raw | event window | domain_all_cells | total_trap_mm": 5.406,
+    "model/imerg_raw | model time span [tstart,tstop) | domain_all_cells | total_pc_fwd_mm": 5.382,
+    "model/imerg_bc | event window | bbox | total_pc_fwd_mm": 1.966,
+    "model/imerg_bc | event window | bbox | total_trap_mm": 1.966,
+    "model/imerg_bc | model time span [tstart,tstop) | bbox | total_pc_fwd_mm": 1.967,
+    "model/imerg_raw | event window | bbox | total_pc_fwd_mm": 5.357,
+    "model/imerg_raw | event window | bbox | total_trap_mm": 5.357,
+    "model/imerg_raw | model time span [tstart,tstop) | bbox | total_pc_fwd_mm": 5.328,
+    "model/imerg_bc | event window | sfincs_grid_rectangle | total_pc_fwd_mm": 1.998,
+    "model/imerg_bc | event window | sfincs_grid_rectangle | total_trap_mm": 1.998,
+    "model/imerg_bc | model time span [tstart,tstop) | sfincs_grid_rectangle | total_pc_fwd_mm": 1.997,
+    "model/imerg_raw | event window | sfincs_grid_rectangle | total_pc_fwd_mm": 5.443,
+    "model/imerg_raw | event window | sfincs_grid_rectangle | total_trap_mm": 5.443,
+    "model/imerg_raw | model time span [tstart,tstop) | sfincs_grid_rectangle | total_pc_fwd_mm": 5.413,
+    "model bbox event-window pc_fwd / target configured_400": 1.958,
+    "model bbox event-window trap / target configured_400": 1.958,
+    "model domain event-window pc_fwd / target configured_400": 1.867,
+    "model active-weighted event-window pc_fwd / target configured_400": 2.085,
+    "model bbox bias-window pc_fwd / target configured_400": 1.968,
+    "model bbox bias-window incl / target configured_400": 1.968,
+    "imerg_bc bbox bias-window incl (script rule) / target configured_400": 1.0,
+    "imerg_raw bbox bias-window incl (script rule) / target configured_400": 0.367,
+    "model bbox event-window pc_fwd / target manuscript_380": 2.061,
+    "model bbox event-window trap / target manuscript_380": 2.061,
+    "model domain event-window pc_fwd / target manuscript_380": 1.966,
+    "model active-weighted event-window pc_fwd / target manuscript_380": 2.195,
+    "model bbox bias-window pc_fwd / target manuscript_380": 2.071,
+    "model bbox bias-window incl / target manuscript_380": 2.071,
+    "imerg_bc bbox bias-window incl (script rule) / target manuscript_380": 1.053,
+    "imerg_raw bbox bias-window incl (script rule) / target manuscript_380": 0.386
+   },
+   "targets_mm": {
+    "configured_400": 400.0,
+    "manuscript_380": 380.0
+   }
+  },
+  {
+   "key": "mandra_enhanced",
+   "event": "Mandra (EMSR257), enhanced",
+   "model_dir": "D:\\ELKAK\\implementation\\mandra_sfincs_enhanced\\model_author_ref",
+   "sfincs_inp": {
+    "path": "D:\\ELKAK\\implementation\\mandra_sfincs_enhanced\\model_author_ref\\sfincs.inp",
+    "exists": true,
+    "size_bytes": 1568,
+    "mtime": "2026-05-26T21:48:06",
+    "sha256": "82b57767affa9eaf68a8bf7514f150bdf0a5b1ace565b7b7db6b3db3dd08f917"
+   },
+   "inp": {
+    "tref": "20171112 000000",
+    "tstart": "20171113 000000",
+    "tstop": "20171118 000000",
+    "precip_keyword": "netamprfile",
+    "precip_file": "precip_2d.nc",
+    "dtwnd": "1800.0",
+    "epsg": "32634",
+    "x0": "701397.0",
+    "y0": "4202763.0",
+    "dx": "50",
+    "dy": "50",
+    "mmax": "542",
+    "nmax": "569",
+    "other_precip_keywords_present": []
+   },
+   "model_precip": {
+    "file": {
+     "path": "D:\\ELKAK\\implementation\\mandra_sfincs_enhanced\\model_author_ref\\precip_2d.nc",
+     "exists": true,
+     "size_bytes": 64093,
+     "mtime": "2026-05-26T21:48:06",
+     "sha256": "cf98bea9094abb25bfee462e6530d6eeaeccf09eef5c9bb7a503a5ac22980dd6"
+    },
+    "var_name": "Precipitation",
+    "units": "mm/h",
+    "long_name": "Gauge-bias-corrected IMERG precipitation",
+    "global_attrs": {
+     "units": "mm/h",
+     "long_name": "Gauge-bias-corrected IMERG precipitation",
+     "_FillValue": "nan"
+    },
+    "dims": [
+     "time",
+     "y",
+     "x"
+    ],
+    "shape": [
+     241,
+     8,
+     6
+    ],
+    "crs_name": "WGS 84 / UTM zone 34N",
+    "epsg": 32634,
+    "coordinate_names": [
+     "time",
+     "y",
+     "x"
+    ],
+    "projected": true,
+    "x_first": 688381.7549408512,
+    "x_last": 738420.6197497548,
+    "dx_m": 10007.772961780778,
+    "y_first": 4248906.065088293,
+    "y_last": 4178851.6543558277,
+    "dy_m": -10007.772961780429,
+    "lonlat_extent_of_cell_centres": {
+     "lon_min": 23.137921513934632,
+     "lon_max": 23.728606928945897,
+     "lat_min": 37.725921168983014,
+     "lat_max": 38.36852645164452
+    },
+    "time_units": "minutes since 2017-11-12",
+    "time_calendar": "proleptic_gregorian",
+    "time": {
+     "first": "2017-11-13T00:00:00",
+     "last": "2017-11-18T00:00:00",
+     "count": 241,
+     "step_minutes": 30.0,
+     "uniform": true,
+     "span_hours": 120.0
+    },
+    "n_nan": 0,
+    "n_negative": 0,
+    "max_rate_mm_h": 218.56661987304688,
+    "last_frame_max_mm_h": 0.0
+   },
+   "duplicate_model_folders": [
+    {
+     "path": "D:\\ELKAK\\implementation\\mandra_sfincs_enhanced\\model\\precip_2d.nc",
+     "same_shape": true,
+     "arrays_identical": true,
+     "max_abs_diff_mm_h": 0.0,
+     "times_identical": true
+    }
+   ],
+   "event_window_utc": [
+    "2017-11-14T00:00:00",
+    "2017-11-16T00:00:00"
+   ],
+   "bbox_lonlat": [
+    23.4,
+    38.05,
+    23.55,
+    38.15
+   ],
+   "bbox_in_model_crs_corners_xy": [
+    [
+     710585.4,
+     4214081.9
+    ],
+    [
+     723749.0,
+     4214432.6
+    ],
+    [
+     723444.0,
+     4225530.7
+    ],
+    [
+     710298.4,
+     4225179.7
+    ]
+   ],
+   "bbox_cell_selection_rule_model": "precip_2d cell centres inverse-projected to lon/lat (pyproj, EPSG:32634 -> 4326); centre inside bbox, inclusive",
+   "active_mask": {
+    "file": {
+     "path": "D:\\ELKAK\\implementation\\mandra_sfincs_enhanced\\model_author_ref\\sfincs_map.nc",
+     "exists": true,
+     "size_bytes": 59521254,
+     "mtime": "2026-05-26T22:02:38"
+    },
+    "n_cells": 308398,
+    "n_active": 162335,
+    "msk_values": [
+     0,
+     1,
+     2
+    ],
+    "n_active_mapped_into_precip_grid": 162335,
+    "n_precip_cells_with_active_weight": 13,
+    "rule": "each active SFINCS cell (msk>0 in sfincs_map.nc) assigned to the precip_2d cell whose centre is nearest; weight = number of active cells per precip_2d cell"
+   },
+   "model_totals": {
+    "domain_all_cells": {
+     "region": "all precip_2d cells",
+     "n_cells": 48,
+     "n_nan_values": 0,
+     "event_window": {
+      "T0": "2017-11-14T00:00:00",
+      "T1": "2017-11-16T00:00:00",
+      "dt_hours": 0.5,
+      "file_covers_window": true,
+      "n_stamps_pc_fwd": 96,
+      "total_pc_fwd_mm": 254.3405825464676,
+      "n_stamps_incl": 97,
+      "total_incl_mm": 254.34808254645517,
+      "n_intervals_trap": 96,
+      "total_trap_mm": 254.34433254646137
+     },
+     "whole_file": {
+      "n_stamps": 241,
+      "dt_hours": 0.5,
+      "total_pc_fwd_mm": 456.23870267024427,
+      "total_trap_mm": 456.2263068375566
+     },
+     "peak_region_mean_rate_mm_h": 35.67954660952091,
+     "peak_region_mean_rate_time": "2017-11-15T02:00:00"
+    },
+    "bbox": {
+     "region": "cells with centre in lon/lat bbox",
+     "n_cells": 1,
+     "n_nan_values": 0,
+     "event_window": {
+      "T0": "2017-11-14T00:00:00",
+      "T1": "2017-11-16T00:00:00",
+      "dt_hours": 0.5,
+      "file_covers_window": true,
+      "n_stamps_pc_fwd": 96,
+      "total_pc_fwd_mm": 447.7366208732128,
+      "n_stamps_incl": 97,
+      "total_incl_mm": 447.7366208732128,
+      "n_intervals_trap": 96,
+      "total_trap_mm": 447.7366208732128
+     },
+     "whole_file": {
+      "n_stamps": 241,
+      "dt_hours": 0.5,
+      "total_pc_fwd_mm": 668.8066143095493,
+      "total_trap_mm": 668.8066143095493
+     },
+     "peak_region_mean_rate_mm_h": 165.20762634277344,
+     "peak_region_mean_rate_time": "2017-11-15T04:30:00",
+     "bias_window": {
+      "T0": "2017-11-14T00:00:00",
+      "T1": "2017-11-15T23:30:00",
+      "dt_hours": 0.5,
+      "file_covers_window": true,
+      "n_stamps_pc_fwd": 95,
+      "total_pc_fwd_mm": 447.7366208732128,
+      "n_stamps_incl": 96,
+      "total_incl_mm": 447.7366208732128,
+      "n_intervals_trap": 95,
+      "total_trap_mm": 447.7366208732128,
+      "note": "same stamps as the IMERG bias window, applied to the model file's time axis"
+     }
+    },
+    "sfincs_grid_rectangle": {
+     "region": "cells with centre inside the SFINCS grid rectangle (x0,y0,mmax*dx,nmax*dy)",
+     "n_cells": 9,
+     "n_nan_values": 0,
+     "event_window": {
+      "T0": "2017-11-14T00:00:00",
+      "T1": "2017-11-16T00:00:00",
+      "dt_hours": 0.5,
+      "file_covers_window": true,
+      "n_stamps_pc_fwd": 96,
+      "total_pc_fwd_mm": 362.8240032311943,
+      "n_stamps_incl": 97,
+      "total_incl_mm": 362.8240032311943,
+      "n_intervals_trap": 96,
+      "total_trap_mm": 362.8240032311943
+     },
+     "whole_file": {
+      "n_stamps": 241,
+      "dt_hours": 0.5,
+      "total_pc_fwd_mm": 583.9851089312384,
+      "total_trap_mm": 583.9851089312384
+     },
+     "peak_region_mean_rate_mm_h": 66.41369586520725,
+     "peak_region_mean_rate_time": "2017-11-15T04:00:00"
+    },
+    "active_cell_weighted": {
+     "region": "weighted by active SFINCS cells per precip_2d cell",
+     "n_cells": 13,
+     "n_nan_values": 0,
+     "event_window": {
+      "T0": "2017-11-14T00:00:00",
+      "T1": "2017-11-16T00:00:00",
+      "dt_hours": 0.5,
+      "file_covers_window": true,
+      "n_stamps_pc_fwd": 96,
+      "total_pc_fwd_mm": 331.96641220801087,
+      "n_stamps_incl": 97,
+      "total_incl_mm": 331.96641220801087,
+      "n_intervals_trap": 96,
+      "total_trap_mm": 331.9664122080108
+     },
+     "whole_file": {
+      "n_stamps": 241,
+      "dt_hours": 0.5,
+      "total_pc_fwd_mm": 562.7750093675909,
+      "total_trap_mm": 562.7750093675909
+     },
+     "peak_region_mean_rate_mm_h": 84.20839794411667,
+     "peak_region_mean_rate_time": "2017-11-15T04:00:00",
+     "bias_window": {
+      "T0": "2017-11-14T00:00:00",
+      "T1": "2017-11-15T23:30:00",
+      "dt_hours": 0.5,
+      "file_covers_window": true,
+      "n_stamps_pc_fwd": 95,
+      "total_pc_fwd_mm": 331.9664122080108,
+      "n_stamps_incl": 96,
+      "total_incl_mm": 331.96641220801087,
+      "n_intervals_trap": 95,
+      "total_trap_mm": 331.96641220801087
+     }
+    }
+   },
+   "imerg": {
+    "imerg_bc": {
+     "file": {
+      "path": "D:\\ELKAK\\implementation\\mandra_sfincs_enhanced\\data\\imerg_mandra.nc",
+      "exists": true,
+      "size_bytes": 77996,
+      "mtime": "2026-06-22T16:37:05",
+      "sha256": "11eb246e8b094875f8f3ceef96197e928b21111fb87d40a52a1dd0ac83e9c707"
+     },
+     "var_name": "precip",
+     "units": "mm/h",
+     "units_attr_Units": null,
+     "long_name": "Gauge-bias-corrected IMERG precipitation",
+     "dims": [
+      "time",
+      "latitude",
+      "longitude"
+     ],
+     "shape": [
+      289,
+      7,
+      7
+     ],
+     "coordinate_names": [
+      "time",
+      "latitude",
+      "longitude"
+     ],
+     "projected": false,
+     "crs": "EPSG:4326 (lat/lon, 0.1 deg)",
+     "lon_first": 23.149999618530273,
+     "lon_last": 23.75,
+     "lat_first": 37.75,
+     "lat_last": 38.349998474121094,
+     "lon_centres": [
+      23.15,
+      23.25,
+      23.35,
+      23.45,
+      23.55,
+      23.65,
+      23.75
+     ],
+     "lat_centres": [
+      37.75,
+      37.85,
+      37.95,
+      38.05,
+      38.15,
+      38.25,
+      38.35
+     ],
+     "time_units": "minutes since 2017-01-01",
+     "time_calendar_attr": "proleptic_gregorian",
+     "time": {
+      "first": "2017-11-12T00:00:00",
+      "last": "2017-11-18T00:00:00",
+      "count": 289,
+      "step_minutes": 30.0,
+      "uniform": true,
+      "span_hours": 144.0
+     },
+     "time_decoding": {},
+     "global_attrs": {
+      "source": "GPM IMERG Final V07 half-hourly",
+      "spatial_resolution": "0.1 deg",
+      "temporal_resolution": "30 min",
+      "bias_correction": "Multiplicative scaling 8.551x applied to event window 2017-11-14 00:00 to 2017-11-15 23:30 so watershed bbox (23.4,38.05,23.55,38.15) 24-h total matches 200.0 mm gauge-based estimate",
+      "bias_correction_reference": "Diakakis et al. 2019; Nikolopoulos et al. 2013; Anagnostou et al. 2009"
+     },
+     "keyword_attrs": {
+      "global:source": "GPM IMERG Final V07 half-hourly",
+      "global:bias_correction": "Multiplicative scaling 8.551x applied to event window 2017-11-14 00:00 to 2017-11-15 23:30 so watershed bbox (23.4,38.05,23.55,38.15) 24-h total matches 200.0 mm gauge-based estimate",
+      "global:bias_correction_reference": "Diakakis et al. 2019; Nikolopoulos et al. 2013; Anagnostou et al. 2009",
+      "precip:long_name": "Gauge-bias-corrected IMERG precipitation"
+     },
+     "bias_correction_parsed": {
+      "factor": 8.551,
+      "window_start": "2017-11-14T00:00",
+      "window_end": "2017-11-15T23:30",
+      "bbox": [
+       23.4,
+       38.05,
+       23.55,
+       38.15
+      ],
+      "target_mm": 200.0
+     },
+     "n_nan": 0,
+     "n_negative": 0,
+     "max_rate_mm_h": 109.28330993652344,
+     "bbox_cell_selection_rule": "cell centres compared in float32 against float32 bbox bounds, inclusive (replicates bias_correct_imerg.py's xarray comparison)",
+     "bbox_cells_selected": {
+      "n": 4,
+      "lon_centres": [
+       23.45,
+       23.55
+      ],
+      "lat_centres": [
+       38.05,
+       38.15
+      ],
+      "n_with_float64_tolerance_1e_4": 4
+     },
+     "totals": {
+      "domain_all_cells": {
+       "region": "all IMERG cells in file",
+       "n_cells": 49,
+       "n_nan_values": 0,
+       "event_window": {
+        "T0": "2017-11-14T00:00:00",
+        "T1": "2017-11-16T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 96,
+        "total_pc_fwd_mm": 125.03394759385563,
+        "n_stamps_incl": 97,
+        "total_incl_mm": 125.03394759385563,
+        "n_intervals_trap": 96,
+        "total_trap_mm": 125.0339475938556
+       },
+       "model_time_span": {
+        "T0": "2017-11-13T00:00:00",
+        "T1": "2017-11-18T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 240,
+        "total_pc_fwd_mm": 227.25700641522297,
+        "n_stamps_incl": 241,
+        "total_incl_mm": 227.26567988439785,
+        "n_intervals_trap": 240,
+        "total_trap_mm": 227.2573635580436
+       },
+       "whole_file": {
+        "n_stamps": 289,
+        "dt_hours": 0.5,
+        "total_pc_fwd_mm": 228.2559859810055,
+        "total_trap_mm": 228.25164924641803
+       },
+       "peak_region_mean_rate_mm_h": 15.765472528885821,
+       "peak_region_mean_rate_time": "2017-11-15T03:00:00"
+      },
+      "bbox": {
+       "region": "IMERG cells with centre in bbox (float32 rule)",
+       "n_cells": 4,
+       "n_nan_values": 0,
+       "event_window": {
+        "T0": "2017-11-14T00:00:00",
+        "T1": "2017-11-16T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 96,
+        "total_pc_fwd_mm": 199.9999998509884,
+        "n_stamps_incl": 97,
+        "total_incl_mm": 199.9999998509884,
+        "n_intervals_trap": 96,
+        "total_trap_mm": 199.9999998509884
+       },
+       "model_time_span": {
+        "T0": "2017-11-13T00:00:00",
+        "T1": "2017-11-18T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 240,
+        "total_pc_fwd_mm": 309.87624690681696,
+        "n_stamps_incl": 241,
+        "total_incl_mm": 309.87624690681696,
+        "n_intervals_trap": 240,
+        "total_trap_mm": 309.87624690681696
+       },
+       "whole_file": {
+        "n_stamps": 289,
+        "dt_hours": 0.5,
+        "total_pc_fwd_mm": 310.07624690257944,
+        "total_trap_mm": 310.07624690257944
+       },
+       "peak_region_mean_rate_mm_h": 44.23066687583923,
+       "peak_region_mean_rate_time": "2017-11-15T04:30:00"
+      },
+      "sfincs_grid_rectangle": {
+       "region": "IMERG cells whose centre projects inside the SFINCS grid rectangle",
+       "n_cells": 9,
+       "n_nan_values": 0,
+       "event_window": {
+        "T0": "2017-11-14T00:00:00",
+        "T1": "2017-11-16T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 96,
+        "total_pc_fwd_mm": 180.59014470295773,
+        "n_stamps_incl": 97,
+        "total_incl_mm": 180.59014470295773,
+        "n_intervals_trap": 96,
+        "total_trap_mm": 180.59014470295773
+       },
+       "model_time_span": {
+        "T0": "2017-11-13T00:00:00",
+        "T1": "2017-11-18T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 240,
+        "total_pc_fwd_mm": 297.58180851944616,
+        "n_stamps_incl": 241,
+        "total_incl_mm": 297.58180851944616,
+        "n_intervals_trap": 240,
+        "total_trap_mm": 297.58180851944616
+       },
+       "whole_file": {
+        "n_stamps": 289,
+        "dt_hours": 0.5,
+        "total_pc_fwd_mm": 298.00569740155095,
+        "total_trap_mm": 298.0056974015509
+       },
+       "peak_region_mean_rate_mm_h": 31.449117766486275,
+       "peak_region_mean_rate_time": "2017-11-15T04:30:00"
+      }
+     },
+     "bias_window_bbox": {
+      "T0": "2017-11-14T00:00:00",
+      "T1": "2017-11-15T23:30:00",
+      "dt_hours": 0.5,
+      "file_covers_window": true,
+      "n_stamps_pc_fwd": 95,
+      "total_pc_fwd_mm": 199.9999998509884,
+      "n_stamps_incl": 96,
+      "total_incl_mm": 199.9999998509884,
+      "n_intervals_trap": 95,
+      "total_trap_mm": 199.9999998509884,
+      "note": "window and bbox as stated in imerg_<slug>.nc:bias_correction; 'total_incl_mm' is the script's rule"
+     }
+    },
+    "imerg_raw": {
+     "file": {
+      "path": "D:\\ELKAK\\implementation\\mandra_sfincs_enhanced\\data\\imerg_mandra.raw.nc",
+      "exists": true,
+      "size_bytes": 81298,
+      "mtime": "2026-05-26T20:34:26",
+      "sha256": "fc53a3e2ac6e93a94c9003ed8b1f4a7758ed6a5cce002f28c07dd37ba2dfd6ac"
+     },
+     "var_name": "precip",
+     "units": "mm/h",
+     "units_attr_Units": "mm/hr",
+     "long_name": "Precipitation (IMERG Final V07 calibrated)",
+     "dims": [
+      "time",
+      "latitude",
+      "longitude"
+     ],
+     "shape": [
+      289,
+      7,
+      7
+     ],
+     "coordinate_names": [
+      "time",
+      "latitude",
+      "longitude"
+     ],
+     "projected": false,
+     "crs": "EPSG:4326 (lat/lon, 0.1 deg)",
+     "lon_first": 23.149999618530273,
+     "lon_last": 23.75,
+     "lat_first": 37.75,
+     "lat_last": 38.349998474121094,
+     "lon_centres": [
+      23.15,
+      23.25,
+      23.35,
+      23.45,
+      23.55,
+      23.65,
+      23.75
+     ],
+     "lat_centres": [
+      37.75,
+      37.85,
+      37.95,
+      38.05,
+      38.15,
+      38.25,
+      38.35
+     ],
+     "time_units": "seconds since 1980-01-06T00:00:00+00:00",
+     "time_calendar_attr": "julian",
+     "time": {
+      "first": "2017-11-12T00:00:00",
+      "last": "2017-11-18T00:00:00",
+      "count": 289,
+      "step_minutes": 30.0,
+      "uniform": true,
+      "span_hours": 144.0
+     },
+     "time_decoding": {
+      "time_decoded_with_file_calendar_first_last": [
+       "2017-11-12T00:00:00",
+       "2017-11-18T00:00:00"
+      ],
+      "time_decoded_as_standard_first_last": [
+       "2017-11-12T00:00:00",
+       "2017-11-18T00:00:00"
+      ],
+      "note": "file declares calendar='julian'; stamps used here are decoded with the standard (Gregorian) calendar, which matches the bias-corrected file's stamps"
+     },
+     "global_attrs": {
+      "source": "GPM IMERG Final V07 half-hourly",
+      "spatial_resolution": "0.1 deg",
+      "temporal_resolution": "30 min"
+     },
+     "keyword_attrs": {
+      "global:source": "GPM IMERG Final V07 half-hourly"
+     },
+     "bias_correction_parsed": null,
+     "n_nan": 0,
+     "n_negative": 0,
+     "max_rate_mm_h": 36.099998474121094,
+     "bbox_cell_selection_rule": "cell centres compared in float32 against float32 bbox bounds, inclusive (replicates bias_correct_imerg.py's xarray comparison)",
+     "bbox_cells_selected": {
+      "n": 4,
+      "lon_centres": [
+       23.45,
+       23.55
+      ],
+      "lat_centres": [
+       38.05,
+       38.15
+      ],
+      "n_with_float64_tolerance_1e_4": 4
+     },
+     "totals": {
+      "domain_all_cells": {
+       "region": "all IMERG cells in file",
+       "n_cells": 49,
+       "n_nan_values": 0,
+       "event_window": {
+        "T0": "2017-11-14T00:00:00",
+        "T1": "2017-11-16T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 96,
+        "total_pc_fwd_mm": 14.62193846605642,
+        "n_stamps_incl": 97,
+        "total_incl_mm": 14.62193846605642,
+        "n_intervals_trap": 96,
+        "total_trap_mm": 14.62193846605642
+       },
+       "model_time_span": {
+        "T0": "2017-11-13T00:00:00",
+        "T1": "2017-11-18T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 240,
+        "total_pc_fwd_mm": 116.84499728742378,
+        "n_stamps_incl": 241,
+        "total_incl_mm": 116.85367075659866,
+        "n_intervals_trap": 240,
+        "total_trap_mm": 116.84535443024444
+       },
+       "whole_file": {
+        "n_stamps": 289,
+        "dt_hours": 0.5,
+        "total_pc_fwd_mm": 117.8439768532063,
+        "total_trap_mm": 117.83964011861886
+       },
+       "peak_region_mean_rate_mm_h": 14.813877154369743,
+       "peak_region_mean_rate_time": "2017-11-16T20:00:00"
+      },
+      "bbox": {
+       "region": "IMERG cells with centre in bbox (float32 rule)",
+       "n_cells": 4,
+       "n_nan_values": 0,
+       "event_window": {
+        "T0": "2017-11-14T00:00:00",
+        "T1": "2017-11-16T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 96,
+        "total_pc_fwd_mm": 23.388749598525465,
+        "n_stamps_incl": 97,
+        "total_incl_mm": 23.388749598525465,
+        "n_intervals_trap": 96,
+        "total_trap_mm": 23.388749598525465
+       },
+       "model_time_span": {
+        "T0": "2017-11-13T00:00:00",
+        "T1": "2017-11-18T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 240,
+        "total_pc_fwd_mm": 133.26499665435404,
+        "n_stamps_incl": 241,
+        "total_incl_mm": 133.26499665435404,
+        "n_intervals_trap": 240,
+        "total_trap_mm": 133.26499665435404
+       },
+       "whole_file": {
+        "n_stamps": 289,
+        "dt_hours": 0.5,
+        "total_pc_fwd_mm": 133.46499665011652,
+        "total_trap_mm": 133.46499665011652
+       },
+       "peak_region_mean_rate_mm_h": 17.864999294281006,
+       "peak_region_mean_rate_time": "2017-11-16T20:00:00"
+      },
+      "sfincs_grid_rectangle": {
+       "region": "IMERG cells whose centre projects inside the SFINCS grid rectangle",
+       "n_cells": 9,
+       "n_nan_values": 0,
+       "event_window": {
+        "T0": "2017-11-14T00:00:00",
+        "T1": "2017-11-16T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 96,
+        "total_pc_fwd_mm": 21.11888844219761,
+        "n_stamps_incl": 97,
+        "total_incl_mm": 21.11888844219761,
+        "n_intervals_trap": 96,
+        "total_trap_mm": 21.11888844219761
+       },
+       "model_time_span": {
+        "T0": "2017-11-13T00:00:00",
+        "T1": "2017-11-18T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 240,
+        "total_pc_fwd_mm": 138.11055225868608,
+        "n_stamps_incl": 241,
+        "total_incl_mm": 138.11055225868608,
+        "n_intervals_trap": 240,
+        "total_trap_mm": 138.11055225868606
+       },
+       "whole_file": {
+        "n_stamps": 289,
+        "dt_hours": 0.5,
+        "total_pc_fwd_mm": 138.5344411407908,
+        "total_trap_mm": 138.53444114079076
+       },
+       "peak_region_mean_rate_mm_h": 19.97777705722385,
+       "peak_region_mean_rate_time": "2017-11-16T20:00:00"
+      }
+     },
+     "bias_window_bbox": {
+      "T0": "2017-11-14T00:00:00",
+      "T1": "2017-11-15T23:30:00",
+      "dt_hours": 0.5,
+      "file_covers_window": true,
+      "n_stamps_pc_fwd": 95,
+      "total_pc_fwd_mm": 23.388749598525465,
+      "n_stamps_incl": 96,
+      "total_incl_mm": 23.388749598525465,
+      "n_intervals_trap": 95,
+      "total_trap_mm": 23.388749598525465,
+      "note": "window and bbox as stated in imerg_<slug>.nc:bias_correction; 'total_incl_mm' is the script's rule"
+     }
+    }
+   },
+   "bias_correction_as_recorded": {
+    "factor": 8.551,
+    "window_start": "2017-11-14T00:00",
+    "window_end": "2017-11-15T23:30",
+    "bbox": [
+     23.4,
+     38.05,
+     23.55,
+     38.15
+    ],
+    "target_mm": 200.0
+   },
+   "pointwise_check": {
+    "imerg_bc": {
+     "n_precip2d_cells_inside_imerg_extent": 48,
+     "n_precip2d_cells_total": 48,
+     "n_precip2d_cells_outside_imerg_extent": 0,
+     "max_rate_in_cells_outside_imerg_extent_mm_h": null,
+     "rule": "precip_2d cell centre -> lon/lat -> nearest IMERG cell centre (<= 0.05 deg); ratio = model / IMERG where IMERG > 1e-6 mm/h",
+     "shift_0": {
+      "alignment": "model stamp t <-> IMERG stamp t + 0 min",
+      "n_model_frames_matched": 241,
+      "n_cell_time_pairs": 3673,
+      "ratio_median": 1.73,
+      "ratio_min": 0.0,
+      "ratio_max": 630.0,
+      "frac_pairs_model_equals_2x_imerg": 0.0155,
+      "frac_pairs_model_equals_1x_imerg": 0.0027,
+      "n_pairs_not_2x": 3616,
+      "n_pairs_not_2x_on_outer_ring_of_precip2d_grid": 1715,
+      "n_interior_pairs": 1939,
+      "frac_interior_pairs_model_equals_2x_imerg": 0.0196
+     },
+     "shift_1": {
+      "alignment": "model stamp t <-> IMERG stamp t + 30 min",
+      "n_cells_with_non_2x_pairs": 0,
+      "n_non_2x_pairs_with_model_zero": 0,
+      "non_2x_cells_distance_to_imerg_cell_edge_deg": null,
+      "n_non_2x_pairs_equal_2x_adjacent_imerg_cell": 0,
+      "sum_model_over_sum_2x_imerg_all_pairs": 1.0,
+      "depth_share_of_non_2x_pairs": 0.0,
+      "n_model_frames_matched": 240,
+      "n_cell_time_pairs": 3667,
+      "ratio_median": 2.0,
+      "ratio_min": 2.0,
+      "ratio_max": 2.0,
+      "frac_pairs_model_equals_2x_imerg": 1.0,
+      "frac_pairs_model_equals_1x_imerg": 0.0,
+      "n_pairs_not_2x": 0,
+      "n_pairs_not_2x_on_outer_ring_of_precip2d_grid": 0,
+      "n_interior_pairs": 1937,
+      "frac_interior_pairs_model_equals_2x_imerg": 1.0,
+      "per_frame_median_ratio_runs": [
+       {
+        "value": 2.0,
+        "start": "2017-11-13T00:00:00",
+        "end": "2017-11-13T03:30:00",
+        "n_frames": 8
+       },
+       {
+        "value": null,
+        "start": "2017-11-13T04:00:00",
+        "end": "2017-11-13T04:30:00",
+        "n_frames": 2
+       },
+       {
+        "value": 2.0,
+        "start": "2017-11-13T05:00:00",
+        "end": "2017-11-13T12:00:00",
+        "n_frames": 15
+       },
+       {
+        "value": null,
+        "start": "2017-11-13T12:30:00",
+        "end": "2017-11-13T21:30:00",
+        "n_frames": 19
+       },
+       {
+        "value": 2.0,
+        "start": "2017-11-13T22:00:00",
+        "end": "2017-11-13T22:00:00",
+        "n_frames": 1
+       },
+       {
+        "value": null,
+        "start": "2017-11-13T22:30:00",
+        "end": "2017-11-14T12:00:00",
+        "n_frames": 28
+       },
+       {
+        "value": 2.0,
+        "start": "2017-11-14T12:30:00",
+        "end": "2017-11-15T13:00:00",
+        "n_frames": 50
+       },
+       {
+        "value": null,
+        "start": "2017-11-15T13:30:00",
+        "end": "2017-11-15T16:30:00",
+        "n_frames": 7
+       },
+       {
+        "value": 2.0,
+        "start": "2017-11-15T17:00:00",
+        "end": "2017-11-15T23:00:00",
+        "n_frames": 13
+       },
+       {
+        "value": null,
+        "start": "2017-11-15T23:30:00",
+        "end": "2017-11-15T23:30:00",
+        "n_frames": 1
+       },
+       {
+        "value": 2.0,
+        "start": "2017-11-16T00:00:00",
+        "end": "2017-11-16T02:00:00",
+        "n_frames": 5
+       },
+       {
+        "value": null,
+        "start": "2017-11-16T02:30:00",
+        "end": "2017-11-16T02:30:00",
+        "n_frames": 1
+       },
+       {
+        "value": 2.0,
+        "start": "2017-11-16T03:00:00",
+        "end": "2017-11-17T00:00:00",
+        "n_frames": 43
+       },
+       {
+        "value": null,
+        "start": "2017-11-17T00:30:00",
+        "end": "2017-11-17T02:00:00",
+        "n_frames": 4
+       },
+       {
+        "value": 2.0,
+        "start": "2017-11-17T02:30:00",
+        "end": "2017-11-17T13:30:00",
+        "n_frames": 23
+       },
+       {
+        "value": null,
+        "start": "2017-11-17T14:00:00",
+        "end": "2017-11-17T21:30:00",
+        "n_frames": 16
+       },
+       {
+        "value": 2.0,
+        "start": "2017-11-17T22:00:00",
+        "end": "2017-11-17T23:30:00",
+        "n_frames": 4
+       }
+      ]
+     }
+    },
+    "imerg_raw": {
+     "n_precip2d_cells_inside_imerg_extent": 48,
+     "n_precip2d_cells_total": 48,
+     "n_precip2d_cells_outside_imerg_extent": 0,
+     "max_rate_in_cells_outside_imerg_extent_mm_h": null,
+     "rule": "precip_2d cell centre -> lon/lat -> nearest IMERG cell centre (<= 0.05 deg); ratio = model / IMERG where IMERG > 1e-6 mm/h",
+     "shift_0": {
+      "alignment": "model stamp t <-> IMERG stamp t + 0 min",
+      "n_model_frames_matched": 241,
+      "n_cell_time_pairs": 3673,
+      "ratio_median": 2.165,
+      "ratio_min": 0.0,
+      "ratio_max": 4532.094,
+      "frac_pairs_model_equals_2x_imerg": 0.0052,
+      "frac_pairs_model_equals_1x_imerg": 0.0019,
+      "n_pairs_not_2x": 3654,
+      "n_pairs_not_2x_on_outer_ring_of_precip2d_grid": 1724,
+      "n_interior_pairs": 1939,
+      "frac_interior_pairs_model_equals_2x_imerg": 0.0046
+     },
+     "shift_1": {
+      "alignment": "model stamp t <-> IMERG stamp t + 30 min",
+      "n_cells_with_non_2x_pairs": 44,
+      "n_non_2x_pairs_with_model_zero": 0,
+      "non_2x_cells_distance_to_imerg_cell_edge_deg": {
+       "min": 0.0002,
+       "max": 0.0376
+      },
+      "n_non_2x_pairs_equal_2x_adjacent_imerg_cell": 0,
+      "sum_model_over_sum_2x_imerg_all_pairs": 1.9696,
+      "depth_share_of_non_2x_pairs": 0.5575,
+      "n_model_frames_matched": 240,
+      "n_cell_time_pairs": 3667,
+      "ratio_median": 2.0,
+      "ratio_min": 2.0,
+      "ratio_max": 17.102,
+      "frac_pairs_model_equals_2x_imerg": 0.6706,
+      "frac_pairs_model_equals_1x_imerg": 0.0,
+      "n_pairs_not_2x": 1208,
+      "n_pairs_not_2x_on_outer_ring_of_precip2d_grid": 473,
+      "n_interior_pairs": 1937,
+      "frac_interior_pairs_model_equals_2x_imerg": 0.6205,
+      "per_frame_median_ratio_runs": [
+       {
+        "value": 2.0,
+        "start": "2017-11-13T00:00:00",
+        "end": "2017-11-13T03:30:00",
+        "n_frames": 8
+       },
+       {
+        "value": null,
+        "start": "2017-11-13T04:00:00",
+        "end": "2017-11-13T04:30:00",
+        "n_frames": 2
+       },
+       {
+        "value": 2.0,
+        "start": "2017-11-13T05:00:00",
+        "end": "2017-11-13T12:00:00",
+        "n_frames": 15
+       },
+       {
+        "value": null,
+        "start": "2017-11-13T12:30:00",
+        "end": "2017-11-13T21:30:00",
+        "n_frames": 19
+       },
+       {
+        "value": 2.0,
+        "start": "2017-11-13T22:00:00",
+        "end": "2017-11-13T22:00:00",
+        "n_frames": 1
+       },
+       {
+        "value": null,
+        "start": "2017-11-13T22:30:00",
+        "end": "2017-11-14T12:00:00",
+        "n_frames": 28
+       },
+       {
+        "value": 17.102,
+        "start": "2017-11-14T12:30:00",
+        "end": "2017-11-15T13:00:00",
+        "n_frames": 50
+       },
+       {
+        "value": null,
+        "start": "2017-11-15T13:30:00",
+        "end": "2017-11-15T16:30:00",
+        "n_frames": 7
+       },
+       {
+        "value": 17.102,
+        "start": "2017-11-15T17:00:00",
+        "end": "2017-11-15T23:00:00",
+        "n_frames": 13
+       },
+       {
+        "value": null,
+        "start": "2017-11-15T23:30:00",
+        "end": "2017-11-15T23:30:00",
+        "n_frames": 1
+       },
+       {
+        "value": 2.0,
+        "start": "2017-11-16T00:00:00",
+        "end": "2017-11-16T02:00:00",
+        "n_frames": 5
+       },
+       {
+        "value": null,
+        "start": "2017-11-16T02:30:00",
+        "end": "2017-11-16T02:30:00",
+        "n_frames": 1
+       },
+       {
+        "value": 2.0,
+        "start": "2017-11-16T03:00:00",
+        "end": "2017-11-17T00:00:00",
+        "n_frames": 43
+       },
+       {
+        "value": null,
+        "start": "2017-11-17T00:30:00",
+        "end": "2017-11-17T02:00:00",
+        "n_frames": 4
+       },
+       {
+        "value": 2.0,
+        "start": "2017-11-17T02:30:00",
+        "end": "2017-11-17T13:30:00",
+        "n_frames": 23
+       },
+       {
+        "value": null,
+        "start": "2017-11-17T14:00:00",
+        "end": "2017-11-17T21:30:00",
+        "n_frames": 16
+       },
+       {
+        "value": 2.0,
+        "start": "2017-11-17T22:00:00",
+        "end": "2017-11-17T23:30:00",
+        "n_frames": 4
+       }
+      ]
+     }
+    }
+   },
+   "ratios": {
+    "model/imerg_bc | event window | domain_all_cells | total_pc_fwd_mm": 2.034,
+    "model/imerg_bc | event window | domain_all_cells | total_trap_mm": 2.034,
+    "model/imerg_bc | model time span [tstart,tstop) | domain_all_cells | total_pc_fwd_mm": 2.008,
+    "model/imerg_raw | event window | domain_all_cells | total_pc_fwd_mm": 17.394,
+    "model/imerg_raw | event window | domain_all_cells | total_trap_mm": 17.395,
+    "model/imerg_raw | model time span [tstart,tstop) | domain_all_cells | total_pc_fwd_mm": 3.905,
+    "model/imerg_bc | event window | bbox | total_pc_fwd_mm": 2.239,
+    "model/imerg_bc | event window | bbox | total_trap_mm": 2.239,
+    "model/imerg_bc | model time span [tstart,tstop) | bbox | total_pc_fwd_mm": 2.158,
+    "model/imerg_raw | event window | bbox | total_pc_fwd_mm": 19.143,
+    "model/imerg_raw | event window | bbox | total_trap_mm": 19.143,
+    "model/imerg_raw | model time span [tstart,tstop) | bbox | total_pc_fwd_mm": 5.019,
+    "model/imerg_bc | event window | sfincs_grid_rectangle | total_pc_fwd_mm": 2.009,
+    "model/imerg_bc | event window | sfincs_grid_rectangle | total_trap_mm": 2.009,
+    "model/imerg_bc | model time span [tstart,tstop) | sfincs_grid_rectangle | total_pc_fwd_mm": 1.962,
+    "model/imerg_raw | event window | sfincs_grid_rectangle | total_pc_fwd_mm": 17.18,
+    "model/imerg_raw | event window | sfincs_grid_rectangle | total_trap_mm": 17.18,
+    "model/imerg_raw | model time span [tstart,tstop) | sfincs_grid_rectangle | total_pc_fwd_mm": 4.228,
+    "model bbox event-window pc_fwd / target configured_200": 2.239,
+    "model bbox event-window trap / target configured_200": 2.239,
+    "model domain event-window pc_fwd / target configured_200": 1.272,
+    "model active-weighted event-window pc_fwd / target configured_200": 1.66,
+    "model bbox bias-window pc_fwd / target configured_200": 2.239,
+    "model bbox bias-window incl / target configured_200": 2.239,
+    "imerg_bc bbox bias-window incl (script rule) / target configured_200": 1.0,
+    "imerg_raw bbox bias-window incl (script rule) / target configured_200": 0.117
+   },
+   "targets_mm": {
+    "configured_200": 200.0
+   }
+  },
+  {
+   "key": "valencia_350_asrun",
+   "event": "Valencia (EMSR773), as-run 350-mm anchor",
+   "model_dir": "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\valencia_emsr773\\model",
+   "sfincs_inp": {
+    "path": "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\valencia_emsr773\\model\\sfincs.inp",
+    "exists": true,
+    "size_bytes": 1614,
+    "mtime": "2026-07-15T20:30:52",
+    "sha256": "66e48c7881246fc70178ae451f631d45fac24f1a4eb0561926f90c8f45061baa"
+   },
+   "inp": {
+    "tref": "20241024 000000",
+    "tstart": "20241027 000000",
+    "tstop": "20241101 000000",
+    "precip_keyword": "netamprfile",
+    "precip_file": "precip_2d.nc",
+    "dtwnd": "1800.0",
+    "epsg": "32630",
+    "x0": "679915.0",
+    "y0": "4324424.0",
+    "dx": "100",
+    "dy": "100",
+    "mmax": "841",
+    "nmax": "801",
+    "other_precip_keywords_present": []
+   },
+   "model_precip": {
+    "file": {
+     "path": "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\valencia_emsr773\\model\\precip_2d.nc",
+     "exists": true,
+     "size_bytes": 193372,
+     "mtime": "2026-07-15T20:30:49",
+     "sha256": "abb981e2f4f2528483559d7af26267195e13c42f1954b4722f42b217eccb701f"
+    },
+    "var_name": "Precipitation",
+    "units": "mm/h",
+    "long_name": "Gauge-bias-corrected IMERG precipitation",
+    "global_attrs": {
+     "units": "mm/h",
+     "long_name": "Gauge-bias-corrected IMERG precipitation",
+     "_FillValue": "nan"
+    },
+    "dims": [
+     "time",
+     "y",
+     "x"
+    ],
+    "shape": [
+     241,
+     14,
+     13
+    ],
+    "crs_name": "WGS 84 / UTM zone 30N",
+    "epsg": 32630,
+    "coordinate_names": [
+     "time",
+     "y",
+     "x"
+    ],
+    "projected": true,
+    "x_first": 667062.4546034571,
+    "x_last": 784033.4398361142,
+    "dx_m": 9747.58210272144,
+    "y_first": 4428101.388718918,
+    "y_last": 4301382.82138354,
+    "dy_m": -9747.582102721557,
+    "lonlat_extent_of_cell_centres": {
+     "lon_min": -1.0749486946623434,
+     "lon_max": 0.3249951391159973,
+     "lat_min": 38.81545084961076,
+     "lat_max": 39.98658102870431
+    },
+    "time_units": "minutes since 2024-10-24",
+    "time_calendar": "proleptic_gregorian",
+    "time": {
+     "first": "2024-10-27T00:00:00",
+     "last": "2024-11-01T00:00:00",
+     "count": 241,
+     "step_minutes": 30.0,
+     "uniform": true,
+     "span_hours": 120.0
+    },
+    "n_nan": 0,
+    "n_negative": 0,
+    "max_rate_mm_h": 305.9330139160156,
+    "last_frame_max_mm_h": 0.0
+   },
+   "duplicate_model_folders": [],
+   "event_window_utc": [
+    "2024-10-29T00:00:00",
+    "2024-10-30T00:00:00"
+   ],
+   "bbox_lonlat": [
+    -0.75,
+    39.33,
+    -0.3,
+    39.55
+   ],
+   "bbox_in_model_crs_corners_xy": [
+    [
+     693933.1,
+     4355812.1
+    ],
+    [
+     732724.9,
+     4356874.8
+    ],
+    [
+     731993.3,
+     4381295.6
+    ],
+    [
+     693323.6,
+     4380231.3
+    ]
+   ],
+   "bbox_cell_selection_rule_model": "precip_2d cell centres inverse-projected to lon/lat (pyproj, EPSG:32630 -> 4326); centre inside bbox, inclusive",
+   "active_mask": {
+    "file": {
+     "path": "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\valencia_emsr773\\model\\sfincs_map.nc",
+     "exists": true,
+     "size_bytes": 179898560,
+     "mtime": "2026-07-15T20:59:19"
+    },
+    "n_cells": 673641,
+    "n_active": 521427,
+    "msk_values": [
+     0,
+     1,
+     2
+    ],
+    "n_active_mapped_into_precip_grid": 521427,
+    "n_precip_cells_with_active_weight": 84,
+    "rule": "each active SFINCS cell (msk>0 in sfincs_map.nc) assigned to the precip_2d cell whose centre is nearest; weight = number of active cells per precip_2d cell"
+   },
+   "model_totals": {
+    "domain_all_cells": {
+     "region": "all precip_2d cells",
+     "n_cells": 182,
+     "n_nan_values": 0,
+     "event_window": {
+      "T0": "2024-10-29T00:00:00",
+      "T1": "2024-10-30T00:00:00",
+      "dt_hours": 0.5,
+      "file_covers_window": true,
+      "n_stamps_pc_fwd": 48,
+      "total_pc_fwd_mm": 354.5191994766694,
+      "n_stamps_incl": 49,
+      "total_incl_mm": 354.5639247501903,
+      "n_intervals_trap": 48,
+      "total_trap_mm": 354.51117114307215
+     },
+     "whole_file": {
+      "n_stamps": 241,
+      "dt_hours": 0.5,
+      "total_pc_fwd_mm": 383.72801781891957,
+      "total_trap_mm": 383.7009299075497
+     },
+     "peak_region_mean_rate_mm_h": 47.331601977184576,
+     "peak_region_mean_rate_time": "2024-10-29T04:30:00"
+    },
+    "bbox": {
+     "region": "cells with centre in lon/lat bbox",
+     "n_cells": 12,
+     "n_nan_values": 0,
+     "event_window": {
+      "T0": "2024-10-29T00:00:00",
+      "T1": "2024-10-30T00:00:00",
+      "dt_hours": 0.5,
+      "file_covers_window": true,
+      "n_stamps_pc_fwd": 48,
+      "total_pc_fwd_mm": 677.5010685327773,
+      "n_stamps_incl": 49,
+      "total_incl_mm": 677.5010685327773,
+      "n_intervals_trap": 48,
+      "total_trap_mm": 677.4251100791929
+     },
+     "whole_file": {
+      "n_stamps": 241,
+      "dt_hours": 0.5,
+      "total_pc_fwd_mm": 688.3856335293192,
+      "total_trap_mm": 688.3660501963459
+     },
+     "peak_region_mean_rate_mm_h": 86.3440471291542,
+     "peak_region_mean_rate_time": "2024-10-29T15:30:00",
+     "bias_window": {
+      "T0": "2024-10-29T00:00:00",
+      "T1": "2024-10-30T00:00:00",
+      "dt_hours": 0.5,
+      "file_covers_window": true,
+      "n_stamps_pc_fwd": 48,
+      "total_pc_fwd_mm": 677.5010685327773,
+      "n_stamps_incl": 49,
+      "total_incl_mm": 677.5010685327773,
+      "n_intervals_trap": 48,
+      "total_trap_mm": 677.4251100791929,
+      "note": "same stamps as the IMERG bias window, applied to the model file's time axis"
+     }
+    },
+    "sfincs_grid_rectangle": {
+     "region": "cells with centre inside the SFINCS grid rectangle (x0,y0,mmax*dx,nmax*dy)",
+     "n_cells": 64,
+     "n_nan_values": 0,
+     "event_window": {
+      "T0": "2024-10-29T00:00:00",
+      "T1": "2024-10-30T00:00:00",
+      "dt_hours": 0.5,
+      "file_covers_window": true,
+      "n_stamps_pc_fwd": 48,
+      "total_pc_fwd_mm": 432.8388908095076,
+      "n_stamps_incl": 49,
+      "total_incl_mm": 432.8859220590093,
+      "n_intervals_trap": 48,
+      "total_trap_mm": 432.80543759305147
+     },
+     "whole_file": {
+      "n_stamps": 241,
+      "dt_hours": 0.5,
+      "total_pc_fwd_mm": 454.8828151784837,
+      "total_trap_mm": 454.8596120540751
+     },
+     "peak_region_mean_rate_mm_h": 54.81697142496705,
+     "peak_region_mean_rate_time": "2024-10-29T04:30:00"
+    },
+    "active_cell_weighted": {
+     "region": "weighted by active SFINCS cells per precip_2d cell",
+     "n_cells": 84,
+     "n_nan_values": 0,
+     "event_window": {
+      "T0": "2024-10-29T00:00:00",
+      "T1": "2024-10-30T00:00:00",
+      "dt_hours": 0.5,
+      "file_covers_window": true,
+      "n_stamps_pc_fwd": 48,
+      "total_pc_fwd_mm": 301.49187052863374,
+      "n_stamps_incl": 49,
+      "total_incl_mm": 301.50616321004287,
+      "n_intervals_trap": 48,
+      "total_trap_mm": 301.44261886874904
+     },
+     "whole_file": {
+      "n_stamps": 241,
+      "dt_hours": 0.5,
+      "total_pc_fwd_mm": 330.0981891347308,
+      "total_trap_mm": 330.06853651870927
+     },
+     "peak_region_mean_rate_mm_h": 43.15145905824641,
+     "peak_region_mean_rate_time": "2024-10-29T04:30:00",
+     "bias_window": {
+      "T0": "2024-10-29T00:00:00",
+      "T1": "2024-10-30T00:00:00",
+      "dt_hours": 0.5,
+      "file_covers_window": true,
+      "n_stamps_pc_fwd": 48,
+      "total_pc_fwd_mm": 301.49187052863374,
+      "n_stamps_incl": 49,
+      "total_incl_mm": 301.50616321004287,
+      "n_intervals_trap": 48,
+      "total_trap_mm": 301.44261886874904
+     }
+    }
+   },
+   "imerg": {
+    "imerg_bc": {
+     "file": {
+      "path": "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\valencia_emsr773\\data\\imerg_valencia.nc",
+      "exists": true,
+      "size_bytes": 367080,
+      "mtime": "2026-07-15T20:28:49",
+      "sha256": "8bd9f12cfa12c9bdcb1413d4dfafa697f9d70763ee127e8ae47de2e97b8ff06f"
+     },
+     "var_name": "precip",
+     "units": "mm/h",
+     "units_attr_Units": null,
+     "long_name": "Gauge-bias-corrected IMERG precipitation",
+     "dims": [
+      "time",
+      "latitude",
+      "longitude"
+     ],
+     "shape": [
+      385,
+      14,
+      16
+     ],
+     "coordinate_names": [
+      "time",
+      "latitude",
+      "longitude"
+     ],
+     "projected": false,
+     "crs": "EPSG:4326 (lat/lon, 0.1 deg)",
+     "lon_first": -1.149999976158142,
+     "lon_last": 0.3499999940395355,
+     "lat_first": 38.75,
+     "lat_last": 40.04999923706055,
+     "lon_centres": [
+      -1.15,
+      -1.05,
+      -0.95,
+      -0.85,
+      -0.75,
+      -0.65,
+      -0.55,
+      -0.45,
+      -0.35,
+      -0.25,
+      -0.15,
+      -0.05,
+      0.05,
+      0.15,
+      0.25,
+      0.35
+     ],
+     "lat_centres": [
+      38.75,
+      38.85,
+      38.95,
+      39.05,
+      39.15,
+      39.25,
+      39.35,
+      39.45,
+      39.55,
+      39.65,
+      39.75,
+      39.85,
+      39.95,
+      40.05
+     ],
+     "time_units": "minutes since 2017-01-01",
+     "time_calendar_attr": "proleptic_gregorian",
+     "time": {
+      "first": "2024-10-24T00:00:00",
+      "last": "2024-11-01T00:00:00",
+      "count": 385,
+      "step_minutes": 30.0,
+      "uniform": true,
+      "span_hours": 192.0
+     },
+     "time_decoding": {},
+     "global_attrs": {
+      "source": "GPM IMERG Final V07 half-hourly",
+      "spatial_resolution": "0.1 deg",
+      "temporal_resolution": "30 min",
+      "bias_correction": "Multiplicative scaling 4.143x applied to event window 2024-10-29 00:00 to 2024-10-30 00:00 so watershed bbox (-0.75,39.33,-0.30,39.55) 24-h total matches 350.0 mm gauge-based estimate",
+      "bias_correction_reference": "Diakakis et al. 2019; Nikolopoulos et al. 2013; Anagnostou et al. 2009"
+     },
+     "keyword_attrs": {
+      "global:source": "GPM IMERG Final V07 half-hourly",
+      "global:bias_correction": "Multiplicative scaling 4.143x applied to event window 2024-10-29 00:00 to 2024-10-30 00:00 so watershed bbox (-0.75,39.33,-0.30,39.55) 24-h total matches 350.0 mm gauge-based estimate",
+      "global:bias_correction_reference": "Diakakis et al. 2019; Nikolopoulos et al. 2013; Anagnostou et al. 2009",
+      "precip:long_name": "Gauge-bias-corrected IMERG precipitation"
+     },
+     "bias_correction_parsed": {
+      "factor": 4.143,
+      "window_start": "2024-10-29T00:00",
+      "window_end": "2024-10-30T00:00",
+      "bbox": [
+       -0.75,
+       39.33,
+       -0.3,
+       39.55
+      ],
+      "target_mm": 350.0
+     },
+     "n_nan": 0,
+     "n_negative": 0,
+     "max_rate_mm_h": 152.9665069580078,
+     "bbox_cell_selection_rule": "cell centres compared in float32 against float32 bbox bounds, inclusive (replicates bias_correct_imerg.py's xarray comparison)",
+     "bbox_cells_selected": {
+      "n": 15,
+      "lon_centres": [
+       -0.75,
+       -0.65,
+       -0.55,
+       -0.45,
+       -0.35
+      ],
+      "lat_centres": [
+       39.35,
+       39.45,
+       39.55
+      ],
+      "n_with_float64_tolerance_1e_4": 15
+     },
+     "totals": {
+      "domain_all_cells": {
+       "region": "all IMERG cells in file",
+       "n_cells": 224,
+       "n_nan_values": 0,
+       "event_window": {
+        "T0": "2024-10-29T00:00:00",
+        "T1": "2024-10-30T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 48,
+        "total_pc_fwd_mm": 175.20591132527414,
+        "n_stamps_incl": 49,
+        "total_incl_mm": 175.59562998175218,
+        "n_intervals_trap": 48,
+        "total_trap_mm": 175.2577474201015
+       },
+       "model_time_span": {
+        "T0": "2024-10-27T00:00:00",
+        "T1": "2024-11-01T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 240,
+        "total_pc_fwd_mm": 192.56723674010885,
+        "n_stamps_incl": 241,
+        "total_incl_mm": 192.7710536991404,
+        "n_intervals_trap": 240,
+        "total_trap_mm": 192.65626575557897
+       },
+       "whole_file": {
+        "n_stamps": 385,
+        "dt_hours": 0.5,
+        "total_pc_fwd_mm": 212.05181219124435,
+        "total_trap_mm": 211.94990371172855
+       },
+       "peak_region_mean_rate_mm_h": 20.063204763058042,
+       "peak_region_mean_rate_time": "2024-10-29T05:00:00"
+      },
+      "bbox": {
+       "region": "IMERG cells with centre in bbox (float32 rule)",
+       "n_cells": 15,
+       "n_nan_values": 0,
+       "event_window": {
+        "T0": "2024-10-29T00:00:00",
+        "T1": "2024-10-30T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 48,
+        "total_pc_fwd_mm": 349.99998161879677,
+        "n_stamps_incl": 49,
+        "total_incl_mm": 349.99998161879677,
+        "n_intervals_trap": 48,
+        "total_trap_mm": 349.84254045834143
+       },
+       "model_time_span": {
+        "T0": "2024-10-27T00:00:00",
+        "T1": "2024-11-01T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 240,
+        "total_pc_fwd_mm": 354.57198151660464,
+        "n_stamps_incl": 241,
+        "total_incl_mm": 354.57198151660464,
+        "n_intervals_trap": 240,
+        "total_trap_mm": 354.5691481833346
+       },
+       "whole_file": {
+        "n_stamps": 385,
+        "dt_hours": 0.5,
+        "total_pc_fwd_mm": 371.73364773790036,
+        "total_trap_mm": 371.7336477379004
+       },
+       "peak_region_mean_rate_mm_h": 46.75726288954417,
+       "peak_region_mean_rate_time": "2024-10-29T16:00:00"
+      },
+      "sfincs_grid_rectangle": {
+       "region": "IMERG cells whose centre projects inside the SFINCS grid rectangle",
+       "n_cells": 80,
+       "n_nan_values": 0,
+       "event_window": {
+        "T0": "2024-10-29T00:00:00",
+        "T1": "2024-10-30T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 48,
+        "total_pc_fwd_mm": 208.7680121578975,
+        "n_stamps_incl": 49,
+        "total_incl_mm": 208.7737090420211,
+        "n_intervals_trap": 48,
+        "total_trap_mm": 208.53353358834283
+       },
+       "model_time_span": {
+        "T0": "2024-10-27T00:00:00",
+        "T1": "2024-11-01T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 240,
+        "total_pc_fwd_mm": 219.93939625484634,
+        "n_stamps_incl": 241,
+        "total_incl_mm": 220.00627125318857,
+        "n_intervals_trap": 240,
+        "total_trap_mm": 219.97099000410526
+       },
+       "whole_file": {
+        "n_stamps": 385,
+        "dt_hours": 0.5,
+        "total_pc_fwd_mm": 237.03270836425943,
+        "total_trap_mm": 236.9992708650883
+       },
+       "peak_region_mean_rate_mm_h": 26.392109725251792,
+       "peak_region_mean_rate_time": "2024-10-29T05:00:00"
+      }
+     },
+     "bias_window_bbox": {
+      "T0": "2024-10-29T00:00:00",
+      "T1": "2024-10-30T00:00:00",
+      "dt_hours": 0.5,
+      "file_covers_window": true,
+      "n_stamps_pc_fwd": 48,
+      "total_pc_fwd_mm": 349.99998161879677,
+      "n_stamps_incl": 49,
+      "total_incl_mm": 349.99998161879677,
+      "n_intervals_trap": 48,
+      "total_trap_mm": 349.84254045834143,
+      "note": "window and bbox as stated in imerg_<slug>.nc:bias_correction; 'total_incl_mm' is the script's rule"
+     }
+    },
+    "imerg_raw": {
+     "file": {
+      "path": "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\valencia_emsr773\\data\\imerg_valencia.raw.nc",
+      "exists": true,
+      "size_bytes": 369614,
+      "mtime": "2026-07-15T20:28:49",
+      "sha256": "8faee51622618d74287f728775046e7caef2b4f8bf6c384584d42049c8e8c40b"
+     },
+     "var_name": "precip",
+     "units": "mm/h",
+     "units_attr_Units": "mm/hr",
+     "long_name": "Precipitation (IMERG Final V07 calibrated)",
+     "dims": [
+      "time",
+      "latitude",
+      "longitude"
+     ],
+     "shape": [
+      385,
+      14,
+      16
+     ],
+     "coordinate_names": [
+      "time",
+      "latitude",
+      "longitude"
+     ],
+     "projected": false,
+     "crs": "EPSG:4326 (lat/lon, 0.1 deg)",
+     "lon_first": -1.149999976158142,
+     "lon_last": 0.3499999940395355,
+     "lat_first": 38.75,
+     "lat_last": 40.04999923706055,
+     "lon_centres": [
+      -1.15,
+      -1.05,
+      -0.95,
+      -0.85,
+      -0.75,
+      -0.65,
+      -0.55,
+      -0.45,
+      -0.35,
+      -0.25,
+      -0.15,
+      -0.05,
+      0.05,
+      0.15,
+      0.25,
+      0.35
+     ],
+     "lat_centres": [
+      38.75,
+      38.85,
+      38.95,
+      39.05,
+      39.15,
+      39.25,
+      39.35,
+      39.45,
+      39.55,
+      39.65,
+      39.75,
+      39.85,
+      39.95,
+      40.05
+     ],
+     "time_units": "seconds since 1980-01-06T00:00:00+00:00",
+     "time_calendar_attr": "julian",
+     "time": {
+      "first": "2024-10-24T00:00:00",
+      "last": "2024-11-01T00:00:00",
+      "count": 385,
+      "step_minutes": 30.0,
+      "uniform": true,
+      "span_hours": 192.0
+     },
+     "time_decoding": {
+      "time_decoded_with_file_calendar_first_last": [
+       "2024-10-24T00:00:00",
+       "2024-11-01T00:00:00"
+      ],
+      "time_decoded_as_standard_first_last": [
+       "2024-10-24T00:00:00",
+       "2024-11-01T00:00:00"
+      ],
+      "note": "file declares calendar='julian'; stamps used here are decoded with the standard (Gregorian) calendar, which matches the bias-corrected file's stamps"
+     },
+     "global_attrs": {
+      "source": "GPM IMERG Final V07 half-hourly",
+      "spatial_resolution": "0.1 deg",
+      "temporal_resolution": "30 min"
+     },
+     "keyword_attrs": {
+      "global:source": "GPM IMERG Final V07 half-hourly"
+     },
+     "bias_correction_parsed": null,
+     "n_nan": 0,
+     "n_negative": 0,
+     "max_rate_mm_h": 39.09000015258789,
+     "bbox_cell_selection_rule": "cell centres compared in float32 against float32 bbox bounds, inclusive (replicates bias_correct_imerg.py's xarray comparison)",
+     "bbox_cells_selected": {
+      "n": 15,
+      "lon_centres": [
+       -0.75,
+       -0.65,
+       -0.55,
+       -0.45,
+       -0.35
+      ],
+      "lat_centres": [
+       39.35,
+       39.45,
+       39.55
+      ],
+      "n_with_float64_tolerance_1e_4": 15
+     },
+     "totals": {
+      "domain_all_cells": {
+       "region": "all IMERG cells in file",
+       "n_cells": 224,
+       "n_nan_values": 0,
+       "event_window": {
+        "T0": "2024-10-29T00:00:00",
+        "T1": "2024-10-30T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 48,
+        "total_pc_fwd_mm": 42.28769988808615,
+        "n_stamps_incl": 49,
+        "total_incl_mm": 42.38176238564276,
+        "n_intervals_trap": 48,
+        "total_trap_mm": 42.30021104857068
+       },
+       "model_time_span": {
+        "T0": "2024-10-27T00:00:00",
+        "T1": "2024-11-01T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 240,
+        "total_pc_fwd_mm": 59.35336914399938,
+        "n_stamps_incl": 241,
+        "total_incl_mm": 59.55718610303094,
+        "n_intervals_trap": 240,
+        "total_trap_mm": 59.44239815946952
+       },
+       "whole_file": {
+        "n_stamps": 385,
+        "dt_hours": 0.5,
+        "total_pc_fwd_mm": 78.8379445951349,
+        "total_trap_mm": 78.7360361156191
+       },
+       "peak_region_mean_rate_mm_h": 4.842455239791889,
+       "peak_region_mean_rate_time": "2024-10-29T05:00:00"
+      },
+      "bbox": {
+       "region": "IMERG cells with centre in bbox (float32 rule)",
+       "n_cells": 15,
+       "n_nan_values": 0,
+       "event_window": {
+        "T0": "2024-10-29T00:00:00",
+        "T1": "2024-10-30T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 48,
+        "total_pc_fwd_mm": 84.47599785874289,
+        "n_stamps_incl": 49,
+        "total_incl_mm": 84.47599785874289,
+        "n_intervals_trap": 48,
+        "total_trap_mm": 84.43799785946807
+       },
+       "model_time_span": {
+        "T0": "2024-10-27T00:00:00",
+        "T1": "2024-11-01T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 240,
+        "total_pc_fwd_mm": 89.04799775655071,
+        "n_stamps_incl": 241,
+        "total_incl_mm": 89.04799775655071,
+        "n_intervals_trap": 240,
+        "total_trap_mm": 89.04516442328071
+       },
+       "whole_file": {
+        "n_stamps": 385,
+        "dt_hours": 0.5,
+        "total_pc_fwd_mm": 106.2096639778465,
+        "total_trap_mm": 106.2096639778465
+       },
+       "peak_region_mean_rate_mm_h": 11.285333251953125,
+       "peak_region_mean_rate_time": "2024-10-29T16:00:00"
+      },
+      "sfincs_grid_rectangle": {
+       "region": "IMERG cells whose centre projects inside the SFINCS grid rectangle",
+       "n_cells": 80,
+       "n_nan_values": 0,
+       "event_window": {
+        "T0": "2024-10-29T00:00:00",
+        "T1": "2024-10-30T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 48,
+        "total_pc_fwd_mm": 50.388248814595855,
+        "n_stamps_incl": 49,
+        "total_incl_mm": 50.38962381456512,
+        "n_intervals_trap": 48,
+        "total_trap_mm": 50.33165506600053
+       },
+       "model_time_span": {
+        "T0": "2024-10-27T00:00:00",
+        "T1": "2024-11-01T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 240,
+        "total_pc_fwd_mm": 61.555311027390424,
+        "n_stamps_incl": 241,
+        "total_incl_mm": 61.622186025732674,
+        "n_intervals_trap": 240,
+        "total_trap_mm": 61.58690477664932
+       },
+       "whole_file": {
+        "n_stamps": 385,
+        "dt_hours": 0.5,
+        "total_pc_fwd_mm": 78.64862313680351,
+        "total_trap_mm": 78.61518563763238
+       },
+       "peak_region_mean_rate_mm_h": 6.369999830704183,
+       "peak_region_mean_rate_time": "2024-10-29T05:00:00"
+      }
+     },
+     "bias_window_bbox": {
+      "T0": "2024-10-29T00:00:00",
+      "T1": "2024-10-30T00:00:00",
+      "dt_hours": 0.5,
+      "file_covers_window": true,
+      "n_stamps_pc_fwd": 48,
+      "total_pc_fwd_mm": 84.47599785874289,
+      "n_stamps_incl": 49,
+      "total_incl_mm": 84.47599785874289,
+      "n_intervals_trap": 48,
+      "total_trap_mm": 84.43799785946807,
+      "note": "window and bbox as stated in imerg_<slug>.nc:bias_correction; 'total_incl_mm' is the script's rule"
+     }
+    }
+   },
+   "bias_correction_as_recorded": {
+    "factor": 4.143,
+    "window_start": "2024-10-29T00:00",
+    "window_end": "2024-10-30T00:00",
+    "bbox": [
+     -0.75,
+     39.33,
+     -0.3,
+     39.55
+    ],
+    "target_mm": 350.0
+   },
+   "pointwise_check": {
+    "imerg_bc": {
+     "n_precip2d_cells_inside_imerg_extent": 182,
+     "n_precip2d_cells_total": 182,
+     "n_precip2d_cells_outside_imerg_extent": 0,
+     "max_rate_in_cells_outside_imerg_extent_mm_h": null,
+     "rule": "precip_2d cell centre -> lon/lat -> nearest IMERG cell centre (<= 0.05 deg); ratio = model / IMERG where IMERG > 1e-6 mm/h",
+     "shift_0": {
+      "alignment": "model stamp t <-> IMERG stamp t + 0 min",
+      "n_model_frames_matched": 241,
+      "n_cell_time_pairs": 10941,
+      "ratio_median": 1.476,
+      "ratio_min": 0.0,
+      "ratio_max": 2162.744,
+      "frac_pairs_model_equals_2x_imerg": 0.0219,
+      "frac_pairs_model_equals_1x_imerg": 0.0062,
+      "n_pairs_not_2x": 10701,
+      "n_pairs_not_2x_on_outer_ring_of_precip2d_grid": 3020,
+      "n_interior_pairs": 7871,
+      "frac_interior_pairs_model_equals_2x_imerg": 0.0241
+     },
+     "shift_1": {
+      "alignment": "model stamp t <-> IMERG stamp t + 30 min",
+      "n_cells_with_non_2x_pairs": 8,
+      "n_non_2x_pairs_with_model_zero": 450,
+      "non_2x_cells_distance_to_imerg_cell_edge_deg": {
+       "min": 0.0001,
+       "max": 0.025
+      },
+      "n_non_2x_pairs_equal_2x_adjacent_imerg_cell": 246,
+      "sum_model_over_sum_2x_imerg_all_pairs": 0.9901,
+      "depth_share_of_non_2x_pairs": 0.0141,
+      "n_model_frames_matched": 240,
+      "n_cell_time_pairs": 10919,
+      "ratio_median": 2.0,
+      "ratio_min": 0.0,
+      "ratio_max": 18.0,
+      "frac_pairs_model_equals_2x_imerg": 0.9513,
+      "frac_pairs_model_equals_1x_imerg": 0.0001,
+      "n_pairs_not_2x": 532,
+      "n_pairs_not_2x_on_outer_ring_of_precip2d_grid": 415,
+      "n_interior_pairs": 7860,
+      "frac_interior_pairs_model_equals_2x_imerg": 0.9851,
+      "per_frame_median_ratio_runs": [
+       {
+        "value": 2.0,
+        "start": "2024-10-27T00:00:00",
+        "end": "2024-10-28T04:00:00",
+        "n_frames": 57
+       },
+       {
+        "value": 1.0,
+        "start": "2024-10-28T04:30:00",
+        "end": "2024-10-28T04:30:00",
+        "n_frames": 1
+       },
+       {
+        "value": 2.0,
+        "start": "2024-10-28T05:00:00",
+        "end": "2024-10-28T05:00:00",
+        "n_frames": 1
+       },
+       {
+        "value": 1.0,
+        "start": "2024-10-28T05:30:00",
+        "end": "2024-10-28T05:30:00",
+        "n_frames": 1
+       },
+       {
+        "value": null,
+        "start": "2024-10-28T06:00:00",
+        "end": "2024-10-28T06:00:00",
+        "n_frames": 1
+       },
+       {
+        "value": 2.0,
+        "start": "2024-10-28T06:30:00",
+        "end": "2024-10-28T06:30:00",
+        "n_frames": 1
+       },
+       {
+        "value": null,
+        "start": "2024-10-28T07:00:00",
+        "end": "2024-10-28T12:00:00",
+        "n_frames": 11
+       },
+       {
+        "value": 2.0,
+        "start": "2024-10-28T12:30:00",
+        "end": "2024-10-30T07:00:00",
+        "n_frames": 86
+       },
+       {
+        "value": null,
+        "start": "2024-10-30T07:30:00",
+        "end": "2024-10-30T14:30:00",
+        "n_frames": 15
+       },
+       {
+        "value": 2.0,
+        "start": "2024-10-30T15:00:00",
+        "end": "2024-10-30T17:30:00",
+        "n_frames": 6
+       },
+       {
+        "value": null,
+        "start": "2024-10-30T18:00:00",
+        "end": "2024-10-30T18:00:00",
+        "n_frames": 1
+       },
+       {
+        "value": 2.0,
+        "start": "2024-10-30T18:30:00",
+        "end": "2024-10-30T18:30:00",
+        "n_frames": 1
+       },
+       {
+        "value": null,
+        "start": "2024-10-30T19:00:00",
+        "end": "2024-10-31T01:30:00",
+        "n_frames": 14
+       },
+       {
+        "value": 2.0,
+        "start": "2024-10-31T02:00:00",
+        "end": "2024-10-31T11:30:00",
+        "n_frames": 20
+       },
+       {
+        "value": null,
+        "start": "2024-10-31T12:00:00",
+        "end": "2024-10-31T12:00:00",
+        "n_frames": 1
+       },
+       {
+        "value": 2.0,
+        "start": "2024-10-31T12:30:00",
+        "end": "2024-10-31T23:30:00",
+        "n_frames": 23
+       }
+      ]
+     }
+    },
+    "imerg_raw": {
+     "n_precip2d_cells_inside_imerg_extent": 182,
+     "n_precip2d_cells_total": 182,
+     "n_precip2d_cells_outside_imerg_extent": 0,
+     "max_rate_in_cells_outside_imerg_extent_mm_h": null,
+     "rule": "precip_2d cell centre -> lon/lat -> nearest IMERG cell centre (<= 0.05 deg); ratio = model / IMERG where IMERG > 1e-6 mm/h",
+     "shift_0": {
+      "alignment": "model stamp t <-> IMERG stamp t + 0 min",
+      "n_model_frames_matched": 241,
+      "n_cell_time_pairs": 10941,
+      "ratio_median": 2.0,
+      "ratio_min": 0.0,
+      "ratio_max": 4358.634,
+      "frac_pairs_model_equals_2x_imerg": 0.0175,
+      "frac_pairs_model_equals_1x_imerg": 0.0043,
+      "n_pairs_not_2x": 10749,
+      "n_pairs_not_2x_on_outer_ring_of_precip2d_grid": 3030,
+      "n_interior_pairs": 7871,
+      "frac_interior_pairs_model_equals_2x_imerg": 0.0193
+     },
+     "shift_1": {
+      "alignment": "model stamp t <-> IMERG stamp t + 30 min",
+      "n_cells_with_non_2x_pairs": 182,
+      "n_non_2x_pairs_with_model_zero": 450,
+      "non_2x_cells_distance_to_imerg_cell_edge_deg": {
+       "min": 0.0001,
+       "max": 0.0443
+      },
+      "n_non_2x_pairs_equal_2x_adjacent_imerg_cell": 204,
+      "sum_model_over_sum_2x_imerg_all_pairs": 3.2698,
+      "depth_share_of_non_2x_pairs": 0.925,
+      "n_model_frames_matched": 240,
+      "n_cell_time_pairs": 10919,
+      "ratio_median": 2.0,
+      "ratio_min": 0.0,
+      "ratio_max": 67.948,
+      "frac_pairs_model_equals_2x_imerg": 0.5777,
+      "frac_pairs_model_equals_1x_imerg": 0.0001,
+      "n_pairs_not_2x": 4611,
+      "n_pairs_not_2x_on_outer_ring_of_precip2d_grid": 1420,
+      "n_interior_pairs": 7860,
+      "frac_interior_pairs_model_equals_2x_imerg": 0.594,
+      "per_frame_median_ratio_runs": [
+       {
+        "value": 2.0,
+        "start": "2024-10-27T00:00:00",
+        "end": "2024-10-28T04:00:00",
+        "n_frames": 57
+       },
+       {
+        "value": 1.0,
+        "start": "2024-10-28T04:30:00",
+        "end": "2024-10-28T04:30:00",
+        "n_frames": 1
+       },
+       {
+        "value": 2.0,
+        "start": "2024-10-28T05:00:00",
+        "end": "2024-10-28T05:00:00",
+        "n_frames": 1
+       },
+       {
+        "value": 1.0,
+        "start": "2024-10-28T05:30:00",
+        "end": "2024-10-28T05:30:00",
+        "n_frames": 1
+       },
+       {
+        "value": null,
+        "start": "2024-10-28T06:00:00",
+        "end": "2024-10-28T06:00:00",
+        "n_frames": 1
+       },
+       {
+        "value": 2.0,
+        "start": "2024-10-28T06:30:00",
+        "end": "2024-10-28T06:30:00",
+        "n_frames": 1
+       },
+       {
+        "value": null,
+        "start": "2024-10-28T07:00:00",
+        "end": "2024-10-28T12:00:00",
+        "n_frames": 11
+       },
+       {
+        "value": 2.0,
+        "start": "2024-10-28T12:30:00",
+        "end": "2024-10-28T23:00:00",
+        "n_frames": 22
+       },
+       {
+        "value": 8.286,
+        "start": "2024-10-28T23:30:00",
+        "end": "2024-10-29T23:30:00",
+        "n_frames": 49
+       },
+       {
+        "value": 2.0,
+        "start": "2024-10-30T00:00:00",
+        "end": "2024-10-30T07:00:00",
+        "n_frames": 15
+       },
+       {
+        "value": null,
+        "start": "2024-10-30T07:30:00",
+        "end": "2024-10-30T14:30:00",
+        "n_frames": 15
+       },
+       {
+        "value": 2.0,
+        "start": "2024-10-30T15:00:00",
+        "end": "2024-10-30T17:30:00",
+        "n_frames": 6
+       },
+       {
+        "value": null,
+        "start": "2024-10-30T18:00:00",
+        "end": "2024-10-30T18:00:00",
+        "n_frames": 1
+       },
+       {
+        "value": 2.0,
+        "start": "2024-10-30T18:30:00",
+        "end": "2024-10-30T18:30:00",
+        "n_frames": 1
+       },
+       {
+        "value": null,
+        "start": "2024-10-30T19:00:00",
+        "end": "2024-10-31T01:30:00",
+        "n_frames": 14
+       },
+       {
+        "value": 2.0,
+        "start": "2024-10-31T02:00:00",
+        "end": "2024-10-31T11:30:00",
+        "n_frames": 20
+       },
+       {
+        "value": null,
+        "start": "2024-10-31T12:00:00",
+        "end": "2024-10-31T12:00:00",
+        "n_frames": 1
+       },
+       {
+        "value": 2.0,
+        "start": "2024-10-31T12:30:00",
+        "end": "2024-10-31T23:30:00",
+        "n_frames": 23
+       }
+      ]
+     }
+    }
+   },
+   "ratios": {
+    "model/imerg_bc | event window | domain_all_cells | total_pc_fwd_mm": 2.023,
+    "model/imerg_bc | event window | domain_all_cells | total_trap_mm": 2.023,
+    "model/imerg_bc | model time span [tstart,tstop) | domain_all_cells | total_pc_fwd_mm": 1.993,
+    "model/imerg_raw | event window | domain_all_cells | total_pc_fwd_mm": 8.384,
+    "model/imerg_raw | event window | domain_all_cells | total_trap_mm": 8.381,
+    "model/imerg_raw | model time span [tstart,tstop) | domain_all_cells | total_pc_fwd_mm": 6.465,
+    "model/imerg_bc | event window | bbox | total_pc_fwd_mm": 1.936,
+    "model/imerg_bc | event window | bbox | total_trap_mm": 1.936,
+    "model/imerg_bc | model time span [tstart,tstop) | bbox | total_pc_fwd_mm": 1.941,
+    "model/imerg_raw | event window | bbox | total_pc_fwd_mm": 8.02,
+    "model/imerg_raw | event window | bbox | total_trap_mm": 8.023,
+    "model/imerg_raw | model time span [tstart,tstop) | bbox | total_pc_fwd_mm": 7.731,
+    "model/imerg_bc | event window | sfincs_grid_rectangle | total_pc_fwd_mm": 2.073,
+    "model/imerg_bc | event window | sfincs_grid_rectangle | total_trap_mm": 2.075,
+    "model/imerg_bc | model time span [tstart,tstop) | sfincs_grid_rectangle | total_pc_fwd_mm": 2.068,
+    "model/imerg_raw | event window | sfincs_grid_rectangle | total_pc_fwd_mm": 8.59,
+    "model/imerg_raw | event window | sfincs_grid_rectangle | total_trap_mm": 8.599,
+    "model/imerg_raw | model time span [tstart,tstop) | sfincs_grid_rectangle | total_pc_fwd_mm": 7.39,
+    "model bbox event-window pc_fwd / target run_target_350": 1.936,
+    "model bbox event-window trap / target run_target_350": 1.936,
+    "model domain event-window pc_fwd / target run_target_350": 1.013,
+    "model active-weighted event-window pc_fwd / target run_target_350": 0.861,
+    "model bbox bias-window pc_fwd / target run_target_350": 1.936,
+    "model bbox bias-window incl / target run_target_350": 1.936,
+    "imerg_bc bbox bias-window incl (script rule) / target run_target_350": 1.0,
+    "imerg_raw bbox bias-window incl (script rule) / target run_target_350": 0.241,
+    "model bbox event-window pc_fwd / target cited_164": 4.131,
+    "model bbox event-window trap / target cited_164": 4.131,
+    "model domain event-window pc_fwd / target cited_164": 2.162,
+    "model active-weighted event-window pc_fwd / target cited_164": 1.838,
+    "model bbox bias-window pc_fwd / target cited_164": 4.131,
+    "model bbox bias-window incl / target cited_164": 4.131,
+    "imerg_bc bbox bias-window incl (script rule) / target cited_164": 2.134,
+    "imerg_raw bbox bias-window incl (script rule) / target cited_164": 0.515
+   },
+   "targets_mm": {
+    "run_target_350": 350.0,
+    "cited_164": 164.0
+   }
+  },
+  {
+   "key": "valencia_164_rerun",
+   "event": "Valencia (EMSR773), 164-mm re-run (rerun_v164)",
+   "model_dir": "D:\\ELKAK\\ELKAK2\\NHESS\\R1_verification\\task_valencia_anchor\\rerun_v164\\model",
+   "sfincs_inp": {
+    "path": "D:\\ELKAK\\ELKAK2\\NHESS\\R1_verification\\task_valencia_anchor\\rerun_v164\\model\\sfincs.inp",
+    "exists": true,
+    "size_bytes": 1614,
+    "mtime": "2026-07-15T20:30:52",
+    "sha256": "66e48c7881246fc70178ae451f631d45fac24f1a4eb0561926f90c8f45061baa"
+   },
+   "inp": {
+    "tref": "20241024 000000",
+    "tstart": "20241027 000000",
+    "tstop": "20241101 000000",
+    "precip_keyword": "netamprfile",
+    "precip_file": "precip_2d.nc",
+    "dtwnd": "1800.0",
+    "epsg": "32630",
+    "x0": "679915.0",
+    "y0": "4324424.0",
+    "dx": "100",
+    "dy": "100",
+    "mmax": "841",
+    "nmax": "801",
+    "other_precip_keywords_present": []
+   },
+   "model_precip": {
+    "file": {
+     "path": "D:\\ELKAK\\ELKAK2\\NHESS\\R1_verification\\task_valencia_anchor\\rerun_v164\\model\\precip_2d.nc",
+     "exists": true,
+     "size_bytes": 193372,
+     "mtime": "2026-07-21T13:04:18",
+     "sha256": "c42bee92ea85306e3abdc939af82c4f3e63f8fe479eb99d6df02ac145e1fbb1f"
+    },
+    "var_name": "Precipitation",
+    "units": "mm/h",
+    "long_name": "Gauge-bias-corrected IMERG precipitation",
+    "global_attrs": {
+     "units": "mm/h",
+     "long_name": "Gauge-bias-corrected IMERG precipitation",
+     "_FillValue": "nan"
+    },
+    "dims": [
+     "time",
+     "y",
+     "x"
+    ],
+    "shape": [
+     241,
+     14,
+     13
+    ],
+    "crs_name": "WGS 84 / UTM zone 30N",
+    "epsg": 32630,
+    "coordinate_names": [
+     "time",
+     "y",
+     "x"
+    ],
+    "projected": true,
+    "x_first": 667062.4546034571,
+    "x_last": 784033.4398361142,
+    "dx_m": 9747.58210272144,
+    "y_first": 4428101.388718918,
+    "y_last": 4301382.82138354,
+    "dy_m": -9747.582102721557,
+    "lonlat_extent_of_cell_centres": {
+     "lon_min": -1.0749486946623434,
+     "lon_max": 0.3249951391159973,
+     "lat_min": 38.81545084961076,
+     "lat_max": 39.98658102870431
+    },
+    "time_units": "minutes since 2024-10-24",
+    "time_calendar": "proleptic_gregorian",
+    "time": {
+     "first": "2024-10-27T00:00:00",
+     "last": "2024-11-01T00:00:00",
+     "count": 241,
+     "step_minutes": 30.0,
+     "uniform": true,
+     "span_hours": 120.0
+    },
+    "n_nan": 0,
+    "n_negative": 0,
+    "max_rate_mm_h": 143.35147094726562,
+    "last_frame_max_mm_h": 0.0
+   },
+   "duplicate_model_folders": [],
+   "event_window_utc": [
+    "2024-10-29T00:00:00",
+    "2024-10-30T00:00:00"
+   ],
+   "bbox_lonlat": [
+    -0.75,
+    39.33,
+    -0.3,
+    39.55
+   ],
+   "bbox_in_model_crs_corners_xy": [
+    [
+     693933.1,
+     4355812.1
+    ],
+    [
+     732724.9,
+     4356874.8
+    ],
+    [
+     731993.3,
+     4381295.6
+    ],
+    [
+     693323.6,
+     4380231.3
+    ]
+   ],
+   "bbox_cell_selection_rule_model": "precip_2d cell centres inverse-projected to lon/lat (pyproj, EPSG:32630 -> 4326); centre inside bbox, inclusive",
+   "active_mask": {
+    "file": {
+     "path": "D:\\ELKAK\\ELKAK2\\NHESS\\R1_verification\\task_valencia_anchor\\rerun_v164\\model\\sfincs_map.nc",
+     "exists": true,
+     "size_bytes": 181959003,
+     "mtime": "2026-07-21T13:41:35"
+    },
+    "n_cells": 673641,
+    "n_active": 521427,
+    "msk_values": [
+     0,
+     1,
+     2
+    ],
+    "n_active_mapped_into_precip_grid": 521427,
+    "n_precip_cells_with_active_weight": 84,
+    "rule": "each active SFINCS cell (msk>0 in sfincs_map.nc) assigned to the precip_2d cell whose centre is nearest; weight = number of active cells per precip_2d cell"
+   },
+   "model_totals": {
+    "domain_all_cells": {
+     "region": "all precip_2d cells",
+     "n_cells": 182,
+     "n_nan_values": 0,
+     "event_window": {
+      "T0": "2024-10-29T00:00:00",
+      "T1": "2024-10-30T00:00:00",
+      "dt_hours": 0.5,
+      "file_covers_window": true,
+      "n_stamps_pc_fwd": 48,
+      "total_pc_fwd_mm": 166.11756797173769,
+      "n_stamps_incl": 49,
+      "total_incl_mm": 166.13852495701659,
+      "n_intervals_trap": 48,
+      "total_trap_mm": 166.11380612408323
+     },
+     "whole_file": {
+      "n_stamps": 241,
+      "dt_hours": 0.5,
+      "total_pc_fwd_mm": 195.3026180257458,
+      "total_trap_mm": 195.27553011437593
+     },
+     "peak_region_mean_rate_mm_h": 22.178236213031706,
+     "peak_region_mean_rate_time": "2024-10-29T04:30:00"
+    },
+    "bbox": {
+     "region": "cells with centre in lon/lat bbox",
+     "n_cells": 12,
+     "n_nan_values": 0,
+     "event_window": {
+      "T0": "2024-10-29T00:00:00",
+      "T1": "2024-10-30T00:00:00",
+      "dt_hours": 0.5,
+      "file_covers_window": true,
+      "n_stamps_pc_fwd": 48,
+      "total_pc_fwd_mm": 317.4576444174163,
+      "n_stamps_incl": 49,
+      "total_incl_mm": 317.4576444174163,
+      "n_intervals_trap": 48,
+      "total_trap_mm": 317.42205245629884
+     },
+     "whole_file": {
+      "n_stamps": 241,
+      "dt_hours": 0.5,
+      "total_pc_fwd_mm": 328.3422094139581,
+      "total_trap_mm": 328.3226260809849
+     },
+     "peak_region_mean_rate_mm_h": 40.45835309227308,
+     "peak_region_mean_rate_time": "2024-10-29T15:30:00",
+     "bias_window": {
+      "T0": "2024-10-29T00:00:00",
+      "T1": "2024-10-30T00:00:00",
+      "dt_hours": 0.5,
+      "file_covers_window": true,
+      "n_stamps_pc_fwd": 48,
+      "total_pc_fwd_mm": 317.4576444174163,
+      "n_stamps_incl": 49,
+      "total_incl_mm": 317.4576444174163,
+      "n_intervals_trap": 48,
+      "total_trap_mm": 317.42205245629884,
+      "note": "same stamps as the IMERG bias window, applied to the model file's time axis"
+     }
+    },
+    "sfincs_grid_rectangle": {
+     "region": "cells with centre inside the SFINCS grid rectangle (x0,y0,mmax*dx,nmax*dy)",
+     "n_cells": 64,
+     "n_nan_values": 0,
+     "event_window": {
+      "T0": "2024-10-29T00:00:00",
+      "T1": "2024-10-30T00:00:00",
+      "dt_hours": 0.5,
+      "file_covers_window": true,
+      "n_stamps_pc_fwd": 48,
+      "total_pc_fwd_mm": 202.81593763650744,
+      "n_stamps_incl": 49,
+      "total_incl_mm": 202.83797513655736,
+      "n_intervals_trap": 48,
+      "total_trap_mm": 202.80026241541782
+     },
+     "whole_file": {
+      "n_stamps": 241,
+      "dt_hours": 0.5,
+      "total_pc_fwd_mm": 224.83486825603177,
+      "total_trap_mm": 224.81166513162316
+     },
+     "peak_region_mean_rate_mm_h": 25.685666258446872,
+     "peak_region_mean_rate_time": "2024-10-29T04:30:00"
+    },
+    "active_cell_weighted": {
+     "region": "weighted by active SFINCS cells per precip_2d cell",
+     "n_cells": 84,
+     "n_nan_values": 0,
+     "event_window": {
+      "T0": "2024-10-29T00:00:00",
+      "T1": "2024-10-30T00:00:00",
+      "dt_hours": 0.5,
+      "file_covers_window": true,
+      "n_stamps_pc_fwd": 48,
+      "total_pc_fwd_mm": 141.27047668215093,
+      "n_stamps_incl": 49,
+      "total_incl_mm": 141.27717382436603,
+      "n_intervals_trap": 48,
+      "total_trap_mm": 141.2473987617547
+     },
+     "whole_file": {
+      "n_stamps": 241,
+      "dt_hours": 0.5,
+      "total_pc_fwd_mm": 169.869199749054,
+      "total_trap_mm": 169.8395471330325
+     },
+     "peak_region_mean_rate_mm_h": 20.219540522282465,
+     "peak_region_mean_rate_time": "2024-10-29T04:30:00",
+     "bias_window": {
+      "T0": "2024-10-29T00:00:00",
+      "T1": "2024-10-30T00:00:00",
+      "dt_hours": 0.5,
+      "file_covers_window": true,
+      "n_stamps_pc_fwd": 48,
+      "total_pc_fwd_mm": 141.27047668215093,
+      "n_stamps_incl": 49,
+      "total_incl_mm": 141.27717382436603,
+      "n_intervals_trap": 48,
+      "total_trap_mm": 141.2473987617547
+     }
+    }
+   },
+   "imerg": {
+    "imerg_bc": {
+     "file": {
+      "path": "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\valencia_emsr773\\data\\imerg_valencia.nc",
+      "exists": true,
+      "size_bytes": 367080,
+      "mtime": "2026-07-15T20:28:49",
+      "sha256": "8bd9f12cfa12c9bdcb1413d4dfafa697f9d70763ee127e8ae47de2e97b8ff06f"
+     },
+     "var_name": "precip",
+     "units": "mm/h",
+     "units_attr_Units": null,
+     "long_name": "Gauge-bias-corrected IMERG precipitation",
+     "dims": [
+      "time",
+      "latitude",
+      "longitude"
+     ],
+     "shape": [
+      385,
+      14,
+      16
+     ],
+     "coordinate_names": [
+      "time",
+      "latitude",
+      "longitude"
+     ],
+     "projected": false,
+     "crs": "EPSG:4326 (lat/lon, 0.1 deg)",
+     "lon_first": -1.149999976158142,
+     "lon_last": 0.3499999940395355,
+     "lat_first": 38.75,
+     "lat_last": 40.04999923706055,
+     "lon_centres": [
+      -1.15,
+      -1.05,
+      -0.95,
+      -0.85,
+      -0.75,
+      -0.65,
+      -0.55,
+      -0.45,
+      -0.35,
+      -0.25,
+      -0.15,
+      -0.05,
+      0.05,
+      0.15,
+      0.25,
+      0.35
+     ],
+     "lat_centres": [
+      38.75,
+      38.85,
+      38.95,
+      39.05,
+      39.15,
+      39.25,
+      39.35,
+      39.45,
+      39.55,
+      39.65,
+      39.75,
+      39.85,
+      39.95,
+      40.05
+     ],
+     "time_units": "minutes since 2017-01-01",
+     "time_calendar_attr": "proleptic_gregorian",
+     "time": {
+      "first": "2024-10-24T00:00:00",
+      "last": "2024-11-01T00:00:00",
+      "count": 385,
+      "step_minutes": 30.0,
+      "uniform": true,
+      "span_hours": 192.0
+     },
+     "time_decoding": {},
+     "global_attrs": {
+      "source": "GPM IMERG Final V07 half-hourly",
+      "spatial_resolution": "0.1 deg",
+      "temporal_resolution": "30 min",
+      "bias_correction": "Multiplicative scaling 4.143x applied to event window 2024-10-29 00:00 to 2024-10-30 00:00 so watershed bbox (-0.75,39.33,-0.30,39.55) 24-h total matches 350.0 mm gauge-based estimate",
+      "bias_correction_reference": "Diakakis et al. 2019; Nikolopoulos et al. 2013; Anagnostou et al. 2009"
+     },
+     "keyword_attrs": {
+      "global:source": "GPM IMERG Final V07 half-hourly",
+      "global:bias_correction": "Multiplicative scaling 4.143x applied to event window 2024-10-29 00:00 to 2024-10-30 00:00 so watershed bbox (-0.75,39.33,-0.30,39.55) 24-h total matches 350.0 mm gauge-based estimate",
+      "global:bias_correction_reference": "Diakakis et al. 2019; Nikolopoulos et al. 2013; Anagnostou et al. 2009",
+      "precip:long_name": "Gauge-bias-corrected IMERG precipitation"
+     },
+     "bias_correction_parsed": {
+      "factor": 4.143,
+      "window_start": "2024-10-29T00:00",
+      "window_end": "2024-10-30T00:00",
+      "bbox": [
+       -0.75,
+       39.33,
+       -0.3,
+       39.55
+      ],
+      "target_mm": 350.0
+     },
+     "n_nan": 0,
+     "n_negative": 0,
+     "max_rate_mm_h": 152.9665069580078,
+     "bbox_cell_selection_rule": "cell centres compared in float32 against float32 bbox bounds, inclusive (replicates bias_correct_imerg.py's xarray comparison)",
+     "bbox_cells_selected": {
+      "n": 15,
+      "lon_centres": [
+       -0.75,
+       -0.65,
+       -0.55,
+       -0.45,
+       -0.35
+      ],
+      "lat_centres": [
+       39.35,
+       39.45,
+       39.55
+      ],
+      "n_with_float64_tolerance_1e_4": 15
+     },
+     "totals": {
+      "domain_all_cells": {
+       "region": "all IMERG cells in file",
+       "n_cells": 224,
+       "n_nan_values": 0,
+       "event_window": {
+        "T0": "2024-10-29T00:00:00",
+        "T1": "2024-10-30T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 48,
+        "total_pc_fwd_mm": 175.20591132527414,
+        "n_stamps_incl": 49,
+        "total_incl_mm": 175.59562998175218,
+        "n_intervals_trap": 48,
+        "total_trap_mm": 175.2577474201015
+       },
+       "model_time_span": {
+        "T0": "2024-10-27T00:00:00",
+        "T1": "2024-11-01T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 240,
+        "total_pc_fwd_mm": 192.56723674010885,
+        "n_stamps_incl": 241,
+        "total_incl_mm": 192.7710536991404,
+        "n_intervals_trap": 240,
+        "total_trap_mm": 192.65626575557897
+       },
+       "whole_file": {
+        "n_stamps": 385,
+        "dt_hours": 0.5,
+        "total_pc_fwd_mm": 212.05181219124435,
+        "total_trap_mm": 211.94990371172855
+       },
+       "peak_region_mean_rate_mm_h": 20.063204763058042,
+       "peak_region_mean_rate_time": "2024-10-29T05:00:00"
+      },
+      "bbox": {
+       "region": "IMERG cells with centre in bbox (float32 rule)",
+       "n_cells": 15,
+       "n_nan_values": 0,
+       "event_window": {
+        "T0": "2024-10-29T00:00:00",
+        "T1": "2024-10-30T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 48,
+        "total_pc_fwd_mm": 349.99998161879677,
+        "n_stamps_incl": 49,
+        "total_incl_mm": 349.99998161879677,
+        "n_intervals_trap": 48,
+        "total_trap_mm": 349.84254045834143
+       },
+       "model_time_span": {
+        "T0": "2024-10-27T00:00:00",
+        "T1": "2024-11-01T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 240,
+        "total_pc_fwd_mm": 354.57198151660464,
+        "n_stamps_incl": 241,
+        "total_incl_mm": 354.57198151660464,
+        "n_intervals_trap": 240,
+        "total_trap_mm": 354.5691481833346
+       },
+       "whole_file": {
+        "n_stamps": 385,
+        "dt_hours": 0.5,
+        "total_pc_fwd_mm": 371.73364773790036,
+        "total_trap_mm": 371.7336477379004
+       },
+       "peak_region_mean_rate_mm_h": 46.75726288954417,
+       "peak_region_mean_rate_time": "2024-10-29T16:00:00"
+      },
+      "sfincs_grid_rectangle": {
+       "region": "IMERG cells whose centre projects inside the SFINCS grid rectangle",
+       "n_cells": 80,
+       "n_nan_values": 0,
+       "event_window": {
+        "T0": "2024-10-29T00:00:00",
+        "T1": "2024-10-30T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 48,
+        "total_pc_fwd_mm": 208.7680121578975,
+        "n_stamps_incl": 49,
+        "total_incl_mm": 208.7737090420211,
+        "n_intervals_trap": 48,
+        "total_trap_mm": 208.53353358834283
+       },
+       "model_time_span": {
+        "T0": "2024-10-27T00:00:00",
+        "T1": "2024-11-01T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 240,
+        "total_pc_fwd_mm": 219.93939625484634,
+        "n_stamps_incl": 241,
+        "total_incl_mm": 220.00627125318857,
+        "n_intervals_trap": 240,
+        "total_trap_mm": 219.97099000410526
+       },
+       "whole_file": {
+        "n_stamps": 385,
+        "dt_hours": 0.5,
+        "total_pc_fwd_mm": 237.03270836425943,
+        "total_trap_mm": 236.9992708650883
+       },
+       "peak_region_mean_rate_mm_h": 26.392109725251792,
+       "peak_region_mean_rate_time": "2024-10-29T05:00:00"
+      }
+     },
+     "bias_window_bbox": {
+      "T0": "2024-10-29T00:00:00",
+      "T1": "2024-10-30T00:00:00",
+      "dt_hours": 0.5,
+      "file_covers_window": true,
+      "n_stamps_pc_fwd": 48,
+      "total_pc_fwd_mm": 349.99998161879677,
+      "n_stamps_incl": 49,
+      "total_incl_mm": 349.99998161879677,
+      "n_intervals_trap": 48,
+      "total_trap_mm": 349.84254045834143,
+      "note": "window and bbox as stated in imerg_<slug>.nc:bias_correction; 'total_incl_mm' is the script's rule"
+     }
+    },
+    "imerg_raw": {
+     "file": {
+      "path": "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\valencia_emsr773\\data\\imerg_valencia.raw.nc",
+      "exists": true,
+      "size_bytes": 369614,
+      "mtime": "2026-07-15T20:28:49",
+      "sha256": "8faee51622618d74287f728775046e7caef2b4f8bf6c384584d42049c8e8c40b"
+     },
+     "var_name": "precip",
+     "units": "mm/h",
+     "units_attr_Units": "mm/hr",
+     "long_name": "Precipitation (IMERG Final V07 calibrated)",
+     "dims": [
+      "time",
+      "latitude",
+      "longitude"
+     ],
+     "shape": [
+      385,
+      14,
+      16
+     ],
+     "coordinate_names": [
+      "time",
+      "latitude",
+      "longitude"
+     ],
+     "projected": false,
+     "crs": "EPSG:4326 (lat/lon, 0.1 deg)",
+     "lon_first": -1.149999976158142,
+     "lon_last": 0.3499999940395355,
+     "lat_first": 38.75,
+     "lat_last": 40.04999923706055,
+     "lon_centres": [
+      -1.15,
+      -1.05,
+      -0.95,
+      -0.85,
+      -0.75,
+      -0.65,
+      -0.55,
+      -0.45,
+      -0.35,
+      -0.25,
+      -0.15,
+      -0.05,
+      0.05,
+      0.15,
+      0.25,
+      0.35
+     ],
+     "lat_centres": [
+      38.75,
+      38.85,
+      38.95,
+      39.05,
+      39.15,
+      39.25,
+      39.35,
+      39.45,
+      39.55,
+      39.65,
+      39.75,
+      39.85,
+      39.95,
+      40.05
+     ],
+     "time_units": "seconds since 1980-01-06T00:00:00+00:00",
+     "time_calendar_attr": "julian",
+     "time": {
+      "first": "2024-10-24T00:00:00",
+      "last": "2024-11-01T00:00:00",
+      "count": 385,
+      "step_minutes": 30.0,
+      "uniform": true,
+      "span_hours": 192.0
+     },
+     "time_decoding": {
+      "time_decoded_with_file_calendar_first_last": [
+       "2024-10-24T00:00:00",
+       "2024-11-01T00:00:00"
+      ],
+      "time_decoded_as_standard_first_last": [
+       "2024-10-24T00:00:00",
+       "2024-11-01T00:00:00"
+      ],
+      "note": "file declares calendar='julian'; stamps used here are decoded with the standard (Gregorian) calendar, which matches the bias-corrected file's stamps"
+     },
+     "global_attrs": {
+      "source": "GPM IMERG Final V07 half-hourly",
+      "spatial_resolution": "0.1 deg",
+      "temporal_resolution": "30 min"
+     },
+     "keyword_attrs": {
+      "global:source": "GPM IMERG Final V07 half-hourly"
+     },
+     "bias_correction_parsed": null,
+     "n_nan": 0,
+     "n_negative": 0,
+     "max_rate_mm_h": 39.09000015258789,
+     "bbox_cell_selection_rule": "cell centres compared in float32 against float32 bbox bounds, inclusive (replicates bias_correct_imerg.py's xarray comparison)",
+     "bbox_cells_selected": {
+      "n": 15,
+      "lon_centres": [
+       -0.75,
+       -0.65,
+       -0.55,
+       -0.45,
+       -0.35
+      ],
+      "lat_centres": [
+       39.35,
+       39.45,
+       39.55
+      ],
+      "n_with_float64_tolerance_1e_4": 15
+     },
+     "totals": {
+      "domain_all_cells": {
+       "region": "all IMERG cells in file",
+       "n_cells": 224,
+       "n_nan_values": 0,
+       "event_window": {
+        "T0": "2024-10-29T00:00:00",
+        "T1": "2024-10-30T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 48,
+        "total_pc_fwd_mm": 42.28769988808615,
+        "n_stamps_incl": 49,
+        "total_incl_mm": 42.38176238564276,
+        "n_intervals_trap": 48,
+        "total_trap_mm": 42.30021104857068
+       },
+       "model_time_span": {
+        "T0": "2024-10-27T00:00:00",
+        "T1": "2024-11-01T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 240,
+        "total_pc_fwd_mm": 59.35336914399938,
+        "n_stamps_incl": 241,
+        "total_incl_mm": 59.55718610303094,
+        "n_intervals_trap": 240,
+        "total_trap_mm": 59.44239815946952
+       },
+       "whole_file": {
+        "n_stamps": 385,
+        "dt_hours": 0.5,
+        "total_pc_fwd_mm": 78.8379445951349,
+        "total_trap_mm": 78.7360361156191
+       },
+       "peak_region_mean_rate_mm_h": 4.842455239791889,
+       "peak_region_mean_rate_time": "2024-10-29T05:00:00"
+      },
+      "bbox": {
+       "region": "IMERG cells with centre in bbox (float32 rule)",
+       "n_cells": 15,
+       "n_nan_values": 0,
+       "event_window": {
+        "T0": "2024-10-29T00:00:00",
+        "T1": "2024-10-30T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 48,
+        "total_pc_fwd_mm": 84.47599785874289,
+        "n_stamps_incl": 49,
+        "total_incl_mm": 84.47599785874289,
+        "n_intervals_trap": 48,
+        "total_trap_mm": 84.43799785946807
+       },
+       "model_time_span": {
+        "T0": "2024-10-27T00:00:00",
+        "T1": "2024-11-01T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 240,
+        "total_pc_fwd_mm": 89.04799775655071,
+        "n_stamps_incl": 241,
+        "total_incl_mm": 89.04799775655071,
+        "n_intervals_trap": 240,
+        "total_trap_mm": 89.04516442328071
+       },
+       "whole_file": {
+        "n_stamps": 385,
+        "dt_hours": 0.5,
+        "total_pc_fwd_mm": 106.2096639778465,
+        "total_trap_mm": 106.2096639778465
+       },
+       "peak_region_mean_rate_mm_h": 11.285333251953125,
+       "peak_region_mean_rate_time": "2024-10-29T16:00:00"
+      },
+      "sfincs_grid_rectangle": {
+       "region": "IMERG cells whose centre projects inside the SFINCS grid rectangle",
+       "n_cells": 80,
+       "n_nan_values": 0,
+       "event_window": {
+        "T0": "2024-10-29T00:00:00",
+        "T1": "2024-10-30T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 48,
+        "total_pc_fwd_mm": 50.388248814595855,
+        "n_stamps_incl": 49,
+        "total_incl_mm": 50.38962381456512,
+        "n_intervals_trap": 48,
+        "total_trap_mm": 50.33165506600053
+       },
+       "model_time_span": {
+        "T0": "2024-10-27T00:00:00",
+        "T1": "2024-11-01T00:00:00",
+        "dt_hours": 0.5,
+        "file_covers_window": true,
+        "n_stamps_pc_fwd": 240,
+        "total_pc_fwd_mm": 61.555311027390424,
+        "n_stamps_incl": 241,
+        "total_incl_mm": 61.622186025732674,
+        "n_intervals_trap": 240,
+        "total_trap_mm": 61.58690477664932
+       },
+       "whole_file": {
+        "n_stamps": 385,
+        "dt_hours": 0.5,
+        "total_pc_fwd_mm": 78.64862313680351,
+        "total_trap_mm": 78.61518563763238
+       },
+       "peak_region_mean_rate_mm_h": 6.369999830704183,
+       "peak_region_mean_rate_time": "2024-10-29T05:00:00"
+      }
+     },
+     "bias_window_bbox": {
+      "T0": "2024-10-29T00:00:00",
+      "T1": "2024-10-30T00:00:00",
+      "dt_hours": 0.5,
+      "file_covers_window": true,
+      "n_stamps_pc_fwd": 48,
+      "total_pc_fwd_mm": 84.47599785874289,
+      "n_stamps_incl": 49,
+      "total_incl_mm": 84.47599785874289,
+      "n_intervals_trap": 48,
+      "total_trap_mm": 84.43799785946807,
+      "note": "window and bbox as stated in imerg_<slug>.nc:bias_correction; 'total_incl_mm' is the script's rule"
+     }
+    }
+   },
+   "imerg_note": "rerun_v164/ holds no data/ folder and no imerg nc; the 350-mm run's imerg_valencia.nc (x4.143 -> 350 mm) and imerg_valencia.raw.nc are the only IMERG inputs on disk for Valencia.",
+   "bias_correction_as_recorded": {
+    "factor": 4.143,
+    "window_start": "2024-10-29T00:00",
+    "window_end": "2024-10-30T00:00",
+    "bbox": [
+     -0.75,
+     39.33,
+     -0.3,
+     39.55
+    ],
+    "target_mm": 350.0
+   },
+   "pointwise_check": {
+    "imerg_bc": {
+     "n_precip2d_cells_inside_imerg_extent": 182,
+     "n_precip2d_cells_total": 182,
+     "n_precip2d_cells_outside_imerg_extent": 0,
+     "max_rate_in_cells_outside_imerg_extent_mm_h": null,
+     "rule": "precip_2d cell centre -> lon/lat -> nearest IMERG cell centre (<= 0.05 deg); ratio = model / IMERG where IMERG > 1e-6 mm/h",
+     "shift_0": {
+      "alignment": "model stamp t <-> IMERG stamp t + 0 min",
+      "n_model_frames_matched": 241,
+      "n_cell_time_pairs": 10941,
+      "ratio_median": 1.031,
+      "ratio_min": 0.0,
+      "ratio_max": 2162.744,
+      "frac_pairs_model_equals_2x_imerg": 0.0177,
+      "frac_pairs_model_equals_1x_imerg": 0.0045,
+      "n_pairs_not_2x": 10747,
+      "n_pairs_not_2x_on_outer_ring_of_precip2d_grid": 3029,
+      "n_interior_pairs": 7871,
+      "frac_interior_pairs_model_equals_2x_imerg": 0.0194
+     },
+     "shift_1": {
+      "alignment": "model stamp t <-> IMERG stamp t + 30 min",
+      "n_cells_with_non_2x_pairs": 182,
+      "n_non_2x_pairs_with_model_zero": 450,
+      "non_2x_cells_distance_to_imerg_cell_edge_deg": {
+       "min": 0.0001,
+       "max": 0.0443
+      },
+      "n_non_2x_pairs_equal_2x_adjacent_imerg_cell": 207,
+      "sum_model_over_sum_2x_imerg_all_pairs": 0.5039,
+      "depth_share_of_non_2x_pairs": 0.8511,
+      "n_model_frames_matched": 240,
+      "n_cell_time_pairs": 10919,
+      "ratio_median": 2.0,
+      "ratio_min": 0.0,
+      "ratio_max": 18.0,
+      "frac_pairs_model_equals_2x_imerg": 0.5817,
+      "frac_pairs_model_equals_1x_imerg": 0.0001,
+      "n_pairs_not_2x": 4567,
+      "n_pairs_not_2x_on_outer_ring_of_precip2d_grid": 1411,
+      "n_interior_pairs": 7860,
+      "frac_interior_pairs_model_equals_2x_imerg": 0.5985,
+      "per_frame_median_ratio_runs": [
+       {
+        "value": 2.0,
+        "start": "2024-10-27T00:00:00",
+        "end": "2024-10-28T04:00:00",
+        "n_frames": 57
+       },
+       {
+        "value": 1.0,
+        "start": "2024-10-28T04:30:00",
+        "end": "2024-10-28T04:30:00",
+        "n_frames": 1
+       },
+       {
+        "value": 2.0,
+        "start": "2024-10-28T05:00:00",
+        "end": "2024-10-28T05:00:00",
+        "n_frames": 1
+       },
+       {
+        "value": 1.0,
+        "start": "2024-10-28T05:30:00",
+        "end": "2024-10-28T05:30:00",
+        "n_frames": 1
+       },
+       {
+        "value": null,
+        "start": "2024-10-28T06:00:00",
+        "end": "2024-10-28T06:00:00",
+        "n_frames": 1
+       },
+       {
+        "value": 2.0,
+        "start": "2024-10-28T06:30:00",
+        "end": "2024-10-28T06:30:00",
+        "n_frames": 1
+       },
+       {
+        "value": null,
+        "start": "2024-10-28T07:00:00",
+        "end": "2024-10-28T12:00:00",
+        "n_frames": 11
+       },
+       {
+        "value": 2.0,
+        "start": "2024-10-28T12:30:00",
+        "end": "2024-10-28T23:30:00",
+        "n_frames": 23
+       },
+       {
+        "value": 0.937,
+        "start": "2024-10-29T00:00:00",
+        "end": "2024-10-30T00:00:00",
+        "n_frames": 49
+       },
+       {
+        "value": 2.0,
+        "start": "2024-10-30T00:30:00",
+        "end": "2024-10-30T07:00:00",
+        "n_frames": 14
+       },
+       {
+        "value": null,
+        "start": "2024-10-30T07:30:00",
+        "end": "2024-10-30T14:30:00",
+        "n_frames": 15
+       },
+       {
+        "value": 2.0,
+        "start": "2024-10-30T15:00:00",
+        "end": "2024-10-30T17:30:00",
+        "n_frames": 6
+       },
+       {
+        "value": null,
+        "start": "2024-10-30T18:00:00",
+        "end": "2024-10-30T18:00:00",
+        "n_frames": 1
+       },
+       {
+        "value": 2.0,
+        "start": "2024-10-30T18:30:00",
+        "end": "2024-10-30T18:30:00",
+        "n_frames": 1
+       },
+       {
+        "value": null,
+        "start": "2024-10-30T19:00:00",
+        "end": "2024-10-31T01:30:00",
+        "n_frames": 14
+       },
+       {
+        "value": 2.0,
+        "start": "2024-10-31T02:00:00",
+        "end": "2024-10-31T11:30:00",
+        "n_frames": 20
+       },
+       {
+        "value": null,
+        "start": "2024-10-31T12:00:00",
+        "end": "2024-10-31T12:00:00",
+        "n_frames": 1
+       },
+       {
+        "value": 2.0,
+        "start": "2024-10-31T12:30:00",
+        "end": "2024-10-31T23:30:00",
+        "n_frames": 23
+       }
+      ]
+     }
+    },
+    "imerg_raw": {
+     "n_precip2d_cells_inside_imerg_extent": 182,
+     "n_precip2d_cells_total": 182,
+     "n_precip2d_cells_outside_imerg_extent": 0,
+     "max_rate_in_cells_outside_imerg_extent_mm_h": null,
+     "rule": "precip_2d cell centre -> lon/lat -> nearest IMERG cell centre (<= 0.05 deg); ratio = model / IMERG where IMERG > 1e-6 mm/h",
+     "shift_0": {
+      "alignment": "model stamp t <-> IMERG stamp t + 0 min",
+      "n_model_frames_matched": 241,
+      "n_cell_time_pairs": 10941,
+      "ratio_median": 1.778,
+      "ratio_min": 0.0,
+      "ratio_max": 2162.744,
+      "frac_pairs_model_equals_2x_imerg": 0.0175,
+      "frac_pairs_model_equals_1x_imerg": 0.0043,
+      "n_pairs_not_2x": 10749,
+      "n_pairs_not_2x_on_outer_ring_of_precip2d_grid": 3030,
+      "n_interior_pairs": 7871,
+      "frac_interior_pairs_model_equals_2x_imerg": 0.0193
+     },
+     "shift_1": {
+      "alignment": "model stamp t <-> IMERG stamp t + 30 min",
+      "n_cells_with_non_2x_pairs": 182,
+      "n_non_2x_pairs_with_model_zero": 450,
+      "non_2x_cells_distance_to_imerg_cell_edge_deg": {
+       "min": 0.0001,
+       "max": 0.0443
+      },
+      "n_non_2x_pairs_equal_2x_adjacent_imerg_cell": 208,
+      "sum_model_over_sum_2x_imerg_all_pairs": 1.6641,
+      "depth_share_of_non_2x_pairs": 0.8528,
+      "n_model_frames_matched": 240,
+      "n_cell_time_pairs": 10919,
+      "ratio_median": 2.0,
+      "ratio_min": 0.0,
+      "ratio_max": 31.839,
+      "frac_pairs_model_equals_2x_imerg": 0.5764,
+      "frac_pairs_model_equals_1x_imerg": 0.0001,
+      "n_pairs_not_2x": 4625,
+      "n_pairs_not_2x_on_outer_ring_of_precip2d_grid": 1425,
+      "n_interior_pairs": 7860,
+      "frac_interior_pairs_model_equals_2x_imerg": 0.5929,
+      "per_frame_median_ratio_runs": [
+       {
+        "value": 2.0,
+        "start": "2024-10-27T00:00:00",
+        "end": "2024-10-28T04:00:00",
+        "n_frames": 57
+       },
+       {
+        "value": 1.0,
+        "start": "2024-10-28T04:30:00",
+        "end": "2024-10-28T04:30:00",
+        "n_frames": 1
+       },
+       {
+        "value": 2.0,
+        "start": "2024-10-28T05:00:00",
+        "end": "2024-10-28T05:00:00",
+        "n_frames": 1
+       },
+       {
+        "value": 1.0,
+        "start": "2024-10-28T05:30:00",
+        "end": "2024-10-28T05:30:00",
+        "n_frames": 1
+       },
+       {
+        "value": null,
+        "start": "2024-10-28T06:00:00",
+        "end": "2024-10-28T06:00:00",
+        "n_frames": 1
+       },
+       {
+        "value": 2.0,
+        "start": "2024-10-28T06:30:00",
+        "end": "2024-10-28T06:30:00",
+        "n_frames": 1
+       },
+       {
+        "value": null,
+        "start": "2024-10-28T07:00:00",
+        "end": "2024-10-28T12:00:00",
+        "n_frames": 11
+       },
+       {
+        "value": 2.0,
+        "start": "2024-10-28T12:30:00",
+        "end": "2024-10-28T23:00:00",
+        "n_frames": 22
+       },
+       {
+        "value": 8.286,
+        "start": "2024-10-28T23:30:00",
+        "end": "2024-10-28T23:30:00",
+        "n_frames": 1
+       },
+       {
+        "value": 3.883,
+        "start": "2024-10-29T00:00:00",
+        "end": "2024-10-29T23:30:00",
+        "n_frames": 48
+       },
+       {
+        "value": 0.937,
+        "start": "2024-10-30T00:00:00",
+        "end": "2024-10-30T00:00:00",
+        "n_frames": 1
+       },
+       {
+        "value": 2.0,
+        "start": "2024-10-30T00:30:00",
+        "end": "2024-10-30T07:00:00",
+        "n_frames": 14
+       },
+       {
+        "value": null,
+        "start": "2024-10-30T07:30:00",
+        "end": "2024-10-30T14:30:00",
+        "n_frames": 15
+       },
+       {
+        "value": 2.0,
+        "start": "2024-10-30T15:00:00",
+        "end": "2024-10-30T17:30:00",
+        "n_frames": 6
+       },
+       {
+        "value": null,
+        "start": "2024-10-30T18:00:00",
+        "end": "2024-10-30T18:00:00",
+        "n_frames": 1
+       },
+       {
+        "value": 2.0,
+        "start": "2024-10-30T18:30:00",
+        "end": "2024-10-30T18:30:00",
+        "n_frames": 1
+       },
+       {
+        "value": null,
+        "start": "2024-10-30T19:00:00",
+        "end": "2024-10-31T01:30:00",
+        "n_frames": 14
+       },
+       {
+        "value": 2.0,
+        "start": "2024-10-31T02:00:00",
+        "end": "2024-10-31T11:30:00",
+        "n_frames": 20
+       },
+       {
+        "value": null,
+        "start": "2024-10-31T12:00:00",
+        "end": "2024-10-31T12:00:00",
+        "n_frames": 1
+       },
+       {
+        "value": 2.0,
+        "start": "2024-10-31T12:30:00",
+        "end": "2024-10-31T23:30:00",
+        "n_frames": 23
+       }
+      ]
+     }
+    }
+   },
+   "precip2d_vs_350mm_run": {
+    "other_file": "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\valencia_emsr773\\model\\precip_2d.nc",
+    "same_shape": true,
+    "per_frame_median_ratio_runs": [
+     {
+      "value": 1.0,
+      "start": "2024-10-27T00:00:00",
+      "end": "2024-10-28T05:30:00",
+      "n_frames": 60
+     },
+     {
+      "value": null,
+      "start": "2024-10-28T06:00:00",
+      "end": "2024-10-28T06:00:00",
+      "n_frames": 1
+     },
+     {
+      "value": 1.0,
+      "start": "2024-10-28T06:30:00",
+      "end": "2024-10-28T06:30:00",
+      "n_frames": 1
+     },
+     {
+      "value": null,
+      "start": "2024-10-28T07:00:00",
+      "end": "2024-10-28T12:00:00",
+      "n_frames": 11
+     },
+     {
+      "value": 1.0,
+      "start": "2024-10-28T12:30:00",
+      "end": "2024-10-28T23:30:00",
+      "n_frames": 23
+     },
+     {
+      "value": 0.4686,
+      "start": "2024-10-29T00:00:00",
+      "end": "2024-10-30T00:00:00",
+      "n_frames": 49
+     },
+     {
+      "value": 1.0,
+      "start": "2024-10-30T00:30:00",
+      "end": "2024-10-30T07:00:00",
+      "n_frames": 14
+     },
+     {
+      "value": null,
+      "start": "2024-10-30T07:30:00",
+      "end": "2024-10-30T14:30:00",
+      "n_frames": 15
+     },
+     {
+      "value": 1.0,
+      "start": "2024-10-30T15:00:00",
+      "end": "2024-10-30T17:30:00",
+      "n_frames": 6
+     },
+     {
+      "value": null,
+      "start": "2024-10-30T18:00:00",
+      "end": "2024-10-30T18:00:00",
+      "n_frames": 1
+     },
+     {
+      "value": 1.0,
+      "start": "2024-10-30T18:30:00",
+      "end": "2024-10-30T18:30:00",
+      "n_frames": 1
+     },
+     {
+      "value": null,
+      "start": "2024-10-30T19:00:00",
+      "end": "2024-10-31T01:30:00",
+      "n_frames": 14
+     },
+     {
+      "value": 1.0,
+      "start": "2024-10-31T02:00:00",
+      "end": "2024-10-31T11:30:00",
+      "n_frames": 20
+     },
+     {
+      "value": null,
+      "start": "2024-10-31T12:00:00",
+      "end": "2024-10-31T12:00:00",
+      "n_frames": 1
+     },
+     {
+      "value": 1.0,
+      "start": "2024-10-31T12:30:00",
+      "end": "2024-10-31T23:30:00",
+      "n_frames": 23
+     },
+     {
+      "value": null,
+      "start": "2024-11-01T00:00:00",
+      "end": "2024-11-01T00:00:00",
+      "n_frames": 1
+     }
+    ],
+    "max_abs_diff_mm_h": 162.58154296875
+   },
+   "ratios": {
+    "model/imerg_bc | event window | domain_all_cells | total_pc_fwd_mm": 0.948,
+    "model/imerg_bc | event window | domain_all_cells | total_trap_mm": 0.948,
+    "model/imerg_bc | model time span [tstart,tstop) | domain_all_cells | total_pc_fwd_mm": 1.014,
+    "model/imerg_raw | event window | domain_all_cells | total_pc_fwd_mm": 3.928,
+    "model/imerg_raw | event window | domain_all_cells | total_trap_mm": 3.927,
+    "model/imerg_raw | model time span [tstart,tstop) | domain_all_cells | total_pc_fwd_mm": 3.291,
+    "model/imerg_bc | event window | bbox | total_pc_fwd_mm": 0.907,
+    "model/imerg_bc | event window | bbox | total_trap_mm": 0.907,
+    "model/imerg_bc | model time span [tstart,tstop) | bbox | total_pc_fwd_mm": 0.926,
+    "model/imerg_raw | event window | bbox | total_pc_fwd_mm": 3.758,
+    "model/imerg_raw | event window | bbox | total_trap_mm": 3.759,
+    "model/imerg_raw | model time span [tstart,tstop) | bbox | total_pc_fwd_mm": 3.687,
+    "model/imerg_bc | event window | sfincs_grid_rectangle | total_pc_fwd_mm": 0.971,
+    "model/imerg_bc | event window | sfincs_grid_rectangle | total_trap_mm": 0.973,
+    "model/imerg_bc | model time span [tstart,tstop) | sfincs_grid_rectangle | total_pc_fwd_mm": 1.022,
+    "model/imerg_raw | event window | sfincs_grid_rectangle | total_pc_fwd_mm": 4.025,
+    "model/imerg_raw | event window | sfincs_grid_rectangle | total_trap_mm": 4.029,
+    "model/imerg_raw | model time span [tstart,tstop) | sfincs_grid_rectangle | total_pc_fwd_mm": 3.653,
+    "model bbox event-window pc_fwd / target run_target_164": 1.936,
+    "model bbox event-window trap / target run_target_164": 1.936,
+    "model domain event-window pc_fwd / target run_target_164": 1.013,
+    "model active-weighted event-window pc_fwd / target run_target_164": 0.861,
+    "model bbox bias-window pc_fwd / target run_target_164": 1.936,
+    "model bbox bias-window incl / target run_target_164": 1.936,
+    "imerg_bc bbox bias-window incl (script rule) / target run_target_164": 2.134,
+    "imerg_raw bbox bias-window incl (script rule) / target run_target_164": 0.515,
+    "model bbox event-window pc_fwd / target old_target_350": 0.907,
+    "model bbox event-window trap / target old_target_350": 0.907,
+    "model domain event-window pc_fwd / target old_target_350": 0.475,
+    "model active-weighted event-window pc_fwd / target old_target_350": 0.404,
+    "model bbox bias-window pc_fwd / target old_target_350": 0.907,
+    "model bbox bias-window incl / target old_target_350": 0.907,
+    "imerg_bc bbox bias-window incl (script rule) / target old_target_350": 1.0,
+    "imerg_raw bbox bias-window incl (script rule) / target old_target_350": 0.241
+   },
+   "targets_mm": {
+    "run_target_164": 164.0,
+    "old_target_350": 350.0
+   }
+  }
+ ]
+}

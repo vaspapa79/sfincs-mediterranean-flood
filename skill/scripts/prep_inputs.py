@@ -12,6 +12,26 @@ from pathlib import Path
 
 from _common import SKILL_DIR, load_config, ensure_dir
 
+# Catalog label of the IMERG product run (rain_source.product); 'final' keeps the published string.
+_IMERG_SOURCE = {"final": "GPM IMERG Final V07", "late": "GPM IMERG Late Run V07"}
+
+
+def render_catalog(cfg, data_root: str | None = None) -> str:
+    """Render data_catalog.yml from the bundled template (pure: no files written).
+
+    Used by main() and by the Stage-1 schema check, so a config can be validated without
+    the downloads being present.
+    """
+    tmpl = (SKILL_DIR / "templates" / "data_catalog.yml.tmpl").read_text()
+    root = data_root if data_root is not None else str(cfg.paths["data_dir"]).replace("\\", "/")
+    return string.Template(tmpl).substitute({
+        "data_root": root,
+        "event": cfg.event_slug,
+        "tstart_str": cfg.tstart.strftime("%B %d %Y"),
+        "tstop_str": cfg.tstop.strftime("%B %d %Y"),
+        "imerg_source": _IMERG_SOURCE[cfg.imerg_product],
+    })
+
 
 def main():
     cfg = load_config()
@@ -86,13 +106,7 @@ def main():
     print(f"manning lookup: {mln_dst}")
 
     # 4) Write data_catalog.yml from template
-    tmpl = (SKILL_DIR / "templates" / "data_catalog.yml.tmpl").read_text()
-    rendered = string.Template(tmpl).substitute({
-        "data_root": str(data).replace("\\", "/"),
-        "event": cfg.event_slug,
-        "tstart_str": cfg.tstart.strftime("%B %d %Y"),
-        "tstop_str": cfg.tstop.strftime("%B %d %Y"),
-    })
+    rendered = render_catalog(cfg, str(data).replace("\\", "/"))
     out_cat = cfg.paths["work_dir"] / "data_catalog.yml"
     out_cat.write_text(rendered, encoding="utf-8")
     print(f"catalog: {out_cat}")

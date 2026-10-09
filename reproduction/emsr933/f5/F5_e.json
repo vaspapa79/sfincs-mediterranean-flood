@@ -1,0 +1,2207 @@
+{
+ "generated_utc": "2026-10-09 13:33 UTC",
+ "script": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\emsr933\\f5\\f5_e_ib.py",
+ "constants": {
+  "rho_kg_m3": 1025.0,
+  "g_m_s2": 9.81,
+  "p_ref_hPa": 1013.25
+ },
+ "runs": {
+  "pineios_emsr692_enhanced": {
+   "label": "Run 1: Pineios / Storm Daniel (EMSR692) enhanced, model_author_ref",
+   "folder": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\model_author_ref",
+   "missing": [],
+   "inp": {
+    "bndfile": null,
+    "bzsfile": null,
+    "bzifile": null,
+    "netbndbzsbzifile": null,
+    "pavbnd": "1",
+    "baro": "1",
+    "gapres": "101200.0",
+    "netampfile": "press_2d.nc",
+    "netamuamvfile": "wind_2d.nc",
+    "netamprfile": "precip_2d.nc",
+    "tref": "20230827 000000",
+    "tstart": "20230903 000000",
+    "tstop": "20230911 000000",
+    "zsini": "0",
+    "rhow": "1024.0",
+    "tspinup": "0.0",
+    "dtout": "3600",
+    "epsg": "32634"
+   },
+   "inp_present_keys": [
+    "pavbnd",
+    "baro",
+    "gapres",
+    "netampfile",
+    "netamuamvfile",
+    "netamprfile",
+    "tref",
+    "tstart",
+    "tstop",
+    "zsini",
+    "rhow",
+    "tspinup",
+    "dtout",
+    "epsg"
+   ],
+   "inp_absent_keys": [
+    "bndfile",
+    "bzsfile",
+    "bzifile",
+    "netbndbzsbzifile"
+   ],
+   "waterlevel_boundary_files_in_folder": [],
+   "waterlevel_boundary_file_exists": false,
+   "folder_listing": [
+    "gis",
+    "hydromt.log",
+    "precip_2d.nc",
+    "press_2d.nc",
+    "sfincs.dis",
+    "sfincs.ind",
+    "sfincs.inp",
+    "sfincs.log",
+    "sfincs.msk",
+    "sfincs.src",
+    "sfincs_log.txt",
+    "sfincs_map.nc",
+    "sfincs_subgrid.nc",
+    "wind_2d.nc"
+   ],
+   "log_boundary_lines": [
+    "Warning! Boundary cells found in mask without boundary points from bnd file. Setting water level at 0.0 m at mask boundary cells."
+   ],
+   "log_processes": [
+    "Wind                 : yes",
+    "Atmospheric pressure : yes",
+    "Precipitation        : yes"
+   ],
+   "log_active_points": [
+    "Number of active z points      :    262465",
+    "Number of active u/v points    :    520829"
+   ],
+   "map_inp_attrs": {
+    "bndfile": "none",
+    "bzsfile": "none",
+    "bzifile": "none",
+    "netbndbzsbzifile": "none",
+    "netampfile": "press_2d.nc",
+    "pavbnd": 1.0,
+    "baro": 1,
+    "gapres": 101200.0,
+    "bndtype": 1,
+    "zsini": 0.0,
+    "rhow": 1024.0,
+    "tspinup": 604800.0,
+    "tref": "20230827 000000",
+    "tstart": "20230903 000000",
+    "tstop": "20230911 000000",
+    "epsg": 32634
+   },
+   "time": {
+    "n": 193,
+    "first": "2023-09-03T00:00",
+    "last": "2023-09-11T00:00",
+    "step_s": 3600.0
+   },
+   "mask_counts": {
+    "msk0": 94511,
+    "msk1": 261815,
+    "msk2": 650,
+    "msk3": 0,
+    "n_cells_total": 356976,
+    "active_1_2_3": 262465
+   },
+   "nan_is_dry_check": {
+    "rule": "zs is NaN where the cell is dry: at the first output time (zsini=0) the finite msk==1 cells must be exactly the msk==1 cells with zb<0",
+    "finite_msk1_cells_at_t0": 131,
+    "msk1_cells_with_zb_lt_0": 131,
+    "sets_identical": true,
+    "finite_msk1_zs_at_t0_abs_max_m": 0.0
+   },
+   "bnd_msk2": {
+    "n_cells": 650,
+    "n_cells_ever_wet_(finite_zs)": 0,
+    "n_cells_never_wet_(zs_NaN_at_all_times)": 650,
+    "n_output_times": 193,
+    "n_output_times_with_all_cells_NaN": 193,
+    "wet_cells_at_first_time": 0,
+    "wet_cells_max_over_time": 0,
+    "zs_wet_cell_mean_series_m": null,
+    "max_excursion_cell": null,
+    "ever_differs_from_initial_by_gt_1cm": null,
+    "zb_m": {
+     "min": 0.0,
+     "mean": 0.0,
+     "max": 0.0
+    },
+    "n_cells_zb_lt_0": 0,
+    "n_cells_zb_eq_0": 650,
+    "n_cells_on_outer_grid_edge": 650,
+    "x_range": [
+     635807.0,
+     671507.0
+    ],
+    "y_range": [
+     4351590.0,
+     4431840.0
+    ],
+    "zsmax_at_cells": {
+     "n_windows": 8,
+     "windows_end": [
+      "2023-09-04T00:00",
+      "2023-09-05T00:00",
+      "2023-09-06T00:00",
+      "2023-09-07T00:00",
+      "2023-09-08T00:00",
+      "2023-09-09T00:00",
+      "2023-09-10T00:00",
+      "2023-09-11T00:00"
+     ],
+     "n_cell_windows": 5200,
+     "n_finite": 0,
+     "min": null,
+     "max": null
+    }
+   },
+   "bnd_msk3": null,
+   "adjacent_msk1_first_interior_row": {
+    "n_cells": 654,
+    "n_cells_ever_wet_(finite_zs)": 654,
+    "n_cells_never_wet_(zs_NaN_at_all_times)": 0,
+    "n_output_times": 193,
+    "n_output_times_with_all_cells_NaN": 20,
+    "wet_cells_at_first_time": 0,
+    "wet_cells_max_over_time": 654,
+    "zs_wet_cell_mean_series_m": {
+     "first": null,
+     "t_first": "2023-09-03T00:00",
+     "min": 0.0,
+     "t_min": "2023-09-03T20:00",
+     "max": 0.0316,
+     "t_max": "2023-09-07T12:00",
+     "note": "argmin/argmax return the earliest time when the series is constant"
+    },
+    "max_excursion_cell": {
+     "zs_first_finite": 0.0,
+     "t_first_finite": "2023-09-03T20:00",
+     "zs_min": 0.0,
+     "t_min": "2023-09-03T20:00",
+     "zs_max": 0.3022,
+     "t_max": "2023-09-07T13:00",
+     "range_m": 0.3022,
+     "n_times_wet": 173,
+     "n": 534,
+     "m": 426,
+     "x": 635657.0,
+     "y": 4431690.0,
+     "zb": 0.0
+    },
+    "abs_max_zs_any_cell_any_time_m": 0.3022,
+    "max_abs_dev_from_first_finite_m": 0.3022,
+    "n_cells_with_dev_gt_1cm": 653,
+    "ever_differs_from_initial_by_gt_1cm": true,
+    "all_finite_values_exactly_zero": false,
+    "zb_m": {
+     "min": 0.0,
+     "mean": 0.0,
+     "max": 0.0
+    },
+    "n_cells_zb_lt_0": 0,
+    "n_cells_zb_eq_0": 654,
+    "n_cells_on_outer_grid_edge": 4,
+    "x_range": [
+     635657.0,
+     671507.0
+    ],
+    "y_range": [
+     4351590.0,
+     4431840.0
+    ],
+    "zsmax_at_cells": {
+     "n_windows": 8,
+     "windows_end": [
+      "2023-09-04T00:00",
+      "2023-09-05T00:00",
+      "2023-09-06T00:00",
+      "2023-09-07T00:00",
+      "2023-09-08T00:00",
+      "2023-09-09T00:00",
+      "2023-09-10T00:00",
+      "2023-09-11T00:00"
+     ],
+     "n_cell_windows": 5232,
+     "n_finite": 5232,
+     "min": 0.0004,
+     "max": 0.3078
+    }
+   },
+   "interior_sea_msk1_zb_lt_0": {
+    "n_cells": 131,
+    "n_cells_ever_wet_(finite_zs)": 131,
+    "n_cells_never_wet_(zs_NaN_at_all_times)": 0,
+    "n_output_times": 193,
+    "n_output_times_with_all_cells_NaN": 0,
+    "wet_cells_at_first_time": 131,
+    "wet_cells_max_over_time": 131,
+    "zs_wet_cell_mean_series_m": {
+     "first": 0.0,
+     "t_first": "2023-09-03T00:00",
+     "min": -0.0,
+     "t_min": "2023-09-03T20:00",
+     "max": 1.1707,
+     "t_max": "2023-09-07T13:00",
+     "note": "argmin/argmax return the earliest time when the series is constant"
+    },
+    "max_excursion_cell": {
+     "zs_first_finite": -0.0,
+     "t_first_finite": "2023-09-03T00:00",
+     "zs_min": -0.0,
+     "t_min": "2023-09-03T00:00",
+     "zs_max": 1.865,
+     "t_max": "2023-09-05T02:00",
+     "range_m": 1.865,
+     "n_times_wet": 193,
+     "n": 45,
+     "m": 632,
+     "x": 666557.0,
+     "y": 4358340.0,
+     "zb": -0.079
+    },
+    "abs_max_zs_any_cell_any_time_m": 1.865,
+    "max_abs_dev_from_first_finite_m": 1.865,
+    "n_cells_with_dev_gt_1cm": 131,
+    "ever_differs_from_initial_by_gt_1cm": true,
+    "all_finite_values_exactly_zero": false,
+    "zb_m": {
+     "min": -2.908,
+     "mean": -0.202,
+     "max": -0.002
+    },
+    "n_cells_zb_lt_0": 131,
+    "n_cells_zb_eq_0": 0,
+    "n_cells_on_outer_grid_edge": 0,
+    "x_range": [
+     641057.0,
+     671057.0
+    ],
+    "y_range": [
+     4357590.0,
+     4425990.0
+    ],
+    "zsmax_at_cells": {
+     "n_windows": 8,
+     "windows_end": [
+      "2023-09-04T00:00",
+      "2023-09-05T00:00",
+      "2023-09-06T00:00",
+      "2023-09-07T00:00",
+      "2023-09-08T00:00",
+      "2023-09-09T00:00",
+      "2023-09-10T00:00",
+      "2023-09-11T00:00"
+     ],
+     "n_cell_windows": 1048,
+     "n_finite": 1048,
+     "min": 0.0015,
+     "max": 1.9224
+    }
+   },
+   "pressure": {
+    "file": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\model_author_ref\\press_2d.nc",
+    "variable": "barometric_pressure",
+    "units": "Pa",
+    "grib_source_attrs": {
+     "GRIB_gridType": "regular_ll",
+     "GRIB_iDirectionIncrementInDegrees": 0.25,
+     "GRIB_latitudeOfFirstGridPointInDegrees": 40.11,
+     "GRIB_latitudeOfLastGridPointInDegrees": 39.11,
+     "GRIB_longitudeOfFirstGridPointInDegrees": 21.64,
+     "GRIB_longitudeOfLastGridPointInDegrees": 23.14,
+     "GRIB_dataType": "an",
+     "GRIB_shortName": "msl"
+    },
+    "grid": {
+     "nx": 6,
+     "ny": 6,
+     "epsg": 32634,
+     "dx_m": 23774.36,
+     "dy_m": -23774.36,
+     "x_range": [
+      555696.46,
+      674568.27
+     ],
+     "y_range": [
+      4325542.19,
+      4444414.01
+     ]
+    },
+    "time": {
+     "n": 193,
+     "first": "2023-09-03T00:00",
+     "last": "2023-09-11T00:00",
+     "identical_to_map_time_axis": true
+    },
+    "nan_count": 0,
+    "domain_min_series_hPa": {
+     "p_first": 1017.69,
+     "p_min": 1006.4,
+     "t_min": "2023-09-05T02:00",
+     "x_at_min": 674568.27,
+     "y_at_min": 4325542.19,
+     "p_max": 1018.53,
+     "expected_IB_m": {
+      "rel_first": 0.112,
+      "rel_1013.25": 0.068,
+      "rel_gapres": 0.056
+     }
+    },
+    "bnd_mean_series_hPa": {
+     "matching": {
+      "method": "nearest forcing-grid node to each msk==2 cell centre; both datasets are in the same projected CRS (forcing file stored by HydroMT in the model EPSG), so no reprojection was needed",
+      "forcing_epsg_from_wkt": 32634,
+      "model_epsg": 32634,
+      "n_forcing_nodes_used": 6,
+      "nn_distance_m": {
+       "min": 3061.37,
+       "max": 16315.05
+      }
+     },
+     "p_first": 1018.01,
+     "p_min": 1007.76,
+     "t_min": "2023-09-05T03:00",
+     "p_max": 1018.83,
+     "expected_IB_m": {
+      "rel_first": 0.102,
+      "rel_1013.25": 0.055,
+      "rel_gapres": 0.042
+     }
+    },
+    "constants": {
+     "rho_kg_m3": 1025.0,
+     "g_m_s2": 9.81,
+     "p_ref_hPa": 1013.25,
+     "gapres_hPa": 1012.0,
+     "note": "sfincs.inp rhow=1024 (model) vs rho=1025 used here as specified"
+    }
+   },
+   "comparison": {
+    "t_mslp_min_bnd_mean": "2023-09-05T03:00",
+    "map_time_used": "2023-09-05T03:00",
+    "expected_IB_rel_first_m": 0.102,
+    "expected_IB_rel_1013.25_m": 0.055,
+    "bnd_msk2": {
+     "n_cells": 650,
+     "wet_cells_at_t": 0,
+     "wet_cells_at_t0": 0,
+     "cells_wet_at_both_t0_and_t": 0,
+     "zs_wet_mean_at_t_m": null,
+     "zs_at_t_cellwise_m": {
+      "min": null,
+      "max": null
+     },
+     "observed_dzs_wet_mean_at_t_m": null,
+     "observed_dzs_cellwise_m": {
+      "mean": null,
+      "min": null,
+      "max": null,
+      "n_abs_gt_1cm": 0
+     },
+     "observed_dzs_wet_mean_min_over_run_m": null,
+     "observed_dzs_wet_mean_max_over_run_m": null,
+     "expected_local_IB_rel_first_m": {
+      "mean": 0.102,
+      "min": 0.1,
+      "max": 0.108
+     }
+    },
+    "adjacent_msk1_first_interior_row": {
+     "n_cells": 654,
+     "wet_cells_at_t": 654,
+     "wet_cells_at_t0": 0,
+     "cells_wet_at_both_t0_and_t": 0,
+     "zs_wet_mean_at_t_m": 0.02,
+     "zs_at_t_cellwise_m": {
+      "min": 0.01,
+      "max": 0.203
+     },
+     "observed_dzs_wet_mean_at_t_m": null,
+     "observed_dzs_cellwise_m": {
+      "mean": null,
+      "min": null,
+      "max": null,
+      "n_abs_gt_1cm": 0
+     },
+     "observed_dzs_wet_mean_min_over_run_m": null,
+     "observed_dzs_wet_mean_max_over_run_m": null,
+     "expected_local_IB_rel_first_m": {
+      "mean": 0.102,
+      "min": 0.1,
+      "max": 0.108
+     },
+     "observed_dzs_max_excursion_cell_at_t_m": null,
+     "at_time_of_wet_mean_max": {
+      "t": "2023-09-07T12:00",
+      "zs_wet_mean_m": 0.032,
+      "hours_after_mslp_min": 57.0,
+      "p_bnd_mean_hPa": 1018.18,
+      "expected_IB_rel_first_m": -0.002
+     }
+    },
+    "interior_sea_msk1_zb_lt_0": {
+     "n_cells": 131,
+     "wet_cells_at_t": 131,
+     "wet_cells_at_t0": 131,
+     "cells_wet_at_both_t0_and_t": 131,
+     "zs_wet_mean_at_t_m": 0.864,
+     "zs_at_t_cellwise_m": {
+      "min": 0.373,
+      "max": 1.809
+     },
+     "observed_dzs_wet_mean_at_t_m": 0.864,
+     "observed_dzs_cellwise_m": {
+      "mean": 0.864,
+      "min": 0.373,
+      "max": 1.809,
+      "n_abs_gt_1cm": 131
+     },
+     "observed_dzs_wet_mean_min_over_run_m": -0.0,
+     "observed_dzs_wet_mean_max_over_run_m": 1.171,
+     "expected_local_IB_rel_first_m": {
+      "mean": 0.1,
+      "min": 0.1,
+      "max": 0.11
+     },
+     "observed_dzs_max_excursion_cell_at_t_m": 1.809,
+     "at_time_of_wet_mean_max": {
+      "t": "2023-09-07T13:00",
+      "zs_wet_mean_m": 1.171,
+      "hours_after_mslp_min": 58.0,
+      "p_bnd_mean_hPa": 1018.11,
+      "expected_IB_rel_first_m": -0.001
+     }
+    },
+    "checkpoints_6h": [
+     {
+      "t": "2023-09-03T00:00",
+      "p_bnd_mean_hPa": 1018.01,
+      "expected_IB_rel_first_m": -0.0,
+      "zs_first_interior_row_wet_mean_m": null,
+      "wet_cells_first_interior_row": 0,
+      "zs_interior_sea_wet_mean_m": 0.0
+     },
+     {
+      "t": "2023-09-03T06:00",
+      "p_bnd_mean_hPa": 1018.56,
+      "expected_IB_rel_first_m": -0.006,
+      "zs_first_interior_row_wet_mean_m": null,
+      "wet_cells_first_interior_row": 0,
+      "zs_interior_sea_wet_mean_m": -0.0
+     },
+     {
+      "t": "2023-09-03T12:00",
+      "p_bnd_mean_hPa": 1017.44,
+      "expected_IB_rel_first_m": 0.006,
+      "zs_first_interior_row_wet_mean_m": null,
+      "wet_cells_first_interior_row": 0,
+      "zs_interior_sea_wet_mean_m": 0.0
+     },
+     {
+      "t": "2023-09-03T18:00",
+      "p_bnd_mean_hPa": 1014.44,
+      "expected_IB_rel_first_m": 0.035,
+      "zs_first_interior_row_wet_mean_m": null,
+      "wet_cells_first_interior_row": 0,
+      "zs_interior_sea_wet_mean_m": -0.0
+     },
+     {
+      "t": "2023-09-04T00:00",
+      "p_bnd_mean_hPa": 1012.85,
+      "expected_IB_rel_first_m": 0.051,
+      "zs_first_interior_row_wet_mean_m": 0.006,
+      "wet_cells_first_interior_row": 654,
+      "zs_interior_sea_wet_mean_m": 0.005
+     },
+     {
+      "t": "2023-09-04T06:00",
+      "p_bnd_mean_hPa": 1012.97,
+      "expected_IB_rel_first_m": 0.05,
+      "zs_first_interior_row_wet_mean_m": 0.009,
+      "wet_cells_first_interior_row": 654,
+      "zs_interior_sea_wet_mean_m": 0.031
+     },
+     {
+      "t": "2023-09-04T12:00",
+      "p_bnd_mean_hPa": 1013.03,
+      "expected_IB_rel_first_m": 0.049,
+      "zs_first_interior_row_wet_mean_m": 0.011,
+      "wet_cells_first_interior_row": 654,
+      "zs_interior_sea_wet_mean_m": 0.473
+     },
+     {
+      "t": "2023-09-04T18:00",
+      "p_bnd_mean_hPa": 1010.72,
+      "expected_IB_rel_first_m": 0.072,
+      "zs_first_interior_row_wet_mean_m": 0.012,
+      "wet_cells_first_interior_row": 654,
+      "zs_interior_sea_wet_mean_m": 0.752
+     },
+     {
+      "t": "2023-09-05T00:00",
+      "p_bnd_mean_hPa": 1008.5,
+      "expected_IB_rel_first_m": 0.095,
+      "zs_first_interior_row_wet_mean_m": 0.014,
+      "wet_cells_first_interior_row": 654,
+      "zs_interior_sea_wet_mean_m": 0.778
+     },
+     {
+      "t": "2023-09-05T06:00",
+      "p_bnd_mean_hPa": 1007.85,
+      "expected_IB_rel_first_m": 0.101,
+      "zs_first_interior_row_wet_mean_m": 0.019,
+      "wet_cells_first_interior_row": 654,
+      "zs_interior_sea_wet_mean_m": 0.898
+     },
+     {
+      "t": "2023-09-05T12:00",
+      "p_bnd_mean_hPa": 1011.85,
+      "expected_IB_rel_first_m": 0.061,
+      "zs_first_interior_row_wet_mean_m": 0.019,
+      "wet_cells_first_interior_row": 654,
+      "zs_interior_sea_wet_mean_m": 0.86
+     },
+     {
+      "t": "2023-09-05T18:00",
+      "p_bnd_mean_hPa": 1012.51,
+      "expected_IB_rel_first_m": 0.055,
+      "zs_first_interior_row_wet_mean_m": 0.021,
+      "wet_cells_first_interior_row": 654,
+      "zs_interior_sea_wet_mean_m": 0.871
+     },
+     {
+      "t": "2023-09-06T00:00",
+      "p_bnd_mean_hPa": 1012.95,
+      "expected_IB_rel_first_m": 0.05,
+      "zs_first_interior_row_wet_mean_m": 0.019,
+      "wet_cells_first_interior_row": 654,
+      "zs_interior_sea_wet_mean_m": 0.924
+     },
+     {
+      "t": "2023-09-06T06:00",
+      "p_bnd_mean_hPa": 1014.27,
+      "expected_IB_rel_first_m": 0.037,
+      "zs_first_interior_row_wet_mean_m": 0.016,
+      "wet_cells_first_interior_row": 654,
+      "zs_interior_sea_wet_mean_m": 0.842
+     },
+     {
+      "t": "2023-09-06T12:00",
+      "p_bnd_mean_hPa": 1015.43,
+      "expected_IB_rel_first_m": 0.026,
+      "zs_first_interior_row_wet_mean_m": 0.015,
+      "wet_cells_first_interior_row": 654,
+      "zs_interior_sea_wet_mean_m": 0.844
+     },
+     {
+      "t": "2023-09-06T18:00",
+      "p_bnd_mean_hPa": 1015.21,
+      "expected_IB_rel_first_m": 0.028,
+      "zs_first_interior_row_wet_mean_m": 0.015,
+      "wet_cells_first_interior_row": 654,
+      "zs_interior_sea_wet_mean_m": 0.86
+     },
+     {
+      "t": "2023-09-07T00:00",
+      "p_bnd_mean_hPa": 1015.59,
+      "expected_IB_rel_first_m": 0.024,
+      "zs_first_interior_row_wet_mean_m": 0.017,
+      "wet_cells_first_interior_row": 654,
+      "zs_interior_sea_wet_mean_m": 0.985
+     },
+     {
+      "t": "2023-09-07T06:00",
+      "p_bnd_mean_hPa": 1016.22,
+      "expected_IB_rel_first_m": 0.018,
+      "zs_first_interior_row_wet_mean_m": 0.024,
+      "wet_cells_first_interior_row": 654,
+      "zs_interior_sea_wet_mean_m": 1.125
+     },
+     {
+      "t": "2023-09-07T12:00",
+      "p_bnd_mean_hPa": 1018.18,
+      "expected_IB_rel_first_m": -0.002,
+      "zs_first_interior_row_wet_mean_m": 0.032,
+      "wet_cells_first_interior_row": 654,
+      "zs_interior_sea_wet_mean_m": 1.168
+     },
+     {
+      "t": "2023-09-07T18:00",
+      "p_bnd_mean_hPa": 1016.94,
+      "expected_IB_rel_first_m": 0.011,
+      "zs_first_interior_row_wet_mean_m": 0.024,
+      "wet_cells_first_interior_row": 654,
+      "zs_interior_sea_wet_mean_m": 1.064
+     },
+     {
+      "t": "2023-09-08T00:00",
+      "p_bnd_mean_hPa": 1017.16,
+      "expected_IB_rel_first_m": 0.008,
+      "zs_first_interior_row_wet_mean_m": 0.019,
+      "wet_cells_first_interior_row": 654,
+      "zs_interior_sea_wet_mean_m": 0.938
+     },
+     {
+      "t": "2023-09-08T06:00",
+      "p_bnd_mean_hPa": 1017.18,
+      "expected_IB_rel_first_m": 0.008,
+      "zs_first_interior_row_wet_mean_m": 0.016,
+      "wet_cells_first_interior_row": 654,
+      "zs_interior_sea_wet_mean_m": 0.888
+     },
+     {
+      "t": "2023-09-08T12:00",
+      "p_bnd_mean_hPa": 1016.99,
+      "expected_IB_rel_first_m": 0.01,
+      "zs_first_interior_row_wet_mean_m": 0.015,
+      "wet_cells_first_interior_row": 654,
+      "zs_interior_sea_wet_mean_m": 0.858
+     },
+     {
+      "t": "2023-09-08T18:00",
+      "p_bnd_mean_hPa": 1015.77,
+      "expected_IB_rel_first_m": 0.022,
+      "zs_first_interior_row_wet_mean_m": 0.014,
+      "wet_cells_first_interior_row": 654,
+      "zs_interior_sea_wet_mean_m": 0.831
+     },
+     {
+      "t": "2023-09-09T00:00",
+      "p_bnd_mean_hPa": 1016.57,
+      "expected_IB_rel_first_m": 0.014,
+      "zs_first_interior_row_wet_mean_m": 0.013,
+      "wet_cells_first_interior_row": 654,
+      "zs_interior_sea_wet_mean_m": 0.813
+     },
+     {
+      "t": "2023-09-09T06:00",
+      "p_bnd_mean_hPa": 1016.91,
+      "expected_IB_rel_first_m": 0.011,
+      "zs_first_interior_row_wet_mean_m": 0.013,
+      "wet_cells_first_interior_row": 654,
+      "zs_interior_sea_wet_mean_m": 0.794
+     },
+     {
+      "t": "2023-09-09T12:00",
+      "p_bnd_mean_hPa": 1015.98,
+      "expected_IB_rel_first_m": 0.02,
+      "zs_first_interior_row_wet_mean_m": 0.012,
+      "wet_cells_first_interior_row": 654,
+      "zs_interior_sea_wet_mean_m": 0.78
+     },
+     {
+      "t": "2023-09-09T18:00",
+      "p_bnd_mean_hPa": 1015.73,
+      "expected_IB_rel_first_m": 0.023,
+      "zs_first_interior_row_wet_mean_m": 0.012,
+      "wet_cells_first_interior_row": 654,
+      "zs_interior_sea_wet_mean_m": 0.766
+     },
+     {
+      "t": "2023-09-10T00:00",
+      "p_bnd_mean_hPa": 1016.31,
+      "expected_IB_rel_first_m": 0.017,
+      "zs_first_interior_row_wet_mean_m": 0.012,
+      "wet_cells_first_interior_row": 654,
+      "zs_interior_sea_wet_mean_m": 0.756
+     },
+     {
+      "t": "2023-09-10T06:00",
+      "p_bnd_mean_hPa": 1017.29,
+      "expected_IB_rel_first_m": 0.007,
+      "zs_first_interior_row_wet_mean_m": 0.011,
+      "wet_cells_first_interior_row": 654,
+      "zs_interior_sea_wet_mean_m": 0.746
+     },
+     {
+      "t": "2023-09-10T12:00",
+      "p_bnd_mean_hPa": 1016.4,
+      "expected_IB_rel_first_m": 0.016,
+      "zs_first_interior_row_wet_mean_m": 0.011,
+      "wet_cells_first_interior_row": 654,
+      "zs_interior_sea_wet_mean_m": 0.739
+     },
+     {
+      "t": "2023-09-10T18:00",
+      "p_bnd_mean_hPa": 1015.47,
+      "expected_IB_rel_first_m": 0.025,
+      "zs_first_interior_row_wet_mean_m": 0.012,
+      "wet_cells_first_interior_row": 654,
+      "zs_interior_sea_wet_mean_m": 0.731
+     },
+     {
+      "t": "2023-09-11T00:00",
+      "p_bnd_mean_hPa": 1016.64,
+      "expected_IB_rel_first_m": 0.014,
+      "zs_first_interior_row_wet_mean_m": 0.011,
+      "wet_cells_first_interior_row": 654,
+      "zs_interior_sea_wet_mean_m": 0.727
+     }
+    ],
+    "pavbnd_acted_at_boundary_per_data": false,
+    "evidence": "all 650 msk==2 cells have zb = 0.0 m and zs = NaN (dry) at all 193 hourly outputs; zsmax NaN in all 5200 cell-windows (never wet within any dtmaxout = 86400 s window). The imposed boundary level therefore never exceeded 0.0 m, while the IB expected at the MSLP minimum is 0.102 m (rel. first step) / 0.055 m (rel. 1013.25 hPa)."
+   },
+   "model_grid_extent_m": {
+    "x": [
+     571682.0,
+     671582.0
+    ],
+    "y": [
+     4351515.0,
+     4431915.0
+    ],
+    "mmax": 666,
+    "nmax": 536,
+    "dx": 150.0,
+    "dy": 150.0
+   }
+  },
+  "valencia_emsr773_asrun": {
+   "label": "Run 2a: Valencia (EMSR773) as-run, NHESS/runs/valencia_emsr773/model",
+   "folder": "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\valencia_emsr773\\model",
+   "missing": [],
+   "inp": {
+    "bndfile": null,
+    "bzsfile": null,
+    "bzifile": null,
+    "netbndbzsbzifile": null,
+    "pavbnd": "1",
+    "baro": "1",
+    "gapres": "101200.0",
+    "netampfile": "press_2d.nc",
+    "netamuamvfile": "wind_2d.nc",
+    "netamprfile": "precip_2d.nc",
+    "tref": "20241024 000000",
+    "tstart": "20241027 000000",
+    "tstop": "20241101 000000",
+    "zsini": "0",
+    "rhow": "1024.0",
+    "tspinup": "0.0",
+    "dtout": "3600",
+    "epsg": "32630"
+   },
+   "inp_present_keys": [
+    "pavbnd",
+    "baro",
+    "gapres",
+    "netampfile",
+    "netamuamvfile",
+    "netamprfile",
+    "tref",
+    "tstart",
+    "tstop",
+    "zsini",
+    "rhow",
+    "tspinup",
+    "dtout",
+    "epsg"
+   ],
+   "inp_absent_keys": [
+    "bndfile",
+    "bzsfile",
+    "bzifile",
+    "netbndbzsbzifile"
+   ],
+   "waterlevel_boundary_files_in_folder": [],
+   "waterlevel_boundary_file_exists": false,
+   "folder_listing": [
+    "gis",
+    "hydromt.log",
+    "precip_2d.nc",
+    "press_2d.nc",
+    "sfincs.dis",
+    "sfincs.ind",
+    "sfincs.inp",
+    "sfincs.log",
+    "sfincs.msk",
+    "sfincs.src",
+    "sfincs_log.txt",
+    "sfincs_map.nc",
+    "sfincs_subgrid.nc",
+    "wind_2d.nc"
+   ],
+   "log_boundary_lines": [
+    "Warning! Boundary cells found in mask without boundary points from bnd file. Setting water level at 0.0 m at mask boundary cells."
+   ],
+   "log_processes": [
+    "Wind                 : yes",
+    "Atmospheric pressure : yes",
+    "Precipitation        : yes"
+   ],
+   "log_active_points": [
+    "Number of active z points      :    521427",
+    "Number of active u/v points    :   1037871"
+   ],
+   "map_inp_attrs": {
+    "bndfile": "none",
+    "bzsfile": "none",
+    "bzifile": "none",
+    "netbndbzsbzifile": "none",
+    "netampfile": "press_2d.nc",
+    "pavbnd": 1.0,
+    "baro": 1,
+    "gapres": 101200.0,
+    "bndtype": 1,
+    "zsini": 0.0,
+    "rhow": 1024.0,
+    "tspinup": 259200.0,
+    "tref": "20241024 000000",
+    "tstart": "20241027 000000",
+    "tstop": "20241101 000000",
+    "epsg": 32630
+   },
+   "time": {
+    "n": 121,
+    "first": "2024-10-27T00:00",
+    "last": "2024-11-01T00:00",
+    "step_s": 3600.0
+   },
+   "mask_counts": {
+    "msk0": 152214,
+    "msk1": 520194,
+    "msk2": 1233,
+    "msk3": 0,
+    "n_cells_total": 673641,
+    "active_1_2_3": 521427
+   },
+   "nan_is_dry_check": {
+    "rule": "zs is NaN where the cell is dry: at the first output time (zsini=0) the finite msk==1 cells must be exactly the msk==1 cells with zb<0",
+    "finite_msk1_cells_at_t0": 12207,
+    "msk1_cells_with_zb_lt_0": 12207,
+    "sets_identical": true,
+    "finite_msk1_zs_at_t0_abs_max_m": 0.0002
+   },
+   "bnd_msk2": {
+    "n_cells": 1233,
+    "n_cells_ever_wet_(finite_zs)": 21,
+    "n_cells_never_wet_(zs_NaN_at_all_times)": 1212,
+    "n_output_times": 121,
+    "n_output_times_with_all_cells_NaN": 0,
+    "wet_cells_at_first_time": 21,
+    "wet_cells_max_over_time": 21,
+    "zs_wet_cell_mean_series_m": {
+     "first": 0.0,
+     "t_first": "2024-10-27T00:00",
+     "min": 0.0,
+     "t_min": "2024-10-27T00:00",
+     "max": 0.0,
+     "t_max": "2024-10-27T00:00",
+     "note": "argmin/argmax return the earliest time when the series is constant"
+    },
+    "max_excursion_cell": {
+     "zs_first_finite": 0.0,
+     "t_first_finite": "2024-10-27T00:00",
+     "zs_min": 0.0,
+     "t_min": "2024-10-27T00:00",
+     "zs_max": 0.0,
+     "t_max": "2024-10-27T00:00",
+     "range_m": 0.0,
+     "n_times_wet": 121,
+     "n": 0,
+     "m": 616,
+     "x": 741565.0,
+     "y": 4324474.0,
+     "zb": -1.133
+    },
+    "abs_max_zs_any_cell_any_time_m": 0.0,
+    "max_abs_dev_from_first_finite_m": 0.0,
+    "n_cells_with_dev_gt_1cm": 0,
+    "ever_differs_from_initial_by_gt_1cm": false,
+    "all_finite_values_exactly_zero": true,
+    "zb_m": {
+     "min": -1.347,
+     "mean": -0.019,
+     "max": 0.0
+    },
+    "n_cells_zb_lt_0": 21,
+    "n_cells_zb_eq_0": 1212,
+    "n_cells_on_outer_grid_edge": 1233,
+    "x_range": [
+     740565.0,
+     763965.0
+    ],
+    "y_range": [
+     4324474.0,
+     4404474.0
+    ],
+    "zsmax_at_cells": {
+     "n_windows": 5,
+     "windows_end": [
+      "2024-10-28T00:00",
+      "2024-10-29T00:00",
+      "2024-10-30T00:00",
+      "2024-10-31T00:00",
+      "2024-11-01T00:00"
+     ],
+     "n_cell_windows": 6165,
+     "n_finite": 105,
+     "min": 0.0,
+     "max": 0.0
+    }
+   },
+   "bnd_msk3": null,
+   "adjacent_msk1_first_interior_row": {
+    "n_cells": 1241,
+    "n_cells_ever_wet_(finite_zs)": 1241,
+    "n_cells_never_wet_(zs_NaN_at_all_times)": 0,
+    "n_output_times": 121,
+    "n_output_times_with_all_cells_NaN": 0,
+    "wet_cells_at_first_time": 26,
+    "wet_cells_max_over_time": 1241,
+    "zs_wet_cell_mean_series_m": {
+     "first": 0.0,
+     "t_first": "2024-10-27T00:00",
+     "min": 0.0,
+     "t_min": "2024-10-27T00:00",
+     "max": 0.0258,
+     "t_max": "2024-10-30T23:00",
+     "note": "argmin/argmax return the earliest time when the series is constant"
+    },
+    "max_excursion_cell": {
+     "zs_first_finite": 0.0003,
+     "t_first_finite": "2024-10-27T01:00",
+     "zs_min": 0.0003,
+     "t_min": "2024-10-27T01:00",
+     "zs_max": 0.2454,
+     "t_max": "2024-10-30T18:00",
+     "range_m": 0.2452,
+     "n_times_wet": 120,
+     "n": 1,
+     "m": 637,
+     "x": 743665.0,
+     "y": 4324574.0,
+     "zb": 0.0
+    },
+    "abs_max_zs_any_cell_any_time_m": 0.7058,
+    "max_abs_dev_from_first_finite_m": 0.2452,
+    "n_cells_with_dev_gt_1cm": 1193,
+    "ever_differs_from_initial_by_gt_1cm": true,
+    "all_finite_values_exactly_zero": false,
+    "zb_m": {
+     "min": -1.386,
+     "mean": -0.018,
+     "max": 0.67
+    },
+    "n_cells_zb_lt_0": 26,
+    "n_cells_zb_eq_0": 1212,
+    "n_cells_on_outer_grid_edge": 6,
+    "x_range": [
+     740465.0,
+     763865.0
+    ],
+    "y_range": [
+     4324474.0,
+     4404474.0
+    ],
+    "zsmax_at_cells": {
+     "n_windows": 5,
+     "windows_end": [
+      "2024-10-28T00:00",
+      "2024-10-29T00:00",
+      "2024-10-30T00:00",
+      "2024-10-31T00:00",
+      "2024-11-01T00:00"
+     ],
+     "n_cell_windows": 6205,
+     "n_finite": 6205,
+     "min": -0.0085,
+     "max": 0.7159
+    }
+   },
+   "interior_sea_msk1_zb_lt_0": {
+    "n_cells": 12207,
+    "n_cells_ever_wet_(finite_zs)": 12207,
+    "n_cells_never_wet_(zs_NaN_at_all_times)": 0,
+    "n_output_times": 121,
+    "n_output_times_with_all_cells_NaN": 0,
+    "wet_cells_at_first_time": 12207,
+    "wet_cells_max_over_time": 12207,
+    "zs_wet_cell_mean_series_m": {
+     "first": -0.0,
+     "t_first": "2024-10-27T00:00",
+     "min": -0.0,
+     "t_min": "2024-10-27T00:00",
+     "max": 2.7451,
+     "t_max": "2024-10-29T22:00",
+     "note": "argmin/argmax return the earliest time when the series is constant"
+    },
+    "max_excursion_cell": {
+     "zs_first_finite": -0.0,
+     "t_first_finite": "2024-10-27T00:00",
+     "zs_min": -0.0,
+     "t_min": "2024-10-27T00:00",
+     "zs_max": 7.583,
+     "t_max": "2024-10-29T19:00",
+     "range_m": 7.583,
+     "n_times_wet": 121,
+     "n": 464,
+     "m": 483,
+     "x": 728265.0,
+     "y": 4370874.0,
+     "zb": -12.735
+    },
+    "abs_max_zs_any_cell_any_time_m": 7.583,
+    "max_abs_dev_from_first_finite_m": 7.583,
+    "n_cells_with_dev_gt_1cm": 12149,
+    "ever_differs_from_initial_by_gt_1cm": true,
+    "all_finite_values_exactly_zero": false,
+    "zb_m": {
+     "min": -12.735,
+     "mean": -0.792,
+     "max": -0.0
+    },
+    "n_cells_zb_lt_0": 12207,
+    "n_cells_zb_eq_0": 0,
+    "n_cells_on_outer_grid_edge": 12,
+    "x_range": [
+     723765.0,
+     743465.0
+    ],
+    "y_range": [
+     4324474.0,
+     4404474.0
+    ],
+    "zsmax_at_cells": {
+     "n_windows": 5,
+     "windows_end": [
+      "2024-10-28T00:00",
+      "2024-10-29T00:00",
+      "2024-10-30T00:00",
+      "2024-10-31T00:00",
+      "2024-11-01T00:00"
+     ],
+     "n_cell_windows": 61035,
+     "n_finite": 61035,
+     "min": -0.0149,
+     "max": 7.5841
+    }
+   },
+   "pressure": {
+    "file": "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\valencia_emsr773\\model\\press_2d.nc",
+    "variable": "barometric_pressure",
+    "units": "Pa",
+    "grib_source_attrs": {
+     "GRIB_gridType": "regular_ll",
+     "GRIB_iDirectionIncrementInDegrees": 0.25,
+     "GRIB_latitudeOfFirstGridPointInDegrees": 40.0,
+     "GRIB_latitudeOfLastGridPointInDegrees": 38.75,
+     "GRIB_longitudeOfFirstGridPointInDegrees": -1.2,
+     "GRIB_longitudeOfLastGridPointInDegrees": 0.3,
+     "GRIB_dataType": "an",
+     "GRIB_shortName": "msl"
+    },
+    "grid": {
+     "nx": 6,
+     "ny": 7,
+     "epsg": 32630,
+     "dx_m": 24371.81,
+     "dy_m": -24371.81,
+     "x_range": [
+      654905.84,
+      776764.88
+     ],
+     "y_range": [
+      4288839.73,
+      4435070.58
+     ]
+    },
+    "time": {
+     "n": 121,
+     "first": "2024-10-27T00:00",
+     "last": "2024-11-01T00:00",
+     "identical_to_map_time_axis": true
+    },
+    "nan_count": 0,
+    "domain_min_series_hPa": {
+     "p_first": 1014.97,
+     "p_min": 1011.15,
+     "t_min": "2024-10-29T17:00",
+     "x_at_min": 654905.84,
+     "y_at_min": 4288839.73,
+     "p_max": 1020.83,
+     "expected_IB_m": {
+      "rel_first": 0.038,
+      "rel_1013.25": 0.021,
+      "rel_gapres": 0.008
+     }
+    },
+    "bnd_mean_series_hPa": {
+     "matching": {
+      "method": "nearest forcing-grid node to each msk==2 cell centre; both datasets are in the same projected CRS (forcing file stored by HydroMT in the model EPSG), so no reprojection was needed",
+      "forcing_epsg_from_wkt": 32630,
+      "model_epsg": 32630,
+      "n_forcing_nodes_used": 5,
+      "nn_distance_m": {
+       "min": 6224.84,
+       "max": 16801.49
+      }
+     },
+     "p_first": 1015.27,
+     "p_min": 1012.43,
+     "t_min": "2024-10-30T03:00",
+     "p_max": 1021.7,
+     "expected_IB_m": {
+      "rel_first": 0.028,
+      "rel_1013.25": 0.008,
+      "rel_gapres": -0.004
+     }
+    },
+    "constants": {
+     "rho_kg_m3": 1025.0,
+     "g_m_s2": 9.81,
+     "p_ref_hPa": 1013.25,
+     "gapres_hPa": 1012.0,
+     "note": "sfincs.inp rhow=1024 (model) vs rho=1025 used here as specified"
+    }
+   },
+   "comparison": {
+    "t_mslp_min_bnd_mean": "2024-10-30T03:00",
+    "map_time_used": "2024-10-30T03:00",
+    "expected_IB_rel_first_m": 0.028,
+    "expected_IB_rel_1013.25_m": 0.008,
+    "bnd_msk2": {
+     "n_cells": 1233,
+     "wet_cells_at_t": 21,
+     "wet_cells_at_t0": 21,
+     "cells_wet_at_both_t0_and_t": 21,
+     "zs_wet_mean_at_t_m": 0.0,
+     "zs_at_t_cellwise_m": {
+      "min": 0.0,
+      "max": 0.0
+     },
+     "observed_dzs_wet_mean_at_t_m": 0.0,
+     "observed_dzs_cellwise_m": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "n_abs_gt_1cm": 0
+     },
+     "observed_dzs_wet_mean_min_over_run_m": 0.0,
+     "observed_dzs_wet_mean_max_over_run_m": 0.0,
+     "expected_local_IB_rel_first_m": {
+      "mean": 0.028,
+      "min": 0.021,
+      "max": 0.032
+     },
+     "observed_dzs_max_excursion_cell_at_t_m": 0.0,
+     "at_time_of_wet_mean_max": {
+      "t": "2024-10-27T00:00",
+      "zs_wet_mean_m": 0.0,
+      "hours_after_mslp_min": -75.0,
+      "p_bnd_mean_hPa": 1015.27,
+      "expected_IB_rel_first_m": -0.0
+     }
+    },
+    "adjacent_msk1_first_interior_row": {
+     "n_cells": 1241,
+     "wet_cells_at_t": 1241,
+     "wet_cells_at_t0": 26,
+     "cells_wet_at_both_t0_and_t": 26,
+     "zs_wet_mean_at_t_m": 0.011,
+     "zs_at_t_cellwise_m": {
+      "min": -0.009,
+      "max": 0.68
+     },
+     "observed_dzs_wet_mean_at_t_m": 0.011,
+     "observed_dzs_cellwise_m": {
+      "mean": 0.006,
+      "min": -0.009,
+      "max": 0.117,
+      "n_abs_gt_1cm": 2
+     },
+     "observed_dzs_wet_mean_min_over_run_m": 0.0,
+     "observed_dzs_wet_mean_max_over_run_m": 0.026,
+     "expected_local_IB_rel_first_m": {
+      "mean": 0.028,
+      "min": 0.021,
+      "max": 0.032
+     },
+     "observed_dzs_max_excursion_cell_at_t_m": null,
+     "at_time_of_wet_mean_max": {
+      "t": "2024-10-30T23:00",
+      "zs_wet_mean_m": 0.026,
+      "hours_after_mslp_min": 20.0,
+      "p_bnd_mean_hPa": 1018.11,
+      "expected_IB_rel_first_m": -0.028
+     }
+    },
+    "interior_sea_msk1_zb_lt_0": {
+     "n_cells": 12207,
+     "wet_cells_at_t": 12207,
+     "wet_cells_at_t0": 12207,
+     "cells_wet_at_both_t0_and_t": 12207,
+     "zs_wet_mean_at_t_m": 2.523,
+     "zs_at_t_cellwise_m": {
+      "min": -0.055,
+      "max": 6.397
+     },
+     "observed_dzs_wet_mean_at_t_m": 2.523,
+     "observed_dzs_cellwise_m": {
+      "mean": 2.523,
+      "min": -0.055,
+      "max": 6.397,
+      "n_abs_gt_1cm": 12117
+     },
+     "observed_dzs_wet_mean_min_over_run_m": 0.0,
+     "observed_dzs_wet_mean_max_over_run_m": 2.745,
+     "expected_local_IB_rel_first_m": {
+      "mean": 0.024,
+      "min": 0.009,
+      "max": 0.03
+     },
+     "observed_dzs_max_excursion_cell_at_t_m": 6.338,
+     "at_time_of_wet_mean_max": {
+      "t": "2024-10-29T22:00",
+      "zs_wet_mean_m": 2.745,
+      "hours_after_mslp_min": -5.0,
+      "p_bnd_mean_hPa": 1012.84,
+      "expected_IB_rel_first_m": 0.024
+     }
+    },
+    "checkpoints_6h": [
+     {
+      "t": "2024-10-27T00:00",
+      "p_bnd_mean_hPa": 1015.27,
+      "expected_IB_rel_first_m": -0.0,
+      "zs_first_interior_row_wet_mean_m": 0.0,
+      "wet_cells_first_interior_row": 26,
+      "zs_interior_sea_wet_mean_m": -0.0
+     },
+     {
+      "t": "2024-10-27T06:00",
+      "p_bnd_mean_hPa": 1014.93,
+      "expected_IB_rel_first_m": 0.003,
+      "zs_first_interior_row_wet_mean_m": 0.006,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 0.006
+     },
+     {
+      "t": "2024-10-27T12:00",
+      "p_bnd_mean_hPa": 1016.78,
+      "expected_IB_rel_first_m": -0.015,
+      "zs_first_interior_row_wet_mean_m": 0.007,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 0.017
+     },
+     {
+      "t": "2024-10-27T18:00",
+      "p_bnd_mean_hPa": 1017.17,
+      "expected_IB_rel_first_m": -0.019,
+      "zs_first_interior_row_wet_mean_m": 0.009,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 0.02
+     },
+     {
+      "t": "2024-10-28T00:00",
+      "p_bnd_mean_hPa": 1018.74,
+      "expected_IB_rel_first_m": -0.034,
+      "zs_first_interior_row_wet_mean_m": 0.011,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 0.033
+     },
+     {
+      "t": "2024-10-28T06:00",
+      "p_bnd_mean_hPa": 1018.93,
+      "expected_IB_rel_first_m": -0.036,
+      "zs_first_interior_row_wet_mean_m": 0.011,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 0.044
+     },
+     {
+      "t": "2024-10-28T12:00",
+      "p_bnd_mean_hPa": 1019.88,
+      "expected_IB_rel_first_m": -0.046,
+      "zs_first_interior_row_wet_mean_m": 0.011,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 0.048
+     },
+     {
+      "t": "2024-10-28T18:00",
+      "p_bnd_mean_hPa": 1019.75,
+      "expected_IB_rel_first_m": -0.045,
+      "zs_first_interior_row_wet_mean_m": 0.01,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 0.051
+     },
+     {
+      "t": "2024-10-29T00:00",
+      "p_bnd_mean_hPa": 1020.14,
+      "expected_IB_rel_first_m": -0.048,
+      "zs_first_interior_row_wet_mean_m": 0.009,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 0.059
+     },
+     {
+      "t": "2024-10-29T06:00",
+      "p_bnd_mean_hPa": 1018.59,
+      "expected_IB_rel_first_m": -0.033,
+      "zs_first_interior_row_wet_mean_m": 0.009,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 0.247
+     },
+     {
+      "t": "2024-10-29T12:00",
+      "p_bnd_mean_hPa": 1017.2,
+      "expected_IB_rel_first_m": -0.019,
+      "zs_first_interior_row_wet_mean_m": 0.009,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 1.255
+     },
+     {
+      "t": "2024-10-29T18:00",
+      "p_bnd_mean_hPa": 1013.1,
+      "expected_IB_rel_first_m": 0.022,
+      "zs_first_interior_row_wet_mean_m": 0.01,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 2.356
+     },
+     {
+      "t": "2024-10-30T00:00",
+      "p_bnd_mean_hPa": 1013.47,
+      "expected_IB_rel_first_m": 0.018,
+      "zs_first_interior_row_wet_mean_m": 0.01,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 2.701
+     },
+     {
+      "t": "2024-10-30T06:00",
+      "p_bnd_mean_hPa": 1013.72,
+      "expected_IB_rel_first_m": 0.015,
+      "zs_first_interior_row_wet_mean_m": 0.011,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 2.342
+     },
+     {
+      "t": "2024-10-30T12:00",
+      "p_bnd_mean_hPa": 1015.47,
+      "expected_IB_rel_first_m": -0.002,
+      "zs_first_interior_row_wet_mean_m": 0.013,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 2.064
+     },
+     {
+      "t": "2024-10-30T18:00",
+      "p_bnd_mean_hPa": 1017.17,
+      "expected_IB_rel_first_m": -0.019,
+      "zs_first_interior_row_wet_mean_m": 0.023,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 1.874
+     },
+     {
+      "t": "2024-10-31T00:00",
+      "p_bnd_mean_hPa": 1018.36,
+      "expected_IB_rel_first_m": -0.031,
+      "zs_first_interior_row_wet_mean_m": 0.026,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 1.734
+     },
+     {
+      "t": "2024-10-31T06:00",
+      "p_bnd_mean_hPa": 1018.67,
+      "expected_IB_rel_first_m": -0.034,
+      "zs_first_interior_row_wet_mean_m": 0.025,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 1.627
+     },
+     {
+      "t": "2024-10-31T12:00",
+      "p_bnd_mean_hPa": 1020.02,
+      "expected_IB_rel_first_m": -0.047,
+      "zs_first_interior_row_wet_mean_m": 0.023,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 1.541
+     },
+     {
+      "t": "2024-10-31T18:00",
+      "p_bnd_mean_hPa": 1020.85,
+      "expected_IB_rel_first_m": -0.055,
+      "zs_first_interior_row_wet_mean_m": 0.021,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 1.471
+     },
+     {
+      "t": "2024-11-01T00:00",
+      "p_bnd_mean_hPa": 1021.45,
+      "expected_IB_rel_first_m": -0.061,
+      "zs_first_interior_row_wet_mean_m": 0.02,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 1.43
+     }
+    ],
+    "pavbnd_acted_at_boundary_per_data": false,
+    "evidence": "21 of 1233 msk==2 cells are wet; their zs is exactly 0.0 at every output time (max |dzs| from initial 0.0 m); zsmax at the wet cells min 0.0 / max 0.0 m over every dtmaxout = 86400 s window, versus expected IB 0.028 m (rel. first) / 0.008 m (rel. 1013.25 hPa)."
+   },
+   "model_grid_extent_m": {
+    "x": [
+     679915.0,
+     764015.0
+    ],
+    "y": [
+     4324424.0,
+     4404524.0
+    ],
+    "mmax": 841,
+    "nmax": 801,
+    "dx": 100.0,
+    "dy": 100.0
+   }
+  },
+  "valencia_emsr773_rerun_v164": {
+   "label": "Run 2b: Valencia (EMSR773) 164-mm re-run, R1_verification/task_valencia_anchor/rerun_v164/model",
+   "folder": "D:\\ELKAK\\ELKAK2\\NHESS\\R1_verification\\task_valencia_anchor\\rerun_v164\\model",
+   "missing": [],
+   "inp": {
+    "bndfile": null,
+    "bzsfile": null,
+    "bzifile": null,
+    "netbndbzsbzifile": null,
+    "pavbnd": "1",
+    "baro": "1",
+    "gapres": "101200.0",
+    "netampfile": "press_2d.nc",
+    "netamuamvfile": "wind_2d.nc",
+    "netamprfile": "precip_2d.nc",
+    "tref": "20241024 000000",
+    "tstart": "20241027 000000",
+    "tstop": "20241101 000000",
+    "zsini": "0",
+    "rhow": "1024.0",
+    "tspinup": "0.0",
+    "dtout": "3600",
+    "epsg": "32630"
+   },
+   "inp_present_keys": [
+    "pavbnd",
+    "baro",
+    "gapres",
+    "netampfile",
+    "netamuamvfile",
+    "netamprfile",
+    "tref",
+    "tstart",
+    "tstop",
+    "zsini",
+    "rhow",
+    "tspinup",
+    "dtout",
+    "epsg"
+   ],
+   "inp_absent_keys": [
+    "bndfile",
+    "bzsfile",
+    "bzifile",
+    "netbndbzsbzifile"
+   ],
+   "waterlevel_boundary_files_in_folder": [],
+   "waterlevel_boundary_file_exists": false,
+   "folder_listing": [
+    "precip_2d.nc",
+    "press_2d.nc",
+    "sfincs.dis",
+    "sfincs.ind",
+    "sfincs.inp",
+    "sfincs.log",
+    "sfincs.msk",
+    "sfincs.src",
+    "sfincs_map.nc",
+    "sfincs_stdout.txt",
+    "sfincs_subgrid.nc",
+    "wind_2d.nc"
+   ],
+   "log_boundary_lines": [
+    "Warning! Boundary cells found in mask without boundary points from bnd file. Setting water level at 0.0 m at mask boundary cells."
+   ],
+   "log_processes": [
+    "Wind                 : yes",
+    "Atmospheric pressure : yes",
+    "Precipitation        : yes"
+   ],
+   "log_active_points": [
+    "Number of active z points      :    521427",
+    "Number of active u/v points    :   1037871"
+   ],
+   "map_inp_attrs": {
+    "bndfile": "none",
+    "bzsfile": "none",
+    "bzifile": "none",
+    "netbndbzsbzifile": "none",
+    "netampfile": "press_2d.nc",
+    "pavbnd": 1.0,
+    "baro": 1,
+    "gapres": 101200.0,
+    "bndtype": 1,
+    "zsini": 0.0,
+    "rhow": 1024.0,
+    "tspinup": 259200.0,
+    "tref": "20241024 000000",
+    "tstart": "20241027 000000",
+    "tstop": "20241101 000000",
+    "epsg": 32630
+   },
+   "time": {
+    "n": 121,
+    "first": "2024-10-27T00:00",
+    "last": "2024-11-01T00:00",
+    "step_s": 3600.0
+   },
+   "mask_counts": {
+    "msk0": 152214,
+    "msk1": 520194,
+    "msk2": 1233,
+    "msk3": 0,
+    "n_cells_total": 673641,
+    "active_1_2_3": 521427
+   },
+   "nan_is_dry_check": {
+    "rule": "zs is NaN where the cell is dry: at the first output time (zsini=0) the finite msk==1 cells must be exactly the msk==1 cells with zb<0",
+    "finite_msk1_cells_at_t0": 12207,
+    "msk1_cells_with_zb_lt_0": 12207,
+    "sets_identical": true,
+    "finite_msk1_zs_at_t0_abs_max_m": 0.0002
+   },
+   "bnd_msk2": {
+    "n_cells": 1233,
+    "n_cells_ever_wet_(finite_zs)": 21,
+    "n_cells_never_wet_(zs_NaN_at_all_times)": 1212,
+    "n_output_times": 121,
+    "n_output_times_with_all_cells_NaN": 0,
+    "wet_cells_at_first_time": 21,
+    "wet_cells_max_over_time": 21,
+    "zs_wet_cell_mean_series_m": {
+     "first": 0.0,
+     "t_first": "2024-10-27T00:00",
+     "min": 0.0,
+     "t_min": "2024-10-27T00:00",
+     "max": 0.0,
+     "t_max": "2024-10-27T00:00",
+     "note": "argmin/argmax return the earliest time when the series is constant"
+    },
+    "max_excursion_cell": {
+     "zs_first_finite": 0.0,
+     "t_first_finite": "2024-10-27T00:00",
+     "zs_min": 0.0,
+     "t_min": "2024-10-27T00:00",
+     "zs_max": 0.0,
+     "t_max": "2024-10-27T00:00",
+     "range_m": 0.0,
+     "n_times_wet": 121,
+     "n": 0,
+     "m": 616,
+     "x": 741565.0,
+     "y": 4324474.0,
+     "zb": -1.133
+    },
+    "abs_max_zs_any_cell_any_time_m": 0.0,
+    "max_abs_dev_from_first_finite_m": 0.0,
+    "n_cells_with_dev_gt_1cm": 0,
+    "ever_differs_from_initial_by_gt_1cm": false,
+    "all_finite_values_exactly_zero": true,
+    "zb_m": {
+     "min": -1.347,
+     "mean": -0.019,
+     "max": 0.0
+    },
+    "n_cells_zb_lt_0": 21,
+    "n_cells_zb_eq_0": 1212,
+    "n_cells_on_outer_grid_edge": 1233,
+    "x_range": [
+     740565.0,
+     763965.0
+    ],
+    "y_range": [
+     4324474.0,
+     4404474.0
+    ],
+    "zsmax_at_cells": {
+     "n_windows": 5,
+     "windows_end": [
+      "2024-10-28T00:00",
+      "2024-10-29T00:00",
+      "2024-10-30T00:00",
+      "2024-10-31T00:00",
+      "2024-11-01T00:00"
+     ],
+     "n_cell_windows": 6165,
+     "n_finite": 105,
+     "min": 0.0,
+     "max": 0.0
+    }
+   },
+   "bnd_msk3": null,
+   "adjacent_msk1_first_interior_row": {
+    "n_cells": 1241,
+    "n_cells_ever_wet_(finite_zs)": 1241,
+    "n_cells_never_wet_(zs_NaN_at_all_times)": 0,
+    "n_output_times": 121,
+    "n_output_times_with_all_cells_NaN": 0,
+    "wet_cells_at_first_time": 26,
+    "wet_cells_max_over_time": 1241,
+    "zs_wet_cell_mean_series_m": {
+     "first": 0.0,
+     "t_first": "2024-10-27T00:00",
+     "min": 0.0,
+     "t_min": "2024-10-27T00:00",
+     "max": 0.0127,
+     "t_max": "2024-11-01T00:00",
+     "note": "argmin/argmax return the earliest time when the series is constant"
+    },
+    "max_excursion_cell": {
+     "zs_first_finite": 0.0003,
+     "t_first_finite": "2024-10-27T01:00",
+     "zs_min": 0.0003,
+     "t_min": "2024-10-27T01:00",
+     "zs_max": 0.1623,
+     "t_max": "2024-11-01T00:00",
+     "range_m": 0.162,
+     "n_times_wet": 120,
+     "n": 1,
+     "m": 637,
+     "x": 743665.0,
+     "y": 4324574.0,
+     "zb": 0.0
+    },
+    "abs_max_zs_any_cell_any_time_m": 0.6935,
+    "max_abs_dev_from_first_finite_m": 0.162,
+    "n_cells_with_dev_gt_1cm": 1086,
+    "ever_differs_from_initial_by_gt_1cm": true,
+    "all_finite_values_exactly_zero": false,
+    "zb_m": {
+     "min": -1.386,
+     "mean": -0.018,
+     "max": 0.67
+    },
+    "n_cells_zb_lt_0": 26,
+    "n_cells_zb_eq_0": 1212,
+    "n_cells_on_outer_grid_edge": 6,
+    "x_range": [
+     740465.0,
+     763865.0
+    ],
+    "y_range": [
+     4324474.0,
+     4404474.0
+    ],
+    "zsmax_at_cells": {
+     "n_windows": 5,
+     "windows_end": [
+      "2024-10-28T00:00",
+      "2024-10-29T00:00",
+      "2024-10-30T00:00",
+      "2024-10-31T00:00",
+      "2024-11-01T00:00"
+     ],
+     "n_cell_windows": 6205,
+     "n_finite": 6205,
+     "min": -0.0078,
+     "max": 0.6981
+    }
+   },
+   "interior_sea_msk1_zb_lt_0": {
+    "n_cells": 12207,
+    "n_cells_ever_wet_(finite_zs)": 12207,
+    "n_cells_never_wet_(zs_NaN_at_all_times)": 0,
+    "n_output_times": 121,
+    "n_output_times_with_all_cells_NaN": 0,
+    "wet_cells_at_first_time": 12207,
+    "wet_cells_max_over_time": 12207,
+    "zs_wet_cell_mean_series_m": {
+     "first": -0.0,
+     "t_first": "2024-10-27T00:00",
+     "min": -0.0,
+     "t_min": "2024-10-27T00:00",
+     "max": 1.7299,
+     "t_max": "2024-10-30T06:00",
+     "note": "argmin/argmax return the earliest time when the series is constant"
+    },
+    "max_excursion_cell": {
+     "zs_first_finite": 0.0,
+     "t_first_finite": "2024-10-27T00:00",
+     "zs_min": 0.0,
+     "t_min": "2024-10-27T00:00",
+     "zs_max": 6.9529,
+     "t_max": "2024-10-29T20:00",
+     "range_m": 6.9529,
+     "n_times_wet": 121,
+     "n": 463,
+     "m": 484,
+     "x": 728365.0,
+     "y": 4370774.0,
+     "zb": -7.526
+    },
+    "abs_max_zs_any_cell_any_time_m": 6.9529,
+    "max_abs_dev_from_first_finite_m": 6.9529,
+    "n_cells_with_dev_gt_1cm": 12133,
+    "ever_differs_from_initial_by_gt_1cm": true,
+    "all_finite_values_exactly_zero": false,
+    "zb_m": {
+     "min": -12.735,
+     "mean": -0.792,
+     "max": -0.0
+    },
+    "n_cells_zb_lt_0": 12207,
+    "n_cells_zb_eq_0": 0,
+    "n_cells_on_outer_grid_edge": 12,
+    "x_range": [
+     723765.0,
+     743465.0
+    ],
+    "y_range": [
+     4324474.0,
+     4404474.0
+    ],
+    "zsmax_at_cells": {
+     "n_windows": 5,
+     "windows_end": [
+      "2024-10-28T00:00",
+      "2024-10-29T00:00",
+      "2024-10-30T00:00",
+      "2024-10-31T00:00",
+      "2024-11-01T00:00"
+     ],
+     "n_cell_windows": 61035,
+     "n_finite": 61035,
+     "min": -0.0118,
+     "max": 6.9543
+    }
+   },
+   "pressure": {
+    "file": "D:\\ELKAK\\ELKAK2\\NHESS\\R1_verification\\task_valencia_anchor\\rerun_v164\\model\\press_2d.nc",
+    "variable": "barometric_pressure",
+    "units": "Pa",
+    "grib_source_attrs": {
+     "GRIB_gridType": "regular_ll",
+     "GRIB_iDirectionIncrementInDegrees": 0.25,
+     "GRIB_latitudeOfFirstGridPointInDegrees": 40.0,
+     "GRIB_latitudeOfLastGridPointInDegrees": 38.75,
+     "GRIB_longitudeOfFirstGridPointInDegrees": -1.2,
+     "GRIB_longitudeOfLastGridPointInDegrees": 0.3,
+     "GRIB_dataType": "an",
+     "GRIB_shortName": "msl"
+    },
+    "grid": {
+     "nx": 6,
+     "ny": 7,
+     "epsg": 32630,
+     "dx_m": 24371.81,
+     "dy_m": -24371.81,
+     "x_range": [
+      654905.84,
+      776764.88
+     ],
+     "y_range": [
+      4288839.73,
+      4435070.58
+     ]
+    },
+    "time": {
+     "n": 121,
+     "first": "2024-10-27T00:00",
+     "last": "2024-11-01T00:00",
+     "identical_to_map_time_axis": true
+    },
+    "nan_count": 0,
+    "domain_min_series_hPa": {
+     "p_first": 1014.97,
+     "p_min": 1011.15,
+     "t_min": "2024-10-29T17:00",
+     "x_at_min": 654905.84,
+     "y_at_min": 4288839.73,
+     "p_max": 1020.83,
+     "expected_IB_m": {
+      "rel_first": 0.038,
+      "rel_1013.25": 0.021,
+      "rel_gapres": 0.008
+     }
+    },
+    "bnd_mean_series_hPa": {
+     "matching": {
+      "method": "nearest forcing-grid node to each msk==2 cell centre; both datasets are in the same projected CRS (forcing file stored by HydroMT in the model EPSG), so no reprojection was needed",
+      "forcing_epsg_from_wkt": 32630,
+      "model_epsg": 32630,
+      "n_forcing_nodes_used": 5,
+      "nn_distance_m": {
+       "min": 6224.84,
+       "max": 16801.49
+      }
+     },
+     "p_first": 1015.27,
+     "p_min": 1012.43,
+     "t_min": "2024-10-30T03:00",
+     "p_max": 1021.7,
+     "expected_IB_m": {
+      "rel_first": 0.028,
+      "rel_1013.25": 0.008,
+      "rel_gapres": -0.004
+     }
+    },
+    "constants": {
+     "rho_kg_m3": 1025.0,
+     "g_m_s2": 9.81,
+     "p_ref_hPa": 1013.25,
+     "gapres_hPa": 1012.0,
+     "note": "sfincs.inp rhow=1024 (model) vs rho=1025 used here as specified"
+    }
+   },
+   "comparison": {
+    "t_mslp_min_bnd_mean": "2024-10-30T03:00",
+    "map_time_used": "2024-10-30T03:00",
+    "expected_IB_rel_first_m": 0.028,
+    "expected_IB_rel_1013.25_m": 0.008,
+    "bnd_msk2": {
+     "n_cells": 1233,
+     "wet_cells_at_t": 21,
+     "wet_cells_at_t0": 21,
+     "cells_wet_at_both_t0_and_t": 21,
+     "zs_wet_mean_at_t_m": 0.0,
+     "zs_at_t_cellwise_m": {
+      "min": 0.0,
+      "max": 0.0
+     },
+     "observed_dzs_wet_mean_at_t_m": 0.0,
+     "observed_dzs_cellwise_m": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "n_abs_gt_1cm": 0
+     },
+     "observed_dzs_wet_mean_min_over_run_m": 0.0,
+     "observed_dzs_wet_mean_max_over_run_m": 0.0,
+     "expected_local_IB_rel_first_m": {
+      "mean": 0.028,
+      "min": 0.021,
+      "max": 0.032
+     },
+     "observed_dzs_max_excursion_cell_at_t_m": 0.0,
+     "at_time_of_wet_mean_max": {
+      "t": "2024-10-27T00:00",
+      "zs_wet_mean_m": 0.0,
+      "hours_after_mslp_min": -75.0,
+      "p_bnd_mean_hPa": 1015.27,
+      "expected_IB_rel_first_m": -0.0
+     }
+    },
+    "adjacent_msk1_first_interior_row": {
+     "n_cells": 1241,
+     "wet_cells_at_t": 1241,
+     "wet_cells_at_t0": 26,
+     "cells_wet_at_both_t0_and_t": 26,
+     "zs_wet_mean_at_t_m": 0.009,
+     "zs_at_t_cellwise_m": {
+      "min": -0.009,
+      "max": 0.68
+     },
+     "observed_dzs_wet_mean_at_t_m": 0.009,
+     "observed_dzs_cellwise_m": {
+      "mean": 0.002,
+      "min": -0.009,
+      "max": 0.029,
+      "n_abs_gt_1cm": 2
+     },
+     "observed_dzs_wet_mean_min_over_run_m": 0.0,
+     "observed_dzs_wet_mean_max_over_run_m": 0.013,
+     "expected_local_IB_rel_first_m": {
+      "mean": 0.028,
+      "min": 0.021,
+      "max": 0.032
+     },
+     "observed_dzs_max_excursion_cell_at_t_m": null,
+     "at_time_of_wet_mean_max": {
+      "t": "2024-11-01T00:00",
+      "zs_wet_mean_m": 0.013,
+      "hours_after_mslp_min": 45.0,
+      "p_bnd_mean_hPa": 1021.45,
+      "expected_IB_rel_first_m": -0.061
+     }
+    },
+    "interior_sea_msk1_zb_lt_0": {
+     "n_cells": 12207,
+     "wet_cells_at_t": 12207,
+     "wet_cells_at_t0": 12207,
+     "cells_wet_at_both_t0_and_t": 12207,
+     "zs_wet_mean_at_t_m": 1.712,
+     "zs_at_t_cellwise_m": {
+      "min": -0.032,
+      "max": 5.87
+     },
+     "observed_dzs_wet_mean_at_t_m": 1.712,
+     "observed_dzs_cellwise_m": {
+      "mean": 1.712,
+      "min": -0.032,
+      "max": 5.87,
+      "n_abs_gt_1cm": 12116
+     },
+     "observed_dzs_wet_mean_min_over_run_m": 0.0,
+     "observed_dzs_wet_mean_max_over_run_m": 1.73,
+     "expected_local_IB_rel_first_m": {
+      "mean": 0.024,
+      "min": 0.009,
+      "max": 0.03
+     },
+     "observed_dzs_max_excursion_cell_at_t_m": 5.87,
+     "at_time_of_wet_mean_max": {
+      "t": "2024-10-30T06:00",
+      "zs_wet_mean_m": 1.73,
+      "hours_after_mslp_min": 3.0,
+      "p_bnd_mean_hPa": 1013.72,
+      "expected_IB_rel_first_m": 0.015
+     }
+    },
+    "checkpoints_6h": [
+     {
+      "t": "2024-10-27T00:00",
+      "p_bnd_mean_hPa": 1015.27,
+      "expected_IB_rel_first_m": -0.0,
+      "zs_first_interior_row_wet_mean_m": 0.0,
+      "wet_cells_first_interior_row": 26,
+      "zs_interior_sea_wet_mean_m": -0.0
+     },
+     {
+      "t": "2024-10-27T06:00",
+      "p_bnd_mean_hPa": 1014.93,
+      "expected_IB_rel_first_m": 0.003,
+      "zs_first_interior_row_wet_mean_m": 0.006,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 0.006
+     },
+     {
+      "t": "2024-10-27T12:00",
+      "p_bnd_mean_hPa": 1016.78,
+      "expected_IB_rel_first_m": -0.015,
+      "zs_first_interior_row_wet_mean_m": 0.007,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 0.017
+     },
+     {
+      "t": "2024-10-27T18:00",
+      "p_bnd_mean_hPa": 1017.17,
+      "expected_IB_rel_first_m": -0.019,
+      "zs_first_interior_row_wet_mean_m": 0.009,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 0.02
+     },
+     {
+      "t": "2024-10-28T00:00",
+      "p_bnd_mean_hPa": 1018.74,
+      "expected_IB_rel_first_m": -0.034,
+      "zs_first_interior_row_wet_mean_m": 0.011,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 0.033
+     },
+     {
+      "t": "2024-10-28T06:00",
+      "p_bnd_mean_hPa": 1018.93,
+      "expected_IB_rel_first_m": -0.036,
+      "zs_first_interior_row_wet_mean_m": 0.011,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 0.044
+     },
+     {
+      "t": "2024-10-28T12:00",
+      "p_bnd_mean_hPa": 1019.88,
+      "expected_IB_rel_first_m": -0.046,
+      "zs_first_interior_row_wet_mean_m": 0.011,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 0.048
+     },
+     {
+      "t": "2024-10-28T18:00",
+      "p_bnd_mean_hPa": 1019.75,
+      "expected_IB_rel_first_m": -0.045,
+      "zs_first_interior_row_wet_mean_m": 0.01,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 0.051
+     },
+     {
+      "t": "2024-10-29T00:00",
+      "p_bnd_mean_hPa": 1020.14,
+      "expected_IB_rel_first_m": -0.048,
+      "zs_first_interior_row_wet_mean_m": 0.009,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 0.059
+     },
+     {
+      "t": "2024-10-29T06:00",
+      "p_bnd_mean_hPa": 1018.59,
+      "expected_IB_rel_first_m": -0.033,
+      "zs_first_interior_row_wet_mean_m": 0.009,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 0.144
+     },
+     {
+      "t": "2024-10-29T12:00",
+      "p_bnd_mean_hPa": 1017.2,
+      "expected_IB_rel_first_m": -0.019,
+      "zs_first_interior_row_wet_mean_m": 0.009,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 0.425
+     },
+     {
+      "t": "2024-10-29T18:00",
+      "p_bnd_mean_hPa": 1013.1,
+      "expected_IB_rel_first_m": 0.022,
+      "zs_first_interior_row_wet_mean_m": 0.009,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 1.038
+     },
+     {
+      "t": "2024-10-30T00:00",
+      "p_bnd_mean_hPa": 1013.47,
+      "expected_IB_rel_first_m": 0.018,
+      "zs_first_interior_row_wet_mean_m": 0.009,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 1.614
+     },
+     {
+      "t": "2024-10-30T06:00",
+      "p_bnd_mean_hPa": 1013.72,
+      "expected_IB_rel_first_m": 0.015,
+      "zs_first_interior_row_wet_mean_m": 0.01,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 1.73
+     },
+     {
+      "t": "2024-10-30T12:00",
+      "p_bnd_mean_hPa": 1015.47,
+      "expected_IB_rel_first_m": -0.002,
+      "zs_first_interior_row_wet_mean_m": 0.01,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 1.681
+     },
+     {
+      "t": "2024-10-30T18:00",
+      "p_bnd_mean_hPa": 1017.17,
+      "expected_IB_rel_first_m": -0.019,
+      "zs_first_interior_row_wet_mean_m": 0.01,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 1.609
+     },
+     {
+      "t": "2024-10-31T00:00",
+      "p_bnd_mean_hPa": 1018.36,
+      "expected_IB_rel_first_m": -0.031,
+      "zs_first_interior_row_wet_mean_m": 0.01,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 1.538
+     },
+     {
+      "t": "2024-10-31T06:00",
+      "p_bnd_mean_hPa": 1018.67,
+      "expected_IB_rel_first_m": -0.034,
+      "zs_first_interior_row_wet_mean_m": 0.01,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 1.473
+     },
+     {
+      "t": "2024-10-31T12:00",
+      "p_bnd_mean_hPa": 1020.02,
+      "expected_IB_rel_first_m": -0.047,
+      "zs_first_interior_row_wet_mean_m": 0.011,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 1.417
+     },
+     {
+      "t": "2024-10-31T18:00",
+      "p_bnd_mean_hPa": 1020.85,
+      "expected_IB_rel_first_m": -0.055,
+      "zs_first_interior_row_wet_mean_m": 0.012,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 1.368
+     },
+     {
+      "t": "2024-11-01T00:00",
+      "p_bnd_mean_hPa": 1021.45,
+      "expected_IB_rel_first_m": -0.061,
+      "zs_first_interior_row_wet_mean_m": 0.013,
+      "wet_cells_first_interior_row": 1241,
+      "zs_interior_sea_wet_mean_m": 1.344
+     }
+    ],
+    "pavbnd_acted_at_boundary_per_data": false,
+    "evidence": "21 of 1233 msk==2 cells are wet; their zs is exactly 0.0 at every output time (max |dzs| from initial 0.0 m); zsmax at the wet cells min 0.0 / max 0.0 m over every dtmaxout = 86400 s window, versus expected IB 0.028 m (rel. first) / 0.008 m (rel. 1013.25 hPa)."
+   },
+   "model_grid_extent_m": {
+    "x": [
+     679915.0,
+     764015.0
+    ],
+    "y": [
+     4324424.0,
+     4404524.0
+    ],
+    "mmax": 841,
+    "nmax": 801,
+    "dx": 100.0,
+    "dy": 100.0
+   }
+  }
+ },
+ "files_read": {
+  "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\model_author_ref\\sfincs.inp": {
+   "size_bytes": 1614,
+   "md5": "ef7446ca6a657bc4dd55f5188e017750"
+  },
+  "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\model_author_ref\\sfincs_log.txt": {
+   "size_bytes": 3575,
+   "md5": "5f600b35f624a8aa211f6508795de6c3"
+  },
+  "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\model_author_ref\\sfincs_map.nc": {
+   "size_bytes": 136916034,
+   "md5": "6bacc21563b70acb318605aeebfb67d9"
+  },
+  "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\model_author_ref\\press_2d.nc": {
+   "size_bytes": 86121,
+   "md5": "cb63e0973385803e9b22657a4aa583fa"
+  },
+  "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\valencia_emsr773\\model\\sfincs.inp": {
+   "size_bytes": 1614,
+   "md5": "bca228c55ab95bf866834f288c6c0451"
+  },
+  "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\valencia_emsr773\\model\\sfincs_log.txt": {
+   "size_bytes": 3575,
+   "md5": "c19a9e48974acb1c5eda6f2f7b31230d"
+  },
+  "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\valencia_emsr773\\model\\sfincs_map.nc": {
+   "size_bytes": 179898560,
+   "md5": "0a677e8e8905b5b1d526e3ea44f8c0e0"
+  },
+  "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\valencia_emsr773\\model\\press_2d.nc": {
+   "size_bytes": 50865,
+   "md5": "fb6fbf984c5622e79477f9d45111599c"
+  },
+  "D:\\ELKAK\\ELKAK2\\NHESS\\R1_verification\\task_valencia_anchor\\rerun_v164\\model\\sfincs.inp": {
+   "size_bytes": 1614,
+   "md5": "bca228c55ab95bf866834f288c6c0451"
+  },
+  "D:\\ELKAK\\ELKAK2\\NHESS\\R1_verification\\task_valencia_anchor\\rerun_v164\\model\\sfincs_stdout.txt": {
+   "size_bytes": 3575,
+   "md5": "d4c6230a072d815fe626ef395260c36a"
+  },
+  "D:\\ELKAK\\ELKAK2\\NHESS\\R1_verification\\task_valencia_anchor\\rerun_v164\\model\\sfincs_map.nc": {
+   "size_bytes": 181959003,
+   "md5": "d1e9039360beac732e23cbf51ce941cc"
+  },
+  "D:\\ELKAK\\ELKAK2\\NHESS\\R1_verification\\task_valencia_anchor\\rerun_v164\\model\\press_2d.nc": {
+   "size_bytes": 50865,
+   "md5": "fb6fbf984c5622e79477f9d45111599c"
+  }
+ },
+ "files_inspected_manually": [
+  "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\model_author_ref\\hydromt.log",
+  "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\model_author_ref\\sfincs.src",
+  "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\valencia_emsr773\\model\\hydromt.log",
+  "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\valencia_emsr773\\model\\sfincs.src",
+  "D:\\ELKAK\\ELKAK2\\NHESS\\R1_verification\\task_valencia_anchor\\rerun_v164\\model\\sfincs.src"
+ ]
+}

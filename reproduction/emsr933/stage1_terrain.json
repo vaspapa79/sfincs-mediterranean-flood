@@ -1,0 +1,971 @@
+{
+  "utc": "2026-10-09T13:32:48Z",
+  "dem_vrt": "D:\\ELKAK\\implementation\\emsr933_crete\\data\\copdem30\\copdem30.vrt",
+  "grid": {
+    "bbox": [
+      23.4,
+      34.8,
+      26.4,
+      35.7
+    ],
+    "decimation": 3,
+    "shape": [
+      1080,
+      3600
+    ],
+    "cell_deg": [
+      0.000833,
+      0.000833
+    ],
+    "cell_m_approx": [
+      76,
+      93
+    ]
+  },
+  "land_km2": 8415.4,
+  "aois": [
+    {
+      "number": 1,
+      "name": "Kastelli",
+      "aoi_km2_utm34": 252.53,
+      "centroid_lonlat": [
+        25.3182,
+        35.1882
+      ],
+      "utm34_scale_at_centroid": {
+        "k_linear": 1.00151,
+        "k_areal": 1.00302
+      },
+      "dem_min_max_mean_m": [
+        150.4,
+        1557.8,
+        455.4
+      ],
+      "sea_cells_in_box": 0,
+      "land_km2_in_box": 254.5,
+      "n_outlet_cells": 336,
+      "n_pits_inside": 0,
+      "uparea_sum_at_outlets_km2": 478.1,
+      "largest_stream_inside": {
+        "uparea_km2": 199.7,
+        "lon": 25.3812,
+        "lat": 35.2571
+      },
+      "external_inflow_streams_top": [
+        {
+          "uparea_km2": 162.6,
+          "lon": 25.4087,
+          "lat": 35.2454,
+          "z_m": 187.9,
+          "ge_R3_threshold": true
+        },
+        {
+          "uparea_km2": 19.9,
+          "lon": 25.2704,
+          "lat": 35.2612,
+          "z_m": 243.0,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 16.1,
+          "lon": 25.4087,
+          "lat": 35.2446,
+          "z_m": 186.5,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 3.9,
+          "lon": 25.3954,
+          "lat": 35.2571,
+          "z_m": 185.7,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 1.9,
+          "lon": 25.4071,
+          "lat": 35.1921,
+          "z_m": 873.2,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 1.7,
+          "lon": 25.2746,
+          "lat": 35.2612,
+          "z_m": 252.2,
+          "ge_R3_threshold": false
+        }
+      ],
+      "n_inlets_ge_R3": 1,
+      "basins_intersecting": {
+        "n": 5,
+        "km2": 1039.8,
+        "bbox": [
+          25.055,
+          34.973,
+          25.593,
+          35.338
+        ],
+        "reach_sea": true
+      },
+      "depressions": {
+        "km2_depth_gt_0p5m": 6.62,
+        "max_depth_m": 23.6,
+        "spill_level_m_at_deepest": 207.1,
+        "floor_min_m": 150.4
+      },
+      "observed_wet_cutoff": {
+        "km2_union": 0.242,
+        "n_products": 1,
+        "cells_at_dx": {
+          "50": 96.8,
+          "100": 24.2,
+          "150": 10.8
+        }
+      }
+    },
+    {
+      "number": 2,
+      "name": "Irakleio",
+      "aoi_km2_utm34": 140.27,
+      "centroid_lonlat": [
+        25.1259,
+        35.2885
+      ],
+      "utm34_scale_at_centroid": {
+        "k_linear": 1.00134,
+        "k_areal": 1.00267
+      },
+      "dem_min_max_mean_m": [
+        -0.0,
+        787.1,
+        147.9
+      ],
+      "sea_cells_in_box": 441,
+      "land_km2_in_box": 138.7,
+      "n_outlet_cells": 634,
+      "n_pits_inside": 46,
+      "uparea_sum_at_outlets_km2": 36.3,
+      "largest_stream_inside": {
+        "uparea_km2": 179.4,
+        "lon": 25.1096,
+        "lat": 35.3387
+      },
+      "external_inflow_streams_top": [
+        {
+          "uparea_km2": 104.2,
+          "lon": 25.0946,
+          "lat": 35.2321,
+          "z_m": 64.9,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 72.5,
+          "lon": 25.0621,
+          "lat": 35.3304,
+          "z_m": 6.6,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 29.9,
+          "lon": 25.1079,
+          "lat": 35.2321,
+          "z_m": 92.4,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 13.9,
+          "lon": 25.0621,
+          "lat": 35.2454,
+          "z_m": 129.9,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 6.8,
+          "lon": 25.0621,
+          "lat": 35.2654,
+          "z_m": 111.7,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 3.6,
+          "lon": 25.1612,
+          "lat": 35.2304,
+          "z_m": 393.0,
+          "ge_R3_threshold": false
+        }
+      ],
+      "n_inlets_ge_R3": 0,
+      "basins_intersecting": {
+        "n": 52,
+        "km2": 551.4,
+        "bbox": [
+          25.0,
+          35.118,
+          25.399,
+          35.35
+        ],
+        "reach_sea": true
+      },
+      "depressions": {
+        "km2_depth_gt_0p5m": 0.94,
+        "max_depth_m": 7.3,
+        "spill_level_m_at_deepest": 28.1,
+        "floor_min_m": 0.0
+      },
+      "observed_wet_cutoff": null
+    },
+    {
+      "number": 3,
+      "name": "Tzermiado",
+      "aoi_km2_utm34": 174.41,
+      "centroid_lonlat": [
+        25.503,
+        35.1756
+      ],
+      "utm34_scale_at_centroid": {
+        "k_linear": 1.00167,
+        "k_areal": 1.00335
+      },
+      "dem_min_max_mean_m": [
+        231.7,
+        1800.5,
+        1043.9
+      ],
+      "sea_cells_in_box": 0,
+      "land_km2_in_box": 176.1,
+      "n_outlet_cells": 289,
+      "n_pits_inside": 0,
+      "uparea_sum_at_outlets_km2": 231.7,
+      "largest_stream_inside": {
+        "uparea_km2": 133.8,
+        "lon": 25.4413,
+        "lat": 35.2271
+      },
+      "external_inflow_streams_top": [
+        {
+          "uparea_km2": 15.6,
+          "lon": 25.4179,
+          "lat": 35.2254,
+          "z_m": 237.3,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 13.3,
+          "lon": 25.4171,
+          "lat": 35.2221,
+          "z_m": 254.6,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 3.4,
+          "lon": 25.4271,
+          "lat": 35.1254,
+          "z_m": 951.3,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 2.6,
+          "lon": 25.4162,
+          "lat": 35.1329,
+          "z_m": 990.7,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 2.1,
+          "lon": 25.4496,
+          "lat": 35.2279,
+          "z_m": 354.0,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 1.7,
+          "lon": 25.5796,
+          "lat": 35.1238,
+          "z_m": 1150.9,
+          "ge_R3_threshold": false
+        }
+      ],
+      "n_inlets_ge_R3": 0,
+      "basins_intersecting": {
+        "n": 4,
+        "km2": 951.2,
+        "bbox": [
+          25.055,
+          34.973,
+          25.716,
+          35.336
+        ],
+        "reach_sea": true
+      },
+      "depressions": {
+        "km2_depth_gt_0p5m": 37.6,
+        "max_depth_m": 81.8,
+        "spill_level_m_at_deepest": 889.6,
+        "floor_min_m": 231.7
+      },
+      "observed_wet_cutoff": {
+        "km2_union": 4.4372,
+        "n_products": 2,
+        "cells_at_dx": {
+          "50": 1774.9,
+          "100": 443.7,
+          "150": 197.2
+        }
+      }
+    },
+    {
+      "number": 4,
+      "name": "Agios Ioannis",
+      "aoi_km2_utm34": 59.26,
+      "centroid_lonlat": [
+        25.8632,
+        35.0388
+      ],
+      "utm34_scale_at_centroid": {
+        "k_linear": 1.00203,
+        "k_areal": 1.00406
+      },
+      "dem_min_max_mean_m": [
+        0.0,
+        819.0,
+        283.5
+      ],
+      "sea_cells_in_box": 342,
+      "land_km2_in_box": 58.3,
+      "n_outlet_cells": 454,
+      "n_pits_inside": 48,
+      "uparea_sum_at_outlets_km2": 26.5,
+      "largest_stream_inside": {
+        "uparea_km2": 19.9,
+        "lon": 25.9329,
+        "lat": 35.0329
+      },
+      "external_inflow_streams_top": [
+        {
+          "uparea_km2": 18.3,
+          "lon": 25.9371,
+          "lat": 35.0396,
+          "z_m": 18.1,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 10.7,
+          "lon": 25.9196,
+          "lat": 35.0629,
+          "z_m": 300.1,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 3.5,
+          "lon": 25.8054,
+          "lat": 35.0004,
+          "z_m": 1.4,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 1.9,
+          "lon": 25.8637,
+          "lat": 35.0637,
+          "z_m": 551.4,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 1.3,
+          "lon": 25.9079,
+          "lat": 35.0629,
+          "z_m": 619.4,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 1.3,
+          "lon": 25.8054,
+          "lat": 35.0037,
+          "z_m": 7.3,
+          "ge_R3_threshold": false
+        }
+      ],
+      "n_inlets_ge_R3": 0,
+      "basins_intersecting": {
+        "n": 54,
+        "km2": 168.7,
+        "bbox": [
+          25.727,
+          34.998,
+          25.985,
+          35.123
+        ],
+        "reach_sea": true
+      },
+      "depressions": {
+        "km2_depth_gt_0p5m": 0.16,
+        "max_depth_m": 12.6,
+        "spill_level_m_at_deepest": 31.8,
+        "floor_min_m": 0.0
+      },
+      "observed_wet_cutoff": {
+        "km2_union": 0.0325,
+        "n_products": 1,
+        "cells_at_dx": {
+          "50": 13.0,
+          "100": 3.2,
+          "150": 1.4
+        }
+      }
+    },
+    {
+      "number": 5,
+      "name": "Anogeia",
+      "aoi_km2_utm34": 166.5,
+      "centroid_lonlat": [
+        24.8398,
+        35.3188
+      ],
+      "utm34_scale_at_centroid": {
+        "k_linear": 1.0011,
+        "k_areal": 1.00221
+      },
+      "dem_min_max_mean_m": [
+        119.4,
+        1529.6,
+        559.7
+      ],
+      "sea_cells_in_box": 0,
+      "land_km2_in_box": 168.3,
+      "n_outlet_cells": 246,
+      "n_pits_inside": 0,
+      "uparea_sum_at_outlets_km2": 269.9,
+      "largest_stream_inside": {
+        "uparea_km2": 225.5,
+        "lon": 24.7512,
+        "lat": 35.3588
+      },
+      "external_inflow_streams_top": [
+        {
+          "uparea_km2": 56.4,
+          "lon": 24.8279,
+          "lat": 35.2721,
+          "z_m": 813.8,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 4.9,
+          "lon": 24.9104,
+          "lat": 35.3654,
+          "z_m": 267.6,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 3.6,
+          "lon": 24.8804,
+          "lat": 35.3654,
+          "z_m": 336.9,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 3.6,
+          "lon": 24.9112,
+          "lat": 35.2713,
+          "z_m": 906.8,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 3.4,
+          "lon": 24.9296,
+          "lat": 35.3471,
+          "z_m": 412.7,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 2.4,
+          "lon": 24.7854,
+          "lat": 35.2721,
+          "z_m": 1263.0,
+          "ge_R3_threshold": false
+        }
+      ],
+      "n_inlets_ge_R3": 0,
+      "basins_intersecting": {
+        "n": 3,
+        "km2": 492.3,
+        "bbox": [
+          24.643,
+          35.203,
+          24.999,
+          35.423
+        ],
+        "reach_sea": true
+      },
+      "depressions": {
+        "km2_depth_gt_0p5m": 5.42,
+        "max_depth_m": 90.3,
+        "spill_level_m_at_deepest": 362.3,
+        "floor_min_m": 119.4
+      },
+      "observed_wet_cutoff": null
+    },
+    {
+      "number": 6,
+      "name": "Agios Nikolaos",
+      "aoi_km2_utm34": 116.18,
+      "centroid_lonlat": [
+        25.6641,
+        35.2338
+      ],
+      "utm34_scale_at_centroid": {
+        "k_linear": 1.00182,
+        "k_areal": 1.00365
+      },
+      "dem_min_max_mean_m": [
+        -1.0,
+        1086.1,
+        296.2
+      ],
+      "sea_cells_in_box": 897,
+      "land_km2_in_box": 111.7,
+      "n_outlet_cells": 1055,
+      "n_pits_inside": 63,
+      "uparea_sum_at_outlets_km2": 164.1,
+      "largest_stream_inside": {
+        "uparea_km2": 120.2,
+        "lon": 25.7062,
+        "lat": 35.1912
+      },
+      "external_inflow_streams_top": [
+        {
+          "uparea_km2": 32.0,
+          "lon": 25.5929,
+          "lat": 35.2029,
+          "z_m": 577.2,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 16.2,
+          "lon": 25.6679,
+          "lat": 35.1921,
+          "z_m": 116.5,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 10.0,
+          "lon": 25.5929,
+          "lat": 35.2329,
+          "z_m": 342.1,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 5.6,
+          "lon": 25.6621,
+          "lat": 35.2754,
+          "z_m": 450.1,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 2.2,
+          "lon": 25.6354,
+          "lat": 35.2762,
+          "z_m": 521.4,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 1.5,
+          "lon": 25.6387,
+          "lat": 35.1929,
+          "z_m": 314.0,
+          "ge_R3_threshold": false
+        }
+      ],
+      "n_inlets_ge_R3": 0,
+      "basins_intersecting": {
+        "n": 73,
+        "km2": 290.0,
+        "bbox": [
+          25.505,
+          35.127,
+          25.742,
+          35.339
+        ],
+        "reach_sea": true
+      },
+      "depressions": {
+        "km2_depth_gt_0p5m": 5.93,
+        "max_depth_m": 40.2,
+        "spill_level_m_at_deepest": 322.8,
+        "floor_min_m": 0.0
+      },
+      "observed_wet_cutoff": {
+        "km2_union": 0.0593,
+        "n_products": 1,
+        "cells_at_dx": {
+          "50": 23.7,
+          "100": 5.9,
+          "150": 2.6
+        }
+      }
+    },
+    {
+      "number": 7,
+      "name": "Omalos",
+      "aoi_km2_utm34": 266.31,
+      "centroid_lonlat": [
+        23.9154,
+        35.2915
+      ],
+      "utm34_scale_at_centroid": {
+        "k_linear": 1.00047,
+        "k_areal": 1.00093
+      },
+      "dem_min_max_mean_m": [
+        0.0,
+        2329.1,
+        1016.7
+      ],
+      "sea_cells_in_box": 1325,
+      "land_km2_in_box": 259.7,
+      "n_outlet_cells": 1559,
+      "n_pits_inside": 76,
+      "uparea_sum_at_outlets_km2": 76.5,
+      "largest_stream_inside": {
+        "uparea_km2": 96.0,
+        "lon": 23.8154,
+        "lat": 35.2479
+      },
+      "external_inflow_streams_top": [
+        {
+          "uparea_km2": 14.7,
+          "lon": 23.8071,
+          "lat": 35.2987,
+          "z_m": 249.1,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 11.3,
+          "lon": 23.8071,
+          "lat": 35.2662,
+          "z_m": 59.6,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 9.1,
+          "lon": 24.0171,
+          "lat": 35.3421,
+          "z_m": 1758.6,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 7.0,
+          "lon": 24.0146,
+          "lat": 35.2321,
+          "z_m": 746.9,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 5.6,
+          "lon": 24.0154,
+          "lat": 35.2804,
+          "z_m": 1956.9,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 4.6,
+          "lon": 24.0162,
+          "lat": 35.3137,
+          "z_m": 1820.9,
+          "ge_R3_threshold": false
+        }
+      ],
+      "n_inlets_ge_R3": 0,
+      "basins_intersecting": {
+        "n": 78,
+        "km2": 618.7,
+        "bbox": [
+          23.747,
+          35.207,
+          24.066,
+          35.536
+        ],
+        "reach_sea": true
+      },
+      "depressions": {
+        "km2_depth_gt_0p5m": 10.4,
+        "max_depth_m": 308.3,
+        "spill_level_m_at_deepest": 546.5,
+        "floor_min_m": 0.0
+      },
+      "observed_wet_cutoff": {
+        "km2_union": 0.0506,
+        "n_products": 1,
+        "cells_at_dx": {
+          "50": 20.2,
+          "100": 5.1,
+          "150": 2.2
+        }
+      }
+    },
+    {
+      "number": 8,
+      "name": "Monastiraki",
+      "aoi_km2_utm34": 52.66,
+      "centroid_lonlat": [
+        25.8138,
+        35.0913
+      ],
+      "utm34_scale_at_centroid": {
+        "k_linear": 1.00198,
+        "k_areal": 1.00395
+      },
+      "dem_min_max_mean_m": [
+        0.0,
+        1053.1,
+        255.1
+      ],
+      "sea_cells_in_box": 221,
+      "land_km2_in_box": 51.9,
+      "n_outlet_cells": 345,
+      "n_pits_inside": 26,
+      "uparea_sum_at_outlets_km2": 27.6,
+      "largest_stream_inside": {
+        "uparea_km2": 17.0,
+        "lon": 25.8137,
+        "lat": 35.1112
+      },
+      "external_inflow_streams_top": [
+        {
+          "uparea_km2": 12.4,
+          "lon": 25.8571,
+          "lat": 35.1271,
+          "z_m": 80.0,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 11.5,
+          "lon": 25.7704,
+          "lat": 35.1179,
+          "z_m": 30.0,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 2.5,
+          "lon": 25.8571,
+          "lat": 35.0887,
+          "z_m": 745.6,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 1.4,
+          "lon": 25.8163,
+          "lat": 35.0637,
+          "z_m": 232.5,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 0.9,
+          "lon": 25.7696,
+          "lat": 35.0862,
+          "z_m": 379.2,
+          "ge_R3_threshold": false
+        },
+        {
+          "uparea_km2": 0.8,
+          "lon": 25.8571,
+          "lat": 35.0829,
+          "z_m": 726.1,
+          "ge_R3_threshold": false
+        }
+      ],
+      "n_inlets_ge_R3": 0,
+      "basins_intersecting": {
+        "n": 31,
+        "km2": 148.5,
+        "bbox": [
+          25.727,
+          35.008,
+          25.901,
+          35.154
+        ],
+        "reach_sea": true
+      },
+      "depressions": {
+        "km2_depth_gt_0p5m": 0.09,
+        "max_depth_m": 21.9,
+        "spill_level_m_at_deepest": 521.0,
+        "floor_min_m": 0.0
+      },
+      "observed_wet_cutoff": null
+    }
+  ],
+  "domains": {
+    "east": {
+      "aois": [
+        3,
+        4,
+        6,
+        8
+      ],
+      "bbox_WSEN": [
+        25.03,
+        34.95,
+        26.01,
+        35.36
+      ],
+      "size_km_utm34": [
+        91.4,
+        49.6
+      ],
+      "land_km2": 2887.7,
+      "sea_cells_90m": 166856,
+      "contains_sea": true,
+      "cells_total_at_dx": {
+        "50": 1813376,
+        "100": 453344,
+        "150": 201579
+      },
+      "cells_land_at_dx": {
+        "50": 1155081,
+        "100": 288770,
+        "150": 128342
+      },
+      "inflow_streams_ge_120km2_crossing_edge": [],
+      "n_inflow_ge_120km2": 0,
+      "utm34_scale_corners": {
+        "25.03E/34.95N": [
+          1.00127,
+          1.00254
+        ],
+        "26.01E/35.36N": [
+          1.00216,
+          1.00432
+        ]
+      }
+    },
+    "central": {
+      "aois": [
+        1,
+        2,
+        5
+      ],
+      "bbox_WSEN": [
+        24.62,
+        34.95,
+        25.62,
+        35.45
+      ],
+      "size_km_utm34": [
+        93.4,
+        59.3
+      ],
+      "land_km2": 3858.9,
+      "sea_cells_90m": 169646,
+      "contains_sea": true,
+      "cells_total_at_dx": {
+        "50": 2215448,
+        "100": 553862,
+        "150": 246085
+      },
+      "cells_land_at_dx": {
+        "50": 1543543,
+        "100": 385885,
+        "150": 171504
+      },
+      "inflow_streams_ge_120km2_crossing_edge": [],
+      "n_inflow_ge_120km2": 0,
+      "utm34_scale_corners": {
+        "24.62E/34.95N": [
+          1.00095,
+          1.0019
+        ],
+        "25.62E/35.45N": [
+          1.00177,
+          1.00354
+        ]
+      }
+    },
+    "west": {
+      "aois": [
+        7
+      ],
+      "bbox_WSEN": [
+        23.72,
+        35.18,
+        24.09,
+        35.56
+      ],
+      "size_km_utm34": [
+        34.9,
+        43.1
+      ],
+      "land_km2": 1140.3,
+      "sea_cells_90m": 39587,
+      "contains_sea": true,
+      "cells_total_at_dx": {
+        "50": 601511,
+        "100": 150419,
+        "150": 66816
+      },
+      "cells_land_at_dx": {
+        "50": 456109,
+        "100": 114027,
+        "150": 50678
+      },
+      "inflow_streams_ge_120km2_crossing_edge": [],
+      "n_inflow_ge_120km2": 0,
+      "utm34_scale_corners": {
+        "23.72E/35.18N": [
+          1.00036,
+          1.00071
+        ],
+        "24.09E/35.56N": [
+          1.00057,
+          1.00113
+        ]
+      }
+    },
+    "island": {
+      "aois": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "bbox_WSEN": [
+        23.4,
+        34.8,
+        26.4,
+        35.7
+      ],
+      "size_km_utm34": [
+        211.1,
+        75.8
+      ],
+      "land_km2": 7092.5,
+      "sea_cells_90m": 999008,
+      "contains_sea": true,
+      "cells_total_at_dx": {
+        "50": 6404774,
+        "100": 1600138,
+        "150": 711942
+      },
+      "cells_land_at_dx": {
+        "50": 2836996,
+        "100": 709249,
+        "150": 315221
+      },
+      "inflow_streams_ge_120km2_crossing_edge": [],
+      "n_inflow_ge_120km2": 0,
+      "utm34_scale_corners": {
+        "23.72E/34.95N": [
+          1.00036,
+          1.00072
+        ],
+        "26.01E/35.56N": [
+          1.00214,
+          1.00429
+        ]
+      }
+    }
+  },
+  "elapsed_s": 23.3
+}

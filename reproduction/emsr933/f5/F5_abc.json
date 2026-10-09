@@ -1,0 +1,1461 @@
+{
+  "meta": {
+    "python": "C:\\Users\\dvalsamis\\AppData\\Local\\anaconda3\\envs\\sfincs-viz\\python.exe",
+    "hydromt_version": "0.10.1",
+    "hydromt_sfincs_version": "1.2.2",
+    "xarray_version": "2026.4.0",
+    "numpy_version": "2.4.6",
+    "pandas_version": "3.0.3",
+    "hydromt_exe": "C:\\Users\\dvalsamis\\AppData\\Local\\anaconda3\\envs\\sfincs-viz\\Scripts\\hydromt.exe",
+    "hydromt_exe_exists": true,
+    "worktree": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete"
+  },
+  "a_code_path": {
+    "setup_precip_forcing_from_grid": {
+      "file": "C:\\Users\\dvalsamis\\AppData\\Local\\anaconda3\\envs\\sfincs-viz\\Lib\\site-packages\\hydromt_sfincs\\sfincs.py",
+      "def_line": 2306,
+      "end_line": 2427,
+      "signature_defaults": {
+        "dst_res": "None",
+        "cumulative_input": "True",
+        "time_label": "'right'",
+        "aggregate": "False"
+      },
+      "key_lines": {
+        "2306": "    def setup_precip_forcing_from_grid(",
+        "2310": "        cumulative_input: bool = True,",
+        "2311": "        time_label: Literal[\"left\", \"right\"] = \"right\",",
+        "2312": "        aggregate: bool = False,",
+        "2373": "        precip = self.data_catalog.get_rasterdataset(",
+        "2377": "            time_tuple=self.get_model_time(),",
+        "2382": "        time_interval = da_to_timedelta(precip).total_seconds()",
+        "2385": "        dtwnd = self.config.get(\"dtwnd\", 1800)",
+        "2386": "        if dtwnd > time_interval:",
+        "2387": "            self.set_config(\"dtwnd\", time_interval)",
+        "2393": "        if cumulative_input:",
+        "2395": "            precip = precip / (time_interval / 3600)",
+        "2396": "            if time_label == \"right\":",
+        "2399": "                precip = precip.shift(time=-1, fill_value=0)",
+        "2416": "            precip_out = precip.raster.reproject(",
+        "2420": "            precip_out = precip_out.rename(\"precip_2d\")",
+        "2427": "            self.set_forcing(precip_out, name=\"precip_2d\")"
+      },
+      "docstring_summary_lines_2_3": [
+        "SFINCS requires the mean precipitation rate in mm/hr over the upcoming interval.",
+        "It will use the rate at the start of this interval and keep it constant throughout."
+      ],
+      "docstring_cumulative_input": [
+        "cumulative_input: bool, optional",
+        "    Option to indicate whether the input precipitation is cumulative in mm",
+        "    (True, default) or a precipitation rate in mm/hr (False). When cumulative,",
+        "    the data is converted to mm/hr by dividing by the time interval of the input dataset."
+      ],
+      "docstring_time_label": [
+        "time_label: literal, optional",
+        "    Label to prescribe whether the accumulation period of the precipitation",
+        "    is starting (left) or ending (right) at the validity date and time.",
+        "    This is only relevant if cumulative_input=True."
+      ],
+      "docstring_summary_line_numbers": [
+        2317,
+        2318
+      ],
+      "get_rasterdataset_call_lines_first_last": [
+        2373,
+        2379
+      ]
+    },
+    "da_to_timedelta": {
+      "file": "C:\\Users\\dvalsamis\\AppData\\Local\\anaconda3\\envs\\sfincs-viz\\Lib\\site-packages\\hydromt\\workflows\\forcing.py",
+      "def_line": 778,
+      "end_line": 780,
+      "source": [
+        "def da_to_timedelta(da):",
+        "    \"\"\"Convert time dimenstion in dataset to timedelta.\"\"\"",
+        "    return pd.to_timedelta(np.diff(da.time).mean())"
+      ],
+      "import_line_in_sfincs_py": {
+        "_file_n_lines": 4062,
+        "_file_mtime_utc": "2025-12-02 14:12:40 UTC",
+        "from hydromt.workflows.forcing import da_to_timedelta": [
+          22
+        ]
+      }
+    },
+    "data_catalog_get_rasterdataset": {
+      "file": "C:\\Users\\dvalsamis\\AppData\\Local\\anaconda3\\envs\\sfincs-viz\\Lib\\site-packages\\hydromt\\data_catalog.py",
+      "def_line": 1179,
+      "dataarray_branch_line": [
+        1269
+      ],
+      "slice_data_call_line": [
+        1270
+      ]
+    },
+    "hydromt_cli_build": {
+      "file": "C:\\Users\\dvalsamis\\AppData\\Local\\anaconda3\\envs\\sfincs-viz\\Lib\\site-packages\\hydromt\\cli\\main.py",
+      "block_first_line": 153,
+      "def_line": [
+        169
+      ],
+      "mod_build_call_line": [
+        224
+      ],
+      "model_load_line": [
+        215
+      ]
+    },
+    "model_api": {
+      "file": "C:\\Users\\dvalsamis\\AppData\\Local\\anaconda3\\envs\\sfincs-viz\\Lib\\site-packages\\hydromt\\models\\model_api.py",
+      "build_def_line": 190,
+      "build_loop_line": [
+        246
+      ],
+      "build_write_line": [
+        242,
+        250
+      ],
+      "_run_log_method_def_line": 166,
+      "_run_log_method_getattr_line": [
+        169
+      ],
+      "_run_log_method_log_line": [
+        187
+      ],
+      "_run_log_method_call_line": [
+        188
+      ]
+    },
+    "rasterdataset_time_slice": {
+      "file": "C:\\Users\\dvalsamis\\AppData\\Local\\anaconda3\\envs\\sfincs-viz\\Lib\\site-packages\\hydromt\\data_adapter\\rasterdataset.py",
+      "def_line": 560,
+      "sel_line": [
+        573
+      ]
+    },
+    "write_forcing": {
+      "file": "C:\\Users\\dvalsamis\\AppData\\Local\\anaconda3\\envs\\sfincs-viz\\Lib\\site-packages\\hydromt_sfincs\\sfincs.py",
+      "def_line": 3365,
+      "encoding_line": [
+        3439
+      ],
+      "default_filename_line": [
+        3458
+      ],
+      "to_netcdf_line": [
+        3469
+      ],
+      "_FORCING_NET_precip_2d": "('netampr', {'Precipitation': 'precip_2d'})",
+      "_FORCING_NET_line": {
+        "_file_n_lines": 4062,
+        "_file_mtime_utc": "2025-12-02 14:12:40 UTC",
+        "\"precip_2d\": (\"netampr\", {\"Precipitation\": \"precip_2d\"}),": [
+          64
+        ]
+      }
+    },
+    "get_model_time": {
+      "file": "C:\\Users\\dvalsamis\\AppData\\Local\\anaconda3\\envs\\sfincs-viz\\Lib\\site-packages\\hydromt_sfincs\\sfincs.py",
+      "def_line": 3825
+    },
+    "pipeline": {
+      "build_model.py": {
+        "file": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\skill\\scripts\\build_model.py",
+        "lines": {
+          "_file_n_lines": 170,
+          "_file_mtime_utc": "2026-10-09 12:40:33 UTC",
+          "tmpl = (SKILL_DIR / \"templates\" / \"sfincs_build.yml.tmpl\").read_text()": [
+            111
+          ],
+          "rendered = string.Template(tmpl).substitute({": [
+            113
+          ],
+          "\"rain_dataset\": cfg.rain_source,": [
+            131
+          ],
+          "yml_path.write_text(rendered, encoding=\"utf-8\")": [
+            134
+          ],
+          "str(hydromt), \"build\", \"sfincs\", str(model_dir),": [
+            152
+          ],
+          "\"-d\", str(work / \"data_catalog.yml\"),": [
+            154
+          ],
+          "res = subprocess.run(cmd, cwd=str(work))": [
+            158
+          ]
+        }
+      },
+      "sfincs_build.yml.tmpl": {
+        "file": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\skill\\templates\\sfincs_build.yml.tmpl",
+        "lines": {
+          "_file_n_lines": 52,
+          "_file_mtime_utc": "2026-10-09 12:40:33 UTC",
+          "setup_precip_forcing_from_grid:": [
+            49
+          ],
+          "precip: $rain_dataset": [
+            50
+          ],
+          "aggregate: false": [
+            51
+          ]
+        }
+      },
+      "download_imerg.py": {
+        "file": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\skill\\scripts\\download_imerg.py",
+        "lines": {
+          "_file_n_lines": 147,
+          "_file_mtime_utc": "2026-10-09 13:24:14 UTC",
+          "ds = xr.open_mfdataset([str(f) for f in local_files], group=\"Grid\",": [
+            107
+          ],
+          "combine=\"nested\", concat_dim=\"time\",": [
+            108
+          ],
+          "pr = pr.rename({\"lat\": \"latitude\", \"lon\": \"longitude\"})": [
+            127
+          ],
+          "pr.attrs[\"units\"] = \"mm/h\"": [
+            128
+          ],
+          "out_ds.attrs[\"temporal_resolution\"] = \"30 min\"": [
+            137
+          ],
+          "out_ds.to_netcdf(out, engine=\"h5netcdf\")": [
+            138
+          ]
+        }
+      },
+      "bias_correct_imerg.py": {
+        "file": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\skill\\scripts\\bias_correct_imerg.py",
+        "lines": {
+          "_file_n_lines": 173,
+          "_file_mtime_utc": "2026-10-09 12:40:33 UTC",
+          "dt_h = float((times_np[1] - times_np[0]) / np.timedelta64(1, \"h\"))": [
+            100
+          ],
+          "current_total = float(np.nansum(p_ws_mean[in_event]) * dt_h)": [
+            110
+          ],
+          "ds_out[\"precip\"].attrs[\"units\"] = \"mm/h\"": [
+            151
+          ],
+          "encoding = {\"time\": {\"units\": \"minutes since 2017-01-01 00:00:00\",": [
+            164
+          ],
+          "ds_out.to_netcdf(imerg_path, engine=\"h5netcdf\", mode=\"w\", encoding=encoding)": [
+            167
+          ]
+        }
+      },
+      "prep_inputs.py": {
+        "file": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\skill\\scripts\\prep_inputs.py",
+        "lines": {
+          "_file_n_lines": 103,
+          "_file_mtime_utc": "2026-10-09 12:40:33 UTC",
+          "ds[\"tp\"] = ds[\"tp\"] * 1000.0": [
+            46
+          ],
+          "ds[\"tp\"].attrs.update({\"units\": \"mm/h\", \"long_name\": \"Total precipitation\"})": [
+            47
+          ],
+          "\"tp\": \"precip\", \"msl\": \"press_msl\", \"u10\": \"wind10_u\", \"v10\": \"wind10_v\"": [
+            49
+          ]
+        }
+      }
+    }
+  },
+  "a_real_files": {
+    "imerg_mandra.nc": {
+      "path": "D:\\ELKAK\\implementation\\mandra_sfincs_enhanced\\data\\imerg_mandra.nc",
+      "exists": true,
+      "dims": {
+        "time": 289,
+        "latitude": 7,
+        "longitude": 7
+      },
+      "data_vars": {
+        "precip": {
+          "dims": [
+            "time",
+            "latitude",
+            "longitude"
+          ],
+          "attrs": {
+            "units": "mm/h",
+            "long_name": "Gauge-bias-corrected IMERG precipitation"
+          }
+        }
+      },
+      "time_dtype": "datetime64[ns]",
+      "n_time": 289,
+      "time_first": [
+        "2017-11-12T00:00:00.000000000",
+        "2017-11-12T00:30:00.000000000",
+        "2017-11-12T01:00:00.000000000",
+        "2017-11-12T01:30:00.000000000"
+      ],
+      "time_last": "2017-11-18T00:00:00.000000000",
+      "time_encoding": {
+        "units": "minutes since 2017-01-01",
+        "calendar": "proleptic_gregorian",
+        "dtype": "float64"
+      },
+      "time_attrs": {},
+      "global_attrs": {
+        "source": "GPM IMERG Final V07 half-hourly",
+        "spatial_resolution": "0.1 deg",
+        "temporal_resolution": "30 min",
+        "bias_correction": "Multiplicative scaling 8.551x applied to event window 2017-11-14 00:00 to 2017-11-15 23:30 so watershed bbox (23.4,38.05,23.55,38.15) 24-h total matches 200.0 mm gauge-based estimate",
+        "bias_correction_reference": "Diakakis et al. 2019; Nikolopoulos et al. 2013; Anagnostou et al. 2009"
+      },
+      "time_step_unique_s": [
+        1800
+      ]
+    },
+    "imerg_mandra.raw.nc": {
+      "path": "D:\\ELKAK\\implementation\\mandra_sfincs_enhanced\\data\\imerg_mandra.raw.nc",
+      "exists": true,
+      "dims": {
+        "time": 289,
+        "latitude": 7,
+        "longitude": 7
+      },
+      "data_vars": {
+        "precip": {
+          "dims": [
+            "time",
+            "latitude",
+            "longitude"
+          ],
+          "attrs": {
+            "DimensionNames": "time,lon,lat",
+            "Units": "mm/hr",
+            "units": "mm/h",
+            "CodeMissingValue": "-9999.9",
+            "LongName": "\nComplete merged microwave-infrared (gauge-adjusted)\n                        precipitation estimate;  formerly precipitationCal\n",
+            "long_name": "Precipitation (IMERG Final V07 calibrated)"
+          }
+        }
+      },
+      "time_dtype": "object",
+      "n_time": 289,
+      "time_first": [
+        "2017-11-12 00:00:00",
+        "2017-11-12 00:30:00",
+        "2017-11-12 01:00:00",
+        "2017-11-12 01:30:00"
+      ],
+      "time_last": "2017-11-18 00:00:00",
+      "time_encoding": {
+        "units": "seconds since 1980-01-06T00:00:00+00:00",
+        "calendar": "julian",
+        "dtype": "int32"
+      },
+      "time_attrs": {
+        "DimensionNames": "time",
+        "Units": "seconds since 1980-01-06 00:00:00 UTC",
+        "standard_name": "time",
+        "LongName": "\nRepresentative time of data in \n\t\t\tseconds since 1980-01-06 00:00:00 UTC.\n\t\t\tThe calculation of time does not add leap seconds.\n\t\t\tThe difference due to leap seconds grows with time \n\t\t\tand in 2019 is less than 30 seconds.\n",
+        "bounds": "time_bnds",
+        "axis": "T"
+      },
+      "global_attrs": {
+        "source": "GPM IMERG Final V07 half-hourly",
+        "spatial_resolution": "0.1 deg",
+        "temporal_resolution": "30 min"
+      },
+      "time_step_unique_s": [
+        1800
+      ]
+    },
+    "era5_mandra.nc": {
+      "path": "D:\\ELKAK\\implementation\\mandra_sfincs_enhanced\\data\\era5_mandra.nc",
+      "exists": true,
+      "dims": {
+        "time": 168,
+        "latitude": 3,
+        "longitude": 3
+      },
+      "data_vars": {
+        "precip": {
+          "dims": [
+            "time",
+            "latitude",
+            "longitude"
+          ],
+          "attrs": {
+            "units": "mm/h",
+            "long_name": "Total precipitation",
+            "GRIB_stepType": "accum",
+            "GRIB_units": "m",
+            "GRIB_shortName": "tp"
+          }
+        },
+        "wind10_u": {
+          "dims": [
+            "time",
+            "latitude",
+            "longitude"
+          ],
+          "attrs": {
+            "units": "m s**-1",
+            "long_name": "10 metre U wind component",
+            "GRIB_stepType": "instant",
+            "GRIB_units": "m s**-1",
+            "GRIB_shortName": "10u"
+          }
+        },
+        "wind10_v": {
+          "dims": [
+            "time",
+            "latitude",
+            "longitude"
+          ],
+          "attrs": {
+            "units": "m s**-1",
+            "long_name": "10 metre V wind component",
+            "GRIB_stepType": "instant",
+            "GRIB_units": "m s**-1",
+            "GRIB_shortName": "10v"
+          }
+        },
+        "press_msl": {
+          "dims": [
+            "time",
+            "latitude",
+            "longitude"
+          ],
+          "attrs": {
+            "units": "Pa",
+            "long_name": "Mean sea level pressure",
+            "GRIB_stepType": "instant",
+            "GRIB_units": "Pa",
+            "GRIB_shortName": "msl"
+          }
+        }
+      },
+      "time_dtype": "datetime64[ns]",
+      "n_time": 168,
+      "time_first": [
+        "2017-11-12T00:00:00.000000000",
+        "2017-11-12T01:00:00.000000000",
+        "2017-11-12T02:00:00.000000000",
+        "2017-11-12T03:00:00.000000000"
+      ],
+      "time_last": "2017-11-18T23:00:00.000000000",
+      "time_encoding": {
+        "units": "seconds since 1970-01-01",
+        "calendar": "proleptic_gregorian",
+        "dtype": "int32"
+      },
+      "time_attrs": {
+        "long_name": "time",
+        "standard_name": "time"
+      },
+      "global_attrs": {
+        "Conventions": "CF-1.7",
+        "institution": "European Centre for Medium-Range Weather Forecasts"
+      },
+      "time_step_unique_s": [
+        3600
+      ]
+    },
+    "model_precip_2d.nc": {
+      "path": "D:\\ELKAK\\implementation\\mandra_sfincs_enhanced\\model\\precip_2d.nc",
+      "exists": true,
+      "dims": {
+        "time": 241,
+        "y": 8,
+        "x": 6
+      },
+      "data_vars": {
+        "Precipitation": {
+          "dims": [
+            "time",
+            "y",
+            "x"
+          ],
+          "attrs": {
+            "units": "mm/h",
+            "long_name": "Gauge-bias-corrected IMERG precipitation"
+          }
+        }
+      },
+      "time_dtype": "datetime64[ns]",
+      "n_time": 241,
+      "time_first": [
+        "2017-11-13T00:00:00.000000000",
+        "2017-11-13T00:30:00.000000000",
+        "2017-11-13T01:00:00.000000000",
+        "2017-11-13T01:30:00.000000000"
+      ],
+      "time_last": "2017-11-18T00:00:00.000000000",
+      "time_encoding": {
+        "units": "minutes since 2017-11-12",
+        "calendar": "proleptic_gregorian",
+        "dtype": "float64"
+      },
+      "time_attrs": {},
+      "global_attrs": {
+        "units": "mm/h",
+        "long_name": "Gauge-bias-corrected IMERG precipitation",
+        "_FillValue": null
+      },
+      "time_step_unique_s": [
+        1800
+      ]
+    },
+    "imerg_hdf5_granules": {
+      "n_granules": 289,
+      "first_two": [
+        {
+          "file": "3B-HHR.MS.MRG.3IMERG.20171112-S000000-E002959.0000.V07B.HDF5",
+          "time_raw": [
+            1194480000
+          ],
+          "time_units": "seconds since 1980-01-06 00:00:00 UTC",
+          "time_bnds_raw": [
+            [
+              1194480000,
+              1194481800
+            ]
+          ],
+          "time_decoded": [
+            "2017-11-12 00:00:00"
+          ],
+          "time_bnds_decoded": [
+            [
+              "2017-11-12 00:00:00",
+              "2017-11-12 00:30:00"
+            ]
+          ],
+          "precipitation_units_attr": "mm/hr",
+          "precipitation_Units_attr": "mm/hr"
+        },
+        {
+          "file": "3B-HHR.MS.MRG.3IMERG.20171112-S003000-E005959.0030.V07B.HDF5",
+          "time_raw": [
+            1194481800
+          ],
+          "time_units": "seconds since 1980-01-06 00:00:00 UTC",
+          "time_bnds_raw": [
+            [
+              1194481800,
+              1194483600
+            ]
+          ],
+          "time_decoded": [
+            "2017-11-12 00:30:00"
+          ],
+          "time_bnds_decoded": [
+            [
+              "2017-11-12 00:30:00",
+              "2017-11-12 01:00:00"
+            ]
+          ],
+          "precipitation_units_attr": "mm/hr",
+          "precipitation_Units_attr": "mm/hr"
+        }
+      ]
+    }
+  },
+  "a_asrun_model": {
+    "sfincs.inp": {
+      "path": "D:\\ELKAK\\implementation\\mandra_sfincs_enhanced\\model\\sfincs.inp",
+      "lines": [
+        "tref                 = 20171112 000000",
+        "tstart               = 20171113 000000",
+        "tstop                = 20171118 000000",
+        "dtwnd                = 1800.0",
+        "netamprfile          = precip_2d.nc",
+        "netampfile           = press_2d.nc",
+        "netamuamvfile        = wind_2d.nc"
+      ]
+    },
+    "hydromt.log": {
+      "path": "D:\\ELKAK\\implementation\\mandra_sfincs_enhanced\\model\\hydromt.log",
+      "setup_precip_lines": [
+        "2026-06-19 13:17:48,885 - build - model_api - INFO - setup_precip_forcing_from_grid.precip: imerg_half_hourly",
+        "2026-06-19 13:17:48,885 - build - model_api - INFO - setup_precip_forcing_from_grid.dst_res: None",
+        "2026-06-19 13:17:48,885 - build - model_api - INFO - setup_precip_forcing_from_grid.cumulative_input: True",
+        "2026-06-19 13:17:48,885 - build - model_api - INFO - setup_precip_forcing_from_grid.time_label: right",
+        "2026-06-19 13:17:48,885 - build - model_api - INFO - setup_precip_forcing_from_grid.aggregate: False"
+      ],
+      "dtwnd_lines": []
+    },
+    "precip_2d_vs_imerg": {
+      "description": "P2d[t, cell] compared with IMERG value at the IMERG cell nearest to the cell centre (nearest-centre lookup), at the same stamp (lag0) and at stamp t+30min (lag30), with factor 1 or 2",
+      "n_p2d_cells": 48,
+      "n_stamps_compared_lag30": 240,
+      "max_abs_diff_lag0_x1": 175.63999938964844,
+      "max_abs_diff_lag30_x1": 109.28330993652344,
+      "max_abs_diff_lag30_x2": 0.0,
+      "frac_within_tol_lag0_x1": 0.6348547717842323,
+      "frac_within_tol_lag30_x2": 1.0,
+      "tol": 0.001,
+      "p2d_last_stamp": "2017-11-18 00:00:00",
+      "p2d_last_stamp_max_value": 0.0,
+      "imerg_value_at_last_p2d_stamp_max": 0.44999998807907104,
+      "imerg_value_at_first_p2d_stamp_max": 0.23999999463558197,
+      "sim_window": {
+        "window": [
+          "2017-11-13 00:00:00",
+          "2017-11-18 00:00:00"
+        ],
+        "dt_h_used": 0.5,
+        "p2d_depth_mm_cellmean": 456.2387390136719,
+        "imerg_nearest_depth_mm_cellmean_same_stamps": 228.13134765625,
+        "ratio_cellmean": 1.9998949766159058,
+        "ratio_per_cell_min": 1.9990911483764648,
+        "ratio_per_cell_max": 2.0
+      },
+      "event_window_watershed": {
+        "watershed_bbox_lon_lat": [
+          23.4,
+          38.05,
+          23.55,
+          38.15
+        ],
+        "event_window_from_file_attr": [
+          "2017-11-14 00:00:00",
+          "2017-11-15 23:30:00"
+        ],
+        "n_imerg_ws_cells": 4,
+        "n_p2d_cells_nearest_in_ws": 3,
+        "imerg_ws_4cells_mean_depth_mm_event_window": 200.0,
+        "imerg_same_nearest_cells_mean_depth_mm_event_window": 257.48846435546875,
+        "p2d_ws_mean_depth_mm_nominal_window": 514.9769287109375,
+        "p2d_ws_mean_depth_mm_window_shifted_minus30min": 514.9769287109375,
+        "ratio_p2d_shifted_window_over_imerg_same_cells_event_window": 2.0,
+        "imerg_ws_4cells_mean_depth_mm_full_sim_window": 309.8762512207031,
+        "imerg_same_nearest_cells_mean_depth_mm_full_sim_window": 360.525146484375,
+        "p2d_ws_mean_depth_mm_full_sim_window": 721.05029296875,
+        "ratio_p2d_over_imerg_same_cells_full_sim_window": 2.0
+      }
+    }
+  },
+  "cases": {
+    "b_halfhourly_default_dataarray": {
+      "name": "b_halfhourly_default_dataarray",
+      "kwargs_passed": {
+        "aggregate": false
+      },
+      "error": null,
+      "config_dtwnd_after_call": 1800.0,
+      "sfincs_inp_lines": [
+        "tref                 = 20170101 000000",
+        "tstart               = 20170101 000000",
+        "tstop                = 20170101 020000",
+        "dtwnd                = 1800.0",
+        "netamprfile          = precip_2d.nc"
+      ],
+      "netampr_file": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\emsr933\\f5\\tmp_synthetic\\b_halfhourly_default_dataarray\\precip_2d.nc",
+      "variable_name": "Precipitation",
+      "variable_attrs": {
+        "units": "mm/h"
+      },
+      "dataset_attrs": {
+        "units": "mm/h",
+        "_FillValue": null
+      },
+      "time_encoding_units": "minutes since 2017-01-01",
+      "shape_time_y_x": [
+        4,
+        5,
+        5
+      ],
+      "input_stamps": [
+        "2017-01-01 00:00:00",
+        "2017-01-01 00:30:00",
+        "2017-01-01 01:00:00",
+        "2017-01-01 01:30:00"
+      ],
+      "input_values_mm_per_h": [
+        10.0,
+        10.0,
+        10.0,
+        10.0
+      ],
+      "input_dt_h": 0.5,
+      "input_total_depth_mm": 20.0,
+      "output_stamps": [
+        "2017-01-01 00:00:00",
+        "2017-01-01 00:30:00",
+        "2017-01-01 01:00:00",
+        "2017-01-01 01:30:00"
+      ],
+      "output_stamps_equal_input_stamps": true,
+      "output_domain_mean_mm_per_h": [
+        20.0,
+        20.0,
+        20.0,
+        0.0
+      ],
+      "output_domain_min_mm_per_h": [
+        20.0,
+        20.0,
+        20.0,
+        0.0
+      ],
+      "output_domain_max_mm_per_h": [
+        20.0,
+        20.0,
+        20.0,
+        0.0
+      ],
+      "output_dt_h": 0.5,
+      "total_piecewise_constant_mm": 30.0,
+      "total_trapezoid_mm": 25.0,
+      "factor_piecewise_constant_vs_input_total": 1.5,
+      "factor_trapezoid_vs_input_total": 1.25,
+      "ratio_out_i_over_in_i": [
+        2.0,
+        2.0,
+        2.0,
+        0.0
+      ],
+      "ratio_out_i_over_in_i_plus_1": [
+        2.0,
+        2.0,
+        2.0
+      ],
+      "last_output_value": 0.0,
+      "centre_of_mass_offset_min_out_minus_in": -15.0,
+      "model_window": [
+        "20170101 000000",
+        "20170101 020000"
+      ]
+    },
+    "b_halfhourly_default_catalog": {
+      "name": "b_halfhourly_default_catalog",
+      "kwargs_passed": {
+        "aggregate": false
+      },
+      "error": null,
+      "config_dtwnd_after_call": 1800.0,
+      "sfincs_inp_lines": [
+        "tref                 = 20170101 000000",
+        "tstart               = 20170101 000000",
+        "tstop                = 20170101 020000",
+        "dtwnd                = 1800.0",
+        "netamprfile          = precip_2d.nc"
+      ],
+      "netampr_file": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\emsr933\\f5\\tmp_synthetic\\b_halfhourly_default_catalog\\precip_2d.nc",
+      "variable_name": "Precipitation",
+      "variable_attrs": {
+        "units": "mm/h"
+      },
+      "dataset_attrs": {
+        "units": "mm/h",
+        "_FillValue": null
+      },
+      "time_encoding_units": "minutes since 2017-01-01",
+      "shape_time_y_x": [
+        4,
+        5,
+        5
+      ],
+      "input_stamps": [
+        "2017-01-01 00:00:00",
+        "2017-01-01 00:30:00",
+        "2017-01-01 01:00:00",
+        "2017-01-01 01:30:00"
+      ],
+      "input_values_mm_per_h": [
+        10.0,
+        10.0,
+        10.0,
+        10.0
+      ],
+      "input_dt_h": 0.5,
+      "input_total_depth_mm": 20.0,
+      "output_stamps": [
+        "2017-01-01 00:00:00",
+        "2017-01-01 00:30:00",
+        "2017-01-01 01:00:00",
+        "2017-01-01 01:30:00"
+      ],
+      "output_stamps_equal_input_stamps": true,
+      "output_domain_mean_mm_per_h": [
+        20.0,
+        20.0,
+        20.0,
+        0.0
+      ],
+      "output_domain_min_mm_per_h": [
+        20.0,
+        20.0,
+        20.0,
+        0.0
+      ],
+      "output_domain_max_mm_per_h": [
+        20.0,
+        20.0,
+        20.0,
+        0.0
+      ],
+      "output_dt_h": 0.5,
+      "total_piecewise_constant_mm": 30.0,
+      "total_trapezoid_mm": 25.0,
+      "factor_piecewise_constant_vs_input_total": 1.5,
+      "factor_trapezoid_vs_input_total": 1.25,
+      "ratio_out_i_over_in_i": [
+        2.0,
+        2.0,
+        2.0,
+        0.0
+      ],
+      "ratio_out_i_over_in_i_plus_1": [
+        2.0,
+        2.0,
+        2.0
+      ],
+      "last_output_value": 0.0,
+      "centre_of_mass_offset_min_out_minus_in": -15.0,
+      "model_window": [
+        "20170101 000000",
+        "20170101 020000"
+      ]
+    },
+    "b_halfhourly_default_cli": {
+      "name": "b_halfhourly_default_cli",
+      "command": "C:\\Users\\dvalsamis\\AppData\\Local\\anaconda3\\envs\\sfincs-viz\\Scripts\\hydromt.exe build sfincs D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\emsr933\\f5\\tmp_synthetic\\b_halfhourly_default_cli -i D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\emsr933\\f5\\tmp_synthetic\\sfincs_build_synth.yml -d D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\emsr933\\f5\\tmp_synthetic\\data_catalog.yml --fo -vv",
+      "returncode": 0,
+      "stderr_tail": "",
+      "netampr_file": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\emsr933\\f5\\tmp_synthetic\\b_halfhourly_default_cli\\precip_2d.nc",
+      "variable_name": "Precipitation",
+      "variable_attrs": {
+        "units": "mm/h"
+      },
+      "dataset_attrs": {
+        "units": "mm/h",
+        "_FillValue": null
+      },
+      "time_encoding_units": "minutes since 2017-01-01",
+      "shape_time_y_x": [
+        4,
+        5,
+        5
+      ],
+      "input_stamps": [
+        "2017-01-01 00:00:00",
+        "2017-01-01 00:30:00",
+        "2017-01-01 01:00:00",
+        "2017-01-01 01:30:00"
+      ],
+      "input_values_mm_per_h": [
+        10.0,
+        10.0,
+        10.0,
+        10.0
+      ],
+      "input_dt_h": 0.5,
+      "input_total_depth_mm": 20.0,
+      "output_stamps": [
+        "2017-01-01 00:00:00",
+        "2017-01-01 00:30:00",
+        "2017-01-01 01:00:00",
+        "2017-01-01 01:30:00"
+      ],
+      "output_stamps_equal_input_stamps": true,
+      "output_domain_mean_mm_per_h": [
+        20.0,
+        20.0,
+        20.0,
+        0.0
+      ],
+      "output_domain_min_mm_per_h": [
+        20.0,
+        20.0,
+        20.0,
+        0.0
+      ],
+      "output_domain_max_mm_per_h": [
+        20.0,
+        20.0,
+        20.0,
+        0.0
+      ],
+      "output_dt_h": 0.5,
+      "total_piecewise_constant_mm": 30.0,
+      "total_trapezoid_mm": 25.0,
+      "factor_piecewise_constant_vs_input_total": 1.5,
+      "factor_trapezoid_vs_input_total": 1.25,
+      "ratio_out_i_over_in_i": [
+        2.0,
+        2.0,
+        2.0,
+        0.0
+      ],
+      "ratio_out_i_over_in_i_plus_1": [
+        2.0,
+        2.0,
+        2.0
+      ],
+      "last_output_value": 0.0,
+      "centre_of_mass_offset_min_out_minus_in": -15.0,
+      "model_window": [
+        "20170101 000000",
+        "20170101 020000"
+      ],
+      "hydromt_log_setup_precip_lines": [
+        "INFO - setup_precip_forcing_from_grid.precip: imerg_synth",
+        "INFO - setup_precip_forcing_from_grid.dst_res: None",
+        "INFO - setup_precip_forcing_from_grid.cumulative_input: True",
+        "INFO - setup_precip_forcing_from_grid.time_label: right",
+        "INFO - setup_precip_forcing_from_grid.aggregate: False"
+      ],
+      "sfincs_inp_lines": [
+        "dtwnd                = 1800.0",
+        "netamprfile          = precip_2d.nc"
+      ],
+      "identical_to_dataarray_case": true
+    },
+    "c_hourly_default_dataarray": {
+      "name": "c_hourly_default_dataarray",
+      "kwargs_passed": {
+        "aggregate": false
+      },
+      "error": null,
+      "config_dtwnd_after_call": 1800.0,
+      "sfincs_inp_lines": [
+        "tref                 = 20170101 000000",
+        "tstart               = 20170101 000000",
+        "tstop                = 20170101 020000",
+        "dtwnd                = 1800.0",
+        "netamprfile          = precip_2d.nc"
+      ],
+      "netampr_file": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\emsr933\\f5\\tmp_synthetic\\c_hourly_default_dataarray\\precip_2d.nc",
+      "variable_name": "Precipitation",
+      "variable_attrs": {
+        "units": "mm/h"
+      },
+      "dataset_attrs": {
+        "units": "mm/h",
+        "_FillValue": null
+      },
+      "time_encoding_units": "minutes since 2017-01-01",
+      "shape_time_y_x": [
+        2,
+        5,
+        5
+      ],
+      "input_stamps": [
+        "2017-01-01 00:00:00",
+        "2017-01-01 01:00:00"
+      ],
+      "input_values_mm_per_h": [
+        10.0,
+        10.0
+      ],
+      "input_dt_h": 1.0,
+      "input_total_depth_mm": 20.0,
+      "output_stamps": [
+        "2017-01-01 00:00:00",
+        "2017-01-01 01:00:00"
+      ],
+      "output_stamps_equal_input_stamps": true,
+      "output_domain_mean_mm_per_h": [
+        10.0,
+        0.0
+      ],
+      "output_domain_min_mm_per_h": [
+        10.0,
+        0.0
+      ],
+      "output_domain_max_mm_per_h": [
+        10.0,
+        0.0
+      ],
+      "output_dt_h": 1.0,
+      "total_piecewise_constant_mm": 10.0,
+      "total_trapezoid_mm": 5.0,
+      "factor_piecewise_constant_vs_input_total": 0.5,
+      "factor_trapezoid_vs_input_total": 0.25,
+      "ratio_out_i_over_in_i": [
+        1.0,
+        0.0
+      ],
+      "ratio_out_i_over_in_i_plus_1": [
+        1.0
+      ],
+      "last_output_value": 0.0,
+      "centre_of_mass_offset_min_out_minus_in": -30.0,
+      "model_window": [
+        "20170101 000000",
+        "20170101 020000"
+      ]
+    },
+    "x_halfhourly_rate_left_dataarray": {
+      "name": "x_halfhourly_rate_left_dataarray",
+      "kwargs_passed": {
+        "aggregate": false,
+        "cumulative_input": "False",
+        "time_label": "'left'"
+      },
+      "error": null,
+      "config_dtwnd_after_call": 1800.0,
+      "sfincs_inp_lines": [
+        "tref                 = 20170101 000000",
+        "tstart               = 20170101 000000",
+        "tstop                = 20170101 020000",
+        "dtwnd                = 1800.0",
+        "netamprfile          = precip_2d.nc"
+      ],
+      "netampr_file": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\emsr933\\f5\\tmp_synthetic\\x_halfhourly_rate_left_dataarray\\precip_2d.nc",
+      "variable_name": "Precipitation",
+      "variable_attrs": {
+        "units": "mm/h"
+      },
+      "dataset_attrs": {
+        "units": "mm/h",
+        "_FillValue": null
+      },
+      "time_encoding_units": "minutes since 2017-01-01",
+      "shape_time_y_x": [
+        4,
+        5,
+        5
+      ],
+      "input_stamps": [
+        "2017-01-01 00:00:00",
+        "2017-01-01 00:30:00",
+        "2017-01-01 01:00:00",
+        "2017-01-01 01:30:00"
+      ],
+      "input_values_mm_per_h": [
+        10.0,
+        10.0,
+        10.0,
+        10.0
+      ],
+      "input_dt_h": 0.5,
+      "input_total_depth_mm": 20.0,
+      "output_stamps": [
+        "2017-01-01 00:00:00",
+        "2017-01-01 00:30:00",
+        "2017-01-01 01:00:00",
+        "2017-01-01 01:30:00"
+      ],
+      "output_stamps_equal_input_stamps": true,
+      "output_domain_mean_mm_per_h": [
+        10.0,
+        10.0,
+        10.0,
+        10.0
+      ],
+      "output_domain_min_mm_per_h": [
+        10.0,
+        10.0,
+        10.0,
+        10.0
+      ],
+      "output_domain_max_mm_per_h": [
+        10.0,
+        10.0,
+        10.0,
+        10.0
+      ],
+      "output_dt_h": 0.5,
+      "total_piecewise_constant_mm": 20.0,
+      "total_trapezoid_mm": 15.0,
+      "factor_piecewise_constant_vs_input_total": 1.0,
+      "factor_trapezoid_vs_input_total": 0.75,
+      "ratio_out_i_over_in_i": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "ratio_out_i_over_in_i_plus_1": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "last_output_value": 10.0,
+      "centre_of_mass_offset_min_out_minus_in": 0.0,
+      "model_window": [
+        "20170101 000000",
+        "20170101 020000"
+      ]
+    },
+    "p_halfhourly_pulse_default_dataarray": {
+      "name": "p_halfhourly_pulse_default_dataarray",
+      "kwargs_passed": {
+        "aggregate": false
+      },
+      "error": null,
+      "config_dtwnd_after_call": 1800.0,
+      "sfincs_inp_lines": [
+        "tref                 = 20170101 000000",
+        "tstart               = 20170101 000000",
+        "tstop                = 20170101 040000",
+        "dtwnd                = 1800.0",
+        "netamprfile          = precip_2d.nc"
+      ],
+      "netampr_file": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\emsr933\\f5\\tmp_synthetic\\p_halfhourly_pulse_default_dataarray\\precip_2d.nc",
+      "variable_name": "Precipitation",
+      "variable_attrs": {
+        "units": "mm/h"
+      },
+      "dataset_attrs": {
+        "units": "mm/h",
+        "_FillValue": null
+      },
+      "time_encoding_units": "minutes since 2017-01-01",
+      "shape_time_y_x": [
+        8,
+        5,
+        5
+      ],
+      "input_stamps": [
+        "2017-01-01 00:00:00",
+        "2017-01-01 00:30:00",
+        "2017-01-01 01:00:00",
+        "2017-01-01 01:30:00",
+        "2017-01-01 02:00:00",
+        "2017-01-01 02:30:00",
+        "2017-01-01 03:00:00",
+        "2017-01-01 03:30:00"
+      ],
+      "input_values_mm_per_h": [
+        0.0,
+        0.0,
+        10.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "input_dt_h": 0.5,
+      "input_total_depth_mm": 5.0,
+      "output_stamps": [
+        "2017-01-01 00:00:00",
+        "2017-01-01 00:30:00",
+        "2017-01-01 01:00:00",
+        "2017-01-01 01:30:00",
+        "2017-01-01 02:00:00",
+        "2017-01-01 02:30:00",
+        "2017-01-01 03:00:00",
+        "2017-01-01 03:30:00"
+      ],
+      "output_stamps_equal_input_stamps": true,
+      "output_domain_mean_mm_per_h": [
+        0.0,
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "output_domain_min_mm_per_h": [
+        0.0,
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "output_domain_max_mm_per_h": [
+        0.0,
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "output_dt_h": 0.5,
+      "total_piecewise_constant_mm": 10.0,
+      "total_trapezoid_mm": 10.0,
+      "factor_piecewise_constant_vs_input_total": 2.0,
+      "factor_trapezoid_vs_input_total": 2.0,
+      "ratio_out_i_over_in_i": [
+        null,
+        null,
+        0.0,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "ratio_out_i_over_in_i_plus_1": [
+        null,
+        2.0,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "last_output_value": 0.0,
+      "centre_of_mass_offset_min_out_minus_in": -30.0,
+      "model_window": [
+        "20170101 000000",
+        "20170101 040000"
+      ]
+    },
+    "p_hourly_pulse_default_dataarray": {
+      "name": "p_hourly_pulse_default_dataarray",
+      "kwargs_passed": {
+        "aggregate": false
+      },
+      "error": null,
+      "config_dtwnd_after_call": 1800.0,
+      "sfincs_inp_lines": [
+        "tref                 = 20170101 000000",
+        "tstart               = 20170101 000000",
+        "tstop                = 20170101 040000",
+        "dtwnd                = 1800.0",
+        "netamprfile          = precip_2d.nc"
+      ],
+      "netampr_file": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\emsr933\\f5\\tmp_synthetic\\p_hourly_pulse_default_dataarray\\precip_2d.nc",
+      "variable_name": "Precipitation",
+      "variable_attrs": {
+        "units": "mm/h"
+      },
+      "dataset_attrs": {
+        "units": "mm/h",
+        "_FillValue": null
+      },
+      "time_encoding_units": "minutes since 2017-01-01",
+      "shape_time_y_x": [
+        4,
+        5,
+        5
+      ],
+      "input_stamps": [
+        "2017-01-01 00:00:00",
+        "2017-01-01 01:00:00",
+        "2017-01-01 02:00:00",
+        "2017-01-01 03:00:00"
+      ],
+      "input_values_mm_per_h": [
+        0.0,
+        10.0,
+        0.0,
+        0.0
+      ],
+      "input_dt_h": 1.0,
+      "input_total_depth_mm": 10.0,
+      "output_stamps": [
+        "2017-01-01 00:00:00",
+        "2017-01-01 01:00:00",
+        "2017-01-01 02:00:00",
+        "2017-01-01 03:00:00"
+      ],
+      "output_stamps_equal_input_stamps": true,
+      "output_domain_mean_mm_per_h": [
+        10.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "output_domain_min_mm_per_h": [
+        10.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "output_domain_max_mm_per_h": [
+        10.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "output_dt_h": 1.0,
+      "total_piecewise_constant_mm": 10.0,
+      "total_trapezoid_mm": 5.0,
+      "factor_piecewise_constant_vs_input_total": 1.0,
+      "factor_trapezoid_vs_input_total": 0.5,
+      "ratio_out_i_over_in_i": [
+        null,
+        0.0,
+        null,
+        null
+      ],
+      "ratio_out_i_over_in_i_plus_1": [
+        1.0,
+        null,
+        null
+      ],
+      "last_output_value": 0.0,
+      "centre_of_mass_offset_min_out_minus_in": -60.0,
+      "model_window": [
+        "20170101 000000",
+        "20170101 040000"
+      ]
+    },
+    "p_halfhourly_pulse_rate_left_dataarray": {
+      "name": "p_halfhourly_pulse_rate_left_dataarray",
+      "kwargs_passed": {
+        "aggregate": false,
+        "cumulative_input": "False",
+        "time_label": "'left'"
+      },
+      "error": null,
+      "config_dtwnd_after_call": 1800.0,
+      "sfincs_inp_lines": [
+        "tref                 = 20170101 000000",
+        "tstart               = 20170101 000000",
+        "tstop                = 20170101 040000",
+        "dtwnd                = 1800.0",
+        "netamprfile          = precip_2d.nc"
+      ],
+      "netampr_file": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\emsr933\\f5\\tmp_synthetic\\p_halfhourly_pulse_rate_left_dataarray\\precip_2d.nc",
+      "variable_name": "Precipitation",
+      "variable_attrs": {
+        "units": "mm/h"
+      },
+      "dataset_attrs": {
+        "units": "mm/h",
+        "_FillValue": null
+      },
+      "time_encoding_units": "minutes since 2017-01-01",
+      "shape_time_y_x": [
+        8,
+        5,
+        5
+      ],
+      "input_stamps": [
+        "2017-01-01 00:00:00",
+        "2017-01-01 00:30:00",
+        "2017-01-01 01:00:00",
+        "2017-01-01 01:30:00",
+        "2017-01-01 02:00:00",
+        "2017-01-01 02:30:00",
+        "2017-01-01 03:00:00",
+        "2017-01-01 03:30:00"
+      ],
+      "input_values_mm_per_h": [
+        0.0,
+        0.0,
+        10.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "input_dt_h": 0.5,
+      "input_total_depth_mm": 5.0,
+      "output_stamps": [
+        "2017-01-01 00:00:00",
+        "2017-01-01 00:30:00",
+        "2017-01-01 01:00:00",
+        "2017-01-01 01:30:00",
+        "2017-01-01 02:00:00",
+        "2017-01-01 02:30:00",
+        "2017-01-01 03:00:00",
+        "2017-01-01 03:30:00"
+      ],
+      "output_stamps_equal_input_stamps": true,
+      "output_domain_mean_mm_per_h": [
+        0.0,
+        0.0,
+        10.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "output_domain_min_mm_per_h": [
+        0.0,
+        0.0,
+        10.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "output_domain_max_mm_per_h": [
+        0.0,
+        0.0,
+        10.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "output_dt_h": 0.5,
+      "total_piecewise_constant_mm": 5.0,
+      "total_trapezoid_mm": 5.0,
+      "factor_piecewise_constant_vs_input_total": 1.0,
+      "factor_trapezoid_vs_input_total": 1.0,
+      "ratio_out_i_over_in_i": [
+        null,
+        null,
+        1.0,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "ratio_out_i_over_in_i_plus_1": [
+        null,
+        0.0,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "last_output_value": 0.0,
+      "centre_of_mass_offset_min_out_minus_in": 0.0,
+      "model_window": [
+        "20170101 000000",
+        "20170101 040000"
+      ]
+    }
+  },
+  "synthetic_setup": {
+    "model_grid": {
+      "x0": 700000.0,
+      "y0": 4200000.0,
+      "dx": 1000.0,
+      "dy": 1000.0,
+      "nmax": 5,
+      "mmax": 5,
+      "rotation": 0,
+      "epsg": 32634
+    },
+    "model_mode": "w+",
+    "tref_tstart": "20170101 000000",
+    "input_crs_epsg": 4326,
+    "input_dims": [
+      "time",
+      "latitude",
+      "longitude"
+    ],
+    "input_lat_range": [
+      37.0,
+      39.0
+    ],
+    "input_lon_range": [
+      22.5,
+      24.5
+    ],
+    "input_step_deg": 0.1,
+    "input_units_attr": "mm/h",
+    "catalog_entry_form": {
+      "data_type": "RasterDataset",
+      "driver": "netcdf",
+      "crs": 4326
+    }
+  }
+}

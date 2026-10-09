@@ -32,3 +32,12 @@ activation — idle time before CODE-10 existed, to be reported as such, not as 
 - 2026-10-09T12:51:44Z — availability checks (IMERG/CDS/EWDS/DEM/WorldCover); 12:52:19–12:53Z ERA5T expver probe (2 CDS requests, 35 s each).
 - 2026-10-09T12:56Z — STAGE0_REPORT.md written; commit follows. Waiting for Checkpoint-0 go.
 - 2026-10-09T12:59:16Z — commit `6a5e64b` (Stage 0 records); AUDIT.md §8 entry + this line committed next.
+
+## Stage 1 — event log
+- 2026-10-09T13:08:34Z — Checkpoint-0 go received (decisions 1–8); Stage 1 started.
+- 2026-10-09T13:1xZ — found that `docs/AUDIT.md` was never tracked in the public repo; canonical copy brought onto the branch (`d1752c6`).
+- 2026-10-09T13:20:35Z — first daily latency probe (table above).
+- 2026-10-09T13:27Z — F2/F4 implemented under TDD (14 tests GREEN); regression vs published Valencia/Emilia records IDENTICAL (`regression_f2f4.json`); F5 analyses (a–f) dispatched to four parallel read-only agents at 13:12Z; NOA station research dispatched 13:27Z; GLO-30 + WorldCover tile download started 13:27Z (done 13:29Z).
+- 2026-10-09T13:32:48Z — `stage1_terrain.py` (pyflwdir on GLO-30 @ 90 m, 23 s); 13:38:33Z `stage1_depressions.py` (polje components).
+- 2026-10-09T13:31–13:37Z — the four F5 agents returned (a–c 13:31, e 13:33, f 13:35, d 13:37); `F5_VERIFY.md` compiled 13:45Z; agent numbers spot-checked against their JSONs.
+- 2026-10-09T13:49Z — catalog-label test GREEN (17 tests); schema validation of `emsr933_crete.yaml` + `emsr933_crete_enhanced.yaml` OK (`stage1_yaml_validation.json`); `rule_ledger.md` written, §7 (R2-on anchor) pending the NOA/meteo.gr retrieval.
