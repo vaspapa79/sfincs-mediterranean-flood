@@ -379,11 +379,29 @@ class EventCfg:
 
     @property
     def rain_source(self) -> str:
-        """Precipitation source. Currently supported:
+        """Precipitation source (doubles as the data-catalog dataset name). Supported:
           - era5_hourly         (default, ~25 km, hourly, ECMWF)
-          - imerg_half_hourly   (~10 km, 30 min, NASA GPM IMERG Final V07)
+          - imerg_half_hourly   (~10 km, 30 min, NASA GPM IMERG V07)
+        Either a plain string, or a mapping ``{name: ..., product: late|final}`` whose
+        ``product`` selects the IMERG run (see ``imerg_product``).
         """
-        return str(self.raw.get("rain_source", "era5_hourly"))
+        rs = self.raw.get("rain_source", "era5_hourly")
+        if isinstance(rs, dict):
+            return str(rs.get("name", "era5_hourly"))
+        return str(rs)
+
+    @property
+    def imerg_product(self) -> str:
+        """IMERG product run: 'final' (default — Final Run V07, the published behaviour) or
+        'late' (Late Run V07, ~14 h latency). The Late run is a declared deviation for events
+        whose Final run does not exist yet (EMSR933, Oct 2026: Final due ~late Jan 2027).
+        Only meaningful when rain_source is imerg_half_hourly.
+        """
+        rs = self.raw.get("rain_source")
+        prod = str(rs.get("product", "final")).lower() if isinstance(rs, dict) else "final"
+        if prod not in ("late", "final"):
+            raise ValueError(f"rain_source.product must be 'late' or 'final', got {prod!r}")
+        return prod
 
     @property
     def rain_bias_correct(self) -> dict:

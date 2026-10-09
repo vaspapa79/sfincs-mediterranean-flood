@@ -64,11 +64,23 @@ env:
   gdalbuildvrt: C:/Users/vaspapa/AppData/Local/miniforge3/envs/sfincs-viz/Library/bin/gdalbuildvrt.exe
   cds_key_file: ~/.cdsapirc
 
+# Precipitation forcing. Default era5_hourly (ERA5 rain-on-grid). The IMERG value may be a
+# plain string (Final Run V07 — the published behaviour) or a mapping that selects the
+# product run; 'late' (Late Run V07, ~14 h latency) is the declared deviation for events
+# whose Final run does not exist yet (EMSR933, Oct 2026).
+rain_source: imerg_half_hourly
+# rain_source: {name: imerg_half_hourly, product: late}
+
 ems:
   # required only if event.id is set
   # The skill expects URLs of the form:
   #   {base}/{event_id}/{event_id}_{aoi_slug}_{iteration}_vector.zip
   base_url: https://cems-mapping-website.s3.eu-west-1.amazonaws.com/static/activations
+  # Portal activations (base_url rapidmapping.emergency.copernicus.eu) ship a non-monitoring
+  # delineation package "<EMSR>_AOInn_DEL_PRODUCT_v1". Its observedEventA layer enters the
+  # merged gpkg and the validation truth union ONLY when this is true (default false — the
+  # five published events were merged and scored without it; EMSR933 sets it).
+  include_del_product: false
   aois:
     - 01STRYMONAS
     - 02BALTOTOPI

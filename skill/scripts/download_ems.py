@@ -34,6 +34,30 @@ from pathlib import Path
 
 from _common import load_config, ensure_dir
 
+# Observed-flood polygon shapefiles across the EMS product families:
+#   - DELINEATION/MONIT (legacy S3):  *crisis_information_poly.shp
+#   - GRADING (EMSR257 etc., legacy): *observed_event_a.shp
+#   - DEL_MONIT** (rapidmapping API): *observedEventA_v*.shp
+# The portal's non-monitoring delineation package (DEL_PRODUCT, first met on EMSR933) is
+# merged only when the event config sets `ems.include_del_product: true`; the published events
+# were merged and scored without it, and validate_event_v2._select_obs_shps applies the same
+# switch, so the two lists stay in step.
+OBS_SHP_PATTERNS = [
+    "*DELINEATION*MONIT*crisis_information_poly.shp",
+    "*GRADING*observed_event_a.shp",
+    "*GRA_*observed_event_a.shp",
+    "*DEL_MONIT*observedEventA*.shp",
+    "*DEL_MONIT*observed_event*.shp",
+    "*GRA_PRODUCT*observedEventA*.shp",
+]
+
+
+def obs_shp_patterns(include_del_product: bool = False) -> list[str]:
+    pats = list(OBS_SHP_PATTERNS)
+    if include_del_product:
+        pats.append("*DEL_PRODUCT*observedEventA*.shp")
+    return pats
+
 
 def _download_legacy(base: str, event_id: str, aois: list, iterations: list,
                      dest: Path, headers: dict) -> None:
@@ -166,21 +190,10 @@ def main():
                      "See references/ems_catalog.md.")
         _download_legacy(base, event_id, aois, iterations, dest, headers)
 
-    # Merge observed-flood polygons into a single gpkg in UTM.
-    # Three product families ship the polygons under different filenames:
-    #   - DELINEATION/MONIT (legacy S3):  *crisis_information_poly.shp
-    #   - GRADING (EMSR257 etc., legacy): *observed_event_a.shp
-    #   - DEL_MONIT** (rapidmapping API): *observedEventA_v*.shp
+    # Merge observed-flood polygons into a single gpkg in UTM (patterns: see OBS_SHP_PATTERNS).
     target_crs = pyproj.CRS.from_epsg(cfg.epsg)
     all_geoms, all_sources = [], []
-    pats = [
-        "*DELINEATION*MONIT*crisis_information_poly.shp",
-        "*GRADING*observed_event_a.shp",
-        "*GRA_*observed_event_a.shp",
-        "*DEL_MONIT*observedEventA*.shp",
-        "*DEL_MONIT*observed_event*.shp",
-        "*GRA_PRODUCT*observedEventA*.shp",
-    ]
+    pats = obs_shp_patterns(bool(ems.get("include_del_product", False)))
     shp_paths = []
     for pat in pats:
         shp_paths.extend(dest.rglob(pat))

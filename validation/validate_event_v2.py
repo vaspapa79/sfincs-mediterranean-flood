@@ -129,7 +129,7 @@ def _list_shps(ems_dir, patterns):
     return sorted(out)
 
 
-def _select_obs_shps(ems_dir):
+def _select_obs_shps(ems_dir, include_del_product=False):
     """Observed-flood shapefiles for the truth union, with per-AOI product preference.
 
     Copernicus EMS ships DELINEATION products (crisis SAR flood mapping, incl.
@@ -142,21 +142,31 @@ def _select_obs_shps(ems_dir):
     separate product family and is not merged), and EMSR664/Emilia-Romagna unions the
     Forli delineation with the seven grading AOIs. Single-product development events
     (Strymonas delineation, Mandra grading) group under one tier and are unaffected.
+
+    The portal's non-monitoring delineation package (`<EMSR>_AOInn_DEL_PRODUCT_v1`, first met on
+    EMSR933 — the Sentinel-1 first delineation of Tzermiado) is matched only when
+    ``include_del_product`` is set (event config ``ems.include_del_product: true``). The five
+    published events were scored without that layer (the EMSR664 8-AOI truth directory holds one),
+    so the default keeps their numbers byte-identical.
     """
     import re
-    cand = _list_shps(ems_dir, [
+    pats = [
         "*DELINEATION*MONIT*crisis_information_poly.shp",
         "*GRADING*observed_event_a.shp",
         "*GRA_*observed_event_a.shp",
         "*DEL_MONIT*observedEventA*.shp",
         "*DEL_MONIT*observed_event*.shp",
         "*GRA_PRODUCT*observedEventA*.shp",
-    ])
+    ]
+    if include_del_product:
+        pats.append("*DEL_PRODUCT*observedEventA*.shp")
+    cand = _list_shps(ems_dir, pats)
     groups = {}
     for p in cand:
         m = re.search(r"AOI(\d+)", p.name)
         key = ("aoi", m.group(1)) if m else ("dir", p.parent.name)
-        is_del = ("DEL_MONIT" in p.name) or ("DELINEATION" in p.name)
+        is_del = (("DEL_MONIT" in p.name) or ("DELINEATION" in p.name)
+                  or ("DEL_PRODUCT" in p.name))
         g = groups.setdefault(key, {"DEL": [], "GRA": []})
         g["DEL" if is_del else "GRA"].append(p)
     obs = []
@@ -211,7 +221,8 @@ def _validate_ems_v2(cfg, s):
     import numpy as np
 
     ems_dir = cfg.paths["data_dir"] / "ems_polygons"
-    obs_shps = _select_obs_shps(ems_dir)
+    obs_shps = _select_obs_shps(
+        ems_dir, include_del_product=bool(cfg.ems.get("include_del_product", False)))
     aoi_shps = _list_shps(ems_dir, [
         "*area_of_interest.shp",
         "*area_of_interest_a.shp",

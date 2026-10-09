@@ -110,6 +110,31 @@ only Tzermiado has a SAR delineation.
 - **F7 — timing.** activationTime 2026-10-04T11:02Z → task received 2026-10-09T12:35:48Z (idle 5 d 1.6 h,
   before the task was issued) → Stage 0 records complete 2026-10-09T12:54Z (see `timing.md`).
 
+## F2 / F4 implemented — regression result (Stage 1, 2026-10-09; record `regression_f2f4.json`)
+Approved at Checkpoint 0. TDD: `tests/test_select_obs_shps.py`, `tests/test_rain_source_product.py`
+(14 tests, RED observed → GREEN). **Design change forced by a new fact:** the canonical EMSR664 8-AOI truth
+directory (`R1_verification/task_emilia_aoi/data/ems_polygons`) *does* contain `EMSR664_AOI01_DEL_PRODUCT_v1`
+(observedEventA, 1153 features), so an unconditional DEL_PRODUCT pattern would have changed the published
+report (`n_obs_shp` 13 → 14). Inclusion is therefore an explicit per-event switch `ems.include_del_product`
+(default off = published behaviour; EMSR933 sets it true) in both `download_ems.py` (merge) and
+`validate_event_v2._select_obs_shps` (truth union). F4: `rain_source: {name: imerg_half_hourly, product: late}`;
+the string form stays Final and string-for-string identical (`IMERG_PRODUCTS` in `download_imerg.py`,
+`EventCfg.imerg_product`).
+
+Regression (`scripts/regression_f2f4.py`, switch off, worktree validator):
+- Valencia EMSR773 (164-mm canonical, `_scoring/v164`): full validation block **IDENTICAL** to
+  `_scoring/score_v164.json`; condensed values **IDENTICAL** to `reports/valencia_emsr773_metrics.json`
+  (n_ems_shps 5, CSI@0.10 0.093878).
+- Emilia-Romagna EMSR664 (canonical model + 8-AOI truth via junctions): condensed values **IDENTICAL** to
+  `reports/emilia_emsr664_metrics.json`; contingency **IDENTICAL** to `_scoring/emilia_rescore.json`
+  (n_ems_shps 13, CSI@0.10 0.240386).
+- DIAGNOSTIC only (never canonical): Emilia with `include_del_product: true` → n_ems_shps 14, observed-wet
+  592.605 km² **unchanged**, CSI 0.24038585 / HR 0.92060901 **unchanged** — the DEL_PRODUCT polygons are
+  geometrically contained in the published union (they coincide with the MONIT01 "Previous flooded area"
+  layer, 1153 features each). The published Emilia truth is complete; only a shapefile count would differ.
+- F6 check: the EMSR773 and EMSR664 packages (runs/ and the 8-AOI set) contain **no** `notAnalysedA` layer,
+  so the Crete notAnalysed exclusion (Stage 4, also as a per-event switch) cannot touch them.
+
 ## Next (Stage 1, no model runs) — after the go
 Catchment delineation per AOI from GLO-30, sea-cell test (R5), closed-polje sinks (Tzermiado, Omalos),
 a-priori meteorology classification (R2 both ways, R4 AMC-III), Δx logic recovery from the EMSR773/EMSR664

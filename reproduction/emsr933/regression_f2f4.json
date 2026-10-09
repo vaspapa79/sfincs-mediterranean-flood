@@ -1,0 +1,90 @@
+{
+  "utc": "2026-10-09T13:24:38Z",
+  "validator": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\validation\\validate_event_v2.py",
+  "events": {
+    "valencia_emsr773": {
+      "config": "C:\\Users\\dvalsamis\\AppData\\Local\\Temp\\claude\\d--ELKAK\\9345177c-48a6-4380-9f01-2779f44e774f\\scratchpad\\regression_f2f4\\cfg_valencia_v164.yaml",
+      "work_dir": "D:\\ELKAK\\ELKAK2\\NHESS\\R1_verification\\task_valencia_anchor\\_scoring\\v164",
+      "fresh_json": "C:\\Users\\dvalsamis\\AppData\\Local\\Temp\\claude\\d--ELKAK\\9345177c-48a6-4380-9f01-2779f44e774f\\scratchpad\\regression_f2f4\\valencia_fresh.json",
+      "validator_stdout_tail": [
+        "  strict@0.10m:  CSI=0.094  HR=0.989  FAR=0.906  BIAS=10.52  GSS=0.033",
+        "  fuzzy r=1:     CSI=0.086  HR=1.000  FAR=0.913  GSS=0.008",
+        "  best CSI:      0.170 at h>0.50 m",
+        "  wrote: C:\\Users\\dvalsamis\\AppData\\Local\\Temp\\claude\\d--ELKAK\\9345177c-48a6-4380-9f01-2779f44e774f\\scratchpad\\regression_f2f4\\valencia_fresh.json"
+      ],
+      "full_block_vs_score_v164": "IDENTICAL",
+      "condensed_vs_reports_json": "IDENTICAL",
+      "csi_0p10": 0.09387811201107124,
+      "n_ems_shps": 5
+    },
+    "emilia_emsr664": {
+      "config": "C:\\Users\\dvalsamis\\AppData\\Local\\Temp\\claude\\d--ELKAK\\9345177c-48a6-4380-9f01-2779f44e774f\\scratchpad\\regression_f2f4\\cfg_emilia_8aoi.yaml",
+      "work_dir": "C:\\Users\\dvalsamis\\AppData\\Local\\Temp\\claude\\d--ELKAK\\9345177c-48a6-4380-9f01-2779f44e774f\\scratchpad\\regression_f2f4\\emilia_work",
+      "fresh_json": "C:\\Users\\dvalsamis\\AppData\\Local\\Temp\\claude\\d--ELKAK\\9345177c-48a6-4380-9f01-2779f44e774f\\scratchpad\\regression_f2f4\\emilia_fresh.json",
+      "validator_stdout_tail": [
+        "  strict@0.10m:  CSI=0.240  HR=0.921  FAR=0.755  BIAS=3.75  GSS=0.073",
+        "  fuzzy r=1:     CSI=0.327  HR=0.986  FAR=0.671  GSS=0.031",
+        "  best CSI:      0.319 at h>0.50 m",
+        "  wrote: C:\\Users\\dvalsamis\\AppData\\Local\\Temp\\claude\\d--ELKAK\\9345177c-48a6-4380-9f01-2779f44e774f\\scratchpad\\regression_f2f4\\emilia_fresh.json"
+      ],
+      "condensed_vs_reports_json": "IDENTICAL",
+      "contingency_vs_emilia_rescore": "IDENTICAL",
+      "rescore_tag": [
+        "full_8aoi"
+      ],
+      "csi_0p10": 0.24038585464026888,
+      "n_ems_shps": 13
+    }
+  },
+  "diagnostic_emilia_include_del_product": {
+    "note": "NOT canonical. Effect of counting EMSR664_AOI01_DEL_PRODUCT_v1 observedEventA in the truth union.",
+    "n_ems_shps": [
+      13,
+      14
+    ],
+    "observed_wet_km2_strict": [
+      592.605,
+      592.605
+    ],
+    "csi_0p10": [
+      0.24038585464026888,
+      0.24038585464026888
+    ],
+    "hr_0p10": [
+      0.9206090059989369,
+      0.9206090059989369
+    ],
+    "contingency_0p10": [
+      {
+        "tp": 24247,
+        "fp": 74529,
+        "fn": 2091,
+        "tn": 42082,
+        "csi": 0.24038585464026888,
+        "hr": 0.9206090059989369,
+        "far": 0.7545253907831861,
+        "f1": 0.38759851015873525,
+        "f2": 0.5939165621570779,
+        "bias": 3.7503227276178905,
+        "gss": 0.07315748782562234,
+        "hss": 0.13634063714888744,
+        "acc": 0.4640046450132565
+      },
+      {
+        "tp": 24247,
+        "fp": 74529,
+        "fn": 2091,
+        "tn": 42082,
+        "csi": 0.24038585464026888,
+        "hr": 0.9206090059989369,
+        "far": 0.7545253907831861,
+        "f1": 0.38759851015873525,
+        "f2": 0.5939165621570779,
+        "bias": 3.7503227276178905,
+        "gss": 0.07315748782562234,
+        "hss": 0.13634063714888744,
+        "acc": 0.4640046450132565
+      }
+    ]
+  }
+}

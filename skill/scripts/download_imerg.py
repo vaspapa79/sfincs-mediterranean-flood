@@ -25,13 +25,24 @@ import xarray as xr
 
 from _common import load_config, ensure_dir
 
+# IMERG product runs (rain_source.product in the YAML; see _common.EventCfg.imerg_product).
+# 'final' reproduces the published behaviour string-for-string; 'late' is the ~14-h-latency
+# Late Run used when the Final run does not exist yet (EMSR933, Oct 2026).
+IMERG_PRODUCTS = {
+    "final": {"short_name": "GPM_3IMERGHH", "label": "IMERG Final V07",
+              "source": "GPM IMERG Final V07 half-hourly"},
+    "late": {"short_name": "GPM_3IMERGHHL", "label": "IMERG Late V07",
+             "source": "GPM IMERG Late Run V07 half-hourly"},
+}
+
 
 def main():
     cfg = load_config()
-    rain_source = cfg.raw.get("rain_source", "era5_hourly")
+    rain_source = cfg.rain_source
     if rain_source != "imerg_half_hourly":
         print(f"rain_source={rain_source!r} (not imerg_half_hourly) — skipping IMERG")
         return 0
+    product = IMERG_PRODUCTS[cfg.imerg_product]
 
     out = cfg.paths["data_dir"] / f"imerg_{cfg.event_slug}.nc"
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -55,10 +66,10 @@ def main():
 
     t0 = cfg.tref.isoformat()
     t1 = cfg.tstop.isoformat()
-    print(f"IMERG search: {t0} -> {t1}  bbox={bbox}")
+    print(f"IMERG search ({product['label']}, {product['short_name']}): {t0} -> {t1}  bbox={bbox}")
 
     results = earthaccess.search_data(
-        short_name="GPM_3IMERGHH",
+        short_name=product["short_name"],
         version="07",
         temporal=(t0, t1),
         bounding_box=bbox,
@@ -115,11 +126,13 @@ def main():
         pr = pr.transpose("time", "lat", "lon")
         pr = pr.rename({"lat": "latitude", "lon": "longitude"})
     pr.attrs["units"] = "mm/h"
-    pr.attrs["long_name"] = "Precipitation (IMERG Final V07 calibrated)"
+    pr.attrs["long_name"] = f"Precipitation ({product['label']} calibrated)"
     pr = pr.where(pr >= 0, 0.0)
 
     out_ds = xr.Dataset({"precip": pr})
-    out_ds.attrs["source"] = "GPM IMERG Final V07 half-hourly"
+    out_ds.attrs["source"] = product["source"]
+    out_ds.attrs["imerg_product"] = cfg.imerg_product
+    out_ds.attrs["imerg_short_name"] = product["short_name"]
     out_ds.attrs["spatial_resolution"] = "0.1 deg"
     out_ds.attrs["temporal_resolution"] = "30 min"
     out_ds.to_netcdf(out, engine="h5netcdf")
