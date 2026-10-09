@@ -1,0 +1,284 @@
+{
+  "checked_utc": "2026-10-09T12:51:44Z",
+  "window": [
+    "2026-09-27",
+    "2026-10-07"
+  ],
+  "bbox_WSEN": [
+    23.4,
+    34.8,
+    26.4,
+    35.7
+  ],
+  "imerg_late": {
+    "short_name": "GPM_3IMERGHHL",
+    "version": "07",
+    "n_granules": 528,
+    "expected_full_window": 528,
+    "per_day": {
+      "2026-09-27": 48,
+      "2026-09-28": 48,
+      "2026-09-29": 48,
+      "2026-09-30": 48,
+      "2026-10-01": 48,
+      "2026-10-02": 48,
+      "2026-10-03": 48,
+      "2026-10-04": 48,
+      "2026-10-05": 48,
+      "2026-10-06": 48,
+      "2026-10-07": 48
+    },
+    "first": "GPM_3IMERGHHL.07:3B-HHR-L.MS.MRG.3IMERG.20260927-S000000-E002959.0000.V07C.HDF5",
+    "last": "GPM_3IMERGHHL.07:3B-HHR-L.MS.MRG.3IMERG.20261007-S233000-E235959.1410.V07C.HDF5",
+    "version_suffixes": [
+      "V07C"
+    ]
+  },
+  "imerg_final": {
+    "short_name": "GPM_3IMERGHH",
+    "version": "07",
+    "n_granules": 0,
+    "expected_full_window": 528,
+    "per_day": {
+      "2026-09-27": 0,
+      "2026-09-28": 0,
+      "2026-09-29": 0,
+      "2026-09-30": 0,
+      "2026-10-01": 0,
+      "2026-10-02": 0,
+      "2026-10-03": 0,
+      "2026-10-04": 0,
+      "2026-10-05": 0,
+      "2026-10-06": 0,
+      "2026-10-07": 0
+    },
+    "first": null,
+    "last": null,
+    "version_suffixes": []
+  },
+  "era5": {
+    "catalogue_temporal_extent": [
+      [
+        "1940-01-01T00:00:00+00:00",
+        "2026-10-03T00:00:00+00:00"
+      ]
+    ],
+    "constraints_2026-09_days": [
+      "01",
+      "02",
+      "03",
+      "04",
+      "05",
+      "06",
+      "07",
+      "08",
+      "09",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22",
+      "23",
+      "24",
+      "25",
+      "26",
+      "27",
+      "28",
+      "29",
+      "30"
+    ],
+    "constraints_2026-10_days": [
+      "01",
+      "02",
+      "03"
+    ]
+  },
+  "glofas": {
+    "process_inputs": {
+      "system_version": [
+        "version_4_0",
+        "version_5_0"
+      ],
+      "hydrological_model": [
+        "lisflood"
+      ],
+      "product_type": [
+        "consolidated",
+        "intermediate"
+      ],
+      "timespan": [
+        "instantaneous",
+        "time_mean"
+      ],
+      "variable": [
+        "average_river_discharge_in_the_last_24_hours",
+        "runoff_water_equivalent",
+        "snow_depth_water_equivalent",
+        "soil_wetness_index"
+      ],
+      "month": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11",
+        "12"
+      ],
+      "data_format": [
+        "grib2",
+        "netcdf"
+      ],
+      "download_format": [
+        "zip",
+        "unarchived"
+      ]
+    },
+    "pipeline_vocabulary_hyear_hmonth": "REJECTED HTTP 422: b'{\"type\":\"invalid parameter\",\"title\":\"invalid parameter\",\"status\":422,\"detail\":\"invalid param \\'hyear\\'\",\"instance\":\"https://ewds.climate.copernicus.eu/api/retrieve/v1/processes/cems-glofas-historical/co'",
+    "version_4_0_consolidated_2026-09_days": [],
+    "version_4_0_consolidated_2026-09_timespan": [],
+    "version_4_0_consolidated_2026-09_variable": [],
+    "version_4_0_consolidated_2026-10_days": [],
+    "version_4_0_consolidated_2026-10_timespan": [],
+    "version_4_0_consolidated_2026-10_variable": [],
+    "version_4_0_intermediate_2026-09_days": [
+      "01",
+      "02",
+      "03",
+      "04",
+      "05",
+      "06",
+      "07",
+      "08",
+      "09",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22",
+      "23",
+      "24",
+      "25",
+      "26",
+      "27",
+      "28",
+      "29",
+      "30"
+    ],
+    "version_4_0_intermediate_2026-09_timespan": [
+      "instantaneous",
+      "time_mean"
+    ],
+    "version_4_0_intermediate_2026-09_variable": [
+      "average_river_discharge_in_the_last_24_hours",
+      "runoff_water_equivalent",
+      "snow_depth_water_equivalent",
+      "soil_wetness_index"
+    ],
+    "version_4_0_intermediate_2026-10_days": [
+      "01",
+      "02",
+      "03",
+      "04",
+      "05",
+      "06"
+    ],
+    "version_4_0_intermediate_2026-10_timespan": [
+      "instantaneous",
+      "time_mean"
+    ],
+    "version_4_0_intermediate_2026-10_variable": [
+      "average_river_discharge_in_the_last_24_hours",
+      "runoff_water_equivalent",
+      "snow_depth_water_equivalent",
+      "soil_wetness_index"
+    ],
+    "version_5_0_consolidated_2026-09_days": [],
+    "version_5_0_consolidated_2026-09_timespan": [],
+    "version_5_0_consolidated_2026-09_variable": [],
+    "version_5_0_consolidated_2026-10_days": [],
+    "version_5_0_consolidated_2026-10_timespan": [],
+    "version_5_0_consolidated_2026-10_variable": [],
+    "version_5_0_intermediate_2026-09_days": [],
+    "version_5_0_intermediate_2026-09_timespan": [],
+    "version_5_0_intermediate_2026-09_variable": [],
+    "version_5_0_intermediate_2026-10_days": [],
+    "version_5_0_intermediate_2026-10_timespan": [],
+    "version_5_0_intermediate_2026-10_variable": []
+  },
+  "copdem_glo30": [
+    {
+      "tile": "Copernicus_DSM_COG_10_N34_00_E023_00_DEM",
+      "http": 200,
+      "bytes": 97309
+    },
+    {
+      "tile": "Copernicus_DSM_COG_10_N34_00_E024_00_DEM",
+      "http": 200,
+      "bytes": 1175157
+    },
+    {
+      "tile": "Copernicus_DSM_COG_10_N34_00_E025_00_DEM",
+      "http": 200,
+      "bytes": 1012310
+    },
+    {
+      "tile": "Copernicus_DSM_COG_10_N34_00_E026_00_DEM",
+      "http": 200,
+      "bytes": 133067
+    },
+    {
+      "tile": "Copernicus_DSM_COG_10_N35_00_E023_00_DEM",
+      "http": 200,
+      "bytes": 7091590
+    },
+    {
+      "tile": "Copernicus_DSM_COG_10_N35_00_E024_00_DEM",
+      "http": 200,
+      "bytes": 14584365
+    },
+    {
+      "tile": "Copernicus_DSM_COG_10_N35_00_E025_00_DEM",
+      "http": 200,
+      "bytes": 13349374
+    },
+    {
+      "tile": "Copernicus_DSM_COG_10_N35_00_E026_00_DEM",
+      "http": 200,
+      "bytes": 3414405
+    }
+  ],
+  "worldcover_2021_v200": [
+    {
+      "tile": "ESA_WorldCover_10m_2021_v200_N33E021_Map",
+      "http": 200,
+      "bytes": 4513826
+    },
+    {
+      "tile": "ESA_WorldCover_10m_2021_v200_N33E024_Map",
+      "http": 200,
+      "bytes": 15017011
+    }
+  ]
+}

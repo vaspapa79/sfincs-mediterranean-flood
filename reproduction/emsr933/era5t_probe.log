@@ -1,0 +1,33 @@
+2026-10-09 15:52:19,391 INFO [2026-10-06T00:00:00Z] The [CDS Terms of Use](https://cds.climate.copernicus.eu/disclaimer-privacy) will be updated on 28 October 2026. Continued use of Copernicus Products and Services through the CDS after this date constitutes acceptance of the updated terms. If you do not accept the change, please [contact ECMWF Support](https://jira.ecmwf.int/plugins/servlet/desk/portal/1/create/202) before 27 October 2026.
+ **[More information about the upcoming change.](https://forum.ecmwf.int/t/upcoming-cds-terms-of-use-change/15374)**
+2026-10-09 15:52:19,805 INFO Request ID is 8f4bfa05-872d-4516-b906-9b114075f351
+2026-10-09 15:52:20,498 INFO status has been updated to accepted
+2026-10-09 15:52:41,824 INFO status has been updated to running
+2026-10-09 15:52:53,268 INFO status has been updated to successful
+8fde0ffcc9f70ab607c1c33da5be6496.nc:   0%|          | 0.00/25.1k [00:00<?, ?B/s]8fde0ffcc9f70ab607c1c33da5be6496.nc: 100%|##########| 25.1k/25.1k [00:00<00:00, 151kB/s]                                                                                        2026-10-09 15:52:55,097 INFO Request ID is 2d16f31b-b6d2-42f0-9834-876ef0b2ef4a
+2026-10-09 15:52:55,153 INFO status has been updated to accepted
+2026-10-09 15:53:27,694 INFO status has been updated to successful
+eb561c2244f651046b19c5cf9849fe77.nc:   0%|          | 0.00/25.1k [00:00<?, ?B/s]eb561c2244f651046b19c5cf9849fe77.nc: 100%|##########| 25.1k/25.1k [00:00<00:00, 145kB/s]                                                                                        {
+ "2026-09-27": [
+  "0005"
+ ],
+ "2026-09-28": [
+  "0005"
+ ],
+ "2026-09-29": [
+  "0005"
+ ],
+ "2026-09-30": [
+  "0005"
+ ],
+ "2026-10-01": [
+  "0005"
+ ],
+ "2026-10-02": [
+  "0005"
+ ],
+ "2026-10-03": [
+  "0005"
+ ]
+}
+-> reproduction\emsr933\era5t_probe_20261009T125219Z.json

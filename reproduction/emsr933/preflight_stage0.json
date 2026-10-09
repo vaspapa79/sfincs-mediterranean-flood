@@ -1,0 +1,119 @@
+{
+  "utc": "2026-10-09T12:44:09Z",
+  "python": "C:\\Users\\dvalsamis\\AppData\\Local\\anaconda3\\envs\\sfincs-viz\\python.exe",
+  "python_version": "3.11.15",
+  "checks": {
+    "numpy.dot(eye3,eye3).sum()==3.0": {
+      "ok": true,
+      "detail": 3.0
+    },
+    "libblas pinned to openblas (conda-meta build string)": {
+      "ok": true,
+      "detail": [
+        "8_h0adab6e_openblas"
+      ]
+    },
+    "hydromt 0.10.1 / hydromt_sfincs 1.2.2 (pinned)": {
+      "ok": true,
+      "detail": "hydromt 0.10.1, hydromt_sfincs 1.2.2"
+    },
+    "worktree skill/scripts/_common import + machine override": {
+      "ok": true,
+      "detail": "_common=D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\skill\\scripts\\_common.py  override=D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\skill\\machine.local.yaml"
+    },
+    "env.python": {
+      "ok": true,
+      "detail": "C:/Users/dvalsamis/AppData/Local/anaconda3/envs/sfincs-viz/python.exe"
+    },
+    "env.hydromt": {
+      "ok": true,
+      "detail": "C:/Users/dvalsamis/AppData/Local/anaconda3/envs/sfincs-viz/Scripts/hydromt.exe"
+    },
+    "env.sfincs_exe": {
+      "ok": true,
+      "detail": "D:/ELKAK/implementation/SFINCS_bin/SFINCS_v2.3.0_mt_Faber_release_exe/sfincs.exe"
+    },
+    "env.gdalbuildvrt": {
+      "ok": true,
+      "detail": "C:/Users/dvalsamis/AppData/Local/anaconda3/envs/sfincs-viz/Library/bin/gdalbuildvrt.exe"
+    },
+    "env.gdal_data": {
+      "ok": true,
+      "detail": "C:/Users/dvalsamis/AppData/Local/anaconda3/envs/sfincs-viz/Library/share/gdal"
+    },
+    "gdalbuildvrt --version": {
+      "ok": true,
+      "detail": "GDAL 3.12.2 \"Chicoutimi\", released 2026/02/03"
+    },
+    "hydromt CLI --version": {
+      "ok": true,
+      "detail": "HydroMT version: 0.10.1"
+    },
+    "sfincs.exe + DLLs co-located": {
+      "ok": true,
+      "detail": "D:\\ELKAK\\implementation\\SFINCS_bin\\SFINCS_v2.3.0_mt_Faber_release_exe\\sfincs.exe (3666944 B); 9 DLLs"
+    },
+    "~/.cdsapirc url+key": {
+      "ok": true,
+      "detail": "url=https://cds.climate.copernicus.eu/api  key=<set>"
+    },
+    "Earthdata netrc (urs.earthdata.nasa.gov)": {
+      "ok": true,
+      "detail": {
+        "C:\\Users\\dvalsamis\\.netrc": true,
+        "C:\\Users\\dvalsamis\\_netrc": true
+      }
+    },
+    "CDS token live check": {
+      "ok": true,
+      "detail": "HTTP 200 https://cds.climate.copernicus.eu/api/profiles/v1/account/verification/pat"
+    },
+    "EWDS token live check (same key)": {
+      "ok": true,
+      "detail": "HTTP 200 https://ewds.climate.copernicus.eu/api/profiles/v1/account/verification/pat"
+    },
+    "Earthdata live login (earthaccess netrc)": {
+      "ok": true,
+      "detail": "authenticated=True (login redacted)"
+    },
+    ".claude/skills/sfincs-flood-reproduction/scripts import": {
+      "ok": true,
+      "detail": "D:\\ELKAK\\.claude\\skills\\sfincs-flood-reproduction\\scripts\\_common.py"
+    },
+    "SFINCS_SKILL_DIR unset (validator uses the worktree's own skill/)": {
+      "ok": true,
+      "detail": null
+    }
+  },
+  "versions": {
+    "numpy": "2.4.6",
+    "xarray": "2026.4.0",
+    "hydromt": "0.10.1",
+    "hydromt_sfincs": "1.2.2",
+    "rasterio": "1.4.4",
+    "pyogrio": "0.12.1",
+    "geopandas": "1.1.3",
+    "shapely": "2.1.2",
+    "pyproj": "3.7.2",
+    "earthaccess": "0.17.0",
+    "cdsapi": "0.7.7",
+    "h5netcdf": "1.8.1",
+    "netCDF4": "1.7.4",
+    "yaml": "6.0.3",
+    "scipy": "1.17.1",
+    "GDAL(rasterio)": "3.12.2",
+    "GDAL(pyogrio)": "3.12.2"
+  },
+  "sfincs_dlls": [
+    "hdf.dll",
+    "hdf5.dll",
+    "hdf5_hl.dll",
+    "libcurl.dll",
+    "libifcoremd.dll",
+    "libiomp5md.dll",
+    "libmmd.dll",
+    "netcdf.dll",
+    "zlib1.dll"
+  ],
+  "fails": []
+}

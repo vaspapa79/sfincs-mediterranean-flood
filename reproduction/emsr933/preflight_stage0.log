@@ -1,0 +1,40 @@
+C:\Users\dvalsamis\AppData\Local\anaconda3\envs\sfincs-viz\Lib\site-packages\pyogrio\core.py:34: RuntimeWarning: Could not detect GDAL data files. Set GDAL_DATA environment variable to the correct path.
+  _init_gdal_data()
+  ok   numpy.dot(eye3,eye3).sum()==3.0: 3.0
+  ok   libblas pinned to openblas (conda-meta build string): ['8_h0adab6e_openblas']
+       numpy            2.4.6
+       xarray           2026.4.0
+       hydromt          0.10.1
+       hydromt_sfincs   1.2.2
+       rasterio         1.4.4
+       pyogrio          0.12.1
+       geopandas        1.1.3
+       shapely          2.1.2
+       pyproj           3.7.2
+       earthaccess      0.17.0
+       cdsapi           0.7.7
+       h5netcdf         1.8.1
+       netCDF4          1.7.4
+       yaml             6.0.3
+       scipy            1.17.1
+       GDAL(rasterio)   3.12.2
+       GDAL(pyogrio)    3.12.2
+  ok   hydromt 0.10.1 / hydromt_sfincs 1.2.2 (pinned): hydromt 0.10.1, hydromt_sfincs 1.2.2
+  ok   worktree skill/scripts/_common import + machine override: _common=D:\ELKAK\sfincs-mediterranean-floods\.worktrees\emsr933-crete\skill\scripts\_common.py  override=D:\ELKAK\sfincs-mediterranean-floods\.worktrees\emsr933-crete\skill\machine.local.yaml
+  ok   env.python: C:/Users/dvalsamis/AppData/Local/anaconda3/envs/sfincs-viz/python.exe
+  ok   env.hydromt: C:/Users/dvalsamis/AppData/Local/anaconda3/envs/sfincs-viz/Scripts/hydromt.exe
+  ok   env.sfincs_exe: D:/ELKAK/implementation/SFINCS_bin/SFINCS_v2.3.0_mt_Faber_release_exe/sfincs.exe
+  ok   env.gdalbuildvrt: C:/Users/dvalsamis/AppData/Local/anaconda3/envs/sfincs-viz/Library/bin/gdalbuildvrt.exe
+  ok   env.gdal_data: C:/Users/dvalsamis/AppData/Local/anaconda3/envs/sfincs-viz/Library/share/gdal
+  ok   gdalbuildvrt --version: GDAL 3.12.2 "Chicoutimi", released 2026/02/03
+  ok   hydromt CLI --version: HydroMT version: 0.10.1
+  ok   sfincs.exe + DLLs co-located: D:\ELKAK\implementation\SFINCS_bin\SFINCS_v2.3.0_mt_Faber_release_exe\sfincs.exe (3666944 B); 9 DLLs
+  ok   ~/.cdsapirc url+key: url=https://cds.climate.copernicus.eu/api  key=<set>
+  ok   Earthdata netrc (urs.earthdata.nasa.gov): {'C:\\Users\\dvalsamis\\.netrc': True, 'C:\\Users\\dvalsamis\\_netrc': True}
+  ok   CDS token live check: HTTP 200 https://cds.climate.copernicus.eu/api/profiles/v1/account/verification/pat
+  ok   EWDS token live check (same key): HTTP 200 https://ewds.climate.copernicus.eu/api/profiles/v1/account/verification/pat
+  ok   Earthdata live login (earthaccess netrc): authenticated=True (login redacted)
+  ok   .claude/skills/sfincs-flood-reproduction/scripts import: D:\ELKAK\.claude\skills\sfincs-flood-reproduction\scripts\_common.py
+  ok   SFINCS_SKILL_DIR unset (validator uses the worktree's own skill/): None
+
+PREFLIGHT OK  -> D:\ELKAK\sfincs-mediterranean-floods\.worktrees\emsr933-crete\reproduction\emsr933\preflight_stage0.json
