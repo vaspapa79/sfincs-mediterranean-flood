@@ -25,3 +25,4 @@ activation — idle time before CODE-10 existed, to be reported as such, not as 
 - 2026-10-09T12:47:20Z — EMS API snapshot (provisional cut-off); 6 released packages downloaded by 12:48Z.
 - 2026-10-09T12:51:44Z — availability checks (IMERG/CDS/EWDS/DEM/WorldCover); 12:52:19–12:53Z ERA5T expver probe (2 CDS requests, 35 s each).
 - 2026-10-09T12:56Z — STAGE0_REPORT.md written; commit follows. Waiting for Checkpoint-0 go.
+- 2026-10-09T12:59:16Z — commit `6a5e64b` (Stage 0 records); AUDIT.md §8 entry + this line committed next.
