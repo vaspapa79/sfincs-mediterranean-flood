@@ -1,5 +1,5 @@
 {
-  "utc": "2026-10-09T13:38:33Z",
+  "utc": "2026-10-09T14:07:54Z",
   "grid_m_approx": [
     76,
     93
@@ -26,7 +26,13 @@
             25.2738,
             35.2038
           ],
-          "internal_catchment_km2": 441.3,
+          "internal_catchment_km2": 59.1,
+          "catchment_bbox_WSEN": [
+            25.2442,
+            35.16,
+            25.3992,
+            35.2317
+          ],
           "n_inlets": 201,
           "n_cells_90m": 454
         },
@@ -44,7 +50,13 @@
             25.3089,
             35.2544
           ],
-          "internal_catchment_km2": 16.6,
+          "internal_catchment_km2": 12.5,
+          "catchment_bbox_WSEN": [
+            25.2867,
+            35.2208,
+            25.3317,
+            35.2708
+          ],
           "n_inlets": 65,
           "n_cells_90m": 99
         },
@@ -63,6 +75,12 @@
             35.2468
           ],
           "internal_catchment_km2": 190.2,
+          "catchment_bbox_WSEN": [
+            25.3717,
+            35.11,
+            25.5933,
+            35.2775
+          ],
           "n_inlets": 52,
           "n_cells_90m": 77
         }
@@ -88,7 +106,13 @@
             25.0975,
             35.3194
           ],
-          "internal_catchment_km2": 94.0,
+          "internal_catchment_km2": 31.8,
+          "catchment_bbox_WSEN": [
+            25.0,
+            35.18,
+            25.1025,
+            35.3242
+          ],
           "n_inlets": 30,
           "n_cells_90m": 27
         },
@@ -107,6 +131,12 @@
             35.2361
           ],
           "internal_catchment_km2": 106.1,
+          "catchment_bbox_WSEN": [
+            25.0,
+            35.1183,
+            25.175,
+            35.2467
+          ],
           "n_inlets": 13,
           "n_cells_90m": 5
         },
@@ -125,6 +155,12 @@
             35.2411
           ],
           "internal_catchment_km2": 8.1,
+          "catchment_bbox_WSEN": [
+            25.14,
+            35.2075,
+            25.1717,
+            35.2483
+          ],
           "n_inlets": 11,
           "n_cells_90m": 5
         }
@@ -150,7 +186,13 @@
             25.4754,
             35.1789
           ],
-          "internal_catchment_km2": 223.3,
+          "internal_catchment_km2": 128.6,
+          "catchment_bbox_WSEN": [
+            25.3983,
+            35.11,
+            25.5933,
+            35.2292
+          ],
           "n_inlets": 557,
           "n_cells_90m": 5095
         },
@@ -168,7 +210,13 @@
             25.4856,
             35.2158
           ],
-          "internal_catchment_km2": 6.9,
+          "internal_catchment_km2": 6.8,
+          "catchment_bbox_WSEN": [
+            25.4733,
+            35.2033,
+            25.5117,
+            35.2292
+          ],
           "n_inlets": 78,
           "n_cells_90m": 114
         },
@@ -186,7 +234,13 @@
             25.4248,
             35.1267
           ],
-          "internal_catchment_km2": 12.6,
+          "internal_catchment_km2": 9.1,
+          "catchment_bbox_WSEN": [
+            25.4033,
+            35.1233,
+            25.4525,
+            35.1558
+          ],
           "n_inlets": 13,
           "n_cells_90m": 9
         }
@@ -213,6 +267,12 @@
             35.0145
           ],
           "internal_catchment_km2": 4.6,
+          "catchment_bbox_WSEN": [
+            25.8075,
+            35.0125,
+            25.8317,
+            35.0433
+          ],
           "n_inlets": 19,
           "n_cells_90m": 11
         },
@@ -231,6 +291,12 @@
             35.0192
           ],
           "internal_catchment_km2": 11.1,
+          "catchment_bbox_WSEN": [
+            25.8208,
+            35.0183,
+            25.8608,
+            35.0692
+          ],
           "n_inlets": 5,
           "n_cells_90m": 2
         },
@@ -249,6 +315,12 @@
             35.0592
           ],
           "internal_catchment_km2": 11.2,
+          "catchment_bbox_WSEN": [
+            25.875,
+            35.0583,
+            25.925,
+            35.1033
+          ],
           "n_inlets": 5,
           "n_cells_90m": 2
         }
@@ -275,6 +347,12 @@
             35.3544
           ],
           "internal_catchment_km2": 12.6,
+          "catchment_bbox_WSEN": [
+            24.8825,
+            35.34,
+            24.925,
+            35.3825
+          ],
           "n_inlets": 125,
           "n_cells_90m": 193
         },
@@ -293,6 +371,12 @@
             35.3489
           ],
           "internal_catchment_km2": 103.7,
+          "catchment_bbox_WSEN": [
+            24.7983,
+            35.2425,
+            24.9317,
+            35.3792
+          ],
           "n_inlets": 87,
           "n_cells_90m": 79
         },
@@ -310,7 +394,13 @@
             24.7647,
             35.3602
           ],
-          "internal_catchment_km2": 447.0,
+          "internal_catchment_km2": 225.5,
+          "catchment_bbox_WSEN": [
+            24.7492,
+            35.2033,
+            24.9317,
+            35.38
+          ],
           "n_inlets": 81,
           "n_cells_90m": 59
         }
@@ -337,6 +427,12 @@
             35.2595
           ],
           "internal_catchment_km2": 13.6,
+          "catchment_bbox_WSEN": [
+            25.6417,
+            35.2475,
+            25.6892,
+            35.2992
+          ],
           "n_inlets": 84,
           "n_cells_90m": 223
         },
@@ -354,7 +450,13 @@
             25.6608,
             35.2049
           ],
-          "internal_catchment_km2": 6.7,
+          "internal_catchment_km2": 5.2,
+          "catchment_bbox_WSEN": [
+            25.6392,
+            35.1942,
+            25.6725,
+            35.2167
+          ],
           "n_inlets": 88,
           "n_cells_90m": 222
         },
@@ -372,7 +474,13 @@
             25.637,
             35.2584
           ],
-          "internal_catchment_km2": 39.9,
+          "internal_catchment_km2": 20.7,
+          "catchment_bbox_WSEN": [
+            25.6192,
+            35.2475,
+            25.6892,
+            35.2992
+          ],
           "n_inlets": 44,
           "n_cells_90m": 83
         }
@@ -399,6 +507,12 @@
             35.3351
           ],
           "internal_catchment_km2": 24.8,
+          "catchment_bbox_WSEN": [
+            23.8675,
+            35.295,
+            23.9317,
+            35.3558
+          ],
           "n_inlets": 183,
           "n_cells_90m": 786
         },
@@ -417,6 +531,12 @@
             35.2892
           ],
           "internal_catchment_km2": 38.9,
+          "catchment_bbox_WSEN": [
+            23.905,
+            35.2625,
+            24.0025,
+            35.3308
+          ],
           "n_inlets": 161,
           "n_cells_90m": 347
         },
@@ -435,6 +555,12 @@
             35.348
           ],
           "internal_catchment_km2": 15.6,
+          "catchment_bbox_WSEN": [
+            24.0067,
+            35.3125,
+            24.0658,
+            35.3567
+          ],
           "n_inlets": 39,
           "n_cells_90m": 77
         }
@@ -461,6 +587,12 @@
             35.0838
           ],
           "internal_catchment_km2": 6.1,
+          "catchment_bbox_WSEN": [
+            25.84,
+            35.0717,
+            25.8817,
+            35.0967
+          ],
           "n_inlets": 11,
           "n_cells_90m": 5
         },
@@ -479,6 +611,12 @@
             35.1279
           ],
           "internal_catchment_km2": 0.3,
+          "catchment_bbox_WSEN": [
+            25.8325,
+            35.1217,
+            25.8417,
+            35.1283
+          ],
           "n_inlets": 5,
           "n_cells_90m": 3
         },
@@ -497,6 +635,12 @@
             35.1062
           ],
           "internal_catchment_km2": 4.9,
+          "catchment_bbox_WSEN": [
+            25.825,
+            35.0875,
+            25.8575,
+            35.1208
+          ],
           "n_inlets": 5,
           "n_cells_90m": 2
         }

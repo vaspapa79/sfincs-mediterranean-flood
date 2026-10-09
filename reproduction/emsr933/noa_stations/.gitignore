@@ -1,0 +1,5 @@
+# Byte-exact copies of meteo.gr station pages/TXT files and NOA map images (15 MB). Kept locally for
+# provenance; NOT committed — meteo.gr terms of use (https://www.meteo.gr/terms.cfm) prohibit
+# reproduction without the consent of the National Observatory of Athens. The CSVs in this folder
+# carry the source URL of every value and the attribution "Εθνικό Αστεροσκοπείο Αθηνών / meteo.gr".
+raw/

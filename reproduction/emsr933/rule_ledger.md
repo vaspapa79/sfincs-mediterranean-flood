@@ -15,7 +15,7 @@ those files.
 |---|---|---|
 | Storm type | quasi-stationary cut-off low over the E Mediterranean under a blocking high over NE Europe; persistent N–NE flow (Beaufort 8–9 in the Aegean); orographic lift over the Cretan massifs (NOA, K. Lagouvardos, as given in the task; NOA quotes in `noa_stations/sources.md`) | orographic/synoptic forcing anchored to the massifs (Lefka Ori ≈ 30 km, Psiloritis ≈ 25 km, Dikti ≈ 20 km across) → R2 input (§2) |
 | Duration | rain from Wed 30 Sep afternoon to Mon 5 Oct morning, peak Thu 1 – Fri 2 Oct; EMS `eventTime` 2026-10-01T07:00 UTC | multi-day wet spell → **AMC-III** → R4 off; "multi-day event" window convention (spin-up 7 d, post 2–4 d) |
-| Intensity class | orographic rain on karst massifs with 72-h station totals of several hundred mm (press-reported, verified in `noa_stations/`) | peak intensity > HSG-B saturated capacity (second R4 trigger, same outcome) |
+| Intensity class | orographic rain on karst massifs; NOA station five-day totals (local days 30 Sep–4 Oct, `noa_stations/stations_daily.csv`): Xyloskalo 867.2, Anogeia 681.8, Samaria gorge 632.0, Askyfou 510.6, Tzermiado 447.8 mm; daily maxima 364.8 (Xyloskalo, 3 Oct), 305.8 (Anogeia, 1 Oct), 231.0 mm (Tzermiado, 1 Oct) | peak intensity > HSG-B saturated capacity (second R4 trigger, same outcome) |
 | Fire history | not needed for the decision (AMC-III already switches R4 off); an EFFIS check for the 2025 Ierapetra fires near AOI04 is optional | — |
 | Coast | every candidate domain contains GLO-30 cells ≤ 0 m (`stage1_terrain.json` → `domains.*.contains_sea = true`) | R5 on |
 | Catchments | per AOI below (§3); no stream with upstream area ≥ 120 km² crosses the edge of any candidate domain (`domains.*.n_inflow_ge_120km2 = 0`) | R3 off |
@@ -41,9 +41,9 @@ Domain = island-wide (§5); the three per-cluster alternatives give the same dec
 ## 3. Per-AOI facts (products at the 2026-10-09T12:47:20Z cut-off; terrain from GLO-30 @ 90 m)
 | AOI | name | released product(s) → post-event source, acquisition UTC, lag after the 1–2 Oct peak | obs km² (union, EPSG:32634) → cells @50 / **100** / 150 m | interpretable (≥ 1 km²)? | AOI km² | DEM min/max m | sea cells in box | catchment facts (filled network) | closed depressions (component ≥ 0.5 m) |
 |---|---|---|---|---|---|---|---|---|---|
-| 01 | Kastelli | DEL_MONIT01 (2962): **Legion optical 1.2 m, 06 Oct 10:47, +4 d** | 0.242 → 96 / **24** / 10 | no | 252.5 | 150/1558 | 0 | Σ uparea at outlets 478.1; largest stream inside 199.7; top inflow 162.6 km² (Aposelemis system, includes the filled-network Lasithi overflow) | 3.19 km² at 298–315 m (catchment 441 km²); 0.54 km² at 184–207 m (catchment 190 km², Aposelemis reservoir basin) |
+| 01 | Kastelli | DEL_MONIT01 (2962): **Legion optical 1.2 m, 06 Oct 10:47, +4 d** | 0.242 → 96 / **24** / 10 | no | 252.5 | 150/1558 | 0 | Σ uparea at outlets 478.1; largest stream inside 199.7; top inflow 162.6 km² (Aposelemis system, includes the filled-network Lasithi overflow) | 3.19 km² at 298–315 m (catchment 59.1 km²); 0.54 km² at 184–207 m (catchment 190.2 km², Aposelemis reservoir basin) |
 | 02 | Irakleio | none (DEL N, MONIT01 N) — Sentinel-1 04 Oct 16:22 / Legion 06 Oct 10:47 not produced | — | drops out | 140.3 | 0/787 | 441 | largest inside 179.4 (Giofyros); top inflow 104.2 | 0.19 km² |
-| 03 | Tzermiado | DEL (2955): **Sentinel-1 SAR 20 m, 04 Oct 16:22, +2.5 d** · DEL_MONIT02 (2959): **GeoEye-1 optical 2 m, 08 Oct 09:02, +6 d** · GRA: in production (expected 09 Oct 21:00) | **4.4372** → 1774 / **443** / 197 | **yes** | 174.4 | 232/1801 | 0 | largest inside 133.8; top inflow 15.6 | **Lasithi polje: 35.76 km², floor 807.8 m, spill 889.6 m (max depth 81.8 m), 1979 Mm³ below spill, internal catchment 223.3 km²** |
+| 03 | Tzermiado | DEL (2955): **Sentinel-1 SAR 20 m, 04 Oct 16:22, +2.5 d** · DEL_MONIT02 (2959): **GeoEye-1 optical 2 m, 08 Oct 09:02, +6 d** · GRA: in production (expected 09 Oct 21:00) | **4.4372** → 1774 / **443** / 197 | **yes** | 174.4 | 232/1801 | 0 | largest inside 133.8; top inflow 15.6 | **Lasithi polje: 35.76 km², floor 807.8 m, spill 889.6 m (max depth 81.8 m), 1979 Mm³ below spill, internal catchment 128.6 km² (bbox 25.3983–25.5933 E, 35.110–35.2292 N)** |
 | 04 | Agios Ioannis | DEL_MONIT01 (2957): **WorldView-3 optical 1.6 m, 06 Oct 10:46, +4 d** (all "Flood trace") | 0.0325 → 13 / **3** / 1 | no | 59.3 | 0/819 | 342 | largest inside 19.9; top inflow 18.3 | 0.08 km² |
 | 05 | Anogeia | none (DEL N, MONIT01 N) — Sentinel-1 04 Oct / GeoEye-1 08 Oct 09:48 not produced | — | drops out | 166.5 | 119/1530 | 0 | largest inside 225.5; top inflow 56.4 | 1.35 km² at 284–314 m |
 | 06 | Agios Nikolaos | DEL_MONIT01 (2960): **Legion optical 2 m, 08 Oct 08:55, +6 d** (incl. one 6-Mass Movement/mudflow polygon, 0.0017 km²) | 0.0593 → 23 / **5** / 2 | no | 116.2 | −1/1086 | 897 | largest inside 120.2; top inflow 32.0 | 1.56 km² at 310–327 m; 1.56 km² at 126–155 m |
@@ -60,14 +60,15 @@ area" are both counted (as for EMSR773/EMSR664); the AOI06 mass-movement polygon
 - **Catchment delineation.** pyflwdir D8 on GLO-30 decimated 3× (≈ 76 × 93 m cells) over 23.4–26.4 E / 34.8–35.7 N
   (3600 × 1080 cells, 8415 km² land); sea (≤ 0 m) masked so the coast is the outlet; all depressions filled for the
   flow network (conventional delineation). Caveat: filling routes the Lasithi polje's overflow (spill 889.6 m) into
-  the Aposelemis system, so the AOI01 inflow of 162.6 km² and the 441 km² catchment of the Kastelli depression
-  include the 223 km² Lasithi closed basin, which in reality (and in SFINCS, which does not fill) does not drain
-  overland. Per-AOI inflow candidates (lowest-z_b channel cell at the AOI edge) are in `stage1_terrain.json`
+  the Aposelemis system, so the AOI01 inflow of 162.6 km² (Aposelemis reservoir reach) includes the 128.6 km²
+  Lasithi closed basin, which in reality (and in SFINCS, which does not fill) does not drain overland. Catchments
+  of depression components are basin counts (cells whose flow path reaches the region); an earlier inlet-sum
+  estimate (223 km² for Lasithi) double-counted re-entering paths and was replaced. Per-AOI inflow candidates (lowest-z_b channel cell at the AOI edge) are in `stage1_terrain.json`
   (`aois[].external_inflow_streams_top`); none is needed because R3 is off.
 - **Sea cells (R5).** `stage1_terrain.json` → `domains.{east,central,west,island}.contains_sea = true` (90-m sea
   cells: see JSON); AOI boxes 02/04/06/07/08 contain sea cells, 01/03/05 do not.
-- **Closed depressions.** Lasithi (AOI03): 35.76 km² of floor below the 889.6 m spill, 1979 Mm³ storage; its 223 km²
-  internal catchment receiving 0.4–0.5 m of rain yields ≈ 90–110 Mm³, so the polje cannot spill — SFINCS will pond
+- **Closed depressions.** Lasithi (AOI03): 35.76 km² of floor below the 889.6 m spill, 1979 Mm³ storage; its 128.6 km²
+  internal catchment receiving 0.45 m of rain (the Tzermiado total) yields ≈ 58 Mm³, so the polje cannot spill — SFINCS will pond
   all runoff in the lowest floor cells (no sinkhole drainage; the real plateau drains through the Chonos
   katavothra). Omalos (AOI07): 5.51 km² plateau floor, 125.6 Mm³ below the 1078.6 m spill, 24.8 km² catchment —
   same behaviour. These are noted, not modified (task pitfalls). The 2.43 km², 308-m-deep "depression" in the
@@ -127,11 +128,45 @@ outward to 0.01° (`stage1_terrain.json` → `domains`):
 | Harness (F5) | IMERG applied ×2 / −30 min; `tspinup = 0`; IB boundary pinned at 0 m (`F5_VERIFY.md`) | option (a)/(b)/(c) — author decision before Stage 2/3 |
 
 ## 7. R2-on variant — anchor documentation (format of `task_valencia_anchor/TARGET_SELECTION.md`)
-_To be completed from `noa_stations/` (NOA/meteo.gr station retrieval in progress at the time of writing); the
-variant YAML `emsr933_crete_enhanced_R2on.yaml` is written together with this section._
-Planned content: source (NOA/meteo.gr automatic weather stations, Lagouvardos et al. 2017), stations inside the
-anchor watershed, window, method (station total → watershed-mean target; `bias_correct_imerg.py` scales the whole
-domain by one factor over the window, as for Mandra/Pineios/Valencia), and the resulting `target_mm`.
+Variant YAML: `skill/examples/emsr933_crete_enhanced_R2on.yaml` (labelled; canonical only if decided in §8-1).
+- **Source.** National Observatory of Athens / meteo.gr automatic weather station network (NOANN; Lagouvardos et al.
+  2017, Geosci. Data J. 4, 4–16). Station Τζερμιάδων Λασιθίου (slug `tzermiado`, 820 m; header coordinates 35.2 N /
+  25.5 E, rounded to 0.1° by the station file). Monthly climatological summaries
+  `https://penteli.meteo.gr/stations/tzermiado/NOAAPRMO.TXT` (September) and `…/NOAAMO.TXT` (October), accessed
+  2026-10-09T13:39:20Z; values in `noa_stations/stations_daily.csv` (byte copies of the pages in `noa_stations/raw/`,
+  kept locally, not committed — NOA terms).
+- **Why this station.** It is the only NOA station on the floor of the Lasithi polje — the closed catchment of the
+  headline AOI (AOI03 Tzermiado). `potamoi` (Ποτάμων Λασιθίου, 865 m, 442.0 mm) also sits at plateau elevation but its
+  0.1°-rounded coordinates (35.2/25.5) cannot place it inside the 128.6 km² catchment — reported, not used. No station
+  on the Dikti flanks of the catchment.
+- **Window.** The five station days 30 Sep – 4 Oct 2026 (station day = EEST calendar day, UTC+3) =
+  **2026-09-29 21:00 → 2026-10-04 21:00 UTC**: daily 40.6 / 231.0 / 107.2 / 35.6 / 33.4 mm, **sum 447.8 mm**; NOA's own
+  five-day figure is 448 (article entryID=4340 and the NOA map, `noa_stations/published_totals.csv`). Outside the
+  window: 9.0 (28 Sep), 6.8 (29 Sep), 1.0 (5 Oct), 0.0 mm (6 Oct).
+- **Method.** As for Mandra (gauge anchor), Pineios (gauge-based watershed total) and Valencia (catchment average):
+  `bias_correct_imerg.py` (pipeline step 06b) multiplies every IMERG frame inside the window by one factor so that the
+  IMERG mean over `watershed_bbox` **[25.3983, 35.11, 25.5933, 35.2292]** — the GLO-30 closed catchment of the Lasithi
+  polje, 128.6 km² (`stage1_depressions.json`, AOI03 component 1, `catchment_bbox_WSEN`) — equals **`target_mm = 447.8`**.
+  The factor is computed at run time from the raw IMERG Late field; nothing is typed. The scaled field is applied to
+  the whole domain (as in the other events).
+- **Caveat (direction opposite to the Valencia bbox argument).** One floor station at 820 m represents a catchment that
+  rises to ~2100 m on Dikti; the ungauged flanks probably received more, so 447.8 mm is likely a *lower* bound of the
+  catchment mean. The "72-h" press values (Xyloskalo ≈ 700, Tzermiado 415 …) are a TV-meteorologist compilation (Ta
+  Nea, 3 Oct 20:35), not an NOA publication, and the station files show they are storm-to-date totals; not used.
+- **Context (not anchors): five-day sums 30 Sep–4 Oct from the station files** — Xyloskalo 867.2, Anogeia 681.8,
+  Samaria gorge 632.0, Askyfou 510.6, Sempronas 454.6, Tzermiado 447.8, Fourfouras 442.2, Potamoi 442.0, Asi Gonia 385.2,
+  Kandanos 300.4, Kampoi 171.2, Sitia 103.0, Ierapetra 94.8 mm (NOA map totals agree within 4 mm). Seventeen further
+  stations exist but were not retrieved (the server stopped answering at 13:39:44Z); listed with status in
+  `noa_stations/stations_meta.csv`. No sub-daily public data (meteosearch login).
+- **Official meteorology (NOA article 4340; verbatim Greek in `noa_stations/sources.md`).** Blocked circulation after
+  explosive cyclogenesis over the N Atlantic; a cut-off low quasi-stationary for days over SE Europe / E Mediterranean;
+  persistent north-to-north-east flow over the Aegean; moist unstable air; orographic lifting over Crete's massifs
+  enhanced the rain. The 3 Oct episode is rated Category 4 (very significant) on NOA's Rainfall Episode Index (art.
+  4336); "the most significant storm in Crete in at least 25 years" (art. 4341).
+- **Licence.** meteo.gr terms (`https://www.meteo.gr/terms.cfm`): reproduction prohibited without NOA consent;
+  third-party tables of station measurements must carry the logo and the attribution "Εθνικό Αστεροσκοπείο
+  Αθηνών/meteo.gr". The raw copies are therefore not committed; the CSVs carry source URLs and the attribution.
+  Publishing the station values (paper or repository) needs NOA's consent/attribution — author to handle.
 
 ## 8. Decisions required at Checkpoint 1
 1. **R2** — raw IMERG (enhanced.yaml) or gauge-anchored (R2on variant) — Papaioannou.

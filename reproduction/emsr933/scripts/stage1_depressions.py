@@ -4,8 +4,8 @@ The aggregate depression statistics in stage1_terrain.py mix the karst poljes (L
 Omalos) with deep but tiny pits in gorges (GLO-30 artefacts). Here every connected region with
 fill depth > 0.5 m inside each AOI box is labelled; the three largest by area are reported with
 area, floor (lowest DEM), spill level (filled surface), max depth, storage volume below the spill
-level, centroid, and the internal catchment draining to the region (region + upstream area at
-its inlet cells in the depression-filled flow network). Same 90-m GLO-30 grid and sea masking as
+level, centroid, and the internal catchment draining to the region (all cells whose flow path
+reaches the region in the depression-filled network, with the catchment bbox — the R2 anchor watershed). Same 90-m GLO-30 grid and sea masking as
 stage1_terrain.py. Facts only.
 
 Usage: python -I stage1_depressions.py --event-root D:/ELKAK/implementation/emsr933_crete --out-dir <...>
@@ -22,7 +22,7 @@ import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from stage1_terrain import (ISLAND, DECIM, read_dem, cell_area_km2, rasterize, rc_to_lonlat,  # noqa: E402
-                            latest)
+                            bbox_of_mask, latest)
 
 
 def main() -> int:
@@ -66,15 +66,20 @@ def main() -> int:
             vol_m3 = float((d * carea2d[cm] * 1e6).sum())
             cmf = cm.ravel(); idx_out = np.where(~cmf & landf)[0]; ds_out = idxs_ds[idx_out]
             inl = idx_out[(ds_out != idx_out) & cmf[ds_out]]
-            catch = area + float(np.nansum(uparea[inl]))
+            # Catchment = every cell whose flow path reaches the region (basins of the region cells).
+            # Summing upstream area at the inlet cells double-counts paths that leave and re-enter
+            # an irregular region (it gave 223 km² for Lasithi; the basin count gives 128.6 km²).
+            catch_mask = (flw.basins(idxs=np.where(cmf)[0]) > 0) | cm
+            catch = float(carea2d[catch_mask].sum())
+            cb = bbox_of_mask(catch_mask, transform)
             r0, c0 = rr[j], cc[j]
             rows.append({"area_km2": round(area, 2), "max_depth_m": round(float(d.max()), 1),
                          "floor_m": round(float(dem[r0, c0]), 1), "spill_level_m": round(float(filled[r0, c0]), 1),
                          "volume_below_spill_Mm3": round(vol_m3 / 1e6, 1),
                          "deepest_cell_lonlat": rc_to_lonlat(transform, r0, c0),
                          "centroid_lonlat": rc_to_lonlat(transform, float(rr.mean()), float(cc.mean())),
-                         "internal_catchment_km2": round(catch, 1), "n_inlets": int(inl.size),
-                         "n_cells_90m": int(cm.sum())})
+                         "internal_catchment_km2": round(catch, 1), "catchment_bbox_WSEN": [round(v, 4) for v in cb],
+                         "n_inlets": int(inl.size), "n_cells_90m": int(cm.sum())})
         rep["aois"].append({"number": ao["number"], "name": ao["name"], "n_components": int(nlab),
                             "total_km2_depth_gt_0p5": round(float(carea2d[(depth > 0.5) & m & land].sum()), 2),
                             "largest_components": rows})
