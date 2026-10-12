@@ -1,0 +1,597 @@
+{
+  "utc": "2026-10-12T10:02:41Z",
+  "events": [
+    {
+      "label": "Pineios EMSR692 enhanced",
+      "yaml": "emsr692_pineios_enhanced.yaml",
+      "data_dir": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\data",
+      "slug": "pineios",
+      "window_days": {
+        "spinup_days": 7,
+        "pre_event_days": 3,
+        "post_event_days": 4
+      },
+      "tref": "2023-08-27T00:00:00",
+      "tstart": "2023-09-03T00:00:00",
+      "tstop": "2023-09-11T00:00:00",
+      "spinup_days_download_only": 7,
+      "bbox_WSEN": [
+        21.84,
+        39.31,
+        22.99,
+        40.02
+      ],
+      "rain_source": "imerg_half_hourly",
+      "scs_cn_enabled": false,
+      "scs_cn_amc": null,
+      "rain_bias_correct_enabled": true,
+      "files": {
+        "era5": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\data\\era5_pineios.nc",
+        "imerg": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\data\\imerg_pineios.raw.nc",
+        "imerg_is_raw": true
+      },
+      "spinup": {
+        "era5_mm": 0.4,
+        "era5_cells": 15,
+        "era5_stamps": 168,
+        "era5_file_span": [
+          "2023-08-01 00:00:00",
+          "2023-09-30 23:00:00"
+        ],
+        "imerg_mm": 1.4,
+        "imerg_cells": 84,
+        "imerg_stamps": 336,
+        "imerg_file_span": [
+          "2023-08-27T00:00",
+          "2023-09-11T00:00"
+        ]
+      },
+      "simulated": {
+        "era5_mm": 301.4,
+        "era5_cells": 15,
+        "era5_stamps": 192,
+        "era5_file_span": [
+          "2023-08-01 00:00:00",
+          "2023-09-30 23:00:00"
+        ],
+        "imerg_mm": 147.3,
+        "imerg_cells": 84,
+        "imerg_stamps": 384,
+        "imerg_file_span": [
+          "2023-08-27T00:00",
+          "2023-09-11T00:00"
+        ]
+      }
+    },
+    {
+      "label": "Pineios EMSR692 baseline",
+      "yaml": "emsr692_pineios.yaml",
+      "data_dir": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\data",
+      "slug": "pineios",
+      "window_days": {
+        "spinup_days": 1,
+        "pre_event_days": 3,
+        "post_event_days": 4
+      },
+      "tref": "2023-09-02T00:00:00",
+      "tstart": "2023-09-03T00:00:00",
+      "tstop": "2023-09-11T00:00:00",
+      "spinup_days_download_only": 1,
+      "bbox_WSEN": [
+        21.9,
+        39.3,
+        23.0,
+        40.0
+      ],
+      "rain_source": "era5_hourly",
+      "scs_cn_enabled": false,
+      "scs_cn_amc": null,
+      "rain_bias_correct_enabled": false,
+      "files": {
+        "era5": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\data\\era5_pineios.nc",
+        "imerg": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\data\\imerg_pineios.raw.nc",
+        "imerg_is_raw": true
+      },
+      "spinup": {
+        "era5_mm": 0.2,
+        "era5_cells": 12,
+        "era5_stamps": 24,
+        "era5_file_span": [
+          "2023-08-01 00:00:00",
+          "2023-09-30 23:00:00"
+        ],
+        "imerg_mm": 0.0,
+        "imerg_cells": 77,
+        "imerg_stamps": 48,
+        "imerg_file_span": [
+          "2023-08-27T00:00",
+          "2023-09-11T00:00"
+        ]
+      },
+      "simulated": {
+        "era5_mm": 294.7,
+        "era5_cells": 12,
+        "era5_stamps": 192,
+        "era5_file_span": [
+          "2023-08-01 00:00:00",
+          "2023-09-30 23:00:00"
+        ],
+        "imerg_mm": 150.6,
+        "imerg_cells": 77,
+        "imerg_stamps": 384,
+        "imerg_file_span": [
+          "2023-08-27T00:00",
+          "2023-09-11T00:00"
+        ]
+      }
+    },
+    {
+      "label": "Mandra EMSR257 enhanced",
+      "yaml": "emsr257_mandra_enhanced.yaml",
+      "data_dir": "D:\\ELKAK\\implementation\\mandra_sfincs_enhanced\\data",
+      "slug": "mandra",
+      "window_days": {
+        "spinup_days": 1,
+        "pre_event_days": 2,
+        "post_event_days": 2
+      },
+      "tref": "2017-11-12T00:00:00",
+      "tstart": "2017-11-13T00:00:00",
+      "tstop": "2017-11-18T00:00:00",
+      "spinup_days_download_only": 1,
+      "bbox_WSEN": [
+        23.3,
+        37.95,
+        23.6,
+        38.2
+      ],
+      "rain_source": "imerg_half_hourly",
+      "scs_cn_enabled": false,
+      "scs_cn_amc": null,
+      "rain_bias_correct_enabled": true,
+      "files": {
+        "era5": "D:\\ELKAK\\implementation\\mandra_sfincs_enhanced\\data\\era5_mandra.nc",
+        "imerg": "D:\\ELKAK\\implementation\\mandra_sfincs_enhanced\\data\\imerg_mandra.raw.nc",
+        "imerg_is_raw": true
+      },
+      "spinup": {
+        "era5_mm": 0.3,
+        "era5_cells": 2,
+        "era5_stamps": 24,
+        "era5_file_span": [
+          "2017-11-12 00:00:00",
+          "2017-11-18 23:00:00"
+        ],
+        "imerg_mm": 0.4,
+        "imerg_cells": 9,
+        "imerg_stamps": 48,
+        "imerg_file_span": [
+          "2017-11-12T00:00",
+          "2017-11-18T00:00"
+        ]
+      },
+      "simulated": {
+        "era5_mm": 38.6,
+        "era5_cells": 2,
+        "era5_stamps": 120,
+        "era5_file_span": [
+          "2017-11-12 00:00:00",
+          "2017-11-18 23:00:00"
+        ],
+        "imerg_mm": 138.1,
+        "imerg_cells": 9,
+        "imerg_stamps": 240,
+        "imerg_file_span": [
+          "2017-11-12T00:00",
+          "2017-11-18T00:00"
+        ]
+      }
+    },
+    {
+      "label": "Mandra EMSR257 baseline",
+      "yaml": "emsr257_mandra.yaml",
+      "data_dir": "D:\\ELKAK\\implementation\\mandra_sfincs_enhanced\\data",
+      "slug": "mandra",
+      "window_days": {
+        "spinup_days": 1,
+        "pre_event_days": 2,
+        "post_event_days": 2
+      },
+      "tref": "2017-11-12T00:00:00",
+      "tstart": "2017-11-13T00:00:00",
+      "tstop": "2017-11-18T00:00:00",
+      "spinup_days_download_only": 1,
+      "bbox_WSEN": [
+        23.3,
+        37.95,
+        23.6,
+        38.2
+      ],
+      "rain_source": "era5_hourly",
+      "scs_cn_enabled": false,
+      "scs_cn_amc": null,
+      "rain_bias_correct_enabled": false,
+      "files": {
+        "era5": "D:\\ELKAK\\implementation\\mandra_sfincs_enhanced\\data\\era5_mandra.nc",
+        "imerg": "D:\\ELKAK\\implementation\\mandra_sfincs_enhanced\\data\\imerg_mandra.raw.nc",
+        "imerg_is_raw": true
+      },
+      "spinup": {
+        "era5_mm": 0.3,
+        "era5_cells": 2,
+        "era5_stamps": 24,
+        "era5_file_span": [
+          "2017-11-12 00:00:00",
+          "2017-11-18 23:00:00"
+        ],
+        "imerg_mm": 0.4,
+        "imerg_cells": 9,
+        "imerg_stamps": 48,
+        "imerg_file_span": [
+          "2017-11-12T00:00",
+          "2017-11-18T00:00"
+        ]
+      },
+      "simulated": {
+        "era5_mm": 38.6,
+        "era5_cells": 2,
+        "era5_stamps": 120,
+        "era5_file_span": [
+          "2017-11-12 00:00:00",
+          "2017-11-18 23:00:00"
+        ],
+        "imerg_mm": 138.1,
+        "imerg_cells": 9,
+        "imerg_stamps": 240,
+        "imerg_file_span": [
+          "2017-11-12T00:00",
+          "2017-11-18T00:00"
+        ]
+      }
+    },
+    {
+      "label": "Strymonas EMSR122 enhanced (v3)",
+      "yaml": "emsr122_strymonas_enhanced.yaml",
+      "data_dir": "D:\\ELKAK\\implementation\\emsr122_sfincs_v3\\data",
+      "slug": "strymonas",
+      "window_days": {
+        "spinup_days": 7,
+        "pre_event_days": 3,
+        "post_event_days": 3
+      },
+      "tref": "2015-03-21T00:00:00",
+      "tstart": "2015-03-28T00:00:00",
+      "tstop": "2015-04-04T00:00:00",
+      "spinup_days_download_only": 7,
+      "bbox_WSEN": [
+        22.8,
+        40.6,
+        24.0,
+        41.4
+      ],
+      "rain_source": "imerg_half_hourly",
+      "scs_cn_enabled": true,
+      "scs_cn_amc": 2,
+      "rain_bias_correct_enabled": false,
+      "files": {
+        "era5": "D:\\ELKAK\\implementation\\emsr122_sfincs_v3\\data\\era5_strymonas.nc",
+        "imerg": "D:\\ELKAK\\implementation\\emsr122_sfincs_v3\\data\\imerg_strymonas.nc",
+        "imerg_is_raw": false
+      },
+      "spinup": {
+        "era5_mm": 21.1,
+        "era5_cells": 20,
+        "era5_stamps": 25,
+        "era5_file_span": [
+          "2015-03-01 00:00:00",
+          "2015-04-30 23:00:00"
+        ],
+        "imerg_mm": 47.6,
+        "imerg_cells": 96,
+        "imerg_stamps": 336,
+        "imerg_file_span": [
+          "2015-03-21T00:00",
+          "2015-04-04T00:00"
+        ]
+      },
+      "simulated": {
+        "era5_mm": 9.2,
+        "era5_cells": 20,
+        "era5_stamps": 168,
+        "era5_file_span": [
+          "2015-03-01 00:00:00",
+          "2015-04-30 23:00:00"
+        ],
+        "imerg_mm": 6.7,
+        "imerg_cells": 96,
+        "imerg_stamps": 336,
+        "imerg_file_span": [
+          "2015-03-21T00:00",
+          "2015-04-04T00:00"
+        ]
+      }
+    },
+    {
+      "label": "Strymonas EMSR122 baseline",
+      "yaml": "emsr122_strymonas.yaml",
+      "data_dir": "D:\\ELKAK\\implementation\\emsr122_sfincs_v3\\data",
+      "slug": "strymonas",
+      "window_days": {
+        "spinup_days": 1,
+        "pre_event_days": 3,
+        "post_event_days": 3
+      },
+      "tref": "2015-03-27T00:00:00",
+      "tstart": "2015-03-28T00:00:00",
+      "tstop": "2015-04-04T00:00:00",
+      "spinup_days_download_only": 1,
+      "bbox_WSEN": [
+        22.8,
+        40.6,
+        24.0,
+        41.4
+      ],
+      "rain_source": "era5_hourly",
+      "scs_cn_enabled": false,
+      "scs_cn_amc": null,
+      "rain_bias_correct_enabled": false,
+      "files": {
+        "era5": "D:\\ELKAK\\implementation\\emsr122_sfincs_v3\\data\\era5_strymonas.nc",
+        "imerg": "D:\\ELKAK\\implementation\\emsr122_sfincs_v3\\data\\imerg_strymonas.nc",
+        "imerg_is_raw": false
+      },
+      "spinup": {
+        "era5_mm": 20.0,
+        "era5_cells": 20,
+        "era5_stamps": 24,
+        "era5_file_span": [
+          "2015-03-01 00:00:00",
+          "2015-04-30 23:00:00"
+        ],
+        "imerg_mm": 21.0,
+        "imerg_cells": 96,
+        "imerg_stamps": 48,
+        "imerg_file_span": [
+          "2015-03-21T00:00",
+          "2015-04-04T00:00"
+        ]
+      },
+      "simulated": {
+        "era5_mm": 9.2,
+        "era5_cells": 20,
+        "era5_stamps": 168,
+        "era5_file_span": [
+          "2015-03-01 00:00:00",
+          "2015-04-30 23:00:00"
+        ],
+        "imerg_mm": 6.7,
+        "imerg_cells": 96,
+        "imerg_stamps": 336,
+        "imerg_file_span": [
+          "2015-03-21T00:00",
+          "2015-04-04T00:00"
+        ]
+      }
+    },
+    {
+      "label": "Valencia EMSR773 enhanced",
+      "yaml": "emsr773_valencia_enhanced.yaml",
+      "data_dir": "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\valencia_emsr773\\data",
+      "slug": "valencia",
+      "window_days": {
+        "spinup_days": 3,
+        "pre_event_days": 2,
+        "post_event_days": 2
+      },
+      "tref": "2024-10-24T00:00:00",
+      "tstart": "2024-10-27T00:00:00",
+      "tstop": "2024-11-01T00:00:00",
+      "spinup_days_download_only": 3,
+      "bbox_WSEN": [
+        -0.9,
+        39.05,
+        0.05,
+        39.75
+      ],
+      "rain_source": "imerg_half_hourly",
+      "scs_cn_enabled": false,
+      "scs_cn_amc": null,
+      "rain_bias_correct_enabled": true,
+      "files": {
+        "era5": "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\valencia_emsr773\\data\\era5_valencia.nc",
+        "imerg": "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\valencia_emsr773\\data\\imerg_valencia.raw.nc",
+        "imerg_is_raw": true
+      },
+      "spinup": {
+        "era5_mm": 24.9,
+        "era5_cells": 9,
+        "era5_stamps": 72,
+        "era5_file_span": [
+          "2024-10-01 00:00:00",
+          "2024-11-30 23:00:00"
+        ],
+        "imerg_mm": 17.0,
+        "imerg_cells": 80,
+        "imerg_stamps": 144,
+        "imerg_file_span": [
+          "2024-10-24T00:00",
+          "2024-11-01T00:00"
+        ]
+      },
+      "simulated": {
+        "era5_mm": 109.9,
+        "era5_cells": 9,
+        "era5_stamps": 120,
+        "era5_file_span": [
+          "2024-10-01 00:00:00",
+          "2024-11-30 23:00:00"
+        ],
+        "imerg_mm": 61.6,
+        "imerg_cells": 80,
+        "imerg_stamps": 240,
+        "imerg_file_span": [
+          "2024-10-24T00:00",
+          "2024-11-01T00:00"
+        ]
+      }
+    },
+    {
+      "label": "Emilia-Romagna EMSR664 enhanced",
+      "yaml": "emsr664_emilia_romagna_enhanced.yaml",
+      "data_dir": "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\emilia_emsr664\\data",
+      "slug": "emilia_romagna",
+      "window_days": {
+        "spinup_days": 14,
+        "pre_event_days": 3,
+        "post_event_days": 4
+      },
+      "tref": "2023-04-30T00:00:00",
+      "tstart": "2023-05-14T00:00:00",
+      "tstop": "2023-05-22T00:00:00",
+      "spinup_days_download_only": 14,
+      "bbox_WSEN": [
+        11.35,
+        44.0,
+        12.55,
+        44.75
+      ],
+      "rain_source": "imerg_half_hourly",
+      "scs_cn_enabled": false,
+      "scs_cn_amc": null,
+      "rain_bias_correct_enabled": false,
+      "files": {
+        "era5": "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\emilia_emsr664\\data\\era5_emilia_romagna.nc",
+        "imerg": "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\emilia_emsr664\\data\\imerg_emilia_romagna.nc",
+        "imerg_is_raw": false
+      },
+      "spinup": {
+        "era5_mm": 122.7,
+        "era5_cells": 15,
+        "era5_stamps": 336,
+        "era5_file_span": [
+          "2023-04-01 00:00:00",
+          "2023-05-30 23:00:00"
+        ],
+        "imerg_mm": 106.7,
+        "imerg_cells": 96,
+        "imerg_stamps": 672,
+        "imerg_file_span": [
+          "2023-04-30T00:00",
+          "2023-05-22T00:00"
+        ]
+      },
+      "simulated": {
+        "era5_mm": 118.5,
+        "era5_cells": 15,
+        "era5_stamps": 192,
+        "era5_file_span": [
+          "2023-04-01 00:00:00",
+          "2023-05-30 23:00:00"
+        ],
+        "imerg_mm": 118.7,
+        "imerg_cells": 96,
+        "imerg_stamps": 384,
+        "imerg_file_span": [
+          "2023-04-30T00:00",
+          "2023-05-22T00:00"
+        ]
+      }
+    },
+    {
+      "label": "Crete EMSR933 enhanced (Late IMERG)",
+      "yaml": "emsr933_crete_enhanced.yaml",
+      "data_dir": "D:\\ELKAK\\implementation\\emsr933_crete_enhanced\\data",
+      "slug": "crete",
+      "window_days": {
+        "spinup_days": 7,
+        "pre_event_days": 3,
+        "post_event_days": 4
+      },
+      "tref": "2026-09-21T00:00:00",
+      "tstart": "2026-09-28T00:00:00",
+      "tstop": "2026-10-06T00:00:00",
+      "spinup_days_download_only": 7,
+      "bbox_WSEN": [
+        23.4,
+        34.8,
+        26.4,
+        35.7
+      ],
+      "rain_source": "imerg_half_hourly",
+      "scs_cn_enabled": false,
+      "scs_cn_amc": null,
+      "rain_bias_correct_enabled": false,
+      "files": {
+        "era5": null,
+        "imerg": "D:\\ELKAK\\implementation\\emsr933_crete_enhanced\\data\\imerg_crete.nc",
+        "imerg_is_raw": false
+      },
+      "spinup": {
+        "imerg_mm": 47.9,
+        "imerg_cells": 270,
+        "imerg_stamps": 336,
+        "imerg_file_span": [
+          "2026-09-21T00:00",
+          "2026-10-06T00:00"
+        ]
+      },
+      "simulated": {
+        "imerg_mm": 121.9,
+        "imerg_cells": 270,
+        "imerg_stamps": 384,
+        "imerg_file_span": [
+          "2026-09-21T00:00",
+          "2026-10-06T00:00"
+        ]
+      }
+    },
+    {
+      "label": "Crete EMSR933 baseline",
+      "yaml": "emsr933_crete.yaml",
+      "data_dir": "D:\\ELKAK\\implementation\\emsr933_crete\\data",
+      "slug": "crete",
+      "window_days": {
+        "spinup_days": 7,
+        "pre_event_days": 3,
+        "post_event_days": 4
+      },
+      "tref": "2026-09-21T00:00:00",
+      "tstart": "2026-09-28T00:00:00",
+      "tstop": "2026-10-06T00:00:00",
+      "spinup_days_download_only": 7,
+      "bbox_WSEN": [
+        23.4,
+        34.8,
+        26.4,
+        35.7
+      ],
+      "rain_source": "era5_hourly",
+      "scs_cn_enabled": false,
+      "scs_cn_amc": null,
+      "rain_bias_correct_enabled": false,
+      "files": {
+        "era5": "D:\\ELKAK\\implementation\\emsr933_crete\\data\\era5_crete.nc",
+        "imerg": null,
+        "imerg_is_raw": null
+      },
+      "spinup": {
+        "era5_mm": 24.5,
+        "era5_cells": 36,
+        "era5_stamps": 168,
+        "era5_file_span": [
+          "2026-09-01 00:00:00",
+          "2026-10-06 23:00:00"
+        ]
+      },
+      "simulated": {
+        "era5_mm": 81.2,
+        "era5_cells": 36,
+        "era5_stamps": 192,
+        "era5_file_span": [
+          "2026-09-01 00:00:00",
+          "2026-10-06 23:00:00"
+        ]
+      }
+    }
+  ]
+}

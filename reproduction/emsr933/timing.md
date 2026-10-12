@@ -13,6 +13,7 @@ boundaries. Times are UTC.
 |---|---|---|---|---|---|---|---|
 | 0 Preflight + EMS snapshot + availability | 2026-10-09T12:35:48Z | 2026-10-09T12:56Z | 0 h 20 min | 0.35 | _to fill_ | — | session start = task paste; end = STAGE0_REPORT.md written |
 | 1 Rule ledger + YAMLs (no model runs); also F2/F4 fixes + regression, F5_VERIFY.md, daily latency probe, NOA station retrieval | 2026-10-09T13:08:34Z | 2026-10-09T14:15Z | 1 h 07 min | 1.1 | _to fill_ | | start = Checkpoint-0 go; end = Checkpoint-1 posted; four F5 agents + one web-research agent ran in parallel (their wall-clock is inside this hour) |
+| CODE-12 (harness v1.4 code + tests, re-run manifest, Crete build QC) — on branch `fix/harness-v1.4` | 2026-10-12T09:35:27Z | 2026-10-12T10:40Z | 1 h 05 min | 1.1 | _to fill_ | | start = CODE-12 paste; A1–A2 commit `513ce5a` 10:12:15Z; Crete build-only QC 09:47:40–09:52:32Z (4 min 52 s hydromt); Crete ERA5/IMERG downloaded for A3 (not run); one inventory agent ran in parallel; end = Checkpoint-2 posted |
 
 ## Data-latency probe (daily, until ERA5T covers 7 Oct) — `scripts/daily_probe.py`, CSV in `latency_probe.csv`
 | probe UTC | ERA5 last requestable day | IMERG Final granules 27 Sep–7 Oct | GloFAS v4 intermediate last day | EMS products F/I/N | AOI03 GRA |
@@ -44,3 +45,13 @@ activation — idle time before CODE-10 existed, to be reported as such, not as 
 - 2026-10-09T13:49Z — catalog-label test GREEN (17 tests); schema validation of `emsr933_crete.yaml` + `emsr933_crete_enhanced.yaml` OK (`stage1_yaml_validation.json`); `rule_ledger.md` written, §7 (R2-on anchor) pending the NOA/meteo.gr retrieval; commit `46aba38` 13:50Z.
 - 2026-10-09T14:04Z — NOA/meteo.gr retrieval returned (13 stations, 117 daily values, 57 published figures, sources + licence); Tzermiado 30 Sep–4 Oct = 447.8 mm (NOA 448).
 - 2026-10-09T14:08Z — polje catchments recomputed basin-based (Lasithi 128.6 km², was 223 by inlet-sum double counting); `emsr933_crete_enhanced_R2on.yaml` written and schema-checked (3 configs, preflight OK); ledger §7 completed.
+- 2026-10-12T09:01:29Z — daily probe (ERA5T through 2026-10-06 → F1 gate open); Checkpoint 1 posted; AUDIT §8 Stage-1 block (`69d1c58`).
+
+## CODE-12 — event log (harness v1.4; Crete work limited to the build-only QC)
+- 2026-10-12T09:35:27Z — CODE-12 received; branch `fix/harness-v1.4` from `69d1c58` (09:35:39Z).
+- 2026-10-12T09:42–09:45Z — Crete ERA5 (CDS, 0.6 MB) and IMERG Late (721 granules) downloaded for A3 — not run.
+- 2026-10-12T09:47:40Z — Crete build-only hydromt QC build (grid/dep/mask/subgrid, no forcing) started; first attempt with hydromt `setup_waterlevel_bnd_from_mask` failed (pandas-3 `RangeIndex.is_integer`), re-run without it finished 09:52:32Z; subgrid 1.95 GB.
+- 2026-10-12T09:5xZ — tests written (RED: 22 attribute errors), implementation, 40 unit tests GREEN; pre-/post-change Pineios forcing regression byte-identical.
+- 2026-10-12T10:0xZ — A2 reference pressures, A3 spin-up totals, Crete QC analysis; synthetic 25-hPa SFINCS test GREEN (boundary 0.2489 m vs expected 0.2489).
+- 2026-10-12T10:12:15Z — commit `513ce5ab73bbf4ef41e091cf3c49c3b836f2cd8b` (A1–A2 + tests + records; no corrected published-event run exists at this commit).
+- 2026-10-12T10:2xZ — one-day Pineios boundary slice (copy of the as-run model, no scoring) run with the v1.4 boundary; MANIFEST.md (Part B) written from the read-only inventory; AUDIT §9 block generated; second commit; Checkpoint 2.

@@ -1,0 +1,202 @@
+{
+  "utc": "2026-10-12T10:19:56Z",
+  "source_model": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\model",
+  "work": "C:\\Users\\dvalsamis\\AppData\\Local\\Temp\\claude\\d--ELKAK\\9345177c-48a6-4380-9f01-2779f44e774f\\scratchpad\\pineios_slice\\model",
+  "slice": [
+    "2023-09-05T00:00:00",
+    "2023-09-06T00:00:00"
+  ],
+  "scoring": "none",
+  "n_bnd_points": 10,
+  "msk2_cells": 650,
+  "msk2_zb_min_max": [
+    0.0,
+    0.0
+  ],
+  "pavbnd_pa": 101325.0,
+  "rhow": 1024.0,
+  "sfincs_wall_s": 204.6,
+  "n_output_times": 145,
+  "boundary_pressure_hpa_min_max": [
+    1006.743125,
+    1014.547578125
+  ],
+  "expected_ib_m_min_max": [
+    -0.012917086011165264,
+    0.06477441505797656
+  ],
+  "modelled_zs_min_max": [
+    1.555432049826777e-06,
+    0.059958018362522125
+  ],
+  "boundary_wet_fraction": 0.8204562334217507,
+  "diff_mean_m": -0.005613317113502392,
+  "diff_rmse_m": 0.006570629827646342,
+  "diff_max_abs_m": 0.018819174580238032,
+  "corr_modelled_vs_expected": 0.9835957017592486,
+  "series_hourly": [
+    {
+      "time": "2023-09-05T00:00",
+      "expected_mean_m": 0.0473,
+      "modelled_mean_m": 0.0396
+    },
+    {
+      "time": "2023-09-05T01:00",
+      "expected_mean_m": 0.052,
+      "modelled_mean_m": 0.0445
+    },
+    {
+      "time": "2023-09-05T02:00",
+      "expected_mean_m": 0.0545,
+      "modelled_mean_m": 0.0479
+    },
+    {
+      "time": "2023-09-05T03:00",
+      "expected_mean_m": 0.0546,
+      "modelled_mean_m": 0.0485
+    },
+    {
+      "time": "2023-09-05T04:00",
+      "expected_mean_m": 0.0541,
+      "modelled_mean_m": 0.0472
+    },
+    {
+      "time": "2023-09-05T05:00",
+      "expected_mean_m": 0.0546,
+      "modelled_mean_m": 0.0465
+    },
+    {
+      "time": "2023-09-05T06:00",
+      "expected_mean_m": 0.0538,
+      "modelled_mean_m": 0.0461
+    },
+    {
+      "time": "2023-09-05T07:00",
+      "expected_mean_m": 0.0461,
+      "modelled_mean_m": 0.0387
+    },
+    {
+      "time": "2023-09-05T08:00",
+      "expected_mean_m": 0.0419,
+      "modelled_mean_m": 0.034
+    },
+    {
+      "time": "2023-09-05T09:00",
+      "expected_mean_m": 0.0331,
+      "modelled_mean_m": 0.0272
+    },
+    {
+      "time": "2023-09-05T10:00",
+      "expected_mean_m": 0.0183,
+      "modelled_mean_m": 0.0146
+    },
+    {
+      "time": "2023-09-05T11:00",
+      "expected_mean_m": 0.014,
+      "modelled_mean_m": 0.0103
+    },
+    {
+      "time": "2023-09-05T12:00",
+      "expected_mean_m": 0.014,
+      "modelled_mean_m": 0.0104
+    },
+    {
+      "time": "2023-09-05T13:00",
+      "expected_mean_m": 0.0178,
+      "modelled_mean_m": 0.0136
+    },
+    {
+      "time": "2023-09-05T14:00",
+      "expected_mean_m": 0.0204,
+      "modelled_mean_m": 0.0159
+    },
+    {
+      "time": "2023-09-05T15:00",
+      "expected_mean_m": 0.0174,
+      "modelled_mean_m": 0.0136
+    },
+    {
+      "time": "2023-09-05T16:00",
+      "expected_mean_m": 0.0138,
+      "modelled_mean_m": 0.0107
+    },
+    {
+      "time": "2023-09-05T17:00",
+      "expected_mean_m": 0.0091,
+      "modelled_mean_m": 0.0066
+    },
+    {
+      "time": "2023-09-05T18:00",
+      "expected_mean_m": 0.0074,
+      "modelled_mean_m": 0.0045
+    },
+    {
+      "time": "2023-09-05T19:00",
+      "expected_mean_m": 0.0025,
+      "modelled_mean_m": 0.0023
+    },
+    {
+      "time": "2023-09-05T20:00",
+      "expected_mean_m": 0.0034,
+      "modelled_mean_m": 0.0036
+    },
+    {
+      "time": "2023-09-05T21:00",
+      "expected_mean_m": 0.0037,
+      "modelled_mean_m": 0.0052
+    },
+    {
+      "time": "2023-09-05T22:00",
+      "expected_mean_m": 0.0049,
+      "modelled_mean_m": 0.0053
+    },
+    {
+      "time": "2023-09-05T23:00",
+      "expected_mean_m": -0.0005,
+      "modelled_mean_m": 0.0022
+    },
+    {
+      "time": "2023-09-06T00:00",
+      "expected_mean_m": 0.003,
+      "modelled_mean_m": 0.0044
+    }
+  ],
+  "sfincs_log_tail": [
+    " Time in meteo forcing  :     26.603 ( 13.0%)",
+    " Time in momentum       :    135.817 ( 66.5%)",
+    " Time in continuity     :     35.810 ( 17.5%)",
+    " Time in output         :      3.498 (  1.7%)",
+    "",
+    " Average time step (s)  :      4.240",
+    "",
+    "---------- Closing off SFINCS -----------"
+  ],
+  "pressure_sampling_comparison": {
+    "nearest": {
+      "n": 77328,
+      "mean_diff_m": -0.005613317113502392,
+      "rmse_m": 0.006570629827646342,
+      "max_abs_m": 0.018819174580238032,
+      "corr": 0.9835957017592486,
+      "ratio_mod_over_exp_where_exp_gt_2cm": 0.837267391234286
+    },
+    "bilinear": {
+      "n": 77328,
+      "mean_diff_m": -0.004461236140358659,
+      "rmse_m": 0.004939185988994047,
+      "max_abs_m": 0.011709349442036006,
+      "corr": 0.9933588606104706,
+      "ratio_mod_over_exp_where_exp_gt_2cm": 0.872438470590629
+    }
+  },
+  "per_cell_time_mean_diff_bilinear_m": {
+    "min": -0.00858781502540128,
+    "median": -0.004437661970343787,
+    "max": -0.001525146132332324
+  },
+  "at_mslp_minimum": {
+    "time": "2023-09-05T03:00",
+    "expected_mean_m": 0.0531591734400626,
+    "modelled_mean_m": 0.04851309955120087
+  }
+}

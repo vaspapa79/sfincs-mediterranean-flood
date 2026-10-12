@@ -1,0 +1,101 @@
+# Re-run manifest — every SFINCS run behind NHESS R5 (CODE-12 Part B, planning only)
+
+Status: **planning only — no run has been executed.** Option (c) (fix the harness and re-run every published
+event) is Papaioannou's decision; nothing here starts before "GO-C". Harness to use: **v1.4** (commit
+`513ce5ab73bbf4ef41e091cf3c49c3b836f2cd8b`, 2026-10-12T10:12:15Z; `harness_version: v1.4` has to be added
+to each YAML at run time — the committed example YAMLs still default to v1.3 so that they keep reproducing
+the published records).
+
+Source of every fact: the read-only inventory `INVENTORY_2026-10-12.md` (families 1–7 + gaps; each cell cites
+its file). Manuscript = `ELKAK2/NHESS/Final_sub/NHESS_manuscript_R5_clean.docx` (+ supplement R5). Wall-clock
+= the `Total time` line of each run's `sfincs.log` (seconds, previous machine state); where an author run and a
+2026-06-19 re-run on this machine both exist, the re-run time is used for the estimate. "Re-download" answers
+whether any forcing input is missing on disk for a pipeline re-run from the YAML.
+
+What v1.4 changes for every row: IMERG written ×1 (was ×2) and on time (was −30 min) — Strymonas/Emilia raw
+IMERG included; ERA5 unchanged; inverse-barometer boundary active (bnd + bzs = 0 m + pavbnd = 101325 Pa) in
+every run with `coastal_bc.enabled` (all enhanced runs; baselines stay without wind/IB). D3 (tspinup = 0,
+spin-up window not simulated) is **not** changed by v1.4 (A3 report only).
+
+## 1. SFINCS runs
+
+| # | run (inventory id) | YAML / as-run source | feeds in R5 | prev. wall-clock (s) | re-download? | v1.4 notes |
+|---|---|---|---|---|---|---|
+| 1 | Strymonas v3 enhanced, canonical (2c) | `skill/examples/emsr122_strymonas_enhanced.yaml` = `configs/as_run/emsr122_sfincs_v3/` (kerkini src fix) | Tables 7, 8 (v3), 9, 10, 11, 12 row 2, 14; Figs 7, 10; §4.3.2, §5, §7; Suppl. Tables S2, S3 | 125.1 author / **109.2** re-run | no (`implementation/emsr122_sfincs_v3/data` complete; raw IMERG = `imerg_strymonas.nc`) | IMERG ×1 + IB boundary |
+| 2 | Strymonas baseline (1e) | `skill/examples/emsr122_strymonas.yaml` = `configs/as_run/emsr122_sfincs/` | Table 12 row 1, Table 10 Δ, Table 8 baseline column; §4.3.2, §5 | **256.5** | no, but the data dir uses slug `emsr122` (`era5_emsr122.nc`) — run with `SFINCS_WORK_DIR` on a copy/junction of the v3 data dir | ERA5 unchanged (identical forcing; re-run only for a same-harness baseline) |
+| 3 | Mandra v1 enhanced, canonical (2b) | `skill/examples/emsr257_mandra_enhanced.yaml` = `configs/as_run/mandra_sfincs_enhanced/` (R2 200 mm) | Tables 5, 6, 9, 10, 11, 14; Figs 5, 6, 10, 11b; §4.2.2, §7; Suppl. S1 final row, S2, S3 | 869.7 author / **1097.8** re-run | no (`mandra_sfincs_enhanced/data` complete incl. `.raw.nc`) | IMERG ×1 (bias factor re-derived from `.raw.nc`, same 200 mm target) + IB |
+| 4 | Mandra baseline (1d) | `skill/examples/emsr257_mandra.yaml` = `configs/as_run/mandra_sfincs/` | Table 10 Δ; §4.2.2, §4.3.2, §5; Fig 6 ERA5 curve | **546.6** | no | ERA5 unchanged |
+| 5 | Pineios v1 enhanced, canonical (2a) | `skill/examples/emsr692_pineios_enhanced.yaml` = `configs/as_run/pineios_sfincs_enhanced/` (R2 400 mm, 4 GloFAS points) | Tables 3, 4, 9, 10, 11, 14; Figs 3, 4, 10, 11a; Abstract; §4.1.2, §7; Suppl. S2, S3 | 1269.8 author / **1456.2** re-run | no (`pineios_sfincs_enhanced/data` complete) | IMERG ×1 + IB; the pipeline writes `sfincs.dis` from `q_outlet.csv` (time-varying) — see row 14 |
+| 6 | Pineios grid-matched baseline (1c) | `reproduction/grid_matched_baseline/work/sfincs_build.yml` (ERA5, 150 m, 7-d window, no Q, CN off) — no example YAML; recreate from `emsr692_pineios.yaml` with `spinup_days: 7`, enhanced bbox/zmax | Table 10 Pineios Δ + caption; Abstract; §5, §5.3 | **1006.4** | no (reads `pineios_sfincs_enhanced/data`) | ERA5 unchanged |
+| 7 | Emilia-Romagna enhanced (2f) | `skill/examples/emsr664_emilia_romagna_enhanced.yaml` = `ELKAK2/NHESS/runs/emilia_emsr664/` | §4.5.2; Fig 9; Tables 9, 10, 13, 14; §5.4; Suppl. S3.1, S4 | **754.7** | no for forcing; EMS truth: the 8-AOI set lives in `R1_verification/task_emilia_aoi/data/ems_polygons/` (run dir holds AOI01 only) — copy, do not re-download | raw IMERG ×1 + IB |
+| 8 | Valencia R2-anchored 164 mm (2e) | `skill/examples/emsr773_valencia_enhanced.yaml` (target 164 mm) — the R5 numbers came from `rerun_v164/model` (350-mm run × 0.4686), not from a pipeline run | §4.4.2; Fig 8; Tables 9, 10, 13, 14; §5.3, §5.4, §7, §8 | **2230.7** (v164) / 1706.7 (350-mm pipeline run) | no (`runs/valencia_emsr773/data` complete; `imerg_valencia.nc` is at ×4.14 but `bias_correct_imerg.py` regenerates from `.raw.nc`) | first pipeline-native 164-mm run; IMERG ×1 + IB |
+| 9 | Strymonas CN-off + Q (3b) | `D:/ELKAK/reproduction/ablation_configs/abl_cnoff.yaml` via `scripts/run_ablation.sh` | Table 12 row 3; §5.2, §6.2 | 232.5 author / **275.9** re-run | no (junction/hardlink seed from the v3 data dir) | IMERG ×1 + IB |
+| 10 | Strymonas CN-on + Q-off (3c) | `abl_qoff.yaml` via `run_ablation.sh` | Table 12 row 4; §5.2, §6.2 | **110.8** | no | IMERG ×1 + IB |
+| 11 | Mandra R2 sweep 95 / 140 / 255 mm (4a; 200 = row 3) | `scripts/bias_sweep.py` (targets hard-coded) on `emsr257_mandra_enhanced.yaml` | §5.2 sweep sentence; `docs/bias_sensitivity/mandra.csv`, plots | **798.5** (255-mm run; ×3) | no | 3 runs; the factors change because the ×2 is gone |
+| 12 | Pineios R2 sweep 220 / 295 / 510 mm (4b; 400 = row 5) | `scripts/bias_sweep.py` on `emsr692_pineios_enhanced.yaml` | §5.2 sweep sentence; `docs/bias_sensitivity/pineios.csv`, plots | **1371.7** (510-mm run; ×3) | no | 3 runs |
+| 13 | Strymonas v1 enhanced, pre-fix src (2d) | `configs/as_run/emsr122_sfincs_enhanced/` (kerkini src {23.2, 41.08}; not in the examples any more) | Table 8 "Enhanced v1" column; §4.3.2, §5; Suppl. Table S2 Strymonas v1 row | **219.6** | no | needed only if the v1 column / S2 row stay in the paper |
+| 14 | Pineios v3 time-varying-Q audit (5a) | = row 5 inp + `sfincs.dis` rebuilt from the GloFAS series (no YAML of its own) | §4.1.1, §5.2 ("peak 118 m³ s⁻¹"); Suppl. Table S2 Pineios v3 row | 2116.0 | no | **decision needed**: the v1.4 pipeline run of row 5 already writes the time series from `q_outlet.csv`; a separate run is only needed if the S2 "v1 vs v3" contrast must be kept |
+| 15 | Pineios v4 constant infiltration qinf = 5 mm h⁻¹ (5b) | = row 5 + `qinf = 5.0` in `sfincs.inp` (post-build patch) | §5.2 | **1012.6** | no (uses the row-5 build) | |
+| 16 | Mandra v3 mask restriction, 213 km² (5c) | = row 3 + edited `sfincs.msk` (`sfincs.msk.orig`) | Suppl. Table S2 Mandra v3 row; §5 | **1906.7** | no | |
+| 17 | Mandra SCS-CN sweep (5d) — 4 rows + Manning test | `emsr257_mandra_enhanced.yaml` + `infiltration.enabled: true` with HSG-A/B/D × AMC lookups; **no model dir survives** | Suppl. Table S1 rows 1–4 + S1 prose; §6.2 | n/a (≈ row 3: 1097.8 × 5) | no (`cn_raster.tif` regenerated by `prep_cn_raster.py`) | 5 runs to be recreated |
+| 18 | Pineios CN-on ("~38 km²") (5e) | `emsr692_pineios_enhanced.yaml` + `infiltration.enabled: true`; **no model dir** | §4.1.2 (ii), §6.2 | n/a (≈ 1456) | no | |
+| 19 | Pineios raw IMERG ("below 40 km²") (5e) | `emsr692_pineios_enhanced.yaml` + `rain_bias_correct.enabled: false`; **no model dir** | §5 | n/a (≈ 1456) | no | |
+| 20 | Valencia raw IMERG (2e‴) | `emsr773_valencia_enhanced.yaml` + `rain_bias_correct.enabled: false`; **no model dir** (metrics in `S1_EMSR773_valencia_raw_IMERG_metrics.json`) | §4.4.2, §5.3 ("CSI = 0.105"); Suppl. S3.1 (S1 JSON) | n/a (≈ 1707) | no | |
+
+Not in scope of R5 (listed for completeness): Pineios original 100-m baseline (1a, prose only), wide baseline (1b,
+nothing), Valencia 350/175-mm runs (superseded), the 18 SCS-CN toy runs (`reproduction/cn_diagnostic`, no R5
+number). **EMSR933 Crete** (CODE-10 Stages 2–3) runs under v1.4 after GO-C as a separate task.
+
+## 2. Post-processing-only products (no SFINCS run; regenerate from the new outputs)
+
+| product | script | inputs | feeds |
+|---|---|---|---|
+| per-run validation JSON (strict sweep, fuzzy r = 0…3, one-sided fuzzy, per-AOI) | `validation/validate_event_v2.py --config <yaml> --out-json` (+ `scripts/validate_existing.py`, `table_numbers.py`) | `model/sfincs_map.nc`, `data/ems_polygons`, YAML | Tables 3–10, 14; Fig 11 |
+| cross-event aggregate | `validation/aggregate_metrics_v2.py` | per-event JSONs | Tables 9–10 |
+| SEDI / PSS / CSI* / B* | `validation/skill_scores.py` (`tests/test_skill_scores.py` hard-codes the five contingency tables → must be updated) | contingency tables at h > 0.10 m | Table 14, Table 13, §4.4.2, §5.4 |
+| grid-matched baseline Δ | `reproduction/grid_matched_baseline/score_baseline.py`, `make_report.py` | rows 5 + 6 outputs | Table 10 Pineios Δ |
+| evaluation-mask sensitivity (AOI ± 1 km) | `manuscript/paper_submission_v5/_mask_sensitivity.py` (author-machine root hard-coded) | rows 1, 3, 5 outputs | Suppl. Table S3 / §7 "Table 18" sentence |
+| truth-polygon uncertainty (± 20 m, acquisition offsets) | `validation/truth_uncertainty.py` | rows 1, 3, 5 outputs | §7 "± 0.012 / ± 0.003 / ± 0.041", §3.6 |
+| bias-sweep CSV / plots / spatial fields | `scripts/bias_sweep.py` (post-run part) | rows 11–12 + 3, 5 | §5.2 sentence, `docs/bias_sensitivity/*` |
+| Strymonas Δ adjudication, Emilia 8-AOI rescoring + depth forensics, Valencia ledger | `R1_verification/task2_strymonas_delta/`, `task_emilia_aoi/`, `task6_emilia_depth/`, `task5_valencia_ledger/` | rows 1, 2, 13, 7, 8 | Tables 8, 10, 13, 14; §4.4.2, §4.5.2 |
+| figures f03/05/07/08/09 (QC maps), f04/f06 (rain series), f10 (skill summary), f11 (threshold/fuzzy sweeps) | `R1_verification/task7_figures/regen_qc_figure.py` + `make_hillshade_basemap.py`; `paper_submission_v5/_make_{pineios,mandra}_rain.py`; `_make_figures.py` (f10/f11 values are **embedded in the script**, not read from JSON) | rows 1, 3, 5, 7, 8 outputs; `imerg_<slug>.{raw.,}nc`, `era5_<slug>.nc` | Figs 3–11 |
+
+## 3. Compute estimate (sequential, previous wall-clock on this machine where available)
+
+| block | runs | Σ previous SFINCS wall-clock |
+|---|---|---|
+| canonical enhanced (rows 1, 3, 5, 7, 8) | 5 | 109.2 + 1097.8 + 1456.2 + 754.7 + 2230.7 = **5 648.6 s** (1.57 h) |
+| baselines (rows 2, 4, 6) | 3 | 256.5 + 546.6 + 1006.4 = **1 809.5 s** (0.50 h) |
+| Table 12 ablations (rows 9, 10) | 2 | 275.9 + 110.8 = **386.7 s** (0.11 h) |
+| R2 sweeps (rows 11, 12) | 6 | 3 × 798.5 + 3 × 1371.7 = **6 510.6 s** (1.81 h) |
+| audit / S2 variants (rows 13, 15, 16; row 14 if separate) | 3 (+1) | 219.6 + 1012.6 + 1906.7 = **3 138.9 s** (0.87 h) (+ 2116.0 s) |
+| runs without surviving model dirs (rows 17–20) | 8 | 5 × 1097.8 + 2 × 1456.2 + 1706.7 = **10 108.1 s** (2.81 h) |
+| **total** | **27 (+1)** | **27 602 s ≈ 7.7 h** (≈ 8.3 h with row 14) |
+
+Add per run: hydromt build 0.5–1.5 min (Valencia/Emilia ≈ 1.3 min; ≈ 0.5 h in total), validation 1–3 min
+(Pineios EMS polygons 3 GB; ≈ 1 h in total), figure/report regeneration ≈ 1 h → **≈ 10 h sequential**. The runs
+are independent; two or three SFINCS processes in parallel roughly halve the wall-clock (not measured).
+Uncertainty on the estimate: under v1.4 the IB boundary wets the whole GLO-30 sea plane (0 m cells), which
+adds wet cells and may shorten the time step; the IMERG ×1 reduces inland flooding. Direction of the net change
+unknown until the first run (row 1, 2 min) is done.
+
+## 4. Proposed order
+
+1. **Strymonas pair** (rows 1 + 2, ≈ 6 min): cheapest end-to-end check of the v1.4 harness on a published event;
+   validate both; this fixes the magnitude of the D1/D2 effect before anything expensive runs.
+2. **Mandra pair** (rows 3 + 4), then **Pineios pair** (rows 5 + 6) — development events, Tables 3–11.
+3. **Emilia** (row 7), then **Valencia 164 mm** (row 8, the first pipeline-native 164-mm run) — held-out events,
+   Tables 13–14. → After 1–3 every headline table (3–11, 13, 14) and Figs 3–10 can be regenerated (post-processing
+   block: validation JSONs, aggregate, skill_scores + its tests, grid-matched Δ, Emilia 8-AOI rescoring, figures).
+4. **Table 12 ablations** (rows 9–10).
+5. **S2 / §5.2 variants** (rows 13, 15, 16; row 14 only if the S2 contrast is kept).
+6. **R2 sweeps** (rows 11–12) → §5.2 sentence + `docs/bias_sensitivity`.
+7. **Recreated sensitivity runs** (rows 17–20) — lowest priority: Papaioannou may prefer to drop the S1 CN rows and
+   the "~38 km²" / "below 40 km²" / "0.105" statements instead of recreating runs that have no surviving record.
+8. Post-processing block 2: mask sensitivity (S3), truth uncertainty (§7, §3.6), f10/f11 values (edit the scripts).
+
+## 5. Manuscript residues to fix in the same pass (facts from the inventory, not new findings)
+
+Table 9 Valencia B/GSS (12.15/0.021) and Emilia B/GSS (4.98/0.055), Table 13 "3202 / 443" and Table 14 B* values still
+carry the superseded 350-mm / Forlì-only numbers; §4.1.2 still says there is no grid-matched Pineios baseline although
+Table 10 prints its Δ; the Strymonas v1→v3 stale items listed in AUDIT.md §3 (CODE-2).

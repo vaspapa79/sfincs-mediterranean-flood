@@ -13,7 +13,6 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import json
-import string
 import sys
 from pathlib import Path
 
@@ -50,18 +49,7 @@ def main() -> int:
         vd = a.out_dir / "validate" / cp.stem
         vd.mkdir(parents=True, exist_ok=True)
         (vd / "data_catalog.yml").write_text(prep_inputs.render_catalog(cfg), encoding="utf-8")
-        tmpl = (SKILL_DIR / "templates" / "sfincs_build.yml.tmpl").read_text()
-        rendered = string.Template(tmpl).substitute({
-            "tref": cfg.tref.strftime("%Y%m%d %H%M%S"), "tstart": cfg.tstart.strftime("%Y%m%d %H%M%S"),
-            "tstop": cfg.tstop.strftime("%Y%m%d %H%M%S"), "manning_land": g["manning_land"],
-            "manning_sea": g["manning_sea"], "west": cfg.bbox["west"], "south": cfg.bbox["south"],
-            "east": cfg.bbox["east"], "north": cfg.bbox["north"], "res": g["res"], "epsg": cfg.epsg,
-            "subgrid_pixels": g["subgrid_pixels"],
-            "manning_lookup": str(cfg.paths["manning_lookup"]).replace("\\", "/"),
-            "zmin": g["zmin"], "zmax": g["zmax"], "fill_area": g["fill_area_km2"], "drop_area": g["drop_area_km2"],
-            "pavbnd_line": build_model._pavbnd_line(cfg), "infiltration_block": build_model._infiltration_block(cfg),
-            "wind_block": build_model._wind_block(cfg), "pressure_block": build_model._pressure_block(cfg),
-            "rain_dataset": cfg.rain_source})
+        rendered = build_model.render_build_yml(cfg)   # CODE-12: single rendering path (was a replica of the dict)
         (vd / "sfincs_build.yml").write_text(rendered, encoding="utf-8")
         d["rendered"] = [str(vd / "data_catalog.yml"), str(vd / "sfincs_build.yml")]
         print(f"\n===== {cp.name}")
