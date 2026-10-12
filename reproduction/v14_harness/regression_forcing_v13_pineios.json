@@ -1,0 +1,48 @@
+{
+  "utc": "2026-10-12T10:00:29Z",
+  "config": "skill\\examples\\emsr692_pineios_enhanced.yaml",
+  "harness_version": "v1.3",
+  "hydromt_rc": 0,
+  "reference_dir": "C:\\Users\\dvalsamis\\AppData\\Local\\Temp\\claude\\d--ELKAK\\9345177c-48a6-4380-9f01-2779f44e774f\\scratchpad\\regress_v13\\before",
+  "out_dir": "C:\\Users\\dvalsamis\\AppData\\Local\\Temp\\claude\\d--ELKAK\\9345177c-48a6-4380-9f01-2779f44e774f\\scratchpad\\regress_v13\\after\\model",
+  "files": {
+    "before_forcing.yml": {
+      "text_identical": true
+    },
+    "catalog_before.yml": {
+      "text_identical": true
+    },
+    "precip_2d.nc": {
+      "exists": true,
+      "byte_identical": true
+    },
+    "press_2d.nc": {
+      "exists": true,
+      "byte_identical": true
+    },
+    "sfincs.dep": {
+      "exists": true,
+      "byte_identical": true
+    },
+    "sfincs.ind": {
+      "exists": true,
+      "byte_identical": true
+    },
+    "sfincs.inp": {
+      "exists": true,
+      "byte_identical": true
+    },
+    "sfincs.msk": {
+      "exists": true,
+      "byte_identical": true
+    },
+    "wind_2d.nc": {
+      "exists": true,
+      "byte_identical": true
+    }
+  },
+  "verdict": {
+    "all_files_byte_identical": true,
+    "all_files_content_identical": true
+  }
+}

@@ -71,6 +71,23 @@ env:
 rain_source: imerg_half_hourly
 # rain_source: {name: imerg_half_hourly, product: late}
 
+# Harness behaviour version (CODE-12). Optional; default v1.3 = the published behaviour, which every
+# committed example reproduces byte-identically (build yml, forcing files). v1.4 changes the
+# IMPLEMENTATION only — no forcing block, multiplier, anchor, window or grid key changes meaning:
+#   D1  setup_precip_forcing_from_grid gets the time convention of the rain source:
+#         imerg_half_hourly -> cumulative_input: false, time_label: left   (rates stamped at the
+#                              interval START; v1.3 defaults wrote them x2 and 30 min early)
+#         era5_hourly       -> cumulative_input: true,  time_label: right  (ECMWF: accumulated over
+#                              the hour ENDING at the stamp; identical to the v1.3 default — the
+#                              ERA5 baselines are not changed by D1)
+#   D2  coastal_bc.enabled -> water-level boundary points every 10 km along the msk=2 cells with
+#       bzs = 0 m (tide neglected) written after the hydromt build, and pavbnd: 101325 (Pa).
+#       SFINCS reads pavbnd as the REFERENCE ATMOSPHERIC PRESSURE in Pa and applies
+#       zs_bnd = bzs + (pavbnd - p_atm)/(rho_w g) only when pavbnd > 1.0 (sfincs_boundaries.f90:796-800,
+#       v2.3.0); the published `pavbnd: 1` was therefore a no-op. Under v1.4 the legacy coastal_bc.pavbnd
+#       value is ignored (enabled governs); under v1.3 it is still written as-is.
+# harness_version: v1.4
+
 ems:
   # required only if event.id is set
   # The skill expects URLs of the form:

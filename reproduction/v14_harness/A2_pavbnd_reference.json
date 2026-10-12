@@ -1,0 +1,117 @@
+{
+  "utc": "2026-10-12T10:00:41Z",
+  "rhow": 1024.0,
+  "g": 9.81,
+  "pref_pa": 101325.0,
+  "sfincs_gapres_default_pa": 101200.0,
+  "events": [
+    {
+      "label": "Pineios EMSR692",
+      "file": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\data\\era5_pineios.nc",
+      "window": [
+        "2023-09-03T00:00:00",
+        "2023-09-11T00:00:00"
+      ],
+      "n_hours": 193,
+      "n_cells": 35,
+      "mslp_mean_pa": 101538.2,
+      "mslp_domainmean_min_pa": 100793.9,
+      "mslp_domainmean_min_time": "2023-09-05 03:00",
+      "mslp_domainmean_max_pa": 101929.6,
+      "offset_pref_minus_mean_pa": -213.2,
+      "ib_offset_at_mean_m": -0.021,
+      "ib_at_domainmean_min_m": 0.053,
+      "ib_range_within_window_m": 0.113
+    },
+    {
+      "label": "Mandra EMSR257",
+      "file": "D:\\ELKAK\\implementation\\mandra_sfincs_enhanced\\data\\era5_mandra.nc",
+      "window": [
+        "2017-11-13T00:00:00",
+        "2017-11-18T00:00:00"
+      ],
+      "n_hours": 121,
+      "n_cells": 9,
+      "mslp_mean_pa": 101298.9,
+      "mslp_domainmean_min_pa": 100411.8,
+      "mslp_domainmean_min_time": "2017-11-13 13:00",
+      "mslp_domainmean_max_pa": 101795.8,
+      "offset_pref_minus_mean_pa": 26.1,
+      "ib_offset_at_mean_m": 0.003,
+      "ib_at_domainmean_min_m": 0.091,
+      "ib_range_within_window_m": 0.138
+    },
+    {
+      "label": "Strymonas EMSR122",
+      "file": "D:\\ELKAK\\implementation\\emsr122_sfincs_v3\\data\\era5_strymonas.nc",
+      "window": [
+        "2015-03-28T00:00:00",
+        "2015-04-04T00:00:00"
+      ],
+      "n_hours": 169,
+      "n_cells": 35,
+      "mslp_mean_pa": 100902.3,
+      "mslp_domainmean_min_pa": 100172.1,
+      "mslp_domainmean_min_time": "2015-03-28 03:00",
+      "mslp_domainmean_max_pa": 101772.9,
+      "offset_pref_minus_mean_pa": 422.7,
+      "ib_offset_at_mean_m": 0.042,
+      "ib_at_domainmean_min_m": 0.115,
+      "ib_range_within_window_m": 0.159
+    },
+    {
+      "label": "Valencia EMSR773",
+      "file": "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\valencia_emsr773\\data\\era5_valencia.nc",
+      "window": [
+        "2024-10-27T00:00:00",
+        "2024-11-01T00:00:00"
+      ],
+      "n_hours": 121,
+      "n_cells": 42,
+      "mslp_mean_pa": 101803.2,
+      "mslp_domainmean_min_pa": 101324.5,
+      "mslp_domainmean_min_time": "2024-10-29 17:00",
+      "mslp_domainmean_max_pa": 102217.8,
+      "offset_pref_minus_mean_pa": -478.2,
+      "ib_offset_at_mean_m": -0.048,
+      "ib_at_domainmean_min_m": 0.0,
+      "ib_range_within_window_m": 0.089
+    },
+    {
+      "label": "Emilia-Romagna EMSR664",
+      "file": "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\emilia_emsr664\\data\\era5_emilia_romagna.nc",
+      "window": [
+        "2023-05-14T00:00:00",
+        "2023-05-22T00:00:00"
+      ],
+      "n_hours": 193,
+      "n_cells": 48,
+      "mslp_mean_pa": 101161.6,
+      "mslp_domainmean_min_pa": 100070.1,
+      "mslp_domainmean_min_time": "2023-05-16 08:00",
+      "mslp_domainmean_max_pa": 101856.8,
+      "offset_pref_minus_mean_pa": 163.4,
+      "ib_offset_at_mean_m": 0.016,
+      "ib_at_domainmean_min_m": 0.125,
+      "ib_range_within_window_m": 0.178
+    },
+    {
+      "label": "Crete EMSR933",
+      "file": "D:\\ELKAK\\implementation\\emsr933_crete\\data\\era5_crete.nc",
+      "window": [
+        "2026-09-28T00:00:00",
+        "2026-10-06T00:00:00"
+      ],
+      "n_hours": 193,
+      "n_cells": 105,
+      "mslp_mean_pa": 101845.7,
+      "mslp_domainmean_min_pa": 101453.2,
+      "mslp_domainmean_min_time": "2026-10-01 03:00",
+      "mslp_domainmean_max_pa": 102170.9,
+      "offset_pref_minus_mean_pa": -520.7,
+      "ib_offset_at_mean_m": -0.052,
+      "ib_at_domainmean_min_m": -0.013,
+      "ib_range_within_window_m": 0.071
+    }
+  ]
+}

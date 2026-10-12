@@ -404,6 +404,24 @@ class EventCfg:
         return prod
 
     @property
+    def harness_version(self) -> str:
+        """Harness behaviour version (CODE-12). 'v1.3' (default) reproduces every published run
+        byte-identically. 'v1.4' changes the IMPLEMENTATION only (no forcing block, multiplier,
+        anchor, window or grid key changes meaning):
+          D1  IMERG half-hourly rates are written as left-labelled rates
+              (setup_precip_forcing_from_grid cumulative_input=False, time_label=left); ERA5
+              hourly accumulations keep cumulative_input=True, time_label=right (ECMWF: accumulated
+              over the hour ENDING at the validity time), i.e. the baselines are unchanged.
+          D2  water-level boundary points every build_model.BND_SPACING_M along the msk=2 cells with
+              bzs = 0 m (tide neglected), and pavbnd = build_model.PAVBND_REF_PA (SFINCS v2.3.0
+              applies the inverse barometer (pavbnd - p_atm)/(rho g) only when pavbnd > 1 Pa).
+        """
+        v = str(self.raw.get("harness_version", "v1.3"))
+        if v not in ("v1.3", "v1.4"):
+            raise ValueError(f"harness_version must be 'v1.3' or 'v1.4', got {v!r}")
+        return v
+
+    @property
     def rain_bias_correct(self) -> dict:
         """R5: gauge-anchored IMERG bias correction, captured in-config.
 
