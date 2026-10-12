@@ -12,12 +12,13 @@ boundaries. Times are UTC.
 | Stage | Start (UTC) | End (UTC) | Wall-clock | Claude (h) | DvS (h) | VP (h) | Notes |
 |---|---|---|---|---|---|---|---|
 | 0 Preflight + EMS snapshot + availability | 2026-10-09T12:35:48Z | 2026-10-09T12:56Z | 0 h 20 min | 0.35 | _to fill_ | — | session start = task paste; end = STAGE0_REPORT.md written |
-| 1 Rule ledger + YAMLs (no model runs); also F2/F4 fixes + regression, F5_VERIFY.md, daily latency probe | 2026-10-09T13:08:34Z | | | | _to fill_ | | start = Checkpoint-0 go received |
+| 1 Rule ledger + YAMLs (no model runs); also F2/F4 fixes + regression, F5_VERIFY.md, daily latency probe, NOA station retrieval | 2026-10-09T13:08:34Z | 2026-10-09T14:15Z | 1 h 07 min | 1.1 | _to fill_ | | start = Checkpoint-0 go; end = Checkpoint-1 posted; four F5 agents + one web-research agent ran in parallel (their wall-clock is inside this hour) |
 
 ## Data-latency probe (daily, until ERA5T covers 7 Oct) — `scripts/daily_probe.py`, CSV in `latency_probe.csv`
 | probe UTC | ERA5 last requestable day | IMERG Final granules 27 Sep–7 Oct | GloFAS v4 intermediate last day | EMS products F/I/N | AOI03 GRA |
 |---|---|---|---|---|---|
 | 2026-10-09T13:20:35Z | 2026-10-03 | 0 | 2026-10-06 | 6/1/11 | I (id 2965, maps 0, dl=no) |
+| 2026-10-12T09:01:29Z | 2026-10-06 | 0 | 2026-10-08 | 7/0/11 | F (id 2965, maps 1, dl=yes) |
 
 Reference point for the manuscript: `activationTime` **2026-10-04T11:02:00** UTC (API snapshot
 `ems_api_snapshot_20261009T124720Z.json`). Task issued 2026-10-09T12:35:48Z, i.e. 5 d 1 h 34 min after

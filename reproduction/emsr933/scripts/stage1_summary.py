@@ -103,6 +103,17 @@ def main() -> int:
                                                             "days_forcing_window_not_simulated_tref_to_tstart", "stated_spinup_days")}
         rows.append(f"{k}: tspinup {raw.get('tspinup', ip.get('tspinup'))}, tstart {ip.get('tstart')}, tstop {ip.get('tstop')}, {picks}")
     B.append("- F5 (f) (`f5/F5_f.json` → `events[].inp_parsed`, `derived`): " + "; ".join(rows) + ".")
+    r2 = val["configs"].get("emsr933_crete_enhanced_R2on.yaml")
+    if r2 and (d / "noa_stations/stations_daily.csv").exists():
+        rows = list(csv.DictReader((d / "noa_stations/stations_daily.csv").open(encoding="utf-8")))
+        tzr = [r for r in rows if r["station_slug"] == "tzermiado"]
+        tz = [(r["date"], float(r["rain_mm"])) for r in tzr if "2026-09-30" <= r["date"] <= "2026-10-04"]
+        las = next(c for ao in dep["aois"] if ao["number"] == 3 for c in ao["largest_components"][:1])
+        B.append(f"- R2-on variant (`emsr933_crete_enhanced_R2on.yaml`, labelled, not canonical; `stage1_yaml_validation.json`): "
+                 f"rain_bias_correct {r2['rain_bias_correct']}; anchor station `tzermiado` (NOA/meteo.gr, {tzr[0]['station_name']}, "
+                 f"{tzr[0]['elev_m']} m) daily {tz} → sum {round(sum(v for _, v in tz), 1)} mm (`noa_stations/stations_daily.csv`, source "
+                 f"{tzr[0]['source_url']}, accessed {tzr[0]['accessed_utc']}); watershed = Lasithi polje closed catchment "
+                 f"{las['internal_catchment_km2']} km², bbox {las['catchment_bbox_WSEN']} (`stage1_depressions.json`).")
     B.append("- Decisions pending (Checkpoint 1): R2 raw vs anchored; GAP-1 Δx/domain (A 100 m island / B 150 m island / C 50 m per cluster / C′ 100 m per cluster); "
              "GAP-2 z_max; F5 harness option (a)/(b)/(c); window 7/3/4 d and island-wide domain confirmation.")
     a.audit_out.write_text("\n".join(B) + "\n", encoding="utf-8")
