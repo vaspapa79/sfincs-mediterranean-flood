@@ -1,0 +1,158 @@
+{
+  "run": "mandra_r2_255",
+  "event": "mandra",
+  "kind": "enhanced",
+  "phase": 3,
+  "group": "c",
+  "label": "R2 sweep Mandra target 255 mm",
+  "c2_row": null,
+  "manifest_row": 11,
+  "work": "D:\\ELKAK\\implementation\\v14\\mandra_r2_255",
+  "published_model": "D:\\ELKAK\\reproduction\\bias_sweep\\mandra\\model",
+  "published_wallclock_s": 798.5,
+  "published_text": null,
+  "published_note": null,
+  "compare_to": null,
+  "start_utc": "2026-10-19T16:27:49Z",
+  "steps": [
+    {
+      "step": 6,
+      "start_utc": "2026-10-19T16:27:49Z",
+      "end_utc": "2026-10-19T16:28:43Z",
+      "wall_s": 53.7,
+      "exit": 0
+    },
+    {
+      "step": 7,
+      "start_utc": "2026-10-19T16:28:43Z",
+      "end_utc": "2026-10-19T16:29:26Z",
+      "wall_s": 43.0,
+      "exit": 0
+    },
+    {
+      "step": 8,
+      "start_utc": "2026-10-19T16:29:26Z",
+      "end_utc": "2026-10-19T16:29:31Z",
+      "wall_s": 5.2,
+      "exit": 0
+    },
+    {
+      "step": 9,
+      "start_utc": "2026-10-19T16:29:31Z",
+      "end_utc": "2026-10-19T16:29:51Z",
+      "wall_s": 19.6,
+      "exit": 0
+    },
+    {
+      "step": 10,
+      "start_utc": "2026-10-19T16:29:51Z",
+      "end_utc": "2026-10-19T16:35:11Z",
+      "wall_s": 320.2,
+      "exit": 0
+    },
+    {
+      "step": 11,
+      "start_utc": "2026-10-19T16:35:11Z",
+      "end_utc": "2026-10-19T17:03:27Z",
+      "wall_s": 1696.2,
+      "exit": 0
+    }
+  ],
+  "config": "reproduction\\v14_rerun\\configs\\mandra_r2_255.yaml",
+  "config_note": {
+    "derived_from": "skill/examples/emsr257_mandra_enhanced.yaml",
+    "changes": [
+      "harness_version: v1.4",
+      "paths.work_dir/deliverable_dir/zip_dir -> D:\\ELKAK\\implementation\\v14\\mandra_r2_255",
+      "overrides: {\"rain_bias_correct\": {\"target_mm\": 255}}"
+    ]
+  },
+  "seed": {
+    "from": "D:\\ELKAK\\implementation\\mandra_sfincs_enhanced\\data",
+    "junctions": {
+      "copdem30": "exists",
+      "esa_worldcover": "exists",
+      "ems_polygons": "exists",
+      "era5_extracted": "exists"
+    },
+    "copied": [],
+    "skipped": [
+      "glofas_mandra.nc",
+      "imerg_mandra.nc",
+      "imerg_mandra.raw.nc",
+      "era5_mandra.nc"
+    ]
+  },
+  "coastal_prep": {
+    "harness_version": "v1.4",
+    "n_active_before": 162335,
+    "n_dep_le_0": 48215,
+    "n_open_sea": 48187,
+    "open_sea_km2": 120.47,
+    "n_inland_dep_le_0": 28,
+    "n_ring": 3519,
+    "ring_length_km": 175.9,
+    "n_exclude": 44668,
+    "n_active_after_expected": 117667,
+    "connectivity": {
+      "open_sea": 4,
+      "ring_adjacency": 8
+    },
+    "zsini": -9999,
+    "exclude_mask": "D:/ELKAK/implementation/v14/mandra_r2_255/open_sea_exclude.geojson",
+    "open_sea_mask_tif": "D:/ELKAK/implementation/v14/mandra_r2_255/open_sea_mask.tif",
+    "n_exclude_polygons": 5
+  },
+  "exclusion": {
+    "reused": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\masks\\mandra_exclusion.tif",
+    "open_sea_identical_to_first_build": true,
+    "symmetric_difference_cells": 0
+  },
+  "sfincs_total_time_s": 1691.389,
+  "validation_v14": {
+    "exit": 0,
+    "wall_s": 29.0,
+    "json": "results/mandra_r2_255_v14_newmask.json"
+  },
+  "rescoring_v13": {
+    "v13_publishedmask": {
+      "exit": 0,
+      "wall_s": 1725.2,
+      "json": "results/mandra_r2_255_v13_publishedmask.json"
+    },
+    "v13_newmask": {
+      "exit": 0,
+      "wall_s": 1725.2,
+      "json": "results/mandra_r2_255_v13_newmask.json"
+    }
+  },
+  "published_strict": {
+    "_source": "D:\\ELKAK\\sfincs-mediterranean-floods\\docs\\bias_sensitivity\\mandra.csv target 255",
+    "csi": 0.10431420960301475,
+    "hr": 0.8931849791376912,
+    "far": 0.8943680505296401,
+    "bias": 8.455632823365786,
+    "gss": 0.025480570457110035,
+    "multiplier": 10.903
+  },
+  "published_record_check": {
+    "published_json": "D:\\ELKAK\\sfincs-mediterranean-floods\\docs\\bias_sensitivity\\mandra.csv target 255",
+    "identical_tp_fp_fn_tn": true,
+    "published": {
+      "csi": 0.10431420960301475
+    },
+    "rescored": {
+      "tp": 3211,
+      "fp": 27187,
+      "fn": 384,
+      "tn": 13104,
+      "csi": 0.10431420960301475
+    }
+  },
+  "quicklook": {
+    "exit": 0,
+    "png": "quicklook/mandra_r2_255_v14_hmax.png",
+    "err": ""
+  },
+  "end_utc": "2026-10-19T17:04:37Z"
+}

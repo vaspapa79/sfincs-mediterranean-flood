@@ -1,0 +1,139 @@
+{
+  "run": "valencia_raw_imerg",
+  "event": "valencia",
+  "kind": "enhanced",
+  "phase": 3,
+  "group": "d",
+  "label": "\u00a74.4.2 / \u00a75.3 / S3.1: Valencia raw IMERG (no R2)",
+  "c2_row": 8,
+  "manifest_row": 20,
+  "work": "D:\\ELKAK\\implementation\\v14\\valencia_raw_imerg",
+  "published_model": null,
+  "published_wallclock_s": null,
+  "published_text": {
+    "source": "NHESS manuscript R5 \u00a74.4.2: The uncorrected raw-IMERG run scores CSI = 0.105",
+    "csi": 0.105
+  },
+  "published_note": null,
+  "compare_to": null,
+  "start_utc": "2026-10-19T16:31:44Z",
+  "steps": [
+    {
+      "step": 6,
+      "start_utc": "2026-10-19T16:31:44Z",
+      "end_utc": "2026-10-19T16:31:59Z",
+      "wall_s": 15.1,
+      "exit": 0
+    },
+    {
+      "step": 7,
+      "start_utc": "2026-10-19T16:31:59Z",
+      "end_utc": "2026-10-19T16:32:35Z",
+      "wall_s": 35.9,
+      "exit": 0
+    },
+    {
+      "step": 8,
+      "start_utc": "2026-10-19T16:32:35Z",
+      "end_utc": "2026-10-19T16:32:41Z",
+      "wall_s": 5.9,
+      "exit": 0
+    },
+    {
+      "step": 9,
+      "start_utc": "2026-10-19T16:32:41Z",
+      "end_utc": "2026-10-19T16:33:04Z",
+      "wall_s": 23.4,
+      "exit": 0
+    },
+    {
+      "step": 10,
+      "start_utc": "2026-10-19T16:33:04Z",
+      "end_utc": "2026-10-19T16:43:59Z",
+      "wall_s": 654.5,
+      "exit": 0
+    },
+    {
+      "step": 11,
+      "start_utc": "2026-10-19T16:43:59Z",
+      "end_utc": "2026-10-19T17:09:33Z",
+      "wall_s": 1533.9,
+      "exit": 0
+    }
+  ],
+  "config": "reproduction\\v14_rerun\\configs\\valencia_raw_imerg.yaml",
+  "config_note": {
+    "derived_from": "skill/examples/emsr773_valencia_enhanced.yaml",
+    "changes": [
+      "harness_version: v1.4",
+      "paths.work_dir/deliverable_dir/zip_dir -> D:\\ELKAK\\implementation\\v14\\valencia_raw_imerg",
+      "overrides: {\"rain_bias_correct\": {\"enabled\": false}}"
+    ]
+  },
+  "seed": {
+    "from": "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\valencia_emsr773\\data",
+    "junctions": {
+      "copdem30": "exists",
+      "esa_worldcover": "exists",
+      "ems_polygons": "exists",
+      "era5_extracted": "exists"
+    },
+    "copied": [],
+    "skipped": [
+      "glofas_valencia.nc",
+      "imerg_valencia.nc",
+      "imerg_valencia.raw.nc",
+      "era5_valencia.nc"
+    ],
+    "raw_imerg_as_forcing": "imerg_valencia.raw.nc -> imerg_valencia.nc (rain_bias_correct disabled; the D1 rate/label convention is applied at build time)"
+  },
+  "coastal_prep": {
+    "harness_version": "v1.4",
+    "n_active_before": 521427,
+    "n_dep_le_0": 236289,
+    "n_open_sea": 225179,
+    "open_sea_km2": 2251.79,
+    "n_inland_dep_le_0": 11110,
+    "n_ring": 1867,
+    "ring_length_km": 186.7,
+    "n_exclude": 223312,
+    "n_active_after_expected": 298115,
+    "connectivity": {
+      "open_sea": 4,
+      "ring_adjacency": 8
+    },
+    "zsini": -9999,
+    "exclude_mask": "D:/ELKAK/implementation/v14/valencia_raw_imerg/open_sea_exclude.geojson",
+    "open_sea_mask_tif": "D:/ELKAK/implementation/v14/valencia_raw_imerg/open_sea_mask.tif",
+    "n_exclude_polygons": 5
+  },
+  "exclusion": {
+    "reused": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\masks\\valencia_exclusion.tif",
+    "open_sea_identical_to_first_build": true,
+    "symmetric_difference_cells": 0
+  },
+  "rescoring_v13_skipped": "no published output survives for this configuration",
+  "sfincs_total_time_s": 1531.571,
+  "validation_v14": {
+    "exit": 0,
+    "wall_s": 7.4,
+    "json": "results/valencia_raw_imerg_v14_newmask.json"
+  },
+  "rescoring_v13": {},
+  "published_strict": {
+    "_source": "D:\\ELKAK\\ELKAK2\\NHESS\\R1_verification\\task8_cleanup\\supplement\\S1_EMSR773_valencia_raw_IMERG_metrics.json",
+    "tp": 19353,
+    "fp": 164114,
+    "fn": 676,
+    "tn": 135894,
+    "csi": 0.10509766865968297,
+    "hr": 0.9662489390383944,
+    "far": 0.8945150899071768
+  },
+  "quicklook": {
+    "exit": 0,
+    "png": "quicklook/valencia_raw_imerg_v14_hmax.png",
+    "err": ""
+  },
+  "end_utc": "2026-10-19T17:09:48Z"
+}

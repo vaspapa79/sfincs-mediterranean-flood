@@ -1,0 +1,5 @@
+validating: EMSR122 Strymonas (v2)  (slug=strymonas)
+  strict@0.10m:  CSI=0.016  HR=0.016  FAR=0.183  BIAS=0.02  GSS=0.014
+  fuzzy r=1:     CSI=0.027  HR=0.027  FAR=0.000  GSS=0.023
+  best CSI:      0.017 at h>0.05 m
+  wrote: D:\ELKAK\sfincs-mediterranean-floods\.worktrees\emsr933-crete\reproduction\v14_rerun\results\strymonas_abl_qoff_cn_v13_publishedmask.json

@@ -1,0 +1,5 @@
+AOI01 Kastelli       tier 2: observed 1.780 km² vs modelled 26.070 km² (universe 255.2 km², peak hmax 19.649795532226562)
+AOI03 Tzermiado      tier 1: CSI 0.343 HR 0.788 FAR 0.622 B 2.08 GSS 0.303; CSI* 0.343 at h>0.10m; SEDI 0.847 PSS 0.700; obs 11.26 km², modelled 23.46 km² of 176.9
+AOI04 Agios Ioannis  tier 2: observed 0.410 km² vs modelled 1.090 km² (universe 57.6 km², peak hmax 9.052169799804688)
+AOI06 Agios Nikolaos tier 2: observed 0.230 km² vs modelled 9.050 km² (universe 110.8 km², peak hmax 27.017669677734375)
+AOI07 Omalos         tier 2: observed 0.650 km² vs modelled 16.640 km² (universe 258.6 km², peak hmax 77.62162780761719)

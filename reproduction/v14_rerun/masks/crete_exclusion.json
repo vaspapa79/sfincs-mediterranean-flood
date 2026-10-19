@@ -1,0 +1,37 @@
+{
+  "open_sea_cells": 2222416,
+  "wc80_cells": 2106122,
+  "wc80_land_cells": 11392,
+  "union_cells": 2233808,
+  "open_sea_km2": 22224.16,
+  "wc80_km2": 21061.22,
+  "union_km2": 22338.08,
+  "utc": "2026-10-19T14:23:41Z",
+  "out": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\masks\\crete_exclusion.tif",
+  "open_sea_source": "D:\\ELKAK\\implementation\\v14\\crete_baseline\\open_sea_mask.tif",
+  "worldcover": "D:\\ELKAK\\implementation\\v14\\crete_baseline\\data\\esa_worldcover\\esa_worldcover_2021.vrt",
+  "epsg": 32634,
+  "wc80_sampling": "class 80 at the model cell centre (nearest 10-m pixel)",
+  "open_sea_definition": "build_model.open_sea_split: active dep<=0 cells 4-connected to the grid edge (incl. the coastal ring)",
+  "grid": {
+    "shape": [
+      1107,
+      2771
+    ],
+    "cell_m": [
+      100.0,
+      100.0
+    ],
+    "transform": [
+      100.0,
+      0.0,
+      717143.0,
+      0.0,
+      -100.0,
+      3964189.0
+    ]
+  },
+  "open_sea_gis_vs_tif_symmetric_difference_cells": 2222416,
+  "open_sea_gis_cells": 0,
+  "open_sea_tif_cells": 2222416
+}

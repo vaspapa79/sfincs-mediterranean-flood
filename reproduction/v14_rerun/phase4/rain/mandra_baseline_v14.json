@@ -1,0 +1,156 @@
+{
+  "utc": "2026-10-19T17:54:55Z",
+  "config": "reproduction\\v14_rerun\\configs\\mandra_baseline.yaml",
+  "event": "mandra",
+  "bbox": [
+    23.3,
+    37.95,
+    23.6,
+    38.2
+  ],
+  "rain_source": "era5_hourly",
+  "r2": {
+    "enabled": false,
+    "target_mm": 200.0,
+    "watershed_bbox": null,
+    "event_start": null,
+    "event_end": null
+  },
+  "windows": {
+    "simulated": [
+      "2017-11-13T00:00:00",
+      "2017-11-18T00:00:00"
+    ],
+    "forcing": [
+      "2017-11-12T00:00:00",
+      "2017-11-18T00:00:00"
+    ]
+  },
+  "sources": {
+    "model_forcing": {
+      "file": "D:\\ELKAK\\implementation\\v14\\mandra_baseline\\model\\precip_2d.nc",
+      "present": true,
+      "units": "mm/h",
+      "time_first_last": [
+        "2017-11-13T00:00",
+        "2017-11-18T00:00"
+      ],
+      "file_attrs": {
+        "sfincs_corner_alignment": "1",
+        "x_shift_m": "-12512.344786534668",
+        "y_shift_m": "12512.344786535017"
+      },
+      "bbox_cells": 1,
+      "grid_cells": 9,
+      "by_window_whole_grid": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 4.132185935974121,
+          "domain_mean_peak_time": "2017-11-16T15:00:00",
+          "cell_peak_mm_h": 5.912735939025879,
+          "n_steps": 120,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 40.54582214355469,
+          "max_cell_total_mm": 49.638282775878906,
+          "n_cells": 9
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 4.132185935974121,
+          "domain_mean_peak_time": "2017-11-16T15:00:00",
+          "cell_peak_mm_h": 5.912735939025879,
+          "n_steps": 120,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 40.54582214355469,
+          "max_cell_total_mm": 49.638282775878906,
+          "n_cells": 9
+        }
+      },
+      "by_window": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 4.398425102233887,
+          "domain_mean_peak_time": "2017-11-16T17:00:00",
+          "cell_peak_mm_h": 4.398425102233887,
+          "n_steps": 120,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 35.760765075683594,
+          "max_cell_total_mm": 35.760765075683594,
+          "n_cells": 1
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 4.398425102233887,
+          "domain_mean_peak_time": "2017-11-16T17:00:00",
+          "cell_peak_mm_h": 4.398425102233887,
+          "n_steps": 120,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 35.760765075683594,
+          "max_cell_total_mm": 35.760765075683594,
+          "n_cells": 1
+        }
+      }
+    },
+    "imerg_raw": {
+      "file": "D:\\ELKAK\\implementation\\v14\\mandra_baseline\\data\\imerg_mandra.raw.nc",
+      "present": false
+    },
+    "imerg": {
+      "file": "D:\\ELKAK\\implementation\\v14\\mandra_baseline\\data\\imerg_mandra.nc",
+      "present": false
+    },
+    "era5": {
+      "file": "D:\\ELKAK\\implementation\\v14\\mandra_baseline\\data\\era5_mandra.nc",
+      "present": true,
+      "units": "mm/h",
+      "time_first_last": [
+        "2017-11-12T00:00",
+        "2017-11-18T23:00"
+      ],
+      "file_attrs": {},
+      "bbox_cells": 2,
+      "by_window_file_extent": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 4.132185935974121,
+          "domain_mean_peak_time": "2017-11-16T16:00:00",
+          "cell_peak_mm_h": 5.912735939025879,
+          "n_steps": 120,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 40.68074035644531,
+          "max_cell_total_mm": 49.95552444458008,
+          "n_cells": 9
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 4.132185935974121,
+          "domain_mean_peak_time": "2017-11-16T16:00:00",
+          "cell_peak_mm_h": 5.912735939025879,
+          "n_steps": 144,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 40.839569091796875,
+          "max_cell_total_mm": 50.15167999267578,
+          "n_cells": 9
+        }
+      },
+      "file_extent_cells": 9,
+      "by_window": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 3.847618579864502,
+          "domain_mean_peak_time": "2017-11-16T18:00:00",
+          "cell_peak_mm_h": 4.424169540405273,
+          "n_steps": 120,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 38.66688537597656,
+          "max_cell_total_mm": 41.4929313659668,
+          "n_cells": 2
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 3.847618579864502,
+          "domain_mean_peak_time": "2017-11-16T18:00:00",
+          "cell_peak_mm_h": 4.424169540405273,
+          "n_steps": 144,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 38.88641357421875,
+          "max_cell_total_mm": 41.66849899291992,
+          "n_cells": 2
+        }
+      }
+    }
+  },
+  "series_csv": "reproduction\\v14_rerun\\phase4\\rain\\mandra_baseline_v14_series.csv"
+}

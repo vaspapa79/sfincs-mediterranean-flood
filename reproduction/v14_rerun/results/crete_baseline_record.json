@@ -1,0 +1,154 @@
+{
+  "run": "crete_baseline",
+  "event": "crete",
+  "kind": "baseline",
+  "phase": 5,
+  "group": "stage2",
+  "label": "Stage 2 baseline: ERA5(T) rain-on-grid, no wind/IB, R2 off",
+  "c2_row": null,
+  "manifest_row": null,
+  "work": "D:\\ELKAK\\implementation\\v14\\crete_baseline",
+  "published_model": null,
+  "published_wallclock_s": null,
+  "published_text": null,
+  "published_note": null,
+  "compare_to": null,
+  "start_utc": "2026-10-19T13:54:38Z",
+  "steps": [
+    {
+      "step": 6,
+      "start_utc": "2026-10-19T13:54:38Z",
+      "end_utc": "2026-10-19T13:55:29Z",
+      "wall_s": 51.4,
+      "exit": 0
+    },
+    {
+      "step": 7,
+      "start_utc": "2026-10-19T13:55:29Z",
+      "end_utc": "2026-10-19T13:56:43Z",
+      "wall_s": 73.9,
+      "exit": 0
+    },
+    {
+      "step": 8,
+      "start_utc": "2026-10-19T13:56:43Z",
+      "end_utc": "2026-10-19T13:57:00Z",
+      "wall_s": 16.4,
+      "exit": 0
+    },
+    {
+      "step": 9,
+      "start_utc": "2026-10-19T13:57:00Z",
+      "end_utc": "2026-10-19T13:57:45Z",
+      "wall_s": 45.3,
+      "exit": 0
+    },
+    {
+      "step": 10,
+      "start_utc": "2026-10-19T13:57:45Z",
+      "end_utc": "2026-10-19T14:20:31Z",
+      "wall_s": 1366.3,
+      "exit": 0
+    },
+    {
+      "step": 11,
+      "start_utc": "2026-10-19T14:23:41Z",
+      "end_utc": "2026-10-19T16:43:14Z",
+      "wall_s": 8372.6,
+      "exit": 0
+    }
+  ],
+  "config": "reproduction\\v14_rerun\\configs\\crete_baseline.yaml",
+  "config_note": {
+    "derived_from": "skill/examples/emsr933_crete.yaml",
+    "changes": [
+      "harness_version: v1.4",
+      "paths.work_dir/deliverable_dir/zip_dir -> D:\\ELKAK\\implementation\\v14\\crete_baseline"
+    ]
+  },
+  "seed": {
+    "from": "D:\\ELKAK\\implementation\\emsr933_crete\\data",
+    "junctions": {
+      "copdem30": "exists",
+      "esa_worldcover": "exists",
+      "ems_polygons": "exists",
+      "era5_extracted": "exists"
+    },
+    "copied": [],
+    "skipped": [
+      "imerg_crete.nc",
+      "era5_crete.nc"
+    ]
+  },
+  "coastal_prep": {
+    "harness_version": "v1.4",
+    "n_active_before": 3067497,
+    "n_dep_le_0": 2222469,
+    "n_open_sea": 2222416,
+    "open_sea_km2": 22224.16,
+    "n_inland_dep_le_0": 53,
+    "n_ring": 14646,
+    "ring_length_km": 1464.6,
+    "n_exclude": 2207770,
+    "n_active_after_expected": 859727,
+    "connectivity": {
+      "open_sea": 4,
+      "ring_adjacency": 8
+    },
+    "zsini": -9999,
+    "exclude_mask": "D:/ELKAK/implementation/v14/crete_baseline/open_sea_exclude.geojson",
+    "open_sea_mask_tif": "D:/ELKAK/implementation/v14/crete_baseline/open_sea_mask.tif",
+    "n_exclude_polygons": 4
+  },
+  "exclusion": {
+    "open_sea_cells": 2222416,
+    "wc80_cells": 2106122,
+    "wc80_land_cells": 11392,
+    "union_cells": 2233808,
+    "open_sea_km2": 22224.16,
+    "wc80_km2": 21061.22,
+    "union_km2": 22338.08,
+    "utc": "2026-10-19T14:23:41Z",
+    "out": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\masks\\crete_exclusion.tif",
+    "open_sea_source": "D:\\ELKAK\\implementation\\v14\\crete_baseline\\open_sea_mask.tif",
+    "worldcover": "D:\\ELKAK\\implementation\\v14\\crete_baseline\\data\\esa_worldcover\\esa_worldcover_2021.vrt",
+    "epsg": 32634,
+    "wc80_sampling": "class 80 at the model cell centre (nearest 10-m pixel)",
+    "open_sea_definition": "build_model.open_sea_split: active dep<=0 cells 4-connected to the grid edge (incl. the coastal ring)",
+    "grid": {
+      "shape": [
+        1107,
+        2771
+      ],
+      "cell_m": [
+        100.0,
+        100.0
+      ],
+      "transform": [
+        100.0,
+        0.0,
+        717143.0,
+        0.0,
+        -100.0,
+        3964189.0
+      ]
+    },
+    "open_sea_gis_vs_tif_symmetric_difference_cells": 2222416,
+    "open_sea_gis_cells": 0,
+    "open_sea_tif_cells": 2222416
+  },
+  "rescoring_v13_skipped": "no published output survives for this configuration",
+  "sfincs_total_time_s": 8370.847,
+  "validation_v14": {
+    "exit": 0,
+    "wall_s": 25.2,
+    "json": "results/crete_baseline_v14_newmask.json"
+  },
+  "rescoring_v13": {},
+  "quicklook": {
+    "exit": 0,
+    "png": "quicklook/crete_baseline_v14_hmax.png",
+    "err": ""
+  },
+  "end_utc": "2026-10-19T16:44:39Z"
+}

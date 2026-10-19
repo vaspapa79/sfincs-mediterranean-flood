@@ -121,8 +121,9 @@ def running_hmax(ds, zb, t_to, t_from=None):
     if t_from is not None:
         sel &= times > pd.Timestamp(t_from)
     h = np.zeros(zb.shape, dtype=float)
-    if sel.any():
-        zs = ds["zs"].isel(time=np.where(sel)[0]).max(dim="time").values
+    # frame by frame: a block selection materialises the whole (time, n, m) array (2.4 GB + a bool mask on the Crete grid)
+    for i in np.where(sel)[0]:
+        zs = ds["zs"].isel(time=int(i)).values
         h = np.maximum(h, np.where(np.isnan(zs), 0.0, np.maximum(zs - zb, 0)))
     if "zsmax" in ds:
         tmax = pd.to_datetime(ds["timemax"].values)
@@ -136,10 +137,35 @@ def running_hmax(ds, zb, t_to, t_from=None):
             keep &= tmax <= pd.Timestamp(t_to)
         if t_from is not None:
             keep &= starts >= pd.Timestamp(t_from)
-        if keep.any():
-            zm = ds["zsmax"].isel(timemax=np.where(keep)[0]).max(dim="timemax").values
+        for k in np.where(keep)[0]:
+            zm = ds["zsmax"].isel(timemax=int(k)).values
             h = np.maximum(h, np.where(np.isnan(zm), 0.0, np.maximum(zm - zb, 0)))
     return h
+
+
+def running_hmax_snapshots(ds, zb, times):
+    """One pass over the hourly zs (and the zsmax blocks): the running maximum (hmax over (-inf, t]) for every t in
+    `times`, returned as {t: array}. Equivalent to running_hmax(ds, zb, t) for each t, with each frame read once."""
+    import pandas as pd
+    zb = np.asarray(zb, dtype=float)
+    want = sorted({pd.Timestamp(t) for t in times})
+    tt = pd.to_datetime(ds["time"].values)
+    events = [(t, "zs", i) for i, t in enumerate(tt)]
+    if "zsmax" in ds:
+        tmax = pd.to_datetime(ds["timemax"].values)
+        events += [(t, "zsmax", k) for k, t in enumerate(tmax)]
+    events.sort(key=lambda e: (e[0], e[1]))
+    h = np.zeros(zb.shape, dtype=float)
+    out = {}
+    j = 0
+    for t, kind, i in events:
+        while j < len(want) and want[j] < t:
+            out[want[j]] = h.copy(); j += 1
+        z = ds["zs"].isel(time=int(i)).values if kind == "zs" else ds["zsmax"].isel(timemax=int(i)).values
+        h = np.maximum(h, np.where(np.isnan(z), 0.0, np.maximum(z - zb, 0)))
+    while j < len(want):
+        out[want[j]] = h.copy(); j += 1
+    return {t: out[pd.Timestamp(t)] for t in times}
 
 
 # ------------------------------------------------------------------------------------------- main
@@ -177,11 +203,17 @@ def main() -> int:
     def score(h, truth, universe):
         return _contingency_full(h > thr, truth, universe)
 
+    metas = [product_acquisition(shp) for shp in obs_shps]
+    need = []
+    for meta in metas:
+        if meta["acq_utc"] is not None:
+            t_acq = meta["acq_utc"]
+            need += ([t_acq + dt.timedelta(days=1) - dt.timedelta(seconds=1), t_acq] if meta["date_only"] else [t_acq])
+    snap = running_hmax_snapshots(ds, zb, need) if need else {}
     h_full = running_hmax(ds, zb, None)
     products = []
     acq_times = []
-    for shp in obs_shps:
-        meta = product_acquisition(shp)
+    for shp, meta in zip(obs_shps, metas):
         truth = _rasterise_polys_to_grid([shp], s["x"], s["y"], cfg.epsg, s["dx"], s["dy"])
         # universe = the AOI polygon of this product's folder (fallback: any AOI file sharing the AOI token, else the whole active mask)
         pdir = shp.parent
@@ -197,10 +229,10 @@ def main() -> int:
             t_acq = meta["acq_utc"]
             if meta["date_only"]:
                 t_end = t_acq + dt.timedelta(days=1) - dt.timedelta(seconds=1)
-                row["time_matched"] = score(running_hmax(ds, zb, t_end), truth, universe); row["time_matched_at"] = t_end.isoformat()
-                row["time_matched_start_of_day"] = score(running_hmax(ds, zb, t_acq), truth, universe)
+                row["time_matched"] = score(snap[t_end], truth, universe); row["time_matched_at"] = t_end.isoformat()
+                row["time_matched_start_of_day"] = score(snap[t_acq], truth, universe)
             else:
-                row["time_matched"] = score(running_hmax(ds, zb, t_acq), truth, universe); row["time_matched_at"] = t_acq.isoformat()
+                row["time_matched"] = score(snap[t_acq], truth, universe); row["time_matched_at"] = t_acq.isoformat()
             acq_times.append(t_acq if not meta["date_only"] else t_acq + dt.timedelta(days=1) - dt.timedelta(seconds=1))
         products.append(row)
     # union over all products (the canonical truth), hmax up to the earliest and the latest acquisition
@@ -211,8 +243,8 @@ def main() -> int:
     if acq_times:
         t0, t1 = min(acq_times), max(acq_times)
         union["earliest_acq_utc"] = t0.isoformat(); union["latest_acq_utc"] = t1.isoformat()
-        union["hmax_to_earliest"] = score(running_hmax(ds, zb, t0), truth_all, aoi_universe)
-        union["hmax_to_latest"] = score(running_hmax(ds, zb, t1), truth_all, aoi_universe)
+        union["hmax_to_earliest"] = score(snap[t0], truth_all, aoi_universe)
+        union["hmax_to_latest"] = score(snap[t1], truth_all, aoi_universe)
     out = {"utc": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), "config": str(a.config), "model_dir": str(cfg.paths["model_dir"]),
            "event": cfg.event_slug, "threshold_m": thr, "exclusion_tif": (str(a.exclusion_tif) if a.exclusion_tif else None),
            "simulated_window": [str(cfg.tstart), str(cfg.tstop)], "n_products": len(products), "products": products, "union": union,

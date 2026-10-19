@@ -78,14 +78,16 @@ def main() -> int:
             m["rain"] = run([py, "-I", str(S / "rain_diagnostics.py"), "--repo", str(repo), "--config", str(cfg), "--out-json", str(rj)], f"{name}_rain")
         png = P4 / "figures" / f"map_{name}_v14.png"
         if not (a.skip_existing and png.exists()):
-            cmd = [py, "-I", str(S / "fig_map_v14.py"), "--repo", str(repo), "--config", str(cfg), "--exclusion-tif", str(excl), "--metrics", str(v14), "--out", str(png),
+            # Crete: the all-AOI union is not a headline (rule_ledger §8) -> no union numbers in the figure titles; the tier-1 score is in the tiers JSON
+            metrics = [] if event == "crete" else ["--metrics", str(v14)]
+            cmd = [py, "-I", str(S / "fig_map_v14.py"), "--repo", str(repo), "--config", str(cfg), "--exclusion-tif", str(excl), *metrics, "--out", str(png),
                    "--title", TITLES.get(name, name) + " — harness v1.4"]
             if event == "crete":
                 for c in CRETE_CLUSTERS:
                     cmd += ["--clusters", c]
             m["map"] = run(cmd, f"{name}_map")
             if event == "crete":
-                m["map_island"] = run([py, "-I", str(S / "fig_map_v14.py"), "--repo", str(repo), "--config", str(cfg), "--exclusion-tif", str(excl), "--metrics", str(v14),
+                m["map_island"] = run([py, "-I", str(S / "fig_map_v14.py"), "--repo", str(repo), "--config", str(cfg), "--exclusion-tif", str(excl),
                                        "--out", str(P4 / "figures" / f"map_{name}_island_v14.png"), "--title", TITLES.get(name, name) + " — island, harness v1.4"], f"{name}_map_island")
         series = P4 / "rain" / f"{name}_v14_series.csv"
         if series.exists() and name in ("pineios_enhanced", "mandra_enhanced", "strymonas_enhanced_postD6", "valencia_enhanced_164", "emilia_enhanced_8aoi", "crete_canonical_r2on"):

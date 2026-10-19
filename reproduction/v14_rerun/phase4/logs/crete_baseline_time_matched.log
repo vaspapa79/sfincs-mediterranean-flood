@@ -1,0 +1,7 @@
+EMSR933_AOI01_DEL_MONIT01_v1                     acq 2026-10-06T10:47 Legion             CSI full 0.014 -> time-matched 0.014  HR 0.213 -> 0.213  B 14.65 -> 14.65
+EMSR933_AOI03_DEL_MONIT02_v1                     acq 2026-10-08T09:02 GeoEye-1           CSI full 0.337 -> time-matched 0.337  HR 0.790 -> 0.790  B 2.13 -> 2.13
+EMSR933_AOI03_DEL_PRODUCT_v1                     acq 2026-10-04T16:22 Sentinel-1         CSI full 0.181 -> time-matched 0.181  HR 0.962 -> 0.960  B 5.27 -> 5.26
+EMSR933_AOI04_DEL_MONIT01_v1                     acq 2026-10-06T10:46 WorldView-3        CSI full 0.049 -> time-matched 0.049  HR 0.171 -> 0.171  B 2.66 -> 2.66
+EMSR933_AOI06_DEL_MONIT01_v1                     acq 2026-10-08T08:55 Legion             CSI full 0.025 -> time-matched 0.025  HR 1.000 -> 1.000  B 39.35 -> 39.35
+EMSR933_AOI07_DEL_MONIT01_v1                     acq 2026-10-06T10:45 Legion             CSI full 0.019 -> time-matched 0.019  HR 0.492 -> 0.492  B 25.60 -> 25.60
+union: full 0.122; to earliest acq 0.122; to latest acq 0.122

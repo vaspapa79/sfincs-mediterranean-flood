@@ -1,0 +1,158 @@
+{
+  "run": "pineios_r2_510",
+  "event": "pineios",
+  "kind": "enhanced",
+  "phase": 3,
+  "group": "c",
+  "label": "R2 sweep Pineios target 510 mm",
+  "c2_row": null,
+  "manifest_row": 12,
+  "work": "D:\\ELKAK\\implementation\\v14\\pineios_r2_510",
+  "published_model": "D:\\ELKAK\\reproduction\\bias_sweep\\pineios\\model",
+  "published_wallclock_s": 1371.7,
+  "published_text": null,
+  "published_note": null,
+  "compare_to": null,
+  "start_utc": "2026-10-19T17:17:30Z",
+  "steps": [
+    {
+      "step": 6,
+      "start_utc": "2026-10-19T17:17:30Z",
+      "end_utc": "2026-10-19T17:19:26Z",
+      "wall_s": 115.6,
+      "exit": 0
+    },
+    {
+      "step": 7,
+      "start_utc": "2026-10-19T17:19:26Z",
+      "end_utc": "2026-10-19T17:20:58Z",
+      "wall_s": 92.3,
+      "exit": 0
+    },
+    {
+      "step": 8,
+      "start_utc": "2026-10-19T17:20:58Z",
+      "end_utc": "2026-10-19T17:21:15Z",
+      "wall_s": 16.8,
+      "exit": 0
+    },
+    {
+      "step": 9,
+      "start_utc": "2026-10-19T17:21:15Z",
+      "end_utc": "2026-10-19T17:22:34Z",
+      "wall_s": 78.8,
+      "exit": 0
+    },
+    {
+      "step": 10,
+      "start_utc": "2026-10-19T17:22:34Z",
+      "end_utc": "2026-10-19T17:36:51Z",
+      "wall_s": 857.2,
+      "exit": 0
+    },
+    {
+      "step": 11,
+      "start_utc": "2026-10-19T17:37:05Z",
+      "end_utc": "2026-10-19T18:47:12Z",
+      "wall_s": 4207.6,
+      "exit": 0
+    }
+  ],
+  "config": "reproduction\\v14_rerun\\configs\\pineios_r2_510.yaml",
+  "config_note": {
+    "derived_from": "skill/examples/emsr692_pineios_enhanced.yaml",
+    "changes": [
+      "harness_version: v1.4",
+      "paths.work_dir/deliverable_dir/zip_dir -> D:\\ELKAK\\implementation\\v14\\pineios_r2_510",
+      "overrides: {\"rain_bias_correct\": {\"target_mm\": 510}}"
+    ]
+  },
+  "seed": {
+    "from": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\data",
+    "junctions": {
+      "copdem30": "exists",
+      "esa_worldcover": "exists",
+      "ems_polygons": "exists",
+      "era5_extracted": "exists"
+    },
+    "copied": [],
+    "skipped": [
+      "glofas_pineios.nc",
+      "imerg_pineios.nc",
+      "imerg_pineios.raw.nc",
+      "era5_pineios.nc"
+    ]
+  },
+  "coastal_prep": {
+    "harness_version": "v1.4",
+    "n_active_before": 262465,
+    "n_dep_le_0": 39499,
+    "n_open_sea": 39490,
+    "open_sea_km2": 888.52,
+    "n_inland_dep_le_0": 9,
+    "n_ring": 728,
+    "ring_length_km": 109.2,
+    "n_exclude": 38762,
+    "n_active_after_expected": 223703,
+    "connectivity": {
+      "open_sea": 4,
+      "ring_adjacency": 8
+    },
+    "zsini": -9999,
+    "exclude_mask": "D:/ELKAK/implementation/v14/pineios_r2_510/open_sea_exclude.geojson",
+    "open_sea_mask_tif": "D:/ELKAK/implementation/v14/pineios_r2_510/open_sea_mask.tif",
+    "n_exclude_polygons": 3
+  },
+  "exclusion": {
+    "reused": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\masks\\pineios_exclusion.tif",
+    "open_sea_identical_to_first_build": true,
+    "symmetric_difference_cells": 0
+  },
+  "sfincs_total_time_s": 4198.593,
+  "validation_v14": {
+    "exit": 0,
+    "wall_s": 1254.2,
+    "json": "results/pineios_r2_510_v14_newmask.json"
+  },
+  "rescoring_v13": {
+    "v13_publishedmask": {
+      "exit": 0,
+      "wall_s": 5462.0,
+      "json": "results/pineios_r2_510_v13_publishedmask.json"
+    },
+    "v13_newmask": {
+      "exit": 0,
+      "wall_s": 5461.9,
+      "json": "results/pineios_r2_510_v13_newmask.json"
+    }
+  },
+  "published_strict": {
+    "_source": "D:\\ELKAK\\sfincs-mediterranean-floods\\docs\\bias_sensitivity\\pineios.csv target 510",
+    "csi": 0.44603176789871746,
+    "hr": 0.959261673382318,
+    "far": 0.5453562501755272,
+    "bias": 2.1099194121829816,
+    "gss": 0.18417204963779074,
+    "multiplier": 3.474
+  },
+  "published_record_check": {
+    "published_json": "D:\\ELKAK\\sfincs-mediterranean-floods\\docs\\bias_sensitivity\\pineios.csv target 510",
+    "identical_tp_fp_fn_tn": true,
+    "published": {
+      "csi": 0.44603176789871746
+    },
+    "rescored": {
+      "tp": 64754,
+      "fp": 77674,
+      "fn": 2750,
+      "tn": 61148,
+      "csi": 0.44603176789871746
+    }
+  },
+  "quicklook": {
+    "exit": 0,
+    "png": "quicklook/pineios_r2_510_v14_hmax.png",
+    "err": ""
+  },
+  "end_utc": "2026-10-19T19:25:41Z"
+}

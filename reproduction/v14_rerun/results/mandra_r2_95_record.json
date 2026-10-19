@@ -1,0 +1,135 @@
+{
+  "run": "mandra_r2_95",
+  "event": "mandra",
+  "kind": "enhanced",
+  "phase": 3,
+  "group": "c",
+  "label": "R2 sweep Mandra target 95 mm",
+  "c2_row": null,
+  "manifest_row": 11,
+  "work": "D:\\ELKAK\\implementation\\v14\\mandra_r2_95",
+  "published_model": null,
+  "published_wallclock_s": null,
+  "published_text": null,
+  "published_note": null,
+  "compare_to": null,
+  "start_utc": "2026-10-19T15:15:16Z",
+  "steps": [
+    {
+      "step": 6,
+      "start_utc": "2026-10-19T14:23:02Z",
+      "end_utc": "2026-10-19T14:23:06Z",
+      "wall_s": 4.0,
+      "from_log": true
+    },
+    {
+      "step": 7,
+      "start_utc": "2026-10-19T14:23:06Z",
+      "end_utc": "2026-10-19T14:23:10Z",
+      "wall_s": 4.0,
+      "from_log": true
+    },
+    {
+      "step": 8,
+      "start_utc": "2026-10-19T14:23:10Z",
+      "end_utc": "2026-10-19T14:23:11Z",
+      "wall_s": 1.0,
+      "from_log": true
+    },
+    {
+      "step": 9,
+      "start_utc": "2026-10-19T14:23:11Z",
+      "end_utc": "2026-10-19T14:23:12Z",
+      "wall_s": 1.0,
+      "from_log": true
+    },
+    {
+      "step": 10,
+      "start_utc": "2026-10-19T14:23:12Z",
+      "end_utc": "2026-10-19T14:26:18Z",
+      "wall_s": 186.0,
+      "from_log": true
+    },
+    {
+      "step": 11,
+      "start_utc": "2026-10-19T14:26:18Z",
+      "end_utc": null,
+      "wall_s": null,
+      "from_log": true
+    }
+  ],
+  "config": "reproduction\\v14_rerun\\configs\\mandra_r2_95.yaml",
+  "config_note": {
+    "derived_from": "skill/examples/emsr257_mandra_enhanced.yaml",
+    "changes": [
+      "harness_version: v1.4",
+      "paths.work_dir/deliverable_dir/zip_dir -> D:\\ELKAK\\implementation\\v14\\mandra_r2_95",
+      "overrides: {\"rain_bias_correct\": {\"target_mm\": 95}}"
+    ]
+  },
+  "seed": {
+    "from": "D:\\ELKAK\\implementation\\mandra_sfincs_enhanced\\data",
+    "junctions": {
+      "copdem30": "exists",
+      "esa_worldcover": "exists",
+      "ems_polygons": "exists",
+      "era5_extracted": "exists"
+    },
+    "copied": [],
+    "skipped": [
+      "glofas_mandra.nc",
+      "imerg_mandra.nc",
+      "imerg_mandra.raw.nc",
+      "era5_mandra.nc"
+    ]
+  },
+  "resumed": true,
+  "coastal_prep": {
+    "harness_version": "v1.4",
+    "n_active_before": 162335,
+    "n_dep_le_0": 48215,
+    "n_open_sea": 48187,
+    "open_sea_km2": 120.47,
+    "n_inland_dep_le_0": 28,
+    "n_ring": 3519,
+    "ring_length_km": 175.9,
+    "n_exclude": 44668,
+    "n_active_after_expected": 117667,
+    "connectivity": {
+      "open_sea": 4,
+      "ring_adjacency": 8
+    },
+    "zsini": -9999,
+    "exclude_mask": "D:/ELKAK/implementation/v14/mandra_r2_95/open_sea_exclude.geojson",
+    "open_sea_mask_tif": "D:/ELKAK/implementation/v14/mandra_r2_95/open_sea_mask.tif",
+    "n_exclude_polygons": 5
+  },
+  "exclusion": {
+    "reused": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\masks\\mandra_exclusion.tif",
+    "open_sea_identical_to_first_build": true,
+    "symmetric_difference_cells": 0
+  },
+  "rescoring_v13_skipped": "no published output survives for this configuration",
+  "sfincs_total_time_s": 2837.585,
+  "validation_v14": {
+    "exit": 0,
+    "wall_s": 49.2,
+    "json": "results/mandra_r2_95_v14_newmask.json"
+  },
+  "rescoring_v13": {},
+  "published_strict": {
+    "_source": "D:\\ELKAK\\sfincs-mediterranean-floods\\docs\\bias_sensitivity\\mandra.csv target 95",
+    "csi": 0.10410664208059621,
+    "hr": 0.7538247566063978,
+    "far": 0.8922293804183568,
+    "bias": 6.994714881780251,
+    "gss": 0.027120990798339056,
+    "multiplier": 4.062
+  },
+  "quicklook": {
+    "exit": 0,
+    "png": "quicklook/mandra_r2_95_v14_hmax.png",
+    "err": ""
+  },
+  "end_utc": "2026-10-19T15:17:20Z"
+}

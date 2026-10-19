@@ -180,3 +180,36 @@ the bias-box CLI fix `e33eacb` for its west-of-Greenwich watershed box) and row 
 from `task_emilia_aoi`, 8 AOIs). Both published outputs re-score to their committed tables exactly. Tables:
 `CHECKPOINT4b.md`. Rows 10, 13, 17, 18 (curve numbers on) can now run under v1.4 + D6 in Phase 3. Phases 3–5 wait for
 the author's go.
+
+## 9. GO Phases 3–5 (2026-10-19, received ~13:1xZ) — execution record
+
+Phase 3 runs (all `phase1.py` entries with `phase: 3`, configs in `configs/<run>.yaml` = the committed example + `harness_version: v1.4`
++ the overrides named in the YAML header; work dirs `D:/ELKAK/implementation/v14/<run>`; records `results/<run>_*.json`):
+rows 9–10 `strymonas_abl_cnoff_q`, `strymonas_abl_qoff_cn` (frozen `abl_*.yaml` identical outside env/paths; published outputs
+`emsr122_sfincs_v4/model` and `repro_abl/qoff/model` re-scored); row 13 `strymonas_v1_prefix_src` (kerkini_outlet 23.2/41.08);
+rows 11–12 `mandra_r2_{95,140,255}`, `pineios_r2_{220,295,510}` (`rain_bias_correct.target_mm`; the surviving 255/510-mm outputs
+re-scored, the CSV numbers checked); rows 17–20 = the C2 list: `mandra_cn_a15`, `mandra_cn_a58` (pervious classes at CN 15/58, built-up 88,
+water 99), `mandra_cn_b_default`, `mandra_cn_d_amc3` (TR-55 HSG-D lookup, AMC III), `mandra_cn_d_amc3_manning080` (class-50 n 0.080),
+`pineios_cn_on`, `pineios_raw_imerg`, `valencia_raw_imerg` (raw `.raw.nc` as the forcing, R2 off) — every CN row under D6, rows labelled
+with the realised mean CN; rows 14–15 `pineios_timevarying_q` (audit method rebuilt after the build by `scripts/rebuild_pineios_q.py`),
+`pineios_qinf5` (same build + `qinf = 5.0`); GO-C decision 4 `strymonas_leadin7d` (window 0/10/3 → tstart = tref = 2015-03-21).
+Row 16 (Mandra v3 mask restriction) is not in the Phase-3 list and was not run. Streams: S1 Strymonas+Mandra, S2 Pineios sweeps + qinf
+(crashed once at the validation of pineios_r2_220 — memory + a CSV path only in the main checkout — relaunched with `--resume`),
+S3 Pineios audit/raw + Valencia raw; logs `D:/ELKAK/implementation/v14/_logs/`.
+
+**D7 (new defect, report only):** `prep_q_at_outlets.py` samples GloFAS with `slice(lat + 0.1, lat − 0.1)`; the Pineios GloFAS file has an
+ascending latitude axis, the slice is empty and the script falls back to the domain-mean discharge (11.589 m³/s at all four sources, every
+hour) — in the published canonical run, the Phase-1 v1.4 run and every pipeline Pineios run here. Strymonas/Valencia/Emilia files are
+descending and sample correctly; Crete has R3 off. The S2 Pineios row already describes the v1 discharge as a constant placeholder; the
+time-varying counterpart is `pineios_timevarying_q`. No pipeline change without the author's go.
+
+Phase 4 (`scripts/phase4.py`): per finished run truth buffer ±20 m (`truth_buffer_scores.py`), time-matched diagnostic
+(`time_matched_scores.py`, hmax up to each EMS acquisition), rainfall diagnostics (`rain_diagnostics.py`, bbox + file-extent domains,
+R2 factor realised), map figure + CSV (`fig_map_v14.py`); then `cross_event_v14.py` (Tables 9/10/13/14 equivalents, v1.3 beside),
+`fig_skill_sweeps_v14.py` (Figs 10/11), `fig_rain_v14.py` (Figs 4/6), `number_map.py` → `NUMBER_MAP.md`. Products under `phase4/`.
+
+Phase 5 (Crete): Stage 5a re-fetch 13:34:37Z (activation closed; only AOI03 GRA newly released, dropped by the delineation-first rule;
+`reproduction/emsr933/STAGE5_TRUTH_FREEZE.md`); runs `crete_baseline`, `crete_canonical_r2on`, then `crete_sens_r2off`,
+`crete_sens_anchor_{224,336,582}`, `crete_sens_karst_q1914` (`phase1.py` entries with `phase: 5`, seed `implementation/emsr933_crete/data`);
+Stage 4 by tiers with `crete_tier_scores.py` (`phase5_post.py`), rainfall vs NOA stations (`crete_rain_vs_noa.py`), cluster maps (phase4).
+Checkpoints: `CHECKPOINT5a.md` (`checkpoint5a_tables.py`), `CHECKPOINT5b.md` (`checkpoint5b_tables.py`, also the consolidated AUDIT block).

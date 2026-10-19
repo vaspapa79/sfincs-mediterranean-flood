@@ -1,0 +1,74 @@
+{
+  "utc": "2026-10-19T22:01:36Z",
+  "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\configs\\crete_canonical_r2on.yaml",
+  "event": "crete",
+  "threshold_m": 0.1,
+  "exclusion_tif": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\masks\\crete_exclusion.tif",
+  "buffers_m": [
+    -20.0,
+    0.0,
+    20.0
+  ],
+  "n_obs_shps": 6,
+  "n_polygons": 823,
+  "method": "raster-domain buffer as validation/truth_uncertainty.py: refine 5 (fine cell 20.00 m), square structuring element, block-any to the model grid",
+  "zero_buffer_equals_validator_rasterisation": true,
+  "universe_km2": 859.13,
+  "sweep": {
+    "-20": {
+      "tp": 778,
+      "fp": 16837,
+      "fn": 19,
+      "tn": 68279,
+      "csi": 0.04411931495973687,
+      "hr": 0.9761606022584692,
+      "far": 0.9558330967925064,
+      "f1": 0.08451010210732131,
+      "f2": 0.18699226073162525,
+      "bias": 22.101631116687578,
+      "gss": 0.035178476852917424,
+      "hss": 0.06796601289444293,
+      "acc": 0.8038015201424697,
+      "truth_km2": 7.97,
+      "fine_cells_morphed": -1
+    },
+    "0": {
+      "tp": 1309,
+      "fp": 16306,
+      "fn": 124,
+      "tn": 68174,
+      "csi": 0.07379220925644062,
+      "hr": 0.9134682484298674,
+      "far": 0.925688333806415,
+      "f1": 0.1374422511549769,
+      "f2": 0.2803358033152011,
+      "bias": 12.292393579902303,
+      "gss": 0.05819299452916412,
+      "hss": 0.10998559776906615,
+      "acc": 0.8087600246761258,
+      "truth_km2": 14.33,
+      "fine_cells_morphed": 0
+    },
+    "20": {
+      "tp": 1546,
+      "fp": 16069,
+      "fn": 218,
+      "tn": 68080,
+      "csi": 0.0866932092188639,
+      "hr": 0.8764172335600907,
+      "far": 0.9122338915696849,
+      "f1": 0.15955415656122607,
+      "f2": 0.31332333508978155,
+      "bias": 9.985827664399093,
+      "gss": 0.06778661653879983,
+      "hss": 0.12696659705012642,
+      "acc": 0.8104244992026818,
+      "truth_km2": 17.64,
+      "fine_cells_morphed": 1
+    }
+  },
+  "csi_range": [
+    0.04411931495973687,
+    0.0866932092188639
+  ]
+}

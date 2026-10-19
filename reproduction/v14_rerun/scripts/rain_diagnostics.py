@@ -156,7 +156,16 @@ def main() -> int:
             rec["by_window_file_extent"] = {wn: summarise(da, t0, t1) for wn, (t0, t1) in windows.items()}
             rec["file_extent_cells"] = int(da.size // max(da.sizes["time"], 1))
         else:
-            sub = da
+            # the meteo grid hydromt writes covers the reprojected input extent (buffer + sea); keep only cells whose
+            # centre lies inside the model bbox (corners transformed to the model CRS), as for the gridded sources
+            import pyproj
+            tr = pyproj.Transformer.from_crs(4326, cfg.epsg, always_xy=True)
+            xs, ys = zip(*[tr.transform(lo, la) for lo in (bbox[0], bbox[2]) for la in (bbox[1], bbox[3])])
+            ix = np.where((da["x"].values >= min(xs)) & (da["x"].values <= max(xs)))[0]
+            iy = np.where((da["y"].values >= min(ys)) & (da["y"].values <= max(ys)))[0]
+            sub = da.isel(x=ix, y=iy)
+            rec["bbox_cells"] = int(len(ix) * len(iy)); rec["grid_cells"] = int(da.sizes["x"] * da.sizes["y"])
+            rec["by_window_whole_grid"] = {wn: summarise(da, t0, t1) for wn, (t0, t1) in windows.items()}
         rec["by_window"] = {wn: summarise(sub, t0, t1) for wn, (t0, t1) in windows.items()}
         if bc and bc.get("watershed_bbox") and name in ("imerg_raw", "imerg") and "event" in windows:
             wb = bc["watershed_bbox"]

@@ -32,10 +32,11 @@ def main() -> int:
     import matplotlib.pyplot as plt
     from matplotlib.colors import LogNorm
     from _common import load_config
-    from _anim_common import open_sfincs
     import validate_event_v2 as V
     cfg = load_config(["--config", str(a.config)])
-    s = open_sfincs(cfg.paths["model_dir"])
+    s = V.open_sfincs_light(cfg.paths["model_dir"])          # zsmax only; the hourly zs would be 2.4 GB (+ depths) on the Crete grid
+    s["xmin"] = float(s["x"].min()) - s["dx"] / 2; s["xmax"] = float(s["x"].max()) + s["dx"] / 2
+    s["ymin"] = float(s["y"].min()) - s["dy"] / 2; s["ymax"] = float(s["y"].max()) + s["dy"] / 2
     ems_dir = cfg.paths["data_dir"] / "ems_polygons"
     obs = V._select_obs_shps(ems_dir, include_del_product=bool(cfg.ems.get("include_del_product", False)))
     aoi = V._list_shps(ems_dir, ["*area_of_interest.shp", "*area_of_interest_a.shp", "*areaOfInterestA*.shp"])

@@ -1,0 +1,122 @@
+{
+  "run": "crete_canonical_r2on",
+  "event": "crete",
+  "kind": "enhanced",
+  "phase": 5,
+  "group": "stage3",
+  "label": "Stage 3 canonical: IMERG Late, R2 on (anchor 447.8 mm Tzermiado, factor computed at run time), wind/IB, R3/R4 off",
+  "c2_row": null,
+  "manifest_row": null,
+  "work": "D:\\ELKAK\\implementation\\v14\\crete_canonical_r2on",
+  "published_model": null,
+  "published_wallclock_s": null,
+  "published_text": null,
+  "published_note": null,
+  "compare_to": null,
+  "start_utc": "2026-10-19T16:44:39Z",
+  "steps": [
+    {
+      "step": 6,
+      "start_utc": "2026-10-19T16:44:40Z",
+      "end_utc": "2026-10-19T16:46:30Z",
+      "wall_s": 110.3,
+      "exit": 0
+    },
+    {
+      "step": 7,
+      "start_utc": "2026-10-19T16:46:30Z",
+      "end_utc": "2026-10-19T16:47:39Z",
+      "wall_s": 69.1,
+      "exit": 0
+    },
+    {
+      "step": 8,
+      "start_utc": "2026-10-19T16:47:39Z",
+      "end_utc": "2026-10-19T16:47:51Z",
+      "wall_s": 12.2,
+      "exit": 0
+    },
+    {
+      "step": 9,
+      "start_utc": "2026-10-19T16:47:51Z",
+      "end_utc": "2026-10-19T16:48:27Z",
+      "wall_s": 35.9,
+      "exit": 0
+    },
+    {
+      "step": 10,
+      "start_utc": "2026-10-19T16:48:27Z",
+      "end_utc": "2026-10-19T17:17:16Z",
+      "wall_s": 1728.3,
+      "exit": 0
+    },
+    {
+      "step": 11,
+      "start_utc": "2026-10-19T17:17:19Z",
+      "end_utc": "2026-10-19T20:19:50Z",
+      "wall_s": 10951.5,
+      "exit": 0
+    }
+  ],
+  "config": "reproduction\\v14_rerun\\configs\\crete_canonical_r2on.yaml",
+  "config_note": {
+    "derived_from": "skill/examples/emsr933_crete_enhanced_R2on.yaml",
+    "changes": [
+      "harness_version: v1.4",
+      "paths.work_dir/deliverable_dir/zip_dir -> D:\\ELKAK\\implementation\\v14\\crete_canonical_r2on"
+    ]
+  },
+  "seed": {
+    "from": "D:\\ELKAK\\implementation\\emsr933_crete\\data",
+    "junctions": {
+      "copdem30": "created",
+      "esa_worldcover": "created",
+      "ems_polygons": "created",
+      "era5_extracted": "created"
+    },
+    "copied": [
+      "imerg_crete.nc -> imerg_crete.nc",
+      "era5_crete.nc -> era5_crete.nc"
+    ],
+    "skipped": []
+  },
+  "coastal_prep": {
+    "harness_version": "v1.4",
+    "n_active_before": 3067497,
+    "n_dep_le_0": 2222469,
+    "n_open_sea": 2222416,
+    "open_sea_km2": 22224.16,
+    "n_inland_dep_le_0": 53,
+    "n_ring": 14646,
+    "ring_length_km": 1464.6,
+    "n_exclude": 2207770,
+    "n_active_after_expected": 859727,
+    "connectivity": {
+      "open_sea": 4,
+      "ring_adjacency": 8
+    },
+    "zsini": -9999,
+    "exclude_mask": "D:/ELKAK/implementation/v14/crete_canonical_r2on/open_sea_exclude.geojson",
+    "open_sea_mask_tif": "D:/ELKAK/implementation/v14/crete_canonical_r2on/open_sea_mask.tif",
+    "n_exclude_polygons": 4
+  },
+  "exclusion": {
+    "reused": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\masks\\crete_exclusion.tif",
+    "open_sea_identical_to_first_build": true,
+    "symmetric_difference_cells": 0
+  },
+  "rescoring_v13_skipped": "no published output survives for this configuration",
+  "sfincs_total_time_s": 10946.466,
+  "validation_v14": {
+    "exit": 0,
+    "wall_s": 46.7,
+    "json": "results/crete_canonical_r2on_v14_newmask.json"
+  },
+  "rescoring_v13": {},
+  "quicklook": {
+    "exit": 0,
+    "png": "quicklook/crete_canonical_r2on_v14_hmax.png",
+    "err": ""
+  },
+  "end_utc": "2026-10-19T20:21:12Z"
+}

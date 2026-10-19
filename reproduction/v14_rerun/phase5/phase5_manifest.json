@@ -1,0 +1,22 @@
+{
+  "utc_start": "2026-10-19T21:56:15Z",
+  "runs": {
+    "crete_baseline": {
+      "tiers": {
+        "exit": 0,
+        "wall_s": 64.6
+      }
+    },
+    "crete_canonical_r2on": {
+      "tiers": {
+        "exit": 0,
+        "wall_s": 80.1
+      }
+    }
+  },
+  "rain_vs_noa": {
+    "exit": 0,
+    "wall_s": 48.8
+  },
+  "utc_end": "2026-10-19T21:59:29Z"
+}

@@ -1,0 +1,5 @@
+validating: EMSR692 Pineios (v2)  (slug=pineios)
+  strict@0.10m:  CSI=0.446  HR=0.959  FAR=0.545  BIAS=2.11  GSS=0.184
+  fuzzy r=1:     CSI=0.418  HR=0.995  FAR=0.581  GSS=0.047
+  best CSI:      0.523 at h>0.50 m
+  wrote: D:\ELKAK\sfincs-mediterranean-floods\.worktrees\emsr933-crete\reproduction\v14_rerun\results\pineios_r2_510_v13_publishedmask.json

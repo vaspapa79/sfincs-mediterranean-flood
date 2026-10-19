@@ -1,0 +1,130 @@
+{
+  "run": "pineios_raw_imerg",
+  "event": "pineios",
+  "kind": "enhanced",
+  "phase": 3,
+  "group": "d",
+  "label": "\u00a75: Pineios raw IMERG (no R2)",
+  "c2_row": 7,
+  "manifest_row": 19,
+  "work": "D:\\ELKAK\\implementation\\v14\\pineios_raw_imerg",
+  "published_model": null,
+  "published_wallclock_s": null,
+  "published_text": {
+    "source": "NHESS manuscript R5 \u00a75: raw IMERG recovers only 141 mm and bounds the flood below 40 km2",
+    "watershed_mean_mm": 141,
+    "modelled_wet_km2_upper": 40
+  },
+  "published_note": null,
+  "compare_to": null,
+  "start_utc": "2026-10-19T14:27:14Z",
+  "steps": [
+    {
+      "step": 6,
+      "start_utc": "2026-10-19T14:27:15Z",
+      "end_utc": "2026-10-19T14:27:49Z",
+      "wall_s": 34.2,
+      "exit": 0
+    },
+    {
+      "step": 7,
+      "start_utc": "2026-10-19T14:27:49Z",
+      "end_utc": "2026-10-19T14:28:54Z",
+      "wall_s": 65.0,
+      "exit": 0
+    },
+    {
+      "step": 8,
+      "start_utc": "2026-10-19T14:28:54Z",
+      "end_utc": "2026-10-19T14:29:06Z",
+      "wall_s": 12.0,
+      "exit": 0
+    },
+    {
+      "step": 9,
+      "start_utc": "2026-10-19T14:29:06Z",
+      "end_utc": "2026-10-19T14:29:55Z",
+      "wall_s": 49.3,
+      "exit": 0
+    },
+    {
+      "step": 10,
+      "start_utc": "2026-10-19T14:29:55Z",
+      "end_utc": "2026-10-19T14:39:17Z",
+      "wall_s": 561.9,
+      "exit": 0
+    },
+    {
+      "step": 11,
+      "start_utc": "2026-10-19T14:39:17Z",
+      "end_utc": "2026-10-19T15:33:00Z",
+      "wall_s": 3222.5,
+      "exit": 0
+    }
+  ],
+  "config": "reproduction\\v14_rerun\\configs\\pineios_raw_imerg.yaml",
+  "config_note": {
+    "derived_from": "skill/examples/emsr692_pineios_enhanced.yaml",
+    "changes": [
+      "harness_version: v1.4",
+      "paths.work_dir/deliverable_dir/zip_dir -> D:\\ELKAK\\implementation\\v14\\pineios_raw_imerg",
+      "overrides: {\"rain_bias_correct\": {\"enabled\": false}}"
+    ]
+  },
+  "seed": {
+    "from": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\data",
+    "junctions": {
+      "copdem30": "exists",
+      "esa_worldcover": "exists",
+      "ems_polygons": "exists",
+      "era5_extracted": "exists"
+    },
+    "copied": [],
+    "skipped": [
+      "glofas_pineios.nc",
+      "imerg_pineios.nc",
+      "imerg_pineios.raw.nc",
+      "era5_pineios.nc"
+    ],
+    "raw_imerg_as_forcing": "imerg_pineios.raw.nc -> imerg_pineios.nc (rain_bias_correct disabled; the D1 rate/label convention is applied at build time)"
+  },
+  "coastal_prep": {
+    "harness_version": "v1.4",
+    "n_active_before": 262465,
+    "n_dep_le_0": 39499,
+    "n_open_sea": 39490,
+    "open_sea_km2": 888.52,
+    "n_inland_dep_le_0": 9,
+    "n_ring": 728,
+    "ring_length_km": 109.2,
+    "n_exclude": 38762,
+    "n_active_after_expected": 223703,
+    "connectivity": {
+      "open_sea": 4,
+      "ring_adjacency": 8
+    },
+    "zsini": -9999,
+    "exclude_mask": "D:/ELKAK/implementation/v14/pineios_raw_imerg/open_sea_exclude.geojson",
+    "open_sea_mask_tif": "D:/ELKAK/implementation/v14/pineios_raw_imerg/open_sea_mask.tif",
+    "n_exclude_polygons": 3
+  },
+  "exclusion": {
+    "reused": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\masks\\pineios_exclusion.tif",
+    "open_sea_identical_to_first_build": true,
+    "symmetric_difference_cells": 0
+  },
+  "rescoring_v13_skipped": "no published output survives for this configuration",
+  "sfincs_total_time_s": 3215.574,
+  "validation_v14": {
+    "exit": 0,
+    "wall_s": 1878.6,
+    "json": "results/pineios_raw_imerg_v14_newmask.json"
+  },
+  "rescoring_v13": {},
+  "quicklook": {
+    "exit": 0,
+    "png": "quicklook/pineios_raw_imerg_v14_hmax.png",
+    "err": ""
+  },
+  "end_utc": "2026-10-19T16:31:44Z"
+}

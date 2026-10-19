@@ -1,6 +1,8 @@
 """Phase 4a (GO Phases 3-5): truth-polygon positional uncertainty — re-score with the EMS observed extent buffered by
-+/-20 m (the SAR positional spec quoted in the manuscript), on the v1.4 evaluation mask. Helper tests on a synthetic
-grid: buffering grows / shrinks the rasterised truth monotonically and a zero buffer reproduces the plain rasterisation."""
++/-20 m, in the RASTER domain exactly as validation/truth_uncertainty.py did for the published runs: the polygons are
+rasterised on a fine grid of ~20 m (refine = round(dx / 20)), eroded/dilated by round(|d| / fine_cell) fine cells, and a
+model cell is wet if any of its sub-cells is (the all_touched rule). Tests on a 10-m synthetic grid (refine 1, so a 20-m
+buffer is two cells): buffering grows / shrinks the rasterised truth exactly and a zero buffer reproduces the plain rasterisation."""
 from __future__ import annotations
 
 import sys
@@ -26,7 +28,7 @@ class Buffering(unittest.TestCase):
     def setUp(self):
         from shapely.geometry import box
         self.s = _grid()
-        self.geom = box(50.0, 50.0, 110.0, 110.0)        # 60 x 60 m square = 36 cells of 10 m when exactly aligned
+        self.geom = box(50.0, 50.0, 110.0, 110.0)        # 60 x 60 m square = cells 5..10 (36 cells) on the 10-m grid
 
     def test_zero_buffer_matches_plain_rasterisation(self):
         a = tb.rasterise_geoms([self.geom], self.s, buffer_m=0.0)
@@ -34,15 +36,19 @@ class Buffering(unittest.TestCase):
         np.testing.assert_array_equal(a, b)
         self.assertEqual(int(a.sum()), 36)
 
-    def test_positive_buffer_grows_and_negative_shrinks(self):
-        # 15-m buffers keep the buffered edges off the 10-m cell boundaries (an edge exactly on a boundary is a
-        # floating-point coin toss under all_touched); +15 m -> 35..125 m touches cells 3..12 (10 x 10), -15 m -> 65..95 m touches cells 6..9 (4 x 4)
-        plus = tb.rasterise_geoms([self.geom], self.s, buffer_m=15.0)
-        minus = tb.rasterise_geoms([self.geom], self.s, buffer_m=-15.0)
+    def test_positive_buffer_grows_and_negative_shrinks_by_whole_fine_cells(self):
+        plus = tb.rasterise_geoms([self.geom], self.s, buffer_m=20.0)      # +2 cells of 10 m: cells 3..12 -> 10 x 10
+        minus = tb.rasterise_geoms([self.geom], self.s, buffer_m=-20.0)    # -2 cells: cells 7..8 -> 2 x 2
         base = tb.rasterise_geoms([self.geom], self.s)
         self.assertTrue(np.all(base <= plus)); self.assertTrue(np.all(minus <= base))
         self.assertEqual(int(plus.sum()), 100)
-        self.assertEqual(int(minus.sum()), 16)
+        self.assertEqual(int(minus.sum()), 4)
+
+    def test_refine_follows_the_published_rule(self):
+        self.assertEqual(tb.refine_for(150.0), 8)      # 150 m / 20 m -> 7.5 -> 8 (fine cell 18.75 m)
+        self.assertEqual(tb.refine_for(50.0), 2)       # 25 m fine cells
+        self.assertEqual(tb.refine_for(100.0), 5)      # 20 m fine cells
+        self.assertEqual(tb.refine_for(10.0), 1)
 
     def test_rows_are_in_map_order(self):
         """The validator returns rows with y ascending (row 0 = south). A polygon at the south edge must land in row 0."""

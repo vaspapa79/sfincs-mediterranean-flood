@@ -23,7 +23,8 @@ def _field(dt_h: float, n: int, lat_desc: bool = False):
     lat = np.array([38.0, 38.1, 38.2]); lon = np.array([23.3, 23.4, 23.5, 23.6])
     rate = np.zeros((n, 3, 4))
     rate[:, :, :] = 2.0                 # 2 mm/h everywhere
-    rate[5, 1, 2] = 50.0                # one cell peak at step 5
+    if n > 5:
+        rate[5, 1, 2] = 50.0            # one cell peak at step 5
     da = xr.DataArray(rate, dims=("time", "latitude", "longitude"), coords={"time": time, "latitude": lat, "longitude": lon}, attrs={"units": "mm/h"})
     return da.isel(latitude=slice(None, None, -1)) if lat_desc else da
 

@@ -1,0 +1,6 @@
+validating: EMSR692 Pineios (v2)  (slug=pineios)
+  evaluation-mask exclusion: D:\ELKAK\sfincs-mediterranean-floods\.worktrees\emsr933-crete\reproduction\v14_rerun\masks\pineios_exclusion.tif (42201 cells flagged on the grid)
+  strict@0.10m:  CSI=0.472  HR=0.814  FAR=0.471  BIAS=1.54  GSS=0.247
+  fuzzy r=1:     CSI=0.467  HR=0.966  FAR=0.525  GSS=0.124
+  best CSI:      0.472 at h>0.10 m
+  wrote: D:\ELKAK\sfincs-mediterranean-floods\.worktrees\emsr933-crete\reproduction\v14_rerun\results\pineios_qinf5_v14_newmask.json

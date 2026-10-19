@@ -1,0 +1,64 @@
+{
+  "utc_start": "2026-10-19T22:00:23Z",
+  "runs": {
+    "crete_canonical_r2on": {
+      "event": "crete",
+      "truth_buffer": {
+        "exit": 0,
+        "wall_s": 76.8
+      },
+      "time_matched": {
+        "exit": 0,
+        "wall_s": 478.3
+      },
+      "rain": {
+        "exit": 0,
+        "wall_s": 51.6
+      },
+      "map": {
+        "exit": 0,
+        "wall_s": 172.8
+      },
+      "map_island": {
+        "exit": 0,
+        "wall_s": 146.8
+      },
+      "rain_fig": {
+        "exit": 0,
+        "wall_s": 52.5
+      }
+    },
+    "crete_baseline": {
+      "event": "crete",
+      "truth_buffer": {
+        "exit": 0,
+        "wall_s": 112.2
+      },
+      "time_matched": {
+        "exit": 0,
+        "wall_s": 655.5
+      },
+      "rain": {
+        "exit": 0,
+        "wall_s": 85.8
+      },
+      "map": {
+        "exit": 0,
+        "wall_s": 187.6
+      },
+      "map_island": {
+        "exit": 0,
+        "wall_s": 145.5
+      }
+    }
+  },
+  "cross_event": {
+    "exit": 0,
+    "wall_s": 5.8
+  },
+  "fig_skill_sweeps": {
+    "exit": 0,
+    "wall_s": 35.4
+  },
+  "utc_end": "2026-10-19T22:37:10Z"
+}

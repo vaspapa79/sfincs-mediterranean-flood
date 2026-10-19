@@ -1,0 +1,128 @@
+{
+  "utc": "2026-10-19T17:14:23Z",
+  "glofas_file": "D:\\ELKAK\\implementation\\v14\\pineios_timevarying_q\\data\\glofas_pineios_clean.nc",
+  "glofas_var": "discharge",
+  "glofas_latitude_first_last": [
+    39.11000061035156,
+    40.209999084472656
+  ],
+  "glofas_time_first_last": [
+    "2023-08-27T00:00:00",
+    "2023-09-11T00:00:00"
+  ],
+  "ncells": 10,
+  "pipeline_dis_constant_value": 11.59,
+  "sources": [
+    {
+      "name": "pineios_trikala",
+      "injection_lonlat": [
+        21.86,
+        39.56
+      ],
+      "glofas_cell_lonlat": [
+        21.84000015258789,
+        39.61000061035156
+      ],
+      "daily_peak_m3s": 1.3799999952316284,
+      "daily_mean_m3s": 0.3268749970011413,
+      "hourly_peak_m3s": 1.3799999952316284,
+      "injection_xy_pipeline": [
+        573878.87,
+        4379276.52
+      ],
+      "snapped_xy": [
+        575357.0,
+        4379040.0
+      ],
+      "snapped_zb_m": 94.5,
+      "shift_m": [
+        1478.1,
+        -236.5
+      ]
+    },
+    {
+      "name": "pineios_kalambaka",
+      "injection_lonlat": [
+        21.86,
+        39.7
+      ],
+      "glofas_cell_lonlat": [
+        21.84000015258789,
+        39.709999084472656
+      ],
+      "daily_peak_m3s": 0.4000000059604645,
+      "daily_mean_m3s": 0.08874999941326678,
+      "hourly_peak_m3s": 0.4000000059604645,
+      "injection_xy_pipeline": [
+        573730.1,
+        4394814.49
+      ],
+      "snapped_xy": [
+        574457.0,
+        4393440.0
+      ],
+      "snapped_zb_m": 362.1,
+      "shift_m": [
+        726.9,
+        -1374.5
+      ]
+    },
+    {
+      "name": "titarisios",
+      "injection_lonlat": [
+        22.42,
+        39.71
+      ],
+      "glofas_cell_lonlat": [
+        22.440000534057617,
+        39.709999084472656
+      ],
+      "daily_peak_m3s": 24.40999984741211,
+      "daily_mean_m3s": 3.6637500021606684,
+      "hourly_peak_m3s": 24.40999984741211,
+      "injection_xy_pipeline": [
+        621724.29,
+        4396534.68
+      ],
+      "snapped_xy": [
+        621707.0,
+        4398090.0
+      ],
+      "snapped_zb_m": 61.23,
+      "shift_m": [
+        -17.3,
+        1555.3
+      ]
+    },
+    {
+      "name": "enipeas",
+      "injection_lonlat": [
+        22.39,
+        39.33
+      ],
+      "glofas_cell_lonlat": [
+        22.34000015258789,
+        39.310001373291016
+      ],
+      "daily_peak_m3s": 118.4000015258789,
+      "daily_mean_m3s": 33.24500013329089,
+      "hourly_peak_m3s": 118.4000015258789,
+      "injection_xy_pipeline": [
+        619803.78,
+        4354319.21
+      ],
+      "snapped_xy": [
+        618257.0,
+        4354740.0
+      ],
+      "snapped_zb_m": 129.81,
+      "shift_m": [
+        -1546.8,
+        420.8
+      ]
+    }
+  ],
+  "combined_hourly_peak_m3s": 135.0400017425418,
+  "n_hours": 361,
+  "sum_of_source_peaks_m3s": 144.5900013744831
+}

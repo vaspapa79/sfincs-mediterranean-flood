@@ -1,9 +1,11 @@
 """Phase 4a (GO Phases 3-5, 2026-10-19) — truth-polygon positional uncertainty on the v1.4 outputs.
 
 Re-scores the strict h > 0.10 m contingency against the EMS observed extent buffered by -20 / 0 / +20 m (the Sentinel-1
-positional spec the manuscript quotes in §3.6/§7; validation/truth_uncertainty.py did this for the three published
-canonical runs with the published mask). Same rasterisation rule as the validator (all_touched, rows in map order,
-y ascending), the v1.4 evaluation mask (AOI ∩ active minus the exclusion GeoTIFF) on both sides. Post-processing only.
+positional spec the manuscript quotes in §3.6/§7), on the v1.4 evaluation mask (AOI ∩ active minus the exclusion GeoTIFF)
+on both sides. The buffer is applied in the RASTER domain exactly as validation/truth_uncertainty.py did for the published
+runs: the polygons are rasterised on a fine grid (refine = round(dx / 20 m); fine cell dx / refine), eroded or dilated by
+round(|d| / fine cell) fine cells with a square structuring element, and a model cell is wet if any of its sub-cells is
+(the validator's all_touched rule). The zero-buffer field equals the validator's own rasterisation. Post-processing only.
 
 Usage: python -I truth_buffer_scores.py --repo <worktree> --config <run yaml> --exclusion-tif <tif> --out-json <...>
 """
@@ -18,26 +20,58 @@ from pathlib import Path
 
 import numpy as np
 
+POS_SPEC_M = 20.0        # EMS SAR positional spec (manuscript §3.6 / §7)
 
-def rasterise_geoms(geoms, s, buffer_m: float = 0.0) -> np.ndarray:
-    """Boolean grid (rows = map order, y ascending) of the geometries buffered by buffer_m (negative = eroded)."""
-    import rasterio.features
+
+def refine_for(dx: float) -> int:
+    return max(1, int(round(dx / POS_SPEC_M)))
+
+
+def _transform(s, refine: int = 1):
     from rasterio.transform import from_bounds
     x, y = np.asarray(s["x"]), np.asarray(s["y"])
     ny, nx = x.shape
     dx, dy = float(s["dx"]), float(s["dy"])
     xs, ys = x[0, :], y[:, 0]
-    tr = from_bounds(float(xs.min()) - dx / 2, float(ys.min()) - dy / 2, float(xs.max()) + dx / 2, float(ys.max()) + dy / 2, nx, ny)
-    gs = []
-    for g in geoms:
-        gb = g.buffer(buffer_m) if buffer_m else g
-        if not gb.is_empty:
-            gs.append(gb)
+    tr = from_bounds(float(xs.min()) - dx / 2, float(ys.min()) - dy / 2, float(xs.max()) + dx / 2, float(ys.max()) + dy / 2, nx * refine, ny * refine)
+    return tr, ny * refine, nx * refine, (ny > 1 and ys[1] > ys[0])
+
+
+def rasterise_fine(geoms, s, refine: int) -> np.ndarray:
+    """Boolean grid on the refine-times-finer grid, rows in map order (y ascending when the model stores y ascending)."""
+    import rasterio.features
+    tr, fny, fnx, asc = _transform(s, refine)
+    gs = [g for g in geoms if not g.is_empty]
     if not gs:
-        return np.zeros((ny, nx), dtype=bool)
-    out = rasterio.features.rasterize(((g, 1) for g in gs), out_shape=(ny, nx), transform=tr, all_touched=True, dtype="uint8")
-    out = out[::-1, :] if (ny > 1 and ys[1] > ys[0]) else out      # rasterio rows run north->south; the map stores y ascending
+        return np.zeros((fny, fnx), dtype=bool)
+    out = rasterio.features.rasterize(((g, 1) for g in gs), out_shape=(fny, fnx), transform=tr, all_touched=True, dtype="uint8")
+    out = out[::-1, :] if asc else out
     return out.astype(bool)
+
+
+def morph(fine: np.ndarray, k: int) -> np.ndarray:
+    """Dilate (k > 0) or erode (k < 0) a bool grid by |k| cells (square structuring element)."""
+    if k == 0:
+        return fine
+    from scipy import ndimage
+    st = ndimage.generate_binary_structure(2, 2)
+    fn = ndimage.binary_dilation if k > 0 else ndimage.binary_erosion
+    return fn(fine, structure=st, iterations=abs(k))
+
+
+def block_any(fine: np.ndarray, refine: int) -> np.ndarray:
+    fny, fnx = fine.shape
+    return fine.reshape(fny // refine, refine, fnx // refine, refine).any(axis=(1, 3))
+
+
+def rasterise_geoms(geoms, s, buffer_m: float = 0.0) -> np.ndarray:
+    """Boolean model-grid field of the geometries buffered by buffer_m (negative = eroded) in the raster domain."""
+    if not buffer_m:
+        return rasterise_fine(geoms, s, 1)
+    refine = refine_for(float(s["dx"]))
+    fine_cell = float(s["dx"]) / refine
+    k = int(round(abs(buffer_m) / fine_cell)) * (1 if buffer_m > 0 else -1)
+    return block_any(morph(rasterise_fine(geoms, s, refine), k), refine)
 
 
 def load_geoms(shp_paths, target_epsg):
@@ -60,13 +94,17 @@ def load_geoms(shp_paths, target_epsg):
 
 
 def buffer_sweep(model_wet, truth_geoms, universe, s, buffers_m=(-20.0, 0.0, 20.0)) -> dict:
+    """One fine rasterisation, then morph per buffer (the published procedure)."""
     sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "validation"))
     from validate_event_v2 import _contingency_full
+    refine = refine_for(float(s["dx"])); fine_cell = float(s["dx"]) / refine
+    fine = rasterise_fine(truth_geoms, s, refine)
     out = {}
     for b in buffers_m:
-        truth = rasterise_geoms(truth_geoms, s, buffer_m=b)
+        k = int(round(abs(b) / fine_cell)) * (1 if b > 0 else -1) if b else 0
+        truth = block_any(morph(fine, k), refine)
         c = _contingency_full(model_wet, truth, universe)
-        c["truth_km2"] = float((truth & universe).sum() * s["cell_area_km2"])
+        c["truth_km2"] = float((truth & universe).sum() * s["cell_area_km2"]); c["fine_cells_morphed"] = k
         out[f"{b:g}"] = c
     return out
 
@@ -105,17 +143,18 @@ def main() -> int:
     geoms = load_geoms(obs, cfg.epsg)
     buffers = tuple(float(x) for x in a.buffers.split(","))
     sweep = buffer_sweep(model_wet, geoms, universe, s, buffers)
-    # consistency: buffer 0 must equal the validator's strict rasterisation of the same shapefiles
     plain = _rasterise_polys_to_grid(obs, s["x"], s["y"], cfg.epsg, s["dx"], s["dy"])
     same = bool(np.array_equal(plain, rasterise_geoms(geoms, s, 0.0)))
+    refine = refine_for(float(s["dx"]))
     out = {"utc": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), "config": str(a.config), "event": cfg.event_slug, "threshold_m": a.threshold,
            "exclusion_tif": (str(a.exclusion_tif) if a.exclusion_tif else None), "buffers_m": list(buffers), "n_obs_shps": len(obs), "n_polygons": len(geoms),
+           "method": f"raster-domain buffer as validation/truth_uncertainty.py: refine {refine} (fine cell {float(s['dx']) / refine:.2f} m), square structuring element, block-any to the model grid",
            "zero_buffer_equals_validator_rasterisation": same, "universe_km2": float(universe.sum() * s["cell_area_km2"]), "sweep": sweep,
            "csi_range": [min(v["csi"] for v in sweep.values()), max(v["csi"] for v in sweep.values())]}
     a.out_json.parent.mkdir(parents=True, exist_ok=True)
     a.out_json.write_text(json.dumps(out, indent=2, default=str), encoding="utf-8")
     for k, v in sweep.items():
-        print(f"buffer {k:>4s} m: CSI {v['csi']:.3f} HR {v['hr']:.3f} FAR {v['far']:.3f} B {v['bias']:.2f} truth {v['truth_km2']:.1f} km²")
+        print(f"buffer {k:>4s} m ({v['fine_cells_morphed']:+d} fine cells): CSI {v['csi']:.3f} HR {v['hr']:.3f} FAR {v['far']:.3f} B {v['bias']:.2f} truth {v['truth_km2']:.1f} km²")
     print("zero buffer equals validator rasterisation:", same)
     return 0
 

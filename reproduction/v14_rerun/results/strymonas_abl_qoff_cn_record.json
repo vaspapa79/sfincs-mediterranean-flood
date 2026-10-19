@@ -1,0 +1,176 @@
+{
+  "run": "strymonas_abl_qoff_cn",
+  "event": "strymonas",
+  "kind": "enhanced",
+  "phase": 3,
+  "group": "a",
+  "label": "Table 12 row 4: CN on + Q off",
+  "c2_row": null,
+  "manifest_row": 10,
+  "work": "D:\\ELKAK\\implementation\\v14\\strymonas_abl_qoff_cn",
+  "published_model": "D:\\ELKAK\\reproduction\\repro_abl\\qoff\\model",
+  "published_wallclock_s": 110.8,
+  "published_text": null,
+  "published_note": "the printed Q-off output did not survive (inventory 3a); the 2026-06-19 re-run repro_abl/qoff reproduced the printed numbers (inventory 3c)",
+  "compare_to": null,
+  "start_utc": "2026-10-19T13:55:25Z",
+  "steps": [
+    {
+      "step": 6,
+      "start_utc": "2026-10-19T13:55:26Z",
+      "end_utc": "2026-10-19T13:56:10Z",
+      "wall_s": 43.3,
+      "exit": 0
+    },
+    {
+      "step": 7,
+      "start_utc": "2026-10-19T13:56:10Z",
+      "end_utc": "2026-10-19T13:57:37Z",
+      "wall_s": 87.6,
+      "exit": 0
+    },
+    {
+      "step": 8,
+      "start_utc": "2026-10-19T13:57:37Z",
+      "end_utc": "2026-10-19T13:59:42Z",
+      "wall_s": 125.0,
+      "exit": 0
+    },
+    {
+      "step": 9,
+      "start_utc": "2026-10-19T13:59:42Z",
+      "end_utc": "2026-10-19T14:00:27Z",
+      "wall_s": 44.4,
+      "exit": 0
+    },
+    {
+      "step": 10,
+      "start_utc": "2026-10-19T14:00:27Z",
+      "end_utc": "2026-10-19T14:12:32Z",
+      "wall_s": 725.3,
+      "exit": 0
+    },
+    {
+      "step": 11,
+      "start_utc": "2026-10-19T14:12:32Z",
+      "end_utc": "2026-10-19T14:16:15Z",
+      "wall_s": 222.6,
+      "exit": 0
+    }
+  ],
+  "config": "reproduction\\v14_rerun\\configs\\strymonas_abl_qoff_cn.yaml",
+  "config_note": {
+    "derived_from": "skill/examples/emsr122_strymonas_enhanced.yaml",
+    "changes": [
+      "harness_version: v1.4",
+      "paths.work_dir/deliverable_dir/zip_dir -> D:\\ELKAK\\implementation\\v14\\strymonas_abl_qoff_cn",
+      "overrides: {\"upstream_q\": {\"enabled\": false}}"
+    ]
+  },
+  "d6_rendered": true,
+  "frozen_config_check": {
+    "frozen": "D:\\ELKAK\\reproduction\\ablation_configs\\abl_qoff.yaml",
+    "identical_outside_env_paths": true,
+    "differences": "{}"
+  },
+  "seed": {
+    "from": "D:\\ELKAK\\implementation\\emsr122_sfincs_v3\\data",
+    "junctions": {
+      "copdem30": "exists",
+      "esa_worldcover": "exists",
+      "ems_polygons": "exists",
+      "era5_extracted": "exists"
+    },
+    "copied": [],
+    "skipped": [
+      "glofas_strymonas.nc",
+      "imerg_strymonas.nc",
+      "era5_strymonas.nc"
+    ]
+  },
+  "coastal_prep": {
+    "harness_version": "v1.4",
+    "n_active_before": 207374,
+    "n_dep_le_0": 22516,
+    "n_open_sea": 22427,
+    "open_sea_km2": 504.61,
+    "n_inland_dep_le_0": 89,
+    "n_ring": 877,
+    "ring_length_km": 131.6,
+    "n_exclude": 21550,
+    "n_active_after_expected": 185824,
+    "connectivity": {
+      "open_sea": 4,
+      "ring_adjacency": 8
+    },
+    "zsini": -9999,
+    "exclude_mask": "D:/ELKAK/implementation/v14/strymonas_abl_qoff_cn/open_sea_exclude.geojson",
+    "open_sea_mask_tif": "D:/ELKAK/implementation/v14/strymonas_abl_qoff_cn/open_sea_mask.tif",
+    "n_exclude_polygons": 3
+  },
+  "exclusion": {
+    "reused": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\masks\\strymonas_exclusion.tif",
+    "open_sea_identical_to_first_build": true,
+    "symmetric_difference_cells": 0
+  },
+  "sfincs_total_time_s": 220.273,
+  "cn_realised": {
+    "raster_clip_mean_cn": 73.4,
+    "active_mean_cn": 74.9,
+    "msk1_mean_cn": 74.8,
+    "active_S_mm_mean": 88.4
+  },
+  "validation_v14": {
+    "exit": 0,
+    "wall_s": 6.5,
+    "json": "results/strymonas_abl_qoff_cn_v14_newmask.json"
+  },
+  "rescoring_v13": {
+    "v13_publishedmask": {
+      "exit": 0,
+      "wall_s": 242.6,
+      "json": "results/strymonas_abl_qoff_cn_v13_publishedmask.json"
+    },
+    "v13_newmask": {
+      "exit": 0,
+      "wall_s": 242.6,
+      "json": "results/strymonas_abl_qoff_cn_v13_newmask.json"
+    }
+  },
+  "published_strict": {
+    "_source": "D:\\ELKAK\\manuscript\\paper_submission_v2\\data\\exp\\strymonas_v4_qoff.json",
+    "tp": 76,
+    "fp": 17,
+    "fn": 4661,
+    "tn": 49587,
+    "csi": 0.015986537652503154,
+    "hr": 0.016043909647456195,
+    "far": 0.1827956989247312,
+    "bias": 0.019632678910702975,
+    "gss": 0.014305637942695732
+  },
+  "published_record_check": {
+    "published_json": "D:\\ELKAK\\manuscript\\paper_submission_v2\\data\\exp\\strymonas_v4_qoff.json",
+    "identical_tp_fp_fn_tn": true,
+    "published": {
+      "tp": 76,
+      "fp": 17,
+      "fn": 4661,
+      "tn": 49587,
+      "csi": 0.015986537652503154
+    },
+    "rescored": {
+      "tp": 76,
+      "fp": 17,
+      "fn": 4661,
+      "tn": 49587,
+      "csi": 0.015986537652503154
+    }
+  },
+  "quicklook": {
+    "exit": 0,
+    "png": "quicklook/strymonas_abl_qoff_cn_v14_hmax.png",
+    "err": ""
+  },
+  "end_utc": "2026-10-19T14:16:41Z"
+}

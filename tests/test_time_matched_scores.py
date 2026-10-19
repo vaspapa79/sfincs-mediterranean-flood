@@ -84,3 +84,12 @@ class AcquisitionParser(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class Snapshots(unittest.TestCase):
+    def test_snapshots_equal_running_hmax_at_every_requested_time(self):
+        ds, zb = _synthetic()
+        times = [dt.datetime(2023, 9, 2, 5, 0), dt.datetime(2023, 9, 2, 7, 0), dt.datetime(2023, 9, 2, 12, 0), dt.datetime(2023, 9, 3, 0, 0)]
+        snap = tm.running_hmax_snapshots(ds, zb, times)
+        for t in times:
+            np.testing.assert_allclose(snap[t], tm.running_hmax(ds, zb, t))

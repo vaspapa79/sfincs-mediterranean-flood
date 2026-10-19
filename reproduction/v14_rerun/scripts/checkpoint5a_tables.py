@@ -68,7 +68,7 @@ def run_rows(res: Path, run: str, rec: dict):
     ps = rec.get("published_strict")
     rows = []
     if not v14:
-        return [f"| {run} | run not finished | | | |"], None
+        return ["| metric | | | v1.4 | |", "|---|---|---|---|---|"], [f"| {run} | run not finished | | | |"], None
     c = strict(v14)
     if v13p and v13n:
         a, b = strict(v13p), strict(v13n)
@@ -114,8 +114,8 @@ def main() -> int:
         L += [f"## Group {gid} — {title}", ""]
         for run in runs:
             rec = J(res / f"{run}_record.json")
-            if not rec:
-                L += [f"### {run}", "", "record missing (run not started)", ""]; continue
+            if not rec or not rec.get("end_utc"):
+                L += [f"### {run}", "", "pending (run not finished)", ""]; continue
             L += [f"### {run} — {rec.get('label', '')}", ""]
             notes = []
             cfgn = rec.get("config_note", {}).get("changes", [])
@@ -156,6 +156,10 @@ def main() -> int:
             if v14 and canon.get(ev) and run not in CANON.values():
                 cc = strict(canon[ev]); c = strict(v14)
                 L.append(f"| vs the v1.4 canonical ({CANON[ev]}) | | | CSI {cc['csi']:.3f} → {c['csi']:.3f} ({c['csi'] - cc['csi']:+.3f}); HR {cc['hr']:.3f} → {c['hr']:.3f}; B {cc['bias']:.2f} → {c['bias']:.2f}; wet {wet_km2(canon[ev]):.1f} → {wet_km2(v14):.1f} km² | |")
+            tmj = J(R / "phase4" / "time_matched" / f"{run}_v14.json")
+            if v14 and run == "strymonas_leadin7d" and tmj and tmj.get("window"):
+                w = tmj["window"]
+                L.append(f"| hmax restricted to the canonical window {w['t0'][:10]} → {w['t1'][:10]} (time_matched_scores.py --window) | | | CSI {w['union']['csi']:.3f} HR {w['union']['hr']:.3f} FAR {w['union']['far']:.3f} B {w['union']['bias']:.2f} | |")
             if v14 and ev == "mandra" and run.startswith("mandra_cn"):
                 tp01, csi01 = aoi_tp(v14, "01MANDRA")
                 L.append(f"| 01MANDRA (S1 column) | TP {rec.get('published_text', {}).get('tp_01mandra', '—')} | | TP {tp01}, CSI {f(csi01, 3)} | |")
@@ -163,7 +167,10 @@ def main() -> int:
             L.append(f"| SFINCS wall-clock s (published) | | | {rec.get('sfincs_total_time_s')} ({rec.get('published_wallclock_s')}) | |")
             L.append("")
             if sm:
-                audit.append(f"- {run} ({rec.get('label', '')}): " + (f"v1.3 published CSI {sm['pub']['csi']:.4f} HR {sm['pub']['hr']:.4f} FAR {sm['pub']['far']:.4f} B {sm['pub']['bias']:.3f}" if sm.get("pub") and "hr" in sm["pub"] else "no published number") +
+                pb = dict(sm.get("pub") or {})
+                if pb and "bias" not in pb and all(k in pb for k in ("tp", "fp", "fn")):
+                    pb["bias"] = (pb["tp"] + pb["fp"]) / (pb["tp"] + pb["fn"]) if (pb["tp"] + pb["fn"]) else float("nan")
+                audit.append(f"- {run} ({rec.get('label', '')}): " + (f"v1.3 published CSI {pb['csi']:.4f} HR {pb['hr']:.4f} FAR {pb['far']:.4f} B {pb.get('bias', float('nan')):.3f}" if pb and "hr" in pb else "no published number") +
                              (f"; v1.3 new mask CSI {sm['mask']['csi']:.4f}" if sm.get("mask") else "") +
                              f"; **v1.4 new mask CSI {sm['v14']['csi']:.4f} HR {sm['v14']['hr']:.4f} FAR {sm['v14']['far']:.4f} B {sm['v14']['bias']:.3f} GSS {sm['v14']['gss']:.4f}** (TP/FP/FN {sm['v14']['tp']}/{sm['v14']['fp']}/{sm['v14']['fn']}); "
                              + (f"curve numbers realised (active) {rec['cn_realised'].get('active_mean_cn')}; " if rec.get("cn_realised") else "")

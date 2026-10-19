@@ -1,0 +1,6 @@
+validating: EMSR257 Mandra (v2)  (slug=mandra)
+  evaluation-mask exclusion: D:\ELKAK\sfincs-mediterranean-floods\.worktrees\emsr933-crete\reproduction\v14_rerun\masks\mandra_exclusion.tif (50163 cells flagged on the grid)
+  strict@0.10m:  CSI=0.157  HR=0.812  FAR=0.838  BIAS=5.00  GSS=0.065
+  fuzzy r=1:     CSI=0.207  HR=0.932  FAR=0.790  GSS=0.039
+  best CSI:      0.162 at h>0.25 m
+  wrote: D:\ELKAK\sfincs-mediterranean-floods\.worktrees\emsr933-crete\reproduction\v14_rerun\results\mandra_r2_255_v14_newmask.json

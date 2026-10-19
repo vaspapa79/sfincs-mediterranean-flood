@@ -1,0 +1,135 @@
+{
+  "run": "pineios_r2_220",
+  "event": "pineios",
+  "kind": "enhanced",
+  "phase": 3,
+  "group": "c",
+  "label": "R2 sweep Pineios target 220 mm",
+  "c2_row": null,
+  "manifest_row": 12,
+  "work": "D:\\ELKAK\\implementation\\v14\\pineios_r2_220",
+  "published_model": null,
+  "published_wallclock_s": null,
+  "published_text": null,
+  "published_note": null,
+  "compare_to": null,
+  "start_utc": "2026-10-19T14:21:18Z",
+  "steps": [
+    {
+      "step": 6,
+      "start_utc": "2026-10-19T13:33:29Z",
+      "end_utc": "2026-10-19T13:33:32Z",
+      "wall_s": 3.0,
+      "from_log": true
+    },
+    {
+      "step": 7,
+      "start_utc": "2026-10-19T13:33:32Z",
+      "end_utc": "2026-10-19T13:33:35Z",
+      "wall_s": 3.0,
+      "from_log": true
+    },
+    {
+      "step": 8,
+      "start_utc": "2026-10-19T13:33:35Z",
+      "end_utc": "2026-10-19T13:33:35Z",
+      "wall_s": 0.0,
+      "from_log": true
+    },
+    {
+      "step": 9,
+      "start_utc": "2026-10-19T13:33:35Z",
+      "end_utc": "2026-10-19T13:33:37Z",
+      "wall_s": 2.0,
+      "from_log": true
+    },
+    {
+      "step": 10,
+      "start_utc": "2026-10-19T13:33:37Z",
+      "end_utc": "2026-10-19T13:34:29Z",
+      "wall_s": 52.0,
+      "from_log": true
+    },
+    {
+      "step": 11,
+      "start_utc": "2026-10-19T13:34:29Z",
+      "end_utc": null,
+      "wall_s": null,
+      "from_log": true
+    }
+  ],
+  "config": "reproduction\\v14_rerun\\configs\\pineios_r2_220.yaml",
+  "config_note": {
+    "derived_from": "skill/examples/emsr692_pineios_enhanced.yaml",
+    "changes": [
+      "harness_version: v1.4",
+      "paths.work_dir/deliverable_dir/zip_dir -> D:\\ELKAK\\implementation\\v14\\pineios_r2_220",
+      "overrides: {\"rain_bias_correct\": {\"target_mm\": 220}}"
+    ]
+  },
+  "seed": {
+    "from": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\data",
+    "junctions": {
+      "copdem30": "exists",
+      "esa_worldcover": "exists",
+      "ems_polygons": "exists",
+      "era5_extracted": "exists"
+    },
+    "copied": [],
+    "skipped": [
+      "glofas_pineios.nc",
+      "imerg_pineios.nc",
+      "imerg_pineios.raw.nc",
+      "era5_pineios.nc"
+    ]
+  },
+  "resumed": true,
+  "coastal_prep": {
+    "harness_version": "v1.4",
+    "n_active_before": 262465,
+    "n_dep_le_0": 39499,
+    "n_open_sea": 39490,
+    "open_sea_km2": 888.52,
+    "n_inland_dep_le_0": 9,
+    "n_ring": 728,
+    "ring_length_km": 109.2,
+    "n_exclude": 38762,
+    "n_active_after_expected": 223703,
+    "connectivity": {
+      "open_sea": 4,
+      "ring_adjacency": 8
+    },
+    "zsini": -9999,
+    "exclude_mask": "D:/ELKAK/implementation/v14/pineios_r2_220/open_sea_exclude.geojson",
+    "open_sea_mask_tif": "D:/ELKAK/implementation/v14/pineios_r2_220/open_sea_mask.tif",
+    "n_exclude_polygons": 3
+  },
+  "exclusion": {
+    "reused": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\masks\\pineios_exclusion.tif",
+    "open_sea_identical_to_first_build": true,
+    "symmetric_difference_cells": 0
+  },
+  "rescoring_v13_skipped": "no published output survives for this configuration",
+  "sfincs_total_time_s": 2043.759,
+  "validation_v14": {
+    "exit": 0,
+    "wall_s": 729.1,
+    "json": "results/pineios_r2_220_v14_newmask.json"
+  },
+  "rescoring_v13": {},
+  "published_strict": {
+    "_source": "D:\\ELKAK\\sfincs-mediterranean-floods\\docs\\bias_sensitivity\\pineios.csv target 220",
+    "csi": 0.47546819256980927,
+    "hr": 0.902272457928419,
+    "far": 0.4987160705173577,
+    "bias": 1.7999229675278503,
+    "gss": 0.239453524520404,
+    "multiplier": 1.499
+  },
+  "quicklook": {
+    "exit": 0,
+    "png": "quicklook/pineios_r2_220_v14_hmax.png",
+    "err": ""
+  },
+  "end_utc": "2026-10-19T15:05:02Z"
+}

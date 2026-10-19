@@ -1,0 +1,137 @@
+{
+  "run": "mandra_cn_d_amc3_manning080",
+  "event": "mandra",
+  "kind": "enhanced",
+  "phase": 3,
+  "group": "d",
+  "label": "S1 prose: Manning test, built-up n 0.012 -> 0.080 at the HSG-D AMC-III configuration",
+  "c2_row": 5,
+  "manifest_row": 17,
+  "work": "D:\\ELKAK\\implementation\\v14\\mandra_cn_d_amc3_manning080",
+  "published_model": null,
+  "published_wallclock_s": null,
+  "published_text": {
+    "source": "NHESS supplement R5, S1 prose: no measurable change in per-area true positives or in total wet area (115.8 vs. 110.8 km2 at CN = 97)",
+    "total_wet_km2_n080": 115.8,
+    "total_wet_km2_n012": 110.8
+  },
+  "published_note": null,
+  "compare_to": null,
+  "start_utc": "2026-10-19T20:13:23Z",
+  "steps": [
+    {
+      "step": 6,
+      "start_utc": "2026-10-19T20:13:23Z",
+      "end_utc": "2026-10-19T20:15:57Z",
+      "wall_s": 154.1,
+      "exit": 0
+    },
+    {
+      "step": 7,
+      "start_utc": "2026-10-19T20:15:57Z",
+      "end_utc": "2026-10-19T20:17:44Z",
+      "wall_s": 106.3,
+      "exit": 0
+    },
+    {
+      "step": 8,
+      "start_utc": "2026-10-19T20:17:44Z",
+      "end_utc": "2026-10-19T20:18:42Z",
+      "wall_s": 58.2,
+      "exit": 0
+    },
+    {
+      "step": 9,
+      "start_utc": "2026-10-19T20:18:42Z",
+      "end_utc": "2026-10-19T20:19:24Z",
+      "wall_s": 42.1,
+      "exit": 0
+    },
+    {
+      "step": 10,
+      "start_utc": "2026-10-19T20:19:24Z",
+      "end_utc": "2026-10-19T20:21:40Z",
+      "wall_s": 136.2,
+      "exit": 0
+    },
+    {
+      "step": 11,
+      "start_utc": "2026-10-19T20:21:40Z",
+      "end_utc": "2026-10-19T20:30:00Z",
+      "wall_s": 499.5,
+      "exit": 0
+    }
+  ],
+  "config": "reproduction\\v14_rerun\\configs\\mandra_cn_d_amc3_manning080.yaml",
+  "config_note": {
+    "derived_from": "skill/examples/emsr257_mandra_enhanced.yaml",
+    "changes": [
+      "harness_version: v1.4",
+      "paths.work_dir/deliverable_dir/zip_dir -> D:\\ELKAK\\implementation\\v14\\mandra_cn_d_amc3_manning080",
+      "overrides: {\"infiltration\": {\"enabled\": true, \"hsg\": \"D\", \"amc\": 3, \"cn_lookup\": {\"10\": 79, \"20\": 77, \"30\": 84, \"40\": 89, \"50\": 93, \"60\": 94, \"70\": 99, \"80\": 99, \"90\": 90, \"95\": 90, \"100\": 85}}}",
+      "paths.manning_lookup -> manning_lookup_builtup_0.080.csv (class 50 built-up n = 0.08)"
+    ]
+  },
+  "d6_rendered": true,
+  "seed": {
+    "from": "D:\\ELKAK\\implementation\\mandra_sfincs_enhanced\\data",
+    "junctions": {
+      "copdem30": "exists",
+      "esa_worldcover": "exists",
+      "ems_polygons": "exists",
+      "era5_extracted": "exists"
+    },
+    "copied": [],
+    "skipped": [
+      "glofas_mandra.nc",
+      "imerg_mandra.nc",
+      "imerg_mandra.raw.nc",
+      "era5_mandra.nc"
+    ]
+  },
+  "coastal_prep": {
+    "harness_version": "v1.4",
+    "n_active_before": 162335,
+    "n_dep_le_0": 48215,
+    "n_open_sea": 48187,
+    "open_sea_km2": 120.47,
+    "n_inland_dep_le_0": 28,
+    "n_ring": 3519,
+    "ring_length_km": 175.9,
+    "n_exclude": 44668,
+    "n_active_after_expected": 117667,
+    "connectivity": {
+      "open_sea": 4,
+      "ring_adjacency": 8
+    },
+    "zsini": -9999,
+    "exclude_mask": "D:/ELKAK/implementation/v14/mandra_cn_d_amc3_manning080/open_sea_exclude.geojson",
+    "open_sea_mask_tif": "D:/ELKAK/implementation/v14/mandra_cn_d_amc3_manning080/open_sea_mask.tif",
+    "n_exclude_polygons": 5
+  },
+  "exclusion": {
+    "reused": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\masks\\mandra_exclusion.tif",
+    "open_sea_identical_to_first_build": true,
+    "symmetric_difference_cells": 0
+  },
+  "rescoring_v13_skipped": "no published output survives for this configuration",
+  "sfincs_total_time_s": 498.728,
+  "cn_realised": {
+    "raster_clip_mean_cn": 94.6,
+    "active_mean_cn": 93.0,
+    "msk1_mean_cn": 92.8,
+    "active_S_mm_mean": 19.3
+  },
+  "validation_v14": {
+    "exit": 0,
+    "wall_s": 7.9,
+    "json": "results/mandra_cn_d_amc3_manning080_v14_newmask.json"
+  },
+  "rescoring_v13": {},
+  "quicklook": {
+    "exit": 0,
+    "png": "quicklook/mandra_cn_d_amc3_manning080_v14_hmax.png",
+    "err": ""
+  },
+  "end_utc": "2026-10-19T20:30:17Z"
+}
