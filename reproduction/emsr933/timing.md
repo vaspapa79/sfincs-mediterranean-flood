@@ -14,6 +14,7 @@ boundaries. Times are UTC.
 | 0 Preflight + EMS snapshot + availability | 2026-10-09T12:35:48Z | 2026-10-09T12:56Z | 0 h 20 min | 0.35 | _to fill_ | — | session start = task paste; end = STAGE0_REPORT.md written |
 | 1 Rule ledger + YAMLs (no model runs); also F2/F4 fixes + regression, F5_VERIFY.md, daily latency probe, NOA station retrieval | 2026-10-09T13:08:34Z | 2026-10-09T14:15Z | 1 h 07 min | 1.1 | _to fill_ | | start = Checkpoint-0 go; end = Checkpoint-1 posted; four F5 agents + one web-research agent ran in parallel (their wall-clock is inside this hour) |
 | CODE-12 (harness v1.4 code + tests, re-run manifest, Crete build QC) — on branch `fix/harness-v1.4` | 2026-10-12T09:35:27Z | 2026-10-12T10:40Z | 1 h 05 min | 1.1 | _to fill_ | | start = CODE-12 paste; A1–A2 commit `513ce5a` 10:12:15Z; Crete build-only QC 09:47:40–09:52:32Z (4 min 52 s hydromt); Crete ERA5/IMERG downloaded for A3 (not run); one inventory agent ran in parallel; end = Checkpoint-2 posted |
+| CODE-13 (D4 coastal set-up check + fix, IB diagnosis, manifest clean-up) — `fix/harness-v1.4` | 2026-10-19T08:03:12Z | 2026-10-19T08:45Z | 0 h 42 min | 0.7 | _to fill_ | | start = CODE-13 paste; D4 commit `561e8a0` 08:23:45Z; Crete rebuild with the coastal set-up 08:19:34–08:23:17Z (prep 6.6 s + hydromt 208.6 s); no model run of any event; end = Checkpoint-3 posted |
 
 ## Data-latency probe (daily, until ERA5T covers 7 Oct) — `scripts/daily_probe.py`, CSV in `latency_probe.csv`
 | probe UTC | ERA5 last requestable day | IMERG Final granules 27 Sep–7 Oct | GloFAS v4 intermediate last day | EMS products F/I/N | AOI03 GRA |
@@ -55,3 +56,11 @@ activation — idle time before CODE-10 existed, to be reported as such, not as 
 - 2026-10-12T10:0xZ — A2 reference pressures, A3 spin-up totals, Crete QC analysis; synthetic 25-hPa SFINCS test GREEN (boundary 0.2489 m vs expected 0.2489).
 - 2026-10-12T10:12:15Z — commit `513ce5ab73bbf4ef41e091cf3c49c3b836f2cd8b` (A1–A2 + tests + records; no corrected published-event run exists at this commit).
 - 2026-10-12T10:2xZ — one-day Pineios boundary slice (copy of the as-run model, no scoring) run with the v1.4 boundary; MANIFEST.md (Part B) written from the read-only inventory; AUDIT §9 block generated; second commit; Checkpoint 2.
+
+## CODE-13 — event log (D4 coastal set-up; still no model run of any event)
+- 2026-10-19T08:03:12Z — CODE-13 received (Checkpoint-2 decisions: A1/A2 accepted, D3 text-only, Crete YAMLs → v1.4).
+- 2026-10-19T08:09Z — Crete YAMLs set to `harness_version: v1.4`; Part A geometry check written (`d4_check.py`), run 08:11Z and again 08:20Z after switching to the production `open_sea_split` (numbers identical).
+- 2026-10-19T08:1xZ — IB-shortfall diagnosis on the kept slice (`ib_shortfall_diagnosis.py`): half-cell netamp registration found (SFINCS `sfincs_ncinput.F90:496-499`, `sfincs_meteo.f90:977-978`); D4 tests written (RED), implementation, 57 tests GREEN.
+- 2026-10-19T08:19:34–08:23:17Z — Crete rebuild with the coastal set-up (`crete_rebuild_v14.py`; 859 727 active cells, 160 bnd points).
+- 2026-10-19T08:23:45Z — commit `561e8a03510125016ada36bb1bf30dc2ca4c085f` (D4 code + tests; no corrected published-event run exists at this commit).
+- 2026-10-19T08:3xZ — F5_VERIFY correction, schema doc, MANIFEST C1–C3, AUDIT block (`code13_summary.py`), records commit, Checkpoint 3.

@@ -45,6 +45,8 @@ def main() -> int:
     inp = {k: mod.config[k] for k in ("mmax", "nmax", "dx", "dy", "x0", "y0", "epsg", "tref", "tstart", "tstop", "pavbnd")}
     rep["inp"] = inp
     msk = mod.mask.values
+    if float(mod.mask.y[0]) < float(mod.mask.y[-1]):   # hydromt returns the mask south-up; gis/dep.tif is north-up
+        msk = msk[::-1, :]
     rep["grid"] = {"mmax": int(inp["mmax"]), "nmax": int(inp["nmax"]), "n_cells_total": int(msk.size),
                    "dx_m": float(inp["dx"]), "cell_km2": float(inp["dx"]) * float(inp["dy"]) / 1e6}
     rep["mask"] = {"msk0_inactive": int((msk == 0).sum()), "msk1_active_interior": int((msk == 1).sum()),
@@ -138,7 +140,7 @@ def main() -> int:
     a.out_json.parent.mkdir(parents=True, exist_ok=True)
     a.out_json.write_text(json.dumps(rep, indent=2, default=str), encoding="utf-8")
     m, b, g, s, p = rep["mask"], rep["boundary"], rep["grid"], rep["subgrid"], rep["samaria_pit_100m"]
-    L = [f"# EMSR933 Crete — build QC (CODE-12 Part C, no forcing, no run), {rep['utc']}", "",
+    L = [f"# EMSR933 Crete — build QC (grid/dep/mask/subgrid only; no forcing, no run), {rep['utc']}", "",
          f"Model: `{a.model}` — grid {g['mmax']} x {g['nmax']} = {g['n_cells_total']:,} cells @ {g['dx_m']:.0f} m (EPSG:{inp['epsg']}); "
          f"GAP-1 = A (100 m island-wide), GAP-2 z_max = 2500 m; tref/tstart/tstop {inp['tref']} / {inp['tstart']} / {inp['tstop']}.", "",
          "| quantity | value |", "|---|---|",

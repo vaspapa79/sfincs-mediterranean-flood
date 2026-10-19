@@ -1,5 +1,13 @@
 # F5_VERIFY — state of the v1.3.0 harness that EMSR933 would inherit (facts only)
 
+> **Correction (CODE-13, 2026-10-19, after Checkpoint 2 review).** Defect D1 affects the **IMERG path only**.
+> The hourly ERA5 path reported in (c) below (×1.0, −60 min) is the *correct* conversion, not a defect: ECMWF
+> documents ERA5 `tp` as the accumulation over the hour **ending** at the validity time, and SFINCS holds each
+> rate from its stamp forward (`amprblock = 1`), so hydromt's `time_label='right'` relabelling puts the hour on
+> its physical interval. The ERA5 baselines were therefore **not** affected by D1; harness v1.4 keeps
+> `cumulative_input=True, time_label=right` for ERA5 and writes IMERG with `cumulative_input=False,
+> time_label=left` (see `reproduction/v14_harness/PAVBND_SOURCE.md` §5 and `tests/test_precip_forcing_v14.py`).
+
 Requested at Checkpoint 0 (decision 5). Four independent read-only analyses, each with a reproducible
 script and a JSON holding every number: `f5/F5_abc.{md,json}` (`f5_abc_synthetic.py`), `f5/F5_d.*`
 (`f5_d_volume.py`), `f5/F5_e.*` (`f5_e_ib.py`), `f5/F5_f.*` (`f5_f_spinup.py`). Environment: conda

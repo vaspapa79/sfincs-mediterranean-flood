@@ -94,6 +94,57 @@ unknown until the first run (row 1, 2 min) is done.
    the "~38 km²" / "below 40 km²" / "0.105" statements instead of recreating runs that have no surviving record.
 8. Post-processing block 2: mask sensitivity (S3), truth uncertainty (§7, §3.6), f10/f11 values (edit the scripts).
 
+## 6. CODE-13 clean-up (2026-10-19)
+
+### C1 — Strymonas baseline: which folder produced the published numbers
+
+The published baseline numbers (Table 12 row 1, Table 8 baseline column, Table 10 Δ: CSI 0.204 / HR 0.377 / FAR 0.692)
+come from **`D:/ELKAK/implementation/emsr122_sfincs/model`** (`sfincs_map.nc` 2026-05-22 10:08): both
+`reproduction/val_json/strymonas_base.json` (2026-06-19, evaluation area 1222.6725 km², observed wet 106.5825 km²)
+and `manuscript/paper_submission_v2/data/exp/strymonas_baseline_recheck.json` (`model_dir … emsr122_sfincs\model`)
+score that folder and give 0.2039 / 0.3766 / 0.6921. Its data folder and the frozen record
+`configs/as_run/emsr122_sfincs/data_catalog.yml` use the slug **`emsr122`** (`era5_emsr122.nc`,
+`glofas_emsr122_clean.nc`), i.e. the run came from an earlier YAML with `event.slug: emsr122`; the committed example
+`emsr122_strymonas.yaml` (slug `strymonas`) is otherwise identical (bbox [22.8, 40.6, 24.0, 41.4], 150 m, zmax 250,
+tref 2015-03-27 → tstart 03-28 → tstop 04-04). Manifest fix (row 2): re-run from the committed example with
+`SFINCS_WORK_DIR` on a new work dir seeded from `emsr122_sfincs/data` (junctions for `copdem30/`, `esa_worldcover/`,
+`ems_polygons/`, `era5_extracted/`; `era5_emsr122.nc` copied as `era5_strymonas.nc`, `glofas_emsr122_clean.nc` as
+`glofas_strymonas_clean.nc`) — no download; the slug only names the files.
+
+### C2 — the eight runs without a surviving model directory
+
+| # | run | exact sentence / table cell it feeds | configuration recoverable? | proposal |
+|---|---|---|---|---|
+| 1 | Mandra CN "HSG-A AMC-II (CN = 15 test)" | Suppl. Table S1 row 1: `HSG-A AMC-II (CN = 15 test) \| 42 \| 0.77 \| 0 \| 0.031 \| 0.032 \| 0.42`; §6.2 "TP = 0 at 01MANDRA for CN ∈ [15,95]" | approximately: a lookup with the pervious classes at CN 15 (mean realised CN 42 means built-up/water kept at 99/—); the exact lookup is not recorded | recreate with a uniform CN = 15 lookup for the pervious classes and relabel the row, or merge rows 1–3 into one "any CN ≤ 80" row (the three rows are identical to the millimetre) |
+| 2 | Mandra CN "HSG-A AMC-II (CN ≈ 58 test)" | Table S1 row 2: `… \| 65 \| 0.77 \| 0 \| 0.031 \| 0.032 \| 0.42` | approximately (as row 1, CN 58) | as row 1 |
+| 3 | Mandra CN "HSG-B AMC-II (default lookup)" | Table S1 row 3: `… \| 80 \| 0.77 \| 0 \| 0.031 \| 0.032 \| 0.42`; S1 prose "An initial enhanced run with standard HSG-B / AMC-II curve numbers yielded CSI = 0.031 with zero true positives in the central 01MANDRA area" | **exactly**: `emsr257_mandra_enhanced.yaml` + `infiltration: {enabled: true, hsg: B, amc: 2}` (pipeline default lookup) | recreate (supports contribution (iii)) |
+| 4 | Mandra CN "HSG-D AMC-III (post-fire, saturated)" | Table S1 row 4: `… \| 97 \| 111 \| 0 \| 0.010 \| 0.036 \| 0.99`; S1 prose "for CN ≥ 97 (S ≤ 8 mm) the flood relocates eastward into the Aspropyrgos–Elefsina plain" | **exactly**: `infiltration: {enabled: true, hsg: D, amc: 3}` | recreate |
+| 5 | Mandra Manning test (built-up n 0.012 → 0.080) | S1 prose "Raising the built-up Manning coefficient from n = 0.012 to 0.080 … produced no measurable change in per-area true positives or in total wet area (115.8 vs. 110.8 km² at CN = 97)" | **exactly**: row-4 configuration with a copy of `manning_lookup.csv` whose class-50 value is 0.080 (`paths.manning_lookup`) | recreate with row 4 (one extra run) |
+| 6 | Pineios CN-on | §4.1.2 "(ii) SCS-CN disabled: a CN-enabled run (HSG-B, AMC-II, basin-mean CN ≈ 77) absorbed essentially all the rainfall and collapsed the flood to ~38 km² (against 1519 km² observed)"; §6.2 "The same recurs on Pineios (CN-on collapses the flood to ~38 km²)" | **exactly**: `emsr692_pineios_enhanced.yaml` + `infiltration.enabled: true` (the YAML documents this 2026-05-27 test) | recreate |
+| 7 | Pineios raw IMERG | §5 "raw IMERG recovers only 141 mm and bounds the flood below 40 km²" (the 141 mm is a forcing statistic, Fig. 4) | **exactly**: `emsr692_pineios_enhanced.yaml` + `rain_bias_correct.enabled: false` | recreate (or drop the "below 40 km²" clause and keep the 141 mm, which needs no run) |
+| 8 | Valencia raw IMERG | §4.4.2 "The uncorrected raw-IMERG run scores CSI = 0.105 (a sensitivity point; its full contingency table is archived with the released pipeline)"; §5.3 "raw-IMERG run scores CSI = 0.105"; Suppl. S3.1 "The uncorrected raw-IMERG Valencia sensitivity run (CSI = 0.105) is archived with the released pipeline" | **exactly**: `emsr773_valencia_enhanced.yaml` + `rain_bias_correct.enabled: false` (the contingency table is `S1_EMSR773_valencia_raw_IMERG_metrics.json`) | recreate |
+
+Rows 3–8 are exactly recoverable from the committed YAMLs (6 runs); rows 1–2 only approximately. Proposal as stated by
+the author: recreate the Supplement S1 curve-number rows (3, 4, and 1–2 relabelled or merged), recreate 5–8; nothing
+has to be dropped for lack of configuration.
+
+### C3 — baselines and the revised compute estimate (D4)
+
+D4 changes every v1.4 run, baselines included: the open sea becomes inactive (Part A: 888 km² Pineios, 120 km² Mandra,
+505 km² Strymonas, 2 252 km² Valencia, 1 682 km² Emilia, 22 224 km² Crete), the boundary moves from the grid perimeter
+to the coastal ring, and every cell starts dry (zsini −9999 instead of 0 — Valencia and Emilia previously started
+with 88.6 and 286.9 Mm³ of water in land cells with zb < 0). Rows 2, 4 and 6 (the three baselines) are therefore
+**mandatory**, not optional same-harness re-runs; their ERA5 forcing is unchanged (D1 affects IMERG only).
+
+Active cells v1.3 → v1.4 (Part A (i) removed, one-cell ring kept): Pineios 262 465 → ≈ 223 k; Mandra 162 335 → ≈ 114 k;
+Strymonas 207 374 → ≈ 185 k; Valencia 521 427 → ≈ 296 k; Emilia 300 965 → ≈ 226 k; Crete 3 067 497 → **859 727**
+(measured, `buildqc_v14/rebuild_v14.json`: prep 6.6 s, hydromt build 208.6 s, sub-grid 545 MB instead of 1 950 MB,
+13 858 msk = 2 cells, 160 bnd points). The removed sea cells were dry in v1.3 (cheap per step), so the published
+wall-clocks of Section 3 stay the planning figure for the five events (Valencia may drop by up to ~30 %); the IB now
+wets the coastal ring only. Crete (not in the R5 total): scaling Pineios' 1 456 s for 262 k cells × 8 d to 860 k cells
+× 8 d gives ≈ 4 800 s ≈ 1.3 h per run (≈ 4.7 h with the sea active), i.e. ≈ 4 h for baseline + enhanced + R2on, plus
+≈ 4 min build each — to be measured on the first Crete run.
+
 ## 5. Manuscript residues to fix in the same pass (facts from the inventory, not new findings)
 
 Table 9 Valencia B/GSS (12.15/0.021) and Emilia B/GSS (4.98/0.055), Table 13 "3202 / 443" and Table 14 B* values still

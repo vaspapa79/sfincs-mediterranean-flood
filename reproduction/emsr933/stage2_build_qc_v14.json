@@ -1,0 +1,151 @@
+{
+  "utc": "2026-10-19T08:26:02Z",
+  "model_dir": "D:\\ELKAK\\implementation\\emsr933_crete\\buildqc_v14\\model",
+  "inp": {
+    "mmax": 2771,
+    "nmax": 1107,
+    "dx": 100,
+    "dy": 100,
+    "x0": 717143.0,
+    "y0": 3853489.0,
+    "epsg": 32634,
+    "tref": "2026-09-21 00:00:00",
+    "tstart": "2026-09-28 00:00:00",
+    "tstop": "2026-10-06 00:00:00",
+    "pavbnd": 0
+  },
+  "grid": {
+    "mmax": 2771,
+    "nmax": 1107,
+    "n_cells_total": 3067497,
+    "dx_m": 100.0,
+    "cell_km2": 0.01
+  },
+  "mask": {
+    "msk0_inactive": 2207770,
+    "msk1_active_interior": 845869,
+    "msk2_waterlevel_boundary": 13858,
+    "msk3_outflow_boundary": 0,
+    "active_total_msk_ge_1": 859727,
+    "active_km2": 8597.3
+  },
+  "dep": {
+    "active_cells_dep_le_0": 14699,
+    "active_cells_dep_gt_0": 845028,
+    "active_dep_min_m": -1.1431926488876343,
+    "active_dep_max_m": 2440.035888671875,
+    "msk2_dep_min_m": -0.07723907381296158,
+    "msk2_dep_max_m": 0.0,
+    "msk2_dep_eq_0_count": 13847
+  },
+  "boundary": {
+    "bnd_points": 160,
+    "spacing_m": 10000.0,
+    "msk2_boundary_length_km_approx": 1385.8,
+    "pavbnd_pa_in_inp": 0.0,
+    "bzs_m": 0.0,
+    "bnd_x_range": [
+      723943.0,
+      985743.0
+    ],
+    "bnd_y_range": [
+      3855189.0,
+      3952889.0
+    ]
+  },
+  "subgrid": {
+    "file_MB": 544.9,
+    "np": 859727,
+    "npuv": 1712477,
+    "levels": 10,
+    "z_zmin": {
+      "min": -3.931392192840576,
+      "p50": 348.7138671875,
+      "mean": 455.4830246064955,
+      "max": 2431.84814453125,
+      "n_finite": 859727
+    },
+    "z_zmax": {
+      "min": -0.9999989867210388,
+      "p50": 375.1244812011719,
+      "mean": 482.96137892246776,
+      "max": 2451.250244140625,
+      "n_finite": 859727
+    },
+    "z_volmax": {
+      "min": 0.0006249999860301614,
+      "p50": 121379.0546875,
+      "mean": 138542.02387652532,
+      "max": 1693415.875,
+      "n_finite": 859727
+    },
+    "uv_zmin": {
+      "min": -1.4900000095367432,
+      "p50": 358.65570068359375,
+      "max": 2439.745361328125,
+      "n_finite": 1712477
+    },
+    "uv_zmax": {
+      "min": -1.4800000190734863,
+      "p50": 376.75018310546875,
+      "max": 2451.250244140625,
+      "n_finite": 1712477
+    },
+    "uv_navg": {
+      "min": 0.012000000104308128,
+      "p50": 0.06773781776428223,
+      "max": 0.10000000149011612,
+      "n_finite": 1712477
+    }
+  },
+  "samaria_pit_100m": {
+    "stage1_90m_component": {
+      "area_km2": 2.43,
+      "max_depth_m": 308.3,
+      "floor_m": 238.2,
+      "spill_level_m": 546.5,
+      "volume_below_spill_Mm3": 273.6,
+      "deepest_cell_lonlat": [
+        23.9604,
+        35.2837
+      ],
+      "centroid_lonlat": [
+        23.9587,
+        35.2892
+      ],
+      "internal_catchment_km2": 38.9,
+      "catchment_bbox_WSEN": [
+        23.905,
+        35.2625,
+        24.0025,
+        35.3308
+      ],
+      "n_inlets": 161,
+      "n_cells_90m": 347
+    },
+    "window_cells": [
+      300,
+      300
+    ],
+    "n_cells": 256,
+    "area_km2": 2.56,
+    "floor_m": 235.9,
+    "spill_level_m": 556.1,
+    "max_depth_m": 320.2,
+    "volume_below_spill_Mm3": 296.6,
+    "deepest_cell_lonlat_100m": [
+      23.96088925239848,
+      35.28291287021398
+    ],
+    "cells_in_mask_active": 256,
+    "subgrid_z_zmin_at_deepest_m": 228.5,
+    "closed_in_dep_grid": true,
+    "note": "closed depression in the model dep (filled surface > floor): rain-on-grid runoff reaching these cells ponds up to the spill level \u2014 SFINCS has no karst/sinkhole drainage; not modified (Part C: characterise only).",
+    "subgrid_index_check_corr": 0.99975,
+    "subgrid_z_zmax_at_deepest_m": 250.2
+  },
+  "hydromt_build": {
+    "first_log_stamp_local": "2026-10-19 11:19:44",
+    "last_log_stamp_local": "2026-10-19 11:23:08"
+  }
+}
