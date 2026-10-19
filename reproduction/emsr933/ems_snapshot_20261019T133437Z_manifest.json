@@ -1,0 +1,5601 @@
+{
+  "snapshot_utc": "2026-10-19T13:34:37Z",
+  "api_url": "https://mapping.emergency.copernicus.eu/backend/dashboard-api/public-activations/?code=EMSR933",
+  "raw_json": "ems_api_snapshot_20261019T133437Z.json",
+  "raw_json_bytes": 34913,
+  "raw_json_sha256": "710f620e6d4567d402c0e179f2d8c56c900a957404984b36bb3cb082d996a77f",
+  "activation": {
+    "code": "EMSR933",
+    "name": "Flood in Crete, Greece",
+    "category": "Flood",
+    "subCategory": "Flash flood",
+    "eventTime": "2026-10-01T07:00:00",
+    "activationTime": "2026-10-04T11:02:00",
+    "closed": true,
+    "activator": "Greece|Disaster Planning and Management Directorate - General secretariat for Civil protection - Ministry of Climate Change and Civil Protection",
+    "centroid": "POINT (24.978601792058495 35.22506250241993)",
+    "extent": "POLYGON ((23.807688 34.998965, 23.807688 35.365561, 25.936537 35.365561, 25.936537 34.998965, 23.807688 34.998965))",
+    "productsPath": "https://rapidmapping.emergency.copernicus.eu/backend/EMSR933/EMSR933_products.zip",
+    "reportLink": "https://storymaps.arcgis.com/stories/f78383e3a2bb423a88b193a37a68abe9"
+  },
+  "event_root": "D:\\ELKAK\\implementation\\emsr933_crete",
+  "zips_dir": "D:\\ELKAK\\implementation\\emsr933_crete\\ems_snapshots\\20261019T133437Z\\zips",
+  "extracted_dir": "D:\\ELKAK\\implementation\\emsr933_crete\\ems_snapshots\\20261019T133437Z\\extracted",
+  "aois": [
+    {
+      "number": 1,
+      "name": "Kastelli",
+      "extent_wkt": "POLYGON ((25.408716 35.256111, 25.403296 35.115055, 25.22968 35.118741, 25.231838 35.261837, 25.408716 35.256111))",
+      "bbox_lonlat": [
+        25.22968,
+        35.115055,
+        25.408716,
+        35.261837
+      ],
+      "centroid_lonlat": [
+        25.3182,
+        35.1882
+      ],
+      "size_km_utm34": [
+        16.3,
+        16.0
+      ],
+      "area_km2_utm34": 252.53,
+      "products": [
+        {
+          "id": 2948,
+          "type": "DEL",
+          "label": "DEL",
+          "monitoring": false,
+          "monitoringNumber": 0,
+          "feasible": true,
+          "mapsCount": 0,
+          "expectedDelivery": null,
+          "statusCode": "N",
+          "version": 1,
+          "deliveryTime": "2026-10-04T21:30:00",
+          "reason": "Because of remote sensing limitations",
+          "downloadPath": null,
+          "api_layers": [],
+          "images": [
+            {
+              "sensorName": "Sentinel-1",
+              "sensorType": "sar",
+              "resolutionClass": "HR+",
+              "acquisitionTime": "2026-10-04T16:22:00",
+              "fileName": "EMSR933_AOI01_DEL_PRODUCT_SENTINEL1_20261004_1622_ORTHO.tif"
+            }
+          ],
+          "released": false
+        },
+        {
+          "id": 2962,
+          "type": "DEL",
+          "label": "DEL_MONIT01",
+          "monitoring": true,
+          "monitoringNumber": 1,
+          "feasible": true,
+          "mapsCount": 1,
+          "expectedDelivery": "2026-10-06T19:30:00",
+          "statusCode": "F",
+          "version": 1,
+          "deliveryTime": "2026-10-06T19:57:29.888334",
+          "reason": "",
+          "downloadPath": "https://rapidmapping.emergency.copernicus.eu/backend/EMSR933/AOI01/DEL_MONIT01/EMSR933_AOI01_DEL_MONIT01_v1.zip",
+          "api_layers": [
+            "EMSR933/AOI01/DEL_MONIT01/EMSR933_AOI01_DEL_MONIT01_LEGION_20261006_1047_ORTHO_cog.tif",
+            "EMSR933/AOI01/DEL_MONIT01/EMSR933_AOI01_DEL_MONIT01_floodDepthA_v1_VT",
+            "EMSR933/AOI01/DEL_MONIT01/EMSR933_AOI01_DEL_MONIT01_modelledEventA_v1_VT",
+            "EMSR933/AOI01/DEL_MONIT01/EMSR933_AOI01_DEL_MONIT01_notAnalysedA_v1_VT",
+            "EMSR933/AOI01/DEL_MONIT01/EMSR933_AOI01_DEL_MONIT01_observedEventA_v1_VT"
+          ],
+          "images": [
+            {
+              "sensorName": "Legion",
+              "sensorType": "optical",
+              "resolutionClass": "VHR2",
+              "acquisitionTime": "2026-10-06T10:47:00",
+              "fileName": "EMSR933_AOI01_DEL_MONIT01_LEGION_20261006_1047_ORTHO.tif"
+            }
+          ],
+          "released": true,
+          "download": {
+            "stem": "EMSR933_AOI01_DEL_MONIT01_v1",
+            "zip_bytes": 20299154,
+            "zip_sha256": "bbe7fe84c5f21fdf997b44d5d1a9855c4d66bb929693384300a41ce322001778",
+            "n_members": 55,
+            "downloaded_utc": "2026-10-19T13:34:44Z"
+          },
+          "inventory": {
+            "files": [
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_areaOfInterestA_v1.dbf",
+                "bytes": 595
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_areaOfInterestA_v1.json",
+                "bytes": 564
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_areaOfInterestA_v1.lyr",
+                "bytes": 10752
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_areaOfInterestA_v1.prj",
+                "bytes": 145
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_areaOfInterestA_v1.shp",
+                "bytes": 236
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_areaOfInterestA_v1.shx",
+                "bytes": 108
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_areaOfInterestA_v1.sld",
+                "bytes": 1668
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_areaOfInterestA_v1.xml",
+                "bytes": 11594
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_floodDepthA_v1.dbf",
+                "bytes": 21912
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_floodDepthA_v1.json",
+                "bytes": 48929
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_floodDepthA_v1.lyr",
+                "bytes": 8704
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_floodDepthA_v1.prj",
+                "bytes": 145
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_floodDepthA_v1.shp",
+                "bytes": 21564
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_floodDepthA_v1.shx",
+                "bytes": 796
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_floodDepthA_v1.sld",
+                "bytes": 3076
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_floodDepthA_v1.tif",
+                "bytes": 9957
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_floodDepthA_v1.xml",
+                "bytes": 11847
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_imageFootprintA_v1.dbf",
+                "bytes": 368
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_imageFootprintA_v1.json",
+                "bytes": 1619
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_imageFootprintA_v1.lyr",
+                "bytes": 9728
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_imageFootprintA_v1.prj",
+                "bytes": 145
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_imageFootprintA_v1.shp",
+                "bytes": 796
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_imageFootprintA_v1.shx",
+                "bytes": 124
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_imageFootprintA_v1.sld",
+                "bytes": 3230
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_imageFootprintA_v1.xml",
+                "bytes": 11885
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_modelledEventA_v1.dbf",
+                "bytes": 20050
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_modelledEventA_v1.json",
+                "bytes": 40014
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_modelledEventA_v1.lyr",
+                "bytes": 23040
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_modelledEventA_v1.prj",
+                "bytes": 145
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_modelledEventA_v1.shp",
+                "bytes": 16916
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_modelledEventA_v1.shx",
+                "bytes": 548
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_modelledEventA_v1.sld",
+                "bytes": 1268
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_modelledEventA_v1.xml",
+                "bytes": 12214
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_notAnalysedA_v1.dbf",
+                "bytes": 16838
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_notAnalysedA_v1.json",
+                "bytes": 13394441
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_notAnalysedA_v1.lyr",
+                "bytes": 9728
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_notAnalysedA_v1.prj",
+                "bytes": 145
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_notAnalysedA_v1.shp",
+                "bytes": 7193360
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_notAnalysedA_v1.shx",
+                "bytes": 1588
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_notAnalysedA_v1.sld",
+                "bytes": 2256
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_notAnalysedA_v1.xml",
+                "bytes": 11833
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_observedEventA_v1.dbf",
+                "bytes": 31378
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_observedEventA_v1.json",
+                "bytes": 248132
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_observedEventA_v1.lyr",
+                "bytes": 45568
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_observedEventA_v1.prj",
+                "bytes": 145
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_observedEventA_v1.shp",
+                "bytes": 123528
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_observedEventA_v1.shx",
+                "bytes": 804
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_observedEventA_v1.sld",
+                "bytes": 2720
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_observedEventA_v1.xml",
+                "bytes": 12201
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_source_v1.dbf",
+                "bytes": 9438
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_source_v1.xml",
+                "bytes": 11806
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_summaryTable_v1.xlsx",
+                "bytes": 87458
+              },
+              {
+                "path": "EMSR933_AOI01_DEL_MONIT01_v1.gpkg",
+                "bytes": 11776000
+              },
+              {
+                "path": "Maps/EMSR933_AOI01_DEL_MONIT01_30000_map_v1.pdf",
+                "bytes": 7871793
+              }
+            ],
+            "layers": [
+              {
+                "file": "EMSR933_AOI01_DEL_MONIT01_areaOfInterestA_v1.json",
+                "layer": "EMSR933_AOI01_DEL_MONIT01_areaOfInterestA_v1",
+                "features": 1,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "emsr_id",
+                  "area_id",
+                  "locality",
+                  "map_type",
+                  "glide_no"
+                ],
+                "metadata_values": {
+                  "area_id": [
+                    "01"
+                  ],
+                  "map_type": [
+                    "Delineation-Monit01"
+                  ]
+                },
+                "area_km2_sum_utm34": 252.5298,
+                "area_km2_union_utm34": 252.5298
+              },
+              {
+                "file": "EMSR933_AOI01_DEL_MONIT01_areaOfInterestA_v1.shp",
+                "layer": "EMSR933_AOI01_DEL_MONIT01_areaOfInterestA_v1",
+                "features": 1,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "emsr_id",
+                  "area_id",
+                  "locality",
+                  "map_type",
+                  "glide_no"
+                ],
+                "metadata_values": {
+                  "area_id": [
+                    "01"
+                  ],
+                  "map_type": [
+                    "Delineation-Monit01"
+                  ]
+                },
+                "area_km2_sum_utm34": 252.5298,
+                "area_km2_union_utm34": 252.5298
+              },
+              {
+                "file": "EMSR933_AOI01_DEL_MONIT01_floodDepthA_v1.json",
+                "layer": "EMSR933_AOI01_DEL_MONIT01_floodDepthA_v1",
+                "features": 87,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "obj_desc",
+                  "value",
+                  "det_method",
+                  "dmg_src_id"
+                ],
+                "metadata_values": {
+                  "obj_desc": [
+                    "Estimated Flood Depth"
+                  ],
+                  "det_method": [
+                    "Modelling"
+                  ],
+                  "dmg_src_id": [
+                    "997"
+                  ]
+                },
+                "area_km2_sum_utm34": 0.5128,
+                "area_km2_union_utm34": 0.5128
+              },
+              {
+                "file": "EMSR933_AOI01_DEL_MONIT01_floodDepthA_v1.shp",
+                "layer": "EMSR933_AOI01_DEL_MONIT01_floodDepthA_v1",
+                "features": 87,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "obj_desc",
+                  "value",
+                  "det_method",
+                  "dmg_src_id"
+                ],
+                "metadata_values": {
+                  "obj_desc": [
+                    "Estimated Flood Depth"
+                  ],
+                  "det_method": [
+                    "Modelling"
+                  ],
+                  "dmg_src_id": [
+                    "997"
+                  ]
+                },
+                "area_km2_sum_utm34": 0.5128,
+                "area_km2_union_utm34": 0.5128
+              },
+              {
+                "file": "EMSR933_AOI01_DEL_MONIT01_imageFootprintA_v1.json",
+                "layer": "EMSR933_AOI01_DEL_MONIT01_imageFootprintA_v1",
+                "features": 3,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "obj_type",
+                  "or_src_id"
+                ],
+                "metadata_values": {
+                  "obj_type": [
+                    "Image Footprint",
+                    "Not Analysed - No data"
+                  ],
+                  "or_src_id": [
+                    "1",
+                    "2"
+                  ]
+                },
+                "area_km2_sum_utm34": 741.6353,
+                "area_km2_union_utm34": 487.521
+              },
+              {
+                "file": "EMSR933_AOI01_DEL_MONIT01_imageFootprintA_v1.shp",
+                "layer": "EMSR933_AOI01_DEL_MONIT01_imageFootprintA_v1",
+                "features": 3,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "obj_type",
+                  "or_src_id"
+                ],
+                "metadata_values": {
+                  "obj_type": [
+                    "Image Footprint",
+                    "Not Analysed - No data"
+                  ],
+                  "or_src_id": [
+                    "1",
+                    "2"
+                  ]
+                },
+                "area_km2_sum_utm34": 741.6353,
+                "area_km2_union_utm34": 487.521
+              },
+              {
+                "file": "EMSR933_AOI01_DEL_MONIT01_modelledEventA_v1.json",
+                "layer": "EMSR933_AOI01_DEL_MONIT01_modelledEventA_v1",
+                "features": 56,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "event_type",
+                  "obj_desc",
+                  "det_method",
+                  "notation",
+                  "dmg_src_id",
+                  "area"
+                ],
+                "metadata_values": {
+                  "event_type": [
+                    "5-Flood"
+                  ],
+                  "obj_desc": [
+                    "Riverine flood"
+                  ],
+                  "det_method": [
+                    "Modelling"
+                  ],
+                  "notation": [
+                    "Flooded area"
+                  ],
+                  "dmg_src_id": [
+                    "997"
+                  ],
+                  "area": [
+                    "0.031623",
+                    "0.041903",
+                    "0.066937",
+                    "0.173755",
+                    "0.192198",
+                    "0.192199",
+                    "0.1922",
+                    "0.192201",
+                    "0.192202",
+                    "0.192205",
+                    "0.288298",
+                    "0.288299",
+                    "... (+29 more)"
+                  ]
+                },
+                "area_km2_sum_utm34": 0.5128,
+                "area_km2_union_utm34": 0.5128
+              },
+              {
+                "file": "EMSR933_AOI01_DEL_MONIT01_modelledEventA_v1.shp",
+                "layer": "EMSR933_AOI01_DEL_MONIT01_modelledEventA_v1",
+                "features": 56,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "event_type",
+                  "obj_desc",
+                  "det_method",
+                  "notation",
+                  "dmg_src_id",
+                  "area"
+                ],
+                "metadata_values": {
+                  "event_type": [
+                    "5-Flood"
+                  ],
+                  "obj_desc": [
+                    "Riverine flood"
+                  ],
+                  "det_method": [
+                    "Modelling"
+                  ],
+                  "notation": [
+                    "Flooded area"
+                  ],
+                  "dmg_src_id": [
+                    "997"
+                  ],
+                  "area": [
+                    "0.031623",
+                    "0.041903",
+                    "0.066937",
+                    "0.173755",
+                    "0.192198",
+                    "0.192199",
+                    "0.1922",
+                    "0.192201",
+                    "0.192202",
+                    "0.192205",
+                    "0.288298",
+                    "0.288299",
+                    "... (+29 more)"
+                  ]
+                },
+                "area_km2_sum_utm34": 0.5128,
+                "area_km2_union_utm34": 0.5128
+              },
+              {
+                "file": "EMSR933_AOI01_DEL_MONIT01_notAnalysedA_v1.json",
+                "layer": "EMSR933_AOI01_DEL_MONIT01_notAnalysedA_v1",
+                "features": 186,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "obj_type",
+                  "or_src_id"
+                ],
+                "metadata_values": {
+                  "obj_type": [
+                    "Not Analysed"
+                  ],
+                  "or_src_id": [
+                    "2"
+                  ]
+                },
+                "area_km2_sum_utm34": 45.298,
+                "area_km2_union_utm34": 45.298
+              },
+              {
+                "file": "EMSR933_AOI01_DEL_MONIT01_notAnalysedA_v1.shp",
+                "layer": "EMSR933_AOI01_DEL_MONIT01_notAnalysedA_v1",
+                "features": 186,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "obj_type",
+                  "or_src_id"
+                ],
+                "metadata_values": {
+                  "obj_type": [
+                    "Not Analysed"
+                  ],
+                  "or_src_id": [
+                    "2"
+                  ]
+                },
+                "area_km2_sum_utm34": 45.298,
+                "area_km2_union_utm34": 45.298
+              },
+              {
+                "file": "EMSR933_AOI01_DEL_MONIT01_observedEventA_v1.json",
+                "layer": "EMSR933_AOI01_DEL_MONIT01_observedEventA_v1",
+                "features": 88,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "event_type",
+                  "obj_desc",
+                  "det_method",
+                  "notation",
+                  "dmg_src_id",
+                  "area"
+                ],
+                "metadata_values": {
+                  "event_type": [
+                    "5-Flood"
+                  ],
+                  "obj_desc": [
+                    "Flash flood"
+                  ],
+                  "det_method": [
+                    "Photo-interpretation",
+                    "Semi-automatic extraction"
+                  ],
+                  "notation": [
+                    "Flood trace",
+                    "Flooded area"
+                  ],
+                  "dmg_src_id": [
+                    "2"
+                  ],
+                  "area": [
+                    "0.01008",
+                    "0.010512",
+                    "0.011232",
+                    "0.011808",
+                    "0.012096",
+                    "0.012672",
+                    "0.013248",
+                    "0.013536",
+                    "0.013968",
+                    "0.014255",
+                    "0.014832",
+                    "0.016128",
+                    "... (+72 more)"
+                  ]
+                },
+                "area_km2_sum_utm34": 0.242,
+                "area_km2_union_utm34": 0.242
+              },
+              {
+                "file": "EMSR933_AOI01_DEL_MONIT01_observedEventA_v1.shp",
+                "layer": "EMSR933_AOI01_DEL_MONIT01_observedEventA_v1",
+                "features": 88,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "event_type",
+                  "obj_desc",
+                  "det_method",
+                  "notation",
+                  "dmg_src_id",
+                  "area"
+                ],
+                "metadata_values": {
+                  "event_type": [
+                    "5-Flood"
+                  ],
+                  "obj_desc": [
+                    "Flash flood"
+                  ],
+                  "det_method": [
+                    "Photo-interpretation",
+                    "Semi-automatic extraction"
+                  ],
+                  "notation": [
+                    "Flood trace",
+                    "Flooded area"
+                  ],
+                  "dmg_src_id": [
+                    "2"
+                  ],
+                  "area": [
+                    "0.01008",
+                    "0.010512",
+                    "0.011232",
+                    "0.011808",
+                    "0.012096",
+                    "0.012672",
+                    "0.013248",
+                    "0.013536",
+                    "0.013968",
+                    "0.014255",
+                    "0.014832",
+                    "0.016128",
+                    "... (+72 more)"
+                  ]
+                },
+                "area_km2_sum_utm34": 0.242,
+                "area_km2_union_utm34": 0.242
+              },
+              {
+                "file": "EMSR933_AOI01_DEL_MONIT01_v1.gpkg",
+                "layer": "areaOfInterestA_v1",
+                "features": 1,
+                "crs": "EPSG:4326",
+                "geometry_type": "MultiPolygon",
+                "fields": [
+                  "emsr_id",
+                  "glide_no",
+                  "area_id",
+                  "locality",
+                  "map_type"
+                ],
+                "metadata_values": {
+                  "area_id": [
+                    "01"
+                  ],
+                  "map_type": [
+                    "Delineation-Monit01"
+                  ]
+                },
+                "area_km2_sum_utm34": 252.5298,
+                "area_km2_union_utm34": 252.5298
+              },
+              {
+                "file": "EMSR933_AOI01_DEL_MONIT01_v1.gpkg",
+                "layer": "imageFootprintA_v1",
+                "features": 3,
+                "crs": "EPSG:4326",
+                "geometry_type": "MultiPolygon",
+                "fields": [
+                  "obj_type",
+                  "or_src_id"
+                ],
+                "metadata_values": {
+                  "obj_type": [
+                    "Image Footprint",
+                    "Not Analysed - No data"
+                  ],
+                  "or_src_id": [
+                    "1",
+                    "2"
+                  ]
+                },
+                "area_km2_sum_utm34": 741.6353,
+                "area_km2_union_utm34": 487.521
+              },
+              {
+                "file": "EMSR933_AOI01_DEL_MONIT01_v1.gpkg",
+                "layer": "notAnalysedA_v1",
+                "features": 186,
+                "crs": "EPSG:4326",
+                "geometry_type": "MultiPolygon",
+                "fields": [
+                  "obj_type",
+                  "or_src_id"
+                ],
+                "metadata_values": {
+                  "obj_type": [
+                    "Not Analysed"
+                  ],
+                  "or_src_id": [
+                    "2"
+                  ]
+                },
+                "area_km2_sum_utm34": 45.298,
+                "area_km2_union_utm34": 45.298
+              },
+              {
+                "file": "EMSR933_AOI01_DEL_MONIT01_v1.gpkg",
+                "layer": "floodDepthA_v1",
+                "features": 87,
+                "crs": "EPSG:4326",
+                "geometry_type": "MultiPolygon",
+                "fields": [
+                  "obj_desc",
+                  "value",
+                  "det_method",
+                  "dmg_src_id"
+                ],
+                "metadata_values": {
+                  "obj_desc": [
+                    "Estimated Flood Depth"
+                  ],
+                  "det_method": [
+                    "Modelling"
+                  ],
+                  "dmg_src_id": [
+                    "997"
+                  ]
+                },
+                "area_km2_sum_utm34": 0.5128,
+                "area_km2_union_utm34": 0.5128
+              },
+              {
+                "file": "EMSR933_AOI01_DEL_MONIT01_v1.gpkg",
+                "layer": "modelledEventA_v1",
+                "features": 56,
+                "crs": "EPSG:4326",
+                "geometry_type": "MultiPolygon",
+                "fields": [
+                  "event_type",
+                  "obj_desc",
+                  "det_method",
+                  "notation",
+                  "dmg_src_id",
+                  "area"
+                ],
+                "metadata_values": {
+                  "event_type": [
+                    "5-Flood"
+                  ],
+                  "obj_desc": [
+                    "Riverine flood"
+                  ],
+                  "det_method": [
+                    "Modelling"
+                  ],
+                  "notation": [
+                    "Flooded area"
+                  ],
+                  "dmg_src_id": [
+                    "997"
+                  ],
+                  "area": [
+                    "0.031623",
+                    "0.041903",
+                    "0.066937",
+                    "0.173755",
+                    "0.192198",
+                    "0.192199",
+                    "0.1922",
+                    "0.192201",
+                    "0.192202",
+                    "0.192205",
+                    "0.288298",
+                    "0.288299",
+                    "... (+29 more)"
+                  ]
+                },
+                "area_km2_sum_utm34": 0.5128,
+                "area_km2_union_utm34": 0.5128
+              },
+              {
+                "file": "EMSR933_AOI01_DEL_MONIT01_v1.gpkg",
+                "layer": "observedEventA_v1",
+                "features": 88,
+                "crs": "EPSG:4326",
+                "geometry_type": "MultiPolygon",
+                "fields": [
+                  "event_type",
+                  "obj_desc",
+                  "det_method",
+                  "notation",
+                  "dmg_src_id",
+                  "area"
+                ],
+                "metadata_values": {
+                  "event_type": [
+                    "5-Flood"
+                  ],
+                  "obj_desc": [
+                    "Flash flood"
+                  ],
+                  "det_method": [
+                    "Photo-interpretation",
+                    "Semi-automatic extraction"
+                  ],
+                  "notation": [
+                    "Flood trace",
+                    "Flooded area"
+                  ],
+                  "dmg_src_id": [
+                    "2"
+                  ],
+                  "area": [
+                    "0.01008",
+                    "0.010512",
+                    "0.011232",
+                    "0.011808",
+                    "0.012096",
+                    "0.012672",
+                    "0.013248",
+                    "0.013536",
+                    "0.013968",
+                    "0.014255",
+                    "0.014832",
+                    "0.016128",
+                    "... (+72 more)"
+                  ]
+                },
+                "area_km2_sum_utm34": 0.242,
+                "area_km2_union_utm34": 0.242
+              },
+              {
+                "file": "EMSR933_AOI01_DEL_MONIT01_v1.gpkg",
+                "error": "AttributeError: 'DataFrame' object has no attribute 'crs'"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "name": "Irakleio",
+      "extent_wkt": "POLYGON ((25.099086 35.339703, 25.137251 35.347778, 25.156128 35.349923, 25.186168 35.346694, 25.186427 35.230932, 25.062498 35.233749, 25.063177 35.340857, 25.099086 35.339703))",
+      "bbox_lonlat": [
+        25.062498,
+        35.230932,
+        25.186427,
+        35.349923
+      ],
+      "centroid_lonlat": [
+        25.1259,
+        35.2885
+      ],
+      "size_km_utm34": [
+        11.7,
+        13.2
+      ],
+      "area_km2_utm34": 140.27,
+      "products": [
+        {
+          "id": 2952,
+          "type": "DEL",
+          "label": "DEL",
+          "monitoring": false,
+          "monitoringNumber": 0,
+          "feasible": true,
+          "mapsCount": 0,
+          "expectedDelivery": null,
+          "statusCode": "N",
+          "version": 1,
+          "deliveryTime": "2026-10-04T21:33:00",
+          "reason": "Because of remote sensing limitations",
+          "downloadPath": null,
+          "api_layers": [],
+          "images": [
+            {
+              "sensorName": "Sentinel-1",
+              "sensorType": "sar",
+              "resolutionClass": "HR+",
+              "acquisitionTime": "2026-10-04T16:22:00",
+              "fileName": "EMSR933_AOI02_DEL_PRODUCT_SENTINEL1_20261004_1622_ORTHO.tif"
+            }
+          ],
+          "released": false
+        },
+        {
+          "id": 2963,
+          "type": "DEL",
+          "label": "DEL_MONIT01",
+          "monitoring": true,
+          "monitoringNumber": 1,
+          "feasible": true,
+          "mapsCount": 0,
+          "expectedDelivery": null,
+          "statusCode": "N",
+          "version": 1,
+          "deliveryTime": "2026-10-06T18:14:00",
+          "reason": "Because of remote sensing limitations",
+          "downloadPath": null,
+          "api_layers": [
+            "EMSR933/AOI02/DEL_MONIT01/EMSR933_AOI02_DEL_MONIT01_LEGION_20261006_1047_ORTHO_cog.tif"
+          ],
+          "images": [
+            {
+              "sensorName": "Legion",
+              "sensorType": "optical",
+              "resolutionClass": "VHR2",
+              "acquisitionTime": "2026-10-06T10:47:00",
+              "fileName": "EMSR933_AOI02_DEL_MONIT01_LEGION_20261006_1047_ORTHO.tif"
+            }
+          ],
+          "released": false
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "name": "Tzermiado",
+      "extent_wkt": "POLYGON ((25.418393 35.227122, 25.589521 35.224622, 25.587845 35.1245, 25.416643 35.126312, 25.418393 35.227122))",
+      "bbox_lonlat": [
+        25.416643,
+        35.1245,
+        25.589521,
+        35.227122
+      ],
+      "centroid_lonlat": [
+        25.503,
+        35.1756
+      ],
+      "size_km_utm34": [
+        16.0,
+        11.6
+      ],
+      "area_km2_utm34": 174.41,
+      "products": [
+        {
+          "id": 2955,
+          "type": "DEL",
+          "label": "DEL",
+          "monitoring": false,
+          "monitoringNumber": 0,
+          "feasible": true,
+          "mapsCount": 1,
+          "expectedDelivery": "2026-10-05T01:41:00",
+          "statusCode": "F",
+          "version": 1,
+          "deliveryTime": "2026-10-04T20:06:37.876443",
+          "reason": "",
+          "downloadPath": "https://rapidmapping.emergency.copernicus.eu/backend/EMSR933/AOI03/DEL_PRODUCT/EMSR933_AOI03_DEL_PRODUCT_v1.zip",
+          "api_layers": [
+            "EMSR933/AOI03/DEL_PRODUCT/EMSR933_AOI03_DEL_PRODUCT_floodDepthA_v1_VT",
+            "EMSR933/AOI03/DEL_PRODUCT/EMSR933_AOI03_DEL_PRODUCT_modelledEventA_v1_VT",
+            "EMSR933/AOI03/DEL_PRODUCT/EMSR933_AOI03_DEL_PRODUCT_observedEventA_v1_VT"
+          ],
+          "images": [
+            {
+              "sensorName": "Sentinel-1",
+              "sensorType": "sar",
+              "resolutionClass": "HR+",
+              "acquisitionTime": "2026-10-04T16:22:00",
+              "fileName": "EMSR933_AOI03_DEL_PRODUCT_SENTINEL1_20261004_1622_ORTHO.tif"
+            }
+          ],
+          "released": true,
+          "download": {
+            "stem": "EMSR933_AOI03_DEL_PRODUCT_v1",
+            "zip_bytes": 3479975,
+            "zip_sha256": "14789be38b4ded677054ca0b7e1a1bf1a59511c6bd5cd1d66190d665b32e3f61",
+            "n_members": 47,
+            "downloaded_utc": "2026-10-19T13:39:46Z"
+          },
+          "inventory": {
+            "files": [
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_areaOfInterestA_v1.dbf",
+                "bytes": 595
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_areaOfInterestA_v1.json",
+                "bytes": 559
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_areaOfInterestA_v1.lyr",
+                "bytes": 10752
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_areaOfInterestA_v1.prj",
+                "bytes": 145
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_areaOfInterestA_v1.shp",
+                "bytes": 236
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_areaOfInterestA_v1.shx",
+                "bytes": 108
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_areaOfInterestA_v1.sld",
+                "bytes": 1668
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_areaOfInterestA_v1.xml",
+                "bytes": 11598
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_floodDepthA_v1.dbf",
+                "bytes": 14412
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_floodDepthA_v1.json",
+                "bytes": 47406
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_floodDepthA_v1.lyr",
+                "bytes": 8704
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_floodDepthA_v1.prj",
+                "bytes": 145
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_floodDepthA_v1.shp",
+                "bytes": 22368
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_floodDepthA_v1.shx",
+                "bytes": 556
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_floodDepthA_v1.sld",
+                "bytes": 3724
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_floodDepthA_v1.tif",
+                "bytes": 19205
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_floodDepthA_v1.xml",
+                "bytes": 11852
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_imageFootprintA_v1.dbf",
+                "bytes": 278
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_imageFootprintA_v1.json",
+                "bytes": 3639
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_imageFootprintA_v1.lyr",
+                "bytes": 9728
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_imageFootprintA_v1.prj",
+                "bytes": 145
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_imageFootprintA_v1.shp",
+                "bytes": 1908
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_imageFootprintA_v1.shx",
+                "bytes": 116
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_imageFootprintA_v1.sld",
+                "bytes": 1604
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_imageFootprintA_v1.xml",
+                "bytes": 11888
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_modelledEventA_v1.dbf",
+                "bytes": 3766
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_modelledEventA_v1.json",
+                "bytes": 12590
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_modelledEventA_v1.lyr",
+                "bytes": 23040
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_modelledEventA_v1.prj",
+                "bytes": 145
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_modelledEventA_v1.shp",
+                "bytes": 5928
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_modelledEventA_v1.shx",
+                "bytes": 180
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_modelledEventA_v1.sld",
+                "bytes": 1268
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_modelledEventA_v1.xml",
+                "bytes": 12204
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_observedEventA_v1.dbf",
+                "bytes": 4828
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_observedEventA_v1.json",
+                "bytes": 53862
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_observedEventA_v1.lyr",
+                "bytes": 45568
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_observedEventA_v1.prj",
+                "bytes": 145
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_observedEventA_v1.shp",
+                "bytes": 27316
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_observedEventA_v1.shx",
+                "bytes": 204
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_observedEventA_v1.sld",
+                "bytes": 1287
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_observedEventA_v1.xml",
+                "bytes": 12224
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_source_v1.dbf",
+                "bytes": 9438
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_source_v1.xml",
+                "bytes": 11810
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_summaryTable_v1.xlsx",
+                "bytes": 80939
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_PRODUCT_v1.gpkg",
+                "bytes": 4648960
+              },
+              {
+                "path": "Maps/EMSR933_AOI03_DEL_PRODUCT_25000_map_v1.pdf",
+                "bytes": 2948996
+              }
+            ],
+            "layers": [
+              {
+                "file": "EMSR933_AOI03_DEL_PRODUCT_areaOfInterestA_v1.json",
+                "layer": "EMSR933_AOI03_DEL_PRODUCT_areaOfInterestA_v1",
+                "features": 1,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "emsr_id",
+                  "area_id",
+                  "locality",
+                  "map_type",
+                  "glide_no"
+                ],
+                "metadata_values": {
+                  "area_id": [
+                    "03"
+                  ],
+                  "map_type": [
+                    "Delineation"
+                  ]
+                },
+                "area_km2_sum_utm34": 174.4092,
+                "area_km2_union_utm34": 174.4092
+              },
+              {
+                "file": "EMSR933_AOI03_DEL_PRODUCT_areaOfInterestA_v1.shp",
+                "layer": "EMSR933_AOI03_DEL_PRODUCT_areaOfInterestA_v1",
+                "features": 1,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "emsr_id",
+                  "area_id",
+                  "locality",
+                  "map_type",
+                  "glide_no"
+                ],
+                "metadata_values": {
+                  "area_id": [
+                    "03"
+                  ],
+                  "map_type": [
+                    "Delineation"
+                  ]
+                },
+                "area_km2_sum_utm34": 174.4092,
+                "area_km2_union_utm34": 174.4092
+              },
+              {
+                "file": "EMSR933_AOI03_DEL_PRODUCT_floodDepthA_v1.json",
+                "layer": "EMSR933_AOI03_DEL_PRODUCT_floodDepthA_v1",
+                "features": 57,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "obj_desc",
+                  "value",
+                  "det_method",
+                  "dmg_src_id"
+                ],
+                "metadata_values": {
+                  "obj_desc": [
+                    "Estimated Flood Depth"
+                  ],
+                  "det_method": [
+                    "Modelling"
+                  ],
+                  "dmg_src_id": [
+                    "997"
+                  ]
+                },
+                "area_km2_sum_utm34": 3.9297,
+                "area_km2_union_utm34": 3.9297
+              },
+              {
+                "file": "EMSR933_AOI03_DEL_PRODUCT_floodDepthA_v1.shp",
+                "layer": "EMSR933_AOI03_DEL_PRODUCT_floodDepthA_v1",
+                "features": 57,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "obj_desc",
+                  "value",
+                  "det_method",
+                  "dmg_src_id"
+                ],
+                "metadata_values": {
+                  "obj_desc": [
+                    "Estimated Flood Depth"
+                  ],
+                  "det_method": [
+                    "Modelling"
+                  ],
+                  "dmg_src_id": [
+                    "997"
+                  ]
+                },
+                "area_km2_sum_utm34": 3.9297,
+                "area_km2_union_utm34": 3.9297
+              },
+              {
+                "file": "EMSR933_AOI03_DEL_PRODUCT_imageFootprintA_v1.json",
+                "layer": "EMSR933_AOI03_DEL_PRODUCT_imageFootprintA_v1",
+                "features": 2,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "obj_type",
+                  "or_src_id"
+                ],
+                "metadata_values": {
+                  "obj_type": [
+                    "Image Footprint"
+                  ],
+                  "or_src_id": [
+                    "1",
+                    "2"
+                  ]
+                },
+                "area_km2_sum_utm34": 54846.8329,
+                "area_km2_union_utm34": 52397.4372
+              },
+              {
+                "file": "EMSR933_AOI03_DEL_PRODUCT_imageFootprintA_v1.shp",
+                "layer": "EMSR933_AOI03_DEL_PRODUCT_imageFootprintA_v1",
+                "features": 2,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "obj_type",
+                  "or_src_id"
+                ],
+                "metadata_values": {
+                  "obj_type": [
+                    "Image Footprint"
+                  ],
+                  "or_src_id": [
+                    "1",
+                    "2"
+                  ]
+                },
+                "area_km2_sum_utm34": 54846.8329,
+                "area_km2_union_utm34": 52397.4372
+              },
+              {
+                "file": "EMSR933_AOI03_DEL_PRODUCT_modelledEventA_v1.json",
+                "layer": "EMSR933_AOI03_DEL_PRODUCT_modelledEventA_v1",
+                "features": 10,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "event_type",
+                  "obj_desc",
+                  "det_method",
+                  "notation",
+                  "dmg_src_id",
+                  "area"
+                ],
+                "metadata_values": {
+                  "event_type": [
+                    "5-Flood"
+                  ],
+                  "obj_desc": [
+                    "Flash flood"
+                  ],
+                  "det_method": [
+                    "Modelling"
+                  ],
+                  "notation": [
+                    "Flooded area"
+                  ],
+                  "dmg_src_id": [
+                    "997"
+                  ],
+                  "area": [
+                    "0.7688",
+                    "0.961003",
+                    "1.057103",
+                    "1.249303",
+                    "1.441499",
+                    "1.729797",
+                    "1.729798",
+                    "1.8259",
+                    "379.853064"
+                  ]
+                },
+                "area_km2_sum_utm34": 3.9297,
+                "area_km2_union_utm34": 3.9297
+              },
+              {
+                "file": "EMSR933_AOI03_DEL_PRODUCT_modelledEventA_v1.shp",
+                "layer": "EMSR933_AOI03_DEL_PRODUCT_modelledEventA_v1",
+                "features": 10,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "event_type",
+                  "obj_desc",
+                  "det_method",
+                  "notation",
+                  "dmg_src_id",
+                  "area"
+                ],
+                "metadata_values": {
+                  "event_type": [
+                    "5-Flood"
+                  ],
+                  "obj_desc": [
+                    "Flash flood"
+                  ],
+                  "det_method": [
+                    "Modelling"
+                  ],
+                  "notation": [
+                    "Flooded area"
+                  ],
+                  "dmg_src_id": [
+                    "997"
+                  ],
+                  "area": [
+                    "0.7688",
+                    "0.961003",
+                    "1.057103",
+                    "1.249303",
+                    "1.441499",
+                    "1.729797",
+                    "1.729798",
+                    "1.8259",
+                    "379.853064"
+                  ]
+                },
+                "area_km2_sum_utm34": 3.9297,
+                "area_km2_union_utm34": 3.9297
+              },
+              {
+                "file": "EMSR933_AOI03_DEL_PRODUCT_observedEventA_v1.json",
+                "layer": "EMSR933_AOI03_DEL_PRODUCT_observedEventA_v1",
+                "features": 13,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "event_type",
+                  "obj_desc",
+                  "det_method",
+                  "notation",
+                  "dmg_src_id",
+                  "area"
+                ],
+                "metadata_values": {
+                  "event_type": [
+                    "5-Flood"
+                  ],
+                  "obj_desc": [
+                    "Flash flood"
+                  ],
+                  "det_method": [
+                    "Semi-automatic extraction"
+                  ],
+                  "notation": [
+                    "Flooded area"
+                  ],
+                  "dmg_src_id": [
+                    "2"
+                  ],
+                  "area": [
+                    "0.259999",
+                    "0.260003",
+                    "0.299998",
+                    "0.31",
+                    "0.330001",
+                    "0.48",
+                    "0.480004",
+                    "0.549997",
+                    "0.819998",
+                    "0.889995",
+                    "1.049994",
+                    "1.270003",
+                    "... (+1 more)"
+                  ]
+                },
+                "area_km2_sum_utm34": 3.2192,
+                "area_km2_union_utm34": 3.2192
+              },
+              {
+                "file": "EMSR933_AOI03_DEL_PRODUCT_observedEventA_v1.shp",
+                "layer": "EMSR933_AOI03_DEL_PRODUCT_observedEventA_v1",
+                "features": 13,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "event_type",
+                  "obj_desc",
+                  "det_method",
+                  "notation",
+                  "dmg_src_id",
+                  "area"
+                ],
+                "metadata_values": {
+                  "event_type": [
+                    "5-Flood"
+                  ],
+                  "obj_desc": [
+                    "Flash flood"
+                  ],
+                  "det_method": [
+                    "Semi-automatic extraction"
+                  ],
+                  "notation": [
+                    "Flooded area"
+                  ],
+                  "dmg_src_id": [
+                    "2"
+                  ],
+                  "area": [
+                    "0.259999",
+                    "0.260003",
+                    "0.299998",
+                    "0.31",
+                    "0.330001",
+                    "0.48",
+                    "0.480004",
+                    "0.549997",
+                    "0.819998",
+                    "0.889995",
+                    "1.049994",
+                    "1.270003",
+                    "... (+1 more)"
+                  ]
+                },
+                "area_km2_sum_utm34": 3.2192,
+                "area_km2_union_utm34": 3.2192
+              },
+              {
+                "file": "EMSR933_AOI03_DEL_PRODUCT_v1.gpkg",
+                "layer": "areaOfInterestA_v1",
+                "features": 1,
+                "crs": "EPSG:4326",
+                "geometry_type": "MultiPolygon",
+                "fields": [
+                  "emsr_id",
+                  "glide_no",
+                  "area_id",
+                  "locality",
+                  "map_type"
+                ],
+                "metadata_values": {
+                  "area_id": [
+                    "03"
+                  ],
+                  "map_type": [
+                    "Delineation"
+                  ]
+                },
+                "area_km2_sum_utm34": 174.4092,
+                "area_km2_union_utm34": 174.4092
+              },
+              {
+                "file": "EMSR933_AOI03_DEL_PRODUCT_v1.gpkg",
+                "layer": "imageFootprintA_v1",
+                "features": 2,
+                "crs": "EPSG:4326",
+                "geometry_type": "MultiPolygon",
+                "fields": [
+                  "obj_type",
+                  "or_src_id"
+                ],
+                "metadata_values": {
+                  "obj_type": [
+                    "Image Footprint"
+                  ],
+                  "or_src_id": [
+                    "1",
+                    "2"
+                  ]
+                },
+                "area_km2_sum_utm34": 54846.8329,
+                "area_km2_union_utm34": 52397.4372
+              },
+              {
+                "file": "EMSR933_AOI03_DEL_PRODUCT_v1.gpkg",
+                "layer": "floodDepthA_v1",
+                "features": 57,
+                "crs": "EPSG:4326",
+                "geometry_type": "MultiPolygon",
+                "fields": [
+                  "obj_desc",
+                  "value",
+                  "det_method",
+                  "dmg_src_id"
+                ],
+                "metadata_values": {
+                  "obj_desc": [
+                    "Estimated Flood Depth"
+                  ],
+                  "det_method": [
+                    "Modelling"
+                  ],
+                  "dmg_src_id": [
+                    "997"
+                  ]
+                },
+                "area_km2_sum_utm34": 3.9297,
+                "area_km2_union_utm34": 3.9297
+              },
+              {
+                "file": "EMSR933_AOI03_DEL_PRODUCT_v1.gpkg",
+                "layer": "modelledEventA_v1",
+                "features": 10,
+                "crs": "EPSG:4326",
+                "geometry_type": "MultiPolygon",
+                "fields": [
+                  "event_type",
+                  "obj_desc",
+                  "det_method",
+                  "notation",
+                  "dmg_src_id",
+                  "area"
+                ],
+                "metadata_values": {
+                  "event_type": [
+                    "5-Flood"
+                  ],
+                  "obj_desc": [
+                    "Flash flood"
+                  ],
+                  "det_method": [
+                    "Modelling"
+                  ],
+                  "notation": [
+                    "Flooded area"
+                  ],
+                  "dmg_src_id": [
+                    "997"
+                  ],
+                  "area": [
+                    "0.7688",
+                    "0.961003",
+                    "1.057103",
+                    "1.249303",
+                    "1.441499",
+                    "1.729797",
+                    "1.729798",
+                    "1.8259",
+                    "379.853064"
+                  ]
+                },
+                "area_km2_sum_utm34": 3.9297,
+                "area_km2_union_utm34": 3.9297
+              },
+              {
+                "file": "EMSR933_AOI03_DEL_PRODUCT_v1.gpkg",
+                "layer": "observedEventA_v1",
+                "features": 13,
+                "crs": "EPSG:4326",
+                "geometry_type": "MultiPolygon",
+                "fields": [
+                  "event_type",
+                  "obj_desc",
+                  "det_method",
+                  "notation",
+                  "dmg_src_id",
+                  "area"
+                ],
+                "metadata_values": {
+                  "event_type": [
+                    "5-Flood"
+                  ],
+                  "obj_desc": [
+                    "Flash flood"
+                  ],
+                  "det_method": [
+                    "Semi-automatic extraction"
+                  ],
+                  "notation": [
+                    "Flooded area"
+                  ],
+                  "dmg_src_id": [
+                    "2"
+                  ],
+                  "area": [
+                    "0.259999",
+                    "0.260003",
+                    "0.299998",
+                    "0.31",
+                    "0.330001",
+                    "0.48",
+                    "0.480004",
+                    "0.549997",
+                    "0.819998",
+                    "0.889995",
+                    "1.049994",
+                    "1.270003",
+                    "... (+1 more)"
+                  ]
+                },
+                "area_km2_sum_utm34": 3.2192,
+                "area_km2_union_utm34": 3.2192
+              },
+              {
+                "file": "EMSR933_AOI03_DEL_PRODUCT_v1.gpkg",
+                "error": "AttributeError: 'DataFrame' object has no attribute 'crs'"
+              }
+            ]
+          }
+        },
+        {
+          "id": 2956,
+          "type": "DEL",
+          "label": "DEL_MONIT01",
+          "monitoring": true,
+          "monitoringNumber": 1,
+          "feasible": true,
+          "mapsCount": 0,
+          "expectedDelivery": null,
+          "statusCode": "N",
+          "version": 1,
+          "deliveryTime": "2026-10-05T10:39:00",
+          "reason": "Because of no change of situation detected",
+          "downloadPath": null,
+          "api_layers": [],
+          "images": [
+            {
+              "sensorName": "Sentinel-1",
+              "sensorType": "sar",
+              "resolutionClass": "HR+",
+              "acquisitionTime": "2026-10-05T04:23:00",
+              "fileName": "EMSR933_AOI03_DEL_MONIT01_SENTINEL1_20261005_0423_ORTHO.tif"
+            }
+          ],
+          "released": false
+        },
+        {
+          "id": 2959,
+          "type": "DEL",
+          "label": "DEL_MONIT02",
+          "monitoring": true,
+          "monitoringNumber": 2,
+          "feasible": true,
+          "mapsCount": 3,
+          "expectedDelivery": "2026-10-08T19:50:00",
+          "statusCode": "F",
+          "version": 1,
+          "deliveryTime": "2026-10-08T17:53:13.419977",
+          "reason": "",
+          "downloadPath": "https://rapidmapping.emergency.copernicus.eu/backend/EMSR933/AOI03/DEL_MONIT02/EMSR933_AOI03_DEL_MONIT02_v1.zip",
+          "api_layers": [
+            "EMSR933/AOI03/DEL_MONIT02/EMSR933_AOI03_DEL_MONIT02_GEOEYE1_20261008_0902_ORTHO_cog.tif",
+            "EMSR933/AOI03/DEL_MONIT02/EMSR933_AOI03_DEL_MONIT02_floodDepthA_v1_VT",
+            "EMSR933/AOI03/DEL_MONIT02/EMSR933_AOI03_DEL_MONIT02_maximumFloodExtentA_v1_VT",
+            "EMSR933/AOI03/DEL_MONIT02/EMSR933_AOI03_DEL_MONIT02_modelledEventA_v1_VT",
+            "EMSR933/AOI03/DEL_MONIT02/EMSR933_AOI03_DEL_MONIT02_observedEventA_v1_VT"
+          ],
+          "images": [
+            {
+              "sensorName": "GeoEye-1",
+              "sensorType": "optical",
+              "resolutionClass": "VHR2",
+              "acquisitionTime": "2026-10-08T09:02:00",
+              "fileName": "EMSR933_AOI03_DEL_MONIT02_GEOEYE1_20261008_0902_ORTHO.tif"
+            }
+          ],
+          "released": true,
+          "download": {
+            "stem": "EMSR933_AOI03_DEL_MONIT02_v1",
+            "zip_bytes": 14343107,
+            "zip_sha256": "07ae2fb6f7f1bf0c213159cc514fc0de4625c0664942ca4b9d2274f447ae86af",
+            "n_members": 55,
+            "downloaded_utc": "2026-10-19T13:40:07Z"
+          },
+          "inventory": {
+            "files": [
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_areaOfInterestA_v1.dbf",
+                "bytes": 595
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_areaOfInterestA_v1.json",
+                "bytes": 567
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_areaOfInterestA_v1.lyr",
+                "bytes": 10752
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_areaOfInterestA_v1.prj",
+                "bytes": 145
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_areaOfInterestA_v1.shp",
+                "bytes": 236
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_areaOfInterestA_v1.shx",
+                "bytes": 108
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_areaOfInterestA_v1.sld",
+                "bytes": 1668
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_areaOfInterestA_v1.xml",
+                "bytes": 11595
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_floodDepthA_v1.dbf",
+                "bytes": 14412
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_floodDepthA_v1.json",
+                "bytes": 167428
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_floodDepthA_v1.lyr",
+                "bytes": 8704
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_floodDepthA_v1.prj",
+                "bytes": 145
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_floodDepthA_v1.shp",
+                "bytes": 86916
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_floodDepthA_v1.shx",
+                "bytes": 556
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_floodDepthA_v1.sld",
+                "bytes": 3724
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_floodDepthA_v1.tif",
+                "bytes": 11308
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_floodDepthA_v1.xml",
+                "bytes": 11849
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_imageFootprintA_v1.dbf",
+                "bytes": 278
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_imageFootprintA_v1.json",
+                "bytes": 3826
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_imageFootprintA_v1.lyr",
+                "bytes": 9728
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_imageFootprintA_v1.prj",
+                "bytes": 145
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_imageFootprintA_v1.shp",
+                "bytes": 2004
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_imageFootprintA_v1.shx",
+                "bytes": 116
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_imageFootprintA_v1.sld",
+                "bytes": 1604
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_imageFootprintA_v1.xml",
+                "bytes": 11884
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_maximumFloodExtentA_v1.dbf",
+                "bytes": 4582
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_maximumFloodExtentA_v1.json",
+                "bytes": 21056
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_maximumFloodExtentA_v1.lyr",
+                "bytes": 7680
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_maximumFloodExtentA_v1.prj",
+                "bytes": 145
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_maximumFloodExtentA_v1.shp",
+                "bytes": 10168
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_maximumFloodExtentA_v1.shx",
+                "bytes": 196
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_maximumFloodExtentA_v1.sld",
+                "bytes": 1640
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_maximumFloodExtentA_v1.xml",
+                "bytes": 12217
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_modelledEventA_v1.dbf",
+                "bytes": 6244
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_modelledEventA_v1.json",
+                "bytes": 140045
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_modelledEventA_v1.lyr",
+                "bytes": 23040
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_modelledEventA_v1.prj",
+                "bytes": 145
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_modelledEventA_v1.shp",
+                "bytes": 72548
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_modelledEventA_v1.shx",
+                "bytes": 236
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_modelledEventA_v1.sld",
+                "bytes": 1268
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_modelledEventA_v1.xml",
+                "bytes": 12214
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_observedEventA_v1.dbf",
+                "bytes": 218998
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_observedEventA_v1.json",
+                "bytes": 2317204
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_observedEventA_v1.lyr",
+                "bytes": 45568
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_observedEventA_v1.prj",
+                "bytes": 145
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_observedEventA_v1.shp",
+                "bytes": 1171008
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_observedEventA_v1.shx",
+                "bytes": 5044
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_observedEventA_v1.sld",
+                "bytes": 2720
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_observedEventA_v1.xml",
+                "bytes": 12208
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_source_v1.dbf",
+                "bytes": 9438
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_source_v1.xml",
+                "bytes": 11807
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_summaryTable_v1.xlsx",
+                "bytes": 82518
+              },
+              {
+                "path": "EMSR933_AOI03_DEL_MONIT02_v1.gpkg",
+                "bytes": 5877760
+              },
+              {
+                "path": "Maps/EMSR933_AOI03_DEL_MONIT02_25000_map_v1.pdf",
+                "bytes": 11717235
+              }
+            ],
+            "layers": [
+              {
+                "file": "EMSR933_AOI03_DEL_MONIT02_areaOfInterestA_v1.json",
+                "layer": "EMSR933_AOI03_DEL_MONIT02_areaOfInterestA_v1",
+                "features": 1,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "emsr_id",
+                  "area_id",
+                  "locality",
+                  "map_type",
+                  "glide_no"
+                ],
+                "metadata_values": {
+                  "area_id": [
+                    "03"
+                  ],
+                  "map_type": [
+                    "Delineation-Monit02"
+                  ]
+                },
+                "area_km2_sum_utm34": 174.4092,
+                "area_km2_union_utm34": 174.4092
+              },
+              {
+                "file": "EMSR933_AOI03_DEL_MONIT02_areaOfInterestA_v1.shp",
+                "layer": "EMSR933_AOI03_DEL_MONIT02_areaOfInterestA_v1",
+                "features": 1,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "emsr_id",
+                  "area_id",
+                  "locality",
+                  "map_type",
+                  "glide_no"
+                ],
+                "metadata_values": {
+                  "area_id": [
+                    "03"
+                  ],
+                  "map_type": [
+                    "Delineation-Monit02"
+                  ]
+                },
+                "area_km2_sum_utm34": 174.4092,
+                "area_km2_union_utm34": 174.4092
+              },
+              {
+                "file": "EMSR933_AOI03_DEL_MONIT02_floodDepthA_v1.json",
+                "layer": "EMSR933_AOI03_DEL_MONIT02_floodDepthA_v1",
+                "features": 57,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "obj_desc",
+                  "value",
+                  "det_method",
+                  "dmg_src_id"
+                ],
+                "metadata_values": {
+                  "obj_desc": [
+                    "Estimated Flood Depth"
+                  ],
+                  "det_method": [
+                    "Modelling"
+                  ],
+                  "dmg_src_id": [
+                    "997"
+                  ]
+                },
+                "area_km2_sum_utm34": 3.1715,
+                "area_km2_union_utm34": 3.1715
+              },
+              {
+                "file": "EMSR933_AOI03_DEL_MONIT02_floodDepthA_v1.shp",
+                "layer": "EMSR933_AOI03_DEL_MONIT02_floodDepthA_v1",
+                "features": 57,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "obj_desc",
+                  "value",
+                  "det_method",
+                  "dmg_src_id"
+                ],
+                "metadata_values": {
+                  "obj_desc": [
+                    "Estimated Flood Depth"
+                  ],
+                  "det_method": [
+                    "Modelling"
+                  ],
+                  "dmg_src_id": [
+                    "997"
+                  ]
+                },
+                "area_km2_sum_utm34": 3.1715,
+                "area_km2_union_utm34": 3.1715
+              },
+              {
+                "file": "EMSR933_AOI03_DEL_MONIT02_imageFootprintA_v1.json",
+                "layer": "EMSR933_AOI03_DEL_MONIT02_imageFootprintA_v1",
+                "features": 2,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "obj_type",
+                  "or_src_id"
+                ],
+                "metadata_values": {
+                  "obj_type": [
+                    "Image Footprint"
+                  ],
+                  "or_src_id": [
+                    "4",
+                    "5"
+                  ]
+                },
+                "area_km2_sum_utm34": 1010.6192,
+                "area_km2_union_utm34": 836.1954
+              },
+              {
+                "file": "EMSR933_AOI03_DEL_MONIT02_imageFootprintA_v1.shp",
+                "layer": "EMSR933_AOI03_DEL_MONIT02_imageFootprintA_v1",
+                "features": 2,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "obj_type",
+                  "or_src_id"
+                ],
+                "metadata_values": {
+                  "obj_type": [
+                    "Image Footprint"
+                  ],
+                  "or_src_id": [
+                    "4",
+                    "5"
+                  ]
+                },
+                "area_km2_sum_utm34": 1010.6192,
+                "area_km2_union_utm34": 836.1954
+              },
+              {
+                "file": "EMSR933_AOI03_DEL_MONIT02_maximumFloodExtentA_v1.json",
+                "layer": "EMSR933_AOI03_DEL_MONIT02_maximumFloodExtentA_v1",
+                "features": 12,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "event_type",
+                  "obj_desc",
+                  "det_method",
+                  "notation",
+                  "dmg_src_id",
+                  "area"
+                ],
+                "metadata_values": {
+                  "event_type": [
+                    "5-Flood"
+                  ],
+                  "obj_desc": [
+                    "Riverine flood"
+                  ],
+                  "det_method": [
+                    "Modelling"
+                  ],
+                  "notation": [
+                    "Maximum flood extent"
+                  ],
+                  "dmg_src_id": [
+                    "997"
+                  ],
+                  "area": [
+                    "0.007798",
+                    "0.7688",
+                    "0.961003",
+                    "1.057103",
+                    "1.249303",
+                    "1.441499",
+                    "1.729797",
+                    "1.729798",
+                    "1.8259",
+                    "15.504708",
+                    "381.871152"
+                  ]
+                },
+                "area_km2_sum_utm34": 4.1056,
+                "area_km2_union_utm34": 4.1056
+              },
+              {
+                "file": "EMSR933_AOI03_DEL_MONIT02_maximumFloodExtentA_v1.shp",
+                "layer": "EMSR933_AOI03_DEL_MONIT02_maximumFloodExtentA_v1",
+                "features": 12,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "event_type",
+                  "obj_desc",
+                  "det_method",
+                  "notation",
+                  "dmg_src_id",
+                  "area"
+                ],
+                "metadata_values": {
+                  "event_type": [
+                    "5-Flood"
+                  ],
+                  "obj_desc": [
+                    "Riverine flood"
+                  ],
+                  "det_method": [
+                    "Modelling"
+                  ],
+                  "notation": [
+                    "Maximum flood extent"
+                  ],
+                  "dmg_src_id": [
+                    "997"
+                  ],
+                  "area": [
+                    "0.007798",
+                    "0.7688",
+                    "0.961003",
+                    "1.057103",
+                    "1.249303",
+                    "1.441499",
+                    "1.729797",
+                    "1.729798",
+                    "1.8259",
+                    "15.504708",
+                    "381.871152"
+                  ]
+                },
+                "area_km2_sum_utm34": 4.1056,
+                "area_km2_union_utm34": 4.1056
+              },
+              {
+                "file": "EMSR933_AOI03_DEL_MONIT02_modelledEventA_v1.json",
+                "layer": "EMSR933_AOI03_DEL_MONIT02_modelledEventA_v1",
+                "features": 17,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "event_type",
+                  "obj_desc",
+                  "det_method",
+                  "notation",
+                  "dmg_src_id",
+                  "area"
+                ],
+                "metadata_values": {
+                  "event_type": [
+                    "5-Flood"
+                  ],
+                  "obj_desc": [
+                    "Riverine flood"
+                  ],
+                  "det_method": [
+                    "Modelling"
+                  ],
+                  "notation": [
+                    "Flooded area"
+                  ],
+                  "dmg_src_id": [
+                    "997"
+                  ],
+                  "area": [
+                    "0.000946",
+                    "0.003234",
+                    "0.006035",
+                    "0.007509",
+                    "0.007798",
+                    "0.008325",
+                    "0.0092",
+                    "0.009234",
+                    "0.0104",
+                    "0.0108",
+                    "0.016",
+                    "0.017752",
+                    "... (+4 more)"
+                  ]
+                },
+                "area_km2_sum_utm34": 3.1715,
+                "area_km2_union_utm34": 3.1715
+              },
+              {
+                "file": "EMSR933_AOI03_DEL_MONIT02_modelledEventA_v1.shp",
+                "layer": "EMSR933_AOI03_DEL_MONIT02_modelledEventA_v1",
+                "features": 17,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "event_type",
+                  "obj_desc",
+                  "det_method",
+                  "notation",
+                  "dmg_src_id",
+                  "area"
+                ],
+                "metadata_values": {
+                  "event_type": [
+                    "5-Flood"
+                  ],
+                  "obj_desc": [
+                    "Riverine flood"
+                  ],
+                  "det_method": [
+                    "Modelling"
+                  ],
+                  "notation": [
+                    "Flooded area"
+                  ],
+                  "dmg_src_id": [
+                    "997"
+                  ],
+                  "area": [
+                    "0.000946",
+                    "0.003234",
+                    "0.006035",
+                    "0.007509",
+                    "0.007798",
+                    "0.008325",
+                    "0.0092",
+                    "0.009234",
+                    "0.0104",
+                    "0.0108",
+                    "0.016",
+                    "0.017752",
+                    "... (+4 more)"
+                  ]
+                },
+                "area_km2_sum_utm34": 3.1715,
+                "area_km2_union_utm34": 3.1715
+              },
+              {
+                "file": "EMSR933_AOI03_DEL_MONIT02_observedEventA_v1.json",
+                "layer": "EMSR933_AOI03_DEL_MONIT02_observedEventA_v1",
+                "features": 618,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "event_type",
+                  "obj_desc",
+                  "det_method",
+                  "notation",
+                  "dmg_src_id",
+                  "area"
+                ],
+                "metadata_values": {
+                  "event_type": [
+                    "5-Flood"
+                  ],
+                  "obj_desc": [
+                    "Flash flood"
+                  ],
+                  "det_method": [
+                    "Semi-automatic extraction"
+                  ],
+                  "notation": [
+                    "Flood trace",
+                    "Flooded area"
+                  ],
+                  "dmg_src_id": [
+                    "4"
+                  ],
+                  "area": [
+                    "0.012457",
+                    "0.047525",
+                    "0.048036",
+                    "0.050025",
+                    "0.0504",
+                    "0.050595",
+                    "0.051",
+                    "0.054779",
+                    "0.056046",
+                    "0.05711",
+                    "0.061026",
+                    "0.061929",
+                    "... (+522 more)"
+                  ]
+                },
+                "area_km2_sum_utm34": 3.7807,
+                "area_km2_union_utm34": 3.7807
+              },
+              {
+                "file": "EMSR933_AOI03_DEL_MONIT02_observedEventA_v1.shp",
+                "layer": "EMSR933_AOI03_DEL_MONIT02_observedEventA_v1",
+                "features": 618,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "event_type",
+                  "obj_desc",
+                  "det_method",
+                  "notation",
+                  "dmg_src_id",
+                  "area"
+                ],
+                "metadata_values": {
+                  "event_type": [
+                    "5-Flood"
+                  ],
+                  "obj_desc": [
+                    "Flash flood"
+                  ],
+                  "det_method": [
+                    "Semi-automatic extraction"
+                  ],
+                  "notation": [
+                    "Flood trace",
+                    "Flooded area"
+                  ],
+                  "dmg_src_id": [
+                    "4"
+                  ],
+                  "area": [
+                    "0.012457",
+                    "0.047525",
+                    "0.048036",
+                    "0.050025",
+                    "0.0504",
+                    "0.050595",
+                    "0.051",
+                    "0.054779",
+                    "0.056046",
+                    "0.05711",
+                    "0.061026",
+                    "0.061929",
+                    "... (+522 more)"
+                  ]
+                },
+                "area_km2_sum_utm34": 3.7807,
+                "area_km2_union_utm34": 3.7807
+              },
+              {
+                "file": "EMSR933_AOI03_DEL_MONIT02_v1.gpkg",
+                "layer": "areaOfInterestA_v1",
+                "features": 1,
+                "crs": "EPSG:4326",
+                "geometry_type": "MultiPolygon",
+                "fields": [
+                  "emsr_id",
+                  "glide_no",
+                  "area_id",
+                  "locality",
+                  "map_type"
+                ],
+                "metadata_values": {
+                  "area_id": [
+                    "03"
+                  ],
+                  "map_type": [
+                    "Delineation-Monit02"
+                  ]
+                },
+                "area_km2_sum_utm34": 174.4092,
+                "area_km2_union_utm34": 174.4092
+              },
+              {
+                "file": "EMSR933_AOI03_DEL_MONIT02_v1.gpkg",
+                "layer": "imageFootprintA_v1",
+                "features": 2,
+                "crs": "EPSG:4326",
+                "geometry_type": "MultiPolygon",
+                "fields": [
+                  "obj_type",
+                  "or_src_id"
+                ],
+                "metadata_values": {
+                  "obj_type": [
+                    "Image Footprint"
+                  ],
+                  "or_src_id": [
+                    "4",
+                    "5"
+                  ]
+                },
+                "area_km2_sum_utm34": 1010.6192,
+                "area_km2_union_utm34": 836.1954
+              },
+              {
+                "file": "EMSR933_AOI03_DEL_MONIT02_v1.gpkg",
+                "layer": "floodDepthA_v1",
+                "features": 57,
+                "crs": "EPSG:4326",
+                "geometry_type": "MultiPolygon",
+                "fields": [
+                  "obj_desc",
+                  "value",
+                  "det_method",
+                  "dmg_src_id"
+                ],
+                "metadata_values": {
+                  "obj_desc": [
+                    "Estimated Flood Depth"
+                  ],
+                  "det_method": [
+                    "Modelling"
+                  ],
+                  "dmg_src_id": [
+                    "997"
+                  ]
+                },
+                "area_km2_sum_utm34": 3.1715,
+                "area_km2_union_utm34": 3.1715
+              },
+              {
+                "file": "EMSR933_AOI03_DEL_MONIT02_v1.gpkg",
+                "layer": "maximumFloodExtentA_v1",
+                "features": 12,
+                "crs": "EPSG:4326",
+                "geometry_type": "MultiPolygon",
+                "fields": [
+                  "event_type",
+                  "obj_desc",
+                  "det_method",
+                  "notation",
+                  "dmg_src_id",
+                  "area"
+                ],
+                "metadata_values": {
+                  "event_type": [
+                    "5-Flood"
+                  ],
+                  "obj_desc": [
+                    "Riverine flood"
+                  ],
+                  "det_method": [
+                    "Modelling"
+                  ],
+                  "notation": [
+                    "Maximum flood extent"
+                  ],
+                  "dmg_src_id": [
+                    "997"
+                  ],
+                  "area": [
+                    "0.007798",
+                    "0.7688",
+                    "0.961003",
+                    "1.057103",
+                    "1.249303",
+                    "1.441499",
+                    "1.729797",
+                    "1.729798",
+                    "1.8259",
+                    "15.504708",
+                    "381.871152"
+                  ]
+                },
+                "area_km2_sum_utm34": 4.1056,
+                "area_km2_union_utm34": 4.1056
+              },
+              {
+                "file": "EMSR933_AOI03_DEL_MONIT02_v1.gpkg",
+                "layer": "modelledEventA_v1",
+                "features": 17,
+                "crs": "EPSG:4326",
+                "geometry_type": "MultiPolygon",
+                "fields": [
+                  "event_type",
+                  "obj_desc",
+                  "det_method",
+                  "notation",
+                  "dmg_src_id",
+                  "area"
+                ],
+                "metadata_values": {
+                  "event_type": [
+                    "5-Flood"
+                  ],
+                  "obj_desc": [
+                    "Riverine flood"
+                  ],
+                  "det_method": [
+                    "Modelling"
+                  ],
+                  "notation": [
+                    "Flooded area"
+                  ],
+                  "dmg_src_id": [
+                    "997"
+                  ],
+                  "area": [
+                    "0.000946",
+                    "0.003234",
+                    "0.006035",
+                    "0.007509",
+                    "0.007798",
+                    "0.008325",
+                    "0.0092",
+                    "0.009234",
+                    "0.0104",
+                    "0.0108",
+                    "0.016",
+                    "0.017752",
+                    "... (+4 more)"
+                  ]
+                },
+                "area_km2_sum_utm34": 3.1715,
+                "area_km2_union_utm34": 3.1715
+              },
+              {
+                "file": "EMSR933_AOI03_DEL_MONIT02_v1.gpkg",
+                "layer": "observedEventA_v1",
+                "features": 618,
+                "crs": "EPSG:4326",
+                "geometry_type": "MultiPolygon",
+                "fields": [
+                  "event_type",
+                  "obj_desc",
+                  "det_method",
+                  "notation",
+                  "dmg_src_id",
+                  "area"
+                ],
+                "metadata_values": {
+                  "event_type": [
+                    "5-Flood"
+                  ],
+                  "obj_desc": [
+                    "Flash flood"
+                  ],
+                  "det_method": [
+                    "Semi-automatic extraction"
+                  ],
+                  "notation": [
+                    "Flood trace",
+                    "Flooded area"
+                  ],
+                  "dmg_src_id": [
+                    "4"
+                  ],
+                  "area": [
+                    "0.012457",
+                    "0.047525",
+                    "0.048036",
+                    "0.050025",
+                    "0.0504",
+                    "0.050595",
+                    "0.051",
+                    "0.054779",
+                    "0.056046",
+                    "0.05711",
+                    "0.061026",
+                    "0.061929",
+                    "... (+522 more)"
+                  ]
+                },
+                "area_km2_sum_utm34": 3.7807,
+                "area_km2_union_utm34": 3.7807
+              },
+              {
+                "file": "EMSR933_AOI03_DEL_MONIT02_v1.gpkg",
+                "error": "AttributeError: 'DataFrame' object has no attribute 'crs'"
+              }
+            ]
+          }
+        },
+        {
+          "id": 2965,
+          "type": "GRA",
+          "label": "GRA",
+          "monitoring": false,
+          "monitoringNumber": 0,
+          "feasible": true,
+          "mapsCount": 1,
+          "expectedDelivery": "2026-10-09T21:00:00",
+          "statusCode": "F",
+          "version": 1,
+          "deliveryTime": "2026-10-09T19:51:48.052155",
+          "reason": "",
+          "downloadPath": "https://rapidmapping.emergency.copernicus.eu/backend/EMSR933/AOI03/GRA_PRODUCT/EMSR933_AOI03_GRA_PRODUCT_v1.zip",
+          "api_layers": [
+            "EMSR933/AOI03/GRA_PRODUCT/EMSR933_AOI03_GRA_PRODUCT_LEGION_20261009_0932_ORTHO_cog.tif",
+            "EMSR933/AOI03/GRA_PRODUCT/EMSR933_AOI03_GRA_PRODUCT_builtUpP_v1_VT",
+            "EMSR933/AOI03/GRA_PRODUCT/EMSR933_AOI03_GRA_PRODUCT_facilitiesA_v1_VT",
+            "EMSR933/AOI03/GRA_PRODUCT/EMSR933_AOI03_GRA_PRODUCT_observedEventA_v1_VT",
+            "EMSR933/AOI03/GRA_PRODUCT/EMSR933_AOI03_GRA_PRODUCT_transportationL_v1_VT"
+          ],
+          "images": [
+            {
+              "sensorName": "Legion",
+              "sensorType": "optical",
+              "resolutionClass": "VHR1",
+              "acquisitionTime": "2026-10-09T09:32:00",
+              "fileName": "EMSR933_AOI03_GRA_PRODUCT_LEGION_20261009_0932_ORTHO.tif"
+            }
+          ],
+          "released": true,
+          "download": {
+            "stem": "EMSR933_AOI03_GRA_PRODUCT_v1",
+            "zip_bytes": 10872469,
+            "zip_sha256": "67908c72d1d736cc7cb1b6e7c66a3e1e87f1f73be0438ce2586153ac9d150723",
+            "n_members": 54,
+            "downloaded_utc": "2026-10-19T13:41:19Z"
+          },
+          "inventory": {
+            "files": [
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_areaOfInterestA_v1.dbf",
+                "bytes": 595
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_areaOfInterestA_v1.json",
+                "bytes": 852
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_areaOfInterestA_v1.lyr",
+                "bytes": 10752
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_areaOfInterestA_v1.prj",
+                "bytes": 145
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_areaOfInterestA_v1.shp",
+                "bytes": 396
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_areaOfInterestA_v1.shx",
+                "bytes": 108
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_areaOfInterestA_v1.sld",
+                "bytes": 1668
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_areaOfInterestA_v1.xml",
+                "bytes": 11595
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_builtUpP_v1.dbf",
+                "bytes": 3649
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_builtUpP_v1.json",
+                "bytes": 2170
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_builtUpP_v1.lyr",
+                "bytes": 9728
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_builtUpP_v1.prj",
+                "bytes": 145
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_builtUpP_v1.shp",
+                "bytes": 240
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_builtUpP_v1.shx",
+                "bytes": 140
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_builtUpP_v1.sld",
+                "bytes": 1462
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_builtUpP_v1.xml",
+                "bytes": 11914
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_facilitiesA_v1.dbf",
+                "bytes": 1672
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_facilitiesA_v1.json",
+                "bytes": 1328
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_facilitiesA_v1.lyr",
+                "bytes": 12288
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_facilitiesA_v1.prj",
+                "bytes": 145
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_facilitiesA_v1.shp",
+                "bytes": 372
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_facilitiesA_v1.shx",
+                "bytes": 116
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_facilitiesA_v1.sld",
+                "bytes": 2114
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_facilitiesA_v1.xml",
+                "bytes": 12343
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_imageFootprintA_v1.dbf",
+                "bytes": 278
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_imageFootprintA_v1.json",
+                "bytes": 1195
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_imageFootprintA_v1.lyr",
+                "bytes": 9728
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_imageFootprintA_v1.prj",
+                "bytes": 145
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_imageFootprintA_v1.shp",
+                "bytes": 596
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_imageFootprintA_v1.shx",
+                "bytes": 116
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_imageFootprintA_v1.sld",
+                "bytes": 1604
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_imageFootprintA_v1.xml",
+                "bytes": 11884
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_observedEventA_v1.dbf",
+                "bytes": 2180866
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_observedEventA_v1.json",
+                "bytes": 9128677
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_observedEventA_v1.lyr",
+                "bytes": 45568
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_observedEventA_v1.prj",
+                "bytes": 145
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_observedEventA_v1.shp",
+                "bytes": 4316880
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_observedEventA_v1.shx",
+                "bytes": 49380
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_observedEventA_v1.sld",
+                "bytes": 2720
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_observedEventA_v1.xml",
+                "bytes": 12201
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_source_v1.dbf",
+                "bytes": 7908
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_source_v1.xml",
+                "bytes": 11807
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_summaryTable_v1.xlsx",
+                "bytes": 78202
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_transportationL_v1.dbf",
+                "bytes": 1187213
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_transportationL_v1.json",
+                "bytes": 1341040
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_transportationL_v1.lyr",
+                "bytes": 35840
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_transportationL_v1.prj",
+                "bytes": 145
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_transportationL_v1.shp",
+                "bytes": 471772
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_transportationL_v1.shx",
+                "bytes": 14508
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_transportationL_v1.sld",
+                "bytes": 8192
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_transportationL_v1.xml",
+                "bytes": 12157
+              },
+              {
+                "path": "EMSR933_AOI03_GRA_PRODUCT_v1.gpkg",
+                "bytes": 10825728
+              },
+              {
+                "path": "Maps/EMSR933_AOI03_GRA_PRODUCT_16000_map_v1.pdf",
+                "bytes": 4920310
+              }
+            ],
+            "layers": [
+              {
+                "file": "EMSR933_AOI03_GRA_PRODUCT_areaOfInterestA_v1.json",
+                "layer": "EMSR933_AOI03_GRA_PRODUCT_areaOfInterestA_v1",
+                "features": 1,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "emsr_id",
+                  "area_id",
+                  "locality",
+                  "map_type",
+                  "glide_no"
+                ],
+                "metadata_values": {
+                  "area_id": [
+                    "03"
+                  ],
+                  "map_type": [
+                    "Grading"
+                  ]
+                },
+                "area_km2_sum_utm34": 46.7379,
+                "area_km2_union_utm34": 46.7379
+              },
+              {
+                "file": "EMSR933_AOI03_GRA_PRODUCT_areaOfInterestA_v1.shp",
+                "layer": "EMSR933_AOI03_GRA_PRODUCT_areaOfInterestA_v1",
+                "features": 1,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "emsr_id",
+                  "area_id",
+                  "locality",
+                  "map_type",
+                  "glide_no"
+                ],
+                "metadata_values": {
+                  "area_id": [
+                    "03"
+                  ],
+                  "map_type": [
+                    "Grading"
+                  ]
+                },
+                "area_km2_sum_utm34": 46.7379,
+                "area_km2_union_utm34": 46.7379
+              },
+              {
+                "file": "EMSR933_AOI03_GRA_PRODUCT_builtUpP_v1.json",
+                "layer": "EMSR933_AOI03_GRA_PRODUCT_builtUpP_v1",
+                "features": 5,
+                "crs": "EPSG:4326",
+                "geometry_type": "Point",
+                "fields": [
+                  "obj_type",
+                  "name",
+                  "info",
+                  "simplified",
+                  "damage_gra",
+                  "det_method",
+                  "notation",
+                  "or_src_id",
+                  "dmg_src_id",
+                  "cd_value"
+                ],
+                "metadata_values": {
+                  "obj_type": [
+                    "11-Residential Buildings"
+                  ],
+                  "det_method": [
+                    "Not Applicable"
+                  ],
+                  "notation": [
+                    "Building point"
+                  ],
+                  "or_src_id": [
+                    "994"
+                  ],
+                  "dmg_src_id": [
+                    "2"
+                  ]
+                }
+              },
+              {
+                "file": "EMSR933_AOI03_GRA_PRODUCT_builtUpP_v1.shp",
+                "layer": "EMSR933_AOI03_GRA_PRODUCT_builtUpP_v1",
+                "features": 5,
+                "crs": "EPSG:4326",
+                "geometry_type": "Point",
+                "fields": [
+                  "obj_type",
+                  "name",
+                  "info",
+                  "simplified",
+                  "damage_gra",
+                  "det_method",
+                  "notation",
+                  "or_src_id",
+                  "dmg_src_id",
+                  "cd_value"
+                ],
+                "metadata_values": {
+                  "obj_type": [
+                    "11-Residential Buildings"
+                  ],
+                  "det_method": [
+                    "Not Applicable"
+                  ],
+                  "notation": [
+                    "Building point"
+                  ],
+                  "or_src_id": [
+                    "994"
+                  ],
+                  "dmg_src_id": [
+                    "2"
+                  ]
+                }
+              },
+              {
+                "file": "EMSR933_AOI03_GRA_PRODUCT_facilitiesA_v1.json",
+                "layer": "EMSR933_AOI03_GRA_PRODUCT_facilitiesA_v1",
+                "features": 2,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "obj_type",
+                  "name",
+                  "info",
+                  "simplified",
+                  "damage_gra",
+                  "det_method",
+                  "notation",
+                  "or_src_id",
+                  "dmg_src_id",
+                  "cd_value"
+                ],
+                "metadata_values": {
+                  "obj_type": [
+                    "23-Complex Constructions on Industrial Sites"
+                  ],
+                  "det_method": [
+                    "Photo-interpretation"
+                  ],
+                  "notation": [
+                    "Not Applicable"
+                  ],
+                  "or_src_id": [
+                    "2"
+                  ],
+                  "dmg_src_id": [
+                    "2"
+                  ]
+                },
+                "area_km2_sum_utm34": 0.0006,
+                "area_km2_union_utm34": 0.0006
+              },
+              {
+                "file": "EMSR933_AOI03_GRA_PRODUCT_facilitiesA_v1.shp",
+                "layer": "EMSR933_AOI03_GRA_PRODUCT_facilitiesA_v1",
+                "features": 2,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "obj_type",
+                  "name",
+                  "info",
+                  "simplified",
+                  "damage_gra",
+                  "det_method",
+                  "notation",
+                  "or_src_id",
+                  "dmg_src_id",
+                  "cd_value"
+                ],
+                "metadata_values": {
+                  "obj_type": [
+                    "23-Complex Constructions on Industrial Sites"
+                  ],
+                  "det_method": [
+                    "Photo-interpretation"
+                  ],
+                  "notation": [
+                    "Not Applicable"
+                  ],
+                  "or_src_id": [
+                    "2"
+                  ],
+                  "dmg_src_id": [
+                    "2"
+                  ]
+                },
+                "area_km2_sum_utm34": 0.0006,
+                "area_km2_union_utm34": 0.0006
+              },
+              {
+                "file": "EMSR933_AOI03_GRA_PRODUCT_imageFootprintA_v1.json",
+                "layer": "EMSR933_AOI03_GRA_PRODUCT_imageFootprintA_v1",
+                "features": 2,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "obj_type",
+                  "or_src_id"
+                ],
+                "metadata_values": {
+                  "obj_type": [
+                    "Image Footprint"
+                  ],
+                  "or_src_id": [
+                    "1",
+                    "2"
+                  ]
+                },
+                "area_km2_sum_utm34": 226.5186,
+                "area_km2_union_utm34": 179.7807
+              },
+              {
+                "file": "EMSR933_AOI03_GRA_PRODUCT_imageFootprintA_v1.shp",
+                "layer": "EMSR933_AOI03_GRA_PRODUCT_imageFootprintA_v1",
+                "features": 2,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "obj_type",
+                  "or_src_id"
+                ],
+                "metadata_values": {
+                  "obj_type": [
+                    "Image Footprint"
+                  ],
+                  "or_src_id": [
+                    "1",
+                    "2"
+                  ]
+                },
+                "area_km2_sum_utm34": 226.5186,
+                "area_km2_union_utm34": 179.7807
+              },
+              {
+                "file": "EMSR933_AOI03_GRA_PRODUCT_observedEventA_v1.json",
+                "layer": "EMSR933_AOI03_GRA_PRODUCT_observedEventA_v1",
+                "features": 6160,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "event_type",
+                  "obj_desc",
+                  "det_method",
+                  "notation",
+                  "dmg_src_id",
+                  "area"
+                ],
+                "metadata_values": {
+                  "event_type": [
+                    "5-Flood"
+                  ],
+                  "obj_desc": [
+                    "Flash flood"
+                  ],
+                  "det_method": [
+                    "Semi-automatic extraction"
+                  ],
+                  "notation": [
+                    "Flood trace",
+                    "Flooded area"
+                  ],
+                  "dmg_src_id": [
+                    "2"
+                  ],
+                  "area": [
+                    "0.0",
+                    "0.0001",
+                    "0.000101",
+                    "0.000102",
+                    "0.000103",
+                    "0.000104",
+                    "0.000105",
+                    "0.000106",
+                    "0.000107",
+                    "0.000108",
+                    "0.000109",
+                    "0.00011",
+                    "... (+3255 more)"
+                  ]
+                },
+                "area_km2_sum_utm34": 4.0685,
+                "area_km2_union_utm34": 4.0685
+              },
+              {
+                "file": "EMSR933_AOI03_GRA_PRODUCT_observedEventA_v1.shp",
+                "layer": "EMSR933_AOI03_GRA_PRODUCT_observedEventA_v1",
+                "features": 6160,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "event_type",
+                  "obj_desc",
+                  "det_method",
+                  "notation",
+                  "dmg_src_id",
+                  "area"
+                ],
+                "metadata_values": {
+                  "event_type": [
+                    "5-Flood"
+                  ],
+                  "obj_desc": [
+                    "Flash flood"
+                  ],
+                  "det_method": [
+                    "Semi-automatic extraction"
+                  ],
+                  "notation": [
+                    "Flood trace",
+                    "Flooded area"
+                  ],
+                  "dmg_src_id": [
+                    "2"
+                  ],
+                  "area": [
+                    "0.0",
+                    "0.0001",
+                    "0.000101",
+                    "0.000102",
+                    "0.000103",
+                    "0.000104",
+                    "0.000105",
+                    "0.000106",
+                    "0.000107",
+                    "0.000108",
+                    "0.000109",
+                    "0.00011",
+                    "... (+3255 more)"
+                  ]
+                },
+                "area_km2_sum_utm34": 4.0685,
+                "area_km2_union_utm34": 4.0685
+              },
+              {
+                "file": "EMSR933_AOI03_GRA_PRODUCT_transportationL_v1.json",
+                "layer": "EMSR933_AOI03_GRA_PRODUCT_transportationL_v1",
+                "features": 1801,
+                "crs": "EPSG:4326",
+                "geometry_type": "LineString",
+                "fields": [
+                  "obj_type",
+                  "name",
+                  "info",
+                  "simplified",
+                  "damage_gra",
+                  "det_method",
+                  "notation",
+                  "or_src_id",
+                  "dmg_src_id",
+                  "cd_value"
+                ],
+                "metadata_values": {
+                  "obj_type": [
+                    "211-Highways, Streets and Roads"
+                  ],
+                  "det_method": [
+                    "Photo-interpretation"
+                  ],
+                  "notation": [
+                    "Not Applicable"
+                  ],
+                  "or_src_id": [
+                    "994"
+                  ],
+                  "dmg_src_id": [
+                    "2"
+                  ]
+                }
+              },
+              {
+                "file": "EMSR933_AOI03_GRA_PRODUCT_transportationL_v1.shp",
+                "layer": "EMSR933_AOI03_GRA_PRODUCT_transportationL_v1",
+                "features": 1801,
+                "crs": "EPSG:4326",
+                "geometry_type": "LineString",
+                "fields": [
+                  "obj_type",
+                  "name",
+                  "info",
+                  "simplified",
+                  "damage_gra",
+                  "det_method",
+                  "notation",
+                  "or_src_id",
+                  "dmg_src_id",
+                  "cd_value"
+                ],
+                "metadata_values": {
+                  "obj_type": [
+                    "211-Highways, Streets and Roads"
+                  ],
+                  "det_method": [
+                    "Photo-interpretation"
+                  ],
+                  "notation": [
+                    "Not Applicable"
+                  ],
+                  "or_src_id": [
+                    "994"
+                  ],
+                  "dmg_src_id": [
+                    "2"
+                  ]
+                }
+              },
+              {
+                "file": "EMSR933_AOI03_GRA_PRODUCT_v1.gpkg",
+                "layer": "areaOfInterestA_v1",
+                "features": 1,
+                "crs": "EPSG:4326",
+                "geometry_type": "MultiPolygon",
+                "fields": [
+                  "emsr_id",
+                  "glide_no",
+                  "area_id",
+                  "locality",
+                  "map_type"
+                ],
+                "metadata_values": {
+                  "area_id": [
+                    "03"
+                  ],
+                  "map_type": [
+                    "Grading"
+                  ]
+                },
+                "area_km2_sum_utm34": 46.7379,
+                "area_km2_union_utm34": 46.7379
+              },
+              {
+                "file": "EMSR933_AOI03_GRA_PRODUCT_v1.gpkg",
+                "layer": "imageFootprintA_v1",
+                "features": 2,
+                "crs": "EPSG:4326",
+                "geometry_type": "MultiPolygon",
+                "fields": [
+                  "obj_type",
+                  "or_src_id"
+                ],
+                "metadata_values": {
+                  "obj_type": [
+                    "Image Footprint"
+                  ],
+                  "or_src_id": [
+                    "1",
+                    "2"
+                  ]
+                },
+                "area_km2_sum_utm34": 226.5186,
+                "area_km2_union_utm34": 179.7807
+              },
+              {
+                "file": "EMSR933_AOI03_GRA_PRODUCT_v1.gpkg",
+                "layer": "builtUpP_v1",
+                "features": 5,
+                "crs": "EPSG:4326",
+                "geometry_type": "Point",
+                "fields": [
+                  "obj_type",
+                  "name",
+                  "info",
+                  "simplified",
+                  "damage_gra",
+                  "det_method",
+                  "notation",
+                  "or_src_id",
+                  "dmg_src_id",
+                  "cd_value"
+                ],
+                "metadata_values": {
+                  "obj_type": [
+                    "11-Residential Buildings"
+                  ],
+                  "det_method": [
+                    "Not Applicable"
+                  ],
+                  "notation": [
+                    "Building point"
+                  ],
+                  "or_src_id": [
+                    "994"
+                  ],
+                  "dmg_src_id": [
+                    "2"
+                  ]
+                }
+              },
+              {
+                "file": "EMSR933_AOI03_GRA_PRODUCT_v1.gpkg",
+                "layer": "facilitiesA_v1",
+                "features": 2,
+                "crs": "EPSG:4326",
+                "geometry_type": "MultiPolygon",
+                "fields": [
+                  "obj_type",
+                  "name",
+                  "info",
+                  "simplified",
+                  "damage_gra",
+                  "det_method",
+                  "notation",
+                  "or_src_id",
+                  "dmg_src_id",
+                  "cd_value"
+                ],
+                "metadata_values": {
+                  "obj_type": [
+                    "23-Complex Constructions on Industrial Sites"
+                  ],
+                  "det_method": [
+                    "Photo-interpretation"
+                  ],
+                  "notation": [
+                    "Not Applicable"
+                  ],
+                  "or_src_id": [
+                    "2"
+                  ],
+                  "dmg_src_id": [
+                    "2"
+                  ]
+                },
+                "area_km2_sum_utm34": 0.0006,
+                "area_km2_union_utm34": 0.0006
+              },
+              {
+                "file": "EMSR933_AOI03_GRA_PRODUCT_v1.gpkg",
+                "layer": "observedEventA_v1",
+                "features": 6160,
+                "crs": "EPSG:4326",
+                "geometry_type": "MultiPolygon",
+                "fields": [
+                  "event_type",
+                  "obj_desc",
+                  "det_method",
+                  "notation",
+                  "dmg_src_id",
+                  "area"
+                ],
+                "metadata_values": {
+                  "event_type": [
+                    "5-Flood"
+                  ],
+                  "obj_desc": [
+                    "Flash flood"
+                  ],
+                  "det_method": [
+                    "Semi-automatic extraction"
+                  ],
+                  "notation": [
+                    "Flood trace",
+                    "Flooded area"
+                  ],
+                  "dmg_src_id": [
+                    "2"
+                  ],
+                  "area": [
+                    "0.0",
+                    "0.0001",
+                    "0.000101",
+                    "0.000102",
+                    "0.000103",
+                    "0.000104",
+                    "0.000105",
+                    "0.000106",
+                    "0.000107",
+                    "0.000108",
+                    "0.000109",
+                    "0.00011",
+                    "... (+3255 more)"
+                  ]
+                },
+                "area_km2_sum_utm34": 4.0685,
+                "area_km2_union_utm34": 4.0685
+              },
+              {
+                "file": "EMSR933_AOI03_GRA_PRODUCT_v1.gpkg",
+                "layer": "transportationL_v1",
+                "features": 1801,
+                "crs": "EPSG:4326",
+                "geometry_type": "MultiLineString",
+                "fields": [
+                  "obj_type",
+                  "name",
+                  "info",
+                  "simplified",
+                  "damage_gra",
+                  "det_method",
+                  "notation",
+                  "or_src_id",
+                  "dmg_src_id",
+                  "cd_value"
+                ],
+                "metadata_values": {
+                  "obj_type": [
+                    "211-Highways, Streets and Roads"
+                  ],
+                  "det_method": [
+                    "Photo-interpretation"
+                  ],
+                  "notation": [
+                    "Not Applicable"
+                  ],
+                  "or_src_id": [
+                    "994"
+                  ],
+                  "dmg_src_id": [
+                    "2"
+                  ]
+                }
+              },
+              {
+                "file": "EMSR933_AOI03_GRA_PRODUCT_v1.gpkg",
+                "error": "AttributeError: 'DataFrame' object has no attribute 'crs'"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "name": "Agios Ioannis",
+      "extent_wkt": "POLYGON ((25.808132 35.063447, 25.85609 35.062814, 25.85608801147138 35.06271059651167, 25.936173 35.06166, 25.936537 35.033214, 25.933271 35.032497, 25.930319 35.031907, 25.920274 35.029648, 25.907104 35.027537, 25.888143 35.021999, 25.87129 35.016052, 25.847223 35.014063, 25.831997 35.0073, 25.81434 34.998965, 25.806254 35.000468, 25.807816 35.054305, 25.807957462871773 35.05775898806382, 25.807913 35.057758, 25.808132 35.063447))",
+      "bbox_lonlat": [
+        25.806254,
+        34.998965,
+        25.936537,
+        35.063447
+      ],
+      "centroid_lonlat": [
+        25.8632,
+        35.0388
+      ],
+      "size_km_utm34": [
+        11.9,
+        7.5
+      ],
+      "area_km2_utm34": 59.26,
+      "products": [
+        {
+          "id": 2949,
+          "type": "DEL",
+          "label": "DEL",
+          "monitoring": false,
+          "monitoringNumber": 0,
+          "feasible": true,
+          "mapsCount": 0,
+          "expectedDelivery": null,
+          "statusCode": "N",
+          "version": 1,
+          "deliveryTime": "2026-10-05T06:57:00",
+          "reason": "Because of remote sensing limitations",
+          "downloadPath": null,
+          "api_layers": [],
+          "images": [
+            {
+              "sensorName": "ICEYE",
+              "sensorType": "sar",
+              "resolutionClass": "VHR2",
+              "acquisitionTime": "2026-10-04T23:16:00",
+              "fileName": "EMSR933_AOI04_DEL_PRODUCT_ICEYE_20261004_2316_ORTHO.tif"
+            }
+          ],
+          "released": false
+        },
+        {
+          "id": 2957,
+          "type": "DEL",
+          "label": "DEL_MONIT01",
+          "monitoring": true,
+          "monitoringNumber": 1,
+          "feasible": true,
+          "mapsCount": 2,
+          "expectedDelivery": "2026-10-06T22:26:00",
+          "statusCode": "F",
+          "version": 1,
+          "deliveryTime": "2026-10-06T19:06:12.567023",
+          "reason": "",
+          "downloadPath": "https://rapidmapping.emergency.copernicus.eu/backend/EMSR933/AOI04/DEL_MONIT01/EMSR933_AOI04_DEL_MONIT01_v1.zip",
+          "api_layers": [
+            "EMSR933/AOI04/DEL_MONIT01/EMSR933_AOI04_DEL_MONIT01_WORLDVIEW3_20261006_1046_ORTHO_cog.tif",
+            "EMSR933/AOI04/DEL_MONIT01/EMSR933_AOI04_DEL_MONIT01_observedEventA_v1_VT"
+          ],
+          "images": [
+            {
+              "sensorName": "WorldView-3",
+              "sensorType": "optical",
+              "resolutionClass": "VHR2",
+              "acquisitionTime": "2026-10-06T10:46:00",
+              "fileName": "EMSR933_AOI04_DEL_MONIT01_WORLDVIEW3_20261006_1046_ORTHO.tif"
+            }
+          ],
+          "released": true,
+          "download": {
+            "stem": "EMSR933_AOI04_DEL_MONIT01_v1",
+            "zip_bytes": 6702403,
+            "zip_sha256": "24339cffc56c67febccf561598972cab4949d85f8429adb8346adf600b5e78f2",
+            "n_members": 30,
+            "downloaded_utc": "2026-10-19T13:45:00Z"
+          },
+          "inventory": {
+            "files": [
+              {
+                "path": "EMSR933_AOI04_DEL_MONIT01_areaOfInterestA_v1.dbf",
+                "bytes": 595
+              },
+              {
+                "path": "EMSR933_AOI04_DEL_MONIT01_areaOfInterestA_v1.json",
+                "bytes": 983
+              },
+              {
+                "path": "EMSR933_AOI04_DEL_MONIT01_areaOfInterestA_v1.lyr",
+                "bytes": 10752
+              },
+              {
+                "path": "EMSR933_AOI04_DEL_MONIT01_areaOfInterestA_v1.prj",
+                "bytes": 145
+              },
+              {
+                "path": "EMSR933_AOI04_DEL_MONIT01_areaOfInterestA_v1.shp",
+                "bytes": 460
+              },
+              {
+                "path": "EMSR933_AOI04_DEL_MONIT01_areaOfInterestA_v1.shx",
+                "bytes": 108
+              },
+              {
+                "path": "EMSR933_AOI04_DEL_MONIT01_areaOfInterestA_v1.sld",
+                "bytes": 1668
+              },
+              {
+                "path": "EMSR933_AOI04_DEL_MONIT01_areaOfInterestA_v1.xml",
+                "bytes": 11595
+              },
+              {
+                "path": "EMSR933_AOI04_DEL_MONIT01_imageFootprintA_v1.dbf",
+                "bytes": 368
+              },
+              {
+                "path": "EMSR933_AOI04_DEL_MONIT01_imageFootprintA_v1.json",
+                "bytes": 4352
+              },
+              {
+                "path": "EMSR933_AOI04_DEL_MONIT01_imageFootprintA_v1.lyr",
+                "bytes": 9728
+              },
+              {
+                "path": "EMSR933_AOI04_DEL_MONIT01_imageFootprintA_v1.prj",
+                "bytes": 145
+              },
+              {
+                "path": "EMSR933_AOI04_DEL_MONIT01_imageFootprintA_v1.shp",
+                "bytes": 2256
+              },
+              {
+                "path": "EMSR933_AOI04_DEL_MONIT01_imageFootprintA_v1.shx",
+                "bytes": 124
+              },
+              {
+                "path": "EMSR933_AOI04_DEL_MONIT01_imageFootprintA_v1.sld",
+                "bytes": 3230
+              },
+              {
+                "path": "EMSR933_AOI04_DEL_MONIT01_imageFootprintA_v1.xml",
+                "bytes": 11885
+              },
+              {
+                "path": "EMSR933_AOI04_DEL_MONIT01_observedEventA_v1.dbf",
+                "bytes": 10846
+              },
+              {
+                "path": "EMSR933_AOI04_DEL_MONIT01_observedEventA_v1.json",
+                "bytes": 24332
+              },
+              {
+                "path": "EMSR933_AOI04_DEL_MONIT01_observedEventA_v1.lyr",
+                "bytes": 45568
+              },
+              {
+                "path": "EMSR933_AOI04_DEL_MONIT01_observedEventA_v1.prj",
+                "bytes": 145
+              },
+              {
+                "path": "EMSR933_AOI04_DEL_MONIT01_observedEventA_v1.shp",
+                "bytes": 10580
+              },
+              {
+                "path": "EMSR933_AOI04_DEL_MONIT01_observedEventA_v1.shx",
+                "bytes": 340
+              },
+              {
+                "path": "EMSR933_AOI04_DEL_MONIT01_observedEventA_v1.sld",
+                "bytes": 2080
+              },
+              {
+                "path": "EMSR933_AOI04_DEL_MONIT01_observedEventA_v1.xml",
+                "bytes": 12207
+              },
+              {
+                "path": "EMSR933_AOI04_DEL_MONIT01_source_v1.dbf",
+                "bytes": 7908
+              },
+              {
+                "path": "EMSR933_AOI04_DEL_MONIT01_source_v1.xml",
+                "bytes": 11807
+              },
+              {
+                "path": "EMSR933_AOI04_DEL_MONIT01_summaryTable_v1.xlsx",
+                "bytes": 76499
+              },
+              {
+                "path": "EMSR933_AOI04_DEL_MONIT01_v1.gpkg",
+                "bytes": 4648960
+              },
+              {
+                "path": "Maps/EMSR933_AOI04_DEL_MONIT01_19000_map_v1.pdf",
+                "bytes": 6403349
+              }
+            ],
+            "layers": [
+              {
+                "file": "EMSR933_AOI04_DEL_MONIT01_areaOfInterestA_v1.json",
+                "layer": "EMSR933_AOI04_DEL_MONIT01_areaOfInterestA_v1",
+                "features": 1,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "emsr_id",
+                  "area_id",
+                  "locality",
+                  "map_type",
+                  "glide_no"
+                ],
+                "metadata_values": {
+                  "area_id": [
+                    "04"
+                  ],
+                  "map_type": [
+                    "Delineation-Monit01"
+                  ]
+                },
+                "area_km2_sum_utm34": 59.2584,
+                "area_km2_union_utm34": 59.2584
+              },
+              {
+                "file": "EMSR933_AOI04_DEL_MONIT01_areaOfInterestA_v1.shp",
+                "layer": "EMSR933_AOI04_DEL_MONIT01_areaOfInterestA_v1",
+                "features": 1,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "emsr_id",
+                  "area_id",
+                  "locality",
+                  "map_type",
+                  "glide_no"
+                ],
+                "metadata_values": {
+                  "area_id": [
+                    "04"
+                  ],
+                  "map_type": [
+                    "Delineation-Monit01"
+                  ]
+                },
+                "area_km2_sum_utm34": 59.2584,
+                "area_km2_union_utm34": 59.2584
+              },
+              {
+                "file": "EMSR933_AOI04_DEL_MONIT01_imageFootprintA_v1.json",
+                "layer": "EMSR933_AOI04_DEL_MONIT01_imageFootprintA_v1",
+                "features": 3,
+                "crs": "EPSG:4326",
+                "geometry_type": "Unknown",
+                "fields": [
+                  "obj_type",
+                  "or_src_id"
+                ],
+                "metadata_values": {
+                  "obj_type": [
+                    "Image Footprint",
+                    "Not Analysed - No data"
+                  ],
+                  "or_src_id": [
+                    "1",
+                    "3"
+                  ]
+                }
+              },
+              {
+                "file": "EMSR933_AOI04_DEL_MONIT01_imageFootprintA_v1.shp",
+                "layer": "EMSR933_AOI04_DEL_MONIT01_imageFootprintA_v1",
+                "features": 3,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "obj_type",
+                  "or_src_id"
+                ],
+                "metadata_values": {
+                  "obj_type": [
+                    "Image Footprint",
+                    "Not Analysed - No data"
+                  ],
+                  "or_src_id": [
+                    "1",
+                    "3"
+                  ]
+                },
+                "area_km2_sum_utm34": 215.3363,
+                "area_km2_union_utm34": 151.9385
+              },
+              {
+                "file": "EMSR933_AOI04_DEL_MONIT01_observedEventA_v1.json",
+                "layer": "EMSR933_AOI04_DEL_MONIT01_observedEventA_v1",
+                "features": 30,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "event_type",
+                  "obj_desc",
+                  "det_method",
+                  "notation",
+                  "dmg_src_id",
+                  "area"
+                ],
+                "metadata_values": {
+                  "event_type": [
+                    "5-Flood"
+                  ],
+                  "obj_desc": [
+                    "Flash flood"
+                  ],
+                  "det_method": [
+                    "Photo-interpretation"
+                  ],
+                  "notation": [
+                    "Flood trace"
+                  ],
+                  "dmg_src_id": [
+                    "3"
+                  ],
+                  "area": [
+                    "0.005622",
+                    "0.007729",
+                    "0.012187",
+                    "0.015084",
+                    "0.017311",
+                    "0.017481",
+                    "0.021443",
+                    "0.022431",
+                    "0.030337",
+                    "0.033268",
+                    "0.04225",
+                    "0.043208",
+                    "... (+18 more)"
+                  ]
+                },
+                "area_km2_sum_utm34": 0.0325,
+                "area_km2_union_utm34": 0.0325
+              },
+              {
+                "file": "EMSR933_AOI04_DEL_MONIT01_observedEventA_v1.shp",
+                "layer": "EMSR933_AOI04_DEL_MONIT01_observedEventA_v1",
+                "features": 30,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "event_type",
+                  "obj_desc",
+                  "det_method",
+                  "notation",
+                  "dmg_src_id",
+                  "area"
+                ],
+                "metadata_values": {
+                  "event_type": [
+                    "5-Flood"
+                  ],
+                  "obj_desc": [
+                    "Flash flood"
+                  ],
+                  "det_method": [
+                    "Photo-interpretation"
+                  ],
+                  "notation": [
+                    "Flood trace"
+                  ],
+                  "dmg_src_id": [
+                    "3"
+                  ],
+                  "area": [
+                    "0.005622",
+                    "0.007729",
+                    "0.012187",
+                    "0.015084",
+                    "0.017311",
+                    "0.017481",
+                    "0.021443",
+                    "0.022431",
+                    "0.030337",
+                    "0.033268",
+                    "0.04225",
+                    "0.043208",
+                    "... (+18 more)"
+                  ]
+                },
+                "area_km2_sum_utm34": 0.0325,
+                "area_km2_union_utm34": 0.0325
+              },
+              {
+                "file": "EMSR933_AOI04_DEL_MONIT01_v1.gpkg",
+                "layer": "areaOfInterestA_v1",
+                "features": 1,
+                "crs": "EPSG:4326",
+                "geometry_type": "MultiPolygon",
+                "fields": [
+                  "emsr_id",
+                  "glide_no",
+                  "area_id",
+                  "locality",
+                  "map_type"
+                ],
+                "metadata_values": {
+                  "area_id": [
+                    "04"
+                  ],
+                  "map_type": [
+                    "Delineation-Monit01"
+                  ]
+                },
+                "area_km2_sum_utm34": 59.2584,
+                "area_km2_union_utm34": 59.2584
+              },
+              {
+                "file": "EMSR933_AOI04_DEL_MONIT01_v1.gpkg",
+                "layer": "imageFootprintA_v1",
+                "features": 3,
+                "crs": "EPSG:4326",
+                "geometry_type": "MultiPolygon",
+                "fields": [
+                  "obj_type",
+                  "or_src_id"
+                ],
+                "metadata_values": {
+                  "obj_type": [
+                    "Image Footprint",
+                    "Not Analysed - No data"
+                  ],
+                  "or_src_id": [
+                    "1",
+                    "3"
+                  ]
+                },
+                "area_km2_sum_utm34": 215.3363,
+                "area_km2_union_utm34": 151.9385
+              },
+              {
+                "file": "EMSR933_AOI04_DEL_MONIT01_v1.gpkg",
+                "layer": "observedEventA_v1",
+                "features": 30,
+                "crs": "EPSG:4326",
+                "geometry_type": "MultiPolygon",
+                "fields": [
+                  "event_type",
+                  "obj_desc",
+                  "det_method",
+                  "notation",
+                  "dmg_src_id",
+                  "area"
+                ],
+                "metadata_values": {
+                  "event_type": [
+                    "5-Flood"
+                  ],
+                  "obj_desc": [
+                    "Flash flood"
+                  ],
+                  "det_method": [
+                    "Photo-interpretation"
+                  ],
+                  "notation": [
+                    "Flood trace"
+                  ],
+                  "dmg_src_id": [
+                    "3"
+                  ],
+                  "area": [
+                    "0.005622",
+                    "0.007729",
+                    "0.012187",
+                    "0.015084",
+                    "0.017311",
+                    "0.017481",
+                    "0.021443",
+                    "0.022431",
+                    "0.030337",
+                    "0.033268",
+                    "0.04225",
+                    "0.043208",
+                    "... (+18 more)"
+                  ]
+                },
+                "area_km2_sum_utm34": 0.0325,
+                "area_km2_union_utm34": 0.0325
+              },
+              {
+                "file": "EMSR933_AOI04_DEL_MONIT01_v1.gpkg",
+                "error": "AttributeError: 'DataFrame' object has no attribute 'crs'"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "name": "Anogeia",
+      "extent_wkt": "POLYGON ((24.929299 35.364578, 24.928412 35.272459, 24.750526 35.272558, 24.751386 35.365561, 24.929299 35.364578))",
+      "bbox_lonlat": [
+        24.750526,
+        35.272459,
+        24.929299,
+        35.365561
+      ],
+      "centroid_lonlat": [
+        24.8398,
+        35.3188
+      ],
+      "size_km_utm34": [
+        16.5,
+        10.8
+      ],
+      "area_km2_utm34": 166.5,
+      "products": [
+        {
+          "id": 2951,
+          "type": "DEL",
+          "label": "DEL",
+          "monitoring": false,
+          "monitoringNumber": 0,
+          "feasible": true,
+          "mapsCount": 0,
+          "expectedDelivery": null,
+          "statusCode": "N",
+          "version": 1,
+          "deliveryTime": "2026-10-04T21:06:00",
+          "reason": "Because of remote sensing limitations",
+          "downloadPath": null,
+          "api_layers": [],
+          "images": [
+            {
+              "sensorName": "Sentinel-1",
+              "sensorType": "sar",
+              "resolutionClass": "HR+",
+              "acquisitionTime": "2026-10-04T16:22:00",
+              "fileName": "EMSR933_AOI05_DEL_PRODUCT_SENTINEL1_20261004_1622_ORTHO.tif"
+            }
+          ],
+          "released": false
+        },
+        {
+          "id": 2961,
+          "type": "DEL",
+          "label": "DEL_MONIT01",
+          "monitoring": true,
+          "monitoringNumber": 1,
+          "feasible": true,
+          "mapsCount": 0,
+          "expectedDelivery": null,
+          "statusCode": "N",
+          "version": 1,
+          "deliveryTime": "2026-10-08T15:09:00",
+          "reason": "Because of remote sensing limitations",
+          "downloadPath": null,
+          "api_layers": [
+            "EMSR933/AOI05/DEL_MONIT01/EMSR933_AOI05_DEL_MONIT01_GEOEYE1_20261008_0948_ORTHO_cog.tif"
+          ],
+          "images": [
+            {
+              "sensorName": "GeoEye-1",
+              "sensorType": "optical",
+              "resolutionClass": "VHR2",
+              "acquisitionTime": "2026-10-08T09:48:00",
+              "fileName": "EMSR933_AOI05_DEL_MONIT01_GEOEYE1_20261008_0948_ORTHO.tif"
+            }
+          ],
+          "released": false
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "name": "Agios Nikolaos",
+      "extent_wkt": "POLYGON ((25.725652 35.273861, 25.736043 35.252092, 25.740485 35.235295, 25.741343 35.225237, 25.724773 35.220599, 25.722311 35.212223, 25.736386 35.201541, 25.734898 35.19038, 25.593847 35.194918, 25.594019 35.275993, 25.725652 35.273861))",
+      "bbox_lonlat": [
+        25.593847,
+        35.19038,
+        25.741343,
+        35.275993
+      ],
+      "centroid_lonlat": [
+        25.6641,
+        35.2338
+      ],
+      "size_km_utm34": [
+        13.7,
+        9.3
+      ],
+      "area_km2_utm34": 116.18,
+      "products": [
+        {
+          "id": 2950,
+          "type": "DEL",
+          "label": "DEL",
+          "monitoring": false,
+          "monitoringNumber": 0,
+          "feasible": true,
+          "mapsCount": 0,
+          "expectedDelivery": null,
+          "statusCode": "N",
+          "version": 1,
+          "deliveryTime": "2026-10-05T10:38:00",
+          "reason": "Because of remote sensing limitations",
+          "downloadPath": null,
+          "api_layers": [],
+          "images": [
+            {
+              "sensorName": "Sentinel-1",
+              "sensorType": "sar",
+              "resolutionClass": "HR+",
+              "acquisitionTime": "2026-10-05T04:23:00",
+              "fileName": "EMSR933_AOI06_DEL_PRODUCT_SENTINEL1_20261005_0423_ORTHO.tif"
+            }
+          ],
+          "released": false
+        },
+        {
+          "id": 2960,
+          "type": "DEL",
+          "label": "DEL_MONIT01",
+          "monitoring": true,
+          "monitoringNumber": 1,
+          "feasible": true,
+          "mapsCount": 1,
+          "expectedDelivery": "2026-10-08T18:20:00",
+          "statusCode": "F",
+          "version": 1,
+          "deliveryTime": "2026-10-08T15:43:04.831092",
+          "reason": "",
+          "downloadPath": "https://rapidmapping.emergency.copernicus.eu/backend/EMSR933/AOI06/DEL_MONIT01/EMSR933_AOI06_DEL_MONIT01_v1.zip",
+          "api_layers": [
+            "EMSR933/AOI06/DEL_MONIT01/EMSR933_AOI06_DEL_MONIT01_LEGION_20261008_0855_ORTHO_cog.tif",
+            "EMSR933/AOI06/DEL_MONIT01/EMSR933_AOI06_DEL_MONIT01_observedEventA_v1_VT"
+          ],
+          "images": [
+            {
+              "sensorName": "Legion",
+              "sensorType": "optical",
+              "resolutionClass": "VHR2",
+              "acquisitionTime": "2026-10-08T08:55:00",
+              "fileName": "EMSR933_AOI06_DEL_MONIT01_LEGION_20261008_0855_ORTHO.tif"
+            }
+          ],
+          "released": true,
+          "download": {
+            "stem": "EMSR933_AOI06_DEL_MONIT01_v1",
+            "zip_bytes": 5228914,
+            "zip_sha256": "a989df1406ee5f90214e3dc10defc159dc53574076890f4ca62f5da506bffc55",
+            "n_members": 30,
+            "downloaded_utc": "2026-10-19T13:45:12Z"
+          },
+          "inventory": {
+            "files": [
+              {
+                "path": "EMSR933_AOI06_DEL_MONIT01_areaOfInterestA_v1.dbf",
+                "bytes": 595
+              },
+              {
+                "path": "EMSR933_AOI06_DEL_MONIT01_areaOfInterestA_v1.json",
+                "bytes": 752
+              },
+              {
+                "path": "EMSR933_AOI06_DEL_MONIT01_areaOfInterestA_v1.lyr",
+                "bytes": 10752
+              },
+              {
+                "path": "EMSR933_AOI06_DEL_MONIT01_areaOfInterestA_v1.prj",
+                "bytes": 145
+              },
+              {
+                "path": "EMSR933_AOI06_DEL_MONIT01_areaOfInterestA_v1.shp",
+                "bytes": 332
+              },
+              {
+                "path": "EMSR933_AOI06_DEL_MONIT01_areaOfInterestA_v1.shx",
+                "bytes": 108
+              },
+              {
+                "path": "EMSR933_AOI06_DEL_MONIT01_areaOfInterestA_v1.sld",
+                "bytes": 1668
+              },
+              {
+                "path": "EMSR933_AOI06_DEL_MONIT01_areaOfInterestA_v1.xml",
+                "bytes": 11595
+              },
+              {
+                "path": "EMSR933_AOI06_DEL_MONIT01_imageFootprintA_v1.dbf",
+                "bytes": 278
+              },
+              {
+                "path": "EMSR933_AOI06_DEL_MONIT01_imageFootprintA_v1.json",
+                "bytes": 7018
+              },
+              {
+                "path": "EMSR933_AOI06_DEL_MONIT01_imageFootprintA_v1.lyr",
+                "bytes": 9728
+              },
+              {
+                "path": "EMSR933_AOI06_DEL_MONIT01_imageFootprintA_v1.prj",
+                "bytes": 145
+              },
+              {
+                "path": "EMSR933_AOI06_DEL_MONIT01_imageFootprintA_v1.shp",
+                "bytes": 3720
+              },
+              {
+                "path": "EMSR933_AOI06_DEL_MONIT01_imageFootprintA_v1.shx",
+                "bytes": 116
+              },
+              {
+                "path": "EMSR933_AOI06_DEL_MONIT01_imageFootprintA_v1.sld",
+                "bytes": 1604
+              },
+              {
+                "path": "EMSR933_AOI06_DEL_MONIT01_imageFootprintA_v1.xml",
+                "bytes": 11885
+              },
+              {
+                "path": "EMSR933_AOI06_DEL_MONIT01_observedEventA_v1.dbf",
+                "bytes": 4120
+              },
+              {
+                "path": "EMSR933_AOI06_DEL_MONIT01_observedEventA_v1.json",
+                "bytes": 41874
+              },
+              {
+                "path": "EMSR933_AOI06_DEL_MONIT01_observedEventA_v1.lyr",
+                "bytes": 45568
+              },
+              {
+                "path": "EMSR933_AOI06_DEL_MONIT01_observedEventA_v1.prj",
+                "bytes": 145
+              },
+              {
+                "path": "EMSR933_AOI06_DEL_MONIT01_observedEventA_v1.shp",
+                "bytes": 21188
+              },
+              {
+                "path": "EMSR933_AOI06_DEL_MONIT01_observedEventA_v1.shx",
+                "bytes": 188
+              },
+              {
+                "path": "EMSR933_AOI06_DEL_MONIT01_observedEventA_v1.sld",
+                "bytes": 3493
+              },
+              {
+                "path": "EMSR933_AOI06_DEL_MONIT01_observedEventA_v1.xml",
+                "bytes": 12213
+              },
+              {
+                "path": "EMSR933_AOI06_DEL_MONIT01_source_v1.dbf",
+                "bytes": 9438
+              },
+              {
+                "path": "EMSR933_AOI06_DEL_MONIT01_source_v1.xml",
+                "bytes": 11807
+              },
+              {
+                "path": "EMSR933_AOI06_DEL_MONIT01_summaryTable_v1.xlsx",
+                "bytes": 76647
+              },
+              {
+                "path": "EMSR933_AOI06_DEL_MONIT01_v1.gpkg",
+                "bytes": 4648960
+              },
+              {
+                "path": "Maps/EMSR933_AOI06_DEL_MONIT01_21000_map_v1.pdf",
+                "bytes": 4817817
+              }
+            ],
+            "layers": [
+              {
+                "file": "EMSR933_AOI06_DEL_MONIT01_areaOfInterestA_v1.json",
+                "layer": "EMSR933_AOI06_DEL_MONIT01_areaOfInterestA_v1",
+                "features": 1,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "emsr_id",
+                  "area_id",
+                  "locality",
+                  "map_type",
+                  "glide_no"
+                ],
+                "metadata_values": {
+                  "area_id": [
+                    "06"
+                  ],
+                  "map_type": [
+                    "Delineation-Monit01"
+                  ]
+                },
+                "area_km2_sum_utm34": 116.1849,
+                "area_km2_union_utm34": 116.1849
+              },
+              {
+                "file": "EMSR933_AOI06_DEL_MONIT01_areaOfInterestA_v1.shp",
+                "layer": "EMSR933_AOI06_DEL_MONIT01_areaOfInterestA_v1",
+                "features": 1,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "emsr_id",
+                  "area_id",
+                  "locality",
+                  "map_type",
+                  "glide_no"
+                ],
+                "metadata_values": {
+                  "area_id": [
+                    "06"
+                  ],
+                  "map_type": [
+                    "Delineation-Monit01"
+                  ]
+                },
+                "area_km2_sum_utm34": 116.1849,
+                "area_km2_union_utm34": 116.1849
+              },
+              {
+                "file": "EMSR933_AOI06_DEL_MONIT01_imageFootprintA_v1.json",
+                "layer": "EMSR933_AOI06_DEL_MONIT01_imageFootprintA_v1",
+                "features": 2,
+                "crs": "EPSG:4326",
+                "geometry_type": "Unknown",
+                "fields": [
+                  "obj_type",
+                  "or_src_id"
+                ],
+                "metadata_values": {
+                  "obj_type": [
+                    "Image Footprint"
+                  ],
+                  "or_src_id": [
+                    "3",
+                    "4"
+                  ]
+                }
+              },
+              {
+                "file": "EMSR933_AOI06_DEL_MONIT01_imageFootprintA_v1.shp",
+                "layer": "EMSR933_AOI06_DEL_MONIT01_imageFootprintA_v1",
+                "features": 2,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "obj_type",
+                  "or_src_id"
+                ],
+                "metadata_values": {
+                  "obj_type": [
+                    "Image Footprint"
+                  ],
+                  "or_src_id": [
+                    "3",
+                    "4"
+                  ]
+                },
+                "area_km2_sum_utm34": 554.6495,
+                "area_km2_union_utm34": 438.4617
+              },
+              {
+                "file": "EMSR933_AOI06_DEL_MONIT01_observedEventA_v1.json",
+                "layer": "EMSR933_AOI06_DEL_MONIT01_observedEventA_v1",
+                "features": 11,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "event_type",
+                  "obj_desc",
+                  "det_method",
+                  "notation",
+                  "dmg_src_id",
+                  "area"
+                ],
+                "metadata_values": {
+                  "event_type": [
+                    "5-Flood",
+                    "6-Mass Movement"
+                  ],
+                  "obj_desc": [
+                    "Flash flood",
+                    "Mudflow"
+                  ],
+                  "det_method": [
+                    "Photo-interpretation",
+                    "Semi-automatic extraction"
+                  ],
+                  "notation": [
+                    "Flood trace",
+                    "Not Applicable"
+                  ],
+                  "dmg_src_id": [
+                    "3"
+                  ],
+                  "area": [
+                    "0.023621",
+                    "0.047393",
+                    "0.116131",
+                    "0.173289",
+                    "0.247604",
+                    "0.302216",
+                    "0.469288",
+                    "0.720677",
+                    "0.78579",
+                    "0.931994",
+                    "2.08379"
+                  ]
+                },
+                "area_km2_sum_utm34": 0.0593,
+                "area_km2_union_utm34": 0.0593
+              },
+              {
+                "file": "EMSR933_AOI06_DEL_MONIT01_observedEventA_v1.shp",
+                "layer": "EMSR933_AOI06_DEL_MONIT01_observedEventA_v1",
+                "features": 11,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "event_type",
+                  "obj_desc",
+                  "det_method",
+                  "notation",
+                  "dmg_src_id",
+                  "area"
+                ],
+                "metadata_values": {
+                  "event_type": [
+                    "5-Flood",
+                    "6-Mass Movement"
+                  ],
+                  "obj_desc": [
+                    "Flash flood",
+                    "Mudflow"
+                  ],
+                  "det_method": [
+                    "Photo-interpretation",
+                    "Semi-automatic extraction"
+                  ],
+                  "notation": [
+                    "Flood trace",
+                    "Not Applicable"
+                  ],
+                  "dmg_src_id": [
+                    "3"
+                  ],
+                  "area": [
+                    "0.023621",
+                    "0.047393",
+                    "0.116131",
+                    "0.173289",
+                    "0.247604",
+                    "0.302216",
+                    "0.469288",
+                    "0.720677",
+                    "0.78579",
+                    "0.931994",
+                    "2.08379"
+                  ]
+                },
+                "area_km2_sum_utm34": 0.0593,
+                "area_km2_union_utm34": 0.0593
+              },
+              {
+                "file": "EMSR933_AOI06_DEL_MONIT01_v1.gpkg",
+                "layer": "areaOfInterestA_v1",
+                "features": 1,
+                "crs": "EPSG:4326",
+                "geometry_type": "MultiPolygon",
+                "fields": [
+                  "emsr_id",
+                  "glide_no",
+                  "area_id",
+                  "locality",
+                  "map_type"
+                ],
+                "metadata_values": {
+                  "area_id": [
+                    "06"
+                  ],
+                  "map_type": [
+                    "Delineation-Monit01"
+                  ]
+                },
+                "area_km2_sum_utm34": 116.1849,
+                "area_km2_union_utm34": 116.1849
+              },
+              {
+                "file": "EMSR933_AOI06_DEL_MONIT01_v1.gpkg",
+                "layer": "imageFootprintA_v1",
+                "features": 2,
+                "crs": "EPSG:4326",
+                "geometry_type": "MultiPolygon",
+                "fields": [
+                  "obj_type",
+                  "or_src_id"
+                ],
+                "metadata_values": {
+                  "obj_type": [
+                    "Image Footprint"
+                  ],
+                  "or_src_id": [
+                    "3",
+                    "4"
+                  ]
+                },
+                "area_km2_sum_utm34": 554.6495,
+                "area_km2_union_utm34": 438.4617
+              },
+              {
+                "file": "EMSR933_AOI06_DEL_MONIT01_v1.gpkg",
+                "layer": "observedEventA_v1",
+                "features": 11,
+                "crs": "EPSG:4326",
+                "geometry_type": "MultiPolygon",
+                "fields": [
+                  "event_type",
+                  "obj_desc",
+                  "det_method",
+                  "notation",
+                  "dmg_src_id",
+                  "area"
+                ],
+                "metadata_values": {
+                  "event_type": [
+                    "5-Flood",
+                    "6-Mass Movement"
+                  ],
+                  "obj_desc": [
+                    "Flash flood",
+                    "Mudflow"
+                  ],
+                  "det_method": [
+                    "Photo-interpretation",
+                    "Semi-automatic extraction"
+                  ],
+                  "notation": [
+                    "Flood trace",
+                    "Not Applicable"
+                  ],
+                  "dmg_src_id": [
+                    "3"
+                  ],
+                  "area": [
+                    "0.023621",
+                    "0.047393",
+                    "0.116131",
+                    "0.173289",
+                    "0.247604",
+                    "0.302216",
+                    "0.469288",
+                    "0.720677",
+                    "0.78579",
+                    "0.931994",
+                    "2.08379"
+                  ]
+                },
+                "area_km2_sum_utm34": 0.0593,
+                "area_km2_union_utm34": 0.0593
+              },
+              {
+                "file": "EMSR933_AOI06_DEL_MONIT01_v1.gpkg",
+                "error": "AttributeError: 'DataFrame' object has no attribute 'crs'"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "name": "Omalos",
+      "extent_wkt": "POLYGON ((24.016331 35.355534, 24.013481 35.218779, 24.013666 35.206847, 23.987331 35.225079, 23.963986 35.224404, 23.921785 35.219036, 23.890511 35.229404, 23.864121 35.234062, 23.807688 35.245984, 23.808843 35.355384, 24.016331 35.355534))",
+      "bbox_lonlat": [
+        23.807688,
+        35.206847,
+        24.016331,
+        35.355534
+      ],
+      "centroid_lonlat": [
+        23.9154,
+        35.2915
+      ],
+      "size_km_utm34": [
+        19.1,
+        16.5
+      ],
+      "area_km2_utm34": 266.31,
+      "products": [
+        {
+          "id": 2954,
+          "type": "DEL",
+          "label": "DEL",
+          "monitoring": false,
+          "monitoringNumber": 0,
+          "feasible": true,
+          "mapsCount": 0,
+          "expectedDelivery": null,
+          "statusCode": "N",
+          "version": 1,
+          "deliveryTime": "2026-10-04T21:10:00",
+          "reason": "Because of remote sensing limitations",
+          "downloadPath": null,
+          "api_layers": [],
+          "images": [
+            {
+              "sensorName": "Sentinel-1",
+              "sensorType": "sar",
+              "resolutionClass": "HR+",
+              "acquisitionTime": "2026-10-04T16:21:00",
+              "fileName": "EMSR933_AOI07_DEL_PRODUCT_SENTINEL1_20261004_1622_ORTHO.tif"
+            }
+          ],
+          "released": false
+        },
+        {
+          "id": 2964,
+          "type": "DEL",
+          "label": "DEL_MONIT01",
+          "monitoring": true,
+          "monitoringNumber": 1,
+          "feasible": true,
+          "mapsCount": 2,
+          "expectedDelivery": "2026-10-06T18:57:00",
+          "statusCode": "F",
+          "version": 1,
+          "deliveryTime": "2026-10-06T15:22:44.473173",
+          "reason": "",
+          "downloadPath": "https://rapidmapping.emergency.copernicus.eu/backend/EMSR933/AOI07/DEL_MONIT01/EMSR933_AOI07_DEL_MONIT01_v1.zip",
+          "api_layers": [
+            "EMSR933/AOI07/DEL_MONIT01/EMSR933_AOI07_DEL_MONIT01_LEGION_20261006_1045_ORTHO_cog.tif",
+            "EMSR933/AOI07/DEL_MONIT01/EMSR933_AOI07_DEL_MONIT01_floodDepthA_v1_VT",
+            "EMSR933/AOI07/DEL_MONIT01/EMSR933_AOI07_DEL_MONIT01_modelledEventA_v1_VT",
+            "EMSR933/AOI07/DEL_MONIT01/EMSR933_AOI07_DEL_MONIT01_notAnalysedA_v1_VT",
+            "EMSR933/AOI07/DEL_MONIT01/EMSR933_AOI07_DEL_MONIT01_observedEventA_v1_VT"
+          ],
+          "images": [
+            {
+              "sensorName": "Legion",
+              "sensorType": "optical",
+              "resolutionClass": "VHR2",
+              "acquisitionTime": "2026-10-06T10:45:00",
+              "fileName": "EMSR933_AOI07_DEL_MONIT01_LEGION_20261006_1045_ORTHO.tif"
+            }
+          ],
+          "released": true,
+          "download": {
+            "stem": "EMSR933_AOI07_DEL_MONIT01_v1",
+            "zip_bytes": 7813058,
+            "zip_sha256": "4e1f5386648915e6149564d0f3fe261cab7377bd1a99b61877fdb18bb2ebbc44",
+            "n_members": 55,
+            "downloaded_utc": "2026-10-19T13:45:27Z"
+          },
+          "inventory": {
+            "files": [
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_areaOfInterestA_v1.dbf",
+                "bytes": 595
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_areaOfInterestA_v1.json",
+                "bytes": 742
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_areaOfInterestA_v1.lyr",
+                "bytes": 10752
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_areaOfInterestA_v1.prj",
+                "bytes": 145
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_areaOfInterestA_v1.shp",
+                "bytes": 332
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_areaOfInterestA_v1.shx",
+                "bytes": 108
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_areaOfInterestA_v1.sld",
+                "bytes": 1668
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_areaOfInterestA_v1.xml",
+                "bytes": 11594
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_floodDepthA_v1.dbf",
+                "bytes": 20162
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_floodDepthA_v1.json",
+                "bytes": 38191
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_floodDepthA_v1.lyr",
+                "bytes": 8704
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_floodDepthA_v1.prj",
+                "bytes": 145
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_floodDepthA_v1.shp",
+                "bytes": 16180
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_floodDepthA_v1.shx",
+                "bytes": 740
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_floodDepthA_v1.sld",
+                "bytes": 3724
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_floodDepthA_v1.tif",
+                "bytes": 5743
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_floodDepthA_v1.xml",
+                "bytes": 11849
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_imageFootprintA_v1.dbf",
+                "bytes": 278
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_imageFootprintA_v1.json",
+                "bytes": 3760
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_imageFootprintA_v1.lyr",
+                "bytes": 9728
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_imageFootprintA_v1.prj",
+                "bytes": 145
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_imageFootprintA_v1.shp",
+                "bytes": 1972
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_imageFootprintA_v1.shx",
+                "bytes": 116
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_imageFootprintA_v1.sld",
+                "bytes": 1604
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_imageFootprintA_v1.xml",
+                "bytes": 11885
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_modelledEventA_v1.dbf",
+                "bytes": 12262
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_modelledEventA_v1.json",
+                "bytes": 20980
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_modelledEventA_v1.lyr",
+                "bytes": 23040
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_modelledEventA_v1.prj",
+                "bytes": 145
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_modelledEventA_v1.shp",
+                "bytes": 8620
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_modelledEventA_v1.shx",
+                "bytes": 372
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_modelledEventA_v1.sld",
+                "bytes": 1268
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_modelledEventA_v1.xml",
+                "bytes": 12201
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_notAnalysedA_v1.dbf",
+                "bytes": 16658
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_notAnalysedA_v1.json",
+                "bytes": 980945
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_notAnalysedA_v1.lyr",
+                "bytes": 9728
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_notAnalysedA_v1.prj",
+                "bytes": 145
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_notAnalysedA_v1.shp",
+                "bytes": 523476
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_notAnalysedA_v1.shx",
+                "bytes": 1572
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_notAnalysedA_v1.sld",
+                "bytes": 2256
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_notAnalysedA_v1.xml",
+                "bytes": 11833
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_observedEventA_v1.dbf",
+                "bytes": 22528
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_observedEventA_v1.json",
+                "bytes": 82420
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_observedEventA_v1.lyr",
+                "bytes": 45568
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_observedEventA_v1.prj",
+                "bytes": 145
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_observedEventA_v1.shp",
+                "bytes": 38368
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_observedEventA_v1.shx",
+                "bytes": 604
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_observedEventA_v1.sld",
+                "bytes": 1287
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_observedEventA_v1.xml",
+                "bytes": 12213
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_source_v1.dbf",
+                "bytes": 9438
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_source_v1.xml",
+                "bytes": 11806
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_summaryTable_v1.xlsx",
+                "bytes": 78271
+              },
+              {
+                "path": "EMSR933_AOI07_DEL_MONIT01_v1.gpkg",
+                "bytes": 4882432
+              },
+              {
+                "path": "Maps/EMSR933_AOI07_DEL_MONIT01_31000_map_v1.pdf",
+                "bytes": 6392890
+              }
+            ],
+            "layers": [
+              {
+                "file": "EMSR933_AOI07_DEL_MONIT01_areaOfInterestA_v1.json",
+                "layer": "EMSR933_AOI07_DEL_MONIT01_areaOfInterestA_v1",
+                "features": 1,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "emsr_id",
+                  "area_id",
+                  "locality",
+                  "map_type",
+                  "glide_no"
+                ],
+                "metadata_values": {
+                  "area_id": [
+                    "07"
+                  ],
+                  "map_type": [
+                    "Delineation-Monit01"
+                  ]
+                },
+                "area_km2_sum_utm34": 266.3129,
+                "area_km2_union_utm34": 266.3129
+              },
+              {
+                "file": "EMSR933_AOI07_DEL_MONIT01_areaOfInterestA_v1.shp",
+                "layer": "EMSR933_AOI07_DEL_MONIT01_areaOfInterestA_v1",
+                "features": 1,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "emsr_id",
+                  "area_id",
+                  "locality",
+                  "map_type",
+                  "glide_no"
+                ],
+                "metadata_values": {
+                  "area_id": [
+                    "07"
+                  ],
+                  "map_type": [
+                    "Delineation-Monit01"
+                  ]
+                },
+                "area_km2_sum_utm34": 266.3129,
+                "area_km2_union_utm34": 266.3129
+              },
+              {
+                "file": "EMSR933_AOI07_DEL_MONIT01_floodDepthA_v1.json",
+                "layer": "EMSR933_AOI07_DEL_MONIT01_floodDepthA_v1",
+                "features": 80,
+                "crs": "EPSG:4326",
+                "geometry_type": "Unknown",
+                "fields": [
+                  "obj_desc",
+                  "value",
+                  "det_method",
+                  "dmg_src_id"
+                ],
+                "metadata_values": {
+                  "obj_desc": [
+                    "Estimated Flood Depth"
+                  ],
+                  "det_method": [
+                    "Modelling"
+                  ],
+                  "dmg_src_id": [
+                    "997"
+                  ]
+                }
+              },
+              {
+                "file": "EMSR933_AOI07_DEL_MONIT01_floodDepthA_v1.shp",
+                "layer": "EMSR933_AOI07_DEL_MONIT01_floodDepthA_v1",
+                "features": 80,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "obj_desc",
+                  "value",
+                  "det_method",
+                  "dmg_src_id"
+                ],
+                "metadata_values": {
+                  "obj_desc": [
+                    "Estimated Flood Depth"
+                  ],
+                  "det_method": [
+                    "Modelling"
+                  ],
+                  "dmg_src_id": [
+                    "997"
+                  ]
+                },
+                "area_km2_sum_utm34": 0.4353,
+                "area_km2_union_utm34": 0.4353
+              },
+              {
+                "file": "EMSR933_AOI07_DEL_MONIT01_imageFootprintA_v1.json",
+                "layer": "EMSR933_AOI07_DEL_MONIT01_imageFootprintA_v1",
+                "features": 2,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "obj_type",
+                  "or_src_id"
+                ],
+                "metadata_values": {
+                  "obj_type": [
+                    "Image Footprint"
+                  ],
+                  "or_src_id": [
+                    "1",
+                    "3"
+                  ]
+                },
+                "area_km2_sum_utm34": 601.9074,
+                "area_km2_union_utm34": 335.5991
+              },
+              {
+                "file": "EMSR933_AOI07_DEL_MONIT01_imageFootprintA_v1.shp",
+                "layer": "EMSR933_AOI07_DEL_MONIT01_imageFootprintA_v1",
+                "features": 2,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "obj_type",
+                  "or_src_id"
+                ],
+                "metadata_values": {
+                  "obj_type": [
+                    "Image Footprint"
+                  ],
+                  "or_src_id": [
+                    "1",
+                    "3"
+                  ]
+                },
+                "area_km2_sum_utm34": 601.9074,
+                "area_km2_union_utm34": 335.5991
+              },
+              {
+                "file": "EMSR933_AOI07_DEL_MONIT01_modelledEventA_v1.json",
+                "layer": "EMSR933_AOI07_DEL_MONIT01_modelledEventA_v1",
+                "features": 34,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "event_type",
+                  "obj_desc",
+                  "det_method",
+                  "notation",
+                  "dmg_src_id",
+                  "area"
+                ],
+                "metadata_values": {
+                  "event_type": [
+                    "5-Flood"
+                  ],
+                  "obj_desc": [
+                    "Flash flood"
+                  ],
+                  "det_method": [
+                    "Modelling"
+                  ],
+                  "notation": [
+                    "Flooded area"
+                  ],
+                  "dmg_src_id": [
+                    "997"
+                  ],
+                  "area": [
+                    "0.096098",
+                    "0.0961",
+                    "0.096101",
+                    "0.192199",
+                    "0.192201",
+                    "0.192202",
+                    "0.192203",
+                    "0.288298",
+                    "0.288302",
+                    "0.384397",
+                    "0.3844",
+                    "0.384401",
+                    "... (+16 more)"
+                  ]
+                },
+                "area_km2_sum_utm34": 0.4353,
+                "area_km2_union_utm34": 0.4353
+              },
+              {
+                "file": "EMSR933_AOI07_DEL_MONIT01_modelledEventA_v1.shp",
+                "layer": "EMSR933_AOI07_DEL_MONIT01_modelledEventA_v1",
+                "features": 34,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "event_type",
+                  "obj_desc",
+                  "det_method",
+                  "notation",
+                  "dmg_src_id",
+                  "area"
+                ],
+                "metadata_values": {
+                  "event_type": [
+                    "5-Flood"
+                  ],
+                  "obj_desc": [
+                    "Flash flood"
+                  ],
+                  "det_method": [
+                    "Modelling"
+                  ],
+                  "notation": [
+                    "Flooded area"
+                  ],
+                  "dmg_src_id": [
+                    "997"
+                  ],
+                  "area": [
+                    "0.096098",
+                    "0.0961",
+                    "0.096101",
+                    "0.192199",
+                    "0.192201",
+                    "0.192202",
+                    "0.192203",
+                    "0.288298",
+                    "0.288302",
+                    "0.384397",
+                    "0.3844",
+                    "0.384401",
+                    "... (+16 more)"
+                  ]
+                },
+                "area_km2_sum_utm34": 0.4353,
+                "area_km2_union_utm34": 0.4353
+              },
+              {
+                "file": "EMSR933_AOI07_DEL_MONIT01_notAnalysedA_v1.json",
+                "layer": "EMSR933_AOI07_DEL_MONIT01_notAnalysedA_v1",
+                "features": 184,
+                "crs": "EPSG:4326",
+                "geometry_type": "Unknown",
+                "fields": [
+                  "obj_type",
+                  "or_src_id"
+                ],
+                "metadata_values": {
+                  "obj_type": [
+                    "Not Analysed"
+                  ],
+                  "or_src_id": [
+                    "3"
+                  ]
+                }
+              },
+              {
+                "file": "EMSR933_AOI07_DEL_MONIT01_notAnalysedA_v1.shp",
+                "layer": "EMSR933_AOI07_DEL_MONIT01_notAnalysedA_v1",
+                "features": 184,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "obj_type",
+                  "or_src_id"
+                ],
+                "metadata_values": {
+                  "obj_type": [
+                    "Not Analysed"
+                  ],
+                  "or_src_id": [
+                    "3"
+                  ]
+                },
+                "area_km2_sum_utm34": 30.0467,
+                "area_km2_union_utm34": 30.0467
+              },
+              {
+                "file": "EMSR933_AOI07_DEL_MONIT01_observedEventA_v1.json",
+                "layer": "EMSR933_AOI07_DEL_MONIT01_observedEventA_v1",
+                "features": 63,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "event_type",
+                  "obj_desc",
+                  "det_method",
+                  "notation",
+                  "dmg_src_id",
+                  "area"
+                ],
+                "metadata_values": {
+                  "event_type": [
+                    "5-Flood"
+                  ],
+                  "obj_desc": [
+                    "Flash flood"
+                  ],
+                  "det_method": [
+                    "Semi-automatic extraction"
+                  ],
+                  "notation": [
+                    "Flooded area"
+                  ],
+                  "dmg_src_id": [
+                    "3"
+                  ],
+                  "area": [
+                    "0.003273",
+                    "0.003853",
+                    "0.004175",
+                    "0.004472",
+                    "0.004914",
+                    "0.005726",
+                    "0.005848",
+                    "0.006217",
+                    "0.006281",
+                    "0.007079",
+                    "0.007241",
+                    "0.007658",
+                    "... (+51 more)"
+                  ]
+                },
+                "area_km2_sum_utm34": 0.0506,
+                "area_km2_union_utm34": 0.0506
+              },
+              {
+                "file": "EMSR933_AOI07_DEL_MONIT01_observedEventA_v1.shp",
+                "layer": "EMSR933_AOI07_DEL_MONIT01_observedEventA_v1",
+                "features": 63,
+                "crs": "EPSG:4326",
+                "geometry_type": "Polygon",
+                "fields": [
+                  "event_type",
+                  "obj_desc",
+                  "det_method",
+                  "notation",
+                  "dmg_src_id",
+                  "area"
+                ],
+                "metadata_values": {
+                  "event_type": [
+                    "5-Flood"
+                  ],
+                  "obj_desc": [
+                    "Flash flood"
+                  ],
+                  "det_method": [
+                    "Semi-automatic extraction"
+                  ],
+                  "notation": [
+                    "Flooded area"
+                  ],
+                  "dmg_src_id": [
+                    "3"
+                  ],
+                  "area": [
+                    "0.003273",
+                    "0.003853",
+                    "0.004175",
+                    "0.004472",
+                    "0.004914",
+                    "0.005726",
+                    "0.005848",
+                    "0.006217",
+                    "0.006281",
+                    "0.007079",
+                    "0.007241",
+                    "0.007658",
+                    "... (+51 more)"
+                  ]
+                },
+                "area_km2_sum_utm34": 0.0506,
+                "area_km2_union_utm34": 0.0506
+              },
+              {
+                "file": "EMSR933_AOI07_DEL_MONIT01_v1.gpkg",
+                "layer": "areaOfInterestA_v1",
+                "features": 1,
+                "crs": "EPSG:4326",
+                "geometry_type": "MultiPolygon",
+                "fields": [
+                  "emsr_id",
+                  "glide_no",
+                  "area_id",
+                  "locality",
+                  "map_type"
+                ],
+                "metadata_values": {
+                  "area_id": [
+                    "07"
+                  ],
+                  "map_type": [
+                    "Delineation-Monit01"
+                  ]
+                },
+                "area_km2_sum_utm34": 266.3129,
+                "area_km2_union_utm34": 266.3129
+              },
+              {
+                "file": "EMSR933_AOI07_DEL_MONIT01_v1.gpkg",
+                "layer": "imageFootprintA_v1",
+                "features": 2,
+                "crs": "EPSG:4326",
+                "geometry_type": "MultiPolygon",
+                "fields": [
+                  "obj_type",
+                  "or_src_id"
+                ],
+                "metadata_values": {
+                  "obj_type": [
+                    "Image Footprint"
+                  ],
+                  "or_src_id": [
+                    "1",
+                    "3"
+                  ]
+                },
+                "area_km2_sum_utm34": 601.9074,
+                "area_km2_union_utm34": 335.5991
+              },
+              {
+                "file": "EMSR933_AOI07_DEL_MONIT01_v1.gpkg",
+                "layer": "notAnalysedA_v1",
+                "features": 184,
+                "crs": "EPSG:4326",
+                "geometry_type": "MultiPolygon",
+                "fields": [
+                  "obj_type",
+                  "or_src_id"
+                ],
+                "metadata_values": {
+                  "obj_type": [
+                    "Not Analysed"
+                  ],
+                  "or_src_id": [
+                    "3"
+                  ]
+                },
+                "area_km2_sum_utm34": 30.0467,
+                "area_km2_union_utm34": 30.0467
+              },
+              {
+                "file": "EMSR933_AOI07_DEL_MONIT01_v1.gpkg",
+                "layer": "floodDepthA_v1",
+                "features": 80,
+                "crs": "EPSG:4326",
+                "geometry_type": "MultiPolygon",
+                "fields": [
+                  "obj_desc",
+                  "value",
+                  "det_method",
+                  "dmg_src_id"
+                ],
+                "metadata_values": {
+                  "obj_desc": [
+                    "Estimated Flood Depth"
+                  ],
+                  "det_method": [
+                    "Modelling"
+                  ],
+                  "dmg_src_id": [
+                    "997"
+                  ]
+                },
+                "area_km2_sum_utm34": 0.4353,
+                "area_km2_union_utm34": 0.4353
+              },
+              {
+                "file": "EMSR933_AOI07_DEL_MONIT01_v1.gpkg",
+                "layer": "modelledEventA_v1",
+                "features": 34,
+                "crs": "EPSG:4326",
+                "geometry_type": "MultiPolygon",
+                "fields": [
+                  "event_type",
+                  "obj_desc",
+                  "det_method",
+                  "notation",
+                  "dmg_src_id",
+                  "area"
+                ],
+                "metadata_values": {
+                  "event_type": [
+                    "5-Flood"
+                  ],
+                  "obj_desc": [
+                    "Flash flood"
+                  ],
+                  "det_method": [
+                    "Modelling"
+                  ],
+                  "notation": [
+                    "Flooded area"
+                  ],
+                  "dmg_src_id": [
+                    "997"
+                  ],
+                  "area": [
+                    "0.096098",
+                    "0.0961",
+                    "0.096101",
+                    "0.192199",
+                    "0.192201",
+                    "0.192202",
+                    "0.192203",
+                    "0.288298",
+                    "0.288302",
+                    "0.384397",
+                    "0.3844",
+                    "0.384401",
+                    "... (+16 more)"
+                  ]
+                },
+                "area_km2_sum_utm34": 0.4353,
+                "area_km2_union_utm34": 0.4353
+              },
+              {
+                "file": "EMSR933_AOI07_DEL_MONIT01_v1.gpkg",
+                "layer": "observedEventA_v1",
+                "features": 63,
+                "crs": "EPSG:4326",
+                "geometry_type": "MultiPolygon",
+                "fields": [
+                  "event_type",
+                  "obj_desc",
+                  "det_method",
+                  "notation",
+                  "dmg_src_id",
+                  "area"
+                ],
+                "metadata_values": {
+                  "event_type": [
+                    "5-Flood"
+                  ],
+                  "obj_desc": [
+                    "Flash flood"
+                  ],
+                  "det_method": [
+                    "Semi-automatic extraction"
+                  ],
+                  "notation": [
+                    "Flooded area"
+                  ],
+                  "dmg_src_id": [
+                    "3"
+                  ],
+                  "area": [
+                    "0.003273",
+                    "0.003853",
+                    "0.004175",
+                    "0.004472",
+                    "0.004914",
+                    "0.005726",
+                    "0.005848",
+                    "0.006217",
+                    "0.006281",
+                    "0.007079",
+                    "0.007241",
+                    "0.007658",
+                    "... (+51 more)"
+                  ]
+                },
+                "area_km2_sum_utm34": 0.0506,
+                "area_km2_union_utm34": 0.0506
+              },
+              {
+                "file": "EMSR933_AOI07_DEL_MONIT01_v1.gpkg",
+                "error": "AttributeError: 'DataFrame' object has no attribute 'crs'"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "name": "Monastiraki",
+      "extent_wkt": "POLYGON ((25.786424 35.121833, 25.79046 35.11932, 25.797 35.115547, 25.808712 35.112409, 25.819853 35.117436, 25.827731 35.127955, 25.856111 35.127841, 25.85609 35.062814, 25.808132 35.063447, 25.807913 35.057758, 25.770172 35.057628, 25.771644 35.122608, 25.786424 35.121833))",
+      "bbox_lonlat": [
+        25.770172,
+        35.057628,
+        25.856111,
+        35.127955
+      ],
+      "centroid_lonlat": [
+        25.8138,
+        35.0913
+      ],
+      "size_km_utm34": [
+        8.0,
+        8.2
+      ],
+      "area_km2_utm34": 52.66,
+      "products": [
+        {
+          "id": 2953,
+          "type": "DEL",
+          "label": "DEL",
+          "monitoring": false,
+          "monitoringNumber": 0,
+          "feasible": true,
+          "mapsCount": 0,
+          "expectedDelivery": null,
+          "statusCode": "N",
+          "version": 1,
+          "deliveryTime": "2026-10-05T06:53:00",
+          "reason": "Because of remote sensing limitations",
+          "downloadPath": null,
+          "api_layers": [],
+          "images": [
+            {
+              "sensorName": "ICEYE",
+              "sensorType": "sar",
+              "resolutionClass": "VHR2",
+              "acquisitionTime": "2026-10-04T23:16:00",
+              "fileName": "EMSR933_AOI08_DEL_PRODUCT_ICEYE_20261004_2316_ORTHO.tif"
+            }
+          ],
+          "released": false
+        },
+        {
+          "id": 2958,
+          "type": "DEL",
+          "label": "DEL_MONIT01",
+          "monitoring": true,
+          "monitoringNumber": 1,
+          "feasible": true,
+          "mapsCount": 0,
+          "expectedDelivery": null,
+          "statusCode": "N",
+          "version": 1,
+          "deliveryTime": "2026-10-06T18:58:00",
+          "reason": "Because of remote sensing limitations",
+          "downloadPath": null,
+          "api_layers": [
+            "EMSR933/AOI08/DEL_MONIT01/EMSR933_AOI08_DEL_MONIT01_WORLDVIEW3_20261006_1046_ORTHO_cog.tif"
+          ],
+          "images": [
+            {
+              "sensorName": "WorldView-3",
+              "sensorType": "optical",
+              "resolutionClass": "VHR2",
+              "acquisitionTime": "2026-10-06T10:46:00",
+              "fileName": "EMSR933_AOI08_DEL_MONIT01_WORLDVIEW3_20261006_1046_ORTHO.tif"
+            }
+          ],
+          "released": false
+        }
+      ]
+    }
+  ]
+}

@@ -59,6 +59,23 @@ from _anim_common import open_sfincs, stats_per_frame  # noqa: E402
 PAPER_DATA = Path(__file__).resolve().parents[1] / "data"
 
 
+def open_sfincs_light(model_dir):
+    """The fields the scoring needs from sfincs_map.nc (zb, msk, x, y, dx, dy, the zsmax blocks via the open dataset)
+    without loading the hourly zs that _anim_common.open_sfincs reads in full (2.4 GB + a depth array of the same size
+    for the 860 k-cell Crete grid). Same values as open_sfincs for every key used by _validate_ems_v2."""
+    import xarray as xr
+    dm = xr.open_dataset(model_dir / "sfincs_map.nc")
+    zb = dm["zb"].values
+    msk = dm["msk"].values
+    x = dm["x"].values
+    y = dm["y"].values
+    ny, nx = zb.shape
+    dx = float(x[0, 1] - x[0, 0])
+    dy = abs(float(y[1, 0] - y[0, 0]))
+    return {"ds": dm, "zb": zb, "msk": msk, "x": x, "y": y, "ny": ny, "nx": nx, "dx": dx, "dy": dy,
+            "cell_area_km2": (dx * dy) / 1e6}
+
+
 def _rasterise_polys_to_grid(shp_paths, x_grid, y_grid, target_epsg, dx, dy):
     import numpy as np
     import pyogrio
@@ -388,7 +405,7 @@ def main():
     model_dir = cfg.paths["model_dir"]
     if not (model_dir / "sfincs_map.nc").exists():
         sys.exit(f"sfincs_map.nc missing under {model_dir}")
-    s = open_sfincs(model_dir)
+    s = open_sfincs_light(model_dir)
     exclusion = None
     if args.exclusion_tif:
         from eval_exclusion import read_mask_for_grid
