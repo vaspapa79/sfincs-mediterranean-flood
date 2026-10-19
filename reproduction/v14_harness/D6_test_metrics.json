@@ -1,0 +1,37 @@
+{
+  "closed_plain_mass_balance": {
+    "utc": "2026-10-19T12:48:21Z",
+    "v1.4": {
+      "volume_end_m3": 1062675.5,
+      "expected_m3": 1062363.8708037701,
+      "ratio": 1.0002933356496715
+    },
+    "v1.3": {
+      "volume_end_m3": 0.0,
+      "expected_m3": 1062363.8708037701,
+      "ratio": 0.0
+    }
+  },
+  "multi_day_bounds": {
+    "utc": "2026-10-19T12:51:14Z",
+    "S_m": 0.08021052631578945,
+    "rain_end_m": 0.1799999475479126,
+    "n_cells": 9588,
+    "n_times": 96,
+    "F_max_m": 0.05386264622211456,
+    "min_increment_m": 0.0,
+    "max_cuminf_minus_cumprcp_m": 0.0,
+    "max_abs_dev_from_scs_m": 1.6798658192956895e-06
+  },
+  "non_cn_invariance": {
+    "utc": "2026-10-19T12:48:57Z",
+    "zs": {
+      "bit_identical": true,
+      "max_abs_diff_m": 0.0
+    },
+    "zsmax": {
+      "bit_identical": true,
+      "max_abs_diff_m": 0.0
+    }
+  }
+}

@@ -1,17 +1,55 @@
-# D6 — curve-number infiltration acts as an unbounded water sink (found 2026-10-19 during GO-C Phase 1; REPORT ONLY)
+# D6 — curve-number infiltration acts as an unbounded water sink (found 2026-10-19 during GO-C Phase 1)
 
-Status: **not changed.** Harness v1.4 as decided at GO-C (D1, D2, D4, D5) still contains this behaviour. The fix is the
-author's decision; nothing has been run with it on any event.
+Status: **adopted at GO-D6 (Papaioannou, 2026-10-19)** — harness v1.4 writes `storecumprcp = 1` whenever curve-number
+infiltration is on (`build_model._storecumprcp_line`, tests in `tests/test_d6_cn_bookkeeping.py`). The Phase-1 Strymonas
+enhanced v1.4 run (pre-D6) is kept and labelled "pre-D6, invalid".
 
-## 1. The defect (SFINCS v2.3.0 `v2.3.0_mt_Faber_release`, source in the session scratchpad `sfincs_src/`)
+## 1. The defect — SFINCS v2.3.0 `v2.3.0_mt_Faber_release` source, verbatim (session copy `sfincs_src/`)
 
-| step | source | what happens |
-|---|---|---|
-| branch | `sfincs_domain.f90:2066-2069` | `scsfile` given → `inftype = 'cna'` ("Curve Number, old method; no recovery"). This is the route `hydromt setup_cn_infiltration` writes (`scsfile = sfincs.scs`, S in inch, ×0.0254 at `:2190`). |
-| rain | `sfincs_meteo.f90:1265-1266` | 2-D rain: `netprcp = prcp`; `cumprcp = cumprcp + prcp*dt` — **always**. |
-| infiltration | `sfincs_infiltration.f90:87-112` | if `cumprcp > 0.2 S`: `I = cumprcp − Q(cumprcp)`, `qinfmap = (I − cuminf)/dt`, `netprcp −= qinfmap`; `cuminf += qinfmap*dt` **only if `store_cumulative_precipitation`**. |
-| flag | `sfincs_input.f90:219, 439-441` | `storecumprcp` default 0 → `store_cumulative_precipitation = .false.` The published runs do not set it. |
-| volume | `sfincs_continuity.f90:~535` | `z_volume = z_volume + dvol` — no floor, and the 'cna' branch has no `z_volume <= 0` guard (the constant-rate branch has one, `sfincs_infiltration.f90:45-46`). |
+Branch selection, `sfincs_domain.f90:2074-2079` (hydromt `setup_cn_infiltration` writes `scsfile`):
+```fortran
+      elseif (scsfile /= 'none') then
+         !
+         ! Spatially-varying infiltration with CN numbers (old)
+         !
+         inftype = 'cna'
+         infiltration = .true.
+```
+S is read in inch and converted, `sfincs_domain.f90:2192`: `qinffield = qinffield * 0.0254   ! to m`.
+
+2-D rain, always accumulated, `sfincs_meteo.f90:1265-1266`:
+```fortran
+            netprcp(nm) = prcp(nm)
+            cumprcp(nm) = cumprcp(nm) + prcp(nm) * dt
+```
+The flag, default 0, `sfincs_input.f90:219` and `:439-441`:
+```fortran
+   call read_int_input(500,'storecumprcp',storecumprcp,0)
+   store_cumulative_precipitation = .false.
+   if (storecumprcp==1) then
+      store_cumulative_precipitation = .true.
+```
+The 'cna' update, `sfincs_infiltration.f90:87-112` (abridged only by blank comment lines):
+```fortran
+         if (cumprcp(nm) > sfacinf * qinffield(nm)) then ! qinffield is S
+            Qq  = (cumprcp(nm) - sfacinf * qinffield(nm))**2 / (cumprcp(nm) + (1.0 - sfacinf) * qinffield(nm))  ! cumulative runoff in m
+            I   = cumprcp(nm) - Qq                        ! cumulative infiltration in m
+            qinfmap(nm) = (I - cuminf(nm)) / dt           ! infiltration in m/s
+         else
+            qinfmap(nm) = prcp(nm)
+         endif
+         netprcp(nm) = netprcp(nm) - qinfmap(nm)
+         if (store_cumulative_precipitation) then
+            cuminf(nm) = cuminf(nm) + qinfmap(nm) * dt
+```
+No floor on the cell volume, `sfincs_continuity.f90:535`: `z_volume(nm) = z_volume(nm) + dvol`. The constant-rate
+branch has a dry-cell guard that 'cna' lacks, `sfincs_infiltration.f90:43-47`:
+```fortran
+         if (subgrid) then
+            if (z_volume(nm) <= 0.0) then
+               qinfmap(nm) = 0.0
+            endif
+```
 
 So with `storecumprcp = 0`, `cuminf` stays 0. Once a cell's cumulative rain passes Ia = 0.2 S, every time step removes
 the whole cumulative infiltration I from it, and the volume may go negative. The cell absorbs all later rain and all
@@ -52,7 +90,7 @@ represents SCS-CN.
 - Not affected: every baseline, Mandra/Pineios/Valencia/Emilia enhanced (CN off), Crete (CN off; the karst bracket
   uses a constant `qinf`, branch 'con', which has the dry-cell guard).
 
-## 5. Fix options (author's decision)
+## 5. Fix options (decided: (a), GO-D6 2026-10-19)
 - **(a) recommended**: under v1.4 write `storecumprcp = 1` into `sfincs.inp` whenever `infiltration.enabled`
   (one inp key; side effect: `cumprcp`/`cuminf` maps in `sfincs_map.nc`). Tests before any run: render/inject test
   (v1.4 + CN → key present; v1.3 byte-identical) and the §2 synthetic water balance through hydromt + SFINCS
@@ -60,3 +98,22 @@ represents SCS-CN.
   13, 17, 18.
 - (b) switch to the 'cnb' method (`setup_cn_infiltration_with_ks`, with recovery): a different model from the one
   published, so not recommended for a re-run.
+
+## 6. Upstream status (checked 2026-10-19 against github.com/Deltares/SFINCS; downloads in the session scratchpad)
+
+- **Known and documented by Deltares.** `docs/developments.rst` ("Known issues", rendered on sfincs.readthedocs.io) gained
+  on 2026-04-02 (commit `e394b7f02e`, PR #310): "Issue in SFINCS v2.3.0 mt Faber Release regarding Curve Number
+  infiltration if storecumprcp = 0 (default), then infiltration is not processed correctly and can result to unrealistic
+  results! Simple solution for now: put storecumprcp = 1 when using this infiltration option. This issue is already
+  fixed in SFINCS main, …". The published runs of this paper used v2.3.0 without the flag.
+- **v2.4.0 Galibier release (2026-06-15)** notes say "Fixed bug with Curve Number infiltration if storecumprcp = 0
+  (default)", but commit `360c1592ee` (Tim Leijnse, 2026-07-15) restores the code fix — "store_cumulative_precipitation
+  = .true. for cna & cnb somehow has dissapeared in the merging after introducing in Feb 11 and before Galibier
+  release" — and rewrites the known-issue note to "v2.3.0 mt Faber Release AND v2.4.0 Galibier Release … This issue is
+  fixed in the 2026.02 Release!". The fix forces `store_cumulative_precipitation = .true.` for `cna` and `cnb`
+  (`source/src/sfincs_infiltration.f90`, `initialize_infiltration`; still present on `main` after the "Redo
+  infiltration" rewrite of 2026-10-09, commit `55383d506f`).
+- **Releases** (GitHub API, 2026-10-19): latest is v2.4.0 Galibier (2026-06-15); no "2026.02" release yet. Every
+  released binary therefore needs the workaround, which is exactly what v1.4/D6 writes.
+- Consequence for a report to Deltares: the bug is already known and fixed on `main`; `reproducer_D6.md` is drafted
+  as requested for a private note, and is at most a confirmation with a river-fed reproducer.

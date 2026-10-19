@@ -1,0 +1,25 @@
+{
+  "utc_start": "2026-10-19T12:06:51Z",
+  "reference_model": "D:\\ELKAK\\implementation\\v14\\mandra_enhanced\\model",
+  "reference_has_storecumprcp": false,
+  "with_flag_wall_s": 1442.3,
+  "reference_vs_with_flag": {
+    "zs": {
+      "bit_identical": true,
+      "max_abs_diff_m": 0.0,
+      "nan_pattern_identical": true
+    },
+    "zsmax": {
+      "bit_identical": true,
+      "max_abs_diff_m": 0.0,
+      "nan_pattern_identical": true
+    },
+    "extra_vars_in_b": [
+      "cuminf",
+      "cumprcp"
+    ]
+  },
+  "utc_end": "2026-10-19T12:31:24Z",
+  "reference_infiltration_type": "none",
+  "field_note": "reference_infiltration_type recomputed 2026-10-19T12:32:23Z from the reference sfincs.inp; the first record said 'has infiltration: True' because its check matched the substring 'qinf' in 'qinf = 0.0'"
+}

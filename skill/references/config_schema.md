@@ -101,6 +101,12 @@ rain_source: imerg_half_hourly
 #       applied half a meteo cell east and south (ERA5 ~12 km, IMERG ~5 km). v1.4 shifts the x/y coordinates
 #       of the written files by (-dx/2, -dy/2) after the build (build_model.align_meteo_grids; the files carry
 #       the global attributes sfincs_corner_alignment = 1, x_shift_m, y_shift_m). v1.3 files are untouched.
+#   D6  (GO-D6) curve-number bookkeeping: with infiltration.enabled (setup_cn_infiltration -> scsfile, SFINCS
+#       'cna') v1.4 writes storecumprcp: 1 into setup_config. SFINCS v2.3.0 adds each infiltration increment to
+#       cuminf only when that flag is on (sfincs_infiltration.f90:107; default off, sfincs_input.f90:219), so
+#       without it every step past Ia removes the whole cumulative infiltration again — an unbounded sink for rain
+#       and river water (SFINCS known issue, fixed on main 2026-07-15, not in any release yet). Runs without curve
+#       numbers do not get the key; for them it would only add output. v1.3 is untouched.
 # harness_version: v1.4
 
 ems:

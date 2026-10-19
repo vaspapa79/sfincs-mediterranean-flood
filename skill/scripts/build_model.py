@@ -89,6 +89,20 @@ def _pressure_block(cfg) -> str:
     )
 
 
+def _storecumprcp_line(cfg) -> str:
+    """Harness v1.4 / D6 (GO-D6, 2026-10-19): curve-number infiltration needs storecumprcp = 1.
+
+    SFINCS v2.3.0 'cna' infiltration (scsfile, the setup_cn_infiltration route) sets qinfmap = (I - cuminf)/dt
+    from the cumulative SCS abstraction I(P) but adds qinfmap*dt to cuminf only when store_cumulative_precipitation
+    is on (sfincs_infiltration.f90:87-112; storecumprcp default 0, sfincs_input.f90:219, 439-441). With the default,
+    every step past Ia = 0.2 S removes the whole I again and the cell volume has no floor
+    (sfincs_continuity.f90:~535): an unbounded sink for rain and river water. With the flag the increments follow
+    the SCS curve; for runs without curve numbers the flag only adds output (tests/test_d6_cn_bookkeeping.py)."""
+    if cfg.harness_version != "v1.4" or not cfg.infiltration["enabled"]:
+        return ""
+    return "\n  storecumprcp: 1"
+
+
 def _pavbnd_line(cfg) -> str:
     if not cfg.coastal_bc["enabled"]:
         return ""
@@ -232,6 +246,7 @@ def render_build_yml(cfg, exclude_mask=None) -> str:
         "fill_area": grid["fill_area_km2"],
         "drop_area": grid["drop_area_km2"],
         "pavbnd_line": _pavbnd_line(cfg),
+        "storecumprcp_line": _storecumprcp_line(cfg),
         "infiltration_block": _infiltration_block(cfg),
         "wind_block": _wind_block(cfg),
         "pressure_block": _pressure_block(cfg),
