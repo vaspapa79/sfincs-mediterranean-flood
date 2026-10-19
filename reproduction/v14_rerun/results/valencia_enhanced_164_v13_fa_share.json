@@ -1,0 +1,64 @@
+{
+  "utc": "2026-10-19T12:38:55Z",
+  "config": "skill\\examples\\emsr773_valencia_enhanced.yaml",
+  "work": "D:\\ELKAK\\ELKAK2\\NHESS\\R1_verification\\task_valencia_anchor\\_scoring\\v164",
+  "threshold_m": 0.1,
+  "mask": "published (msk>0 & AOI union)",
+  "eval_cells": 320037,
+  "eval_km2": 3200.37,
+  "fa_cells": 190968,
+  "fa_km2": 1909.68,
+  "tp_cells": 19808,
+  "tp_km2": 198.08,
+  "observed_cells_in_eval": 20029,
+  "categories": {
+    "open_sea": {
+      "fa_cells": 44326,
+      "fa_km2": 443.26,
+      "share_of_fa": 0.2321,
+      "cells_in_eval": 44616,
+      "observed_cells_in_eval": 36,
+      "tp_cells": 36
+    },
+    "wc80": {
+      "fa_cells": 48292,
+      "fa_km2": 482.92,
+      "share_of_fa": 0.2529,
+      "cells_in_eval": 49036,
+      "observed_cells_in_eval": 419,
+      "tp_cells": 419
+    },
+    "wc80_land": {
+      "fa_cells": 3986,
+      "fa_km2": 39.86,
+      "share_of_fa": 0.0209,
+      "cells_in_eval": 4469,
+      "observed_cells_in_eval": 412,
+      "tp_cells": 412
+    },
+    "inland_zb_lt_0": {
+      "fa_cells": 763,
+      "fa_km2": 7.63,
+      "share_of_fa": 0.004,
+      "cells_in_eval": 11074,
+      "observed_cells_in_eval": 10310,
+      "tp_cells": 10310
+    },
+    "union_open_sea_wc80": {
+      "fa_cells": 48312,
+      "fa_km2": 483.12,
+      "share_of_fa": 0.253,
+      "cells_in_eval": 49085,
+      "observed_cells_in_eval": 448,
+      "tp_cells": 448
+    },
+    "union_all_three": {
+      "fa_cells": 48974,
+      "fa_km2": 489.74,
+      "share_of_fa": 0.2565,
+      "cells_in_eval": 59777,
+      "observed_cells_in_eval": 10477,
+      "tp_cells": 10477
+    }
+  }
+}

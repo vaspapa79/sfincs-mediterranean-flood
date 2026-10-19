@@ -107,26 +107,27 @@ def main() -> int:
             if not (v13p and v13n and v14n):
                 L.append(f"| {run} | — | missing: {', '.join(k for k, v in (('v13 published', v13p), ('v13 new mask', v13n), ('v14', v14n)) if not v)} | | | | | |"); continue
             s13p, s13n, s14 = strict(v13p), strict(v13n), strict(v14n)
+            lab = f"{run} (pre-D6, invalid)" if run in D6_AFFECTED else run
             for key, name, nd in METRICS:
                 x, y, z = s13p[key], s13n[key], s14[key]
-                L.append(f"| {run} | {name} | {x:.{nd}f} | {y:.{nd}f} | {z:.{nd}f} | {z - x:+.{nd}f} | {y - x:+.{nd}f} | {z - y:+.{nd}f} |")
+                L.append(f"| {lab} | {name} | {x:.{nd}f} | {y:.{nd}f} | {z:.{nd}f} | {z - x:+.{nd}f} | {y - x:+.{nd}f} | {z - y:+.{nd}f} |")
             A = v14n["validation"]["tolerance_radius_m_at_r1"] ** 2 / 1e6
-            L.append(f"| {run} | TP / FP / FN cells | {s13p['tp']} / {s13p['fp']} / {s13p['fn']} | {s13n['tp']} / {s13n['fp']} / {s13n['fn']} | {s14['tp']} / {s14['fp']} / {s14['fn']} | | | |")
-            L.append(f"| {run} | eval km² / observed km² | {v13p['validation']['evaluation_area_km2']:.1f} / {v13p['validation']['observed_wet_km2_strict']:.1f} | "
+            L.append(f"| {lab} | TP / FP / FN cells | {s13p['tp']} / {s13p['fp']} / {s13p['fn']} | {s13n['tp']} / {s13n['fp']} / {s13n['fn']} | {s14['tp']} / {s14['fp']} / {s14['fn']} | | | |")
+            L.append(f"| {lab} | eval km² / observed km² | {v13p['validation']['evaluation_area_km2']:.1f} / {v13p['validation']['observed_wet_km2_strict']:.1f} | "
                      f"{v13n['validation']['evaluation_area_km2']:.1f} / {v13n['validation']['observed_wet_km2_strict']:.1f} | {v14n['validation']['evaluation_area_km2']:.1f} / {v14n['validation']['observed_wet_km2_strict']:.1f} | | | |")
-            L.append(f"| {run} | modelled wet in eval km² | {(s13p['tp'] + s13p['fp']) * A:.1f} | {(s13n['tp'] + s13n['fp']) * A:.1f} | {(s14['tp'] + s14['fp']) * A:.1f} | | | |")
+            L.append(f"| {lab} | modelled wet in eval km² | {(s13p['tp'] + s13p['fp']) * A:.1f} | {(s13n['tp'] + s13n['fp']) * A:.1f} | {(s14['tp'] + s14['fp']) * A:.1f} | | | |")
             fz = lambda v: v["validation"]["fuzzy_at_h_gt_0p10m"]["r=1"]["csi"]  # noqa: E731
-            L.append(f"| {run} | fuzzy r=1 CSI | {fz(v13p):.3f} | {fz(v13n):.3f} | {fz(v14n):.3f} | {fz(v14n) - fz(v13p):+.3f} | {fz(v13n) - fz(v13p):+.3f} | {fz(v14n) - fz(v13n):+.3f} |")
+            L.append(f"| {lab} | fuzzy r=1 CSI | {fz(v13p):.3f} | {fz(v13n):.3f} | {fz(v14n):.3f} | {fz(v14n) - fz(v13p):+.3f} | {fz(v13n) - fz(v13p):+.3f} | {fz(v14n) - fz(v13n):+.3f} |")
             ex = v13n["validation"].get("evaluation_mask_exclusion", {})
             rec = J(res / f"{run}_record.json") or {}
             cp = rec.get("coastal_prep") or {}
             d4 = next((e["A1"] for e in (d4j or {}).get("events", []) if e["label"] == D4_LABEL.get(run)), {})
-            L.append(f"| {run} | excluded in eval / observed removed | — | {ex.get('excluded_cells', 'n/a')} cells ({ex.get('excluded_km2', float('nan')):.1f} km²) / {ex.get('observed_wet_excluded_cells', 'n/a')} cells ({ex.get('observed_wet_excluded_km2', float('nan')):.2f} km²) | same mask | | | |")
-            L.append(f"| {run} | active cells / msk=2 / bnd points | {d4.get('active', 'n/a')} / {d4.get('msk2', 'n/a')} / 0 | | {cp.get('n_active_after_expected', 'n/a')} / ring {cp.get('n_ring', 'n/a')} / {bnd_points(Path(rec.get('work', '.')))} | | | |")
-            L.append(f"| {run} | SFINCS wall-clock s | {rec.get('published_wallclock_s', 'n/a')} (published) | | {rec.get('sfincs_total_time_s', 'n/a')} | | | |")
+            L.append(f"| {lab} | excluded in eval / observed removed | — | {ex.get('excluded_cells', 'n/a')} cells ({ex.get('excluded_km2', float('nan')):.1f} km²) / {ex.get('observed_wet_excluded_cells', 'n/a')} cells ({ex.get('observed_wet_excluded_km2', float('nan')):.2f} km²) | same mask | | | |")
+            L.append(f"| {lab} | active cells / msk=2 / bnd points | {d4.get('active', 'n/a')} / {d4.get('msk2', 'n/a')} / 0 | | {cp.get('n_active_after_expected', 'n/a')} / ring {cp.get('n_ring', 'n/a')} / {bnd_points(Path(rec.get('work', '.')))} | | | |")
+            L.append(f"| {lab} | SFINCS wall-clock s | {rec.get('published_wallclock_s', 'n/a')} (published) | | {rec.get('sfincs_total_time_s', 'n/a')} | | | |")
             if run in D6_AFFECTED:
-                L.append(f"| {run} | **D6** | sink on {d6e['models']['v13_published']['sink_share_end']:.0%} of the area | (same output) | sink on {d6e['models']['v14']['sink_share_end']:.0%} — **not a valid v1.4 number** | | | |" if d6e else f"| {run} | **D6** | affected | | affected | | | |")
-            audit.append(f"  - {run}: v1.3 published CSI {s13p['csi']:.4f} HR {s13p['hr']:.4f} FAR {s13p['far']:.4f} B {s13p['bias']:.3f} GSS {s13p['gss']:.4f} (TP/FP/FN {s13p['tp']}/{s13p['fp']}/{s13p['fn']}, eval {v13p['validation']['evaluation_area_km2']:.2f} km², observed {v13p['validation']['observed_wet_km2_strict']:.2f} km²); "
+                L.append(f"| {lab} | **D6** | sink on {d6e['models']['v13_published']['sink_share_end']:.0%} of the area | (same output) | sink on {d6e['models']['v14']['sink_share_end']:.0%} — **pre-D6, invalid** (re-run in CHECKPOINT4b.md) | | | |" if d6e else f"| {lab} | **D6** | affected | | affected | | | |")
+            audit.append(f"  - {'[pre-D6, invalid] ' if run in D6_AFFECTED else ''}{run}: v1.3 published CSI {s13p['csi']:.4f} HR {s13p['hr']:.4f} FAR {s13p['far']:.4f} B {s13p['bias']:.3f} GSS {s13p['gss']:.4f} (TP/FP/FN {s13p['tp']}/{s13p['fp']}/{s13p['fn']}, eval {v13p['validation']['evaluation_area_km2']:.2f} km², observed {v13p['validation']['observed_wet_km2_strict']:.2f} km²); "
                          f"v1.3 rescored with the new mask CSI {s13n['csi']:.4f} HR {s13n['hr']:.4f} FAR {s13n['far']:.4f} B {s13n['bias']:.3f} GSS {s13n['gss']:.4f} (TP/FP/FN {s13n['tp']}/{s13n['fp']}/{s13n['fn']}; excluded {ex.get('excluded_cells')} cells = {ex.get('excluded_km2', 0):.2f} km², observed removed {ex.get('observed_wet_excluded_cells')} cells = {ex.get('observed_wet_excluded_km2', 0):.3f} km²); "
                          f"**v1.4 with the new mask CSI {s14['csi']:.4f} HR {s14['hr']:.4f} FAR {s14['far']:.4f} B {s14['bias']:.3f} GSS {s14['gss']:.4f}** (TP/FP/FN {s14['tp']}/{s14['fp']}/{s14['fn']}, eval {v14n['validation']['evaluation_area_km2']:.2f} km², observed {v14n['validation']['observed_wet_km2_strict']:.2f} km²); "
                          f"Δ(v1.4 new − v1.3 published) CSI {s14['csi'] - s13p['csi']:+.4f} HR {s14['hr'] - s13p['hr']:+.4f} FAR {s14['far'] - s13p['far']:+.4f} (mask alone {s13n['csi'] - s13p['csi']:+.4f} CSI); fuzzy r=1 CSI {fz(v13p):.4f} → {fz(v14n):.4f}; "

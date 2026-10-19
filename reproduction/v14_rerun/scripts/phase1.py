@@ -35,6 +35,7 @@ from pathlib import Path
 
 V14_ROOT = Path("D:/ELKAK/implementation/v14")
 IMPL = Path("D:/ELKAK/implementation")
+NHESS = Path("D:/ELKAK/ELKAK2/NHESS")
 JUNCTION_DIRS = ("copdem30", "esa_worldcover", "ems_polygons", "era5_extracted", "glofas_extracted")
 
 RUNS = [
@@ -65,6 +66,29 @@ RUNS = [
      "published_model": Path("D:/ELKAK/reproduction/grid_matched_baseline/model"),
      "published_build_yml": Path("D:/ELKAK/reproduction/grid_matched_baseline/work/sfincs_build.yml"),
      "manifest_row": 6, "published_wallclock_s": 1006.4},
+    # ---- Phase 2 (GO-D6 + Phase 2, 2026-10-19): held-out events, CN off in both
+    {"run": "valencia_enhanced_164", "event": "valencia", "kind": "enhanced", "example": "emsr773_valencia_enhanced.yaml",
+     "seed_data": NHESS / "runs" / "valencia_emsr773" / "data", "seed_slug": "valencia",
+     # published = rerun_v164/model (precip of the 350-mm run x 0.4686, PROVENANCE.md), scored from _scoring/v164 (data + model links)
+     "published_work": NHESS / "R1_verification" / "task_valencia_anchor" / "_scoring" / "v164",
+     "published_model": NHESS / "R1_verification" / "task_valencia_anchor" / "rerun_v164" / "model",
+     "published_gis": NHESS / "runs" / "valencia_emsr773" / "model" / "gis",
+     "published_json": NHESS / "R1_verification" / "task_valencia_anchor" / "_scoring" / "score_v164.json",
+     "manifest_row": 8, "published_wallclock_s": 2230.7},
+    {"run": "emilia_enhanced_8aoi", "event": "emilia", "kind": "enhanced", "example": "emsr664_emilia_romagna_enhanced.yaml",
+     "seed_data": NHESS / "runs" / "emilia_emsr664" / "data", "seed_slug": "emilia_romagna",
+     # the run dir holds AOI01 only; the 8-AOI truth (12 product folders) lives in task_emilia_aoi (EMILIA_8AOI_RESCORE.md)
+     "ems_override": NHESS / "R1_verification" / "task_emilia_aoi" / "data" / "ems_polygons",
+     "published_work": None, "published_data": NHESS / "R1_verification" / "task_emilia_aoi" / "data",
+     "published_model": NHESS / "runs" / "emilia_emsr664" / "model",
+     "published_json": NHESS / "R1_verification" / "task_emilia_aoi" / "_scoring" / "emilia_rescore.json",
+     "manifest_row": 7, "published_wallclock_s": 754.7},
+    # ---- Checkpoint 4b: Strymonas v3 enhanced re-run under v1.4 + D6 (the Phase-1 pre-D6 run and records are kept)
+    {"run": "strymonas_enhanced_postD6", "event": "strymonas", "kind": "enhanced", "example": "emsr122_strymonas_enhanced.yaml",
+     "seed_data": IMPL / "emsr122_sfincs_v3" / "data", "seed_slug": "strymonas",
+     "published_work": IMPL / "emsr122_sfincs_v3", "published_model": IMPL / "emsr122_sfincs_v3" / "model",
+     "reuse_v13_from": "strymonas_enhanced", "requires_d6": True,
+     "manifest_row": 1, "published_wallclock_s": 109.2},
 ]
 
 
@@ -132,8 +156,9 @@ def seed(r: dict, work: Path, slug: str) -> dict:
     src = r["seed_data"]; s0 = r["seed_slug"]
     rep = {"from": str(src), "junctions": {}, "copied": [], "skipped": []}
     for d in JUNCTION_DIRS:
-        if (src / d).exists():
-            rep["junctions"][d] = junction(data / d, src / d)
+        target = r["ems_override"] if (d == "ems_polygons" and r.get("ems_override")) else src / d
+        if target.exists():
+            rep["junctions"][d] = junction(data / d, target) + ("" if target == src / d else f" -> {target}")
     files = {f"glofas_{s0}.nc": f"glofas_{slug}.nc", f"imerg_{s0}.nc": f"imerg_{slug}.nc", f"imerg_{s0}.raw.nc": f"imerg_{slug}.raw.nc",
              f"era5_{s0}.nc": f"era5_{slug}.nc"}
     for a, b in files.items():
@@ -173,7 +198,7 @@ def make_exclusion(py: str, repo: Path, r: dict, work: Path, masks: Path, env: d
     out = masks / f"{r['event']}_exclusion.tif"; js = masks / f"{r['event']}_exclusion.json"
     sea_tif = work / "open_sea_mask.tif"
     wc = work / "data" / "esa_worldcover" / "esa_worldcover_2021.vrt"
-    gis = r["published_model"] / "gis"
+    gis = r.get("published_gis") or (r["published_model"] / "gis")
     if out.exists():
         # second run of the same event: the build's open-sea mask must equal the one already used
         import rasterio
@@ -249,6 +274,11 @@ def main() -> int:
             log(f"grid-matched render check: {rec['gridmatched_render_check']['identical_under_v13']}")
         from _common import load_config
         cfg = load_config(["--config", str(cfg_path)])
+        if r.get("requires_d6"):
+            import build_model
+            if "storecumprcp" not in build_model.render_build_yml(cfg):
+                raise SystemExit(f"{run}: harness D6 (storecumprcp with curve numbers) is not implemented in build_model — refusing to run")
+            rec["d6_rendered"] = True
         rec["seed"] = seed(r, work, cfg.event_slug)
         log(f"seeded {work}: junctions {rec['seed']['junctions']}, copied {rec['seed']['copied']}")
         if a.dry_run:
@@ -272,6 +302,10 @@ def main() -> int:
                     # the published grid-matched baseline has no v1.3 example: score it with the derived config
                     # (window/bbox/EMS identical to the enhanced example), v1.3 semantics do not enter the validator
                     ex_yaml = cfg_path
+                if r.get("reuse_v13_from"):
+                    rec["rescoring_v13_reused_from"] = r["reuse_v13_from"]
+                    log(f"v1.3 columns reused from {r['reuse_v13_from']} (same published output)")
+                    continue
                 for tag, ex in (("v13_publishedmask", None), ("v13_newmask", excl)):
                     oj = res_dir / f"{run}_{tag}.json"
                     cmd, e = validate_cmd(py, repo, ex_yaml, oj, ex, pw, env)
@@ -292,6 +326,16 @@ def main() -> int:
             rc = p.wait(); lf.close()
             rec["rescoring_v13"][tag] = {"exit": rc, "wall_s": round(time.time() - t0, 1), "json": f"results/{run}_{tag}.json"}
         log(f"v1.3 re-scoring finished: {rec['rescoring_v13']}")
+        if r.get("published_json") and (res_dir / f"{run}_v13_publishedmask.json").exists():
+            pj = json.loads(Path(r["published_json"]).read_text(encoding="utf-8"))
+            ps = (pj["validation"]["strict_threshold_sweep"]["h>0.10m"] if "validation" in pj
+                  else pj.get("full_8aoi", {}).get("h>0.10m"))
+            ms = json.loads((res_dir / f"{run}_v13_publishedmask.json").read_text(encoding="utf-8"))["validation"]["strict_threshold_sweep"]["h>0.10m"]
+            rec["published_record_check"] = {"published_json": str(r["published_json"]),
+                                             "identical_tp_fp_fn_tn": bool(ps) and all(ms[k] == ps[k] for k in ("tp", "fp", "fn", "tn")),
+                                             "published": {k: ps[k] for k in ("tp", "fp", "fn", "tn", "csi")} if ps else None,
+                                             "rescored": {k: ms[k] for k in ("tp", "fp", "fn", "tn", "csi")}}
+            log(f"published-record check: {rec['published_record_check']['identical_tp_fp_fn_tn']}")
         qcmd = [py, "-I", str(repo / "reproduction" / "v14_rerun" / "scripts" / "quicklook.py"), "--repo", str(repo), "--config", str(cfg_path),
                 "--out", str(ql / f"{run}_v14_hmax.png"), "--metrics", str(res_dir / f"{run}_v14_newmask.json"), "--exclusion-tif", str(excl),
                 "--title", f"{run} — harness v1.4, new evaluation mask"]

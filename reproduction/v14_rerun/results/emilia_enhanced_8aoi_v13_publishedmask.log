@@ -1,0 +1,5 @@
+validating: EMSR664 Emilia-Romagna (v2)  (slug=emilia_romagna)
+  strict@0.10m:  CSI=0.240  HR=0.921  FAR=0.755  BIAS=3.75  GSS=0.073
+  fuzzy r=1:     CSI=0.327  HR=0.986  FAR=0.671  GSS=0.031
+  best CSI:      0.319 at h>0.50 m
+  wrote: D:\ELKAK\sfincs-mediterranean-floods\.worktrees\emsr933-crete\reproduction\v14_rerun\results\emilia_enhanced_8aoi_v13_publishedmask.json

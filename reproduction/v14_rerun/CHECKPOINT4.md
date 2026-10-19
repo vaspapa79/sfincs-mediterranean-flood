@@ -1,4 +1,4 @@
-# Checkpoint 4 — Phase 1 of the harness-v1.4 re-run (generated 2026-10-19T10:22:22Z by `checkpoint4_tables.py`)
+# Checkpoint 4 — Phase 1 of the harness-v1.4 re-run (generated 2026-10-19T12:35:08Z by `checkpoint4_tables.py`)
 
 Commits: D5 `8ccabb03f5f2164be5b52c0633aac1bfff0d73ca` (2026-10-19T08:57:24Z); evaluation-mask exclusion `c6f39fad46b8a71b0172d1b19809d875f415ccd6` (2026-10-19T09:04:55Z). Scores at h > 0.10 m, strict, evaluation universe = msk > 0 ∩ AOI union (published) or minus the exclusion (new mask = WorldCover 80 at the cell centre ∪ v1.4 open sea, removed from model and truth).
 
@@ -26,19 +26,19 @@ Exclusion (`masks/strymonas_exclusion.tif`, 2026-10-19T09:06:58Z): open sea 2242
 | strymonas_baseline | excluded in eval / observed removed | — | 1175 cells (26.4 km²) / 104 cells (2.34 km²) | same mask | | | |
 | strymonas_baseline | active cells / msk=2 / bnd points | 207374 / 346 / 0 | | 185824 / ring 877 / 19 | | | |
 | strymonas_baseline | SFINCS wall-clock s | 256.5 (published) | | 145.146 | | | |
-| strymonas_enhanced | CSI | 0.182 | 0.180 | 0.333 | +0.151 | -0.002 | +0.153 |
-| strymonas_enhanced | HR | 0.322 | 0.319 | 0.906 | +0.584 | -0.003 | +0.587 |
-| strymonas_enhanced | FAR | 0.705 | 0.708 | 0.655 | -0.049 | +0.003 | -0.053 |
-| strymonas_enhanced | B | 1.09 | 1.09 | 2.63 | +1.54 | +0.00 | +1.53 |
-| strymonas_enhanced | GSS | 0.136 | 0.134 | 0.272 | +0.136 | -0.002 | +0.138 |
-| strymonas_enhanced | TP / FP / FN cells | 1526 / 3639 / 3211 | 1480 / 3587 / 3153 | 4198 / 7980 / 435 | | | |
-| strymonas_enhanced | eval km² / observed km² | 1222.7 / 106.6 | 1196.2 / 104.2 | 1196.2 / 104.2 | | | |
-| strymonas_enhanced | modelled wet in eval km² | 116.2 | 114.0 | 274.0 | | | |
-| strymonas_enhanced | fuzzy r=1 CSI | 0.247 | 0.242 | 0.404 | +0.157 | -0.005 | +0.162 |
-| strymonas_enhanced | excluded in eval / observed removed | — | 1175 cells (26.4 km²) / 104 cells (2.34 km²) | same mask | | | |
-| strymonas_enhanced | active cells / msk=2 / bnd points | 207374 / 346 / 0 | | 185824 / ring 877 / 19 | | | |
-| strymonas_enhanced | SFINCS wall-clock s | 109.2 (published) | | 168.394 | | | |
-| strymonas_enhanced | **D6** | sink on 41% of the area | (same output) | sink on 6% — **not a valid v1.4 number** | | | |
+| strymonas_enhanced (pre-D6, invalid) | CSI | 0.182 | 0.180 | 0.333 | +0.151 | -0.002 | +0.153 |
+| strymonas_enhanced (pre-D6, invalid) | HR | 0.322 | 0.319 | 0.906 | +0.584 | -0.003 | +0.587 |
+| strymonas_enhanced (pre-D6, invalid) | FAR | 0.705 | 0.708 | 0.655 | -0.049 | +0.003 | -0.053 |
+| strymonas_enhanced (pre-D6, invalid) | B | 1.09 | 1.09 | 2.63 | +1.54 | +0.00 | +1.53 |
+| strymonas_enhanced (pre-D6, invalid) | GSS | 0.136 | 0.134 | 0.272 | +0.136 | -0.002 | +0.138 |
+| strymonas_enhanced (pre-D6, invalid) | TP / FP / FN cells | 1526 / 3639 / 3211 | 1480 / 3587 / 3153 | 4198 / 7980 / 435 | | | |
+| strymonas_enhanced (pre-D6, invalid) | eval km² / observed km² | 1222.7 / 106.6 | 1196.2 / 104.2 | 1196.2 / 104.2 | | | |
+| strymonas_enhanced (pre-D6, invalid) | modelled wet in eval km² | 116.2 | 114.0 | 274.0 | | | |
+| strymonas_enhanced (pre-D6, invalid) | fuzzy r=1 CSI | 0.247 | 0.242 | 0.404 | +0.157 | -0.005 | +0.162 |
+| strymonas_enhanced (pre-D6, invalid) | excluded in eval / observed removed | — | 1175 cells (26.4 km²) / 104 cells (2.34 km²) | same mask | | | |
+| strymonas_enhanced (pre-D6, invalid) | active cells / msk=2 / bnd points | 207374 / 346 / 0 | | 185824 / ring 877 / 19 | | | |
+| strymonas_enhanced (pre-D6, invalid) | SFINCS wall-clock s | 109.2 (published) | | 168.394 | | | |
+| strymonas_enhanced (pre-D6, invalid) | **D6** | sink on 41% of the area | (same output) | sink on 6% — **pre-D6, invalid** (re-run in CHECKPOINT4b.md) | | | |
 
 False alarms of the published v1.3 enhanced run (3639 cells, 81.88 km², published mask, h > 0.10 m): on open sea 0 (0.0%), on WC80 52 (1.4%; land part 52), on inland zb < 0 17 (0.5%); union of the three 55 (1.5%). Observed cells inside WC80 ∪ open sea: 104 (TP there 46).
 

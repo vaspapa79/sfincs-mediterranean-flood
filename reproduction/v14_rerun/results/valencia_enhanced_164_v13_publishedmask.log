@@ -1,0 +1,5 @@
+validating: EMSR773 Valencia (v2)  (slug=valencia)
+  strict@0.10m:  CSI=0.094  HR=0.989  FAR=0.906  BIAS=10.52  GSS=0.033
+  fuzzy r=1:     CSI=0.086  HR=1.000  FAR=0.913  GSS=0.008
+  best CSI:      0.170 at h>0.50 m
+  wrote: D:\ELKAK\sfincs-mediterranean-floods\.worktrees\emsr933-crete\reproduction\v14_rerun\results\valencia_enhanced_164_v13_publishedmask.json

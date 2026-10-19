@@ -1,0 +1,6 @@
+validating: EMSR664 Emilia-Romagna (v2)  (slug=emilia_romagna)
+  evaluation-mask exclusion: D:\ELKAK\sfincs-mediterranean-floods\.worktrees\emsr933-crete\reproduction\v14_rerun\masks\emilia_exclusion.tif (83258 cells flagged on the grid)
+  strict@0.10m:  CSI=0.237  HR=0.918  FAR=0.758  BIAS=3.79  GSS=0.073
+  fuzzy r=1:     CSI=0.320  HR=0.985  FAR=0.678  GSS=0.031
+  best CSI:      0.315 at h>0.50 m
+  wrote: D:\ELKAK\sfincs-mediterranean-floods\.worktrees\emsr933-crete\reproduction\v14_rerun\results\emilia_enhanced_8aoi_v13_newmask.json

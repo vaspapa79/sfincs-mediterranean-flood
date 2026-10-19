@@ -16,7 +16,7 @@ boundaries. Times are UTC.
 | CODE-12 (harness v1.4 code + tests, re-run manifest, Crete build QC) — on branch `fix/harness-v1.4` | 2026-10-12T09:35:27Z | 2026-10-12T10:40Z | 1 h 05 min | 1.1 | _to fill_ | | start = CODE-12 paste; A1–A2 commit `513ce5a` 10:12:15Z; Crete build-only QC 09:47:40–09:52:32Z (4 min 52 s hydromt); Crete ERA5/IMERG downloaded for A3 (not run); one inventory agent ran in parallel; end = Checkpoint-2 posted |
 | CODE-13 (D4 coastal set-up check + fix, IB diagnosis, manifest clean-up) — `fix/harness-v1.4` | 2026-10-19T08:03:12Z | 2026-10-19T08:45Z | 0 h 42 min | 0.7 | _to fill_ | | start = CODE-13 paste; D4 commit `561e8a0` 08:23:45Z; Crete rebuild with the coastal set-up 08:19:34–08:23:17Z (prep 6.6 s + hydromt 208.6 s); no model run of any event; end = Checkpoint-3 posted |
 | GO-C (D5 + evaluation mask code/tests, Phase 1 re-runs of Strymonas/Mandra/Pineios, D6 diagnosis, Crete ledger §8) — `fix/harness-v1.4` | 2026-10-19T08:36:18Z | 2026-10-19T10:3xZ | ≈ 2 h | 2.0 | _to fill_ | | start = GO-C paste; D5 commit `8ccabb0` 08:57:24Z; mask commit `c6f39fa` 09:04:55Z; Phase 1 09:05:52–10:22:13Z (six runs, 1 h 16 min); D6 found and diagnosed 09:3x–10:1xZ with eight isolation/synthetic runs on copies (no scoring); end = Checkpoint 4 |
-
+| GO-D6 + Phase 2 (D6 code/tests/provenance, Strymonas re-run, Valencia + Emilia re-runs, Checkpoint 4b) — `fix/harness-v1.4` | 2026-10-19T12:01:29Z | 2026-10-19T13:1xZ | ≈ 1 h 15 min | 1.3 | _to fill_ | | start = GO-D6 paste; bias-box CLI fix `e33eacb` 12:05:51Z; D6 commit `4735429` 12:54:21Z; Valencia 12:06–12:48Z, Emilia 12:03–12:31Z, Strymonas post-D6 12:54–12:58Z; four SFINCS jobs ran concurrently, so all wall-clocks are inflated; end = Checkpoint 4b |
 ## Data-latency probe (daily, until ERA5T covers 7 Oct) — `scripts/daily_probe.py`, CSV in `latency_probe.csv`
 | probe UTC | ERA5 last requestable day | IMERG Final granules 27 Sep–7 Oct | GloFAS v4 intermediate last day | EMS products F/I/N | AOI03 GRA |
 |---|---|---|---|---|---|
@@ -81,3 +81,16 @@ activation — idle time before CODE-10 existed, to be reported as such, not as 
 - 2026-10-19T10:01:00Z → 2026-10-19T10:22:13Z — Phase 1 `pineios_baseline_gridmatched` (MANIFEST row 6): hydromt build 89.1 s, SFINCS 980.3 s (published 1006.4 s), v1.4 validation 94.8 s; v1.3 re-scoring in parallel with SFINCS.
 - 2026-10-19T09:3x–10:1xZ — Strymonas enhanced v1.4 doubles its flood with half the rain → diagnosis: SFINCS curve-number sink (D6). Six isolation runs on copies (`strym_exp`, 180–600 s each), synthetic closed-plain test (`d6_cn_sink_check.py`, ~1 min), sink-cell map from inputs; report only.
 - 2026-10-19T10:19:21–10:20:59Z — full suite 82 tests GREEN; 10:22:13Z Phase 1 finished; Checkpoint-4 tables + AUDIT block generated (`checkpoint4_tables.py`); records commit; Checkpoint 4 posted.
+
+## GO-D6 + Phase 2 — event log
+- 2026-10-19T12:01:29Z — GO-D6 + Phase 2 received (D6 adopted with tests first; provenance + private reproducer; Strymonas re-run → 4b; Phase 2 in parallel).
+- 2026-10-19T12:03:33Z — Phase 2 seeded and launched (Valencia, Emilia in parallel). 12:03:4xZ Valencia stopped at step 06b: the west-of-Greenwich watershed box was read by argparse as an option; fixed test-first, commit `e33eacb` 12:05:51Z; Valencia relaunched 12:06Z.
+- 2026-10-19T12:06:51–12:31:24Z — D6 test (iii) on the event: Mandra enhanced v1.4 with storecumprcp = 1, water levels bit-identical.
+- 2026-10-19T12:08–12:23Z — D6 tests written and run before the implementation (RED: no flag, mass ratio 0.0); implementation 12:2xZ; 12:24–12:42Z D6 tests GREEN (15).
+- 2026-10-19T12:2x–12:3xZ — provenance: SFINCS main, commits and releases via the GitHub API (known issue since 2026-04-02, fix on main 2026-07-15); D6_CN_SINK.md §1/§6 and reproducer_D6.md.
+- 2026-10-19T12:42:30–12:50:07Z — full suite 100 GREEN; multi-day test found to read daily, not hourly, maps (duplicate dtmaxout key) → fixed; 12:51:26–12:54:05Z full suite 101 GREEN.
+- 2026-10-19T12:54:21Z — commit `47354293d770c56b1ff8fc7b7fe92491da3bfeca` (D6 + tests; no corrected CN run exists at this commit).
+- 2026-10-19T12:03:44Z → 2026-10-19T12:31:38Z — `emilia_enhanced_8aoi` (MANIFEST row 7): hydromt build 41.7 s, SFINCS 1181.3 s (published 754.7 s), v1.4 validation 186.1 s.
+- 2026-10-19T12:06:02Z → 2026-10-19T12:48:12Z — `valencia_enhanced_164` (MANIFEST row 8): hydromt build 618.4 s, SFINCS 1397.8 s (published 2230.7 s), v1.4 validation 8.8 s.
+- 2026-10-19T12:54:30Z → 2026-10-19T12:58:48Z — `strymonas_enhanced_postD6` (MANIFEST row 1): hydromt build 43.6 s, SFINCS 190.7 s (published 109.2 s), v1.4 validation 5.3 s.
+- 2026-10-19T12:59–13:0xZ — Strymonas post-D6 sink check and sub-grid water balance; Checkpoint-4b tables + AUDIT block (`checkpoint4b_tables.py`); records commit; Checkpoint 4b posted.

@@ -1,0 +1,64 @@
+{
+  "utc": "2026-10-19T12:35:58Z",
+  "config": "skill\\examples\\emsr664_emilia_romagna_enhanced.yaml",
+  "work": "D:\\ELKAK\\implementation\\v14\\_rescoring\\emilia_enhanced_8aoi",
+  "threshold_m": 0.1,
+  "mask": "published (msk>0 & AOI union)",
+  "eval_cells": 142949,
+  "eval_km2": 3216.35,
+  "fa_cells": 74529,
+  "fa_km2": 1676.9,
+  "tp_cells": 24247,
+  "tp_km2": 545.56,
+  "observed_cells_in_eval": 26338,
+  "categories": {
+    "open_sea": {
+      "fa_cells": 765,
+      "fa_km2": 17.212,
+      "share_of_fa": 0.0103,
+      "cells_in_eval": 789,
+      "observed_cells_in_eval": 24,
+      "tp_cells": 24
+    },
+    "wc80": {
+      "fa_cells": 1762,
+      "fa_km2": 39.645,
+      "share_of_fa": 0.0236,
+      "cells_in_eval": 2890,
+      "observed_cells_in_eval": 1092,
+      "tp_cells": 1079
+    },
+    "wc80_land": {
+      "fa_cells": 1141,
+      "fa_km2": 25.672,
+      "share_of_fa": 0.0153,
+      "cells_in_eval": 2251,
+      "observed_cells_in_eval": 1074,
+      "tp_cells": 1061
+    },
+    "inland_zb_lt_0": {
+      "fa_cells": 6487,
+      "fa_km2": 145.957,
+      "share_of_fa": 0.087,
+      "cells_in_eval": 9457,
+      "observed_cells_in_eval": 2969,
+      "tp_cells": 2969
+    },
+    "union_open_sea_wc80": {
+      "fa_cells": 1906,
+      "fa_km2": 42.885,
+      "share_of_fa": 0.0256,
+      "cells_in_eval": 3040,
+      "observed_cells_in_eval": 1098,
+      "tp_cells": 1085
+    },
+    "union_all_three": {
+      "fa_cells": 7771,
+      "fa_km2": 174.847,
+      "share_of_fa": 0.1043,
+      "cells_in_eval": 11317,
+      "observed_cells_in_eval": 3509,
+      "tp_cells": 3496
+    }
+  }
+}
