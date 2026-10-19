@@ -1,0 +1,43 @@
+{
+ "name": "E6_v14_noIB",
+ "src": "D:\\ELKAK\\implementation\\v14\\strymonas_enhanced\\model",
+ "patches": [
+  "pavbnd=1"
+ ],
+ "precip": null,
+ "copies": [],
+ "unsets": [
+  "bndfile",
+  "bzsfile"
+ ],
+ "wall_s": 212.1,
+ "V_land_daily_Mm3": [
+  0.0,
+  103.8,
+  187.7,
+  233.9,
+  267.8,
+  292.7,
+  307.8,
+  314.8
+ ],
+ "V_land_max": 314.8,
+ "V_land_end": 314.8,
+ "wet_gt_0p1_km2_end": 265.5,
+ "wet_gt_0p1_km2_max": 287.7,
+ "pool_zs_max_daily": [
+  null,
+  11.34,
+  11.34,
+  11.33,
+  11.32,
+  11.32,
+  11.32,
+  11.32
+ ],
+ "log_tail": [
+  " Average time step (s)  :     11.688",
+  "",
+  "---------- Closing off SFINCS -----------"
+ ]
+}

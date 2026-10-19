@@ -1,0 +1,5 @@
+validating: EMSR257 Mandra (v2)  (slug=mandra)
+  strict@0.10m:  CSI=0.106  HR=0.873  FAR=0.892  BIAS=8.11  GSS=0.028
+  fuzzy r=1:     CSI=0.159  HR=0.962  FAR=0.840  GSS=0.019
+  best CSI:      0.106 at h>0.10 m
+  wrote: D:\ELKAK\sfincs-mediterranean-floods\.worktrees\emsr933-crete\reproduction\v14_rerun\results\mandra_enhanced_v13_publishedmask.json

@@ -1,0 +1,63 @@
+{
+  "utc": "2026-10-19T10:03:05Z",
+  "rule": "sink cell = active cell with cumulative rain > 0.2 S (SFINCS 'cna', storecumprcp = 0)",
+  "window_m": "700000,748000,4515000,4550000",
+  "models": {
+    "v13_published": {
+      "model": "D:\\ELKAK\\implementation\\emsr122_sfincs_v3\\model",
+      "tstart": "2015-03-28 00:00:00",
+      "tstop": "2015-04-04 00:00:00",
+      "active_cells": 207374,
+      "S_mm_median": 80.2,
+      "cumprcp_end_mm_mean": 12.3,
+      "sink_cells_end": 84661,
+      "sink_km2_end": 1904.9,
+      "sink_share_end": 0.4083,
+      "sink_km2_by_day": {
+        "day1": 848.9,
+        "day2": 1034.9,
+        "day3": 1775.4,
+        "day4": 1847.3,
+        "day5": 1868.5,
+        "day6": 1889.1,
+        "day7": 1904.8
+      },
+      "window": {
+        "active_cells": 54420,
+        "sink_cells_end": 14944,
+        "sink_share_end": 0.2746,
+        "cumprcp_end_mm_mean": 11.9,
+        "Ia_mm_median": 16.0,
+        "first_crossing_hours_median": 23.5
+      }
+    },
+    "v14": {
+      "model": "D:\\ELKAK\\implementation\\v14\\strymonas_enhanced\\model",
+      "tstart": "2015-03-28 00:00:00",
+      "tstop": "2015-04-04 00:00:00",
+      "active_cells": 185824,
+      "S_mm_median": 80.2,
+      "cumprcp_end_mm_mean": 6.1,
+      "sink_cells_end": 10849,
+      "sink_km2_end": 244.1,
+      "sink_share_end": 0.0584,
+      "sink_km2_by_day": {
+        "day1": 131.1,
+        "day2": 141.3,
+        "day3": 239.5,
+        "day4": 242.7,
+        "day5": 243.0,
+        "day6": 243.3,
+        "day7": 244.1
+      },
+      "window": {
+        "active_cells": 53186,
+        "sink_cells_end": 688,
+        "sink_share_end": 0.0129,
+        "cumprcp_end_mm_mean": 4.8,
+        "Ia_mm_median": 16.0,
+        "first_crossing_hours_median": 14.5
+      }
+    }
+  }
+}

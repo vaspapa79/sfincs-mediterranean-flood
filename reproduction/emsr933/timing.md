@@ -15,6 +15,7 @@ boundaries. Times are UTC.
 | 1 Rule ledger + YAMLs (no model runs); also F2/F4 fixes + regression, F5_VERIFY.md, daily latency probe, NOA station retrieval | 2026-10-09T13:08:34Z | 2026-10-09T14:15Z | 1 h 07 min | 1.1 | _to fill_ | | start = Checkpoint-0 go; end = Checkpoint-1 posted; four F5 agents + one web-research agent ran in parallel (their wall-clock is inside this hour) |
 | CODE-12 (harness v1.4 code + tests, re-run manifest, Crete build QC) — on branch `fix/harness-v1.4` | 2026-10-12T09:35:27Z | 2026-10-12T10:40Z | 1 h 05 min | 1.1 | _to fill_ | | start = CODE-12 paste; A1–A2 commit `513ce5a` 10:12:15Z; Crete build-only QC 09:47:40–09:52:32Z (4 min 52 s hydromt); Crete ERA5/IMERG downloaded for A3 (not run); one inventory agent ran in parallel; end = Checkpoint-2 posted |
 | CODE-13 (D4 coastal set-up check + fix, IB diagnosis, manifest clean-up) — `fix/harness-v1.4` | 2026-10-19T08:03:12Z | 2026-10-19T08:45Z | 0 h 42 min | 0.7 | _to fill_ | | start = CODE-13 paste; D4 commit `561e8a0` 08:23:45Z; Crete rebuild with the coastal set-up 08:19:34–08:23:17Z (prep 6.6 s + hydromt 208.6 s); no model run of any event; end = Checkpoint-3 posted |
+| GO-C (D5 + evaluation mask code/tests, Phase 1 re-runs of Strymonas/Mandra/Pineios, D6 diagnosis, Crete ledger §8) — `fix/harness-v1.4` | 2026-10-19T08:36:18Z | 2026-10-19T10:3xZ | ≈ 2 h | 2.0 | _to fill_ | | start = GO-C paste; D5 commit `8ccabb0` 08:57:24Z; mask commit `c6f39fa` 09:04:55Z; Phase 1 09:05:52–10:22:13Z (six runs, 1 h 16 min); D6 found and diagnosed 09:3x–10:1xZ with eight isolation/synthetic runs on copies (no scoring); end = Checkpoint 4 |
 
 ## Data-latency probe (daily, until ERA5T covers 7 Oct) — `scripts/daily_probe.py`, CSV in `latency_probe.csv`
 | probe UTC | ERA5 last requestable day | IMERG Final granules 27 Sep–7 Oct | GloFAS v4 intermediate last day | EMS products F/I/N | AOI03 GRA |
@@ -64,3 +65,19 @@ activation — idle time before CODE-10 existed, to be reported as such, not as 
 - 2026-10-19T08:19:34–08:23:17Z — Crete rebuild with the coastal set-up (`crete_rebuild_v14.py`; 859 727 active cells, 160 bnd points).
 - 2026-10-19T08:23:45Z — commit `561e8a03510125016ada36bb1bf30dc2ca4c085f` (D4 code + tests; no corrected published-event run exists at this commit).
 - 2026-10-19T08:3xZ — F5_VERIFY correction, schema doc, MANIFEST C1–C3, AUDIT block (`code13_summary.py`), records commit, Checkpoint 3.
+
+## GO-C — event log (decisions received; D5 + evaluation mask before any run; Phase 1 runs)
+- 2026-10-19T08:36:18Z — GO-C received (Papaioannou, decisions 1–6 + execution order).
+- 2026-10-19T08:4xZ — D5 tests written (RED: 10 attribute errors), implementation (`align_meteo_grids`), unit tests GREEN 08:47Z; first SFINCS gradient test insensitive (gradient perpendicular to the half-cell shift) → rotated, GREEN 08:50Z.
+- 2026-10-19T08:51:06–08:55:53Z — full suite 72 tests GREEN (with the D5 metrics record); 08:51–08:54:50Z one-day Pineios slice re-run with aligned grids (220 s; shortfall gone: RMSE 0.0000 m, r = 1.0000).
+- 2026-10-19T08:57:24Z — commit `8ccabb03f5f2164be5b52c0633aac1bfff0d73ca` (D5 + tests; no corrected published-event run exists at this commit).
+- 2026-10-19T08:5x–09:04Z — evaluation-mask exclusion under TDD (9 unit tests + GeoTIFF check in the strip test), validator default verified identical on the published Strymonas baseline; commit `c6f39fad46b8a71b0172d1b19809d875f415ccd6` 09:04:55Z.
+- 2026-10-19T09:05:52Z — Phase 1 started (`phase1.py`, MANIFEST order: Strymonas enhanced, Strymonas baseline, Mandra pair, Pineios pair); karst-recharge literature agent 08:5x–09:0xZ (`karst_recharge_sources.md`).
+- 2026-10-19T09:05:52Z → 2026-10-19T09:09:57Z — Phase 1 `strymonas_enhanced` (MANIFEST row 1): hydromt build 43.3 s, SFINCS 168.7 s (published 109.2 s), v1.4 validation 4.2 s; v1.3 re-scoring in parallel with SFINCS.
+- 2026-10-19T09:09:57Z → 2026-10-19T09:13:13Z — Phase 1 `strymonas_baseline` (MANIFEST row 2): hydromt build 36.2 s, SFINCS 145.5 s (published 256.5 s), v1.4 validation 4.4 s; v1.3 re-scoring in parallel with SFINCS.
+- 2026-10-19T09:13:13Z → 2026-10-19T09:20:34Z — Phase 1 `mandra_enhanced` (MANIFEST row 3): hydromt build 23.7 s, SFINCS 399.0 s (published 1097.8 s), v1.4 validation 2.6 s; v1.3 re-scoring in parallel with SFINCS.
+- 2026-10-19T09:20:34Z → 2026-10-19T09:23:00Z — Phase 1 `mandra_baseline` (MANIFEST row 4): hydromt build 23.0 s, SFINCS 112.8 s (published 546.6 s), v1.4 validation 2.5 s; v1.3 re-scoring in parallel with SFINCS.
+- 2026-10-19T09:23:00Z → 2026-10-19T10:01:00Z — Phase 1 `pineios_enhanced` (MANIFEST row 5): hydromt build 33.2 s, SFINCS 1576.9 s (published 1456.2 s), v1.4 validation 323.2 s; v1.3 re-scoring in parallel with SFINCS.
+- 2026-10-19T10:01:00Z → 2026-10-19T10:22:13Z — Phase 1 `pineios_baseline_gridmatched` (MANIFEST row 6): hydromt build 89.1 s, SFINCS 980.3 s (published 1006.4 s), v1.4 validation 94.8 s; v1.3 re-scoring in parallel with SFINCS.
+- 2026-10-19T09:3x–10:1xZ — Strymonas enhanced v1.4 doubles its flood with half the rain → diagnosis: SFINCS curve-number sink (D6). Six isolation runs on copies (`strym_exp`, 180–600 s each), synthetic closed-plain test (`d6_cn_sink_check.py`, ~1 min), sink-cell map from inputs; report only.
+- 2026-10-19T10:19:21–10:20:59Z — full suite 82 tests GREEN; 10:22:13Z Phase 1 finished; Checkpoint-4 tables + AUDIT block generated (`checkpoint4_tables.py`); records commit; Checkpoint 4 posted.

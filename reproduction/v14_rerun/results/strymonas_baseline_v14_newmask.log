@@ -1,0 +1,6 @@
+validating: EMSR122 Strymonas (v2)  (slug=strymonas)
+  evaluation-mask exclusion: D:\ELKAK\sfincs-mediterranean-floods\.worktrees\emsr933-crete\reproduction\v14_rerun\masks\strymonas_exclusion.tif (30333 cells flagged on the grid)
+  strict@0.10m:  CSI=0.207  HR=0.410  FAR=0.706  BIAS=1.39  GSS=0.155
+  fuzzy r=1:     CSI=0.229  HR=0.724  FAR=0.749  GSS=0.121
+  best CSI:      0.207 at h>0.10 m
+  wrote: D:\ELKAK\sfincs-mediterranean-floods\.worktrees\emsr933-crete\reproduction\v14_rerun\results\strymonas_baseline_v14_newmask.json

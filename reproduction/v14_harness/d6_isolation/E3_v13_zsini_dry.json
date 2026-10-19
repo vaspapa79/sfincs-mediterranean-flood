@@ -1,0 +1,38 @@
+{
+ "name": "E3_v13_zsini_dry",
+ "src": "D:\\ELKAK\\implementation\\emsr122_sfincs_v3\\model",
+ "patches": [
+  "zsini=-9999"
+ ],
+ "precip": null,
+ "wall_s": 505.8,
+ "V_land_daily_Mm3": [
+  0.0,
+  23.2,
+  26.8,
+  22.5,
+  15.0,
+  12.7,
+  11.8,
+  10.9
+ ],
+ "V_land_max": 52.5,
+ "V_land_end": 10.9,
+ "wet_gt_0p1_km2_end": 42.7,
+ "wet_gt_0p1_km2_max": 135.6,
+ "pool_zs_max_daily": [
+  null,
+  11.32,
+  11.32,
+  11.32,
+  11.32,
+  11.32,
+  11.32,
+  11.32
+ ],
+ "log_tail": [
+  " Average time step (s)  :     15.522",
+  "",
+  "---------- Closing off SFINCS -----------"
+ ]
+}

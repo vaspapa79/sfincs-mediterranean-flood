@@ -168,12 +168,57 @@ Variant YAML: `skill/examples/emsr933_crete_enhanced_R2on.yaml` (labelled; canon
   Αθηνών/meteo.gr". The raw copies are therefore not committed; the CSVs carry source URLs and the attribution.
   Publishing the station values (paper or repository) needs NOA's consent/attribution — author to handle.
 
-## 8. Decisions required at Checkpoint 1
-1. **R2** — raw IMERG (enhanced.yaml) or gauge-anchored (R2on variant) — Papaioannou.
-2. **GAP-1** — Δx / domain option A, B, C or C′ (§5).
-3. **GAP-2** — z_max 2500 m (all land active) or another cap.
-4. **F5** — harness option (a) as published / (b) corrected for EMSR933 / (c) corrected and all events re-run.
-5. Confirmation of the window convention (7 / 3 / 4 d) and the island-wide domain.
+## 8. Decisions recorded (GO-C, Papaioannou, 19 Oct 2026) — written 2026-10-19T09:12:53Z (file time), BEFORE any Crete run; window dates corrected 2026-10-19T10:2xZ before the first commit of this section (still no Crete run)
+The Checkpoint-1 questions (R2, GAP-1, GAP-2, F5, window/domain) are closed as follows. No Crete forcing run has been
+executed at the time of writing (the only Crete SFINCS-related work so far is the build-only QC of CODE-12/13).
+
+1. **R2 = ON — canonical.** `skill/examples/emsr933_crete_enhanced_R2on.yaml` becomes the canonical enhanced
+   configuration (`emsr933_crete_enhanced.yaml` = the raw-IMERG sensitivity (a) below). **A-priori basis**
+   (meteorology, §1/§7; not the EMS extent, not a score): a cut-off low quasi-stationary for days with convective rain
+   organised by orography under persistent N–NE flow — the Valencia branch of the rule, where the organising scale of
+   the rain is set by the windward slopes and lies below the IMERG footprint. **Organising scale measured from the
+   DEM** (`scripts/windward_width.py` → `windward_width.{json,md}`, 2026-10-19T09:10Z; GLO-30, 90-m transects from the
+   DEM summit towards the upwind side, 450-m smoothing; IMERG footprint at 35.2°N = 9.1 km E–W × 11.1 km N–S):
+
+   | massif (DEM summit) | transect | coast→crest km | 10–90 % height km | **25–75 % height (slope core) km** | longest stretch slope ≥ 0.10 km |
+   |---|---|---|---|---|---|
+   | Lefka Ori 2446 m | N / NNE / NE | 25.2 / 21.4 / 27.7 | 19.0 / 16.2 / 14.5 | **4.9 / 4.1 / 6.0** | 1.9 / 1.9 / 3.9 |
+   | Psiloritis 2447 m | N / NNE / NE | 21.2 / 21.9 / 28.8 | 19.4 / 20.2 / 27.5 | **8.6 / 16.1 / 9.5** | 2.0 / 2.3 / 1.9 |
+   | Dikti 2129 m | N / NNE / NE | 22.5 / 28.0 / 38.4 | 19.6 / 24.2 / 32.6 | **16.1 / 16.7 / 7.3** | 2.1 / 2.9 / 1.6 |
+
+   Reading: the slope core (25–75 % of the summit height) is 4–6 km on Lefka Ori and 7–10 km on Psiloritis/Dikti for
+   the N and NE transects, i.e. inside the expected 5–10 km and below the 11-km footprint; the NNE transects of
+   Psiloritis and the N/NNE transects of Dikti give 16 km because the profile is stepped — the Lasithi plateau
+   (≈ 850 m) and the Anogeia shelf interrupt the flank, so the 25–75 % band straddles a plateau rather than one
+   slope. The whole windward flank (10–90 %) is 15–25 km, 1.5–2 footprints. The anchor is **447.8 mm (Tzermiado,
+   NOA, 29 Sep 21:00 → 4 Oct 21:00 UTC)** recorded as a **lower bound of the catchment mean** (§7 caveat: one floor
+   station at 820 m for a catchment rising to ~2100 m; the ungauged flanks probably received more).
+2. **GAP-1 = A**: 100 m island-wide, open sea inactive (harness v1.4 D4; `stage2_build_qc_v14.md`: 859 727 active
+   cells, 13 858 msk = 2 ring cells, 160 bnd points). **GAP-2 = 2500 m** (all land active). **Window 7 / 3 / 4 d**
+   (event date 2026-10-01 in the YAMLs: tref 2026-09-21, tstart 2026-09-28, tstop 2026-10-06 as computed by `load_config`; the 7-day lead-in is a forcing lead-in, not simulated — D3 text
+   correction; antecedent state enters only through R4).
+3. **Scoring tiers** (fixed before any run): tier 1 = near-peak SAR → scored: **AOI03 Tzermiado, the only
+   headline** (CSI/HR/FAR/B/GSS at h > 0.10 m, depth sweep and CSI*/B* as for the other events, evaluation mask =
+   AOI ∩ active minus WorldCover 80 ∪ open sea as for every event); tier 2 = post-event optical traces → observed vs
+   modelled km² at h > 0.10 m only, no CSI/HR/FAR: AOIs 01, 04, 06, 07; tier 3 = no product → excluded: AOIs 02, 05,
+   08. **No all-AOI union score.** The Samaria pit stays a documented GLO-30 artefact (`stage2_build_qc.md`).
+4. **Harness: v1.4 for every Crete run** (D1, D2, D4, D5 — commits `513ce5a`, `561e8a0`, `8ccabb0`; evaluation mask `c6f39fa`; D6, the curve-number sink found at Checkpoint 4, does not apply: no Crete configuration uses CN, and the karst bracket uses the constant-rate branch, which has the dry-cell guard; the YAMLs carry
+   `harness_version: v1.4`). Baseline = `emsr933_crete.yaml` (ERA5 rain-on-grid, no wind/IB).
+5. **Labelled sensitivities, never canonical** (run after baseline + canonical, Phase 5):
+   - (a) **R2 off** — raw IMERG Late (`emsr933_crete_enhanced.yaml`).
+   - (b) **Anchor sweep**, Mandra/Pineios format (four totals incl. the canonical, ≈ −50 % to +30 %):
+     **224 / 336 / 447.8 / 582 mm** (−50 / −25 / 0 / +30 %), `target_mm` of the bias correction; everything else as
+     the canonical run.
+   - (c) **Karst bracket** — one constant infiltration rate, recorded here before the run: recharge coefficient
+     **0.513** = "infiltration coefficient for the carbonate rocks of the basin was estimated equal to 51.3%"
+     (Steiakakis, E., 2018, *Geosciences* 8(1), 19, https://doi.org/10.3390/geosciences8010019, Kourtaliotis karst,
+     central-S Crete; annual water balance on measured spring discharge; original derivation Steiakakis et al. 2011,
+     https://doi.org/10.1007/978-3-642-19902-8_57). Conversion over the event duration: qinf = 0.513 × 447.8 mm /
+     120 h (the anchor window 29 Sep 21:00 → 4 Oct 21:00 UTC) = **1.914 mm h⁻¹**, applied as the SFINCS constant
+     rate `qinf = 1.914` on every active cell (post-build inp patch, the MANIFEST row-15 mechanism), one value, no
+     tuning. The spread of the literature (Dikti ≈ 50–55 %, Lefka Ori 54 %, island-wide 50–55 %) and the scale flag
+     (annual fractions; event-scale karst runoff can reach 70 %, Lilli et al. 2020) are in
+     `karst_recharge_sources.md` — the value is therefore an upper-bound infiltration scenario.
 
 ## 9. Files written at Stage 1
 `skill/examples/emsr933_crete.yaml`, `skill/examples/emsr933_crete_enhanced.yaml`,

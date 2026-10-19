@@ -1,0 +1,159 @@
+{
+  "run": "mandra_enhanced",
+  "event": "mandra",
+  "kind": "enhanced",
+  "manifest_row": 3,
+  "work": "D:\\ELKAK\\implementation\\v14\\mandra_enhanced",
+  "published_model": "D:\\ELKAK\\implementation\\mandra_sfincs_enhanced\\model",
+  "published_wallclock_s": 1097.8,
+  "start_utc": "2026-10-19T09:13:13Z",
+  "steps": [
+    {
+      "step": 6,
+      "start_utc": "2026-10-19T09:13:13Z",
+      "end_utc": "2026-10-19T09:13:16Z",
+      "wall_s": 3.0,
+      "exit": 0
+    },
+    {
+      "step": 7,
+      "start_utc": "2026-10-19T09:13:16Z",
+      "end_utc": "2026-10-19T09:13:18Z",
+      "wall_s": 2.1,
+      "exit": 0
+    },
+    {
+      "step": 8,
+      "start_utc": "2026-10-19T09:13:18Z",
+      "end_utc": "2026-10-19T09:13:18Z",
+      "wall_s": 0.4,
+      "exit": 0
+    },
+    {
+      "step": 9,
+      "start_utc": "2026-10-19T09:13:18Z",
+      "end_utc": "2026-10-19T09:13:19Z",
+      "wall_s": 0.9,
+      "exit": 0
+    },
+    {
+      "step": 10,
+      "start_utc": "2026-10-19T09:13:19Z",
+      "end_utc": "2026-10-19T09:13:43Z",
+      "wall_s": 23.7,
+      "exit": 0
+    },
+    {
+      "step": 11,
+      "start_utc": "2026-10-19T09:13:50Z",
+      "end_utc": "2026-10-19T09:20:29Z",
+      "wall_s": 399.0,
+      "exit": 0
+    }
+  ],
+  "config": "reproduction\\v14_rerun\\configs\\mandra_enhanced.yaml",
+  "config_note": {
+    "derived_from": "skill/examples/emsr257_mandra_enhanced.yaml",
+    "changes": [
+      "harness_version: v1.4",
+      "paths.work_dir/deliverable_dir/zip_dir -> D:\\ELKAK\\implementation\\v14\\mandra_enhanced"
+    ]
+  },
+  "seed": {
+    "from": "D:\\ELKAK\\implementation\\mandra_sfincs_enhanced\\data",
+    "junctions": {
+      "copdem30": "exists",
+      "esa_worldcover": "exists",
+      "ems_polygons": "exists",
+      "era5_extracted": "exists"
+    },
+    "copied": [],
+    "skipped": [
+      "glofas_mandra.nc",
+      "imerg_mandra.nc",
+      "imerg_mandra.raw.nc",
+      "era5_mandra.nc"
+    ]
+  },
+  "coastal_prep": {
+    "harness_version": "v1.4",
+    "n_active_before": 162335,
+    "n_dep_le_0": 48215,
+    "n_open_sea": 48187,
+    "open_sea_km2": 120.47,
+    "n_inland_dep_le_0": 28,
+    "n_ring": 3519,
+    "ring_length_km": 175.9,
+    "n_exclude": 44668,
+    "n_active_after_expected": 117667,
+    "connectivity": {
+      "open_sea": 4,
+      "ring_adjacency": 8
+    },
+    "zsini": -9999,
+    "exclude_mask": "D:/ELKAK/implementation/v14/mandra_enhanced/open_sea_exclude.geojson",
+    "open_sea_mask_tif": "D:/ELKAK/implementation/v14/mandra_enhanced/open_sea_mask.tif",
+    "n_exclude_polygons": 5
+  },
+  "exclusion": {
+    "open_sea_cells": 48187,
+    "wc80_cells": 49792,
+    "wc80_land_cells": 1976,
+    "union_cells": 50163,
+    "open_sea_km2": 120.4675,
+    "wc80_km2": 124.48,
+    "union_km2": 125.4075,
+    "utc": "2026-10-19T09:13:49Z",
+    "out": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\masks\\mandra_exclusion.tif",
+    "open_sea_source": "D:\\ELKAK\\implementation\\v14\\mandra_enhanced\\open_sea_mask.tif",
+    "worldcover": "D:\\ELKAK\\implementation\\v14\\mandra_enhanced\\data\\esa_worldcover\\esa_worldcover_2021.vrt",
+    "epsg": 32634,
+    "wc80_sampling": "class 80 at the model cell centre (nearest 10-m pixel)",
+    "open_sea_definition": "build_model.open_sea_split: active dep<=0 cells 4-connected to the grid edge (incl. the coastal ring)",
+    "grid": {
+      "shape": [
+        569,
+        542
+      ],
+      "cell_m": [
+        50.0,
+        50.0
+      ],
+      "transform": [
+        50.0,
+        0.0,
+        701397.0,
+        0.0,
+        -50.0,
+        4231213.0
+      ]
+    },
+    "open_sea_gis_vs_tif_symmetric_difference_cells": 0,
+    "open_sea_gis_cells": 48187,
+    "open_sea_tif_cells": 48187
+  },
+  "sfincs_total_time_s": 398.702,
+  "validation_v14": {
+    "exit": 0,
+    "wall_s": 2.6,
+    "json": "results/mandra_enhanced_v14_newmask.json"
+  },
+  "rescoring_v13": {
+    "v13_publishedmask": {
+      "exit": 0,
+      "wall_s": 401.6,
+      "json": "results/mandra_enhanced_v13_publishedmask.json"
+    },
+    "v13_newmask": {
+      "exit": 0,
+      "wall_s": 401.6,
+      "json": "results/mandra_enhanced_v13_newmask.json"
+    }
+  },
+  "quicklook": {
+    "exit": 0,
+    "png": "quicklook/mandra_enhanced_v14_hmax.png",
+    "err": ""
+  },
+  "end_utc": "2026-10-19T09:20:34Z"
+}

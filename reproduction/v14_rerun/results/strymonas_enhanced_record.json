@@ -1,0 +1,158 @@
+{
+  "run": "strymonas_enhanced",
+  "event": "strymonas",
+  "kind": "enhanced",
+  "manifest_row": 1,
+  "work": "D:\\ELKAK\\implementation\\v14\\strymonas_enhanced",
+  "published_model": "D:\\ELKAK\\implementation\\emsr122_sfincs_v3\\model",
+  "published_wallclock_s": 109.2,
+  "start_utc": "2026-10-19T09:05:52Z",
+  "steps": [
+    {
+      "step": 6,
+      "start_utc": "2026-10-19T09:05:52Z",
+      "end_utc": "2026-10-19T09:05:53Z",
+      "wall_s": 1.0,
+      "exit": 0
+    },
+    {
+      "step": 7,
+      "start_utc": "2026-10-19T09:05:53Z",
+      "end_utc": "2026-10-19T09:05:55Z",
+      "wall_s": 2.3,
+      "exit": 0
+    },
+    {
+      "step": 8,
+      "start_utc": "2026-10-19T09:05:55Z",
+      "end_utc": "2026-10-19T09:06:03Z",
+      "wall_s": 7.8,
+      "exit": 0
+    },
+    {
+      "step": 9,
+      "start_utc": "2026-10-19T09:06:03Z",
+      "end_utc": "2026-10-19T09:06:06Z",
+      "wall_s": 2.7,
+      "exit": 0
+    },
+    {
+      "step": 10,
+      "start_utc": "2026-10-19T09:06:06Z",
+      "end_utc": "2026-10-19T09:06:49Z",
+      "wall_s": 43.3,
+      "exit": 0
+    },
+    {
+      "step": 11,
+      "start_utc": "2026-10-19T09:06:58Z",
+      "end_utc": "2026-10-19T09:09:47Z",
+      "wall_s": 168.7,
+      "exit": 0
+    }
+  ],
+  "config": "reproduction\\v14_rerun\\configs\\strymonas_enhanced.yaml",
+  "config_note": {
+    "derived_from": "skill/examples/emsr122_strymonas_enhanced.yaml",
+    "changes": [
+      "harness_version: v1.4",
+      "paths.work_dir/deliverable_dir/zip_dir -> D:\\ELKAK\\implementation\\v14\\strymonas_enhanced"
+    ]
+  },
+  "seed": {
+    "from": "D:\\ELKAK\\implementation\\emsr122_sfincs_v3\\data",
+    "junctions": {
+      "copdem30": "exists",
+      "esa_worldcover": "exists",
+      "ems_polygons": "exists",
+      "era5_extracted": "exists"
+    },
+    "copied": [],
+    "skipped": [
+      "glofas_strymonas.nc",
+      "imerg_strymonas.nc",
+      "era5_strymonas.nc"
+    ]
+  },
+  "coastal_prep": {
+    "harness_version": "v1.4",
+    "n_active_before": 207374,
+    "n_dep_le_0": 22516,
+    "n_open_sea": 22427,
+    "open_sea_km2": 504.61,
+    "n_inland_dep_le_0": 89,
+    "n_ring": 877,
+    "ring_length_km": 131.6,
+    "n_exclude": 21550,
+    "n_active_after_expected": 185824,
+    "connectivity": {
+      "open_sea": 4,
+      "ring_adjacency": 8
+    },
+    "zsini": -9999,
+    "exclude_mask": "D:/ELKAK/implementation/v14/strymonas_enhanced/open_sea_exclude.geojson",
+    "open_sea_mask_tif": "D:/ELKAK/implementation/v14/strymonas_enhanced/open_sea_mask.tif",
+    "n_exclude_polygons": 3
+  },
+  "exclusion": {
+    "open_sea_cells": 22427,
+    "wc80_cells": 29501,
+    "wc80_land_cells": 7906,
+    "union_cells": 30333,
+    "open_sea_km2": 504.6075,
+    "wc80_km2": 663.7725,
+    "union_km2": 682.4925,
+    "utc": "2026-10-19T09:06:58Z",
+    "out": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\masks\\strymonas_exclusion.tif",
+    "open_sea_source": "D:\\ELKAK\\implementation\\v14\\strymonas_enhanced\\open_sea_mask.tif",
+    "worldcover": "D:\\ELKAK\\implementation\\v14\\strymonas_enhanced\\data\\esa_worldcover\\esa_worldcover_2021.vrt",
+    "epsg": 32634,
+    "wc80_sampling": "class 80 at the model cell centre (nearest 10-m pixel)",
+    "open_sea_definition": "build_model.open_sea_split: active dep<=0 cells 4-connected to the grid edge (incl. the coastal ring)",
+    "grid": {
+      "shape": [
+        611,
+        690
+      ],
+      "cell_m": [
+        150.0,
+        150.0
+      ],
+      "transform": [
+        150.0,
+        0.0,
+        650467.0,
+        0.0,
+        -150.0,
+        4587562.0
+      ]
+    },
+    "open_sea_gis_vs_tif_symmetric_difference_cells": 0,
+    "open_sea_gis_cells": 22427,
+    "open_sea_tif_cells": 22427
+  },
+  "sfincs_total_time_s": 168.394,
+  "validation_v14": {
+    "exit": 0,
+    "wall_s": 4.2,
+    "json": "results/strymonas_enhanced_v14_newmask.json"
+  },
+  "rescoring_v13": {
+    "v13_publishedmask": {
+      "exit": 0,
+      "wall_s": 172.9,
+      "json": "results/strymonas_enhanced_v13_publishedmask.json"
+    },
+    "v13_newmask": {
+      "exit": 0,
+      "wall_s": 172.9,
+      "json": "results/strymonas_enhanced_v13_newmask.json"
+    }
+  },
+  "quicklook": {
+    "exit": 0,
+    "png": "quicklook/strymonas_enhanced_v14_hmax.png",
+    "err": ""
+  },
+  "end_utc": "2026-10-19T09:09:57Z"
+}

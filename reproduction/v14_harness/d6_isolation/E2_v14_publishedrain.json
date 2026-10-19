@@ -1,0 +1,38 @@
+{
+ "name": "E2_v14_publishedrain",
+ "src": "D:\\ELKAK\\implementation\\v14\\strymonas_enhanced\\model",
+ "patches": [],
+ "precip": "D:/ELKAK/implementation/emsr122_sfincs_v3/model/precip_2d.nc",
+ "copies": [],
+ "unsets": [],
+ "wall_s": 199.8,
+ "V_land_daily_Mm3": [
+  0.0,
+  23.2,
+  26.8,
+  22.3,
+  14.9,
+  12.7,
+  11.8,
+  10.9
+ ],
+ "V_land_max": 52.5,
+ "V_land_end": 10.9,
+ "wet_gt_0p1_km2_end": 31.3,
+ "wet_gt_0p1_km2_max": 151.0,
+ "pool_zs_max_daily": [
+  null,
+  11.32,
+  11.32,
+  11.32,
+  11.32,
+  11.32,
+  11.32,
+  11.32
+ ],
+ "log_tail": [
+  " Average time step (s)  :     14.788",
+  "",
+  "---------- Closing off SFINCS -----------"
+ ]
+}

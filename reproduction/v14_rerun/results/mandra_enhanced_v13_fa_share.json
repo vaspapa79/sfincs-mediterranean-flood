@@ -1,0 +1,64 @@
+{
+  "utc": "2026-10-19T09:38:51Z",
+  "config": "skill\\examples\\emsr257_mandra_enhanced.yaml",
+  "work": "D:\\ELKAK\\implementation\\mandra_sfincs_enhanced",
+  "threshold_m": 0.1,
+  "mask": "published (msk>0 & AOI union)",
+  "eval_cells": 43886,
+  "eval_km2": 109.72,
+  "fa_cells": 26028,
+  "fa_km2": 65.07,
+  "tp_cells": 3140,
+  "tp_km2": 7.85,
+  "observed_cells_in_eval": 3595,
+  "categories": {
+    "open_sea": {
+      "fa_cells": 8757,
+      "fa_km2": 21.893,
+      "share_of_fa": 0.3364,
+      "cells_in_eval": 8815,
+      "observed_cells_in_eval": 58,
+      "tp_cells": 58
+    },
+    "wc80": {
+      "fa_cells": 8989,
+      "fa_km2": 22.473,
+      "share_of_fa": 0.3454,
+      "cells_in_eval": 9002,
+      "observed_cells_in_eval": 10,
+      "tp_cells": 10
+    },
+    "wc80_land": {
+      "fa_cells": 282,
+      "fa_km2": 0.705,
+      "share_of_fa": 0.0108,
+      "cells_in_eval": 294,
+      "observed_cells_in_eval": 9,
+      "tp_cells": 9
+    },
+    "inland_zb_lt_0": {
+      "fa_cells": 81,
+      "fa_km2": 0.203,
+      "share_of_fa": 0.0031,
+      "cells_in_eval": 157,
+      "observed_cells_in_eval": 76,
+      "tp_cells": 76
+    },
+    "union_open_sea_wc80": {
+      "fa_cells": 9039,
+      "fa_km2": 22.598,
+      "share_of_fa": 0.3473,
+      "cells_in_eval": 9109,
+      "observed_cells_in_eval": 67,
+      "tp_cells": 67
+    },
+    "union_all_three": {
+      "fa_cells": 9111,
+      "fa_km2": 22.777,
+      "share_of_fa": 0.35,
+      "cells_in_eval": 9257,
+      "observed_cells_in_eval": 143,
+      "tp_cells": 143
+    }
+  }
+}

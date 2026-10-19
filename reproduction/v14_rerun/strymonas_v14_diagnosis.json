@@ -1,0 +1,355 @@
+{
+  "utc": "2026-10-19T10:07:12Z",
+  "v13_model": "D:\\ELKAK\\implementation\\emsr122_sfincs_v3\\model",
+  "v14_model": "D:\\ELKAK\\implementation\\v14\\strymonas_enhanced\\model",
+  "runs": {
+    "v1.3": {
+      "active": 207374,
+      "msk2": 346,
+      "rain": {
+        "domain_mean_mm": 97.1,
+        "on_land_Mm3": 436.0,
+        "n_times": 673,
+        "dt_h": 0.5,
+        "file_shift_m": {
+          "x_shift_m": 0.0,
+          "y_shift_m": 0.0
+        }
+      },
+      "V_land_zb_gt_0_daily_Mm3": [
+        0.0,
+        23.2,
+        26.8,
+        22.5,
+        15.0,
+        12.7,
+        11.8,
+        10.9
+      ],
+      "V_land_max_Mm3": 52.5,
+      "V_total_end_Mm3": 33.4,
+      "wet_gt_0p10_km2_max_field": 145.3,
+      "pool_centre_E727p1_N4535p0": {
+        "zb_m": 2.55,
+        "depth_m_daily": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "end_wet_km2_zb_0_2": 10.9,
+      "end_wet_km2_zb_2_5": 4.8,
+      "end_wet_km2_zb_5_10": 4.3,
+      "end_wet_km2_zb_10_20": 3.2,
+      "end_wet_km2_zb_20_40": 0.0
+    },
+    "v1.4": {
+      "active": 185824,
+      "msk2": 802,
+      "rain": {
+        "domain_mean_mm": 48.6,
+        "on_land_Mm3": 218.0,
+        "n_times": 673,
+        "dt_h": 0.5,
+        "file_shift_m": {
+          "x_shift_m": -4735.977736158529,
+          "y_shift_m": 4735.977736159228
+        }
+      },
+      "V_land_zb_gt_0_daily_Mm3": [
+        0.0,
+        103.8,
+        187.7,
+        234.0,
+        267.8,
+        292.7,
+        307.8,
+        314.8
+      ],
+      "V_land_max_Mm3": 314.8,
+      "V_total_end_Mm3": 330.2,
+      "wet_gt_0p10_km2_max_field": 313.5,
+      "pool_centre_E727p1_N4535p0": {
+        "zb_m": 2.55,
+        "depth_m_daily": [
+          0.0,
+          0.0,
+          0.55,
+          1.59,
+          2.12,
+          2.33,
+          2.41,
+          2.46
+        ]
+      },
+      "end_wet_km2_zb_0_2": 40.7,
+      "end_wet_km2_zb_2_5": 65.7,
+      "end_wet_km2_zb_5_10": 50.4,
+      "end_wet_km2_zb_10_20": 99.3,
+      "end_wet_km2_zb_20_40": 0.1
+    }
+  },
+  "discharge_Mm3": {
+    "total_14d": 452.6,
+    "simulated_week": 311.9,
+    "per_source_simulated_week": [
+      261.8,
+      50.1
+    ],
+    "peak_m3s_per_source": [
+      640.34,
+      96.81
+    ],
+    "identical_dis_src": true
+  },
+  "experiments": {
+    "E1_v14_zsini0": {
+      "name": "E1_v14_zsini0",
+      "src": "D:\\ELKAK\\implementation\\v14\\strymonas_enhanced\\model",
+      "patches": [
+        "zsini=0"
+      ],
+      "precip": null,
+      "wall_s": 600.5,
+      "V_land_daily_Mm3": [
+        0.0,
+        103.8,
+        187.7,
+        234.0,
+        267.8,
+        292.7,
+        307.8,
+        314.8
+      ],
+      "V_land_max": 314.8,
+      "V_land_end": 314.8,
+      "wet_gt_0p1_km2_end": 270.0,
+      "wet_gt_0p1_km2_max": 319.1,
+      "pool_zs_max_daily": [
+        null,
+        11.34,
+        11.34,
+        11.33,
+        11.32,
+        11.32,
+        11.32,
+        11.32
+      ],
+      "log_tail": [
+        " Average time step (s)  :     11.685",
+        "",
+        "---------- Closing off SFINCS -----------"
+      ]
+    },
+    "E2_v14_publishedrain": {
+      "name": "E2_v14_publishedrain",
+      "src": "D:\\ELKAK\\implementation\\v14\\strymonas_enhanced\\model",
+      "patches": [],
+      "precip": "D:/ELKAK/implementation/emsr122_sfincs_v3/model/precip_2d.nc",
+      "copies": [],
+      "unsets": [],
+      "wall_s": 199.8,
+      "V_land_daily_Mm3": [
+        0.0,
+        23.2,
+        26.8,
+        22.3,
+        14.9,
+        12.7,
+        11.8,
+        10.9
+      ],
+      "V_land_max": 52.5,
+      "V_land_end": 10.9,
+      "wet_gt_0p1_km2_end": 31.3,
+      "wet_gt_0p1_km2_max": 151.0,
+      "pool_zs_max_daily": [
+        null,
+        11.32,
+        11.32,
+        11.32,
+        11.32,
+        11.32,
+        11.32,
+        11.32
+      ],
+      "log_tail": [
+        " Average time step (s)  :     14.788",
+        "",
+        "---------- Closing off SFINCS -----------"
+      ]
+    },
+    "E3_v13_zsini_dry": {
+      "name": "E3_v13_zsini_dry",
+      "src": "D:\\ELKAK\\implementation\\emsr122_sfincs_v3\\model",
+      "patches": [
+        "zsini=-9999"
+      ],
+      "precip": null,
+      "wall_s": 505.8,
+      "V_land_daily_Mm3": [
+        0.0,
+        23.2,
+        26.8,
+        22.5,
+        15.0,
+        12.7,
+        11.8,
+        10.9
+      ],
+      "V_land_max": 52.5,
+      "V_land_end": 10.9,
+      "wet_gt_0p1_km2_end": 42.7,
+      "wet_gt_0p1_km2_max": 135.6,
+      "pool_zs_max_daily": [
+        null,
+        11.32,
+        11.32,
+        11.32,
+        11.32,
+        11.32,
+        11.32,
+        11.32
+      ],
+      "log_tail": [
+        " Average time step (s)  :     15.522",
+        "",
+        "---------- Closing off SFINCS -----------"
+      ]
+    },
+    "E4_v13_plusIB": {
+      "name": "E4_v13_plusIB",
+      "src": "D:\\ELKAK\\implementation\\emsr122_sfincs_v3\\model",
+      "patches": [
+        "pavbnd=101325",
+        "bndfile=sfincs.bnd",
+        "bzsfile=sfincs.bzs"
+      ],
+      "precip": null,
+      "copies": [
+        "D:/ELKAK/implementation/v14/strymonas_enhanced/model/sfincs.bnd",
+        "D:/ELKAK/implementation/v14/strymonas_enhanced/model/sfincs.bzs"
+      ],
+      "unsets": [],
+      "wall_s": 179.4,
+      "V_land_daily_Mm3": [
+        0.0,
+        23.2,
+        26.8,
+        22.4,
+        15.0,
+        12.7,
+        11.8,
+        10.9
+      ],
+      "V_land_max": 52.5,
+      "V_land_end": 10.9,
+      "wet_gt_0p1_km2_end": 45.2,
+      "wet_gt_0p1_km2_max": 178.7,
+      "pool_zs_max_daily": [
+        null,
+        11.32,
+        11.32,
+        11.32,
+        11.32,
+        11.32,
+        11.32,
+        11.32
+      ],
+      "log_tail": [
+        " Average time step (s)  :     15.465",
+        "",
+        "---------- Closing off SFINCS -----------"
+      ]
+    },
+    "E5_v14_unalignedwindpress": {
+      "name": "E5_v14_unalignedwindpress",
+      "src": "D:\\ELKAK\\implementation\\v14\\strymonas_enhanced\\model",
+      "patches": [],
+      "precip": null,
+      "copies": [
+        "D:/ELKAK/implementation/emsr122_sfincs_v3/model/press_2d.nc",
+        "D:/ELKAK/implementation/emsr122_sfincs_v3/model/wind_2d.nc"
+      ],
+      "unsets": [],
+      "wall_s": 204.0,
+      "V_land_daily_Mm3": [
+        0.0,
+        103.8,
+        187.7,
+        234.0,
+        267.8,
+        292.7,
+        307.8,
+        314.8
+      ],
+      "V_land_max": 314.8,
+      "V_land_end": 314.8,
+      "wet_gt_0p1_km2_end": 265.7,
+      "wet_gt_0p1_km2_max": 314.3,
+      "pool_zs_max_daily": [
+        null,
+        11.34,
+        11.34,
+        11.33,
+        11.32,
+        11.32,
+        11.32,
+        11.32
+      ],
+      "log_tail": [
+        " Average time step (s)  :     11.688",
+        "",
+        "---------- Closing off SFINCS -----------"
+      ]
+    },
+    "E6_v14_noIB": {
+      "name": "E6_v14_noIB",
+      "src": "D:\\ELKAK\\implementation\\v14\\strymonas_enhanced\\model",
+      "patches": [
+        "pavbnd=1"
+      ],
+      "precip": null,
+      "copies": [],
+      "unsets": [
+        "bndfile",
+        "bzsfile"
+      ],
+      "wall_s": 212.1,
+      "V_land_daily_Mm3": [
+        0.0,
+        103.8,
+        187.7,
+        233.9,
+        267.8,
+        292.7,
+        307.8,
+        314.8
+      ],
+      "V_land_max": 314.8,
+      "V_land_end": 314.8,
+      "wet_gt_0p1_km2_end": 265.5,
+      "wet_gt_0p1_km2_max": 287.7,
+      "pool_zs_max_daily": [
+        null,
+        11.34,
+        11.34,
+        11.33,
+        11.32,
+        11.32,
+        11.32,
+        11.32
+      ],
+      "log_tail": [
+        " Average time step (s)  :     11.688",
+        "",
+        "---------- Closing off SFINCS -----------"
+      ]
+    }
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "run": "strymonas_baseline",
+  "event": "strymonas",
+  "kind": "baseline",
+  "manifest_row": 2,
+  "work": "D:\\ELKAK\\implementation\\v14\\strymonas_baseline",
+  "published_model": "D:\\ELKAK\\implementation\\emsr122_sfincs\\model",
+  "published_wallclock_s": 256.5,
+  "start_utc": "2026-10-19T09:09:57Z",
+  "steps": [
+    {
+      "step": 6,
+      "start_utc": "2026-10-19T09:09:57Z",
+      "end_utc": "2026-10-19T09:09:58Z",
+      "wall_s": 0.9,
+      "exit": 0
+    },
+    {
+      "step": 7,
+      "start_utc": "2026-10-19T09:09:58Z",
+      "end_utc": "2026-10-19T09:10:00Z",
+      "wall_s": 2.2,
+      "exit": 0
+    },
+    {
+      "step": 8,
+      "start_utc": "2026-10-19T09:10:00Z",
+      "end_utc": "2026-10-19T09:10:00Z",
+      "wall_s": 0.4,
+      "exit": 0
+    },
+    {
+      "step": 9,
+      "start_utc": "2026-10-19T09:10:00Z",
+      "end_utc": "2026-10-19T09:10:01Z",
+      "wall_s": 0.8,
+      "exit": 0
+    },
+    {
+      "step": 10,
+      "start_utc": "2026-10-19T09:10:01Z",
+      "end_utc": "2026-10-19T09:10:37Z",
+      "wall_s": 36.2,
+      "exit": 0
+    },
+    {
+      "step": 11,
+      "start_utc": "2026-10-19T09:10:38Z",
+      "end_utc": "2026-10-19T09:13:03Z",
+      "wall_s": 145.5,
+      "exit": 0
+    }
+  ],
+  "config": "reproduction\\v14_rerun\\configs\\strymonas_baseline.yaml",
+  "config_note": {
+    "derived_from": "skill/examples/emsr122_strymonas.yaml",
+    "changes": [
+      "harness_version: v1.4",
+      "paths.work_dir/deliverable_dir/zip_dir -> D:\\ELKAK\\implementation\\v14\\strymonas_baseline"
+    ]
+  },
+  "seed": {
+    "from": "D:\\ELKAK\\implementation\\emsr122_sfincs\\data",
+    "junctions": {
+      "copdem30": "exists",
+      "esa_worldcover": "exists",
+      "ems_polygons": "exists",
+      "era5_extracted": "exists",
+      "glofas_extracted": "exists"
+    },
+    "copied": [],
+    "skipped": [
+      "glofas_strymonas.nc",
+      "era5_strymonas.nc"
+    ]
+  },
+  "coastal_prep": {
+    "harness_version": "v1.4",
+    "n_active_before": 207374,
+    "n_dep_le_0": 22516,
+    "n_open_sea": 22427,
+    "open_sea_km2": 504.61,
+    "n_inland_dep_le_0": 89,
+    "n_ring": 877,
+    "ring_length_km": 131.6,
+    "n_exclude": 21550,
+    "n_active_after_expected": 185824,
+    "connectivity": {
+      "open_sea": 4,
+      "ring_adjacency": 8
+    },
+    "zsini": -9999,
+    "exclude_mask": "D:/ELKAK/implementation/v14/strymonas_baseline/open_sea_exclude.geojson",
+    "open_sea_mask_tif": "D:/ELKAK/implementation/v14/strymonas_baseline/open_sea_mask.tif",
+    "n_exclude_polygons": 3
+  },
+  "exclusion": {
+    "reused": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\masks\\strymonas_exclusion.tif",
+    "open_sea_identical_to_first_build": true,
+    "symmetric_difference_cells": 0
+  },
+  "sfincs_total_time_s": 145.146,
+  "validation_v14": {
+    "exit": 0,
+    "wall_s": 4.4,
+    "json": "results/strymonas_baseline_v14_newmask.json"
+  },
+  "rescoring_v13": {
+    "v13_publishedmask": {
+      "exit": 0,
+      "wall_s": 149.9,
+      "json": "results/strymonas_baseline_v13_publishedmask.json"
+    },
+    "v13_newmask": {
+      "exit": 0,
+      "wall_s": 149.9,
+      "json": "results/strymonas_baseline_v13_newmask.json"
+    }
+  },
+  "quicklook": {
+    "exit": 0,
+    "png": "quicklook/strymonas_baseline_v14_hmax.png",
+    "err": ""
+  },
+  "end_utc": "2026-10-19T09:13:13Z"
+}

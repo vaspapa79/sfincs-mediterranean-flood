@@ -1,0 +1,64 @@
+{
+  "utc": "2026-10-19T09:54:51Z",
+  "config": "skill\\examples\\emsr692_pineios_enhanced.yaml",
+  "work": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced",
+  "threshold_m": 0.1,
+  "mask": "published (msk>0 & AOI union)",
+  "eval_cells": 206326,
+  "eval_km2": 4642.34,
+  "fa_cells": 72693,
+  "fa_km2": 1635.59,
+  "tp_cells": 63910,
+  "tp_km2": 1437.97,
+  "observed_cells_in_eval": 67504,
+  "categories": {
+    "open_sea": {
+      "fa_cells": 3430,
+      "fa_km2": 77.175,
+      "share_of_fa": 0.0472,
+      "cells_in_eval": 3448,
+      "observed_cells_in_eval": 0,
+      "tp_cells": 0
+    },
+    "wc80": {
+      "fa_cells": 5498,
+      "fa_km2": 123.705,
+      "share_of_fa": 0.0756,
+      "cells_in_eval": 6028,
+      "observed_cells_in_eval": 497,
+      "tp_cells": 488
+    },
+    "wc80_land": {
+      "fa_cells": 2069,
+      "fa_km2": 46.552,
+      "share_of_fa": 0.0285,
+      "cells_in_eval": 2581,
+      "observed_cells_in_eval": 497,
+      "tp_cells": 488
+    },
+    "inland_zb_lt_0": {
+      "fa_cells": 22,
+      "fa_km2": 0.495,
+      "share_of_fa": 0.0003,
+      "cells_in_eval": 55,
+      "observed_cells_in_eval": 33,
+      "tp_cells": 33
+    },
+    "union_open_sea_wc80": {
+      "fa_cells": 5499,
+      "fa_km2": 123.727,
+      "share_of_fa": 0.0756,
+      "cells_in_eval": 6029,
+      "observed_cells_in_eval": 497,
+      "tp_cells": 488
+    },
+    "union_all_three": {
+      "fa_cells": 5514,
+      "fa_km2": 124.065,
+      "share_of_fa": 0.0759,
+      "cells_in_eval": 6077,
+      "observed_cells_in_eval": 530,
+      "tp_cells": 521
+    }
+  }
+}

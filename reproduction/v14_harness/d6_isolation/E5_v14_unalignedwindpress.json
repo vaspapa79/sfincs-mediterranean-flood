@@ -1,0 +1,41 @@
+{
+ "name": "E5_v14_unalignedwindpress",
+ "src": "D:\\ELKAK\\implementation\\v14\\strymonas_enhanced\\model",
+ "patches": [],
+ "precip": null,
+ "copies": [
+  "D:/ELKAK/implementation/emsr122_sfincs_v3/model/press_2d.nc",
+  "D:/ELKAK/implementation/emsr122_sfincs_v3/model/wind_2d.nc"
+ ],
+ "unsets": [],
+ "wall_s": 204.0,
+ "V_land_daily_Mm3": [
+  0.0,
+  103.8,
+  187.7,
+  234.0,
+  267.8,
+  292.7,
+  307.8,
+  314.8
+ ],
+ "V_land_max": 314.8,
+ "V_land_end": 314.8,
+ "wet_gt_0p1_km2_end": 265.7,
+ "wet_gt_0p1_km2_max": 314.3,
+ "pool_zs_max_daily": [
+  null,
+  11.34,
+  11.34,
+  11.33,
+  11.32,
+  11.32,
+  11.32,
+  11.32
+ ],
+ "log_tail": [
+  " Average time step (s)  :     11.688",
+  "",
+  "---------- Closing off SFINCS -----------"
+ ]
+}
