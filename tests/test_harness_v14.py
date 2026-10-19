@@ -112,12 +112,12 @@ class RenderBuildYmlV14(unittest.TestCase):
         self.assertNotIn("pavbnd", y)
 
     def test_everything_else_is_unchanged(self):
-        """v1.4 touches only the pavbnd line and the precipitation kwargs."""
+        """v1.4 touches only zsini (D4, CODE-13), the pavbnd line and the precipitation kwargs."""
         a = build_model.render_build_yml(_cfg()).splitlines()
         b = build_model.render_build_yml(_cfg(harness_version="v1.4")).splitlines()
         self.assertEqual([ln for ln in b if ln not in a],
-                         ["  pavbnd: 101325", "  cumulative_input: false", "  time_label: left"])
-        self.assertEqual([ln for ln in a if ln not in b], ["  pavbnd: 1"])
+                         ["  zsini: -9999", "  pavbnd: 101325", "  cumulative_input: false", "  time_label: left"])
+        self.assertEqual([ln for ln in a if ln not in b], ["  zsini: 0", "  pavbnd: 1"])
 
 
 def _square_mask(n: int = 40, res: float = 100.0):

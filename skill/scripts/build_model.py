@@ -98,11 +98,111 @@ def _pavbnd_line(cfg) -> str:
     return f"\n  pavbnd: {pav}"
 
 
-def render_build_yml(cfg) -> str:
-    """Render the HydroMT build file for a config (pure: nothing written)."""
+# --- harness v1.4 / D4 coastal set-up (CODE-13) ---------------------------------------------
+# D4-3: SFINCS v2.3.0 initialises zs(nm) = max(z_zmin(nm), zsini) (sfincs_initial_conditions.F90:43,
+# 98-100), so a very low zsini starts every active cell dry regardless of zb (the published zsini = 0
+# started every cell with zb < 0 wet: lagoons, polders, DEM pits).
+ZSINI_DRY = -9999
+
+
+def open_sea_split(active, dep):
+    """Split the active dep <= 0 cells into (i) open sea — connected to the grid edge through dep <= 0
+    cells (4-connectivity, the face connectivity SFINCS fluxes use) — and (ii) inland dep <= 0 cells.
+    Returns (sea0, open_sea, inland) boolean arrays of the grid shape."""
+    import numpy as np
+    from scipy import ndimage
+
+    active = np.asarray(active, dtype=bool)
+    dep = np.asarray(dep, dtype=float)
+    sea0 = active & np.isfinite(dep) & (dep <= 0)
+    lab, _ = ndimage.label(sea0, structure=[[0, 1, 0], [1, 1, 1], [0, 1, 0]])
+    edge = np.zeros_like(sea0)
+    edge[0, :] = edge[-1, :] = edge[:, 0] = edge[:, -1] = True
+    labs = np.unique(lab[edge & sea0])
+    labs = labs[labs > 0]
+    open_sea = np.isin(lab, labs) & sea0
+    return sea0, open_sea, sea0 & ~open_sea
+
+
+def coastal_ring(open_sea, active):
+    """One-cell ring of open-sea cells 8-adjacent to land (= active cells that are not open sea, incl.
+    inland dep <= 0 cells). Returns (ring, exclude) with exclude = open_sea minus the ring."""
+    import numpy as np
+    from scipy import ndimage
+
+    open_sea = np.asarray(open_sea, dtype=bool)
+    land = np.asarray(active, dtype=bool) & ~open_sea
+    near_land = ndimage.binary_dilation(land, structure=np.ones((3, 3), dtype=bool))
+    ring = open_sea & near_land
+    return ring, open_sea & ~ring
+
+
+def prepare_coastal_exclusion(cfg, work: Path, catalog: Path) -> dict:
+    """Harness v1.4 / D4 pre-build step: derive the open-sea exclusion polygon from a grid + dep + active-mask
+    hydromt build (same region/res/zmin/zmax/fill/drop settings as the real build), so that
+    setup_mask_active(exclude_mask=..., all_touched=False) deactivates the open sea except the coastal ring,
+    which setup_mask_bounds(zmax=0) then turns into msk = 2. Writes <work>/open_sea_exclude.geojson and
+    <work>/coastal_prep.json; returns the statistics (exclude_mask = None when the domain has no open sea)."""
+    import json
+
+    import numpy as np
+    import xarray as xr
+    from hydromt_sfincs import SfincsModel
+
+    work = Path(work)
+    root = work / "_coastal_prep"
+    if root.exists():
+        shutil.rmtree(root)
+    g = cfg.grid
+    mod = SfincsModel(root=str(root), mode="w+", data_libs=[str(catalog)])
+    mod.setup_grid_from_region(region={"bbox": cfg.bbox_list}, res=g["res"], crs=cfg.epsg, rotated=False)
+    mod.setup_dep(datasets_dep=[{"elevtn": "copdem30"}])
+    mod.setup_mask_active(zmin=g["zmin"], zmax=g["zmax"], fill_area=g["fill_area_km2"], drop_area=g["drop_area_km2"])
+    msk = mod.mask
+    dep = mod.grid["dep"].values
+    active = msk.values >= 1
+    sea0, open_sea, inland = open_sea_split(active, dep)
+    ring, exclude = coastal_ring(open_sea, active)
+    cell_km2 = g["res"] ** 2 / 1e6
+    stats = {"harness_version": cfg.harness_version, "n_active_before": int(active.sum()), "n_dep_le_0": int(sea0.sum()),
+             "n_open_sea": int(open_sea.sum()), "open_sea_km2": round(float(open_sea.sum() * cell_km2), 2),
+             "n_inland_dep_le_0": int(inland.sum()), "n_ring": int(ring.sum()), "ring_length_km": round(float(ring.sum() * g["res"] / 1000), 1),
+             "n_exclude": int(exclude.sum()), "n_active_after_expected": int(active.sum() - exclude.sum()),
+             "connectivity": {"open_sea": 4, "ring_adjacency": 8}, "zsini": ZSINI_DRY, "exclude_mask": None}
+    if exclude.any():
+        da = xr.DataArray(exclude.astype("uint8"), coords=msk.coords, dims=msk.dims, name="exclude")
+        da.raster.set_crs(msk.raster.crs)
+        da.raster.set_nodata(0)
+        gdf = da.raster.vectorize()
+        gdf = gdf[gdf["value"] == 1][["geometry"]]
+        out = work / "open_sea_exclude.geojson"
+        if out.exists():
+            out.unlink()
+        gdf.to_file(out, driver="GeoJSON")
+        stats["exclude_mask"] = str(out).replace("\\", "/")
+        stats["n_exclude_polygons"] = int(len(gdf))
+    (work / "coastal_prep.json").write_text(json.dumps(stats, indent=2), encoding="utf-8")
+    print(f"  coastal prep (v1.4/D4): open sea {stats['n_open_sea']} cells ({stats['open_sea_km2']} km2), ring {stats['n_ring']} "
+          f"cells, inland dep<=0 kept {stats['n_inland_dep_le_0']}, excluded {stats['n_exclude']}", flush=True)
+    return stats
+
+
+def _mask_active_extra(cfg, exclude_mask) -> str:
+    if cfg.harness_version != "v1.4" or not exclude_mask:
+        return ""
+    return f"\n  exclude_mask: {str(exclude_mask).replace(chr(92), '/')}\n  all_touched: false"
+
+
+def render_build_yml(cfg, exclude_mask=None) -> str:
+    """Render the HydroMT build file for a config (pure: nothing written).
+
+    exclude_mask: path of the open-sea exclusion polygon from prepare_coastal_exclusion (v1.4 only; ignored
+    under v1.3 so the published records render unchanged)."""
     tmpl = (SKILL_DIR / "templates" / "sfincs_build.yml.tmpl").read_text()
     grid = cfg.grid
     return string.Template(tmpl).substitute({
+        "zsini": ZSINI_DRY if cfg.harness_version == "v1.4" else 0,
+        "mask_active_extra": _mask_active_extra(cfg, exclude_mask),
         "tref": cfg.tref.strftime("%Y%m%d %H%M%S"),
         "tstart": cfg.tstart.strftime("%Y%m%d %H%M%S"),
         "tstop": cfg.tstop.strftime("%Y%m%d %H%M%S"),
@@ -195,7 +295,7 @@ def inject_waterlevel_bnd(cfg, model_dir: Path) -> int:
     Sect. 3.3.3) and pavbnd = PAVBND_REF_PA in sfincs.inp, SFINCS sets the boundary water level to
     (pavbnd - p_atm(cell, t))/(rhow g) — the inverse barometer from the ERA5 MSLP forcing.
     """
-    if cfg.harness_version != "v1.4" or not cfg.coastal_bc["enabled"]:
+    if cfg.harness_version != "v1.4":
         return 0
     from hydromt_sfincs import SfincsModel
 
@@ -204,8 +304,7 @@ def inject_waterlevel_bnd(cfg, model_dir: Path) -> int:
     mod.read_grid()
     gdf = waterlevel_bnd_points(mod.mask, BND_SPACING_M)
     if len(gdf) == 0:
-        print("  WARN: coastal_bc enabled but the mask has no msk=2 cells — "
-              "no water-level boundary written.")
+        print("  no msk=2 cells — no water-level boundary written.")
         return 0
     n = write_waterlevel_bnd(Path(model_dir), gdf, tref=str(mod.config["tref"]), tstop=str(mod.config["tstop"]))
     print(f"  injected water-level boundary: {n} bnd points every {BND_SPACING_M:.0f} m along the "
@@ -267,7 +366,12 @@ def main():
     work = cfg.paths["work_dir"]
     work.mkdir(parents=True, exist_ok=True)
 
-    rendered = render_build_yml(cfg)
+    exclude_mask = None
+    if cfg.harness_version == "v1.4":
+        # D4: open sea inactive except the coastal ring (msk = 2); every cell starts dry (zsini)
+        prep = prepare_coastal_exclusion(cfg, work, work / "data_catalog.yml")
+        exclude_mask = prep["exclude_mask"]
+    rendered = render_build_yml(cfg, exclude_mask=exclude_mask)
     yml_path = work / "sfincs_build.yml"
     yml_path.write_text(rendered, encoding="utf-8")
     print(f"wrote: {yml_path}")

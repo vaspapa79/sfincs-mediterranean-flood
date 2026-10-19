@@ -19,6 +19,9 @@ event:
   location: "Crete, Greece — Lefka Ori / Psiloritis / Dikti massifs and the N, NE and SE coasts"
   reason: "Quasi-stationary cut-off low over the E Mediterranean, persistent N–NE flow, five-day orographic rainfall (NOA)"
 
+# CODE-13 (2026-10-19): harness v1.4 approved for EMSR933 (D1 IMERG rates, D2 IB boundary, D4 coastal set-up).
+harness_version: v1.4
+
 window:
   spinup_days: 7            # multi-day event convention (Table 2: Pineios, Strymonas 7 d)
   pre_event_days: 3         # -> tstart 2026-09-28 00:00

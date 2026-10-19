@@ -86,6 +86,15 @@ rain_source: imerg_half_hourly
 #       zs_bnd = bzs + (pavbnd - p_atm)/(rho_w g) only when pavbnd > 1.0 (sfincs_boundaries.f90:796-800,
 #       v2.3.0); the published `pavbnd: 1` was therefore a no-op. Under v1.4 the legacy coastal_bc.pavbnd
 #       value is ignored (enabled governs); under v1.3 it is still written as-is.
+#   D4  (CODE-13) coastal set-up for EVERY v1.4 run, baselines included: open-sea cells (active, dep <= 0,
+#       connected to the grid edge through dep <= 0 cells) are made inactive by a pre-build step
+#       (build_model.prepare_coastal_exclusion -> <work>/open_sea_exclude.geojson, passed to
+#       setup_mask_active as exclude_mask with all_touched: false) except a one-cell ring adjacent to land,
+#       which setup_mask_bounds(zmax: 0) turns into msk = 2; inland dep <= 0 cells stay active land; bnd
+#       points every 10 km along that ring with bzs = 0 m (pavbnd only when coastal_bc.enabled); and
+#       zsini: -9999 so that every active cell starts dry regardless of zb (SFINCS v2.3.0
+#       sfincs_initial_conditions.F90:98-100, zs = max(z_zmin, zsini)). v1.3 keeps the published active sea
+#       plane, perimeter boundary and zsini: 0.
 # harness_version: v1.4
 
 ems:

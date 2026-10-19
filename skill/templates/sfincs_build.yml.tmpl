@@ -9,7 +9,7 @@ setup_config:
   manning_land: $manning_land
   manning_sea: $manning_sea
   rgh_lev_land: 0
-  zsini: 0
+  zsini: $zsini
   huthresh: 0.01
   advection: 1$pavbnd_line
 
@@ -28,7 +28,7 @@ setup_mask_active:
   zmin: $zmin
   zmax: $zmax
   fill_area: $fill_area
-  drop_area: $drop_area
+  drop_area: $drop_area$mask_active_extra
 
 setup_mask_bounds:
   btype: waterlevel
