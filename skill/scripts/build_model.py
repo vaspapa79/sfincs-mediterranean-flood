@@ -312,6 +312,82 @@ def inject_waterlevel_bnd(cfg, model_dir: Path) -> int:
     return n
 
 
+# --- harness v1.4 / D5 meteo-grid alignment (GO-C decision 2, 2026-10-19) -----------------------
+# SFINCS v2.3.0 reads the first x/y of a netamp / netamuamv / netampr file as the LOWER-LEFT CORNER of the
+# first cell (sfincs_ncinput.F90:382-385, 496-500, 606-610: amp_x_llcorner = px(1), amp_dy = py(2) - py(1)) and
+# places column ix at x(1) + dx/2 + (ix-1) dx and the rows, flipped on read, at y(file) + dy/2 (sfincs_meteo.f90:
+# 806-807, 977-978, 1109-1110: xll = llcorner + 0.5 dx, yul = llcorner + (nrows-1) dy + 0.5 dy; dy signed).
+# hydromt_sfincs writes cell CENTRES (north-up, dy < 0), so every NetCDF meteo field — pressure, wind, rain —
+# was applied half a meteo cell east and south of where it belongs (ERA5 ~12 km, IMERG ~5 km; this is the whole
+# of the "IB shortfall" of CODE-12/13). v1.4 writes x - dx/2, y - dy/2 so that SFINCS's centres are the true ones.
+METEO_INP_KEYS = ("netamprfile", "netampfile", "netamuamvfile")
+ALIGN_ATTR = "sfincs_corner_alignment"
+_ALIGN_NOTE = ("x/y shifted by (-dx/2, -dy/2) after the hydromt build (harness v1.4, D5): SFINCS v2.3.0 treats x(1), y(1) "
+               "as the lower-left corner and adds half a cell (sfincs_ncinput.F90:496-500, sfincs_meteo.f90:977-978), so "
+               "the values are applied at the original cell centres. Add (x_shift_m, y_shift_m) back to recover them.")
+
+
+def corner_aligned_coords(x, y):
+    """Coordinates to write so that SFINCS's corner-plus-half-cell rule lands on the original centres:
+    x - dx/2, y - dy/2 with dx = x[1]-x[0], dy = y[1]-y[0] (signed: a north-up file is shifted north)."""
+    import numpy as np
+
+    x = np.asarray(x, dtype=float)
+    y = np.asarray(y, dtype=float)
+    return x - 0.5 * (x[1] - x[0]), y - 0.5 * (y[1] - y[0])
+
+
+def align_meteo_grid_file(path) -> dict:
+    """Shift the x/y coordinate variables of one hydromt-written meteo NetCDF in place (netCDF4 r+; nothing
+    else in the file is touched). Idempotent: a file carrying ALIGN_ATTR is left alone (applied = False)."""
+    import netCDF4
+
+    path = Path(path)
+    with netCDF4.Dataset(path, "r+") as nc:
+        if ALIGN_ATTR in nc.ncattrs() and int(nc.getncattr(ALIGN_ATTR)) == 1:
+            return {"file": str(path), "applied": False, "x_shift": float(nc.getncattr("x_shift_m")),
+                    "y_shift": float(nc.getncattr("y_shift_m"))}
+        x = nc["x"][:].astype(float)
+        y = nc["y"][:].astype(float)
+        xs, ys = corner_aligned_coords(x, y)
+        nc["x"][:] = xs
+        nc["y"][:] = ys
+        x_shift, y_shift = float(xs[0] - x[0]), float(ys[0] - y[0])
+        nc.setncattr(ALIGN_ATTR, 1)
+        nc.setncattr("x_shift_m", x_shift)
+        nc.setncattr("y_shift_m", y_shift)
+        nc.setncattr(ALIGN_ATTR + "_note", _ALIGN_NOTE)
+    return {"file": str(path), "applied": True, "x_shift": x_shift, "y_shift": y_shift,
+            "dx": float(x[1] - x[0]), "dy": float(y[1] - y[0])}
+
+
+def align_meteo_grids(cfg, model_dir: Path) -> list:
+    """Harness v1.4 / D5 post-build step: align every meteo file named in sfincs.inp (METEO_INP_KEYS).
+    No-op ([]) under v1.3. Returns one report dict per file found."""
+    if cfg.harness_version != "v1.4":
+        return []
+    model_dir = Path(model_dir)
+    inp = model_dir / "sfincs.inp"
+    if not inp.exists():
+        return []
+    keys = {}
+    for ln in inp.read_text().splitlines():
+        if "=" in ln:
+            k, v = ln.split("=", 1)
+            keys[k.strip()] = v.strip()
+    reps = []
+    for key in METEO_INP_KEYS:
+        name = keys.get(key)
+        if not name or not (model_dir / name).exists():
+            continue
+        rep = align_meteo_grid_file(model_dir / name)
+        rep["key"] = key
+        reps.append(rep)
+        print(f"  meteo grid aligned (v1.4/D5): {key} = {name}: x {rep['x_shift']:+.1f} m, y {rep['y_shift']:+.1f} m"
+              f"{'' if rep['applied'] else ' (already aligned)'}", flush=True)
+    return reps
+
+
 def inject_q_forcing(cfg, model_dir: Path) -> None:
     """Write sfincs.src + sfincs.dis and patch sfincs.inp.
 
@@ -402,6 +478,8 @@ def main():
         sys.exit(f"hydromt build failed with exit code {res.returncode}")
     print(f"HydroMT build succeeded -> {model_dir}")
 
+    # Post-HydroMT (harness v1.4 / D5): meteo NetCDF coordinates aligned to SFINCS's corner convention
+    align_meteo_grids(cfg, model_dir)
     # Post-HydroMT (harness v1.4): water-level boundary points + bzs = 0 m for the IB correction
     inject_waterlevel_bnd(cfg, model_dir)
     # Post-HydroMT: inject discharge forcing if configured

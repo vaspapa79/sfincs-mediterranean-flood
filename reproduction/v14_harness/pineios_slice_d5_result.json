@@ -1,0 +1,190 @@
+{
+  "utc": "2026-10-19T08:54:50Z",
+  "scoring": "none",
+  "slice_model_src": "C:\\Users\\dvalsamis\\AppData\\Local\\Temp\\claude\\d--ELKAK\\9345177c-48a6-4380-9f01-2779f44e774f\\scratchpad\\pineios_slice\\model",
+  "reference_press_2d": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\model\\press_2d.nc",
+  "work": "C:\\Users\\dvalsamis\\AppData\\Local\\Temp\\claude\\d--ELKAK\\9345177c-48a6-4380-9f01-2779f44e774f\\scratchpad\\pineios_slice_d5\\model",
+  "alignment": [
+    {
+      "file": "C:\\Users\\dvalsamis\\AppData\\Local\\Temp\\claude\\d--ELKAK\\9345177c-48a6-4380-9f01-2779f44e774f\\scratchpad\\pineios_slice_d5\\model\\precip_2d.nc",
+      "applied": true,
+      "x_shift": -4731.395468819886,
+      "y_shift": 4731.395468819886,
+      "dx": 9462.790937639773,
+      "dy": -9462.790937639773
+    },
+    {
+      "file": "C:\\Users\\dvalsamis\\AppData\\Local\\Temp\\claude\\d--ELKAK\\9345177c-48a6-4380-9f01-2779f44e774f\\scratchpad\\pineios_slice_d5\\model\\press_2d.nc",
+      "applied": true,
+      "x_shift": -11887.181369067868,
+      "y_shift": 11887.181369068101,
+      "dx": 23774.36273813562,
+      "dy": -23774.36273813527
+    },
+    {
+      "file": "C:\\Users\\dvalsamis\\AppData\\Local\\Temp\\claude\\d--ELKAK\\9345177c-48a6-4380-9f01-2779f44e774f\\scratchpad\\pineios_slice_d5\\model\\wind_2d.nc",
+      "applied": true,
+      "x_shift": -11887.181369067868,
+      "y_shift": 11887.181369068101,
+      "dx": 23774.36273813562,
+      "dy": -23774.36273813527
+    }
+  ],
+  "n_msk2": 650,
+  "n_output_times": 145,
+  "sfincs_wall_s": 220.4,
+  "boundary_wet_fraction": 0.898684350132626,
+  "modelled_zs_min_max": [
+    7.777160249133885e-07,
+    0.06361250579357147
+  ],
+  "after_bilinear": {
+    "mean_diff_m": -1.0376660122421915e-06,
+    "rmse_m": 3.460078795970501e-06,
+    "max_abs_m": 1.8839769658274275e-05,
+    "corr": 0.9999999851275755,
+    "fit_slope": 1.0000050261909348,
+    "fit_offset_m": -1.1765740477547481e-06,
+    "expected_ib_m_min_max": [
+      -0.014860251233748815,
+      0.06363676951321652
+    ]
+  },
+  "after_nearest": {
+    "mean_diff_m": -0.001133265205738373,
+    "rmse_m": 0.0020450843278726188,
+    "max_abs_m": 0.007113769342866512,
+    "corr": 0.9963466305507439,
+    "fit_slope": 0.9755187251264325,
+    "fit_offset_m": -0.0004289617506108787,
+    "expected_ib_m_min_max": [
+      -0.012917086011165264,
+      0.06477441505797656
+    ]
+  },
+  "before_nearest_CODE12": {
+    "utc": "2026-10-12T10:19:56Z",
+    "diff_mean_m": -0.005613317113502392,
+    "diff_rmse_m": 0.006570629827646342,
+    "diff_max_abs_m": 0.018819174580238032,
+    "corr_modelled_vs_expected": 0.9835957017592486,
+    "modelled_zs_min_max": [
+      1.555432049826777e-06,
+      0.059958018362522125
+    ],
+    "expected_ib_m_min_max": [
+      -0.012917086011165264,
+      0.06477441505797656
+    ]
+  },
+  "series_hourly": [
+    {
+      "time": "2023-09-05 00:00",
+      "modelled_mean_m": 0.0455
+    },
+    {
+      "time": "2023-09-05 01:00",
+      "modelled_mean_m": 0.0503
+    },
+    {
+      "time": "2023-09-05 02:00",
+      "modelled_mean_m": 0.0529
+    },
+    {
+      "time": "2023-09-05 03:00",
+      "modelled_mean_m": 0.0531
+    },
+    {
+      "time": "2023-09-05 04:00",
+      "modelled_mean_m": 0.0524
+    },
+    {
+      "time": "2023-09-05 05:00",
+      "modelled_mean_m": 0.0525
+    },
+    {
+      "time": "2023-09-05 06:00",
+      "modelled_mean_m": 0.0517
+    },
+    {
+      "time": "2023-09-05 07:00",
+      "modelled_mean_m": 0.044
+    },
+    {
+      "time": "2023-09-05 08:00",
+      "modelled_mean_m": 0.04
+    },
+    {
+      "time": "2023-09-05 09:00",
+      "modelled_mean_m": 0.0317
+    },
+    {
+      "time": "2023-09-05 10:00",
+      "modelled_mean_m": 0.0178
+    },
+    {
+      "time": "2023-09-05 11:00",
+      "modelled_mean_m": 0.0135
+    },
+    {
+      "time": "2023-09-05 12:00",
+      "modelled_mean_m": 0.0135
+    },
+    {
+      "time": "2023-09-05 13:00",
+      "modelled_mean_m": 0.0172
+    },
+    {
+      "time": "2023-09-05 14:00",
+      "modelled_mean_m": 0.0199
+    },
+    {
+      "time": "2023-09-05 15:00",
+      "modelled_mean_m": 0.0171
+    },
+    {
+      "time": "2023-09-05 16:00",
+      "modelled_mean_m": 0.0136
+    },
+    {
+      "time": "2023-09-05 17:00",
+      "modelled_mean_m": 0.0088
+    },
+    {
+      "time": "2023-09-05 18:00",
+      "modelled_mean_m": 0.0076
+    },
+    {
+      "time": "2023-09-05 19:00",
+      "modelled_mean_m": 0.0047
+    },
+    {
+      "time": "2023-09-05 20:00",
+      "modelled_mean_m": 0.0065
+    },
+    {
+      "time": "2023-09-05 21:00",
+      "modelled_mean_m": 0.0072
+    },
+    {
+      "time": "2023-09-05 22:00",
+      "modelled_mean_m": 0.0076
+    },
+    {
+      "time": "2023-09-05 23:00",
+      "modelled_mean_m": 0.0031
+    },
+    {
+      "time": "2023-09-06 00:00",
+      "modelled_mean_m": 0.0049
+    }
+  ],
+  "sfincs_log_tail": [
+    " Time in continuity     :     38.745 ( 17.6%)",
+    " Time in output         :      3.913 (  1.8%)",
+    "",
+    " Average time step (s)  :      4.226",
+    "",
+    "---------- Closing off SFINCS -----------"
+  ]
+}

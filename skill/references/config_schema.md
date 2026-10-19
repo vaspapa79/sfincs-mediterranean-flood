@@ -95,6 +95,12 @@ rain_source: imerg_half_hourly
 #       zsini: -9999 so that every active cell starts dry regardless of zb (SFINCS v2.3.0
 #       sfincs_initial_conditions.F90:98-100, zs = max(z_zmin, zsini)). v1.3 keeps the published active sea
 #       plane, perimeter boundary and zsini: 0.
+#   D5  (GO-C) meteo-grid alignment: SFINCS v2.3.0 reads the first x/y of every netamp / netamuamv / netampr
+#       NetCDF as the lower-left CORNER of the first cell and adds half a cell (sfincs_ncinput.F90:496-500,
+#       sfincs_meteo.f90:977-978), while hydromt writes cell CENTRES — every pressure, wind and rain field was
+#       applied half a meteo cell east and south (ERA5 ~12 km, IMERG ~5 km). v1.4 shifts the x/y coordinates
+#       of the written files by (-dx/2, -dy/2) after the build (build_model.align_meteo_grids; the files carry
+#       the global attributes sfincs_corner_alignment = 1, x_shift_m, y_shift_m). v1.3 files are untouched.
 # harness_version: v1.4
 
 ems:
