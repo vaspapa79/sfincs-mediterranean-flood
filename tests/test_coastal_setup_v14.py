@@ -242,6 +242,23 @@ class CoastalStripIntegration(unittest.TestCase):
         self.assertEqual(int((self.msk == 2).sum()), self.prep["n_ring"])
         self.assertTrue((self.zb[self.msk == 2] <= 0).all())
 
+    def test_open_sea_mask_tif_is_written_north_up_for_the_evaluation_mask(self):
+        """GO-C decision 3: the open-sea mask (incl. the ring) is saved as a GeoTIFF on the model grid."""
+        import rasterio
+        p = Path(self.prep["open_sea_mask_tif"])
+        self.assertTrue(p.exists(), p)
+        with rasterio.open(p) as src:
+            arr = src.read(1); tr = src.transform
+            self.assertEqual(src.crs.to_epsg(), 32634)
+        self.assertLess(tr.e, 0, "GeoTIFF must be north-up")
+        self.assertEqual(int((arr == 1).sum()), self.prep["n_open_sea"])
+        # cell (row, col) of the GeoTIFF <-> sfincs_map.nc (y ascending): the sea columns are in the east in both
+        x = self.ds["x"].values
+        sea_cols = x > x.min() + 5100
+        self.assertTrue((arr[::-1, :][sea_cols] == 1).all(), "east of the coast is not flagged as open sea")
+        # the coast (lon w + 0.05 deg) sits ~4.56 km east of the west edge (+-0.2 km of meridian convergence)
+        self.assertFalse((arr[::-1, :][x < x.min() + 4200] == 1).any(), "land flagged as open sea")
+
     def test_inland_pit_stays_active_and_starts_dry(self):
         pit = (self.msk == 1) & (self.zb < -0.3)
         self.assertGreater(int(pit.sum()), 0, "inland pit not active")

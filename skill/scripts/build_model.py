@@ -169,6 +169,21 @@ def prepare_coastal_exclusion(cfg, work: Path, catalog: Path) -> dict:
              "n_inland_dep_le_0": int(inland.sum()), "n_ring": int(ring.sum()), "ring_length_km": round(float(ring.sum() * g["res"] / 1000), 1),
              "n_exclude": int(exclude.sum()), "n_active_after_expected": int(active.sum() - exclude.sum()),
              "connectivity": {"open_sea": 4, "ring_adjacency": 8}, "zsini": ZSINI_DRY, "exclude_mask": None}
+    # GO-C decision 3: the open-sea mask (incl. the ring) on the model grid, for the evaluation-mask exclusion
+    # (validation/eval_exclusion.py) — north-up uint8 GeoTIFF, 1 = open sea.
+    import rasterio
+    from rasterio.transform import from_origin
+    sea_tif = work / "open_sea_mask.tif"
+    yv = msk["y"].values
+    arr = open_sea.astype("uint8")
+    if yv.size > 1 and yv[0] < yv[-1]:          # hydromt grids are south-up: flip to north-up for the GeoTIFF
+        arr = arr[::-1, :]
+    res = float(g["res"])
+    tr = from_origin(float(msk["x"].values[0]) - res / 2, float(yv.max()) + res / 2, res, res)
+    with rasterio.open(sea_tif, "w", driver="GTiff", height=arr.shape[0], width=arr.shape[1], count=1, dtype="uint8",
+                       crs=msk.raster.crs, transform=tr, nodata=255, compress="deflate") as dst:
+        dst.write(np.ascontiguousarray(arr), 1)
+    stats["open_sea_mask_tif"] = str(sea_tif).replace("\\", "/")
     if exclude.any():
         da = xr.DataArray(exclude.astype("uint8"), coords=msk.coords, dims=msk.dims, name="exclude")
         da.raster.set_crs(msk.raster.crs)

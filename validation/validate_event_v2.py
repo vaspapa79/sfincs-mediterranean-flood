@@ -216,8 +216,34 @@ def _contingency_full(model_wet, ems_wet, mask):
     }
 
 
-def _validate_ems_v2(cfg, s):
-    """Enhanced EMS validation with fuzzy / neighborhood-tolerant metrics."""
+def apply_exclusion(evaluation_mask, ems_wet, exclusion, cell_km2):
+    """Harness v1.4 evaluation mask (GO-C decision 3): remove the excluded cells (WorldCover 80 ∪ open sea)
+    from the evaluation universe — model and truth alike — and report what the truth loses.
+    exclusion=None returns the mask unchanged (the published behaviour)."""
+    if exclusion is None:
+        return evaluation_mask, None
+    ex_in = evaluation_mask & exclusion
+    new_mask = evaluation_mask & ~exclusion
+    obs_before = int((ems_wet & evaluation_mask).sum())
+    obs_after = int((ems_wet & new_mask).sum())
+    stats = {
+        "excluded_cells": int(ex_in.sum()),
+        "excluded_km2": float(ex_in.sum() * cell_km2),
+        "evaluation_cells_before": int(evaluation_mask.sum()),
+        "evaluation_cells_after": int(new_mask.sum()),
+        "observed_wet_before_cells": obs_before,
+        "observed_wet_after_cells": obs_after,
+        "observed_wet_excluded_cells": obs_before - obs_after,
+        "observed_wet_excluded_km2": float((obs_before - obs_after) * cell_km2),
+    }
+    return new_mask, stats
+
+
+def _validate_ems_v2(cfg, s, exclusion=None):
+    """Enhanced EMS validation with fuzzy / neighborhood-tolerant metrics.
+
+    exclusion: optional bool array on the model grid (1 = cell removed from the evaluation universe on both
+    sides; see eval_exclusion.py). None = the published evaluation mask."""
     import numpy as np
 
     ems_dir = cfg.paths["data_dir"] / "ems_polygons"
@@ -240,6 +266,10 @@ def _validate_ems_v2(cfg, s):
         evaluation_mask = msk_bool & aoi_universe
     else:
         evaluation_mask = msk_bool
+    evaluation_mask, exclusion_stats = apply_exclusion(
+        evaluation_mask, ems_wet, exclusion, s["cell_area_km2"])
+    if exclusion is not None:
+        msk_bool = msk_bool & ~exclusion        # per-AOI universes lose the same cells
 
     zsmax = s["ds"]["zsmax"].max(dim="timemax").values
     hmax = np.where(np.isnan(zsmax), 0.0, np.maximum(zsmax - s["zb"], 0))
@@ -318,7 +348,7 @@ def _validate_ems_v2(cfg, s):
             "fuzzy_r1": fuzzy_aoi,
         })
 
-    return {
+    out = {
         "n_ems_shps": len(obs_shps),
         "n_aoi_shps": len(aoi_shps),
         "evaluation_area_km2": float(evaluation_mask.sum() * s["cell_area_km2"]),
@@ -337,12 +367,19 @@ def _validate_ems_v2(cfg, s):
         "tolerance_radius_m_at_r1":
             float(s["dx"]),  # one-cell radius in metres
     }
+    if exclusion_stats is not None:
+        out["evaluation_mask_exclusion"] = exclusion_stats
+    return out
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", required=True, type=Path)
     ap.add_argument("--out-json", type=Path, default=None)
+    ap.add_argument("--exclusion-tif", type=Path, default=None,
+                    help="harness v1.4 evaluation mask: north-up GeoTIFF on the model grid, 1 = cell "
+                         "excluded on both sides (eval_exclusion.py: WorldCover 80 ∪ open sea). "
+                         "Default: the published mask.")
     args, _ = ap.parse_known_args()
     sys.argv = [sys.argv[0], "--config", str(args.config)]
     cfg = load_config()
@@ -352,7 +389,13 @@ def main():
     if not (model_dir / "sfincs_map.nc").exists():
         sys.exit(f"sfincs_map.nc missing under {model_dir}")
     s = open_sfincs(model_dir)
-    v = _validate_ems_v2(cfg, s)
+    exclusion = None
+    if args.exclusion_tif:
+        from eval_exclusion import read_mask_for_grid
+        exclusion = read_mask_for_grid(args.exclusion_tif, s)
+        print(f"  evaluation-mask exclusion: {args.exclusion_tif} "
+              f"({int(exclusion.sum())} cells flagged on the grid)", flush=True)
+    v = _validate_ems_v2(cfg, s, exclusion=exclusion)
 
     strict10 = v["strict_threshold_sweep"].get("h>0.10m", {})
     fuzzy_r1 = v["fuzzy_at_h_gt_0p10m"].get("r=1", {})
@@ -380,6 +423,13 @@ def main():
         "generated_utc": dt.datetime.utcnow().isoformat(timespec="seconds") + "Z",
         "validation": v,
     }
+    if exclusion is not None:
+        report["evaluation_mask"] = {
+            "version": "v1.4", "rule": "WorldCover-2021 class 80 (cell centre) UNION v1.4 open-sea mask, "
+                                       "removed from model and truth alike",
+            "exclusion_tif": str(args.exclusion_tif),
+            "model_dir": str(model_dir),
+        }
     PAPER_DATA.mkdir(parents=True, exist_ok=True)
     out_json = args.out_json or PAPER_DATA / f"{cfg.event_slug}_metrics_v2.json"
     out_json.write_text(json.dumps(report, indent=2, default=str),
