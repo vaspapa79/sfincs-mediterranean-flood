@@ -39,7 +39,8 @@ sys.path.insert(0, str(SKILL_DIR / "scripts"))
 from _common import load_config  # noqa: E402
 
 
-def main():
+def build_parser() -> argparse.ArgumentParser:
+    """The CLI of this script (importable so the pipeline's command can be tested against it)."""
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", required=True, type=Path)
     ap.add_argument("--target-mm", type=float, default=200.0,
@@ -49,8 +50,13 @@ def main():
     ap.add_argument("--event-end", required=True,
                     help="Event window end (UTC), e.g. '2017-11-15 23:30'")
     ap.add_argument("--watershed-bbox", required=True,
-                    help="Watershed bbox 'minlon,minlat,maxlon,maxlat'")
-    args, _ = ap.parse_known_args()
+                    help="Watershed bbox 'minlon,minlat,maxlon,maxlat' (pass as --watershed-bbox=... when "
+                         "the box starts with a negative longitude)")
+    return ap
+
+
+def main():
+    args, _ = build_parser().parse_known_args()
 
     sys.argv = [sys.argv[0], "--config", str(args.config)]
     cfg = load_config()

@@ -38,6 +38,17 @@ STEPS = [
 ]
 
 
+def bias_correct_cmd(python: str, config_path: Path, bc: dict) -> list:
+    """Command line of step 06b. The watershed box is passed as --watershed-bbox=<value>: a box that starts with a
+    negative longitude (west of Greenwich, e.g. EMSR773 Valencia) would otherwise be read by argparse as an option."""
+    return [python, str(THIS_DIR / "bias_correct_imerg.py"),
+            "--config", str(config_path),
+            "--target-mm", repr(bc["target_mm"]),
+            "--event-start", bc["event_start"],
+            "--event-end", bc["event_end"],
+            f"--watershed-bbox={bc['watershed_bbox']}"]
+
+
 def maybe_bias_correct(python: str, config_path: Path) -> int:
     """R5: gauge-anchored IMERG bias correction, parameterised from the YAML.
 
@@ -59,12 +70,7 @@ def maybe_bias_correct(python: str, config_path: Path) -> int:
         print(f"[06b] bias_correct_imerg.py FAILED: rain_bias_correct enabled but "
               f"missing {', '.join(missing)}")
         return 2
-    cmd = [python, str(THIS_DIR / "bias_correct_imerg.py"),
-           "--config", str(config_path),
-           "--target-mm", repr(bc["target_mm"]),
-           "--event-start", bc["event_start"],
-           "--event-end", bc["event_end"],
-           "--watershed-bbox", bc["watershed_bbox"]]
+    cmd = bias_correct_cmd(python, config_path, bc)
     print(f"\n=== [06b] bias_correct_imerg.py "
           f"(target {bc['target_mm']:g} mm, watershed {bc['watershed_bbox']}, "
           f"{bc['event_start']} -> {bc['event_end']}) ===")
