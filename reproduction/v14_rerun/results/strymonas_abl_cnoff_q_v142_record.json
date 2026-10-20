@@ -1,0 +1,246 @@
+{
+  "run": "strymonas_abl_cnoff_q_v142",
+  "event": "strymonas",
+  "kind": "enhanced",
+  "phase": 7,
+  "group": "v142",
+  "label": "v1.4.2 (D8 source-point resolution) re-run of strymonas_abl_cnoff_q: Table 12 row 3: CN off + Q",
+  "c2_row": null,
+  "manifest_row": 9,
+  "work": "D:\\ELKAK\\implementation\\v14\\strymonas_abl_cnoff_q_v142",
+  "published_model": "D:\\ELKAK\\implementation\\emsr122_sfincs_v4\\model",
+  "published_wallclock_s": 232.5,
+  "published_text": null,
+  "published_note": null,
+  "compare_to": "strymonas_abl_cnoff_q",
+  "harness_tag": "v1.4.2",
+  "base_run": "strymonas_abl_cnoff_q",
+  "git_head": "b15896ac9607c4a2fc8d76be33919d78a12cde7b",
+  "start_utc": "2026-10-20T14:53:31Z",
+  "steps": [
+    {
+      "step": 6,
+      "start_utc": "2026-10-20T14:53:31Z",
+      "end_utc": "2026-10-20T14:53:32Z",
+      "wall_s": 1.1,
+      "exit": 0
+    },
+    {
+      "step": 7,
+      "start_utc": "2026-10-20T14:53:32Z",
+      "end_utc": "2026-10-20T14:53:34Z",
+      "wall_s": 2.4,
+      "exit": 0
+    },
+    {
+      "step": 8,
+      "start_utc": "2026-10-20T14:53:34Z",
+      "end_utc": "2026-10-20T14:53:35Z",
+      "wall_s": 0.4,
+      "exit": 0
+    },
+    {
+      "step": 9,
+      "start_utc": "2026-10-20T14:53:35Z",
+      "end_utc": "2026-10-20T14:53:37Z",
+      "wall_s": 1.7,
+      "exit": 0
+    },
+    {
+      "step": 10,
+      "start_utc": "2026-10-20T14:53:37Z",
+      "end_utc": "2026-10-20T14:54:42Z",
+      "wall_s": 65.4,
+      "exit": 0
+    },
+    {
+      "step": 11,
+      "start_utc": "2026-10-20T14:54:42Z",
+      "end_utc": "2026-10-20T14:58:50Z",
+      "wall_s": 248.2,
+      "exit": 0
+    }
+  ],
+  "config": "reproduction\\v14_rerun\\configs\\strymonas_abl_cnoff_q_v142.yaml",
+  "config_note": {
+    "derived_from": "skill/examples/emsr122_strymonas_enhanced.yaml",
+    "changes": [
+      "harness_version: v1.4",
+      "paths.work_dir/deliverable_dir/zip_dir -> D:\\ELKAK\\implementation\\v14\\strymonas_abl_cnoff_q_v142",
+      "overrides: {\"infiltration\": {\"enabled\": false}, \"upstream_q\": {\"src_points\": [{\"name\": \"kerkini_outlet\", \"lon\": 23.3991, \"lat\": 41.0289}, {\"name\": \"angitis\", \"lon\": 23.92, \"lat\": 41.0}]}}"
+    ]
+  },
+  "frozen_config_check": {
+    "frozen": "D:\\ELKAK\\reproduction\\ablation_configs\\abl_cnoff.yaml",
+    "identical_outside_env_paths": true,
+    "differences": "{}"
+  },
+  "seed": {
+    "from": "D:\\ELKAK\\implementation\\emsr122_sfincs_v3\\data",
+    "junctions": {
+      "copdem30": "exists",
+      "esa_worldcover": "exists",
+      "ems_polygons": "exists",
+      "era5_extracted": "exists"
+    },
+    "copied": [],
+    "skipped": [
+      "glofas_strymonas.nc",
+      "imerg_strymonas.nc",
+      "era5_strymonas.nc"
+    ]
+  },
+  "coastal_prep": {
+    "harness_version": "v1.4",
+    "n_active_before": 207374,
+    "n_dep_le_0": 22516,
+    "n_open_sea": 22427,
+    "open_sea_km2": 504.61,
+    "n_inland_dep_le_0": 89,
+    "n_ring": 877,
+    "ring_length_km": 131.6,
+    "n_exclude": 21550,
+    "n_active_after_expected": 185824,
+    "connectivity": {
+      "open_sea": 4,
+      "ring_adjacency": 8
+    },
+    "zsini": -9999,
+    "exclude_mask": "D:/ELKAK/implementation/v14/strymonas_abl_cnoff_q_v142/open_sea_exclude.geojson",
+    "open_sea_mask_tif": "D:/ELKAK/implementation/v14/strymonas_abl_cnoff_q_v142/open_sea_mask.tif",
+    "n_exclude_polygons": 3
+  },
+  "exclusion": {
+    "reused": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\masks\\strymonas_exclusion.tif",
+    "open_sea_identical_to_first_build": true,
+    "symmetric_difference_cells": 0
+  },
+  "rescoring_v13_reused_from": "strymonas_abl_cnoff_q",
+  "sfincs_total_time_s": 247.551,
+  "q_outlet_cells": {
+    "window_half_deg": 0.1,
+    "latitude_order": "descending",
+    "glofas_time": [
+      "2015-03-02T00:00:00",
+      "2015-05-01T00:00:00"
+    ],
+    "points": [
+      {
+        "id": 1,
+        "name": "kerkini_outlet",
+        "named_lonlat": [
+          23.3991,
+          41.0289
+        ],
+        "window_half_deg": 0.1,
+        "cell_lonlat": [
+          23.475,
+          40.975
+        ],
+        "window_cells": 16,
+        "inject": true,
+        "cell_mean_m3s": 215.851,
+        "cell_peak_m3s": 640.344,
+        "column_peak_m3s": 640.344,
+        "column_mean_m3s": 303.083
+      },
+      {
+        "id": 2,
+        "name": "angitis",
+        "named_lonlat": [
+          23.92,
+          41.0
+        ],
+        "window_half_deg": 0.1,
+        "cell_lonlat": [
+          23.825,
+          40.925
+        ],
+        "window_cells": 16,
+        "inject": true,
+        "cell_mean_m3s": 69.573,
+        "cell_peak_m3s": 211.469,
+        "column_peak_m3s": 96.812,
+        "column_mean_m3s": 70.793
+      }
+    ],
+    "duplicate_cells": [],
+    "harness_version": "v1.4"
+  },
+  "src_snap": {
+    "harness_version": "v1.4",
+    "radius_m": 1000.0,
+    "channel_fraction": 0.5,
+    "uparea_source": "Copernicus DEM tiles (6) mosaicked on the model grid, D8 (pyflwdir)",
+    "points": [
+      {
+        "name": "kerkini_outlet",
+        "yaml_xy": [
+          701688.08,
+          4544737.97
+        ],
+        "injected": true,
+        "row_col": [
+          288,
+          341
+        ],
+        "xy": [
+          701692.0,
+          4544287.0
+        ],
+        "zb_m": 14.4,
+        "distance_m": 451,
+        "uparea_km2": 1.22,
+        "max_uparea_within_radius_km2": 1.46,
+        "n_active_within_radius": 137,
+        "n_channel_cells": 7
+      },
+      {
+        "name": "angitis",
+        "yaml_xy": [
+          745591.46,
+          4542864.67
+        ],
+        "injected": true,
+        "row_col": [
+          297,
+          631
+        ],
+        "xy": [
+          745192.0,
+          4542937.0
+        ],
+        "zb_m": 19.11,
+        "distance_m": 406,
+        "uparea_km2": 155.23,
+        "max_uparea_within_radius_km2": 159.37,
+        "n_active_within_radius": 141,
+        "n_channel_cells": 12
+      }
+    ]
+  },
+  "validation_v14": {
+    "exit": 0,
+    "wall_s": 4.1,
+    "json": "results/strymonas_abl_cnoff_q_v142_v14_newmask.json"
+  },
+  "rescoring_v13": {},
+  "published_strict": {
+    "_source": "D:\\ELKAK\\manuscript\\paper_submission_v2\\data\\exp\\strymonas_v4_cnoff_qon.json",
+    "tp": 4498,
+    "fp": 14112,
+    "fn": 239,
+    "tn": 35492,
+    "csi": 0.23863334924929705,
+    "hr": 0.9495461262402365,
+    "far": 0.7583019881783987,
+    "bias": 3.9286468228836817,
+    "gss": 0.16693435889812597
+  },
+  "quicklook": {
+    "exit": 0,
+    "png": "quicklook/strymonas_abl_cnoff_q_v142_v14_hmax.png",
+    "err": ""
+  },
+  "end_utc": "2026-10-20T14:58:59Z"
+}

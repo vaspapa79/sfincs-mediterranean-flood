@@ -1,0 +1,404 @@
+{
+  "utc": "2026-10-20T16:30:44Z",
+  "threshold_m": 0.1,
+  "runs": {
+    "pineios_enhanced_v142": {
+      "run": "pineios_enhanced_v142",
+      "event": "pineios",
+      "window_simulated": [
+        "2023-09-03 00:00:00",
+        "2023-09-11 00:00:00"
+      ],
+      "injected": {
+        "n_sources": 3,
+        "window": [
+          "2023-09-03 00:00:00",
+          "2023-09-11 00:00:00"
+        ],
+        "sources": [
+          {
+            "name": "pineios_trikala",
+            "peak_m3s": 371.39,
+            "mean_m3s": 129.2881347150259,
+            "volume_m3": 89672202.0,
+            "snap": {
+              "name": "pineios_trikala",
+              "yaml_xy": [
+                573878.87,
+                4379276.52
+              ],
+              "injected": true,
+              "row_col": [
+                345,
+                18
+              ],
+              "xy": [
+                574457.0,
+                4380090.0
+              ],
+              "zb_m": 95.79,
+              "distance_m": 998,
+              "uparea_km2": 1.91,
+              "max_uparea_within_radius_km2": 1.91,
+              "n_active_within_radius": 139,
+              "n_channel_cells": 5
+            }
+          },
+          {
+            "name": "titarisios",
+            "peak_m3s": 42.85,
+            "mean_m3s": 24.387616580310883,
+            "volume_m3": 16885152.0,
+            "snap": {
+              "name": "titarisios",
+              "yaml_xy": [
+                621724.29,
+                4396534.68
+              ],
+              "injected": true,
+              "row_col": [
+                233,
+                335
+              ],
+              "xy": [
+                622007.0,
+                4396890.0
+              ],
+              "zb_m": 61.69,
+              "distance_m": 454,
+              "uparea_km2": 4.88,
+              "max_uparea_within_radius_km2": 6.89,
+              "n_active_within_radius": 139,
+              "n_channel_cells": 139
+            }
+          },
+          {
+            "name": "enipeas",
+            "peak_m3s": 118.4,
+            "mean_m3s": 62.05357512953367,
+            "volume_m3": 43007796.0,
+            "snap": {
+              "name": "enipeas",
+              "yaml_xy": [
+                619803.78,
+                4354319.21
+              ],
+              "injected": true,
+              "row_col": [
+                513,
+                316
+              ],
+              "xy": [
+                619157.0,
+                4354890.0
+              ],
+              "zb_m": 130.87,
+              "distance_m": 863,
+              "uparea_km2": 336.62,
+              "max_uparea_within_radius_km2": 336.8,
+              "n_active_within_radius": 137,
+              "n_channel_cells": 12
+            }
+          }
+        ],
+        "total_volume_m3": 149565150.0,
+        "combined_peak_m3s": 532.64
+      },
+      "sampled_points": [
+        {
+          "name": "pineios_trikala",
+          "cell_lonlat": [
+            21.84,
+            39.51
+          ],
+          "column_peak_m3s": 371.39,
+          "inject": true
+        },
+        {
+          "name": "pineios_kalambaka",
+          "cell_lonlat": [
+            21.54,
+            39.71
+          ],
+          "column_peak_m3s": 40.78,
+          "inject": false
+        },
+        {
+          "name": "titarisios",
+          "cell_lonlat": [
+            22.24,
+            39.71
+          ],
+          "column_peak_m3s": 42.85,
+          "inject": true
+        },
+        {
+          "name": "enipeas",
+          "cell_lonlat": [
+            22.34,
+            39.31
+          ],
+          "column_peak_m3s": 118.4,
+          "inject": true
+        }
+      ],
+      "rain_on_active_domain": {
+        "file": "precip_2d.nc",
+        "variable": "Precipitation",
+        "n_steps": 384,
+        "step_h": 0.5,
+        "window": [
+          "2023-09-03 00:00:00",
+          "2023-09-11 00:00:00"
+        ],
+        "active_area_km2": 5033.3175,
+        "rain_volume_m3": 2237133745.3097343,
+        "mean_depth_over_active_mm": 444.46505616022324,
+        "max_cell_depth_mm": 871.7196119697765
+      },
+      "injected_over_rain": 0.06685570333627616,
+      "model_flood_hmax_gt_thr": {
+        "wet_area_km2": 2794.905,
+        "volume_m3": 3565396992.0
+      }
+    },
+    "emilia_enhanced_8aoi_v142": {
+      "run": "emilia_enhanced_8aoi_v142",
+      "event": "emilia_romagna",
+      "window_simulated": [
+        "2023-05-14 00:00:00",
+        "2023-05-22 00:00:00"
+      ],
+      "injected": {
+        "n_sources": 5,
+        "window": [
+          "2023-05-14 00:00:00",
+          "2023-05-22 00:00:00"
+        ],
+        "sources": [
+          {
+            "name": "lamone",
+            "peak_m3s": 188.22,
+            "mean_m3s": 97.92875647668394,
+            "volume_m3": 67861692.0,
+            "snap": {
+              "name": "lamone",
+              "yaml_xy": [
+                731568.4,
+                4902620.03
+              ],
+              "injected": true,
+              "row_col": [
+                388,
+                299
+              ],
+              "xy": [
+                730945.0,
+                4903133.0
+              ],
+              "zb_m": 46.22,
+              "distance_m": 807,
+              "uparea_km2": 188.98,
+              "max_uparea_within_radius_km2": 188.98,
+              "n_active_within_radius": 139,
+              "n_channel_cells": 3
+            }
+          },
+          {
+            "name": "senio",
+            "peak_m3s": 62.44,
+            "mean_m3s": 36.251295336787564,
+            "volume_m3": 25106292.0,
+            "snap": {
+              "name": "senio",
+              "yaml_xy": [
+                727195.04,
+                4910332.86
+              ],
+              "injected": true,
+              "row_col": [
+                338,
+                279
+              ],
+              "xy": [
+                727945.0,
+                4910633.0
+              ],
+              "zb_m": 29.4,
+              "distance_m": 808,
+              "uparea_km2": 284.56,
+              "max_uparea_within_radius_km2": 284.56,
+              "n_active_within_radius": 137,
+              "n_channel_cells": 13
+            }
+          },
+          {
+            "name": "montone",
+            "peak_m3s": 131.94,
+            "mean_m3s": 65.68538860103627,
+            "volume_m3": 45523854.0,
+            "snap": {
+              "name": "montone",
+              "yaml_xy": [
+                738198.57,
+                4896184.35
+              ],
+              "injected": true,
+              "row_col": [
+                430,
+                343
+              ],
+              "xy": [
+                737545.0,
+                4896833.0
+              ],
+              "zb_m": 62.98,
+              "distance_m": 921,
+              "uparea_km2": 0.5,
+              "max_uparea_within_radius_km2": 0.56,
+              "n_active_within_radius": 139,
+              "n_channel_cells": 10
+            }
+          },
+          {
+            "name": "ronco",
+            "peak_m3s": 171.19,
+            "mean_m3s": 85.20305699481867,
+            "volume_m3": 59052654.0,
+            "snap": {
+              "name": "ronco",
+              "yaml_xy": [
+                742400.09,
+                4890776.79
+              ],
+              "injected": true,
+              "row_col": [
+                465,
+                374
+              ],
+              "xy": [
+                742195.0,
+                4891583.0
+              ],
+              "zb_m": 101.38,
+              "distance_m": 832,
+              "uparea_km2": 6.32,
+              "max_uparea_within_radius_km2": 6.57,
+              "n_active_within_radius": 142,
+              "n_channel_cells": 4
+            }
+          },
+          {
+            "name": "savio",
+            "peak_m3s": 147.53,
+            "mean_m3s": 72.67999999999999,
+            "volume_m3": 50368014.0,
+            "snap": {
+              "name": "savio",
+              "yaml_xy": [
+                756145.32,
+                4886932.58
+              ],
+              "injected": true,
+              "row_col": [
+                492,
+                470
+              ],
+              "xy": [
+                756595.0,
+                4887533.0
+              ],
+              "zb_m": 47.17,
+              "distance_m": 750,
+              "uparea_km2": 97.49,
+              "max_uparea_within_radius_km2": 97.67,
+              "n_active_within_radius": 137,
+              "n_channel_cells": 15
+            }
+          }
+        ],
+        "total_volume_m3": 247912506.0,
+        "combined_peak_m3s": 698.94
+      },
+      "sampled_points": [
+        {
+          "name": "lamone",
+          "cell_lonlat": [
+            11.975,
+            44.325
+          ],
+          "column_peak_m3s": 188.219,
+          "inject": true
+        },
+        {
+          "name": "senio",
+          "cell_lonlat": [
+            11.875,
+            44.375
+          ],
+          "column_peak_m3s": 62.438,
+          "inject": true
+        },
+        {
+          "name": "montone",
+          "cell_lonlat": [
+            12.025,
+            44.225
+          ],
+          "column_peak_m3s": 131.938,
+          "inject": true
+        },
+        {
+          "name": "ronco",
+          "cell_lonlat": [
+            12.075,
+            44.225
+          ],
+          "column_peak_m3s": 171.188,
+          "inject": true
+        },
+        {
+          "name": "savio",
+          "cell_lonlat": [
+            12.175,
+            44.075
+          ],
+          "column_peak_m3s": 147.531,
+          "inject": true
+        }
+      ],
+      "rain_on_active_domain": {
+        "file": "precip_2d.nc",
+        "variable": "Precipitation",
+        "n_steps": 384,
+        "step_h": 0.5,
+        "window": [
+          "2023-05-14 00:00:00",
+          "2023-05-22 00:00:00"
+        ],
+        "active_area_km2": 5162.535,
+        "rain_volume_m3": 669829902.0777408,
+        "mean_depth_over_active_mm": 129.74825392520162,
+        "max_cell_depth_mm": 160.01999505329877
+      },
+      "injected_over_rain": 0.37011262893908126,
+      "model_flood_hmax_gt_thr": {
+        "wet_area_km2": 2782.08,
+        "volume_m3": 2032510080.0
+      },
+      "observed_flood_proxy": {
+        "evaluation_mask": "AOI \u2229 active minus exclusion (v1.4)",
+        "observed_area_km2": 567.9,
+        "modelled_volume_inside_observed_extent_m3": 502171904.0,
+        "modelled_mean_hmax_inside_observed_extent_m": 0.8842611908912659,
+        "nominal_0.5m_m3": 283950000.0,
+        "nominal_1.0m_m3": 567900000.0
+      },
+      "injected_over_proxies": {
+        "modelled_volume_inside_observed_extent_m3": 0.4936805584408004,
+        "nominal_0.5m_m3": 0.8730850713153724,
+        "nominal_1.0m_m3": 0.4365425356576862
+      }
+    }
+  }
+}

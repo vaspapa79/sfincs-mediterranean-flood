@@ -1,0 +1,643 @@
+{
+  "utc": "2026-10-20T16:30:25Z",
+  "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\configs\\strymonas_leadin7d_v142.yaml",
+  "model_dir": "D:\\ELKAK\\implementation\\v14\\strymonas_leadin7d_v142\\model",
+  "event": "strymonas",
+  "threshold_m": 0.1,
+  "exclusion_tif": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\masks\\strymonas_exclusion.tif",
+  "simulated_window": [
+    "2015-03-21 00:00:00",
+    "2015-04-04 00:00:00"
+  ],
+  "n_products": 8,
+  "products": [
+    {
+      "product": "EMSR122_01STRYMONAS_DELINEATION_OVERVIEW-MONIT01_v2",
+      "sensor": "SAR delineation (legacy package, date only)",
+      "resolution": "",
+      "acq_utc": "2015-04-01T00:00:00",
+      "date_only": true,
+      "n_post_images": 2,
+      "all_post": [
+        [
+          "src_date",
+          "2015-03-29"
+        ],
+        [
+          "src_date",
+          "2015-04-01"
+        ]
+      ],
+      "source": "polygon src_date",
+      "obs_shp": "EMSR122_01STRYMONAS_01DELINEATION_MONIT01_v2_75000_crisis_information_poly.shp",
+      "universe_km2": 1196.235,
+      "obs_km2": 88.5375,
+      "aoi_files": [
+        "EMSR122_01STRYMONAS_01DELINEATION_MONIT01_v2_75000_area_of_interest.shp"
+      ],
+      "full_window": {
+        "tp": 3815,
+        "fp": 13404,
+        "fn": 120,
+        "tn": 35827,
+        "csi": 0.22002422285022205,
+        "hr": 0.9695044472681067,
+        "far": 0.7784424182589,
+        "f1": 0.36068828590337526,
+        "f2": 0.578749355259565,
+        "bias": 4.375857687420584,
+        "gss": 0.1581469877848456,
+        "hss": 0.2731034824643957,
+        "acc": 0.7456269044125945
+      },
+      "time_matched": {
+        "tp": 3815,
+        "fp": 13402,
+        "fn": 120,
+        "tn": 35829,
+        "csi": 0.220049604891273,
+        "hr": 0.9695044472681067,
+        "far": 0.7784166811871986,
+        "f1": 0.3607223903177005,
+        "f2": 0.578784476742422,
+        "bias": 4.375349428208386,
+        "gss": 0.15817443713134988,
+        "hss": 0.2731444108248974,
+        "acc": 0.7456645224391528
+      },
+      "time_matched_at": "2015-04-01T23:59:59",
+      "time_matched_start_of_day": {
+        "tp": 3815,
+        "fp": 13396,
+        "fn": 120,
+        "tn": 35835,
+        "csi": 0.22012578616352202,
+        "hr": 0.9695044472681067,
+        "far": 0.778339434082854,
+        "f1": 0.36082474226804123,
+        "f2": 0.5788898667718734,
+        "bias": 4.373824650571792,
+        "gss": 0.15825682316174167,
+        "hss": 0.27326724090386356,
+        "acc": 0.7457773765188278
+      }
+    },
+    {
+      "product": "EMSR122_01STRYMONAS_DELINEATION_OVERVIEW-MONIT02_v1",
+      "sensor": "SAR delineation (legacy package, date only)",
+      "resolution": "",
+      "acq_utc": "2015-04-02T00:00:00",
+      "date_only": true,
+      "n_post_images": 3,
+      "all_post": [
+        [
+          "src_date",
+          "2015-03-29"
+        ],
+        [
+          "src_date",
+          "2015-04-01"
+        ],
+        [
+          "src_date",
+          "2015-04-02"
+        ]
+      ],
+      "source": "polygon src_date",
+      "obs_shp": "EMSR122_01STRYMONAS_01DELINEATION_MONIT02_v1_75000_crisis_information_poly.shp",
+      "universe_km2": 1196.235,
+      "obs_km2": 100.3275,
+      "aoi_files": [
+        "EMSR122_01STRYMONAS_01DELINEATION_MONIT02_v1_75000_area_of_interest.shp"
+      ],
+      "full_window": {
+        "tp": 4302,
+        "fp": 12917,
+        "fn": 157,
+        "tn": 35790,
+        "csi": 0.2475828729281768,
+        "hr": 0.9647903117290872,
+        "far": 0.7501597073000755,
+        "f1": 0.39690008303349017,
+        "f2": 0.613607188703466,
+        "bias": 3.8616281677506166,
+        "gss": 0.17937982325940244,
+        "hss": 0.3041934747766974,
+        "acc": 0.754090960388218
+      },
+      "time_matched": {
+        "tp": 4302,
+        "fp": 12916,
+        "fn": 157,
+        "tn": 35791,
+        "csi": 0.24759712230215827,
+        "hr": 0.9647903117290872,
+        "far": 0.7501451968869788,
+        "f1": 0.39691839276652674,
+        "f2": 0.6136246933302905,
+        "bias": 3.861403902220229,
+        "gss": 0.17939540330592338,
+        "hss": 0.3042158767162669,
+        "acc": 0.7541097694014972
+      },
+      "time_matched_at": "2015-04-02T23:59:59",
+      "time_matched_start_of_day": {
+        "tp": 4302,
+        "fp": 12915,
+        "fn": 157,
+        "tn": 35792,
+        "csi": 0.24761137331644986,
+        "hr": 0.9647903117290872,
+        "far": 0.7501306847882906,
+        "f1": 0.39693670418896476,
+        "f2": 0.6136421989558668,
+        "bias": 3.8611796366898408,
+        "gss": 0.17941098514445164,
+        "hss": 0.3042382806405312,
+        "acc": 0.7541285784147763
+      }
+    },
+    {
+      "product": "EMSR122_01STRYMONAS_DELINEATION_OVERVIEW-MONIT03_v1",
+      "sensor": "SAR delineation (legacy package, date only)",
+      "resolution": "",
+      "acq_utc": "2015-04-03T00:00:00",
+      "date_only": true,
+      "n_post_images": 2,
+      "all_post": [
+        [
+          "src_date",
+          "2015-04-02"
+        ],
+        [
+          "src_date",
+          "2015-04-03"
+        ]
+      ],
+      "source": "polygon src_date",
+      "obs_shp": "EMSR122_01STRYMONAS_01DELINEATION_MONIT03_v1_75000_crisis_information_poly.shp",
+      "universe_km2": 1196.235,
+      "obs_km2": 96.705,
+      "aoi_files": [
+        "EMSR122_01STRYMONAS_01DELINEATION_MONIT03_v1_75000_area_of_interest.shp"
+      ],
+      "full_window": {
+        "tp": 4218,
+        "fp": 13001,
+        "fn": 80,
+        "tn": 35867,
+        "csi": 0.24382912307069773,
+        "hr": 0.9813866914844114,
+        "far": 0.7550380393751089,
+        "f1": 0.39206209044011714,
+        "f2": 0.6128854145476738,
+        "bias": 4.006281991624011,
+        "gss": 0.17765745025360732,
+        "hss": 0.30171328719628776,
+        "acc": 0.7539592972952639
+      },
+      "time_matched": {
+        "tp": 4218,
+        "fp": 13001,
+        "fn": 80,
+        "tn": 35867,
+        "csi": 0.24382912307069773,
+        "hr": 0.9813866914844114,
+        "far": 0.7550380393751089,
+        "f1": 0.39206209044011714,
+        "f2": 0.6128854145476738,
+        "bias": 4.006281991624011,
+        "gss": 0.17765745025360732,
+        "hss": 0.30171328719628776,
+        "acc": 0.7539592972952639
+      },
+      "time_matched_at": "2015-04-03T23:59:59",
+      "time_matched_start_of_day": {
+        "tp": 4218,
+        "fp": 13000,
+        "fn": 80,
+        "tn": 35868,
+        "csi": 0.24384321886923344,
+        "hr": 0.9813866914844114,
+        "far": 0.7550238122894645,
+        "f1": 0.3920803123257111,
+        "f2": 0.6129032258064516,
+        "bias": 4.006049325267567,
+        "gss": 0.17767279888762813,
+        "hss": 0.30173542100224954,
+        "acc": 0.753978106308543
+      }
+    },
+    {
+      "product": "EMSR122_02BALTOTOPI_DELINEATION_OVERVIEW-MONIT01_v1",
+      "sensor": "SAR delineation (legacy package, date only)",
+      "resolution": "",
+      "acq_utc": "2015-04-02T00:00:00",
+      "date_only": true,
+      "n_post_images": 3,
+      "all_post": [
+        [
+          "src_date",
+          "2015-03-29"
+        ],
+        [
+          "src_date",
+          "2015-04-01"
+        ],
+        [
+          "src_date",
+          "2015-04-02"
+        ]
+      ],
+      "source": "polygon src_date",
+      "obs_shp": "EMSR122_02BALTOTOPI_01DELINEATION_MONIT01_v1_19000_crisis_information_poly.shp",
+      "universe_km2": 92.52,
+      "obs_km2": 7.515,
+      "aoi_files": [
+        "EMSR122_02BALTOTOPI_01DELINEATION_MONIT01_v1_19000_area_of_interest.shp"
+      ],
+      "full_window": {
+        "tp": 312,
+        "fp": 2764,
+        "fn": 22,
+        "tn": 1014,
+        "csi": 0.10071013557133635,
+        "hr": 0.9341317365269461,
+        "far": 0.8985695708712613,
+        "f1": 0.18299120234604105,
+        "f2": 0.3535811423390752,
+        "bias": 9.209580838323353,
+        "gss": 0.021821115353062158,
+        "hss": 0.042710245512048335,
+        "acc": 0.3224708171206226
+      },
+      "time_matched": {
+        "tp": 312,
+        "fp": 2764,
+        "fn": 22,
+        "tn": 1014,
+        "csi": 0.10071013557133635,
+        "hr": 0.9341317365269461,
+        "far": 0.8985695708712613,
+        "f1": 0.18299120234604105,
+        "f2": 0.3535811423390752,
+        "bias": 9.209580838323353,
+        "gss": 0.021821115353062158,
+        "hss": 0.042710245512048335,
+        "acc": 0.3224708171206226
+      },
+      "time_matched_at": "2015-04-02T23:59:59",
+      "time_matched_start_of_day": {
+        "tp": 312,
+        "fp": 2764,
+        "fn": 22,
+        "tn": 1014,
+        "csi": 0.10071013557133635,
+        "hr": 0.9341317365269461,
+        "far": 0.8985695708712613,
+        "f1": 0.18299120234604105,
+        "f2": 0.3535811423390752,
+        "bias": 9.209580838323353,
+        "gss": 0.021821115353062158,
+        "hss": 0.042710245512048335,
+        "acc": 0.3224708171206226
+      }
+    },
+    {
+      "product": "EMSR122_03ACHINOS_DELINEATION_OVERVIEW-MONIT01_v2",
+      "sensor": "SAR delineation (legacy package, date only)",
+      "resolution": "",
+      "acq_utc": "2015-04-01T00:00:00",
+      "date_only": true,
+      "n_post_images": 2,
+      "all_post": [
+        [
+          "src_date",
+          "2015-03-29"
+        ],
+        [
+          "src_date",
+          "2015-04-01"
+        ]
+      ],
+      "source": "polygon src_date",
+      "obs_shp": "EMSR122_03ACHINOS_01DELINEATION_MONIT01_v2_19000_crisis_information_poly.shp",
+      "universe_km2": 92.205,
+      "obs_km2": 39.059999999999995,
+      "aoi_files": [
+        "EMSR122_03ACHINOS_01DELINEATION_MONIT01_v2_19000_area_of_interest.shp"
+      ],
+      "full_window": {
+        "tp": 1736,
+        "fp": 839,
+        "fn": 0,
+        "tn": 1523,
+        "csi": 0.6741747572815534,
+        "hr": 1.0,
+        "far": 0.3258252427184466,
+        "f1": 0.805381581999536,
+        "f2": 0.9118604895472213,
+        "bias": 1.483294930875576,
+        "gss": 0.43470286000838515,
+        "hss": 0.6059831232313073,
+        "acc": 0.7952659834065398
+      },
+      "time_matched": {
+        "tp": 1736,
+        "fp": 839,
+        "fn": 0,
+        "tn": 1523,
+        "csi": 0.6741747572815534,
+        "hr": 1.0,
+        "far": 0.3258252427184466,
+        "f1": 0.805381581999536,
+        "f2": 0.9118604895472213,
+        "bias": 1.483294930875576,
+        "gss": 0.43470286000838515,
+        "hss": 0.6059831232313073,
+        "acc": 0.7952659834065398
+      },
+      "time_matched_at": "2015-04-01T23:59:59",
+      "time_matched_start_of_day": {
+        "tp": 1736,
+        "fp": 839,
+        "fn": 0,
+        "tn": 1523,
+        "csi": 0.6741747572815534,
+        "hr": 1.0,
+        "far": 0.3258252427184466,
+        "f1": 0.805381581999536,
+        "f2": 0.9118604895472213,
+        "bias": 1.483294930875576,
+        "gss": 0.43470286000838515,
+        "hss": 0.6059831232313073,
+        "acc": 0.7952659834065398
+      }
+    },
+    {
+      "product": "EMSR122_03ACHINOS_DELINEATION_OVERVIEW-MONIT02_v1",
+      "sensor": "SAR delineation (legacy package, date only)",
+      "resolution": "",
+      "acq_utc": "2015-04-02T00:00:00",
+      "date_only": true,
+      "n_post_images": 2,
+      "all_post": [
+        [
+          "src_date",
+          "2015-04-01"
+        ],
+        [
+          "src_date",
+          "2015-04-02"
+        ]
+      ],
+      "source": "polygon src_date",
+      "obs_shp": "EMSR122_03ACHINOS_01DELINEATION_MONIT02_v1_19000_crisis_information_poly.shp",
+      "universe_km2": 92.205,
+      "obs_km2": 41.0625,
+      "aoi_files": [
+        "EMSR122_03ACHINOS_01DELINEATION_MONIT02_v1_19000_area_of_interest.shp"
+      ],
+      "full_window": {
+        "tp": 1825,
+        "fp": 750,
+        "fn": 0,
+        "tn": 1523,
+        "csi": 0.7087378640776699,
+        "hr": 1.0,
+        "far": 0.2912621359223301,
+        "f1": 0.8295454545454546,
+        "f2": 0.9240506329113924,
+        "bias": 1.4109589041095891,
+        "gss": 0.47488243158393806,
+        "hss": 0.643959710163395,
+        "acc": 0.8169838945827232
+      },
+      "time_matched": {
+        "tp": 1825,
+        "fp": 750,
+        "fn": 0,
+        "tn": 1523,
+        "csi": 0.7087378640776699,
+        "hr": 1.0,
+        "far": 0.2912621359223301,
+        "f1": 0.8295454545454546,
+        "f2": 0.9240506329113924,
+        "bias": 1.4109589041095891,
+        "gss": 0.47488243158393806,
+        "hss": 0.643959710163395,
+        "acc": 0.8169838945827232
+      },
+      "time_matched_at": "2015-04-02T23:59:59",
+      "time_matched_start_of_day": {
+        "tp": 1825,
+        "fp": 750,
+        "fn": 0,
+        "tn": 1523,
+        "csi": 0.7087378640776699,
+        "hr": 1.0,
+        "far": 0.2912621359223301,
+        "f1": 0.8295454545454546,
+        "f2": 0.9240506329113924,
+        "bias": 1.4109589041095891,
+        "gss": 0.47488243158393806,
+        "hss": 0.643959710163395,
+        "acc": 0.8169838945827232
+      }
+    },
+    {
+      "product": "EMSR122_04MAVROTHALASSA_DELINEATION_OVERVIEW-MONIT01_v2",
+      "sensor": "SAR delineation (legacy package, date only)",
+      "resolution": "",
+      "acq_utc": "2015-04-01T00:00:00",
+      "date_only": true,
+      "n_post_images": 2,
+      "all_post": [
+        [
+          "src_date",
+          "2015-03-29"
+        ],
+        [
+          "src_date",
+          "2015-04-01"
+        ]
+      ],
+      "source": "polygon src_date",
+      "obs_shp": "EMSR122_04MAVROTHALASSA_01DELINEATION_MONIT01_v2_19000_crisis_information_poly.shp",
+      "universe_km2": 91.89,
+      "obs_km2": 30.0825,
+      "aoi_files": [
+        "EMSR122_04MAVROTHALASSA_01DELINEATION_MONIT01_v2_19000_area_of_interest.shp"
+      ],
+      "full_window": {
+        "tp": 1331,
+        "fp": 1128,
+        "fn": 6,
+        "tn": 1619,
+        "csi": 0.5399594320486816,
+        "hr": 0.9955123410620793,
+        "far": 0.458723058153721,
+        "f1": 0.7012644889357218,
+        "f2": 0.8524401178429615,
+        "bias": 1.8391922213911742,
+        "gss": 0.31686112160453683,
+        "hss": 0.4812369602323069,
+        "acc": 0.7223310479921645
+      },
+      "time_matched": {
+        "tp": 1331,
+        "fp": 1128,
+        "fn": 6,
+        "tn": 1619,
+        "csi": 0.5399594320486816,
+        "hr": 0.9955123410620793,
+        "far": 0.458723058153721,
+        "f1": 0.7012644889357218,
+        "f2": 0.8524401178429615,
+        "bias": 1.8391922213911742,
+        "gss": 0.31686112160453683,
+        "hss": 0.4812369602323069,
+        "acc": 0.7223310479921645
+      },
+      "time_matched_at": "2015-04-01T23:59:59",
+      "time_matched_start_of_day": {
+        "tp": 1331,
+        "fp": 1127,
+        "fn": 6,
+        "tn": 1620,
+        "csi": 0.5401785714285714,
+        "hr": 0.9955123410620793,
+        "far": 0.45850284784377543,
+        "f1": 0.7014492753623188,
+        "f2": 0.8525493210351012,
+        "bias": 1.8384442782348542,
+        "gss": 0.31718686131602286,
+        "hss": 0.48161254964100736,
+        "acc": 0.7225759059745348
+      }
+    },
+    {
+      "product": "EMSR122_04MAVROTHALASSA_DELINEATION_OVERVIEW-MONIT02_v1",
+      "sensor": "SAR delineation (legacy package, date only)",
+      "resolution": "",
+      "acq_utc": "2015-04-02T00:00:00",
+      "date_only": true,
+      "n_post_images": 2,
+      "all_post": [
+        [
+          "src_date",
+          "2015-04-01"
+        ],
+        [
+          "src_date",
+          "2015-04-02"
+        ]
+      ],
+      "source": "polygon src_date",
+      "obs_shp": "EMSR122_04MAVROTHALASSA_01DELINEATION_MONIT02_v1_19000_crisis_information_poly.shp",
+      "universe_km2": 91.89,
+      "obs_km2": 30.9375,
+      "aoi_files": [
+        "EMSR122_04MAVROTHALASSA_01DELINEATION_MONIT02_v1_19000_area_of_interest.shp"
+      ],
+      "full_window": {
+        "tp": 1366,
+        "fp": 1093,
+        "fn": 9,
+        "tn": 1616,
+        "csi": 0.553484602917342,
+        "hr": 0.9934545454545455,
+        "far": 0.4444896299308662,
+        "f1": 0.7125717266562337,
+        "f2": 0.8581480085437869,
+        "bias": 1.7883636363636364,
+        "gss": 0.32809161643292434,
+        "hss": 0.49407979445594913,
+        "acc": 0.7301665034280117
+      },
+      "time_matched": {
+        "tp": 1366,
+        "fp": 1093,
+        "fn": 9,
+        "tn": 1616,
+        "csi": 0.553484602917342,
+        "hr": 0.9934545454545455,
+        "far": 0.4444896299308662,
+        "f1": 0.7125717266562337,
+        "f2": 0.8581480085437869,
+        "bias": 1.7883636363636364,
+        "gss": 0.32809161643292434,
+        "hss": 0.49407979445594913,
+        "acc": 0.7301665034280117
+      },
+      "time_matched_at": "2015-04-02T23:59:59",
+      "time_matched_start_of_day": {
+        "tp": 1366,
+        "fp": 1093,
+        "fn": 9,
+        "tn": 1616,
+        "csi": 0.553484602917342,
+        "hr": 0.9934545454545455,
+        "far": 0.4444896299308662,
+        "f1": 0.7125717266562337,
+        "f2": 0.8581480085437869,
+        "bias": 1.7883636363636364,
+        "gss": 0.32809161643292434,
+        "hss": 0.49407979445594913,
+        "acc": 0.7301665034280117
+      }
+    }
+  ],
+  "union": {
+    "universe_km2": 1196.235,
+    "obs_km2": 104.24249999999999,
+    "full_window": {
+      "tp": 4442,
+      "fp": 12777,
+      "fn": 191,
+      "tn": 35756,
+      "csi": 0.25514072372199886,
+      "hr": 0.9587740125188863,
+      "far": 0.7420291538416866,
+      "f1": 0.4065531759106718,
+      "f2": 0.6212413638779335,
+      "bias": 3.716598316425642,
+      "gss": 0.18488948901080018,
+      "hss": 0.3120788744022944,
+      "acc": 0.7560847157958094
+    },
+    "earliest_acq_utc": "2015-04-01T23:59:59",
+    "latest_acq_utc": "2015-04-03T23:59:59",
+    "hmax_to_earliest": {
+      "tp": 4442,
+      "fp": 12775,
+      "fn": 191,
+      "tn": 35758,
+      "csi": 0.2551700367647059,
+      "hr": 0.9587740125188863,
+      "far": 0.7419991868502062,
+      "f1": 0.4065903890160183,
+      "f2": 0.6212761196117373,
+      "bias": 3.7161666306928556,
+      "gss": 0.18492166467483664,
+      "hss": 0.3121247086415328,
+      "acc": 0.7561223338223677
+    },
+    "hmax_to_latest": {
+      "tp": 4442,
+      "fp": 12777,
+      "fn": 191,
+      "tn": 35756,
+      "csi": 0.25514072372199886,
+      "hr": 0.9587740125188863,
+      "far": 0.7420291538416866,
+      "f1": 0.4065531759106718,
+      "f2": 0.6212413638779335,
+      "bias": 3.716598316425642,
+      "gss": 0.18488948901080018,
+      "hss": 0.3120788744022944,
+      "acc": 0.7560847157958094
+    }
+  },
+  "method": "hmax(t) = max(hourly zs <= t, daily zsmax blocks complete by t) - zb; truth = the product's polygons; universe = AOI \u2229 active minus exclusion"
+}

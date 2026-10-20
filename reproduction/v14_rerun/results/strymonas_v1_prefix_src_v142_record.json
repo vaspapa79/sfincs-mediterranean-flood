@@ -1,0 +1,248 @@
+{
+  "run": "strymonas_v1_prefix_src_v142",
+  "event": "strymonas",
+  "kind": "enhanced",
+  "phase": 7,
+  "group": "v142",
+  "label": "v1.4.2 (D8 source-point resolution) re-run of strymonas_v1_prefix_src: Table 8 'Enhanced v1' / S2 Strymonas v1: pre-fix kerkini_outlet {23.2, 41.08}",
+  "c2_row": null,
+  "manifest_row": 13,
+  "work": "D:\\ELKAK\\implementation\\v14\\strymonas_v1_prefix_src_v142",
+  "published_model": "D:\\ELKAK\\implementation\\emsr122_sfincs_enhanced\\model",
+  "published_wallclock_s": 219.6,
+  "published_text": null,
+  "published_note": null,
+  "compare_to": "strymonas_v1_prefix_src",
+  "harness_tag": "v1.4.2",
+  "base_run": "strymonas_v1_prefix_src",
+  "git_head": "b15896ac9607c4a2fc8d76be33919d78a12cde7b",
+  "start_utc": "2026-10-20T15:35:02Z",
+  "steps": [
+    {
+      "step": 6,
+      "start_utc": "2026-10-20T15:35:02Z",
+      "end_utc": "2026-10-20T15:35:16Z",
+      "wall_s": 14.4,
+      "exit": 0
+    },
+    {
+      "step": 7,
+      "start_utc": "2026-10-20T15:35:16Z",
+      "end_utc": "2026-10-20T15:35:41Z",
+      "wall_s": 24.5,
+      "exit": 0
+    },
+    {
+      "step": 8,
+      "start_utc": "2026-10-20T15:35:41Z",
+      "end_utc": "2026-10-20T15:36:21Z",
+      "wall_s": 39.8,
+      "exit": 0
+    },
+    {
+      "step": 9,
+      "start_utc": "2026-10-20T15:36:21Z",
+      "end_utc": "2026-10-20T15:36:38Z",
+      "wall_s": 17.9,
+      "exit": 0
+    },
+    {
+      "step": 10,
+      "start_utc": "2026-10-20T15:36:38Z",
+      "end_utc": "2026-10-20T15:41:21Z",
+      "wall_s": 282.8,
+      "exit": 0
+    },
+    {
+      "step": 11,
+      "start_utc": "2026-10-20T15:41:21Z",
+      "end_utc": "2026-10-20T15:44:50Z",
+      "wall_s": 208.3,
+      "exit": 0
+    }
+  ],
+  "config": "reproduction\\v14_rerun\\configs\\strymonas_v1_prefix_src_v142.yaml",
+  "config_note": {
+    "derived_from": "skill/examples/emsr122_strymonas_enhanced.yaml",
+    "changes": [
+      "harness_version: v1.4",
+      "paths.work_dir/deliverable_dir/zip_dir -> D:\\ELKAK\\implementation\\v14\\strymonas_v1_prefix_src_v142",
+      "overrides: {\"upstream_q\": {\"src_points\": [{\"name\": \"kerkini_outlet\", \"lon\": 23.2, \"lat\": 41.08}, {\"name\": \"angitis\", \"lon\": 23.92, \"lat\": 41.0}]}}"
+    ]
+  },
+  "d6_rendered": true,
+  "seed": {
+    "from": "D:\\ELKAK\\implementation\\emsr122_sfincs_v3\\data",
+    "junctions": {
+      "copdem30": "exists",
+      "esa_worldcover": "exists",
+      "ems_polygons": "exists",
+      "era5_extracted": "exists"
+    },
+    "copied": [],
+    "skipped": [
+      "glofas_strymonas.nc",
+      "imerg_strymonas.nc",
+      "era5_strymonas.nc"
+    ]
+  },
+  "coastal_prep": {
+    "harness_version": "v1.4",
+    "n_active_before": 207374,
+    "n_dep_le_0": 22516,
+    "n_open_sea": 22427,
+    "open_sea_km2": 504.61,
+    "n_inland_dep_le_0": 89,
+    "n_ring": 877,
+    "ring_length_km": 131.6,
+    "n_exclude": 21550,
+    "n_active_after_expected": 185824,
+    "connectivity": {
+      "open_sea": 4,
+      "ring_adjacency": 8
+    },
+    "zsini": -9999,
+    "exclude_mask": "D:/ELKAK/implementation/v14/strymonas_v1_prefix_src_v142/open_sea_exclude.geojson",
+    "open_sea_mask_tif": "D:/ELKAK/implementation/v14/strymonas_v1_prefix_src_v142/open_sea_mask.tif",
+    "n_exclude_polygons": 3
+  },
+  "exclusion": {
+    "reused": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\masks\\strymonas_exclusion.tif",
+    "open_sea_identical_to_first_build": true,
+    "symmetric_difference_cells": 0
+  },
+  "rescoring_v13_reused_from": "strymonas_v1_prefix_src",
+  "sfincs_total_time_s": 207.616,
+  "q_outlet_cells": {
+    "window_half_deg": 0.1,
+    "latitude_order": "descending",
+    "glofas_time": [
+      "2015-03-02T00:00:00",
+      "2015-05-01T00:00:00"
+    ],
+    "points": [
+      {
+        "id": 1,
+        "name": "kerkini_outlet",
+        "named_lonlat": [
+          23.2,
+          41.08
+        ],
+        "window_half_deg": 0.1,
+        "cell_lonlat": [
+          23.275,
+          41.125
+        ],
+        "window_cells": 16,
+        "inject": true,
+        "cell_mean_m3s": 202.831,
+        "cell_peak_m3s": 618.5,
+        "column_peak_m3s": 618.5,
+        "column_mean_m3s": 290.12
+      },
+      {
+        "id": 2,
+        "name": "angitis",
+        "named_lonlat": [
+          23.92,
+          41.0
+        ],
+        "window_half_deg": 0.1,
+        "cell_lonlat": [
+          23.825,
+          40.925
+        ],
+        "window_cells": 16,
+        "inject": true,
+        "cell_mean_m3s": 69.573,
+        "cell_peak_m3s": 211.469,
+        "column_peak_m3s": 96.812,
+        "column_mean_m3s": 70.793
+      }
+    ],
+    "duplicate_cells": [],
+    "harness_version": "v1.4"
+  },
+  "src_snap": {
+    "harness_version": "v1.4",
+    "radius_m": 1000.0,
+    "channel_fraction": 0.5,
+    "uparea_source": "Copernicus DEM tiles (6) mosaicked on the model grid, D8 (pyflwdir)",
+    "points": [
+      {
+        "name": "kerkini_outlet",
+        "yaml_xy": [
+          684805.76,
+          4549969.94
+        ],
+        "injected": true,
+        "row_col": [
+          244,
+          230
+        ],
+        "xy": [
+          685042.0,
+          4550887.0
+        ],
+        "zb_m": 157.13,
+        "distance_m": 947,
+        "uparea_km2": 90.63,
+        "max_uparea_within_radius_km2": 90.63,
+        "n_active_within_radius": 64,
+        "n_channel_cells": 13
+      },
+      {
+        "name": "angitis",
+        "yaml_xy": [
+          745591.46,
+          4542864.67
+        ],
+        "injected": true,
+        "row_col": [
+          297,
+          631
+        ],
+        "xy": [
+          745192.0,
+          4542937.0
+        ],
+        "zb_m": 19.11,
+        "distance_m": 406,
+        "uparea_km2": 155.23,
+        "max_uparea_within_radius_km2": 159.37,
+        "n_active_within_radius": 141,
+        "n_channel_cells": 12
+      }
+    ]
+  },
+  "cn_realised": {
+    "raster_clip_mean_cn": 73.4,
+    "active_mean_cn": 74.9,
+    "msk1_mean_cn": 74.8,
+    "active_S_mm_mean": 88.4
+  },
+  "validation_v14": {
+    "exit": 0,
+    "wall_s": 9.2,
+    "json": "results/strymonas_v1_prefix_src_v142_v14_newmask.json"
+  },
+  "rescoring_v13": {},
+  "published_strict": {
+    "_source": "D:\\ELKAK\\reproduction\\val_json\\strymonas_v1.json",
+    "tp": 994,
+    "fp": 1106,
+    "fn": 3743,
+    "tn": 48498,
+    "csi": 0.17011809002224884,
+    "hr": 0.20983744986278235,
+    "far": 0.5266666666666666,
+    "bias": 0.44331855604813175,
+    "gss": 0.14327703543181614
+  },
+  "quicklook": {
+    "exit": 0,
+    "png": "quicklook/strymonas_v1_prefix_src_v142_v14_hmax.png",
+    "err": ""
+  },
+  "end_utc": "2026-10-20T15:45:13Z"
+}

@@ -1,28 +1,34 @@
 {
-  "utc_start": "2026-10-20T11:34:21Z",
+  "utc_start": "2026-10-20T16:27:20Z",
   "runs": {
-    "pineios_enhanced_v141": {
-      "event": "pineios",
-      "rain_fig": {
-        "exit": 0,
-        "wall_s": 1.3
-      }
-    },
-    "pineios_r2_220_v141": {
-      "event": "pineios"
-    },
-    "pineios_r2_295_v141": {
-      "event": "pineios"
-    },
-    "pineios_r2_510_v141": {
+    "pineios_enhanced_v142": {
       "event": "pineios",
       "truth_buffer": {
         "exit": 0,
-        "wall_s": 2.1
+        "wall_s": 2.4
       },
       "time_matched": {
         "exit": 0,
-        "wall_s": 5.8
+        "wall_s": 6.1
+      },
+      "rain": {
+        "exit": 0,
+        "wall_s": 1.9
+      },
+      "map": {
+        "exit": 0,
+        "wall_s": 2.8
+      }
+    },
+    "pineios_r2_220_v142": {
+      "event": "pineios",
+      "truth_buffer": {
+        "exit": 0,
+        "wall_s": 2.3
+      },
+      "time_matched": {
+        "exit": 0,
+        "wall_s": 6.0
       },
       "rain": {
         "exit": 0,
@@ -30,13 +36,105 @@
       },
       "map": {
         "exit": 0,
-        "wall_s": 2.9
+        "wall_s": 3.8
       }
     },
-    "pineios_cn_on_v141": {
-      "event": "pineios"
+    "pineios_r2_295_v142": {
+      "event": "pineios",
+      "truth_buffer": {
+        "exit": 0,
+        "wall_s": 3.2
+      },
+      "time_matched": {
+        "exit": 0,
+        "wall_s": 10.8
+      },
+      "rain": {
+        "exit": 0,
+        "wall_s": 2.2
+      },
+      "map": {
+        "exit": 0,
+        "wall_s": 3.3
+      }
     },
-    "pineios_raw_imerg_v141": {
+    "pineios_r2_510_v142": {
+      "event": "pineios",
+      "truth_buffer": {
+        "exit": 0,
+        "wall_s": 2.8
+      },
+      "time_matched": {
+        "exit": 0,
+        "wall_s": 7.1
+      },
+      "rain": {
+        "exit": 0,
+        "wall_s": 1.8
+      },
+      "map": {
+        "exit": 0,
+        "wall_s": 3.0
+      }
+    },
+    "pineios_cn_on_v142": {
+      "event": "pineios",
+      "truth_buffer": {
+        "exit": 0,
+        "wall_s": 2.5
+      },
+      "time_matched": {
+        "exit": 0,
+        "wall_s": 6.0
+      },
+      "rain": {
+        "exit": 0,
+        "wall_s": 1.8
+      },
+      "map": {
+        "exit": 0,
+        "wall_s": 2.8
+      }
+    },
+    "pineios_raw_imerg_v142": {
+      "event": "pineios",
+      "truth_buffer": {
+        "exit": 0,
+        "wall_s": 2.4
+      },
+      "time_matched": {
+        "exit": 0,
+        "wall_s": 6.0
+      },
+      "rain": {
+        "exit": 0,
+        "wall_s": 1.7
+      },
+      "map": {
+        "exit": 0,
+        "wall_s": 2.8
+      }
+    },
+    "pineios_qinf5_v142": {
+      "event": "pineios",
+      "truth_buffer": {
+        "exit": 0,
+        "wall_s": 2.3
+      },
+      "time_matched": {
+        "exit": 0,
+        "wall_s": 5.3
+      },
+      "rain": {
+        "exit": 0,
+        "wall_s": 1.8
+      },
+      "map": {
+        "exit": 0,
+        "wall_s": 2.6
+      }
+    },
+    "pineios_timevarying_q_v142": {
       "event": "pineios",
       "truth_buffer": {
         "exit": 0,
@@ -48,62 +146,154 @@
       },
       "rain": {
         "exit": 0,
-        "wall_s": 1.8
+        "wall_s": 1.7
       },
       "map": {
         "exit": 0,
-        "wall_s": 2.9
+        "wall_s": 2.6
       }
     },
-    "pineios_qinf5_v141": {
-      "event": "pineios",
+    "emilia_enhanced_8aoi_v142": {
+      "event": "emilia",
       "truth_buffer": {
-        "exit": 0,
-        "wall_s": 4.5
-      },
-      "time_matched": {
-        "exit": 0,
-        "wall_s": 8.4
-      },
-      "rain": {
         "exit": 0,
         "wall_s": 2.4
       },
-      "map": {
-        "exit": 0,
-        "wall_s": 4.7
-      }
-    },
-    "pineios_enhanced_v141_d8titarisios": {
-      "event": "pineios",
-      "truth_buffer": {
-        "exit": 0,
-        "wall_s": 2.7
-      },
       "time_matched": {
         "exit": 0,
-        "wall_s": 7.1
+        "wall_s": 6.0
       },
       "rain": {
         "exit": 0,
-        "wall_s": 1.9
+        "wall_s": 1.6
+      },
+      "map": {
+        "exit": 0,
+        "wall_s": 2.7
+      }
+    },
+    "valencia_enhanced_164_v142": {
+      "event": "valencia",
+      "truth_buffer": {
+        "exit": 0,
+        "wall_s": 2.1
+      },
+      "time_matched": {
+        "exit": 0,
+        "wall_s": 6.3
+      },
+      "rain": {
+        "exit": 0,
+        "wall_s": 1.7
       },
       "map": {
         "exit": 0,
         "wall_s": 2.8
       }
     },
-    "mandra_v3_maskrestrict": {
-      "event": "mandra"
+    "valencia_raw_imerg_v142": {
+      "event": "valencia",
+      "truth_buffer": {
+        "exit": 0,
+        "wall_s": 2.3
+      },
+      "time_matched": {
+        "exit": 0,
+        "wall_s": 6.3
+      },
+      "rain": {
+        "exit": 0,
+        "wall_s": 1.7
+      },
+      "map": {
+        "exit": 0,
+        "wall_s": 2.6
+      }
+    },
+    "strymonas_enhanced_postD6_v142": {
+      "event": "strymonas",
+      "truth_buffer": {
+        "exit": 0,
+        "wall_s": 2.1
+      },
+      "time_matched": {
+        "exit": 0,
+        "wall_s": 5.1
+      },
+      "rain": {
+        "exit": 0,
+        "wall_s": 1.6
+      },
+      "map": {
+        "exit": 0,
+        "wall_s": 2.7
+      }
+    },
+    "strymonas_abl_cnoff_q_v142": {
+      "event": "strymonas",
+      "truth_buffer": {
+        "exit": 0,
+        "wall_s": 2.2
+      },
+      "time_matched": {
+        "exit": 0,
+        "wall_s": 5.6
+      },
+      "rain": {
+        "exit": 0,
+        "wall_s": 1.6
+      },
+      "map": {
+        "exit": 0,
+        "wall_s": 2.6
+      }
+    },
+    "strymonas_leadin7d_v142": {
+      "event": "strymonas",
+      "truth_buffer": {
+        "exit": 0,
+        "wall_s": 2.3
+      },
+      "time_matched": {
+        "exit": 0,
+        "wall_s": 9.1
+      },
+      "rain": {
+        "exit": 0,
+        "wall_s": 1.6
+      },
+      "map": {
+        "exit": 0,
+        "wall_s": 2.6
+      }
+    },
+    "strymonas_v1_prefix_src_v142": {
+      "event": "strymonas",
+      "truth_buffer": {
+        "exit": 0,
+        "wall_s": 2.1
+      },
+      "time_matched": {
+        "exit": 0,
+        "wall_s": 4.8
+      },
+      "rain": {
+        "exit": 0,
+        "wall_s": 1.6
+      },
+      "map": {
+        "exit": 0,
+        "wall_s": 2.5
+      }
     }
   },
   "cross_event": {
     "exit": 0,
-    "wall_s": 0.1
+    "wall_s": 0.5
   },
   "fig_skill_sweeps": {
     "exit": 0,
-    "wall_s": 1.0
+    "wall_s": 0.9
   },
-  "utc_end": "2026-10-20T11:35:23Z"
+  "utc_end": "2026-10-20T16:30:42Z"
 }

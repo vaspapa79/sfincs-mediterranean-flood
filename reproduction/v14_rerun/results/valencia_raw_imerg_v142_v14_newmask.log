@@ -1,0 +1,6 @@
+validating: EMSR773 Valencia (v2)  (slug=valencia)
+  evaluation-mask exclusion: D:\ELKAK\sfincs-mediterranean-floods\.worktrees\emsr933-crete\reproduction\v14_rerun\masks\valencia_exclusion.tif (230054 cells flagged on the grid)
+  strict@0.10m:  CSI=0.163  HR=0.864  FAR=0.832  BIAS=5.16  GSS=0.100
+  fuzzy r=1:     CSI=0.123  HR=0.985  FAR=0.877  GSS=0.036
+  best CSI:      0.236 at h>0.50 m
+  wrote: D:\ELKAK\sfincs-mediterranean-floods\.worktrees\emsr933-crete\reproduction\v14_rerun\results\valencia_raw_imerg_v142_v14_newmask.json

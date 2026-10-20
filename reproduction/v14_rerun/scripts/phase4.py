@@ -23,12 +23,17 @@ SENSITIVITY = ["strymonas_leadin7d", "pineios_timevarying_q", "pineios_qinf5", "
 # CODE-14 (2026-10-20): harness v1.4.1 re-runs of the D7-affected Pineios runs (+ the labelled D8 diagnostic) and MANIFEST row 16
 V141 = ["pineios_enhanced_v141", "pineios_r2_220_v141", "pineios_r2_295_v141", "pineios_r2_510_v141", "pineios_cn_on_v141", "pineios_raw_imerg_v141",
         "pineios_qinf5_v141", "pineios_enhanced_v141_d8titarisios", "mandra_v3_maskrestrict"]
+# CODE-15 (2026-10-20): harness v1.4.2 re-runs (D8 source-point resolution) of every run whose injected series or cells changed
+V142 = [f"{b}_v142" for b in ("pineios_enhanced", "pineios_r2_220", "pineios_r2_295", "pineios_r2_510", "pineios_cn_on", "pineios_raw_imerg", "pineios_qinf5", "pineios_timevarying_q",
+                               "emilia_enhanced_8aoi", "valencia_enhanced_164", "valencia_raw_imerg", "strymonas_enhanced_postD6", "strymonas_abl_cnoff_q", "strymonas_leadin7d", "strymonas_v1_prefix_src")]
 CRETE_CLUSTERS = ["Lefka_Ori=23.75,35.15,24.25,35.55", "Psiloritis=24.60,35.05,25.05,35.40", "Dikti_Lasithi=25.30,34.95,25.80,35.30"]
 TITLES = {"pineios_enhanced": "Pineios (EMSR692) enhanced", "pineios_baseline_gridmatched": "Pineios grid-matched baseline", "mandra_enhanced": "Mandra (EMSR257) enhanced",
           "mandra_baseline": "Mandra baseline", "strymonas_enhanced_postD6": "Strymonas (EMSR122) enhanced v3 (D6)", "strymonas_baseline": "Strymonas baseline",
           "valencia_enhanced_164": "Valencia (EMSR773) R2 164 mm", "emilia_enhanced_8aoi": "Emilia-Romagna (EMSR664) 8-AOI", "crete_baseline": "Crete (EMSR933) baseline",
           "crete_canonical_r2on": "Crete (EMSR933) canonical R2 on", "pineios_enhanced_v141": "Pineios (EMSR692) enhanced, harness v1.4.1 (D7 fix)",
-          "pineios_enhanced_v141_d8titarisios": "Pineios (EMSR692) v1.4.1, D8 diagnostic (Titarisios cell)", "mandra_v3_maskrestrict": "Mandra (EMSR257) v3 mask restriction on the v1.4 build"}
+          "pineios_enhanced_v141_d8titarisios": "Pineios (EMSR692) v1.4.1, D8 diagnostic (Titarisios cell)", "mandra_v3_maskrestrict": "Mandra (EMSR257) v3 mask restriction on the v1.4 build",
+          "pineios_enhanced_v142": "Pineios (EMSR692) enhanced, harness v1.4.2 (D8 sources)", "strymonas_enhanced_postD6_v142": "Strymonas (EMSR122) enhanced v3 (D6), harness v1.4.2",
+          "valencia_enhanced_164_v142": "Valencia (EMSR773) R2 164 mm, harness v1.4.2", "emilia_enhanced_8aoi_v142": "Emilia-Romagna (EMSR664) 8-AOI, harness v1.4.2"}
 WINDOWS = {"strymonas_leadin7d": "canonical=2015-03-28T00:00,2015-04-04T00:00"}
 
 
@@ -52,7 +57,7 @@ def main() -> int:
     P4 = R / "phase4"
     for d in ("truth_buffer", "time_matched", "rain", "figures", "logs"):
         (P4 / d).mkdir(parents=True, exist_ok=True)
-    sel = [x for x in a.runs.split(",") if x] or (CANONICAL + SENSITIVITY + V141)
+    sel = [x for x in a.runs.split(",") if x] or (CANONICAL + SENSITIVITY + V141 + V142)
     manifest = {"utc_start": utc(), "runs": {}}
 
     def run(cmd, logname):

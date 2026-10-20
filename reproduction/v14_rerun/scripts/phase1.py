@@ -99,7 +99,7 @@ RUNS = [
 # ---------------------------------------------------------------- Phase 3 (GO Phases 3-5, 2026-10-19)
 EXP = Path("D:/ELKAK/manuscript/paper_submission_v2/data/exp")          # author scoring JSONs (top-level strict_threshold_sweep)
 BSW = Path("D:/ELKAK/reproduction/bias_sweep")                           # R2 sweeps: only the last target of each event survives
-BIAS_CSV = Path("D:/ELKAK/sfincs-mediterranean-floods/docs/bias_sensitivity")   # published sweep CSVs (main checkout; not on this branch)
+BIAS_CSV = Path(__file__).resolve().parents[3] / "docs" / "bias_sensitivity"   # published sweep CSVs (restored on this branch, CODE-15 E)
 STRY = dict(event="strymonas", kind="enhanced", example="emsr122_strymonas_enhanced.yaml", seed_data=IMPL / "emsr122_sfincs_v3" / "data", seed_slug="strymonas")
 MAND = dict(event="mandra", kind="enhanced", example="emsr257_mandra_enhanced.yaml", seed_data=IMPL / "mandra_sfincs_enhanced" / "data", seed_slug="mandra")
 PINE = dict(event="pineios", kind="enhanced", example="emsr692_pineios_enhanced.yaml", seed_data=IMPL / "pineios_sfincs_enhanced" / "data", seed_slug="pineios")

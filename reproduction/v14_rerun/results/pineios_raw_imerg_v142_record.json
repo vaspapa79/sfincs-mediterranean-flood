@@ -1,0 +1,305 @@
+{
+  "run": "pineios_raw_imerg_v142",
+  "event": "pineios",
+  "kind": "enhanced",
+  "phase": 7,
+  "group": "v142",
+  "label": "v1.4.2 (D8 source-point resolution) re-run of pineios_raw_imerg: \u00a75: Pineios raw IMERG (no R2)",
+  "c2_row": 7,
+  "manifest_row": 19,
+  "work": "D:\\ELKAK\\implementation\\v14\\pineios_raw_imerg_v142",
+  "published_model": null,
+  "published_wallclock_s": null,
+  "published_text": {
+    "source": "NHESS manuscript R5 \u00a75: raw IMERG recovers only 141 mm and bounds the flood below 40 km2",
+    "watershed_mean_mm": 141,
+    "modelled_wet_km2_upper": 40
+  },
+  "published_note": null,
+  "compare_to": "pineios_raw_imerg_v141",
+  "harness_tag": "v1.4.2",
+  "base_run": "pineios_raw_imerg",
+  "git_head": "b15896ac9607c4a2fc8d76be33919d78a12cde7b",
+  "start_utc": "2026-10-20T14:10:30Z",
+  "steps": [
+    {
+      "step": 6,
+      "start_utc": "2026-10-20T14:10:31Z",
+      "end_utc": "2026-10-20T14:11:01Z",
+      "wall_s": 30.5,
+      "exit": 0
+    },
+    {
+      "step": 7,
+      "start_utc": "2026-10-20T14:11:01Z",
+      "end_utc": "2026-10-20T14:12:07Z",
+      "wall_s": 65.9,
+      "exit": 0
+    },
+    {
+      "step": 8,
+      "start_utc": "2026-10-20T14:12:07Z",
+      "end_utc": "2026-10-20T14:12:22Z",
+      "wall_s": 15.0,
+      "exit": 0
+    },
+    {
+      "step": 9,
+      "start_utc": "2026-10-20T14:12:22Z",
+      "end_utc": "2026-10-20T14:13:25Z",
+      "wall_s": 63.5,
+      "exit": 0
+    },
+    {
+      "step": 10,
+      "start_utc": "2026-10-20T14:13:25Z",
+      "end_utc": "2026-10-20T14:26:51Z",
+      "wall_s": 805.3,
+      "exit": 0
+    },
+    {
+      "step": 11,
+      "start_utc": "2026-10-20T14:26:51Z",
+      "end_utc": "2026-10-20T14:51:01Z",
+      "wall_s": 1449.8,
+      "exit": 0
+    }
+  ],
+  "config": "reproduction\\v14_rerun\\configs\\pineios_raw_imerg_v142.yaml",
+  "config_note": {
+    "derived_from": "skill/examples/emsr692_pineios_enhanced.yaml",
+    "changes": [
+      "harness_version: v1.4",
+      "paths.work_dir/deliverable_dir/zip_dir -> D:\\ELKAK\\implementation\\v14\\pineios_raw_imerg_v142",
+      "overrides: {\"rain_bias_correct\": {\"enabled\": false}, \"upstream_q\": {\"src_points\": [{\"name\": \"pineios_trikala\", \"lon\": 21.77, \"lat\": 39.56, \"src_lon\": 21.86, \"src_lat\": 39.56}, {\"name\": \"pineios_kalambaka\", \"lon\": 21.63, \"lat\": 39.7, \"src_lon\": 21.86, \"src_lat\": 39.7, \"inject\": false}, {\"name\": \"titarisios\", \"lon\": 22.24, \"lat\": 39.71, \"window_deg\": 0.05, \"src_lon\": 22.42, \"src_lat\": 39.71}, {\"name\": \"enipeas\", \"lon\": 22.39, \"lat\": 39.3, \"src_lon\": 22.39, \"src_lat\": 39.33}]}}"
+    ]
+  },
+  "seed": {
+    "from": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\data",
+    "junctions": {
+      "copdem30": "exists",
+      "esa_worldcover": "exists",
+      "ems_polygons": "exists",
+      "era5_extracted": "exists"
+    },
+    "copied": [
+      "D:\\ELKAK\\implementation\\v14\\_seed\\pineios\\data\\glofas_pineios.nc -> glofas_pineios.nc (v1.4.2 extended request area)"
+    ],
+    "skipped": [
+      "glofas_pineios.nc",
+      "imerg_pineios.nc",
+      "imerg_pineios.raw.nc",
+      "era5_pineios.nc"
+    ],
+    "raw_imerg_as_forcing": "imerg_pineios.raw.nc -> imerg_pineios.nc (rain_bias_correct disabled; the D1 rate/label convention is applied at build time)"
+  },
+  "coastal_prep": {
+    "harness_version": "v1.4",
+    "n_active_before": 262465,
+    "n_dep_le_0": 39499,
+    "n_open_sea": 39490,
+    "open_sea_km2": 888.52,
+    "n_inland_dep_le_0": 9,
+    "n_ring": 728,
+    "ring_length_km": 109.2,
+    "n_exclude": 38762,
+    "n_active_after_expected": 223703,
+    "connectivity": {
+      "open_sea": 4,
+      "ring_adjacency": 8
+    },
+    "zsini": -9999,
+    "exclude_mask": "D:/ELKAK/implementation/v14/pineios_raw_imerg_v142/open_sea_exclude.geojson",
+    "open_sea_mask_tif": "D:/ELKAK/implementation/v14/pineios_raw_imerg_v142/open_sea_mask.tif",
+    "n_exclude_polygons": 3
+  },
+  "exclusion": {
+    "reused": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\masks\\pineios_exclusion.tif",
+    "open_sea_identical_to_first_build": true,
+    "symmetric_difference_cells": 0
+  },
+  "rescoring_v13_skipped": "no published output survives for this configuration",
+  "sfincs_total_time_s": 1442.39,
+  "q_outlet_cells": {
+    "window_half_deg": 0.1,
+    "latitude_order": "ascending",
+    "glofas_time": [
+      "2023-08-27T00:00:00",
+      "2023-09-11T00:00:00"
+    ],
+    "points": [
+      {
+        "id": 1,
+        "name": "pineios_trikala",
+        "named_lonlat": [
+          21.77,
+          39.56
+        ],
+        "window_half_deg": 0.1,
+        "cell_lonlat": [
+          21.84,
+          39.51
+        ],
+        "window_cells": 4,
+        "inject": true,
+        "cell_mean_m3s": 71.092,
+        "cell_peak_m3s": 371.39,
+        "column_peak_m3s": 371.39,
+        "column_mean_m3s": 72.729
+      },
+      {
+        "id": 2,
+        "name": "pineios_kalambaka",
+        "named_lonlat": [
+          21.63,
+          39.7
+        ],
+        "window_half_deg": 0.1,
+        "cell_lonlat": [
+          21.54,
+          39.71
+        ],
+        "window_cells": 4,
+        "inject": false,
+        "cell_mean_m3s": 9.527,
+        "cell_peak_m3s": 40.78,
+        "column_peak_m3s": 40.78,
+        "column_mean_m3s": 9.629
+      },
+      {
+        "id": 3,
+        "name": "titarisios",
+        "named_lonlat": [
+          22.24,
+          39.71
+        ],
+        "window_half_deg": 0.05,
+        "cell_lonlat": [
+          22.24,
+          39.71
+        ],
+        "window_cells": 1,
+        "inject": true,
+        "cell_mean_m3s": 16.498,
+        "cell_peak_m3s": 42.85,
+        "column_peak_m3s": 42.85,
+        "column_mean_m3s": 16.454
+      },
+      {
+        "id": 4,
+        "name": "enipeas",
+        "named_lonlat": [
+          22.39,
+          39.3
+        ],
+        "window_half_deg": 0.1,
+        "cell_lonlat": [
+          22.34,
+          39.31
+        ],
+        "window_cells": 4,
+        "inject": true,
+        "cell_mean_m3s": 33.245,
+        "cell_peak_m3s": 118.4,
+        "column_peak_m3s": 118.4,
+        "column_mean_m3s": 33.377
+      }
+    ],
+    "duplicate_cells": [],
+    "harness_version": "v1.4"
+  },
+  "src_snap": {
+    "harness_version": "v1.4",
+    "radius_m": 1000.0,
+    "channel_fraction": 0.5,
+    "uparea_source": "Copernicus DEM tiles (5) mosaicked on the model grid, D8 (pyflwdir)",
+    "points": [
+      {
+        "name": "pineios_trikala",
+        "yaml_xy": [
+          573878.87,
+          4379276.52
+        ],
+        "injected": true,
+        "row_col": [
+          345,
+          18
+        ],
+        "xy": [
+          574457.0,
+          4380090.0
+        ],
+        "zb_m": 95.79,
+        "distance_m": 998,
+        "uparea_km2": 1.91,
+        "max_uparea_within_radius_km2": 1.91,
+        "n_active_within_radius": 139,
+        "n_channel_cells": 5
+      },
+      {
+        "name": "pineios_kalambaka",
+        "yaml_xy": [
+          573730.1,
+          4394814.49
+        ],
+        "injected": false
+      },
+      {
+        "name": "titarisios",
+        "yaml_xy": [
+          621724.29,
+          4396534.68
+        ],
+        "injected": true,
+        "row_col": [
+          233,
+          335
+        ],
+        "xy": [
+          622007.0,
+          4396890.0
+        ],
+        "zb_m": 61.69,
+        "distance_m": 454,
+        "uparea_km2": 4.88,
+        "max_uparea_within_radius_km2": 6.89,
+        "n_active_within_radius": 139,
+        "n_channel_cells": 139
+      },
+      {
+        "name": "enipeas",
+        "yaml_xy": [
+          619803.78,
+          4354319.21
+        ],
+        "injected": true,
+        "row_col": [
+          513,
+          316
+        ],
+        "xy": [
+          619157.0,
+          4354890.0
+        ],
+        "zb_m": 130.87,
+        "distance_m": 863,
+        "uparea_km2": 336.62,
+        "max_uparea_within_radius_km2": 336.8,
+        "n_active_within_radius": 137,
+        "n_channel_cells": 12
+      }
+    ]
+  },
+  "validation_v14": {
+    "exit": 0,
+    "wall_s": 308.0,
+    "json": "results/pineios_raw_imerg_v142_v14_newmask.json"
+  },
+  "rescoring_v13": {},
+  "quicklook": {
+    "exit": 0,
+    "png": "quicklook/pineios_raw_imerg_v142_v14_hmax.png",
+    "err": ""
+  },
+  "end_utc": "2026-10-20T15:06:13Z"
+}

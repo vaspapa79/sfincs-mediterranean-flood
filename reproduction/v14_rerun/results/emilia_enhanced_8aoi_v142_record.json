@@ -1,0 +1,364 @@
+{
+  "run": "emilia_enhanced_8aoi_v142",
+  "event": "emilia",
+  "kind": "enhanced",
+  "phase": 7,
+  "group": "v142",
+  "label": "v1.4.2 (D8 source-point resolution) re-run of emilia_enhanced_8aoi: canonical enhanced",
+  "c2_row": null,
+  "manifest_row": 7,
+  "work": "D:\\ELKAK\\implementation\\v14\\emilia_enhanced_8aoi_v142",
+  "published_model": "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\emilia_emsr664\\model",
+  "published_wallclock_s": 754.7,
+  "published_text": null,
+  "published_note": null,
+  "compare_to": "emilia_enhanced_8aoi",
+  "harness_tag": "v1.4.2",
+  "base_run": "emilia_enhanced_8aoi",
+  "git_head": "b15896ac9607c4a2fc8d76be33919d78a12cde7b",
+  "start_utc": "2026-10-20T12:46:27Z",
+  "steps": [
+    {
+      "step": 6,
+      "start_utc": "2026-10-20T12:46:27Z",
+      "end_utc": "2026-10-20T12:46:28Z",
+      "wall_s": 1.1,
+      "exit": 0
+    },
+    {
+      "step": 7,
+      "start_utc": "2026-10-20T12:46:28Z",
+      "end_utc": "2026-10-20T12:46:31Z",
+      "wall_s": 2.3,
+      "exit": 0
+    },
+    {
+      "step": 8,
+      "start_utc": "2026-10-20T12:46:31Z",
+      "end_utc": "2026-10-20T12:46:31Z",
+      "wall_s": 0.4,
+      "exit": 0
+    },
+    {
+      "step": 9,
+      "start_utc": "2026-10-20T12:46:31Z",
+      "end_utc": "2026-10-20T12:46:33Z",
+      "wall_s": 1.7,
+      "exit": 0
+    },
+    {
+      "step": 10,
+      "start_utc": "2026-10-20T12:46:33Z",
+      "end_utc": "2026-10-20T12:47:24Z",
+      "wall_s": 51.0,
+      "exit": 0
+    },
+    {
+      "step": 11,
+      "start_utc": "2026-10-20T12:47:24Z",
+      "end_utc": "2026-10-20T13:16:38Z",
+      "wall_s": 1754.0,
+      "exit": 0
+    }
+  ],
+  "config": "reproduction\\v14_rerun\\configs\\emilia_enhanced_8aoi_v142.yaml",
+  "config_note": {
+    "derived_from": "skill/examples/emsr664_emilia_romagna_enhanced.yaml",
+    "changes": [
+      "harness_version: v1.4",
+      "paths.work_dir/deliverable_dir/zip_dir -> D:\\ELKAK\\implementation\\v14\\emilia_enhanced_8aoi_v142",
+      "overrides: {\"upstream_q\": {\"src_points\": [{\"name\": \"lamone\", \"lon\": 11.9, \"lat\": 44.24}, {\"name\": \"senio\", \"lon\": 11.875, \"lat\": 44.375, \"window_deg\": 0.02, \"src_lon\": 11.84865, \"src_lat\": 44.31073}, {\"name\": \"montone\", \"lon\": 11.98, \"lat\": 44.18, \"window_deg\": 0.05}, {\"name\": \"ronco\", \"lon\": 12.03, \"lat\": 44.13}, {\"name\": \"savio\", \"lon\": 12.1, \"lat\": 44.06, \"src_lon\": 12.19969, \"src_lat\": 44.09076}]}}"
+    ]
+  },
+  "seed": {
+    "from": "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\emilia_emsr664\\data",
+    "junctions": {
+      "copdem30": "exists",
+      "esa_worldcover": "exists",
+      "ems_polygons": "exists -> D:\\ELKAK\\ELKAK2\\NHESS\\R1_verification\\task_emilia_aoi\\data\\ems_polygons",
+      "era5_extracted": "exists"
+    },
+    "copied": [],
+    "skipped": [
+      "glofas_emilia_romagna.nc",
+      "imerg_emilia_romagna.nc",
+      "era5_emilia_romagna.nc"
+    ]
+  },
+  "coastal_prep": {
+    "harness_version": "v1.4",
+    "n_active_before": 300965,
+    "n_dep_le_0": 83389,
+    "n_open_sea": 74774,
+    "open_sea_km2": 1682.41,
+    "n_inland_dep_le_0": 8615,
+    "n_ring": 3243,
+    "ring_length_km": 486.4,
+    "n_exclude": 71531,
+    "n_active_after_expected": 229434,
+    "connectivity": {
+      "open_sea": 4,
+      "ring_adjacency": 8
+    },
+    "zsini": -9999,
+    "exclude_mask": "D:/ELKAK/implementation/v14/emilia_enhanced_8aoi_v142/open_sea_exclude.geojson",
+    "open_sea_mask_tif": "D:/ELKAK/implementation/v14/emilia_enhanced_8aoi_v142/open_sea_mask.tif",
+    "n_exclude_polygons": 33
+  },
+  "exclusion": {
+    "reused": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\masks\\emilia_exclusion.tif",
+    "open_sea_identical_to_first_build": true,
+    "symmetric_difference_cells": 0
+  },
+  "rescoring_v13_reused_from": "emilia_enhanced_8aoi",
+  "sfincs_total_time_s": 1750.337,
+  "q_outlet_cells": {
+    "window_half_deg": 0.1,
+    "latitude_order": "descending",
+    "glofas_time": [
+      "2023-04-02T00:00:00",
+      "2023-06-01T00:00:00"
+    ],
+    "points": [
+      {
+        "id": 1,
+        "name": "lamone",
+        "named_lonlat": [
+          11.9,
+          44.24
+        ],
+        "window_half_deg": 0.1,
+        "cell_lonlat": [
+          11.975,
+          44.325
+        ],
+        "window_cells": 16,
+        "inject": true,
+        "cell_mean_m3s": 29.017,
+        "cell_peak_m3s": 188.219,
+        "column_peak_m3s": 188.219,
+        "column_mean_m3s": 61.509
+      },
+      {
+        "id": 2,
+        "name": "senio",
+        "named_lonlat": [
+          11.875,
+          44.375
+        ],
+        "window_half_deg": 0.02,
+        "cell_lonlat": [
+          11.875,
+          44.375
+        ],
+        "window_cells": 1,
+        "inject": true,
+        "cell_mean_m3s": 11.687,
+        "cell_peak_m3s": 62.438,
+        "column_peak_m3s": 62.438,
+        "column_mean_m3s": 23.563
+      },
+      {
+        "id": 3,
+        "name": "montone",
+        "named_lonlat": [
+          11.98,
+          44.18
+        ],
+        "window_half_deg": 0.05,
+        "cell_lonlat": [
+          12.025,
+          44.225
+        ],
+        "window_cells": 4,
+        "inject": true,
+        "cell_mean_m3s": 19.272,
+        "cell_peak_m3s": 131.938,
+        "column_peak_m3s": 131.938,
+        "column_mean_m3s": 40.136
+      },
+      {
+        "id": 4,
+        "name": "ronco",
+        "named_lonlat": [
+          12.03,
+          44.13
+        ],
+        "window_half_deg": 0.1,
+        "cell_lonlat": [
+          12.075,
+          44.225
+        ],
+        "window_cells": 16,
+        "inject": true,
+        "cell_mean_m3s": 25.099,
+        "cell_peak_m3s": 171.188,
+        "column_peak_m3s": 171.188,
+        "column_mean_m3s": 51.851
+      },
+      {
+        "id": 5,
+        "name": "savio",
+        "named_lonlat": [
+          12.1,
+          44.06
+        ],
+        "window_half_deg": 0.1,
+        "cell_lonlat": [
+          12.175,
+          44.075
+        ],
+        "window_cells": 16,
+        "inject": true,
+        "cell_mean_m3s": 21.766,
+        "cell_peak_m3s": 147.531,
+        "column_peak_m3s": 147.531,
+        "column_mean_m3s": 44.243
+      }
+    ],
+    "duplicate_cells": [],
+    "harness_version": "v1.4"
+  },
+  "src_snap": {
+    "harness_version": "v1.4",
+    "radius_m": 1000.0,
+    "channel_fraction": 0.5,
+    "uparea_source": "Copernicus DEM tiles (2) mosaicked on the model grid, D8 (pyflwdir)",
+    "points": [
+      {
+        "name": "lamone",
+        "yaml_xy": [
+          731568.4,
+          4902620.03
+        ],
+        "injected": true,
+        "row_col": [
+          388,
+          299
+        ],
+        "xy": [
+          730945.0,
+          4903133.0
+        ],
+        "zb_m": 46.22,
+        "distance_m": 807,
+        "uparea_km2": 188.98,
+        "max_uparea_within_radius_km2": 188.98,
+        "n_active_within_radius": 139,
+        "n_channel_cells": 3
+      },
+      {
+        "name": "senio",
+        "yaml_xy": [
+          727195.04,
+          4910332.86
+        ],
+        "injected": true,
+        "row_col": [
+          338,
+          279
+        ],
+        "xy": [
+          727945.0,
+          4910633.0
+        ],
+        "zb_m": 29.4,
+        "distance_m": 808,
+        "uparea_km2": 284.56,
+        "max_uparea_within_radius_km2": 284.56,
+        "n_active_within_radius": 137,
+        "n_channel_cells": 13
+      },
+      {
+        "name": "montone",
+        "yaml_xy": [
+          738198.57,
+          4896184.35
+        ],
+        "injected": true,
+        "row_col": [
+          430,
+          343
+        ],
+        "xy": [
+          737545.0,
+          4896833.0
+        ],
+        "zb_m": 62.98,
+        "distance_m": 921,
+        "uparea_km2": 0.5,
+        "max_uparea_within_radius_km2": 0.56,
+        "n_active_within_radius": 139,
+        "n_channel_cells": 10
+      },
+      {
+        "name": "ronco",
+        "yaml_xy": [
+          742400.09,
+          4890776.79
+        ],
+        "injected": true,
+        "row_col": [
+          465,
+          374
+        ],
+        "xy": [
+          742195.0,
+          4891583.0
+        ],
+        "zb_m": 101.38,
+        "distance_m": 832,
+        "uparea_km2": 6.32,
+        "max_uparea_within_radius_km2": 6.57,
+        "n_active_within_radius": 142,
+        "n_channel_cells": 4
+      },
+      {
+        "name": "savio",
+        "yaml_xy": [
+          756145.32,
+          4886932.58
+        ],
+        "injected": true,
+        "row_col": [
+          492,
+          470
+        ],
+        "xy": [
+          756595.0,
+          4887533.0
+        ],
+        "zb_m": 47.17,
+        "distance_m": 750,
+        "uparea_km2": 97.49,
+        "max_uparea_within_radius_km2": 97.67,
+        "n_active_within_radius": 137,
+        "n_channel_cells": 15
+      }
+    ]
+  },
+  "validation_v14": {
+    "exit": 0,
+    "wall_s": 213.5,
+    "json": "results/emilia_enhanced_8aoi_v142_v14_newmask.json"
+  },
+  "rescoring_v13": {},
+  "published_strict": {
+    "_source": "D:\\ELKAK\\ELKAK2\\NHESS\\R1_verification\\task_emilia_aoi\\_scoring\\emilia_rescore.json",
+    "tp": 24247,
+    "fp": 74529,
+    "fn": 2091,
+    "tn": 42082,
+    "csi": 0.24038585464026888,
+    "hr": 0.9206090059989369,
+    "far": 0.7545253907831861,
+    "bias": 3.7503227276178905,
+    "gss": 0.07315748782562234
+  },
+  "quicklook": {
+    "exit": 0,
+    "png": "quicklook/emilia_enhanced_8aoi_v142_v14_hmax.png",
+    "err": ""
+  },
+  "end_utc": "2026-10-20T13:24:33Z"
+}

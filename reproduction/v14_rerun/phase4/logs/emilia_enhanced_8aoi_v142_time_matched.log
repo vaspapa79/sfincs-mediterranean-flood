@@ -1,0 +1,14 @@
+EMSR664_AOI01_DEL_MONIT01_v1                     acq 2023-05-18T16:55 RADARSAT-2         CSI full 0.162 -> time-matched 0.161  HR 0.914 -> 0.905  B 5.56 -> 5.51
+EMSR664_AOI01_DEL_MONIT01_v1                     acq 2023-05-18T16:55 RADARSAT-2         CSI full 0.155 -> time-matched 0.155  HR 0.863 -> 0.858  B 5.42 -> 5.38
+EMSR664_AOI01_DEL_MONIT02_v2                     acq 2023-05-20T05:19 PAZ-1              CSI full 0.103 -> time-matched 0.103  HR 0.924 -> 0.919  B 8.89 -> 8.84
+EMSR664_AOI01_DEL_MONIT02_v2                     acq 2023-05-20T05:19 PAZ-1              CSI full 0.109 -> time-matched 0.109  HR 0.914 -> 0.910  B 8.30 -> 8.26
+EMSR664_AOI01_DEL_MONIT03_v1                     acq 2023-05-21T16:50 COSMO-SkyMed       CSI full 0.054 -> time-matched 0.054  HR 0.918 -> 0.918  B 16.86 -> 16.85
+EMSR664_AOI01_DEL_MONIT03_v1                     acq 2023-05-21T16:50 COSMO-SkyMed       CSI full 0.103 -> time-matched 0.103  HR 0.924 -> 0.923  B 8.89 -> 8.88
+EMSR664_AOI02_GRA_PRODUCT_v1                     acq 2023-05-21T10:08 SPOT-6-7           CSI full 0.430 -> time-matched 0.430  HR 0.841 -> 0.840  B 1.80 -> 1.79
+EMSR664_AOI03_GRA_PRODUCT_v1                     acq 2023-05-22T10:26 Pleiades-1A-1B     CSI full 0.380 -> time-matched 0.380  HR 0.736 -> 0.736  B 1.67 -> 1.67
+EMSR664_AOI04_GRA_PRODUCT_v1                     acq -                ?                  CSI full 0.404 -> time-matched nan  HR 0.820 -> nan  B 1.85 -> nan
+EMSR664_AOI05_GRA_PRODUCT_v2                     acq 2023-05-22T10:18 Pleiades Neo       CSI full 0.103 -> time-matched 0.103  HR 0.905 -> 0.905  B 8.68 -> 8.68
+EMSR664_AOI06_GRA_PRODUCT_v1                     acq 2023-05-21T10:08 SPOT-6-7           CSI full 0.024 -> time-matched 0.024  HR 0.936 -> 0.936  B 39.57 -> 39.57
+EMSR664_AOI07_GRA_PRODUCT_v2                     acq 2023-05-21T10:08 SPOT-6-7           CSI full 0.265 -> time-matched 0.265  HR 0.913 -> 0.911  B 3.36 -> 3.35
+EMSR664_AOI08_GRA_PRODUCT_v1                     acq 2023-05-21T00:00 Drone Imagery      CSI full nan -> time-matched nan  HR nan -> nan  B nan -> nan
+union: full 0.253; to earliest acq 0.251; to latest acq 0.253

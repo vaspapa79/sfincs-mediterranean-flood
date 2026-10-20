@@ -143,17 +143,25 @@ def main() -> int:
     E = build_entries(S, man, sup, text, stext)
     alt = v141_map(S.res)
     E1 = build_entries(Src(a.repo, alt), man, sup, text, stext) if alt else None
-    write_map(a, E, E1, alt)
+    alt2 = rerun_map(S.res, "_v142")
+    # CODE-15: the v1.4.2 column stands on the v1.4.1 column (a base without a v1.4.2 re-run keeps its v1.4.1 / v1.4.0 record)
+    E2 = build_entries(Src(a.repo, {**alt, **alt2}), man, sup, text, stext) if alt2 else None
+    write_map(a, E, E1, alt, E2, alt2)
     return 0
+
+
+def rerun_map(res: Path, tag: str) -> dict:
+    """base run -> <base><tag> for every re-run record with a v1.4 validation JSON."""
+    out = {}
+    for p in sorted(res.glob(f"*{tag}_v14_newmask.json")):
+        run = p.name[: -len("_v14_newmask.json")]
+        out[run[: -len(tag)]] = run
+    return out
 
 
 def v141_map(res: Path) -> dict:
     """base run -> <base>_v141 for every v1.4.1 record with a v1.4 validation JSON (CODE-14 C)."""
-    out = {}
-    for p in sorted(res.glob("*_v141_v14_newmask.json")):
-        run = p.name[: -len("_v14_newmask.json")]
-        out[run[: -len("_v141")]] = run
-    return out
+    return rerun_map(res, "_v141")
 
 
 def build_entries(S, man, sup, text, stext):
@@ -315,20 +323,30 @@ def build_entries(S, man, sup, text, stext):
     return E
 
 
-def write_map(a, E, E1, alt):
+def write_map(a, E, E1, alt, E2=None, alt2=None):
     now = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     v141 = E1 is not None
+    v142 = E2 is not None
     L = [f"# NUMBER_MAP — NHESS R5 manuscript + supplement numbers under harness v1.4 (new evaluation mask); generated {now} by `reproduction/v14_rerun/scripts/number_map.py`", "",
          "Old = the R5 text (`NHESS_manuscript_R5_clean.docx` / `NHESS_supplement_R5_clean.docx`, extracted with `scripts/extract_docx.py`); New = the v1.4 record named in the source column "
          "(paths relative to `reproduction/v14_rerun/`). Every row whose new value differs from the old one is a manuscript change; rows marked pending wait for the named run. "
          "Headline numbers recur in the Abstract, §4–§8 and the figure captions; the 'where' column lists the extracted-text line numbers found by regex so the rewrite can sweep every occurrence."
          + (f" **v1.4.1 column (CODE-14, D7 GloFAS sampler fix):** the value from the v1.4.1 re-run where one exists ({', '.join(f'{k} → {v}' for k, v in alt.items())}); "
-            "'= v1.4.0' where the entry does not depend on a re-run run. The v1.4.1 Pineios rows use the frozen config under the fixed sampler and carry the D8 Titarisios main-stem double count (CHECKPOINT6.md) — not final until the author decides D8." if v141 else ""), "",
-         ("| location | old (R5) | new (v1.4.0) | new (v1.4.1) | source | note / where |" if v141 else "| location | old (R5) | new (v1.4) | source | note / where |"),
-         ("|---|---|---|---|---|---|" if v141 else "|---|---|---|---|---|")]
-    n_changed = 0
+            "'= v1.4.0' where the entry does not depend on a re-run run. The v1.4.1 Pineios rows use the frozen config under the fixed sampler and carry the D8 Titarisios main-stem double count (CHECKPOINT6.md) — not final until the author decides D8." if v141 else "")
+         + (f" **v1.4.2 column (CODE-15, D8 source-point resolution — the number freeze):** the value from the v1.4.2 re-run where one exists ({', '.join(f'{k} → {v}' for k, v in alt2.items())}); "
+            "'= v1.4.1' where the entry does not depend on a re-run run (the v1.4.1 column itself falls back to v1.4.0 where no v1.4.1 re-run exists)." if v142 else ""), "",
+         ("| location | old (R5) | new (v1.4.0) | new (v1.4.1) | new (v1.4.2) | source | note / where |" if v142 else
+          "| location | old (R5) | new (v1.4.0) | new (v1.4.1) | source | note / where |" if v141 else "| location | old (R5) | new (v1.4) | source | note / where |"),
+         ("|---|---|---|---|---|---|---|" if v142 else "|---|---|---|---|---|---|" if v141 else "|---|---|---|---|---|")]
+    n_changed = 0; n_changed2 = 0
     for i, (loc, old, new, src, note) in enumerate(E):
-        if v141:
+        if v142:
+            loc1, old1, new1, src1, note1 = E1[i]
+            loc2, old2, new2, src2, note2 = E2[i]
+            diff = new1 != new; diff2 = new2 != new1
+            n_changed += int(diff); n_changed2 += int(diff2)
+            L.append(f"| {loc} | {old} | {new} | {new1 if diff else '= v1.4.0'} | {new2 if diff2 else '= v1.4.1'} | `{src}`" + (f" → `{src2}`" if (diff2 and src2 != src) else (f" → `{src1}`" if (diff and src1 != src) else "")) + f" | {note} |")
+        elif v141:
             loc1, old1, new1, src1, note1 = E1[i]
             diff = new1 != new
             n_changed += int(diff)
@@ -337,7 +355,7 @@ def write_map(a, E, E1, alt):
             L.append(f"| {loc} | {old} | {new} | `{src}` | {note} |")
     out = a.out or (a.repo / "reproduction" / "v14_rerun" / "NUMBER_MAP.md")
     out.write_text("\n".join(L) + "\n", encoding="utf-8")
-    print(f"{len(E)} entries -> {out}" + (f"; {n_changed} entries change under v1.4.1" if v141 else ""))
+    print(f"{len(E)} entries -> {out}" + (f"; {n_changed} entries change under v1.4.1" if v141 else "") + (f"; {n_changed2} entries change under v1.4.2 (vs v1.4.1)" if v142 else ""))
     print("\n".join(L[:12]))
     return 0
 

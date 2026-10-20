@@ -1,0 +1,210 @@
+{
+  "utc": "2026-10-20T16:29:20Z",
+  "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\configs\\emilia_enhanced_8aoi_v142.yaml",
+  "event": "emilia_romagna",
+  "bbox": [
+    11.35,
+    44.0,
+    12.55,
+    44.75
+  ],
+  "rain_source": "imerg_half_hourly",
+  "r2": {
+    "enabled": false,
+    "target_mm": 200.0,
+    "watershed_bbox": null,
+    "event_start": null,
+    "event_end": null
+  },
+  "windows": {
+    "simulated": [
+      "2023-05-14T00:00:00",
+      "2023-05-22T00:00:00"
+    ],
+    "forcing": [
+      "2023-04-30T00:00:00",
+      "2023-05-22T00:00:00"
+    ]
+  },
+  "sources": {
+    "model_forcing": {
+      "file": "D:\\ELKAK\\implementation\\v14\\emilia_enhanced_8aoi_v142\\model\\precip_2d.nc",
+      "present": true,
+      "units": "mm/h",
+      "time_first_last": [
+        "2023-04-30T00:00",
+        "2023-05-22T00:00"
+      ],
+      "file_attrs": {
+        "sfincs_corner_alignment": "1",
+        "x_shift_m": "-4567.993537791073",
+        "y_shift_m": "4567.993537791073"
+      },
+      "bbox_cells": 99,
+      "grid_cells": 225,
+      "by_window_whole_grid": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 4.208000183105469,
+          "domain_mean_peak_time": "2023-05-17T01:30:00",
+          "cell_peak_mm_h": 25.279998779296875,
+          "n_steps": 384,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 101.36161804199219,
+          "max_cell_total_mm": 160.0198974609375,
+          "n_cells": 225
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 4.762444496154785,
+          "domain_mean_peak_time": "2023-05-10T12:30:00",
+          "cell_peak_mm_h": 25.279998779296875,
+          "n_steps": 1056,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 203.3792724609375,
+          "max_cell_total_mm": 286.7900085449219,
+          "n_cells": 225
+        }
+      },
+      "by_window": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 5.80696964263916,
+          "domain_mean_peak_time": "2023-05-16T10:00:00",
+          "cell_peak_mm_h": 25.279998779296875,
+          "n_steps": 384,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 115.74440002441406,
+          "max_cell_total_mm": 160.0198974609375,
+          "n_cells": 99
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 5.80696964263916,
+          "domain_mean_peak_time": "2023-05-16T10:00:00",
+          "cell_peak_mm_h": 25.279998779296875,
+          "n_steps": 1056,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 213.43650817871094,
+          "max_cell_total_mm": 286.7900085449219,
+          "n_cells": 99
+        }
+      }
+    },
+    "imerg_raw": {
+      "file": "D:\\ELKAK\\implementation\\v14\\emilia_enhanced_8aoi_v142\\data\\imerg_emilia_romagna.raw.nc",
+      "present": false
+    },
+    "imerg": {
+      "file": "D:\\ELKAK\\implementation\\v14\\emilia_enhanced_8aoi_v142\\data\\imerg_emilia_romagna.nc",
+      "present": true,
+      "units": "mm/h",
+      "time_first_last": [
+        "2023-04-30T00:00",
+        "2023-05-22T00:00"
+      ],
+      "file_attrs": {
+        "source": "GPM IMERG Final V07 half-hourly"
+      },
+      "bbox_cells": 96,
+      "by_window_file_extent": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 3.864060401916504,
+          "domain_mean_peak_time": "2023-05-17T01:30:00",
+          "cell_peak_mm_h": 25.579999923706055,
+          "n_steps": 384,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 96.6788330078125,
+          "max_cell_total_mm": 160.0198974609375,
+          "n_cells": 266
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 4.501916885375977,
+          "domain_mean_peak_time": "2023-05-10T12:30:00",
+          "cell_peak_mm_h": 25.579999923706055,
+          "n_steps": 1056,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 197.21322631835938,
+          "max_cell_total_mm": 286.7900085449219,
+          "n_cells": 266
+        }
+      },
+      "file_extent_cells": 266,
+      "by_window": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 6.142812252044678,
+          "domain_mean_peak_time": "2023-05-17T01:30:00",
+          "cell_peak_mm_h": 24.75,
+          "n_steps": 384,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 118.74979400634766,
+          "max_cell_total_mm": 160.0198974609375,
+          "n_cells": 96
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 6.142812252044678,
+          "domain_mean_peak_time": "2023-05-17T01:30:00",
+          "cell_peak_mm_h": 24.75,
+          "n_steps": 1056,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 225.41954040527344,
+          "max_cell_total_mm": 286.7900085449219,
+          "n_cells": 96
+        }
+      }
+    },
+    "era5": {
+      "file": "D:\\ELKAK\\implementation\\v14\\emilia_enhanced_8aoi_v142\\data\\era5_emilia_romagna.nc",
+      "present": true,
+      "units": "mm/h",
+      "time_first_last": [
+        "2023-04-01T00:00",
+        "2023-05-30T23:00"
+      ],
+      "file_attrs": {},
+      "bbox_cells": 15,
+      "by_window_file_extent": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 3.389131546020508,
+          "domain_mean_peak_time": "2023-05-16T05:00:00",
+          "cell_peak_mm_h": 7.100238800048828,
+          "n_steps": 192,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 107.55390167236328,
+          "max_cell_total_mm": 192.5368194580078,
+          "n_cells": 48
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 3.389131546020508,
+          "domain_mean_peak_time": "2023-05-16T05:00:00",
+          "cell_peak_mm_h": 7.100238800048828,
+          "n_steps": 528,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 225.441650390625,
+          "max_cell_total_mm": 387.0865783691406,
+          "n_cells": 48
+        }
+      },
+      "file_extent_cells": 48,
+      "by_window": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 4.563455581665039,
+          "domain_mean_peak_time": "2023-05-16T05:00:00",
+          "cell_peak_mm_h": 7.100238800048828,
+          "n_steps": 192,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 118.7313232421875,
+          "max_cell_total_mm": 192.5368194580078,
+          "n_cells": 15
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 4.563455581665039,
+          "domain_mean_peak_time": "2023-05-16T05:00:00",
+          "cell_peak_mm_h": 7.100238800048828,
+          "n_steps": 528,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 241.2312469482422,
+          "max_cell_total_mm": 387.0865783691406,
+          "n_cells": 15
+        }
+      }
+    }
+  },
+  "series_csv": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\phase4\\rain\\emilia_enhanced_8aoi_v142_v14_series.csv"
+}

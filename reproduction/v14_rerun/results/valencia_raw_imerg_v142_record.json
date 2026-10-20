@@ -1,0 +1,285 @@
+{
+  "run": "valencia_raw_imerg_v142",
+  "event": "valencia",
+  "kind": "enhanced",
+  "phase": 7,
+  "group": "v142",
+  "label": "v1.4.2 (D8 source-point resolution) re-run of valencia_raw_imerg: \u00a74.4.2 / \u00a75.3 / S3.1: Valencia raw IMERG (no R2)",
+  "c2_row": 8,
+  "manifest_row": 20,
+  "work": "D:\\ELKAK\\implementation\\v14\\valencia_raw_imerg_v142",
+  "published_model": null,
+  "published_wallclock_s": null,
+  "published_text": {
+    "source": "NHESS manuscript R5 \u00a74.4.2: The uncorrected raw-IMERG run scores CSI = 0.105",
+    "csi": 0.105
+  },
+  "published_note": null,
+  "compare_to": "valencia_raw_imerg",
+  "harness_tag": "v1.4.2",
+  "base_run": "valencia_raw_imerg",
+  "git_head": "b15896ac9607c4a2fc8d76be33919d78a12cde7b",
+  "start_utc": "2026-10-20T13:58:45Z",
+  "steps": [
+    {
+      "step": 6,
+      "start_utc": "2026-10-20T13:58:45Z",
+      "end_utc": "2026-10-20T13:58:46Z",
+      "wall_s": 1.1,
+      "exit": 0
+    },
+    {
+      "step": 7,
+      "start_utc": "2026-10-20T13:58:46Z",
+      "end_utc": "2026-10-20T13:58:49Z",
+      "wall_s": 2.8,
+      "exit": 0
+    },
+    {
+      "step": 8,
+      "start_utc": "2026-10-20T13:58:49Z",
+      "end_utc": "2026-10-20T13:58:49Z",
+      "wall_s": 0.5,
+      "exit": 0
+    },
+    {
+      "step": 9,
+      "start_utc": "2026-10-20T13:58:49Z",
+      "end_utc": "2026-10-20T13:58:51Z",
+      "wall_s": 1.9,
+      "exit": 0
+    },
+    {
+      "step": 10,
+      "start_utc": "2026-10-20T13:58:51Z",
+      "end_utc": "2026-10-20T13:59:45Z",
+      "wall_s": 53.4,
+      "exit": 0
+    },
+    {
+      "step": 11,
+      "start_utc": "2026-10-20T13:59:45Z",
+      "end_utc": "2026-10-20T14:38:00Z",
+      "wall_s": 2295.6,
+      "exit": 0
+    }
+  ],
+  "config": "reproduction\\v14_rerun\\configs\\valencia_raw_imerg_v142.yaml",
+  "config_note": {
+    "derived_from": "skill/examples/emsr773_valencia_enhanced.yaml",
+    "changes": [
+      "harness_version: v1.4",
+      "paths.work_dir/deliverable_dir/zip_dir -> D:\\ELKAK\\implementation\\v14\\valencia_raw_imerg_v142",
+      "overrides: {\"rain_bias_correct\": {\"enabled\": false}, \"upstream_q\": {\"src_points\": [{\"name\": \"magro\", \"lon\": -0.475, \"lat\": 39.225, \"window_deg\": 0.02, \"src_lon\": -0.68, \"src_lat\": 39.2}, {\"name\": \"jucar\", \"lon\": -0.34, \"lat\": 39.16}, {\"name\": \"turia\", \"lon\": -0.55, \"lat\": 39.52}]}}"
+    ]
+  },
+  "seed": {
+    "from": "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\valencia_emsr773\\data",
+    "junctions": {
+      "copdem30": "exists",
+      "esa_worldcover": "exists",
+      "ems_polygons": "exists",
+      "era5_extracted": "exists"
+    },
+    "copied": [],
+    "skipped": [
+      "glofas_valencia.nc",
+      "imerg_valencia.nc",
+      "imerg_valencia.raw.nc",
+      "era5_valencia.nc"
+    ],
+    "raw_imerg_as_forcing": "imerg_valencia.raw.nc -> imerg_valencia.nc (rain_bias_correct disabled; the D1 rate/label convention is applied at build time)"
+  },
+  "coastal_prep": {
+    "harness_version": "v1.4",
+    "n_active_before": 521427,
+    "n_dep_le_0": 236289,
+    "n_open_sea": 225179,
+    "open_sea_km2": 2251.79,
+    "n_inland_dep_le_0": 11110,
+    "n_ring": 1867,
+    "ring_length_km": 186.7,
+    "n_exclude": 223312,
+    "n_active_after_expected": 298115,
+    "connectivity": {
+      "open_sea": 4,
+      "ring_adjacency": 8
+    },
+    "zsini": -9999,
+    "exclude_mask": "D:/ELKAK/implementation/v14/valencia_raw_imerg_v142/open_sea_exclude.geojson",
+    "open_sea_mask_tif": "D:/ELKAK/implementation/v14/valencia_raw_imerg_v142/open_sea_mask.tif",
+    "n_exclude_polygons": 5
+  },
+  "exclusion": {
+    "reused": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\masks\\valencia_exclusion.tif",
+    "open_sea_identical_to_first_build": true,
+    "symmetric_difference_cells": 0
+  },
+  "rescoring_v13_skipped": "no published output survives for this configuration",
+  "sfincs_total_time_s": 2294.351,
+  "q_outlet_cells": {
+    "window_half_deg": 0.1,
+    "latitude_order": "descending",
+    "glofas_time": [
+      "2024-10-02T00:00:00",
+      "2024-12-01T00:00:00"
+    ],
+    "points": [
+      {
+        "id": 1,
+        "name": "magro",
+        "named_lonlat": [
+          -0.475,
+          39.225
+        ],
+        "window_half_deg": 0.02,
+        "cell_lonlat": [
+          -0.475,
+          39.225
+        ],
+        "window_cells": 1,
+        "inject": true,
+        "cell_mean_m3s": 2.322,
+        "cell_peak_m3s": 18.695,
+        "column_peak_m3s": 18.695,
+        "column_mean_m3s": 6.794
+      },
+      {
+        "id": 2,
+        "name": "jucar",
+        "named_lonlat": [
+          -0.34,
+          39.16
+        ],
+        "window_half_deg": 0.1,
+        "cell_lonlat": [
+          -0.275,
+          39.175
+        ],
+        "window_cells": 16,
+        "inject": true,
+        "cell_mean_m3s": 25.717,
+        "cell_peak_m3s": 88.809,
+        "column_peak_m3s": 88.809,
+        "column_mean_m3s": 46.222
+      },
+      {
+        "id": 3,
+        "name": "turia",
+        "named_lonlat": [
+          -0.55,
+          39.52
+        ],
+        "window_half_deg": 0.1,
+        "cell_lonlat": [
+          -0.475,
+          39.525
+        ],
+        "window_cells": 16,
+        "inject": true,
+        "cell_mean_m3s": 32.369,
+        "cell_peak_m3s": 239.719,
+        "column_peak_m3s": 239.719,
+        "column_mean_m3s": 73.582
+      }
+    ],
+    "duplicate_cells": [],
+    "harness_version": "v1.4"
+  },
+  "src_snap": {
+    "harness_version": "v1.4",
+    "radius_m": 1000.0,
+    "channel_fraction": 0.5,
+    "uparea_source": "Copernicus DEM tiles (2) mosaicked on the model grid, D8 (pyflwdir)",
+    "points": [
+      {
+        "name": "magro",
+        "yaml_xy": [
+          700337.21,
+          4341535.46
+        ],
+        "injected": true,
+        "row_col": [
+          625,
+          195
+        ],
+        "xy": [
+          699465.0,
+          4341974.0
+        ],
+        "zb_m": 274.67,
+        "distance_m": 976,
+        "uparea_km2": 5.69,
+        "max_uparea_within_radius_km2": 5.69,
+        "n_active_within_radius": 35,
+        "n_channel_cells": 3
+      },
+      {
+        "name": "jucar",
+        "yaml_xy": [
+          729831.3,
+          4337902.56
+        ],
+        "injected": true,
+        "row_col": [
+          668,
+          508
+        ],
+        "xy": [
+          730765.0,
+          4337674.0
+        ],
+        "zb_m": 2.95,
+        "distance_m": 961,
+        "uparea_km2": 2183.77,
+        "max_uparea_within_radius_km2": 2183.77,
+        "n_active_within_radius": 317,
+        "n_channel_cells": 12
+      },
+      {
+        "name": "turia",
+        "yaml_xy": [
+          710600.54,
+          4377350.37
+        ],
+        "injected": true,
+        "row_col": [
+          262,
+          305
+        ],
+        "xy": [
+          710465.0,
+          4378274.0
+        ],
+        "zb_m": 109.69,
+        "distance_m": 934,
+        "uparea_km2": 6.07,
+        "max_uparea_within_radius_km2": 6.07,
+        "n_active_within_radius": 316,
+        "n_channel_cells": 3
+      }
+    ]
+  },
+  "validation_v14": {
+    "exit": 0,
+    "wall_s": 43.4,
+    "json": "results/valencia_raw_imerg_v142_v14_newmask.json"
+  },
+  "rescoring_v13": {},
+  "published_strict": {
+    "_source": "D:\\ELKAK\\ELKAK2\\NHESS\\R1_verification\\task8_cleanup\\supplement\\S1_EMSR773_valencia_raw_IMERG_metrics.json",
+    "tp": 19353,
+    "fp": 164114,
+    "fn": 676,
+    "tn": 135894,
+    "csi": 0.10509766865968297,
+    "hr": 0.9662489390383944,
+    "far": 0.8945150899071768
+  },
+  "quicklook": {
+    "exit": 0,
+    "png": "quicklook/valencia_raw_imerg_v142_v14_hmax.png",
+    "err": ""
+  },
+  "end_utc": "2026-10-20T14:39:31Z"
+}

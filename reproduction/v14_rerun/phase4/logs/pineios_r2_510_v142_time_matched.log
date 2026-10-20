@@ -1,0 +1,25 @@
+EMSR692_AOI01_DEL_MONIT01_v3                     acq 2023-09-06T04:40 Sentinel-1         CSI full 0.148 -> time-matched 0.149  HR 0.971 -> 0.963  B 6.55 -> 6.45
+EMSR692_AOI01_DEL_MONIT02_v4                     acq 2023-09-07T16:25 Sentinel-1         CSI full 0.283 -> time-matched 0.283  HR 0.974 -> 0.974  B 3.42 -> 3.41
+EMSR692_AOI01_DEL_MONIT03_v3                     acq 2023-09-09T09:31 WorldView-3        CSI full 0.191 -> time-matched 0.191  HR 0.919 -> 0.919  B 4.73 -> 4.72
+EMSR692_AOI02_DEL_MONIT01_v3                     acq 2023-09-12T08:54 SPOT-6-7           CSI full 0.673 -> time-matched 0.673  HR 0.932 -> 0.932  B 1.32 -> 1.32
+EMSR692_AOI02_DEL_MONIT02_v2                     acq 2023-09-14T08:38 SPOT-6-7           CSI full 0.712 -> time-matched 0.712  HR 0.932 -> 0.932  B 1.24 -> 1.24
+EMSR692_AOI02_DEL_MONIT03_v3                     acq 2023-09-15T09:19 SPOT-6-7           CSI full 0.674 -> time-matched 0.674  HR 0.936 -> 0.936  B 1.33 -> 1.33
+EMSR692_AOI02_DEL_MONIT04_v2                     acq 2023-09-17T09:05 SPOT-6-7           CSI full 0.667 -> time-matched 0.667  HR 0.940 -> 0.940  B 1.35 -> 1.35
+EMSR692_AOI02_DEL_MONIT05_v2                     acq 2023-09-19T09:34 WorldView-2        CSI full 0.716 -> time-matched 0.716  HR 0.936 -> 0.936  B 1.24 -> 1.24
+EMSR692_AOI03_DEL_MONIT01_v3                     acq 2023-09-12T08:53 SPOT-6-7           CSI full 0.329 -> time-matched 0.329  HR 0.966 -> 0.966  B 2.90 -> 2.90
+EMSR692_AOI03_DEL_MONIT02_v2                     acq 2023-09-14T08:38 SPOT-6-7           CSI full 0.316 -> time-matched 0.316  HR 0.966 -> 0.966  B 3.03 -> 3.03
+EMSR692_AOI03_DEL_MONIT03_v2                     acq 2023-09-15T09:19 SPOT-6-7           CSI full 0.377 -> time-matched 0.377  HR 0.967 -> 0.967  B 2.53 -> 2.53
+EMSR692_AOI03_DEL_MONIT04_v2                     acq 2023-09-17T09:04 SPOT-6-7           CSI full 0.397 -> time-matched 0.397  HR 0.966 -> 0.966  B 2.40 -> 2.40
+EMSR692_AOI03_DEL_MONIT05_v2                     acq 2023-09-19T09:33 WorldView-2        CSI full 0.401 -> time-matched 0.401  HR 0.967 -> 0.967  B 2.38 -> 2.38
+EMSR692_AOI04_DEL_MONIT01_v3                     acq 2023-09-12T08:53 SPOT-6-7           CSI full 0.514 -> time-matched 0.514  HR 0.992 -> 0.992  B 1.92 -> 1.92
+EMSR692_AOI04_DEL_MONIT02_v2                     acq 2023-09-14T08:38 SPOT-6-7           CSI full 0.531 -> time-matched 0.531  HR 0.994 -> 0.994  B 1.86 -> 1.86
+EMSR692_AOI04_DEL_MONIT03_v3                     acq 2023-09-17T09:04 SPOT-6-7           CSI full 0.462 -> time-matched 0.462  HR 0.996 -> 0.996  B 2.15 -> 2.15
+EMSR692_AOI04_DEL_MONIT04_v2                     acq 2023-09-19T09:33 WorldView-2        CSI full 0.368 -> time-matched 0.368  HR 0.996 -> 0.996  B 2.70 -> 2.70
+EMSR692_AOI05_DEL_MONIT01_v2                     acq 2023-09-11T09:42 GeoEye-1           CSI full 0.561 -> time-matched 0.561  HR 0.922 -> 0.922  B 1.57 -> 1.57
+EMSR692_AOI05_DEL_MONIT02_v3                     acq 2023-09-12T08:54 SPOT-6-7           CSI full 0.555 -> time-matched 0.555  HR 0.920 -> 0.920  B 1.58 -> 1.58
+EMSR692_AOI05_DEL_MONIT03_v3                     acq 2023-09-14T09:16 WorldView-3        CSI full 0.632 -> time-matched 0.632  HR 0.919 -> 0.919  B 1.37 -> 1.37
+EMSR692_AOI05_DEL_MONIT04_v2                     acq 2023-09-17T09:05 SPOT-6-7           CSI full 0.626 -> time-matched 0.626  HR 0.919 -> 0.919  B 1.39 -> 1.39
+EMSR692_AOI05_DEL_MONIT05_v2                     acq 2023-09-18T10:08 WorldView-2        CSI full 0.370 -> time-matched 0.370  HR 0.942 -> 0.942  B 2.49 -> 2.49
+EMSR692_AOI06_DEL_MONIT01_v3                     acq 2023-09-22T09:46 GeoEye-1           CSI full 0.150 -> time-matched 0.150  HR 1.000 -> 1.000  B 6.67 -> 6.67
+EMSR692_AOI07_DEL_MONIT01_v2                     acq 2023-09-22T09:46 GeoEye-1           CSI full 0.376 -> time-matched 0.376  HR 1.000 -> 1.000  B 2.66 -> 2.66
+union: full 0.487; to earliest acq 0.482; to latest acq 0.487
