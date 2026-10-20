@@ -123,9 +123,9 @@ def main() -> int:
         audit.append(f"- D8 diagnostic {D8} (never canonical): Titarisios cell {tuple(tit.get('cell_lonlat', ()))}, peak {tit.get('column_peak_m3s')} m³/s; CSI {sd['csi']:.4f} HR {sd['hr']:.4f} FAR {sd['far']:.4f} B {sd['bias']:.3f} GSS {sd['gss']:.4f}; Δ vs v1.4.1 canonical CSI {dd['csi']:+.4f}.")
     else:
         L += ["", f"D8 diagnostic `{D8}`: pending."]
-    ce = J(P4 / "cross_event_v14_v141.md")
-    if ce:
-        L += ["", "### Cross-event tables with the v1.4.1 Pineios canonical (`phase4/cross_event_v14_v141.{json,md}`; other events unchanged)", ""] + [ln for ln in (P4 / "cross_event_v14_v141.md").read_text(encoding="utf-8").splitlines() if not ln.startswith("# ")]
+    ce_md = P4 / "cross_event_v14_v141.md"
+    if ce_md.exists():
+        L += ["", "### Cross-event tables with the v1.4.1 Pineios canonical (`phase4/cross_event_v14_v141.{json,md}`; other events unchanged)", ""] + [ln for ln in ce_md.read_text(encoding="utf-8").splitlines() if not ln.startswith("# ")]
     L.append("")
     # ---- D
     L += ["## D. Loose ends", ""]
