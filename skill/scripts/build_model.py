@@ -418,11 +418,47 @@ def align_meteo_grids(cfg, model_dir: Path) -> list:
     return reps
 
 
+def snap_sources_v14(cfg, model_dir: Path, points: list) -> list[tuple]:
+    """Harness v1.4.2 (D8 (3)): every injected point is moved to the lowest-z_b active channel cell within
+    source_snap.SNAP_RADIUS_M of its YAML injection coordinate (gis/dep.tif + gis/msk.tif of the build; upstream area from
+    the run's Copernicus DEM tiles). No active cell inside the radius raises source_snap.NoActiveCellError."""
+    import json
+    import rasterio
+    import source_snap as ss
+    gis = model_dir / "gis"
+    with rasterio.open(gis / "dep.tif") as s:
+        dep = s.read(1).astype(float); T = s.transform
+    with rasterio.open(gis / "msk.tif") as s:
+        msk = s.read(1).astype(float)
+    dem_dir = cfg.paths["data_dir"] / "copdem30"
+    tiles = sorted(dem_dir.glob("*.tif")) if dem_dir.exists() else []
+    uparea = ss.dem_uparea_on_grid(dem_dir if tiles else None, cfg.epsg, T, dep.shape, fallback_dep=dep)
+    rep = {"harness_version": cfg.harness_version, "radius_m": ss.SNAP_RADIUS_M, "channel_fraction": ss.CHANNEL_FRACTION,
+           "uparea_source": (f"Copernicus DEM tiles ({len(tiles)}) mosaicked on the model grid, D8 (pyflwdir)" if tiles else "model dep.tif (no DEM tiles in data_dir/copdem30)"), "points": []}
+    out = []
+    for name, x, y, inject in points:
+        entry = {"name": name, "yaml_xy": [round(x, 2), round(y, 2)], "injected": bool(inject)}
+        if inject:
+            r = ss.snap_source(dep, msk, uparea, T, x, y)
+            entry.update({"row_col": [r["row"], r["col"]], "xy": [round(r["x"], 2), round(r["y"], 2)], "zb_m": round(r["zb"], 2), "distance_m": round(r["distance_m"]),
+                          "uparea_km2": round(r["uparea_km2"], 2), "max_uparea_within_radius_km2": round(r["max_uparea_within_radius_km2"], 2),
+                          "n_active_within_radius": r["n_active_within_radius"], "n_channel_cells": r["n_channel_cells"]})
+            out.append((name, r["x"], r["y"]))
+            print(f"  src {name}: snapped {r['distance_m']:.0f} m to the lowest-zb active channel cell (zb {r['zb']:.2f} m, D8 {r['uparea_km2']:.1f} km2)", flush=True)
+        else:
+            print(f"  src {name}: sampled only (inject: false) — not written to sfincs.src", flush=True)
+        rep["points"].append(entry)
+    (model_dir / "sfincs_src_snap.json").write_text(json.dumps(rep, indent=2), encoding="utf-8")
+    return out
+
+
 def inject_q_forcing(cfg, model_dir: Path) -> None:
     """Write sfincs.src + sfincs.dis and patch sfincs.inp.
 
     Bypasses hydromt-sfincs's setup_discharge_forcing (pandas-2.x bug:
     RangeIndex.is_integer was removed). Same workaround as v2 forecast.
+    Harness v1.4 (v1.4.2, D8): the sources are snapped to the lowest-z_b active channel cell within 1 km
+    (snap_sources_v14) and points marked `inject: false` are left out; v1.3 writes the YAML coordinates of every point.
     """
     import pandas as pd
     import pyproj
@@ -437,19 +473,25 @@ def inject_q_forcing(cfg, model_dir: Path) -> None:
         return
 
     to_utm = pyproj.Transformer.from_crs(4326, cfg.epsg, always_xy=True)
-    utm = []
+    pts = []
     for sp in q["src_points"]:
         # Use src_lon/src_lat if present (injection location differs from sampling location)
         inj_lon = float(sp.get("src_lon", sp["lon"]))
         inj_lat = float(sp.get("src_lat", sp["lat"]))
-        utm.append((sp["name"], *to_utm.transform(inj_lon, inj_lat)))
+        pts.append((sp["name"], *to_utm.transform(inj_lon, inj_lat), bool(sp.get("inject", True))))
+
+    df = pd.read_csv(csv_path, index_col=0, parse_dates=True)
+    if cfg.harness_version == "v1.4":
+        utm = snap_sources_v14(cfg, model_dir, pts)
+        df = df[[str(i + 1) for i, p in enumerate(pts) if p[3]]]
+    else:
+        utm = [(name, x, y) for name, x, y, _ in pts]
 
     src_path = model_dir / "sfincs.src"
     with open(src_path, "w") as f:
         for name, x, y in utm:
             f.write(f"{x:.2f}  {y:.2f}\n")
 
-    df = pd.read_csv(csv_path, index_col=0, parse_dates=True)
     tref = cfg.tref
     dis_path = model_dir / "sfincs.dis"
     with open(dis_path, "w") as f:

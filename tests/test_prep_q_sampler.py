@@ -179,5 +179,86 @@ class PineiosAuditRebuildRegression(unittest.TestCase):
         self.assertAlmostEqual(float(np.sum(cols, axis=0).max()), 135.0, places=1)
 
 
+
+
+# ------------------------------------------------------------------------------------------ harness v1.4.2 (CODE-15 B, 2026-10-20)
+V14 = Path("D:/ELKAK/implementation/v14")
+PINEIOS_EXT = V14 / "_seed" / "pineios" / "data" / "glofas_pineios.nc"        # the lattice re-downloaded with the extended request area (D8 (2))
+
+
+class StrictDuplicates(unittest.TestCase):
+    """D8 (4): under harness v1.4 two points resolving to one GloFAS cell abort the sampling; v1.3 keeps the warning."""
+
+    def test_strict_mode_raises_on_a_shared_cell(self):
+        pts = [{"name": "p1", "lon": 22.06, "lat": 39.14}, {"name": "p2", "lon": 22.10, "lat": 39.10}]
+        with self.assertRaises(pq.DuplicateCellError):
+            pq.sample_points(synthetic_da(True), pts, tref=dt.datetime(2023, 9, 1), tstop=dt.datetime(2023, 9, 2), strict_duplicates=True)
+
+    def test_default_mode_still_reports_the_duplicate(self):
+        pts = [{"name": "p1", "lon": 22.06, "lat": 39.14}, {"name": "p2", "lon": 22.10, "lat": 39.10}]
+        _, rep = pq.sample_points(synthetic_da(True), pts, tref=dt.datetime(2023, 9, 1), tstop=dt.datetime(2023, 9, 2))
+        self.assertEqual(len(rep["duplicate_cells"]), 1)
+
+    def test_per_point_windows_make_two_points_distinct(self):
+        """Two points whose default windows both reach river A: a one-cell window keeps the second on river B (its own river)."""
+        pts = [{"name": "a", "lon": 22.06, "lat": 39.14}, {"name": "b", "lon": 22.13, "lat": 39.18, "window_deg": 0.05}]
+        df, rep = pq.sample_points(synthetic_da(True), pts, tref=dt.datetime(2023, 9, 1), tstop=dt.datetime(2023, 9, 2), strict_duplicates=True)
+        self.assertEqual(rep["points"][0]["cell_lonlat"], [22.075, 39.125])
+        self.assertEqual(rep["points"][1]["cell_lonlat"], [22.175, 39.225])
+
+    def test_inject_flag_is_carried_in_the_report(self):
+        pts = [{"name": "sampled_only", "lon": 22.06, "lat": 39.14, "inject": False}, {"name": "b", "lon": 22.18, "lat": 39.21}]
+        df, rep = pq.sample_points(synthetic_da(True), pts, tref=dt.datetime(2023, 9, 1), tstop=dt.datetime(2023, 9, 2))
+        self.assertEqual([p["inject"] for p in rep["points"]], [False, True])
+        self.assertEqual(list(df.columns), ["1", "2"])                 # every point is sampled; injection is decided at build time
+
+
+@unittest.skipUnless(PINEIOS_EXT.exists(), "extended Pineios GloFAS lattice not on this machine")
+class PineiosV142RealData(unittest.TestCase):
+    """The v1.4.2 Pineios source points on the extended lattice: Trikala 371.39, Kalambaka > 2.1 (40.78, its window no longer
+    clipped), Titarisios 42.85 at its own cell (22.24, 39.71), Enipeas 118.40; every column distinct."""
+
+    def test_peaks_and_cells(self):
+        import xarray as xr
+        da = pq.open_glofas(PINEIOS_EXT)
+        pts = [{"name": "pineios_trikala", "lon": 21.77, "lat": 39.56},
+               {"name": "pineios_kalambaka", "lon": 21.63, "lat": 39.70, "inject": False},
+               {"name": "titarisios", "lon": 22.24, "lat": 39.71, "window_deg": 0.05},
+               {"name": "enipeas", "lon": 22.39, "lat": 39.30}]
+        df, rep = pq.sample_points(da, pts, tref=dt.datetime(2023, 8, 27), tstop=dt.datetime(2023, 9, 11), strict_duplicates=True)
+        by = {p["name"]: p for p in rep["points"]}
+        self.assertAlmostEqual(float(df["1"].max()), 371.39, places=2)
+        self.assertGreater(float(df["2"].max()), 2.1); self.assertAlmostEqual(float(df["2"].max()), 40.78, places=2)
+        self.assertEqual(by["pineios_kalambaka"]["cell_lonlat"], [21.54, 39.71])
+        self.assertEqual(by["titarisios"]["cell_lonlat"], [22.24, 39.71]); self.assertAlmostEqual(float(df["3"].max()), 42.85, places=2)
+        self.assertAlmostEqual(float(df["4"].max()), 118.40, places=2)
+        self.assertEqual(rep["duplicate_cells"], [])
+
+    def test_the_extension_kept_every_frozen_cell(self):
+        import xarray as xr
+        new = pq.open_glofas(PINEIOS_EXT); old = pq.open_glofas(PINEIOS_DATA / "glofas_pineios_clean.nc")
+        sub = new.sel(longitude=old.longitude.values, latitude=old.latitude.values, method="nearest")
+        np.testing.assert_allclose(np.nan_to_num(sub.values), np.nan_to_num(old.values), rtol=0, atol=1e-6)
+        self.assertLess(float(new.longitude.min()), float(old.longitude.min()))
+
+
+@unittest.skipUnless((V14 / "emilia_enhanced_8aoi" / "data" / "glofas_emilia_romagna_clean.nc").exists(), "Emilia GloFAS file not on this machine")
+class EmiliaV142RealData(unittest.TestCase):
+    """Senio and Montone resolve to distinct cells of their own rivers (Senio: its last cell before the Reno system, Montone: a one-cell window)."""
+
+    def test_senio_and_montone_are_distinct(self):
+        da = pq.open_glofas(V14 / "emilia_enhanced_8aoi" / "data" / "glofas_emilia_romagna_clean.nc")
+        pts = [{"name": "lamone", "lon": 11.9, "lat": 44.24},
+               {"name": "senio", "lon": 11.875, "lat": 44.375, "window_deg": 0.02},
+               {"name": "montone", "lon": 11.98, "lat": 44.18, "window_deg": 0.05},
+               {"name": "ronco", "lon": 12.03, "lat": 44.13}, {"name": "savio", "lon": 12.1, "lat": 44.06}]
+        df, rep = pq.sample_points(da, pts, tref=dt.datetime(2023, 5, 1), tstop=dt.datetime(2023, 5, 20), strict_duplicates=True)
+        by = {p["name"]: p for p in rep["points"]}
+        self.assertEqual(by["senio"]["cell_lonlat"], [11.875, 44.375])
+        self.assertEqual(by["montone"]["cell_lonlat"], [12.025, 44.225])
+        self.assertNotEqual(by["senio"]["cell_lonlat"], by["montone"]["cell_lonlat"])
+        self.assertEqual(rep["duplicate_cells"], [])
+
+
 if __name__ == "__main__":
     unittest.main()

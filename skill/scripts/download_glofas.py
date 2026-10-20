@@ -40,6 +40,12 @@ def main():
     years = sorted({cfg.tref.year, cfg.tstop.year})
     months = sorted({f"{cfg.tref.month:02d}", f"{cfg.tstop.month:02d}"})
 
+    if cfg.harness_version == "v1.4":
+        from glofas_area import request_area
+        area, arep = request_area(cfg.bbox, cfg.upstream_q["src_points"], step=0.05)
+        print(f"request area (harness v1.4, every sampling window covered): {area}  extended steps {arep['extended_steps']}")
+    else:
+        area = cfg.bbox_with_buffer
     req = {
         "system_version": ["version_4_0"],
         "hydrological_model": ["lisflood"],
@@ -50,7 +56,7 @@ def main():
         "hday": [f"{d:02d}" for d in range(1, 32)],
         "data_format": "netcdf",
         "download_format": "unarchived",
-        "area": cfg.bbox_with_buffer,
+        "area": area,
     }
     print(f"GloFAS request: area={req['area']}  year={req['hyear']}  "
           f"months={req['hmonth']}")

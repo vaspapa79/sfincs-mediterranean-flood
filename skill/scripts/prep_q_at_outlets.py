@@ -16,6 +16,9 @@ longer matters (the label slice `slice(lat + 0.1, lat - 0.1)` was empty on an
 ascending axis — the Pineios file — and the script silently fell back to the
 domain-mean discharge, a constant 11.589 m3/s at every source); a window
 without a channel is now a hard error (NoChannelError), never a fallback.
+Harness v1.4.2 (D8, 2026-10-20): per-point windows (`window_deg`) let a point resolve to its own river; under harness v1.4
+two points resolving to one GloFAS cell abort the sampling (DuplicateCellError, their discharge would be injected twice);
+`inject: false` marks a point that is sampled and recorded but not injected (a cell nested in another source's cell).
 """
 from __future__ import annotations
 
@@ -35,6 +38,10 @@ EDGE_TOL_DEG = 1e-4          # ~10 m: float32 coordinates (ulp 4e-6 deg at 40 de
 
 class NoChannelError(RuntimeError):
     """No GloFAS cell with positive discharge inside the search window of a named point (v1.4.1: hard error, no fallback)."""
+
+
+class DuplicateCellError(RuntimeError):
+    """Two named points resolve to the same GloFAS cell (v1.4.2 under harness v1.4: hard error — the discharge would be injected twice)."""
 
 
 def open_glofas(path: Path) -> xr.DataArray:
@@ -83,9 +90,10 @@ def step_fill(times, series, tref, tstop):
     return hours, col
 
 
-def sample_points(da: xr.DataArray, src_points, tref, tstop, half: float = WINDOW_HALF_DEG):
+def sample_points(da: xr.DataArray, src_points, tref, tstop, half: float = WINDOW_HALF_DEG, strict_duplicates: bool = False):
     """One hourly column per named point (hydromt convention: integer src IDs 1-based, in src_points order) + a report
-    of the cell behind every column. Any point without a channel aborts the sampling (NoChannelError)."""
+    of the cell behind every column. Any point without a channel aborts the sampling (NoChannelError); with
+    strict_duplicates (harness v1.4) two points on one cell abort it too (DuplicateCellError)."""
     lat = np.asarray(da["latitude"].values, dtype=float)
     rep = {"window_half_deg": half, "latitude_order": ("ascending" if lat[-1] > lat[0] else "descending"),
            "glofas_time": [str(da.time.values[0])[:19], str(da.time.values[-1])[:19]], "points": [], "duplicate_cells": []}
@@ -99,10 +107,13 @@ def sample_points(da: xr.DataArray, src_points, tref, tstop, half: float = WINDO
         _, col = step_fill(da.time.values, series, tref, tstop)
         df[str(src_id)] = col
         rep["points"].append({"id": src_id, "name": sp["name"], "named_lonlat": [lon_t, lat_t], "window_half_deg": half_p, "cell_lonlat": list(cell), "window_cells": n,
+                              "inject": bool(sp.get("inject", True)),
                               "cell_mean_m3s": round(float(series.mean()), 3), "cell_peak_m3s": round(float(series.max()), 3),
                               "column_peak_m3s": round(float(col.max()), 3), "column_mean_m3s": round(float(col.mean()), 3)})
         cells.setdefault(cell, []).append(sp["name"])
     rep["duplicate_cells"] = [{"cell_lonlat": list(c), "points": names} for c, names in cells.items() if len(names) > 1]
+    if strict_duplicates and rep["duplicate_cells"]:
+        raise DuplicateCellError("points resolve to the same GloFAS cell: " + "; ".join(f"{d['points']} -> {d['cell_lonlat']}" for d in rep["duplicate_cells"]))
     return df, rep
 
 
@@ -133,13 +144,17 @@ def main():
     print(f"GloFAS var: {da.name}  dims: {dict(da.sizes)}")
     print(f"  time: {da.time.values[0]} .. {da.time.values[-1]} ({da.time.size} steps)")
 
+    strict = cfg.harness_version == "v1.4"
     try:
-        df, rep = sample_points(da, cfg.upstream_q["src_points"], cfg.tref, cfg.tstop)
+        df, rep = sample_points(da, cfg.upstream_q["src_points"], cfg.tref, cfg.tstop, strict_duplicates=strict)
     except NoChannelError as e:
         sys.exit(f"prep_q_at_outlets: {e} — refusing to write q_outlet.csv (harness v1.4.1, D7: no domain-mean fallback)")
+    except DuplicateCellError as e:
+        sys.exit(f"prep_q_at_outlets: {e} — refusing to write q_outlet.csv (harness v1.4.2, D8: give the points their own windows / cells)")
+    rep["harness_version"] = cfg.harness_version
     for p in rep["points"]:
         print(f"  {p['name']}: picked GloFAS cell at ({p['cell_lonlat'][1]:.3f}, {p['cell_lonlat'][0]:.3f}) "
-              f"of {p['window_cells']} in the window  mean Q = {p['cell_mean_m3s']:.1f} m^3/s  peak {p['cell_peak_m3s']:.1f}")
+              f"of {p['window_cells']} in the window  mean Q = {p['cell_mean_m3s']:.1f} m^3/s  peak {p['cell_peak_m3s']:.1f}" + ("" if p["inject"] else "  [sampled only, inject: false]"))
     for d in rep["duplicate_cells"]:
         print(f"  WARN: points {d['points']} resolve to the same GloFAS cell {d['cell_lonlat']} — their discharge is injected twice")
 

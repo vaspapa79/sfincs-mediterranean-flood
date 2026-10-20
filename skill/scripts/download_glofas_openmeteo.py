@@ -65,14 +65,21 @@ def main():
         print(f"already present: {out} ({out.stat().st_size/1e6:.1f} MB)")
         return 0
 
-    # Build a 0.1deg regular grid over the bbox + buffer.
-    b = cfg.bbox
-    buf = float(b.get("era5_buffer_deg", 0.2))
-    west, south = float(b["west"]) - buf, float(b["south"]) - buf
-    east, north = float(b["east"]) + buf, float(b["north"]) + buf
+    # Build a 0.1deg regular grid over the bbox + buffer (harness v1.4: extended in whole steps so that every named
+    # point's sampling window is covered — the lattice stays anchored, downloaded cells keep their coordinates).
     step = 0.1
-    lons = np.round(np.arange(west, east + step / 2, step), 2)
-    lats = np.round(np.arange(south, north + step / 2, step), 2)
+    if cfg.harness_version == "v1.4":
+        from glofas_area import request_area
+        (north, west, south, east), arep = request_area(cfg.bbox, cfg.upstream_q["src_points"], step=step)
+        print(f"request area (harness v1.4, every sampling window covered): N {north} W {west} S {south} E {east}  extended steps {arep['extended_steps']}")
+    else:
+        b = cfg.bbox
+        buf = float(b.get("era5_buffer_deg", 0.2))
+        west, south = float(b["west"]) - buf, float(b["south"]) - buf
+        east, north = float(b["east"]) + buf, float(b["north"]) + buf
+    from glofas_area import lattice_coords
+    lons = lattice_coords(west, east, step)          # explicit count (legacy arange count, without its float-rounding extra column)
+    lats = lattice_coords(south, north, step)
     print(f"Open-Meteo Flood grid: {len(lons)} lons x {len(lats)} lats "
           f"= {len(lons)*len(lats)} points  range=({lons[0]:.2f}..{lons[-1]:.2f}, "
           f"{lats[0]:.2f}..{lats[-1]:.2f})")

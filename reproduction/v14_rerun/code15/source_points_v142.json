@@ -1,0 +1,534 @@
+{
+  "utc": "2026-10-20T12:42:30Z",
+  "harness_tag": "v1.4.2",
+  "generator": "reproduction/v14_rerun/scripts/source_points_v142.py",
+  "scope": "reproduction/v14_rerun/code15/d8_scope.json",
+  "events": {
+    "pineios": {
+      "run_config_base": "pineios_enhanced_v141",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\_seed\\pineios\\data\\glofas_pineios.nc",
+      "lattice_lon_offset_deg": 0.05,
+      "src_points": [
+        {
+          "name": "pineios_trikala",
+          "lon": 21.77,
+          "lat": 39.56,
+          "src_lon": 21.86,
+          "src_lat": 39.56
+        },
+        {
+          "name": "pineios_kalambaka",
+          "lon": 21.63,
+          "lat": 39.7,
+          "src_lon": 21.86,
+          "src_lat": 39.7,
+          "inject": false
+        },
+        {
+          "name": "titarisios",
+          "lon": 22.24,
+          "lat": 39.71,
+          "window_deg": 0.05,
+          "src_lon": 22.42,
+          "src_lat": 39.71
+        },
+        {
+          "name": "enipeas",
+          "lon": 22.39,
+          "lat": 39.3,
+          "src_lon": 22.39,
+          "src_lat": 39.33
+        }
+      ],
+      "notes": [
+        {
+          "name": "pineios_trikala",
+          "named_river": "Pineios",
+          "change": "none (sampling + injection as frozen; the build-time snap applies)",
+          "glofas": {
+            "file_coord": [
+              21.84,
+              39.51
+            ],
+            "network_cell": [
+              21.875,
+              39.525
+            ],
+            "uparea_km2": 2073.0,
+            "window_cells": 4,
+            "peak_file_m3s": 371.39,
+            "mean_file_m3s": 71.09
+          },
+          "final_point": {
+            "name": "pineios_trikala",
+            "lon": 21.77,
+            "lat": 39.56,
+            "src_lon": 21.86,
+            "src_lat": 39.56
+          }
+        },
+        {
+          "name": "pineios_kalambaka",
+          "named_river": "Pineios",
+          "change": "inject: false \u2014 the extended lattice gives the Pineios at Kalambaka (928 km2), nested upstream of the Trikala cell (2073 km2, same river): injecting both would count the Kalambaka flow twice; its injection point lies on an inactive mountainside (DEM 413 m) with no Pineios channel within 1 km. Sampled and recorded (window no longer clipped, B(2)), not injected.",
+          "glofas": {
+            "file_coord": [
+              21.54,
+              39.71
+            ],
+            "network_cell": [
+              21.575,
+              39.725
+            ],
+            "uparea_km2": 927.7,
+            "window_cells": 4,
+            "peak_file_m3s": 40.78,
+            "mean_file_m3s": 9.53
+          },
+          "final_point": {
+            "name": "pineios_kalambaka",
+            "lon": 21.63,
+            "lat": 39.7,
+            "src_lon": 21.86,
+            "src_lat": 39.7,
+            "inject": false
+          }
+        },
+        {
+          "name": "titarisios",
+          "named_river": "Titarisios",
+          "change": "sampling point moved to the Titarisios' last lattice cell (22.24, 39.71) with a one-cell window (CODE-15 B(1), author's prescription); injection point unchanged",
+          "glofas": {
+            "file_coord": [
+              22.24,
+              39.71
+            ],
+            "network_cell": [
+              22.275,
+              39.725
+            ],
+            "uparea_km2": 1685.0,
+            "window_cells": 1,
+            "peak_file_m3s": 42.85,
+            "mean_file_m3s": 16.5
+          },
+          "final_point": {
+            "name": "titarisios",
+            "lon": 22.24,
+            "lat": 39.71,
+            "window_deg": 0.05,
+            "src_lon": 22.42,
+            "src_lat": 39.71
+          }
+        },
+        {
+          "name": "enipeas",
+          "named_river": "Enipeas",
+          "change": "none",
+          "glofas": {
+            "file_coord": [
+              22.34,
+              39.31
+            ],
+            "network_cell": [
+              22.375,
+              39.325
+            ],
+            "uparea_km2": 887.2,
+            "window_cells": 4,
+            "peak_file_m3s": 118.4,
+            "mean_file_m3s": 33.25
+          },
+          "final_point": {
+            "name": "enipeas",
+            "lon": 22.39,
+            "lat": 39.3,
+            "src_lon": 22.39,
+            "src_lat": 39.33
+          }
+        }
+      ],
+      "duplicate_network_cells": [],
+      "nested_injected_cells": []
+    },
+    "strymonas": {
+      "run_config_base": "strymonas_enhanced_postD6",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\strymonas_enhanced_postD6\\data\\glofas_strymonas_clean.nc",
+      "lattice_lon_offset_deg": 0.0,
+      "src_points": [
+        {
+          "name": "kerkini_outlet",
+          "lon": 23.3991,
+          "lat": 41.0289
+        },
+        {
+          "name": "angitis",
+          "lon": 23.92,
+          "lat": 41.0
+        }
+      ],
+      "notes": [
+        {
+          "name": "kerkini_outlet",
+          "named_river": "Strymonas",
+          "change": "none",
+          "glofas": {
+            "file_coord": [
+              23.475,
+              40.975
+            ],
+            "network_cell": [
+              23.475,
+              40.975
+            ],
+            "uparea_km2": 13018.4,
+            "window_cells": 16,
+            "peak_file_m3s": 640.34,
+            "mean_file_m3s": 215.85
+          },
+          "final_point": {
+            "name": "kerkini_outlet",
+            "lon": 23.3991,
+            "lat": 41.0289
+          }
+        },
+        {
+          "name": "angitis",
+          "named_river": "Angitis",
+          "change": "none",
+          "glofas": {
+            "file_coord": [
+              23.825,
+              40.925
+            ],
+            "network_cell": [
+              23.825,
+              40.925
+            ],
+            "uparea_km2": 2379.1,
+            "window_cells": 16,
+            "peak_file_m3s": 211.47,
+            "mean_file_m3s": 69.57
+          },
+          "final_point": {
+            "name": "angitis",
+            "lon": 23.92,
+            "lat": 41.0
+          }
+        }
+      ],
+      "duplicate_network_cells": [],
+      "nested_injected_cells": []
+    },
+    "valencia": {
+      "run_config_base": "valencia_enhanced_164",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\valencia_enhanced_164\\data\\glofas_valencia_clean.nc",
+      "lattice_lon_offset_deg": 0.0,
+      "src_points": [
+        {
+          "name": "magro",
+          "lon": -0.475,
+          "lat": 39.225,
+          "window_deg": 0.02,
+          "src_lon": -0.68,
+          "src_lat": 39.2
+        },
+        {
+          "name": "jucar",
+          "lon": -0.34,
+          "lat": 39.16
+        },
+        {
+          "name": "turia",
+          "lon": -0.55,
+          "lat": 39.52
+        }
+      ],
+      "notes": [
+        {
+          "name": "magro",
+          "named_river": "Magro",
+          "change": "sampling point moved to the Magro's own last cell before the Jucar (-0.475, 39.225; 1648 km2) with a one-cell window \u2014 the frozen window resolved to the Jucar below the Tous dam (17128 km2); injection point unchanged (it drains to the Magro; the build-time snap puts it on the nearest active channel cell)",
+          "glofas": {
+            "file_coord": [
+              -0.475,
+              39.225
+            ],
+            "network_cell": [
+              -0.475,
+              39.225
+            ],
+            "uparea_km2": 1647.9,
+            "window_cells": 1,
+            "peak_file_m3s": 18.7,
+            "mean_file_m3s": 2.32
+          },
+          "final_point": {
+            "name": "magro",
+            "lon": -0.475,
+            "lat": 39.225,
+            "window_deg": 0.02,
+            "src_lon": -0.68,
+            "src_lat": 39.2
+          }
+        },
+        {
+          "name": "jucar",
+          "named_river": "Jucar",
+          "change": "none",
+          "glofas": {
+            "file_coord": [
+              -0.275,
+              39.175
+            ],
+            "network_cell": [
+              -0.275,
+              39.175
+            ],
+            "uparea_km2": 21422.1,
+            "window_cells": 16,
+            "peak_file_m3s": 88.81,
+            "mean_file_m3s": 25.72
+          },
+          "final_point": {
+            "name": "jucar",
+            "lon": -0.34,
+            "lat": 39.16
+          }
+        },
+        {
+          "name": "turia",
+          "named_river": "Turia",
+          "change": "none",
+          "glofas": {
+            "file_coord": [
+              -0.475,
+              39.525
+            ],
+            "network_cell": [
+              -0.475,
+              39.525
+            ],
+            "uparea_km2": 6104.8,
+            "window_cells": 16,
+            "peak_file_m3s": 239.72,
+            "mean_file_m3s": 32.37
+          },
+          "final_point": {
+            "name": "turia",
+            "lon": -0.55,
+            "lat": 39.52
+          }
+        }
+      ],
+      "duplicate_network_cells": [],
+      "nested_injected_cells": [
+        "magro \u2282 jucar"
+      ]
+    },
+    "emilia": {
+      "run_config_base": "emilia_enhanced_8aoi",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\emilia_enhanced_8aoi\\data\\glofas_emilia_romagna_clean.nc",
+      "lattice_lon_offset_deg": 0.0,
+      "src_points": [
+        {
+          "name": "lamone",
+          "lon": 11.9,
+          "lat": 44.24
+        },
+        {
+          "name": "senio",
+          "lon": 11.875,
+          "lat": 44.375,
+          "window_deg": 0.02,
+          "src_lon": 11.84865,
+          "src_lat": 44.31073
+        },
+        {
+          "name": "montone",
+          "lon": 11.98,
+          "lat": 44.18,
+          "window_deg": 0.05
+        },
+        {
+          "name": "ronco",
+          "lon": 12.03,
+          "lat": 44.13
+        },
+        {
+          "name": "savio",
+          "lon": 12.1,
+          "lat": 44.06,
+          "src_lon": 12.19969,
+          "src_lat": 44.09076
+        }
+      ],
+      "notes": [
+        {
+          "name": "lamone",
+          "named_river": "Lamone",
+          "change": "none",
+          "glofas": {
+            "file_coord": [
+              11.975,
+              44.325
+            ],
+            "network_cell": [
+              11.975,
+              44.325
+            ],
+            "uparea_km2": 688.9,
+            "window_cells": 16,
+            "peak_file_m3s": 188.22,
+            "mean_file_m3s": 29.02
+          },
+          "final_point": {
+            "name": "lamone",
+            "lon": 11.9,
+            "lat": 44.24
+          }
+        },
+        {
+          "name": "senio",
+          "named_river": "Senio",
+          "change": "sampling point moved to the Senio's own last cell (11.875, 44.375; 266 km2) with a one-cell window \u2014 the frozen point (11.83, 44.27) lies in the Lamone valley and resolved to the Lamone at Faenza (600 km2), the cell the Montone point also took; injection moved to the Senio channel (lowest-z_b active channel cell inside the footprint of the Senio cell nearest to the old point, 11.825/44.325), because the old point drains to the Lamone (flag vi)",
+          "injection_move": {
+            "river_cell": [
+              11.825,
+              44.325
+            ],
+            "footprint_active_cells": 981,
+            "chosen_row_col": [
+              340,
+              274
+            ],
+            "zb_m": 31.27,
+            "uparea_km2": 272.72,
+            "max_uparea_in_footprint_km2": 272.72,
+            "old_injection": [
+              11.83,
+              44.27
+            ]
+          },
+          "glofas": {
+            "file_coord": [
+              11.875,
+              44.375
+            ],
+            "network_cell": [
+              11.875,
+              44.375
+            ],
+            "uparea_km2": 266.4,
+            "window_cells": 1,
+            "peak_file_m3s": 62.44,
+            "mean_file_m3s": 11.69
+          },
+          "final_point": {
+            "name": "senio",
+            "lon": 11.875,
+            "lat": 44.375,
+            "window_deg": 0.02,
+            "src_lon": 11.84865,
+            "src_lat": 44.31073
+          }
+        },
+        {
+          "name": "montone",
+          "named_river": "Montone",
+          "change": "one-cell window: resolves to the Montone at Forli (12.025, 44.225; 467 km2) instead of the Lamone at Faenza; injection unchanged",
+          "glofas": {
+            "file_coord": [
+              12.025,
+              44.225
+            ],
+            "network_cell": [
+              12.025,
+              44.225
+            ],
+            "uparea_km2": 467.4,
+            "window_cells": 4,
+            "peak_file_m3s": 131.94,
+            "mean_file_m3s": 19.27
+          },
+          "final_point": {
+            "name": "montone",
+            "lon": 11.98,
+            "lat": 44.18,
+            "window_deg": 0.05
+          }
+        },
+        {
+          "name": "ronco",
+          "named_river": "Ronco",
+          "change": "none",
+          "glofas": {
+            "file_coord": [
+              12.075,
+              44.225
+            ],
+            "network_cell": [
+              12.075,
+              44.225
+            ],
+            "uparea_km2": 623.9,
+            "window_cells": 16,
+            "peak_file_m3s": 171.19,
+            "mean_file_m3s": 25.1
+          },
+          "final_point": {
+            "name": "ronco",
+            "lon": 12.03,
+            "lat": 44.13
+          }
+        },
+        {
+          "name": "savio",
+          "named_river": "Savio",
+          "change": "sampling unchanged (the Savio south of Cesena, 558 km2); injection moved to the Savio channel (lowest-z_b active channel cell inside the footprint of the Savio cell nearest to the old point, 12.175/44.075), because the old point drains to the Ronco (flag vi)",
+          "injection_move": {
+            "river_cell": [
+              12.175,
+              44.075
+            ],
+            "footprint_active_cells": 991,
+            "chosen_row_col": [
+              496,
+              467
+            ],
+            "zb_m": 51.33,
+            "uparea_km2": 94.99,
+            "max_uparea_in_footprint_km2": 95.38,
+            "old_injection": [
+              12.1,
+              44.06
+            ]
+          },
+          "glofas": {
+            "file_coord": [
+              12.175,
+              44.075
+            ],
+            "network_cell": [
+              12.175,
+              44.075
+            ],
+            "uparea_km2": 557.8,
+            "window_cells": 16,
+            "peak_file_m3s": 147.53,
+            "mean_file_m3s": 21.77
+          },
+          "final_point": {
+            "name": "savio",
+            "lon": 12.1,
+            "lat": 44.06,
+            "src_lon": 12.19969,
+            "src_lat": 44.09076
+          }
+        }
+      ],
+      "duplicate_network_cells": [],
+      "nested_injected_cells": []
+    }
+  }
+}

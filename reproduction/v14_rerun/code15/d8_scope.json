@@ -1,0 +1,2938 @@
+{
+  "utc": "2026-10-20T12:33:22Z",
+  "snap_radius_m": 1000.0,
+  "confluence_ratio": 2.0,
+  "channel_fraction_of_max_uparea_within_radius": 0.5,
+  "static_maps": "D:\\ELKAK\\implementation\\v14\\_static\\glofas_v4",
+  "river_references": {
+    "Pineios": {
+      "reference_cells": [
+        [
+          22.425,
+          39.725
+        ],
+        [
+          21.875,
+          39.525
+        ]
+      ],
+      "uparea_km2": 6927.9,
+      "n_cells": 34
+    },
+    "Titarisios": {
+      "reference_cells": [
+        [
+          22.275,
+          39.725
+        ]
+      ],
+      "uparea_km2": 1685.0,
+      "n_cells": 6
+    },
+    "Enipeas": {
+      "reference_cells": [
+        [
+          22.375,
+          39.325
+        ]
+      ],
+      "uparea_km2": 887.2,
+      "n_cells": 15
+    },
+    "Lithaios": {
+      "reference_cells": [
+        [
+          21.775,
+          39.575
+        ]
+      ],
+      "uparea_km2": 261.9,
+      "n_cells": 4
+    },
+    "Strymonas": {
+      "reference_cells": [
+        [
+          23.375,
+          41.025
+        ]
+      ],
+      "uparea_km2": 12714.4,
+      "n_cells": 65
+    },
+    "Angitis": {
+      "reference_cells": [
+        [
+          23.925,
+          40.975
+        ]
+      ],
+      "uparea_km2": 2052.1,
+      "n_cells": 7
+    },
+    "Jucar": {
+      "reference_cells": [
+        [
+          -0.325,
+          39.175
+        ]
+      ],
+      "uparea_km2": 21398.1,
+      "n_cells": 34
+    },
+    "Magro": {
+      "reference_cells": [
+        [
+          -0.575,
+          39.275
+        ]
+      ],
+      "uparea_km2": 1576.0,
+      "n_cells": 20
+    },
+    "Turia": {
+      "reference_cells": [
+        [
+          -0.525,
+          39.525
+        ]
+      ],
+      "uparea_km2": 6080.9,
+      "n_cells": 39
+    },
+    "Lamone": {
+      "reference_cells": [
+        [
+          11.975,
+          44.325
+        ]
+      ],
+      "uparea_km2": 688.9,
+      "n_cells": 9
+    },
+    "Senio": {
+      "reference_cells": [
+        [
+          11.775,
+          44.325
+        ]
+      ],
+      "uparea_km2": 222.1,
+      "n_cells": 7
+    },
+    "Santerno": {
+      "reference_cells": [
+        [
+          11.725,
+          44.325
+        ]
+      ],
+      "uparea_km2": 510.8,
+      "n_cells": 13
+    },
+    "Marzeno": {
+      "reference_cells": [
+        [
+          11.875,
+          44.225
+        ]
+      ],
+      "uparea_km2": 244.6,
+      "n_cells": 3
+    },
+    "Montone": {
+      "reference_cells": [
+        [
+          11.975,
+          44.175
+        ]
+      ],
+      "uparea_km2": 311.7,
+      "n_cells": 11
+    },
+    "Ronco": {
+      "reference_cells": [
+        [
+          12.075,
+          44.125
+        ]
+      ],
+      "uparea_km2": 512.8,
+      "n_cells": 13
+    },
+    "Savio": {
+      "reference_cells": [
+        [
+          12.175,
+          44.075
+        ]
+      ],
+      "uparea_km2": 557.8,
+      "n_cells": 14
+    }
+  },
+  "main_stem_share": 0.6666666666666666,
+  "lattice_lon_offset_deg": {
+    "pineios": 0.05
+  },
+  "events": [
+    {
+      "event": "pineios",
+      "run_config": "reproduction\\v14_rerun\\configs\\pineios_enhanced_v141.yaml",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\pineios_enhanced_v141\\data\\glofas_pineios_clean.nc",
+      "glofas_lattice_step_deg": 0.1,
+      "lattice_lon_offset_deg": 0.05,
+      "lattice_shift_test": {
+        "n_river_points": 32,
+        "n_dry_points": 60,
+        "shifts": {
+          "rows+0_cols+0": {
+            "river_points_on_small_cells": 12,
+            "dry_points_on_river_cells": 7
+          },
+          "rows+0_cols+1": {
+            "river_points_on_small_cells": 0,
+            "dry_points_on_river_cells": 0
+          },
+          "rows+0_cols-1": {
+            "river_points_on_small_cells": 19,
+            "dry_points_on_river_cells": 8
+          },
+          "rows+1_cols+0": {
+            "river_points_on_small_cells": 19,
+            "dry_points_on_river_cells": 12
+          },
+          "rows-1_cols+0": {
+            "river_points_on_small_cells": 19,
+            "dry_points_on_river_cells": 10
+          }
+        },
+        "best_shift": "rows+0_cols+1"
+      },
+      "glofas_extent": {
+        "lon": [
+          21.639999389648438,
+          23.139999389648438
+        ],
+        "lat": [
+          39.11000061035156,
+          40.209999084472656
+        ]
+      },
+      "model": {
+        "epsg": 32634,
+        "res_m": 150.0,
+        "shape": [
+          536,
+          666
+        ],
+        "zmax": 400,
+        "active_cells": 222987
+      },
+      "dem": {
+        "tiles": [
+          "Copernicus_DSM_COG_10_N39_00_E021_00_DEM.tif",
+          "Copernicus_DSM_COG_10_N39_00_E022_00_DEM.tif",
+          "Copernicus_DSM_COG_10_N39_00_E023_00_DEM.tif",
+          "Copernicus_DSM_COG_10_N40_00_E021_00_DEM.tif",
+          "Copernicus_DSM_COG_10_N40_00_E022_00_DEM.tif"
+        ],
+        "pad_m": 30000.0
+      },
+      "sampler_duplicates": [],
+      "points": [
+        {
+          "name": "pineios_trikala",
+          "named_river": "Pineios",
+          "yaml": {
+            "lon": 21.77,
+            "lat": 39.56,
+            "src_lon": 21.86,
+            "src_lat": 39.56,
+            "window_deg": 0.1
+          },
+          "named_point_network": {
+            "cell": [
+              21.775,
+              39.575
+            ],
+            "uparea_km2": 261.9,
+            "rivers_at_point": [
+              "Lithaios"
+            ],
+            "first_river_cell_downstream": [
+              21.775,
+              39.575
+            ],
+            "first_river_uparea_km2": 261.9,
+            "first_river_names": [
+              "Lithaios"
+            ]
+          },
+          "named_river_own_last_cell": [
+            22.675,
+            39.875,
+            9301.9
+          ],
+          "named_river_best_cell_in_file": {
+            "network_cell": [
+              22.475,
+              39.825
+            ],
+            "uparea_km2": 8993.1,
+            "file_coord": [
+              22.44,
+              39.81
+            ],
+            "mean_m3s": 302.47,
+            "peak_file_m3s": 1128.8
+          },
+          "glofas_rule_cell": {
+            "file_coord": [
+              21.84,
+              39.51
+            ],
+            "network_cell": [
+              21.875,
+              39.525
+            ],
+            "uparea_km2": 2073.0,
+            "rivers": [
+              "Pineios"
+            ],
+            "window_cells": 4,
+            "mean_m3s": 71.092,
+            "peak_file_m3s": 371.39,
+            "peak_in_window_m3s": 371.39,
+            "mean_in_window_m3s": 72.729,
+            "relation_to_the_point_drainage": "downstream of a confluence with a larger river (upstream area x7.9)",
+            "is_named_river": true
+          },
+          "glofas_window": {
+            "clipped": false,
+            "sides": []
+          },
+          "glofas_one_cell_window": {
+            "file_coord": [
+              21.74,
+              39.51
+            ],
+            "network_cell": [
+              21.775,
+              39.525
+            ],
+            "uparea_km2": 1714.5,
+            "rivers": [
+              "Pineios"
+            ],
+            "n": 2,
+            "mean_m3s": 43.5,
+            "peak_file_m3s": 216.77
+          },
+          "injection_cell": {
+            "row_col": [
+              350,
+              14
+            ],
+            "in_grid": true,
+            "cell_lonlat": [
+              21.8598,
+              39.5606
+            ],
+            "zb_m": 97.77,
+            "dem_m": 97.7,
+            "msk": 1,
+            "uparea_km2": 0.02,
+            "max_uparea_within_1km_km2": 1.8,
+            "active": true,
+            "on_channel": false,
+            "drains_to": {
+              "first_river_cell": [
+                21.975,
+                39.575
+              ],
+              "uparea_km2": 143.0,
+              "rivers": [],
+              "rivers_at_injection_cell": [],
+              "reaches_named_river": true,
+              "first_referenced_river_on_path": [
+                "Pineios"
+              ]
+            }
+          },
+          "lowest_zb_active_within_1km": {
+            "row_col": [
+              346,
+              19
+            ],
+            "cell_lonlat": [
+              21.8685,
+              39.5659
+            ],
+            "zb_m": 95.75,
+            "distance_m": 985,
+            "uparea_km2": 0.16,
+            "on_channel": false,
+            "n_active_within_1km": 139
+          },
+          "lowest_zb_active_channel_within_1km": {
+            "row_col": [
+              345,
+              18
+            ],
+            "cell_lonlat": [
+              21.8668,
+              39.5673
+            ],
+            "zb_m": 95.79,
+            "distance_m": 998,
+            "uparea_km2": 1.8,
+            "n_channel_cells": 4
+          },
+          "nearest_active_cell": {
+            "cell_lonlat": [
+              21.8598,
+              39.5606
+            ],
+            "zb_m": 97.77,
+            "distance_m": 67
+          },
+          "first_active_cell_on_dem_path_from_injection_point": {
+            "cell_lonlat": [
+              21.8616,
+              39.566
+            ],
+            "zb_m": 96.5,
+            "path_distance_m": 0,
+            "uparea_km2": 1.44
+          },
+          "flags": [
+            "(v) nested: drains into the GloFAS cell of titarisios [22.475, 39.825] \u2014 counted again there",
+            "(iii) injection cell off-channel (D8 upstream area 0.02 vs 1.8 km\u00b2 within 1 km)"
+          ]
+        },
+        {
+          "name": "pineios_kalambaka",
+          "named_river": "Pineios",
+          "yaml": {
+            "lon": 21.63,
+            "lat": 39.7,
+            "src_lon": 21.86,
+            "src_lat": 39.7,
+            "window_deg": 0.1
+          },
+          "named_point_network": {
+            "cell": [
+              21.625,
+              39.725
+            ],
+            "uparea_km2": 47.6,
+            "rivers_at_point": [],
+            "first_river_cell_downstream": [
+              21.575,
+              39.725
+            ],
+            "first_river_uparea_km2": 927.7,
+            "first_river_names": [
+              "Pineios"
+            ]
+          },
+          "named_river_own_last_cell": [
+            22.675,
+            39.875,
+            9301.9
+          ],
+          "named_river_best_cell_in_file": {
+            "network_cell": [
+              22.475,
+              39.825
+            ],
+            "uparea_km2": 8993.1,
+            "file_coord": [
+              22.44,
+              39.81
+            ],
+            "mean_m3s": 302.47,
+            "peak_file_m3s": 1128.8
+          },
+          "glofas_rule_cell": {
+            "file_coord": [
+              21.64,
+              39.61
+            ],
+            "network_cell": [
+              21.675,
+              39.625
+            ],
+            "uparea_km2": 23.8,
+            "rivers": [],
+            "window_cells": 2,
+            "mean_m3s": 0.612,
+            "peak_file_m3s": 2.1,
+            "peak_in_window_m3s": 2.1,
+            "mean_in_window_m3s": 0.612,
+            "relation_to_the_point_drainage": "another river (not on the drainage path of the point)",
+            "is_named_river": false
+          },
+          "glofas_window": {
+            "clipped": true,
+            "sides": [
+              "west"
+            ]
+          },
+          "glofas_one_cell_window": {
+            "file_coord": [
+              21.64,
+              39.71
+            ],
+            "network_cell": [
+              21.675,
+              39.725
+            ],
+            "uparea_km2": 23.8,
+            "rivers": [],
+            "n": 1,
+            "mean_m3s": 0.17,
+            "peak_file_m3s": 0.52
+          },
+          "injection_cell": {
+            "row_col": [
+              247,
+              13
+            ],
+            "in_grid": true,
+            "cell_lonlat": [
+              21.8597,
+              39.6998
+            ],
+            "zb_m": null,
+            "dem_m": 413.5,
+            "msk": null,
+            "uparea_km2": 36.52,
+            "max_uparea_within_1km_km2": 100.84,
+            "active": false,
+            "on_channel": false,
+            "drains_to": {
+              "first_river_cell": [
+                21.875,
+                39.675
+              ],
+              "uparea_km2": 142.8,
+              "rivers": [],
+              "rivers_at_injection_cell": [],
+              "reaches_named_river": true,
+              "first_referenced_river_on_path": [
+                "Pineios"
+              ]
+            }
+          },
+          "lowest_zb_active_within_1km": {
+            "row_col": [
+              252,
+              16
+            ],
+            "cell_lonlat": [
+              21.8649,
+              39.693
+            ],
+            "zb_m": 382.16,
+            "distance_m": 884,
+            "uparea_km2": 100.84,
+            "on_channel": true,
+            "n_active_within_1km": 4
+          },
+          "lowest_zb_active_channel_within_1km": {
+            "row_col": [
+              252,
+              16
+            ],
+            "cell_lonlat": [
+              21.8649,
+              39.693
+            ],
+            "zb_m": 382.16,
+            "distance_m": 884,
+            "uparea_km2": 100.84,
+            "n_channel_cells": 2
+          },
+          "nearest_active_cell": {
+            "cell_lonlat": [
+              21.8649,
+              39.6943
+            ],
+            "zb_m": 398.28,
+            "distance_m": 756
+          },
+          "first_active_cell_on_dem_path_from_injection_point": {
+            "cell_lonlat": [
+              21.8667,
+              39.6943
+            ],
+            "zb_m": 392.4,
+            "path_distance_m": 0,
+            "uparea_km2": 100.64
+          },
+          "flags": [
+            "(i) GloFAS cell is not on the Pineios: it is on no referenced river [23.8 km\u00b2]; another river (not on the drainage path of the point)",
+            "(v) nested: drains into the GloFAS cell of pineios_trikala [21.875, 39.525] \u2014 counted again there",
+            "(v) nested: drains into the GloFAS cell of titarisios [22.475, 39.825] \u2014 counted again there",
+            "(iv) window clipped by the file edge (west)",
+            "(iii) injection cell inactive (msk None, DEM 413.5 m)"
+          ]
+        },
+        {
+          "name": "titarisios",
+          "named_river": "Titarisios",
+          "yaml": {
+            "lon": 22.42,
+            "lat": 39.71,
+            "src_lon": 22.42,
+            "src_lat": 39.71,
+            "window_deg": 0.1
+          },
+          "named_point_network": {
+            "cell": [
+              22.425,
+              39.725
+            ],
+            "uparea_km2": 6927.9,
+            "rivers_at_point": [
+              "Pineios"
+            ],
+            "first_river_cell_downstream": [
+              22.425,
+              39.725
+            ],
+            "first_river_uparea_km2": 6927.9,
+            "first_river_names": [
+              "Pineios"
+            ]
+          },
+          "named_river_own_last_cell": [
+            22.325,
+            39.775,
+            1780.1
+          ],
+          "named_river_best_cell_in_file": {
+            "network_cell": [
+              22.275,
+              39.725
+            ],
+            "uparea_km2": 1685.0,
+            "file_coord": [
+              22.24,
+              39.71
+            ],
+            "mean_m3s": 16.5,
+            "peak_file_m3s": 42.85
+          },
+          "glofas_rule_cell": {
+            "file_coord": [
+              22.44,
+              39.81
+            ],
+            "network_cell": [
+              22.475,
+              39.825
+            ],
+            "uparea_km2": 8993.1,
+            "rivers": [
+              "Pineios"
+            ],
+            "window_cells": 6,
+            "mean_m3s": 302.473,
+            "peak_file_m3s": 1128.8,
+            "peak_in_window_m3s": 1128.8,
+            "mean_in_window_m3s": 305.405,
+            "relation_to_the_point_drainage": "the point's own river",
+            "is_named_river": false
+          },
+          "glofas_window": {
+            "clipped": false,
+            "sides": []
+          },
+          "glofas_one_cell_window": {
+            "file_coord": [
+              22.44,
+              39.71
+            ],
+            "network_cell": [
+              22.475,
+              39.725
+            ],
+            "uparea_km2": 166.5,
+            "rivers": [],
+            "n": 1,
+            "mean_m3s": 3.66,
+            "peak_file_m3s": 24.41
+          },
+          "injection_cell": {
+            "row_col": [
+              235,
+              333
+            ],
+            "in_grid": true,
+            "cell_lonlat": [
+              22.4198,
+              39.7105
+            ],
+            "zb_m": 64.55,
+            "dem_m": 64.7,
+            "msk": 1,
+            "uparea_km2": 4.91,
+            "max_uparea_within_1km_km2": 6.95,
+            "active": true,
+            "on_channel": true,
+            "drains_to": {
+              "first_river_cell": [
+                22.425,
+                39.725
+              ],
+              "uparea_km2": 6927.9,
+              "rivers": [
+                "Pineios"
+              ],
+              "rivers_at_injection_cell": [
+                "Pineios"
+              ],
+              "reaches_named_river": false,
+              "first_referenced_river_on_path": [
+                "Pineios"
+              ]
+            }
+          },
+          "lowest_zb_active_within_1km": {
+            "row_col": [
+              233,
+              335
+            ],
+            "cell_lonlat": [
+              22.4234,
+              39.7132
+            ],
+            "zb_m": 61.69,
+            "distance_m": 454,
+            "uparea_km2": 4.88,
+            "on_channel": true,
+            "n_active_within_1km": 139
+          },
+          "lowest_zb_active_channel_within_1km": {
+            "row_col": [
+              233,
+              335
+            ],
+            "cell_lonlat": [
+              22.4234,
+              39.7132
+            ],
+            "zb_m": 61.69,
+            "distance_m": 454,
+            "uparea_km2": 4.88,
+            "n_channel_cells": 139
+          },
+          "nearest_active_cell": {
+            "cell_lonlat": [
+              22.4198,
+              39.7105
+            ],
+            "zb_m": 64.55,
+            "distance_m": 58
+          },
+          "first_active_cell_on_dem_path_from_injection_point": {
+            "cell_lonlat": [
+              22.4269,
+              39.7158
+            ],
+            "zb_m": 64.16,
+            "path_distance_m": 0,
+            "uparea_km2": 5.47
+          },
+          "flags": [
+            "(i) GloFAS cell is not on the Titarisios: it is on Pineios [8993.1 km\u00b2]; the point's own river",
+            "(vi) the injection point never drains through the Titarisios: its path reaches Pineios first (first river cell [22.425, 39.725], 6927.9 km\u00b2)"
+          ]
+        },
+        {
+          "name": "enipeas",
+          "named_river": "Enipeas",
+          "yaml": {
+            "lon": 22.39,
+            "lat": 39.3,
+            "src_lon": 22.39,
+            "src_lat": 39.33,
+            "window_deg": 0.1
+          },
+          "named_point_network": {
+            "cell": [
+              22.375,
+              39.275
+            ],
+            "uparea_km2": 23.9,
+            "rivers_at_point": [],
+            "first_river_cell_downstream": [
+              22.375,
+              39.325
+            ],
+            "first_river_uparea_km2": 887.2,
+            "first_river_names": [
+              "Enipeas"
+            ]
+          },
+          "named_river_own_last_cell": [
+            22.175,
+            39.475,
+            1102.3
+          ],
+          "named_river_best_cell_in_file": {
+            "network_cell": [
+              22.275,
+              39.425
+            ],
+            "uparea_km2": 1006.8,
+            "file_coord": [
+              22.24,
+              39.41
+            ],
+            "mean_m3s": 39.15,
+            "peak_file_m3s": 138.0
+          },
+          "glofas_rule_cell": {
+            "file_coord": [
+              22.34,
+              39.31
+            ],
+            "network_cell": [
+              22.375,
+              39.325
+            ],
+            "uparea_km2": 887.2,
+            "rivers": [
+              "Enipeas"
+            ],
+            "window_cells": 4,
+            "mean_m3s": 33.245,
+            "peak_file_m3s": 118.4,
+            "peak_in_window_m3s": 118.4,
+            "mean_in_window_m3s": 33.377,
+            "relation_to_the_point_drainage": "the point's own river",
+            "is_named_river": true
+          },
+          "glofas_window": {
+            "clipped": false,
+            "sides": []
+          },
+          "glofas_one_cell_window": {
+            "file_coord": [
+              22.34,
+              39.31
+            ],
+            "network_cell": [
+              22.375,
+              39.325
+            ],
+            "uparea_km2": 887.2,
+            "rivers": [
+              "Enipeas"
+            ],
+            "n": 2,
+            "mean_m3s": 33.25,
+            "peak_file_m3s": 118.4
+          },
+          "injection_cell": {
+            "row_col": [
+              517,
+              320
+            ],
+            "in_grid": true,
+            "cell_lonlat": [
+              22.3895,
+              39.3297
+            ],
+            "zb_m": 136.25,
+            "dem_m": 136.3,
+            "msk": 1,
+            "uparea_km2": 0.02,
+            "max_uparea_within_1km_km2": 648.81,
+            "active": true,
+            "on_channel": false,
+            "drains_to": {
+              "first_river_cell": [
+                22.375,
+                39.325
+              ],
+              "uparea_km2": 887.2,
+              "rivers": [
+                "Enipeas"
+              ],
+              "rivers_at_injection_cell": [
+                "Enipeas"
+              ],
+              "reaches_named_river": true,
+              "first_referenced_river_on_path": [
+                "Enipeas"
+              ]
+            }
+          },
+          "lowest_zb_active_within_1km": {
+            "row_col": [
+              513,
+              316
+            ],
+            "cell_lonlat": [
+              22.3826,
+              39.3352
+            ],
+            "zb_m": 130.87,
+            "distance_m": 863,
+            "uparea_km2": 0.11,
+            "on_channel": false,
+            "n_active_within_1km": 137
+          },
+          "lowest_zb_active_channel_within_1km": {
+            "row_col": [
+              514,
+              316
+            ],
+            "cell_lonlat": [
+              22.3826,
+              39.3339
+            ],
+            "zb_m": 131.28,
+            "distance_m": 772,
+            "uparea_km2": 648.63,
+            "n_channel_cells": 13
+          },
+          "nearest_active_cell": {
+            "cell_lonlat": [
+              22.3895,
+              39.3297
+            ],
+            "zb_m": 136.25,
+            "distance_m": 55
+          },
+          "first_active_cell_on_dem_path_from_injection_point": {
+            "cell_lonlat": [
+              22.3826,
+              39.3339
+            ],
+            "zb_m": 131.28,
+            "path_distance_m": 0,
+            "uparea_km2": 648.63
+          },
+          "flags": [
+            "(v) nested: drains into the GloFAS cell of titarisios [22.475, 39.825] \u2014 counted again there",
+            "(iii) injection cell off-channel (D8 upstream area 0.02 vs 648.81 km\u00b2 within 1 km)"
+          ]
+        }
+      ]
+    },
+    {
+      "event": "strymonas",
+      "run_config": "reproduction\\v14_rerun\\configs\\strymonas_enhanced_postD6.yaml",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\strymonas_enhanced_postD6\\data\\glofas_strymonas_clean.nc",
+      "glofas_lattice_step_deg": 0.05,
+      "lattice_lon_offset_deg": 0.0,
+      "lattice_shift_test": null,
+      "glofas_extent": {
+        "lon": [
+          22.625,
+          24.175
+        ],
+        "lat": [
+          40.425,
+          41.575
+        ]
+      },
+      "model": {
+        "epsg": 32634,
+        "res_m": 150.0,
+        "shape": [
+          611,
+          690
+        ],
+        "zmax": 250,
+        "active_cells": 185022
+      },
+      "dem": {
+        "tiles": [
+          "Copernicus_DSM_COG_10_N40_00_E022_00_DEM.tif",
+          "Copernicus_DSM_COG_10_N40_00_E023_00_DEM.tif",
+          "Copernicus_DSM_COG_10_N40_00_E024_00_DEM.tif",
+          "Copernicus_DSM_COG_10_N41_00_E022_00_DEM.tif",
+          "Copernicus_DSM_COG_10_N41_00_E023_00_DEM.tif",
+          "Copernicus_DSM_COG_10_N41_00_E024_00_DEM.tif"
+        ],
+        "pad_m": 30000.0
+      },
+      "sampler_duplicates": [],
+      "points": [
+        {
+          "name": "kerkini_outlet",
+          "named_river": "Strymonas",
+          "yaml": {
+            "lon": 23.3991,
+            "lat": 41.0289,
+            "src_lon": 23.3991,
+            "src_lat": 41.0289,
+            "window_deg": 0.1
+          },
+          "named_point_network": {
+            "cell": [
+              23.375,
+              41.025
+            ],
+            "uparea_km2": 12714.4,
+            "rivers_at_point": [
+              "Strymonas"
+            ],
+            "first_river_cell_downstream": [
+              23.375,
+              41.025
+            ],
+            "first_river_uparea_km2": 12714.4,
+            "first_river_names": [
+              "Strymonas"
+            ]
+          },
+          "named_river_own_last_cell": [
+            23.825,
+            40.775,
+            16822.5
+          ],
+          "named_river_best_cell_in_file": {
+            "network_cell": [
+              23.825,
+              40.775
+            ],
+            "uparea_km2": 16822.5,
+            "file_coord": [
+              23.825,
+              40.775
+            ],
+            "mean_m3s": 303.67,
+            "peak_file_m3s": 765.38
+          },
+          "glofas_rule_cell": {
+            "file_coord": [
+              23.475,
+              40.975
+            ],
+            "network_cell": [
+              23.475,
+              40.975
+            ],
+            "uparea_km2": 13018.4,
+            "rivers": [
+              "Strymonas"
+            ],
+            "window_cells": 16,
+            "mean_m3s": 215.851,
+            "peak_file_m3s": 640.344,
+            "peak_in_window_m3s": 640.344,
+            "mean_in_window_m3s": 303.083,
+            "relation_to_the_point_drainage": "the point's own river",
+            "is_named_river": true
+          },
+          "glofas_window": {
+            "clipped": false,
+            "sides": []
+          },
+          "glofas_one_cell_window": {
+            "file_coord": [
+              23.425,
+              41.025
+            ],
+            "network_cell": [
+              23.425,
+              41.025
+            ],
+            "uparea_km2": 12737.8,
+            "rivers": [
+              "Strymonas"
+            ],
+            "n": 4,
+            "mean_m3s": 212.75,
+            "peak_file_m3s": 635.56
+          },
+          "injection_cell": {
+            "row_col": [
+              285,
+              341
+            ],
+            "in_grid": true,
+            "cell_lonlat": [
+              23.3991,
+              41.0289
+            ],
+            "zb_m": 13.86,
+            "dem_m": 13.1,
+            "msk": 1,
+            "uparea_km2": 0.07,
+            "max_uparea_within_1km_km2": 1.53,
+            "active": true,
+            "on_channel": false,
+            "drains_to": {
+              "first_river_cell": [
+                23.375,
+                41.025
+              ],
+              "uparea_km2": 12714.4,
+              "rivers": [
+                "Strymonas"
+              ],
+              "rivers_at_injection_cell": [
+                "Strymonas"
+              ],
+              "reaches_named_river": true,
+              "first_referenced_river_on_path": [
+                "Strymonas"
+              ]
+            }
+          },
+          "lowest_zb_active_within_1km": {
+            "row_col": [
+              287,
+              341
+            ],
+            "cell_lonlat": [
+              23.399,
+              41.0262
+            ],
+            "zb_m": 13.45,
+            "distance_m": 301,
+            "uparea_km2": 1.06,
+            "on_channel": true,
+            "n_active_within_1km": 137
+          },
+          "lowest_zb_active_channel_within_1km": {
+            "row_col": [
+              287,
+              341
+            ],
+            "cell_lonlat": [
+              23.399,
+              41.0262
+            ],
+            "zb_m": 13.45,
+            "distance_m": 301,
+            "uparea_km2": 1.06,
+            "n_channel_cells": 7
+          },
+          "nearest_active_cell": {
+            "cell_lonlat": [
+              23.3991,
+              41.0289
+            ],
+            "zb_m": 13.86,
+            "distance_m": 4
+          },
+          "first_active_cell_on_dem_path_from_injection_point": {
+            "cell_lonlat": [
+              23.4025,
+              41.0234
+            ],
+            "zb_m": 15.09,
+            "path_distance_m": 0,
+            "uparea_km2": 1.39
+          },
+          "flags": [
+            "(iii) injection cell off-channel (D8 upstream area 0.07 vs 1.53 km\u00b2 within 1 km)"
+          ]
+        },
+        {
+          "name": "angitis",
+          "named_river": "Angitis",
+          "yaml": {
+            "lon": 23.92,
+            "lat": 41.0,
+            "src_lon": 23.92,
+            "src_lat": 41.0,
+            "window_deg": 0.1
+          },
+          "named_point_network": {
+            "cell": [
+              23.925,
+              40.975
+            ],
+            "uparea_km2": 2052.1,
+            "rivers_at_point": [
+              "Angitis"
+            ],
+            "first_river_cell_downstream": [
+              23.925,
+              40.975
+            ],
+            "first_river_uparea_km2": 2052.1,
+            "first_river_names": [
+              "Angitis"
+            ]
+          },
+          "named_river_own_last_cell": [
+            23.825,
+            40.925,
+            2379.1
+          ],
+          "named_river_best_cell_in_file": {
+            "network_cell": [
+              23.825,
+              40.925
+            ],
+            "uparea_km2": 2379.1,
+            "file_coord": [
+              23.825,
+              40.925
+            ],
+            "mean_m3s": 69.57,
+            "peak_file_m3s": 211.47
+          },
+          "glofas_rule_cell": {
+            "file_coord": [
+              23.825,
+              40.925
+            ],
+            "network_cell": [
+              23.825,
+              40.925
+            ],
+            "uparea_km2": 2379.1,
+            "rivers": [
+              "Angitis"
+            ],
+            "window_cells": 16,
+            "mean_m3s": 69.573,
+            "peak_file_m3s": 211.469,
+            "peak_in_window_m3s": 96.812,
+            "mean_in_window_m3s": 70.793,
+            "relation_to_the_point_drainage": "the point's own river",
+            "is_named_river": true
+          },
+          "glofas_window": {
+            "clipped": false,
+            "sides": []
+          },
+          "glofas_one_cell_window": {
+            "file_coord": [
+              23.875,
+              40.975
+            ],
+            "network_cell": [
+              23.875,
+              40.975
+            ],
+            "uparea_km2": 2122.3,
+            "rivers": [
+              "Angitis"
+            ],
+            "n": 4,
+            "mean_m3s": 65.19,
+            "peak_file_m3s": 203.25
+          },
+          "injection_cell": {
+            "row_col": [
+              297,
+              634
+            ],
+            "in_grid": true,
+            "cell_lonlat": [
+              23.9206,
+              41.0006
+            ],
+            "zb_m": 21.05,
+            "dem_m": 20.6,
+            "msk": 1,
+            "uparea_km2": 0.09,
+            "max_uparea_within_1km_km2": 1810.19,
+            "active": true,
+            "on_channel": false,
+            "drains_to": {
+              "first_river_cell": [
+                23.925,
+                40.975
+              ],
+              "uparea_km2": 2052.1,
+              "rivers": [
+                "Angitis"
+              ],
+              "rivers_at_injection_cell": [
+                "Angitis"
+              ],
+              "reaches_named_river": true,
+              "first_referenced_river_on_path": [
+                "Angitis"
+              ]
+            }
+          },
+          "lowest_zb_active_within_1km": {
+            "row_col": [
+              302,
+              631
+            ],
+            "cell_lonlat": [
+              23.915,
+              40.994
+            ],
+            "zb_m": 17.83,
+            "distance_m": 787,
+            "uparea_km2": 0.09,
+            "on_channel": false,
+            "n_active_within_1km": 141
+          },
+          "lowest_zb_active_channel_within_1km": {
+            "row_col": [
+              299,
+              629
+            ],
+            "cell_lonlat": [
+              23.9116,
+              40.9982
+            ],
+            "zb_m": 19.04,
+            "distance_m": 736,
+            "uparea_km2": 1808.33,
+            "n_channel_cells": 11
+          },
+          "nearest_active_cell": {
+            "cell_lonlat": [
+              23.9206,
+              41.0006
+            ],
+            "zb_m": 21.05,
+            "distance_m": 88
+          },
+          "first_active_cell_on_dem_path_from_injection_point": {
+            "cell_lonlat": [
+              23.9134,
+              40.9995
+            ],
+            "zb_m": 19.38,
+            "path_distance_m": 0,
+            "uparea_km2": 1807.67
+          },
+          "flags": [
+            "(iii) injection cell off-channel (D8 upstream area 0.09 vs 1810.19 km\u00b2 within 1 km)"
+          ]
+        },
+        {
+          "name": "kerkini_outlet@v1_prefix_src",
+          "named_river": "Strymonas",
+          "yaml": {
+            "lon": 23.2,
+            "lat": 41.08,
+            "src_lon": 23.2,
+            "src_lat": 41.08,
+            "window_deg": 0.1
+          },
+          "named_point_network": {
+            "cell": [
+              23.175,
+              41.075
+            ],
+            "uparea_km2": 70.0,
+            "rivers_at_point": [],
+            "first_river_cell_downstream": [
+              23.275,
+              41.125
+            ],
+            "first_river_uparea_km2": 11922.4,
+            "first_river_names": [
+              "Strymonas"
+            ]
+          },
+          "named_river_own_last_cell": [
+            23.825,
+            40.775,
+            16822.5
+          ],
+          "named_river_best_cell_in_file": {
+            "network_cell": [
+              23.825,
+              40.775
+            ],
+            "uparea_km2": 16822.5,
+            "file_coord": [
+              23.825,
+              40.775
+            ],
+            "mean_m3s": 303.67,
+            "peak_file_m3s": 765.38
+          },
+          "glofas_rule_cell": {
+            "file_coord": [
+              23.275,
+              41.125
+            ],
+            "network_cell": [
+              23.275,
+              41.125
+            ],
+            "uparea_km2": 11922.4,
+            "rivers": [
+              "Strymonas"
+            ],
+            "window_cells": 16,
+            "mean_m3s": 202.831,
+            "peak_file_m3s": 618.5,
+            "peak_in_window_m3s": 618.5,
+            "mean_in_window_m3s": 290.12,
+            "relation_to_the_point_drainage": "the point's own river",
+            "is_named_river": true
+          },
+          "glofas_window": {
+            "clipped": false,
+            "sides": []
+          },
+          "glofas_one_cell_window": {
+            "file_coord": [
+              23.225,
+              41.125
+            ],
+            "network_cell": [
+              23.225,
+              41.125
+            ],
+            "uparea_km2": 11805.7,
+            "rivers": [
+              "Strymonas"
+            ],
+            "n": 4,
+            "mean_m3s": 201.5,
+            "peak_file_m3s": 616.28
+          },
+          "injection_cell": {
+            "row_col": [
+              250,
+              228
+            ],
+            "in_grid": true,
+            "cell_lonlat": [
+              23.1992,
+              41.0802
+            ],
+            "zb_m": 192.31,
+            "dem_m": 195.0,
+            "msk": 1,
+            "uparea_km2": 12.85,
+            "max_uparea_within_1km_km2": 90.49,
+            "active": true,
+            "on_channel": false,
+            "drains_to": {
+              "first_river_cell": [
+                23.275,
+                41.125
+              ],
+              "uparea_km2": 11922.4,
+              "rivers": [
+                "Strymonas"
+              ],
+              "rivers_at_injection_cell": [],
+              "reaches_named_river": true,
+              "first_referenced_river_on_path": [
+                "Strymonas"
+              ]
+            }
+          },
+          "lowest_zb_active_within_1km": {
+            "row_col": [
+              244,
+              230
+            ],
+            "cell_lonlat": [
+              23.2031,
+              41.0882
+            ],
+            "zb_m": 157.13,
+            "distance_m": 947,
+            "uparea_km2": 90.49,
+            "on_channel": true,
+            "n_active_within_1km": 64
+          },
+          "lowest_zb_active_channel_within_1km": {
+            "row_col": [
+              244,
+              230
+            ],
+            "cell_lonlat": [
+              23.2031,
+              41.0882
+            ],
+            "zb_m": 157.13,
+            "distance_m": 947,
+            "uparea_km2": 90.49,
+            "n_channel_cells": 13
+          },
+          "nearest_active_cell": {
+            "cell_lonlat": [
+              23.1992,
+              41.0802
+            ],
+            "zb_m": 192.31,
+            "distance_m": 66
+          },
+          "first_active_cell_on_dem_path_from_injection_point": {
+            "cell_lonlat": [
+              23.203,
+              41.0855
+            ],
+            "zb_m": 165.73,
+            "path_distance_m": 0,
+            "uparea_km2": 90.16
+          },
+          "flags": [
+            "(v) nested: drains into the GloFAS cell of kerkini_outlet [23.475, 40.975] \u2014 counted again there",
+            "(iii) injection cell off-channel (D8 upstream area 12.85 vs 90.49 km\u00b2 within 1 km)"
+          ]
+        }
+      ]
+    },
+    {
+      "event": "valencia",
+      "run_config": "reproduction\\v14_rerun\\configs\\valencia_enhanced_164.yaml",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\valencia_enhanced_164\\data\\glofas_valencia_clean.nc",
+      "glofas_lattice_step_deg": 0.05,
+      "lattice_lon_offset_deg": 0.0,
+      "lattice_shift_test": null,
+      "glofas_extent": {
+        "lon": [
+          -1.1750000000000114,
+          0.325
+        ],
+        "lat": [
+          38.775,
+          40.025
+        ]
+      },
+      "model": {
+        "epsg": 32630,
+        "res_m": 100.0,
+        "shape": [
+          801,
+          841
+        ],
+        "zmax": 300,
+        "active_cells": 296448
+      },
+      "dem": {
+        "tiles": [
+          "Copernicus_DSM_COG_10_N39_00_E000_00_DEM.tif",
+          "Copernicus_DSM_COG_10_N39_00_W001_00_DEM.tif"
+        ],
+        "pad_m": 30000.0
+      },
+      "sampler_duplicates": [],
+      "points": [
+        {
+          "name": "magro",
+          "named_river": "Magro",
+          "yaml": {
+            "lon": -0.68,
+            "lat": 39.2,
+            "src_lon": -0.68,
+            "src_lat": 39.2,
+            "window_deg": 0.1
+          },
+          "named_point_network": {
+            "cell": [
+              -0.675,
+              39.225
+            ],
+            "uparea_km2": 24.0,
+            "rivers_at_point": [],
+            "first_river_cell_downstream": [
+              -0.575,
+              39.275
+            ],
+            "first_river_uparea_km2": 1576.0,
+            "first_river_names": [
+              "Magro"
+            ]
+          },
+          "named_river_own_last_cell": [
+            -0.475,
+            39.225,
+            1647.9
+          ],
+          "named_river_best_cell_in_file": {
+            "network_cell": [
+              -0.475,
+              39.225
+            ],
+            "uparea_km2": 1647.9,
+            "file_coord": [
+              -0.475,
+              39.225
+            ],
+            "mean_m3s": 2.32,
+            "peak_file_m3s": 18.7
+          },
+          "glofas_rule_cell": {
+            "file_coord": [
+              -0.625,
+              39.125
+            ],
+            "network_cell": [
+              -0.625,
+              39.125
+            ],
+            "uparea_km2": 17127.5,
+            "rivers": [
+              "Jucar"
+            ],
+            "window_cells": 16,
+            "mean_m3s": 16.295,
+            "peak_file_m3s": 42.688,
+            "peak_in_window_m3s": 42.688,
+            "mean_in_window_m3s": 23.165,
+            "relation_to_the_point_drainage": "another river (not on the drainage path of the point)",
+            "is_named_river": false
+          },
+          "glofas_window": {
+            "clipped": false,
+            "sides": []
+          },
+          "glofas_one_cell_window": {
+            "file_coord": [
+              -0.675,
+              39.175
+            ],
+            "network_cell": [
+              -0.675,
+              39.175
+            ],
+            "uparea_km2": 16599.3,
+            "rivers": [
+              "Jucar"
+            ],
+            "n": 4,
+            "mean_m3s": 15.76,
+            "peak_file_m3s": 41.15
+          },
+          "injection_cell": {
+            "row_col": [
+              629,
+              204
+            ],
+            "in_grid": true,
+            "cell_lonlat": [
+              -0.6797,
+              39.2003
+            ],
+            "zb_m": null,
+            "dem_m": 384.6,
+            "msk": null,
+            "uparea_km2": 0.01,
+            "max_uparea_within_1km_km2": 5.69,
+            "active": false,
+            "on_channel": false,
+            "drains_to": {
+              "first_river_cell": [
+                -0.575,
+                39.275
+              ],
+              "uparea_km2": 1576.0,
+              "rivers": [
+                "Magro"
+              ],
+              "rivers_at_injection_cell": [],
+              "reaches_named_river": true,
+              "first_referenced_river_on_path": [
+                "Magro"
+              ]
+            }
+          },
+          "lowest_zb_active_within_1km": {
+            "row_col": [
+              637,
+              199
+            ],
+            "cell_lonlat": [
+              -0.6857,
+              39.1933
+            ],
+            "zb_m": 141.97,
+            "distance_m": 896,
+            "uparea_km2": 2.78,
+            "on_channel": false,
+            "n_active_within_1km": 35
+          },
+          "lowest_zb_active_channel_within_1km": {
+            "row_col": [
+              625,
+              195
+            ],
+            "cell_lonlat": [
+              -0.69,
+              39.2041
+            ],
+            "zb_m": 274.67,
+            "distance_m": 976,
+            "uparea_km2": 5.69,
+            "n_channel_cells": 3
+          },
+          "nearest_active_cell": {
+            "cell_lonlat": [
+              -0.6822,
+              39.195
+            ],
+            "zb_m": 293.98,
+            "distance_m": 587
+          },
+          "first_active_cell_on_dem_path_from_injection_point": {
+            "cell_lonlat": [
+              -0.6876,
+              39.2041
+            ],
+            "zb_m": 293.02,
+            "path_distance_m": 241,
+            "uparea_km2": 5.57
+          },
+          "flags": [
+            "(i) GloFAS cell is not on the Magro: it is on Jucar [17127.5 km\u00b2]; another river (not on the drainage path of the point)",
+            "(v) nested: drains into the GloFAS cell of jucar [-0.275, 39.175] \u2014 counted again there",
+            "(iii) injection cell inactive (msk None, DEM 384.6 m)"
+          ]
+        },
+        {
+          "name": "jucar",
+          "named_river": "Jucar",
+          "yaml": {
+            "lon": -0.34,
+            "lat": 39.16,
+            "src_lon": -0.34,
+            "src_lat": 39.16,
+            "window_deg": 0.1
+          },
+          "named_point_network": {
+            "cell": [
+              -0.325,
+              39.175
+            ],
+            "uparea_km2": 21398.1,
+            "rivers_at_point": [
+              "Jucar"
+            ],
+            "first_river_cell_downstream": [
+              -0.325,
+              39.175
+            ],
+            "first_river_uparea_km2": 21398.1,
+            "first_river_names": [
+              "Jucar"
+            ]
+          },
+          "named_river_own_last_cell": [
+            -0.275,
+            39.175,
+            21422.1
+          ],
+          "named_river_best_cell_in_file": {
+            "network_cell": [
+              -0.275,
+              39.175
+            ],
+            "uparea_km2": 21422.1,
+            "file_coord": [
+              -0.275,
+              39.175
+            ],
+            "mean_m3s": 25.72,
+            "peak_file_m3s": 88.81
+          },
+          "glofas_rule_cell": {
+            "file_coord": [
+              -0.275,
+              39.175
+            ],
+            "network_cell": [
+              -0.275,
+              39.175
+            ],
+            "uparea_km2": 21422.1,
+            "rivers": [
+              "Jucar"
+            ],
+            "window_cells": 16,
+            "mean_m3s": 25.717,
+            "peak_file_m3s": 88.809,
+            "peak_in_window_m3s": 88.809,
+            "mean_in_window_m3s": 46.222,
+            "relation_to_the_point_drainage": "the point's own river",
+            "is_named_river": true
+          },
+          "glofas_window": {
+            "clipped": false,
+            "sides": []
+          },
+          "glofas_one_cell_window": {
+            "file_coord": [
+              -0.325,
+              39.175
+            ],
+            "network_cell": [
+              -0.325,
+              39.175
+            ],
+            "uparea_km2": 21398.1,
+            "rivers": [
+              "Jucar"
+            ],
+            "n": 4,
+            "mean_m3s": 25.5,
+            "peak_file_m3s": 90.38
+          },
+          "injection_cell": {
+            "row_col": [
+              666,
+              499
+            ],
+            "in_grid": true,
+            "cell_lonlat": [
+              -0.3396,
+              39.1597
+            ],
+            "zb_m": 4.13,
+            "dem_m": 4.1,
+            "msk": 1,
+            "uparea_km2": 0.01,
+            "max_uparea_within_1km_km2": 2183.63,
+            "active": true,
+            "on_channel": false,
+            "drains_to": {
+              "first_river_cell": [
+                -0.325,
+                39.175
+              ],
+              "uparea_km2": 21398.1,
+              "rivers": [
+                "Jucar"
+              ],
+              "rivers_at_injection_cell": [
+                "Jucar"
+              ],
+              "reaches_named_river": true,
+              "first_referenced_river_on_path": [
+                "Jucar"
+              ]
+            }
+          },
+          "lowest_zb_active_within_1km": {
+            "row_col": [
+              668,
+              508
+            ],
+            "cell_lonlat": [
+              -0.3293,
+              39.1577
+            ],
+            "zb_m": 2.95,
+            "distance_m": 961,
+            "uparea_km2": 2183.63,
+            "on_channel": true,
+            "n_active_within_1km": 317
+          },
+          "lowest_zb_active_channel_within_1km": {
+            "row_col": [
+              668,
+              508
+            ],
+            "cell_lonlat": [
+              -0.3293,
+              39.1577
+            ],
+            "zb_m": 2.95,
+            "distance_m": 961,
+            "uparea_km2": 2183.63,
+            "n_channel_cells": 13
+          },
+          "nearest_active_cell": {
+            "cell_lonlat": [
+              -0.3396,
+              39.1597
+            ],
+            "zb_m": 4.13,
+            "distance_m": 44
+          },
+          "first_active_cell_on_dem_path_from_injection_point": {
+            "cell_lonlat": [
+              -0.3337,
+              39.1623
+            ],
+            "zb_m": 3.33,
+            "path_distance_m": 0,
+            "uparea_km2": 2177.32
+          },
+          "flags": [
+            "(iii) injection cell off-channel (D8 upstream area 0.01 vs 2183.63 km\u00b2 within 1 km)"
+          ]
+        },
+        {
+          "name": "turia",
+          "named_river": "Turia",
+          "yaml": {
+            "lon": -0.55,
+            "lat": 39.52,
+            "src_lon": -0.55,
+            "src_lat": 39.52,
+            "window_deg": 0.1
+          },
+          "named_point_network": {
+            "cell": [
+              -0.575,
+              39.525
+            ],
+            "uparea_km2": 23.9,
+            "rivers_at_point": [],
+            "first_river_cell_downstream": [
+              -0.525,
+              39.525
+            ],
+            "first_river_uparea_km2": 6080.9,
+            "first_river_names": [
+              "Turia"
+            ]
+          },
+          "named_river_own_last_cell": [
+            -0.325,
+            39.425,
+            6224.3
+          ],
+          "named_river_best_cell_in_file": {
+            "network_cell": [
+              -0.325,
+              39.425
+            ],
+            "uparea_km2": 6224.3,
+            "file_coord": [
+              -0.325,
+              39.425
+            ],
+            "mean_m3s": 36.93,
+            "peak_file_m3s": 239.24
+          },
+          "glofas_rule_cell": {
+            "file_coord": [
+              -0.475,
+              39.525
+            ],
+            "network_cell": [
+              -0.475,
+              39.525
+            ],
+            "uparea_km2": 6104.8,
+            "rivers": [
+              "Turia"
+            ],
+            "window_cells": 16,
+            "mean_m3s": 32.369,
+            "peak_file_m3s": 239.719,
+            "peak_in_window_m3s": 239.719,
+            "mean_in_window_m3s": 73.582,
+            "relation_to_the_point_drainage": "the point's own river",
+            "is_named_river": true
+          },
+          "glofas_window": {
+            "clipped": false,
+            "sides": []
+          },
+          "glofas_one_cell_window": {
+            "file_coord": [
+              -0.525,
+              39.525
+            ],
+            "network_cell": [
+              -0.525,
+              39.525
+            ],
+            "uparea_km2": 6080.9,
+            "rivers": [
+              "Turia"
+            ],
+            "n": 4,
+            "mean_m3s": 31.6,
+            "peak_file_m3s": 237.25
+          },
+          "injection_cell": {
+            "row_col": [
+              271,
+              306
+            ],
+            "in_grid": true,
+            "cell_lonlat": [
+              -0.5504,
+              39.5202
+            ],
+            "zb_m": 164.0,
+            "dem_m": 163.8,
+            "msk": 1,
+            "uparea_km2": 0.01,
+            "max_uparea_within_1km_km2": 6.07,
+            "active": true,
+            "on_channel": false,
+            "drains_to": {
+              "first_river_cell": [
+                -0.525,
+                39.525
+              ],
+              "uparea_km2": 6080.9,
+              "rivers": [
+                "Turia"
+              ],
+              "rivers_at_injection_cell": [],
+              "reaches_named_river": true,
+              "first_referenced_river_on_path": [
+                "Turia"
+              ]
+            }
+          },
+          "lowest_zb_active_within_1km": {
+            "row_col": [
+              269,
+              312
+            ],
+            "cell_lonlat": [
+              -0.5434,
+              39.5219
+            ],
+            "zb_m": 95.8,
+            "distance_m": 607,
+            "uparea_km2": 0.06,
+            "on_channel": false,
+            "n_active_within_1km": 316
+          },
+          "lowest_zb_active_channel_within_1km": {
+            "row_col": [
+              262,
+              305
+            ],
+            "cell_lonlat": [
+              -0.5513,
+              39.5283
+            ],
+            "zb_m": 109.69,
+            "distance_m": 934,
+            "uparea_km2": 6.07,
+            "n_channel_cells": 3
+          },
+          "nearest_active_cell": {
+            "cell_lonlat": [
+              -0.5504,
+              39.5202
+            ],
+            "zb_m": 164.0,
+            "distance_m": 43
+          },
+          "first_active_cell_on_dem_path_from_injection_point": {
+            "cell_lonlat": [
+              -0.5448,
+              39.5156
+            ],
+            "zb_m": 117.81,
+            "path_distance_m": 0,
+            "uparea_km2": 1.24
+          },
+          "flags": [
+            "(iii) injection cell off-channel (D8 upstream area 0.01 vs 6.07 km\u00b2 within 1 km)"
+          ]
+        }
+      ]
+    },
+    {
+      "event": "emilia",
+      "run_config": "reproduction\\v14_rerun\\configs\\emilia_enhanced_8aoi.yaml",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\emilia_enhanced_8aoi\\data\\glofas_emilia_romagna_clean.nc",
+      "glofas_lattice_step_deg": 0.05,
+      "lattice_lon_offset_deg": 0.0,
+      "lattice_shift_test": null,
+      "glofas_extent": {
+        "lon": [
+          11.075,
+          12.825
+        ],
+        "lat": [
+          43.725,
+          45.025
+        ]
+      },
+      "model": {
+        "epsg": 32632,
+        "res_m": 150.0,
+        "shape": [
+          579,
+          658
+        ],
+        "zmax": 300,
+        "active_cells": 226240
+      },
+      "dem": {
+        "tiles": [
+          "Copernicus_DSM_COG_10_N44_00_E011_00_DEM.tif",
+          "Copernicus_DSM_COG_10_N44_00_E012_00_DEM.tif"
+        ],
+        "pad_m": 30000.0
+      },
+      "sampler_duplicates": [
+        {
+          "cell_lonlat": [
+            11.925,
+            44.275
+          ],
+          "points": [
+            "senio",
+            "montone"
+          ]
+        }
+      ],
+      "points": [
+        {
+          "name": "lamone",
+          "named_river": "Lamone",
+          "yaml": {
+            "lon": 11.9,
+            "lat": 44.24,
+            "src_lon": 11.9,
+            "src_lat": 44.24,
+            "window_deg": 0.1
+          },
+          "named_point_network": {
+            "cell": [
+              11.925,
+              44.225
+            ],
+            "uparea_km2": 22.2,
+            "rivers_at_point": [],
+            "first_river_cell_downstream": [
+              11.975,
+              44.325
+            ],
+            "first_river_uparea_km2": 688.9,
+            "first_river_names": [
+              "Lamone"
+            ]
+          },
+          "named_river_own_last_cell": [
+            12.275,
+            44.475,
+            998.4
+          ],
+          "named_river_best_cell_in_file": {
+            "network_cell": [
+              12.275,
+              44.475
+            ],
+            "uparea_km2": 998.4,
+            "file_coord": [
+              12.275,
+              44.475
+            ],
+            "mean_m3s": 35.66,
+            "peak_file_m3s": 230.97
+          },
+          "glofas_rule_cell": {
+            "file_coord": [
+              11.975,
+              44.325
+            ],
+            "network_cell": [
+              11.975,
+              44.325
+            ],
+            "uparea_km2": 688.9,
+            "rivers": [
+              "Lamone"
+            ],
+            "window_cells": 16,
+            "mean_m3s": 29.017,
+            "peak_file_m3s": 188.219,
+            "peak_in_window_m3s": 188.219,
+            "mean_in_window_m3s": 61.509,
+            "relation_to_the_point_drainage": "the point's own river",
+            "is_named_river": true
+          },
+          "glofas_window": {
+            "clipped": false,
+            "sides": []
+          },
+          "glofas_one_cell_window": {
+            "file_coord": [
+              11.925,
+              44.275
+            ],
+            "network_cell": [
+              11.925,
+              44.275
+            ],
+            "uparea_km2": 600.2,
+            "rivers": [
+              "Lamone"
+            ],
+            "n": 4,
+            "mean_m3s": 25.66,
+            "peak_file_m3s": 166.06
+          },
+          "injection_cell": {
+            "row_col": [
+              391,
+              303
+            ],
+            "in_grid": true,
+            "cell_lonlat": [
+              11.8997,
+              44.2406
+            ],
+            "zb_m": 66.81,
+            "dem_m": 66.5,
+            "msk": 1,
+            "uparea_km2": 0.05,
+            "max_uparea_within_1km_km2": 188.91,
+            "active": true,
+            "on_channel": false,
+            "drains_to": {
+              "first_river_cell": [
+                11.975,
+                44.325
+              ],
+              "uparea_km2": 688.9,
+              "rivers": [
+                "Lamone"
+              ],
+              "rivers_at_injection_cell": [],
+              "reaches_named_river": true,
+              "first_referenced_river_on_path": [
+                "Lamone"
+              ]
+            }
+          },
+          "lowest_zb_active_within_1km": {
+            "row_col": [
+              387,
+              299
+            ],
+            "cell_lonlat": [
+              11.8925,
+              44.2462
+            ],
+            "zb_m": 45.67,
+            "distance_m": 910,
+            "uparea_km2": 35.46,
+            "on_channel": false,
+            "n_active_within_1km": 139
+          },
+          "lowest_zb_active_channel_within_1km": {
+            "row_col": [
+              388,
+              299
+            ],
+            "cell_lonlat": [
+              11.8924,
+              44.2448
+            ],
+            "zb_m": 46.22,
+            "distance_m": 807,
+            "uparea_km2": 188.91,
+            "n_channel_cells": 3
+          },
+          "nearest_active_cell": {
+            "cell_lonlat": [
+              11.8997,
+              44.2406
+            ],
+            "zb_m": 66.81,
+            "distance_m": 67
+          },
+          "first_active_cell_on_dem_path_from_injection_point": {
+            "cell_lonlat": [
+              11.8924,
+              44.2448
+            ],
+            "zb_m": 46.22,
+            "path_distance_m": 0,
+            "uparea_km2": 188.91
+          },
+          "flags": [
+            "(iii) injection cell off-channel (D8 upstream area 0.05 vs 188.91 km\u00b2 within 1 km)"
+          ]
+        },
+        {
+          "name": "senio",
+          "named_river": "Senio",
+          "yaml": {
+            "lon": 11.83,
+            "lat": 44.27,
+            "src_lon": 11.83,
+            "src_lat": 44.27,
+            "window_deg": 0.1
+          },
+          "named_point_network": {
+            "cell": [
+              11.825,
+              44.275
+            ],
+            "uparea_km2": 311.3,
+            "rivers_at_point": [],
+            "first_river_cell_downstream": [
+              11.825,
+              44.275
+            ],
+            "first_river_uparea_km2": 311.3,
+            "first_river_names": []
+          },
+          "named_river_own_last_cell": [
+            11.875,
+            44.375,
+            266.4
+          ],
+          "named_river_best_cell_in_file": {
+            "network_cell": [
+              11.875,
+              44.375
+            ],
+            "uparea_km2": 266.4,
+            "file_coord": [
+              11.875,
+              44.375
+            ],
+            "mean_m3s": 11.69,
+            "peak_file_m3s": 62.44
+          },
+          "glofas_rule_cell": {
+            "file_coord": [
+              11.925,
+              44.275
+            ],
+            "network_cell": [
+              11.925,
+              44.275
+            ],
+            "uparea_km2": 600.2,
+            "rivers": [
+              "Lamone"
+            ],
+            "window_cells": 16,
+            "mean_m3s": 25.664,
+            "peak_file_m3s": 166.062,
+            "peak_in_window_m3s": 166.062,
+            "mean_in_window_m3s": 54.384,
+            "relation_to_the_point_drainage": "the point's own river",
+            "is_named_river": false
+          },
+          "glofas_window": {
+            "clipped": false,
+            "sides": []
+          },
+          "glofas_one_cell_window": {
+            "file_coord": [
+              11.875,
+              44.275
+            ],
+            "network_cell": [
+              11.875,
+              44.275
+            ],
+            "uparea_km2": 578.0,
+            "rivers": [
+              "Lamone"
+            ],
+            "n": 4,
+            "mean_m3s": 24.78,
+            "peak_file_m3s": 162.69
+          },
+          "injection_cell": {
+            "row_col": [
+              371,
+              265
+            ],
+            "in_grid": true,
+            "cell_lonlat": [
+              11.8297,
+              44.2693
+            ],
+            "zb_m": 129.22,
+            "dem_m": 129.1,
+            "msk": 1,
+            "uparea_km2": 0.02,
+            "max_uparea_within_1km_km2": 2.9,
+            "active": true,
+            "on_channel": false,
+            "drains_to": {
+              "first_river_cell": [
+                11.825,
+                44.275
+              ],
+              "uparea_km2": 311.3,
+              "rivers": [],
+              "rivers_at_injection_cell": [],
+              "reaches_named_river": false,
+              "first_referenced_river_on_path": [
+                "Lamone"
+              ]
+            }
+          },
+          "lowest_zb_active_within_1km": {
+            "row_col": [
+              375,
+              270
+            ],
+            "cell_lonlat": [
+              11.8389,
+              44.2637
+            ],
+            "zb_m": 44.8,
+            "distance_m": 995,
+            "uparea_km2": 0.11,
+            "on_channel": false,
+            "n_active_within_1km": 140
+          },
+          "lowest_zb_active_channel_within_1km": {
+            "row_col": [
+              367,
+              260
+            ],
+            "cell_lonlat": [
+              11.8206,
+              44.275
+            ],
+            "zb_m": 88.19,
+            "distance_m": 931,
+            "uparea_km2": 2.9,
+            "n_channel_cells": 2
+          },
+          "nearest_active_cell": {
+            "cell_lonlat": [
+              11.8297,
+              44.2693
+            ],
+            "zb_m": 129.22,
+            "distance_m": 76
+          },
+          "first_active_cell_on_dem_path_from_injection_point": {
+            "cell_lonlat": [
+              11.83,
+              44.2747
+            ],
+            "zb_m": 92.58,
+            "path_distance_m": 0,
+            "uparea_km2": 0.52
+          },
+          "flags": [
+            "(ii) shares the GloFAS cell with montone",
+            "(i) GloFAS cell is not on the Senio: it is on Lamone [600.2 km\u00b2]; the point's own river",
+            "(v) nested: drains into the GloFAS cell of lamone [11.975, 44.325] \u2014 counted again there",
+            "(iii) injection cell off-channel (D8 upstream area 0.02 vs 2.9 km\u00b2 within 1 km)",
+            "(vi) the injection point never drains through the Senio: its path reaches Lamone first (first river cell [11.825, 44.275], 311.3 km\u00b2)"
+          ]
+        },
+        {
+          "name": "montone",
+          "named_river": "Montone",
+          "yaml": {
+            "lon": 11.98,
+            "lat": 44.18,
+            "src_lon": 11.98,
+            "src_lat": 44.18,
+            "window_deg": 0.1
+          },
+          "named_point_network": {
+            "cell": [
+              11.975,
+              44.175
+            ],
+            "uparea_km2": 311.7,
+            "rivers_at_point": [
+              "Montone"
+            ],
+            "first_river_cell_downstream": [
+              11.975,
+              44.175
+            ],
+            "first_river_uparea_km2": 311.7,
+            "first_river_names": [
+              "Montone"
+            ]
+          },
+          "named_river_own_last_cell": [
+            12.125,
+            44.375,
+            556.0
+          ],
+          "named_river_best_cell_in_file": {
+            "network_cell": [
+              12.125,
+              44.375
+            ],
+            "uparea_km2": 556.0,
+            "file_coord": [
+              12.125,
+              44.375
+            ],
+            "mean_m3s": 21.96,
+            "peak_file_m3s": 148.16
+          },
+          "glofas_rule_cell": {
+            "file_coord": [
+              11.925,
+              44.275
+            ],
+            "network_cell": [
+              11.925,
+              44.275
+            ],
+            "uparea_km2": 600.2,
+            "rivers": [
+              "Lamone"
+            ],
+            "window_cells": 16,
+            "mean_m3s": 25.664,
+            "peak_file_m3s": 166.062,
+            "peak_in_window_m3s": 166.062,
+            "mean_in_window_m3s": 54.384,
+            "relation_to_the_point_drainage": "another river (not on the drainage path of the point)",
+            "is_named_river": false
+          },
+          "glofas_window": {
+            "clipped": false,
+            "sides": []
+          },
+          "glofas_one_cell_window": {
+            "file_coord": [
+              12.025,
+              44.225
+            ],
+            "network_cell": [
+              12.025,
+              44.225
+            ],
+            "uparea_km2": 467.4,
+            "rivers": [
+              "Montone"
+            ],
+            "n": 4,
+            "mean_m3s": 19.27,
+            "peak_file_m3s": 131.94
+          },
+          "injection_cell": {
+            "row_col": [
+              434,
+              347
+            ],
+            "in_grid": true,
+            "cell_lonlat": [
+              11.9794,
+              44.1805
+            ],
+            "zb_m": 119.46,
+            "dem_m": 119.5,
+            "msk": 1,
+            "uparea_km2": 0.05,
+            "max_uparea_within_1km_km2": 0.47,
+            "active": true,
+            "on_channel": false,
+            "drains_to": {
+              "first_river_cell": [
+                11.975,
+                44.175
+              ],
+              "uparea_km2": 311.7,
+              "rivers": [
+                "Montone"
+              ],
+              "rivers_at_injection_cell": [
+                "Montone"
+              ],
+              "reaches_named_river": true,
+              "first_referenced_river_on_path": [
+                "Montone"
+              ]
+            }
+          },
+          "lowest_zb_active_within_1km": {
+            "row_col": [
+              428,
+              346
+            ],
+            "cell_lonlat": [
+              11.9779,
+              44.1886
+            ],
+            "zb_m": 60.09,
+            "distance_m": 970,
+            "uparea_km2": 0.27,
+            "on_channel": true,
+            "n_active_within_1km": 139
+          },
+          "lowest_zb_active_channel_within_1km": {
+            "row_col": [
+              428,
+              346
+            ],
+            "cell_lonlat": [
+              11.9779,
+              44.1886
+            ],
+            "zb_m": 60.09,
+            "distance_m": 970,
+            "uparea_km2": 0.27,
+            "n_channel_cells": 9
+          },
+          "nearest_active_cell": {
+            "cell_lonlat": [
+              11.9794,
+              44.1805
+            ],
+            "zb_m": 119.46,
+            "distance_m": 72
+          },
+          "first_active_cell_on_dem_path_from_injection_point": {
+            "cell_lonlat": [
+              11.9721,
+              44.1847
+            ],
+            "zb_m": 64.35,
+            "path_distance_m": 0,
+            "uparea_km2": 0.41
+          },
+          "flags": [
+            "(ii) shares the GloFAS cell with senio",
+            "(i) GloFAS cell is not on the Montone: it is on Lamone [600.2 km\u00b2]; another river (not on the drainage path of the point)",
+            "(v) nested: drains into the GloFAS cell of lamone [11.975, 44.325] \u2014 counted again there",
+            "(iii) injection cell off-channel (D8 upstream area 0.05 vs 0.47 km\u00b2 within 1 km)"
+          ]
+        },
+        {
+          "name": "ronco",
+          "named_river": "Ronco",
+          "yaml": {
+            "lon": 12.03,
+            "lat": 44.13,
+            "src_lon": 12.03,
+            "src_lat": 44.13,
+            "window_deg": 0.1
+          },
+          "named_point_network": {
+            "cell": [
+              12.025,
+              44.125
+            ],
+            "uparea_km2": 22.2,
+            "rivers_at_point": [],
+            "first_river_cell_downstream": [
+              12.075,
+              44.125
+            ],
+            "first_river_uparea_km2": 512.8,
+            "first_river_names": [
+              "Ronco"
+            ]
+          },
+          "named_river_own_last_cell": [
+            12.275,
+            44.375,
+            1312.8
+          ],
+          "named_river_best_cell_in_file": {
+            "network_cell": [
+              12.275,
+              44.375
+            ],
+            "uparea_km2": 1312.8,
+            "file_coord": [
+              12.275,
+              44.375
+            ],
+            "mean_m3s": 50.51,
+            "peak_file_m3s": 344.44
+          },
+          "glofas_rule_cell": {
+            "file_coord": [
+              12.075,
+              44.225
+            ],
+            "network_cell": [
+              12.075,
+              44.225
+            ],
+            "uparea_km2": 623.9,
+            "rivers": [
+              "Ronco"
+            ],
+            "window_cells": 16,
+            "mean_m3s": 25.099,
+            "peak_file_m3s": 171.188,
+            "peak_in_window_m3s": 171.188,
+            "mean_in_window_m3s": 51.851,
+            "relation_to_the_point_drainage": "the point's own river",
+            "is_named_river": true
+          },
+          "glofas_window": {
+            "clipped": false,
+            "sides": []
+          },
+          "glofas_one_cell_window": {
+            "file_coord": [
+              12.075,
+              44.175
+            ],
+            "network_cell": [
+              12.075,
+              44.175
+            ],
+            "uparea_km2": 601.7,
+            "rivers": [
+              "Ronco"
+            ],
+            "n": 4,
+            "mean_m3s": 24.03,
+            "peak_file_m3s": 165.16
+          },
+          "injection_cell": {
+            "row_col": [
+              470,
+              375
+            ],
+            "in_grid": true,
+            "cell_lonlat": [
+              12.0293,
+              44.1305
+            ],
+            "zb_m": 213.85,
+            "dem_m": 214.2,
+            "msk": 1,
+            "uparea_km2": 0.02,
+            "max_uparea_within_1km_km2": 6.71,
+            "active": true,
+            "on_channel": false,
+            "drains_to": {
+              "first_river_cell": [
+                12.075,
+                44.125
+              ],
+              "uparea_km2": 512.8,
+              "rivers": [
+                "Ronco"
+              ],
+              "rivers_at_injection_cell": [],
+              "reaches_named_river": true,
+              "first_referenced_river_on_path": [
+                "Ronco"
+              ]
+            }
+          },
+          "lowest_zb_active_within_1km": {
+            "row_col": [
+              464,
+              376
+            ],
+            "cell_lonlat": [
+              12.0316,
+              44.1386
+            ],
+            "zb_m": 97.93,
+            "distance_m": 961,
+            "uparea_km2": 6.71,
+            "on_channel": true,
+            "n_active_within_1km": 142
+          },
+          "lowest_zb_active_channel_within_1km": {
+            "row_col": [
+              464,
+              376
+            ],
+            "cell_lonlat": [
+              12.0316,
+              44.1386
+            ],
+            "zb_m": 97.93,
+            "distance_m": 961,
+            "uparea_km2": 6.71,
+            "n_channel_cells": 5
+          },
+          "nearest_active_cell": {
+            "cell_lonlat": [
+              12.0293,
+              44.1305
+            ],
+            "zb_m": 213.85,
+            "distance_m": 79
+          },
+          "first_active_cell_on_dem_path_from_injection_point": {
+            "cell_lonlat": [
+              12.024,
+              44.1361
+            ],
+            "zb_m": 113.71,
+            "path_distance_m": 0,
+            "uparea_km2": 0.79
+          },
+          "flags": [
+            "(iii) injection cell off-channel (D8 upstream area 0.02 vs 6.71 km\u00b2 within 1 km)"
+          ]
+        },
+        {
+          "name": "savio",
+          "named_river": "Savio",
+          "yaml": {
+            "lon": 12.1,
+            "lat": 44.06,
+            "src_lon": 12.1,
+            "src_lat": 44.06,
+            "window_deg": 0.1
+          },
+          "named_point_network": {
+            "cell": [
+              12.075,
+              44.075
+            ],
+            "uparea_km2": 89.1,
+            "rivers_at_point": [],
+            "first_river_cell_downstream": [
+              12.075,
+              44.125
+            ],
+            "first_river_uparea_km2": 512.8,
+            "first_river_names": [
+              "Ronco"
+            ]
+          },
+          "named_river_own_last_cell": [
+            12.325,
+            44.325,
+            846.5
+          ],
+          "named_river_best_cell_in_file": {
+            "network_cell": [
+              12.325,
+              44.325
+            ],
+            "uparea_km2": 846.5,
+            "file_coord": [
+              12.325,
+              44.325
+            ],
+            "mean_m3s": 28.83,
+            "peak_file_m3s": 197.47
+          },
+          "glofas_rule_cell": {
+            "file_coord": [
+              12.175,
+              44.075
+            ],
+            "network_cell": [
+              12.175,
+              44.075
+            ],
+            "uparea_km2": 557.8,
+            "rivers": [
+              "Savio"
+            ],
+            "window_cells": 16,
+            "mean_m3s": 21.766,
+            "peak_file_m3s": 147.531,
+            "peak_in_window_m3s": 147.531,
+            "mean_in_window_m3s": 44.243,
+            "relation_to_the_point_drainage": "another river (not on the drainage path of the point)",
+            "is_named_river": true
+          },
+          "glofas_window": {
+            "clipped": false,
+            "sides": []
+          },
+          "glofas_one_cell_window": {
+            "file_coord": [
+              12.075,
+              44.075
+            ],
+            "network_cell": [
+              12.075,
+              44.075
+            ],
+            "uparea_km2": 89.1,
+            "rivers": [],
+            "n": 4,
+            "mean_m3s": 3.93,
+            "peak_file_m3s": 32.12
+          },
+          "injection_cell": {
+            "row_col": [
+              521,
+              415
+            ],
+            "in_grid": true,
+            "cell_lonlat": [
+              12.1006,
+              44.0597
+            ],
+            "zb_m": 349.22,
+            "dem_m": 348.7,
+            "msk": 1,
+            "uparea_km2": 0.02,
+            "max_uparea_within_1km_km2": 45.29,
+            "active": true,
+            "on_channel": false,
+            "drains_to": {
+              "first_river_cell": [
+                12.075,
+                44.125
+              ],
+              "uparea_km2": 512.8,
+              "rivers": [
+                "Ronco"
+              ],
+              "rivers_at_injection_cell": [],
+              "reaches_named_river": false,
+              "first_referenced_river_on_path": [
+                "Ronco"
+              ]
+            }
+          },
+          "lowest_zb_active_within_1km": {
+            "row_col": [
+              521,
+              408
+            ],
+            "cell_lonlat": [
+              12.0875,
+              44.0601
+            ],
+            "zb_m": 114.71,
+            "distance_m": 999,
+            "uparea_km2": 45.29,
+            "on_channel": true,
+            "n_active_within_1km": 138
+          },
+          "lowest_zb_active_channel_within_1km": {
+            "row_col": [
+              521,
+              408
+            ],
+            "cell_lonlat": [
+              12.0875,
+              44.0601
+            ],
+            "zb_m": 114.71,
+            "distance_m": 999,
+            "uparea_km2": 45.29,
+            "n_channel_cells": 2
+          },
+          "nearest_active_cell": {
+            "cell_lonlat": [
+              12.1006,
+              44.0597
+            ],
+            "zb_m": 349.22,
+            "distance_m": 59
+          },
+          "first_active_cell_on_dem_path_from_injection_point": {
+            "cell_lonlat": [
+              12.1009,
+              44.0651
+            ],
+            "zb_m": 204.62,
+            "path_distance_m": 0,
+            "uparea_km2": 0.88
+          },
+          "flags": [
+            "(iii) injection cell off-channel (D8 upstream area 0.02 vs 45.29 km\u00b2 within 1 km)",
+            "(vi) the injection point never drains through the Savio: its path reaches Ronco first (first river cell [12.075, 44.125], 512.8 km\u00b2)"
+          ]
+        }
+      ]
+    }
+  ]
+}
