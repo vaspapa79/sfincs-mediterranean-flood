@@ -1,0 +1,4 @@
+buffer  -20 m (-1 fine cells): CSI 0.481 HR 0.905 FAR 0.493 B 1.78 truth 1448.3 km²
+buffer    0 m (+0 fine cells): CSI 0.495 HR 0.898 FAR 0.476 B 1.71 truth 1507.6 km²
+buffer   20 m (+1 fine cells): CSI 0.503 HR 0.892 FAR 0.465 B 1.67 truth 1551.2 km²
+zero buffer equals validator rasterisation: True

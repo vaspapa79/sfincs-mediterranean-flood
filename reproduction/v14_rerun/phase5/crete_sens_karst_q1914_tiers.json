@@ -1,0 +1,333 @@
+{
+  "utc": "2026-10-20T05:11:01Z",
+  "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\configs\\crete_sens_karst_q1914.yaml",
+  "model_dir": "D:\\ELKAK\\implementation\\v14\\crete_sens_karst_q1914\\model",
+  "exclusion_tif": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\masks\\crete_exclusion.tif",
+  "rule": "rule_ledger.md \u00a78 item 3 \u2014 tier 1 scored (AOI03), tier 2 km\u00b2 only (01/04/06/07), tier 3 excluded (02/05/08); no union score",
+  "observed_packages": [
+    "EMSR933_AOI01_DEL_MONIT01_v1",
+    "EMSR933_AOI03_DEL_MONIT02_v1",
+    "EMSR933_AOI03_DEL_PRODUCT_v1",
+    "EMSR933_AOI04_DEL_MONIT01_v1",
+    "EMSR933_AOI06_DEL_MONIT01_v1",
+    "EMSR933_AOI07_DEL_MONIT01_v1"
+  ],
+  "aois": {
+    "01": {
+      "aoi": "01",
+      "name": "Kastelli",
+      "tier": 2,
+      "aoi_files": [
+        "EMSR933_AOI01_DEL_MONIT01_areaOfInterestA_v1.shp"
+      ],
+      "obs_files": [
+        "EMSR933_AOI01_DEL_MONIT01_observedEventA_v1.shp"
+      ],
+      "universe_km2": 255.19,
+      "observed_km2": 1.78,
+      "modelled_km2_h_gt_0p10": 67.54,
+      "modelled_km2_by_threshold": {
+        "h>0.05m": 102.46000000000001,
+        "h>0.10m": 67.54,
+        "h>0.25m": 37.660000000000004,
+        "h>0.50m": 22.400000000000002
+      },
+      "peak_hmax_m": 20.906890869140625,
+      "status": "km\u00b2 only (tier 2: post-event optical trace)"
+    },
+    "03": {
+      "aoi": "03",
+      "name": "Tzermiado",
+      "tier": 1,
+      "aoi_files": [
+        "EMSR933_AOI03_DEL_MONIT02_areaOfInterestA_v1.shp",
+        "EMSR933_AOI03_DEL_PRODUCT_areaOfInterestA_v1.shp",
+        "EMSR933_AOI03_GRA_PRODUCT_areaOfInterestA_v1.shp"
+      ],
+      "obs_files": [
+        "EMSR933_AOI03_DEL_MONIT02_observedEventA_v1.shp",
+        "EMSR933_AOI03_DEL_PRODUCT_observedEventA_v1.shp"
+      ],
+      "universe_km2": 176.93,
+      "observed_km2": 11.26,
+      "modelled_km2_h_gt_0p10": 48.54,
+      "modelled_km2_by_threshold": {
+        "h>0.05m": 68.13,
+        "h>0.10m": 48.54,
+        "h>0.25m": 33.75,
+        "h>0.50m": 23.12
+      },
+      "peak_hmax_m": 17.43994140625,
+      "strict_threshold_sweep": {
+        "h>0.05m": {
+          "tp": 1116,
+          "fp": 5697,
+          "fn": 10,
+          "tn": 10870,
+          "csi": 0.16356441448043382,
+          "hr": 0.9911190053285968,
+          "far": 0.8361955085865258,
+          "f1": 0.2811437208716463,
+          "f2": 0.49306353273835823,
+          "bias": 6.050621669626998,
+          "gss": 0.10680384061266206,
+          "hss": 0.19299506686485954,
+          "acc": 0.677443056576047,
+          "skill": {
+            "tp": 1116,
+            "fp": 5697,
+            "fn": 10,
+            "tn": 10870,
+            "hit_rate": 0.9911190053285968,
+            "pofd": 0.34387638075692645,
+            "far": 0.8361955085865258,
+            "sedi": 0.8616677832398626,
+            "pss": 0.6472426245716703
+          }
+        },
+        "h>0.10m": {
+          "tp": 1112,
+          "fp": 3742,
+          "fn": 14,
+          "tn": 12825,
+          "csi": 0.228430566967954,
+          "hr": 0.9875666074600356,
+          "far": 0.7709105892047796,
+          "f1": 0.37190635451505016,
+          "f2": 0.5941440478734772,
+          "bias": 4.3108348134991115,
+          "gss": 0.1761507747205938,
+          "hss": 0.2995377438108481,
+          "acc": 0.7877126547222065,
+          "skill": {
+            "tp": 1112,
+            "fp": 3742,
+            "fn": 14,
+            "tn": 12825,
+            "hit_rate": 0.9875666074600356,
+            "pofd": 0.22587070682682442,
+            "far": 0.7709105892047796,
+            "sedi": 0.9125842222335329,
+            "pss": 0.7616959006332111
+          }
+        },
+        "h>0.25m": {
+          "tp": 1072,
+          "fp": 2303,
+          "fn": 54,
+          "tn": 14264,
+          "csi": 0.3126275882181394,
+          "hr": 0.9520426287744227,
+          "far": 0.6823703703703704,
+          "f1": 0.476338591424128,
+          "f2": 0.6802893768244701,
+          "bias": 2.997335701598579,
+          "gss": 0.26669421768224816,
+          "hss": 0.4210869742031913,
+          "acc": 0.86678347369016,
+          "skill": {
+            "tp": 1072,
+            "fp": 2303,
+            "fn": 54,
+            "tn": 14264,
+            "hit_rate": 0.9520426287744227,
+            "pofd": 0.1390112874992455,
+            "far": 0.6823703703703704,
+            "sedi": 0.9236699138495897,
+            "pss": 0.8130313412751772
+          }
+        },
+        "h>0.50m": {
+          "tp": 941,
+          "fp": 1371,
+          "fn": 185,
+          "tn": 15196,
+          "csi": 0.37685222266720064,
+          "hr": 0.8357015985790408,
+          "far": 0.5929930795847751,
+          "f1": 0.5474112856311809,
+          "f2": 0.690287558685446,
+          "bias": 2.053285968028419,
+          "gss": 0.3378334658493415,
+          "hss": 0.5050456196128471,
+          "acc": 0.9120556152150568,
+          "skill": {
+            "tp": 941,
+            "fp": 1371,
+            "fn": 185,
+            "tn": 15196,
+            "hit_rate": 0.8357015985790408,
+            "pofd": 0.08275487414740146,
+            "far": 0.5929930795847751,
+            "sedi": 0.8834901796264284,
+            "pss": 0.7529467244316393
+          }
+        }
+      },
+      "csi_star": {
+        "threshold": "h>0.50m",
+        "csi": 0.37685222266720064,
+        "bias": 2.053285968028419
+      },
+      "fuzzy_at_h_gt_0p10m": {
+        "r=0": {
+          "tp": 1112,
+          "fp": 3742,
+          "fn": 14,
+          "tn": 12825,
+          "csi": 0.228430566967954,
+          "hr": 0.9875666074600356,
+          "far": 0.7709105892047796,
+          "f1": 0.37190635451505016,
+          "f2": 0.5941440478734772,
+          "bias": 4.3108348134991115,
+          "gss": 0.1761507747205938,
+          "hss": 0.2995377438108481,
+          "acc": 0.7877126547222065
+        },
+        "r=1": {
+          "tp": 1916,
+          "fp": 7718,
+          "fn": 13,
+          "tn": 8046,
+          "csi": 0.19861096714004353,
+          "hr": 0.993260756868844,
+          "far": 0.8011210296865269,
+          "f1": 0.3314018853238779,
+          "f2": 0.5521613832853026,
+          "bias": 4.994297563504406,
+          "gss": 0.1006953532694871,
+          "hss": 0.1829667999785469,
+          "acc": 0.5630475329226248
+        },
+        "r=2": {
+          "tp": 2521,
+          "fp": 10534,
+          "fn": 11,
+          "tn": 4627,
+          "csi": 0.1929435175264044,
+          "hr": 0.9956556082148499,
+          "far": 0.806893910379165,
+          "f1": 0.32347469044716753,
+          "f2": 0.543717379114006,
+          "bias": 5.156003159557662,
+          "gss": 0.058291474082380904,
+          "hss": 0.11016147348805595,
+          "acc": 0.40400158254676993
+        },
+        "r=3": {
+          "tp": 3014,
+          "fp": 12392,
+          "fn": 8,
+          "tn": 2279,
+          "csi": 0.1955365252367977,
+          "hr": 0.9973527465254798,
+          "far": 0.8043619369076983,
+          "f1": 0.3271109181680052,
+          "f2": 0.548119589728668,
+          "bias": 5.097948378557247,
+          "gss": 0.029933149533718995,
+          "hss": 0.058126393052346306,
+          "acc": 0.2991578590402984
+        }
+      },
+      "fuzzy_model_oriented_r1": {
+        "tp": 1740,
+        "fp": 3114,
+        "fn": 189,
+        "tn": 12650,
+        "csi": 0.3450327186198691,
+        "hr": 0.9020217729393468,
+        "far": 0.6415327564894932,
+        "f1": 0.513047324192835,
+        "f2": 0.6921241050119332,
+        "bias": 2.5163297045101087,
+        "gss": 0.2682419404878386,
+        "hss": 0.4230138302864472,
+        "acc": 0.8133160006782343
+      },
+      "fuzzy_obs_oriented_r1": {
+        "tp": 1126,
+        "fp": 8508,
+        "fn": 0,
+        "tn": 8059,
+        "csi": 0.11687772472493253,
+        "hr": 1.0,
+        "far": 0.8831222752750675,
+        "f1": 0.20929368029739778,
+        "f2": 0.39821756967039185,
+        "bias": 8.555950266429841,
+        "gss": 0.05685504820174028,
+        "hss": 0.10759289705524,
+        "acc": 0.5191318600576499
+      },
+      "status": "scored (tier 1)"
+    },
+    "04": {
+      "aoi": "04",
+      "name": "Agios Ioannis",
+      "tier": 2,
+      "aoi_files": [
+        "EMSR933_AOI04_DEL_MONIT01_areaOfInterestA_v1.shp"
+      ],
+      "obs_files": [
+        "EMSR933_AOI04_DEL_MONIT01_observedEventA_v1.shp"
+      ],
+      "universe_km2": 57.620000000000005,
+      "observed_km2": 0.41000000000000003,
+      "modelled_km2_h_gt_0p10": 9.13,
+      "modelled_km2_by_threshold": {
+        "h>0.05m": 16.54,
+        "h>0.10m": 9.13,
+        "h>0.25m": 4.41,
+        "h>0.50m": 2.46
+      },
+      "peak_hmax_m": 10.753448486328125,
+      "status": "km\u00b2 only (tier 2: post-event optical trace)"
+    },
+    "06": {
+      "aoi": "06",
+      "name": "Agios Nikolaos",
+      "tier": 2,
+      "aoi_files": [
+        "EMSR933_AOI06_DEL_MONIT01_areaOfInterestA_v1.shp"
+      ],
+      "obs_files": [
+        "EMSR933_AOI06_DEL_MONIT01_observedEventA_v1.shp"
+      ],
+      "universe_km2": 110.77,
+      "observed_km2": 0.23,
+      "modelled_km2_h_gt_0p10": 18.29,
+      "modelled_km2_by_threshold": {
+        "h>0.05m": 29.82,
+        "h>0.10m": 18.29,
+        "h>0.25m": 9.84,
+        "h>0.50m": 7.12
+      },
+      "peak_hmax_m": 28.899627685546875,
+      "status": "km\u00b2 only (tier 2: post-event optical trace)"
+    },
+    "07": {
+      "aoi": "07",
+      "name": "Omalos",
+      "tier": 2,
+      "aoi_files": [
+        "EMSR933_AOI07_DEL_MONIT01_areaOfInterestA_v1.shp"
+      ],
+      "obs_files": [
+        "EMSR933_AOI07_DEL_MONIT01_observedEventA_v1.shp"
+      ],
+      "universe_km2": 258.62,
+      "observed_km2": 0.65,
+      "modelled_km2_h_gt_0p10": 22.01,
+      "modelled_km2_by_threshold": {
+        "h>0.05m": 36.79,
+        "h>0.10m": 22.01,
+        "h>0.25m": 11.33,
+        "h>0.50m": 7.49
+      },
+      "peak_hmax_m": 52.87727355957031,
+      "status": "km\u00b2 only (tier 2: post-event optical trace)"
+    }
+  }
+}

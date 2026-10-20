@@ -1,0 +1,388 @@
+{
+  "utc": "2026-10-20T04:27:52Z",
+  "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\configs\\crete_sens_anchor_336.yaml",
+  "event": "crete",
+  "bbox": [
+    23.4,
+    34.8,
+    26.4,
+    35.7
+  ],
+  "rain_source": "imerg_half_hourly",
+  "r2": {
+    "enabled": true,
+    "target_mm": 336.0,
+    "watershed_bbox": "25.3983,35.11,25.5933,35.2292",
+    "event_start": "2026-09-29 21:00",
+    "event_end": "2026-10-04 21:00"
+  },
+  "windows": {
+    "simulated": [
+      "2026-09-28T00:00:00",
+      "2026-10-06T00:00:00"
+    ],
+    "forcing": [
+      "2026-09-21T00:00:00",
+      "2026-10-06T00:00:00"
+    ],
+    "event": [
+      "2026-09-29T21:00:00",
+      "2026-10-04T21:30:00"
+    ]
+  },
+  "sources": {
+    "model_forcing": {
+      "file": "D:\\ELKAK\\implementation\\v14\\crete_sens_anchor_336\\model\\precip_2d.nc",
+      "present": true,
+      "units": "mm/h",
+      "time_first_last": [
+        "2026-09-28T00:00",
+        "2026-10-06T00:00"
+      ],
+      "file_attrs": {
+        "sfincs_corner_alignment": "1",
+        "x_shift_m": "-4724.719905946637",
+        "y_shift_m": "4724.719905946869"
+      },
+      "bbox_cells": 360,
+      "grid_cells": 646,
+      "by_window_whole_grid": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 2.356550455093384,
+          "domain_mean_peak_time": "2026-10-03T00:00:00",
+          "cell_peak_mm_h": 35.4274787902832,
+          "n_steps": 384,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 54.93248748779297,
+          "max_cell_total_mm": 358.5042724609375,
+          "n_cells": 646
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 2.356550455093384,
+          "domain_mean_peak_time": "2026-10-03T00:00:00",
+          "cell_peak_mm_h": 35.4274787902832,
+          "n_steps": 384,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 54.93248748779297,
+          "max_cell_total_mm": 358.5042724609375,
+          "n_cells": 646
+        },
+        "event": {
+          "domain_mean_peak_mm_h": 2.356550455093384,
+          "domain_mean_peak_time": "2026-10-03T00:00:00",
+          "cell_peak_mm_h": 35.4274787902832,
+          "n_steps": 241,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 54.077144622802734,
+          "max_cell_total_mm": 356.8042907714844,
+          "n_cells": 646
+        }
+      },
+      "by_window": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 3.521277904510498,
+          "domain_mean_peak_time": "2026-10-01T04:00:00",
+          "cell_peak_mm_h": 35.4274787902832,
+          "n_steps": 384,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 84.69923400878906,
+          "max_cell_total_mm": 358.5042724609375,
+          "n_cells": 360
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 3.521277904510498,
+          "domain_mean_peak_time": "2026-10-01T04:00:00",
+          "cell_peak_mm_h": 35.4274787902832,
+          "n_steps": 384,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 84.69923400878906,
+          "max_cell_total_mm": 358.5042724609375,
+          "n_cells": 360
+        },
+        "event": {
+          "domain_mean_peak_mm_h": 3.521277904510498,
+          "domain_mean_peak_time": "2026-10-01T04:00:00",
+          "cell_peak_mm_h": 35.4274787902832,
+          "n_steps": 241,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 83.41593933105469,
+          "max_cell_total_mm": 356.8042907714844,
+          "n_cells": 360
+        }
+      }
+    },
+    "imerg_raw": {
+      "file": "D:\\ELKAK\\implementation\\v14\\crete_sens_anchor_336\\data\\imerg_crete.raw.nc",
+      "present": true,
+      "units": "mm/h",
+      "time_first_last": [
+        "2026-09-21T00:00",
+        "2026-10-06T00:00"
+      ],
+      "file_attrs": {
+        "source": "GPM IMERG Late Run V07 half-hourly",
+        "imerg_product": "late"
+      },
+      "bbox_cells": 270,
+      "by_window_file_extent": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 3.2760372161865234,
+          "domain_mean_peak_time": "2026-10-03T00:00:00",
+          "cell_peak_mm_h": 46.56999969482422,
+          "n_steps": 384,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 77.0528335571289,
+          "max_cell_total_mm": 470.724853515625,
+          "n_cells": 540
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 4.6287407875061035,
+          "domain_mean_peak_time": "2026-09-26T19:00:00",
+          "cell_peak_mm_h": 46.56999969482422,
+          "n_steps": 720,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 126.49173736572266,
+          "max_cell_total_mm": 511.32489013671875,
+          "n_cells": 540
+        },
+        "event": {
+          "domain_mean_peak_mm_h": 3.2760372161865234,
+          "domain_mean_peak_time": "2026-10-03T00:00:00",
+          "cell_peak_mm_h": 46.56999969482422,
+          "n_steps": 241,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 76.12213897705078,
+          "max_cell_total_mm": 469.02484130859375,
+          "n_cells": 540
+        }
+      },
+      "file_extent_cells": 540,
+      "by_window": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 5.2608513832092285,
+          "domain_mean_peak_time": "2026-10-01T04:00:00",
+          "cell_peak_mm_h": 46.56999969482422,
+          "n_steps": 384,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 121.9110107421875,
+          "max_cell_total_mm": 470.724853515625,
+          "n_cells": 270
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 5.293704032897949,
+          "domain_mean_peak_time": "2026-09-26T19:00:00",
+          "cell_peak_mm_h": 46.56999969482422,
+          "n_steps": 720,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 169.79823303222656,
+          "max_cell_total_mm": 511.32489013671875,
+          "n_cells": 270
+        },
+        "event": {
+          "domain_mean_peak_mm_h": 5.2608513832092285,
+          "domain_mean_peak_time": "2026-10-01T04:00:00",
+          "cell_peak_mm_h": 46.56999969482422,
+          "n_steps": 241,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 120.39985656738281,
+          "max_cell_total_mm": 469.02484130859375,
+          "n_cells": 270
+        }
+      },
+      "watershed_event_window": {
+        "domain_mean_peak_mm_h": 37.03499984741211,
+        "domain_mean_peak_time": "2026-10-01T04:00:00",
+        "cell_peak_mm_h": 39.04999923706055,
+        "n_steps": 241,
+        "step_h": 0.5,
+        "domain_mean_total_mm": 441.67755126953125,
+        "max_cell_total_mm": 441.7250061035156,
+        "n_cells": 2,
+        "watershed_bbox": [
+          25.3983,
+          35.11,
+          25.5933,
+          35.2292
+        ]
+      }
+    },
+    "imerg": {
+      "file": "D:\\ELKAK\\implementation\\v14\\crete_sens_anchor_336\\data\\imerg_crete.nc",
+      "present": true,
+      "units": "mm/h",
+      "time_first_last": [
+        "2026-09-21T00:00",
+        "2026-10-06T00:00"
+      ],
+      "file_attrs": {
+        "source": "GPM IMERG Late Run V07 half-hourly",
+        "imerg_product": "late"
+      },
+      "bbox_cells": 270,
+      "by_window_file_extent": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 2.492199420928955,
+          "domain_mean_peak_time": "2026-10-03T00:00:00",
+          "cell_peak_mm_h": 35.4274787902832,
+          "n_steps": 384,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 58.839473724365234,
+          "max_cell_total_mm": 358.5042724609375,
+          "n_cells": 540
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 4.6287407875061035,
+          "domain_mean_peak_time": "2026-09-26T19:00:00",
+          "cell_peak_mm_h": 35.4274787902832,
+          "n_steps": 720,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 108.27848052978516,
+          "max_cell_total_mm": 399.6147766113281,
+          "n_cells": 540
+        },
+        "event": {
+          "domain_mean_peak_mm_h": 2.492199420928955,
+          "domain_mean_peak_time": "2026-10-03T00:00:00",
+          "cell_peak_mm_h": 35.4274787902832,
+          "n_steps": 241,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 57.908843994140625,
+          "max_cell_total_mm": 356.8042907714844,
+          "n_cells": 540
+        }
+      },
+      "file_extent_cells": 540,
+      "by_window": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 4.002119541168213,
+          "domain_mean_peak_time": "2026-10-01T04:00:00",
+          "cell_peak_mm_h": 35.4274787902832,
+          "n_steps": 384,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 93.10365295410156,
+          "max_cell_total_mm": 358.5042724609375,
+          "n_cells": 270
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 5.293704032897949,
+          "domain_mean_peak_time": "2026-09-26T19:00:00",
+          "cell_peak_mm_h": 35.4274787902832,
+          "n_steps": 720,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 140.99085998535156,
+          "max_cell_total_mm": 399.6147766113281,
+          "n_cells": 270
+        },
+        "event": {
+          "domain_mean_peak_mm_h": 4.002119541168213,
+          "domain_mean_peak_time": "2026-10-01T04:00:00",
+          "cell_peak_mm_h": 35.4274787902832,
+          "n_steps": 241,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 91.5925064086914,
+          "max_cell_total_mm": 356.8042907714844,
+          "n_cells": 270
+        }
+      },
+      "watershed_event_window": {
+        "domain_mean_peak_mm_h": 28.173858642578125,
+        "domain_mean_peak_time": "2026-10-01T04:00:00",
+        "cell_peak_mm_h": 29.706741333007812,
+        "n_steps": 241,
+        "step_h": 0.5,
+        "domain_mean_total_mm": 336.0000305175781,
+        "max_cell_total_mm": 336.0361328125,
+        "n_cells": 2,
+        "watershed_bbox": [
+          25.3983,
+          35.11,
+          25.5933,
+          35.2292
+        ]
+      }
+    },
+    "era5": {
+      "file": "D:\\ELKAK\\implementation\\v14\\crete_sens_anchor_336\\data\\era5_crete.nc",
+      "present": true,
+      "units": "mm/h",
+      "time_first_last": [
+        "2026-09-01T00:00",
+        "2026-10-06T23:00"
+      ],
+      "file_attrs": {},
+      "bbox_cells": 36,
+      "by_window_file_extent": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 0.9703783988952637,
+          "domain_mean_peak_time": "2026-10-03T04:00:00",
+          "cell_peak_mm_h": 5.879402160644531,
+          "n_steps": 192,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 46.87181854248047,
+          "max_cell_total_mm": 258.2925109863281,
+          "n_cells": 105
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 1.3009107112884521,
+          "domain_mean_peak_time": "2026-09-27T00:00:00",
+          "cell_peak_mm_h": 7.546424865722656,
+          "n_steps": 360,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 67.09877014160156,
+          "max_cell_total_mm": 315.9508972167969,
+          "n_cells": 105
+        },
+        "event": {
+          "domain_mean_peak_mm_h": 0.9703783988952637,
+          "domain_mean_peak_time": "2026-10-03T04:00:00",
+          "cell_peak_mm_h": 5.879402160644531,
+          "n_steps": 121,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 44.7337646484375,
+          "max_cell_total_mm": 245.90911865234375,
+          "n_cells": 105
+        }
+      },
+      "file_extent_cells": 105,
+      "by_window": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 1.4468364715576172,
+          "domain_mean_peak_time": "2026-10-01T12:00:00",
+          "cell_peak_mm_h": 5.879402160644531,
+          "n_steps": 192,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 81.52143096923828,
+          "max_cell_total_mm": 258.2925109863281,
+          "n_cells": 36
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 1.4468364715576172,
+          "domain_mean_peak_time": "2026-10-01T12:00:00",
+          "cell_peak_mm_h": 7.546424865722656,
+          "n_steps": 360,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 105.63834381103516,
+          "max_cell_total_mm": 315.9508972167969,
+          "n_cells": 36
+        },
+        "event": {
+          "domain_mean_peak_mm_h": 1.4468364715576172,
+          "domain_mean_peak_time": "2026-10-01T12:00:00",
+          "cell_peak_mm_h": 5.879402160644531,
+          "n_steps": 121,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 76.99475860595703,
+          "max_cell_total_mm": 245.90911865234375,
+          "n_cells": 36
+        }
+      }
+    }
+  },
+  "r2_realised": {
+    "raw_watershed_mean_mm": 441.67755126953125,
+    "corrected_watershed_mean_mm": 336.0000305175781,
+    "factor": 0.7607360382066056,
+    "target_mm": 336.0
+  },
+  "series_csv": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\phase4\\rain\\crete_sens_anchor_336_v14_series.csv"
+}

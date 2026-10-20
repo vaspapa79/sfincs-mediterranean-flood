@@ -1,10 +1,10 @@
 {
-  "utc": "2026-10-19T23:34:24Z",
-  "config": "reproduction\\v14_rerun\\configs\\strymonas_leadin7d.yaml",
+  "utc": "2026-10-20T03:22:32Z",
+  "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\configs\\strymonas_leadin7d.yaml",
   "model_dir": "D:\\ELKAK\\implementation\\v14\\strymonas_leadin7d\\model",
   "event": "strymonas",
   "threshold_m": 0.1,
-  "exclusion_tif": "reproduction\\v14_rerun\\masks\\strymonas_exclusion.tif",
+  "exclusion_tif": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\masks\\strymonas_exclusion.tif",
   "simulated_window": [
     "2015-03-21 00:00:00",
     "2015-04-04 00:00:00"

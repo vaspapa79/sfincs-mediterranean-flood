@@ -1,0 +1,386 @@
+{
+  "utc": "2026-10-20T02:52:05Z",
+  "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\configs\\pineios_baseline_gridmatched.yaml",
+  "event": "pineios",
+  "bbox": [
+    21.84,
+    39.31,
+    22.99,
+    40.02
+  ],
+  "rain_source": "era5_hourly",
+  "r2": {
+    "enabled": false,
+    "target_mm": 400.0,
+    "watershed_bbox": "22.0,39.4,22.95,40.0",
+    "event_start": "2023-09-04 00:00",
+    "event_end": "2023-09-08 23:30"
+  },
+  "windows": {
+    "simulated": [
+      "2023-09-03T00:00:00",
+      "2023-09-11T00:00:00"
+    ],
+    "forcing": [
+      "2023-08-27T00:00:00",
+      "2023-09-11T00:00:00"
+    ],
+    "event": [
+      "2023-09-04T00:00:00",
+      "2023-09-09T00:00:00"
+    ]
+  },
+  "sources": {
+    "model_forcing": {
+      "file": "D:\\ELKAK\\implementation\\v14\\pineios_baseline_gridmatched\\model\\precip_2d.nc",
+      "present": true,
+      "units": "mm/h",
+      "time_first_last": [
+        "2023-09-03T00:00",
+        "2023-09-11T00:00"
+      ],
+      "file_attrs": {
+        "sfincs_corner_alignment": "1",
+        "x_shift_m": "-11887.181369067868",
+        "y_shift_m": "11887.181369068101"
+      },
+      "bbox_cells": 12,
+      "grid_cells": 36,
+      "by_window_whole_grid": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 6.447995662689209,
+          "domain_mean_peak_time": "2023-09-05T07:00:00",
+          "cell_peak_mm_h": 15.987835884094238,
+          "n_steps": 192,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 289.6831970214844,
+          "max_cell_total_mm": 540.6368408203125,
+          "n_cells": 36
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 6.447995662689209,
+          "domain_mean_peak_time": "2023-09-05T07:00:00",
+          "cell_peak_mm_h": 15.987835884094238,
+          "n_steps": 192,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 289.6831970214844,
+          "max_cell_total_mm": 540.6368408203125,
+          "n_cells": 36
+        },
+        "event": {
+          "domain_mean_peak_mm_h": 6.447995662689209,
+          "domain_mean_peak_time": "2023-09-05T07:00:00",
+          "cell_peak_mm_h": 15.987835884094238,
+          "n_steps": 120,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 289.5438232421875,
+          "max_cell_total_mm": 540.3295288085938,
+          "n_cells": 36
+        }
+      },
+      "by_window": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 9.003233909606934,
+          "domain_mean_peak_time": "2023-09-05T06:00:00",
+          "cell_peak_mm_h": 14.17327880859375,
+          "n_steps": 192,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 319.23834228515625,
+          "max_cell_total_mm": 468.5140075683594,
+          "n_cells": 12
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 9.003233909606934,
+          "domain_mean_peak_time": "2023-09-05T06:00:00",
+          "cell_peak_mm_h": 14.17327880859375,
+          "n_steps": 192,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 319.23834228515625,
+          "max_cell_total_mm": 468.5140075683594,
+          "n_cells": 12
+        },
+        "event": {
+          "domain_mean_peak_mm_h": 9.003233909606934,
+          "domain_mean_peak_time": "2023-09-05T06:00:00",
+          "cell_peak_mm_h": 14.17327880859375,
+          "n_steps": 120,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 319.1613464355469,
+          "max_cell_total_mm": 468.25048828125,
+          "n_cells": 12
+        }
+      }
+    },
+    "imerg_raw": {
+      "file": "D:\\ELKAK\\implementation\\v14\\pineios_baseline_gridmatched\\data\\imerg_pineios.raw.nc",
+      "present": true,
+      "units": "mm/h",
+      "time_first_last": [
+        "2023-08-27T00:00",
+        "2023-09-11T00:00"
+      ],
+      "file_attrs": {
+        "source": "GPM IMERG Final V07 half-hourly"
+      },
+      "bbox_cells": 84,
+      "by_window_file_extent": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 4.59210205078125,
+          "domain_mean_peak_time": "2023-09-05T01:30:00",
+          "cell_peak_mm_h": 25.619998931884766,
+          "n_steps": 384,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 139.62261962890625,
+          "max_cell_total_mm": 320.260009765625,
+          "n_cells": 176
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 4.59210205078125,
+          "domain_mean_peak_time": "2023-09-05T01:30:00",
+          "cell_peak_mm_h": 25.619998931884766,
+          "n_steps": 720,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 141.37318420410156,
+          "max_cell_total_mm": 321.6050109863281,
+          "n_cells": 176
+        },
+        "event": {
+          "domain_mean_peak_mm_h": 4.59210205078125,
+          "domain_mean_peak_time": "2023-09-05T01:30:00",
+          "cell_peak_mm_h": 25.619998931884766,
+          "n_steps": 240,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 138.62095642089844,
+          "max_cell_total_mm": 319.7550048828125,
+          "n_cells": 176
+        }
+      },
+      "file_extent_cells": 176,
+      "by_window": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 5.603928565979004,
+          "domain_mean_peak_time": "2023-09-05T01:30:00",
+          "cell_peak_mm_h": 19.639999389648438,
+          "n_steps": 384,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 147.34518432617188,
+          "max_cell_total_mm": 218.90005493164062,
+          "n_cells": 84
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 5.603928565979004,
+          "domain_mean_peak_time": "2023-09-05T01:30:00",
+          "cell_peak_mm_h": 19.639999389648438,
+          "n_steps": 720,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 148.74691772460938,
+          "max_cell_total_mm": 219.15504455566406,
+          "n_cells": 84
+        },
+        "event": {
+          "domain_mean_peak_mm_h": 5.603928565979004,
+          "domain_mean_peak_time": "2023-09-05T01:30:00",
+          "cell_peak_mm_h": 19.639999389648438,
+          "n_steps": 240,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 146.1153564453125,
+          "max_cell_total_mm": 218.77505493164062,
+          "n_cells": 84
+        }
+      },
+      "watershed_event_window": {
+        "domain_mean_peak_mm_h": 6.0663323402404785,
+        "domain_mean_peak_time": "2023-09-05T01:30:00",
+        "cell_peak_mm_h": 15.569999694824219,
+        "n_steps": 240,
+        "step_h": 0.5,
+        "domain_mean_total_mm": 146.808837890625,
+        "max_cell_total_mm": 218.5349578857422,
+        "n_cells": 60,
+        "watershed_bbox": [
+          22.0,
+          39.4,
+          22.95,
+          40.0
+        ]
+      }
+    },
+    "imerg": {
+      "file": "D:\\ELKAK\\implementation\\v14\\pineios_baseline_gridmatched\\data\\imerg_pineios.nc",
+      "present": true,
+      "units": "mm/h",
+      "time_first_last": [
+        "2023-08-27T00:00",
+        "2023-09-11T00:00"
+      ],
+      "file_attrs": {
+        "source": "GPM IMERG Final V07 half-hourly"
+      },
+      "bbox_cells": 84,
+      "by_window_file_extent": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 12.511788368225098,
+          "domain_mean_peak_time": "2023-09-05T01:30:00",
+          "cell_peak_mm_h": 69.80506134033203,
+          "n_steps": 384,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 378.6927490234375,
+          "max_cell_total_mm": 871.7194213867188,
+          "n_cells": 176
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 12.511788368225098,
+          "domain_mean_peak_time": "2023-09-05T01:30:00",
+          "cell_peak_mm_h": 69.80506134033203,
+          "n_steps": 720,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 380.4430847167969,
+          "max_cell_total_mm": 873.0645141601562,
+          "n_cells": 176
+        },
+        "event": {
+          "domain_mean_peak_mm_h": 12.511788368225098,
+          "domain_mean_peak_time": "2023-09-05T01:30:00",
+          "cell_peak_mm_h": 69.80506134033203,
+          "n_steps": 240,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 377.6910400390625,
+          "max_cell_total_mm": 871.2144165039062,
+          "n_cells": 176
+        }
+      },
+      "file_extent_cells": 176,
+      "by_window": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 15.268641471862793,
+          "domain_mean_peak_time": "2023-09-05T01:30:00",
+          "cell_peak_mm_h": 53.51176834106445,
+          "n_steps": 384,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 399.3403625488281,
+          "max_cell_total_mm": 596.2062377929688,
+          "n_cells": 84
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 15.268641471862793,
+          "domain_mean_peak_time": "2023-09-05T01:30:00",
+          "cell_peak_mm_h": 53.51176834106445,
+          "n_steps": 720,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 400.74212646484375,
+          "max_cell_total_mm": 596.4612426757812,
+          "n_cells": 84
+        },
+        "event": {
+          "domain_mean_peak_mm_h": 15.268641471862793,
+          "domain_mean_peak_time": "2023-09-05T01:30:00",
+          "cell_peak_mm_h": 53.51176834106445,
+          "n_steps": 240,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 398.1105041503906,
+          "max_cell_total_mm": 596.0812377929688,
+          "n_cells": 84
+        }
+      },
+      "watershed_event_window": {
+        "domain_mean_peak_mm_h": 16.52852439880371,
+        "domain_mean_peak_time": "2023-09-05T01:30:00",
+        "cell_peak_mm_h": 42.422515869140625,
+        "n_steps": 240,
+        "step_h": 0.5,
+        "domain_mean_total_mm": 400.0000305175781,
+        "max_cell_total_mm": 595.4274291992188,
+        "n_cells": 60,
+        "watershed_bbox": [
+          22.0,
+          39.4,
+          22.95,
+          40.0
+        ]
+      }
+    },
+    "era5": {
+      "file": "D:\\ELKAK\\implementation\\v14\\pineios_baseline_gridmatched\\data\\era5_pineios.nc",
+      "present": true,
+      "units": "mm/h",
+      "time_first_last": [
+        "2023-08-01T00:00",
+        "2023-09-30T23:00"
+      ],
+      "file_attrs": {},
+      "bbox_cells": 15,
+      "by_window_file_extent": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 6.362242698669434,
+          "domain_mean_peak_time": "2023-09-05T06:00:00",
+          "cell_peak_mm_h": 15.987835884094238,
+          "n_steps": 192,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 289.889404296875,
+          "max_cell_total_mm": 540.6368408203125,
+          "n_cells": 35
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 6.362242698669434,
+          "domain_mean_peak_time": "2023-09-05T06:00:00",
+          "cell_peak_mm_h": 15.987835884094238,
+          "n_steps": 360,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 290.2822265625,
+          "max_cell_total_mm": 541.0228271484375,
+          "n_cells": 35
+        },
+        "event": {
+          "domain_mean_peak_mm_h": 6.362242698669434,
+          "domain_mean_peak_time": "2023-09-05T06:00:00",
+          "cell_peak_mm_h": 15.987835884094238,
+          "n_steps": 120,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 289.7580261230469,
+          "max_cell_total_mm": 540.3218383789062,
+          "n_cells": 35
+        }
+      },
+      "file_extent_cells": 35,
+      "by_window": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 7.228108882904053,
+          "domain_mean_peak_time": "2023-09-05T08:00:00",
+          "cell_peak_mm_h": 15.624055862426758,
+          "n_steps": 192,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 301.3912353515625,
+          "max_cell_total_mm": 537.0557250976562,
+          "n_cells": 15
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 7.228108882904053,
+          "domain_mean_peak_time": "2023-09-05T08:00:00",
+          "cell_peak_mm_h": 15.624055862426758,
+          "n_steps": 360,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 301.75030517578125,
+          "max_cell_total_mm": 537.6819458007812,
+          "n_cells": 15
+        },
+        "event": {
+          "domain_mean_peak_mm_h": 7.228108882904053,
+          "domain_mean_peak_time": "2023-09-05T08:00:00",
+          "cell_peak_mm_h": 15.624055862426758,
+          "n_steps": 120,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 301.2449035644531,
+          "max_cell_total_mm": 536.7294921875,
+          "n_cells": 15
+        }
+      }
+    }
+  },
+  "r2_realised": {
+    "raw_watershed_mean_mm": 146.808837890625,
+    "corrected_watershed_mean_mm": 400.0000305175781,
+    "factor": 2.7246318155286042,
+    "target_mm": 400.0
+  },
+  "series_csv": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\phase4\\rain\\pineios_baseline_gridmatched_v14_series.csv"
+}

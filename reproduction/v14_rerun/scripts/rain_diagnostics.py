@@ -186,7 +186,13 @@ def main() -> int:
         if not p.exists():
             continue
         da, _ = _open(p)
-        sub = da if name == "model_forcing" else subset_bbox(da, *bbox)
+        if name == "model_forcing":                      # same bbox restriction as the statistics above (the meteo grid extends over sea)
+            import pyproj
+            tr = pyproj.Transformer.from_crs(4326, cfg.epsg, always_xy=True)
+            xs, ys = zip(*[tr.transform(lo, la) for lo in (bbox[0], bbox[2]) for la in (bbox[1], bbox[3])])
+            sub = da.isel(x=np.where((da["x"].values >= min(xs)) & (da["x"].values <= max(xs)))[0], y=np.where((da["y"].values >= min(ys)) & (da["y"].values <= max(ys)))[0])
+        else:
+            sub = subset_bbox(da, *bbox)
         lat, lon = _lat_lon_names(sub)
         series[name] = sub.mean(dim=(lat, lon), skipna=True).to_series()
     if series:

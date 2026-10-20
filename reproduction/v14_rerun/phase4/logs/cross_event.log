@@ -1,4 +1,4 @@
-# Cross-event tables under harness v1.4 (new evaluation mask), v1.3 as published beside — generated 2026-10-19T22:36:31Z
+# Cross-event tables under harness v1.4 (new evaluation mask), v1.3 as published beside — generated 2026-10-20T05:11:46Z
 
 Every number below is read from the JSON named in `cross_event_v14.json` → `events.<run>.sources`. Scores at h > 0.10 m unless stated; new mask = AOI ∩ active minus (WorldCover 80 ∪ v1.4 open sea), both sides. Crete = the Tzermiado per-AOI block (tier 1); no union score.
 
@@ -39,15 +39,15 @@ Every number below is read from the JSON named in `cross_event_v14.json` → `ev
 | Strymonas (EMSR122) | 0.334 (0.182) | 0.884 (0.426) | 0.753 (0.249) | 2.68 (1.09) | 0.435 (h>0.50m) [0.189] | 1.95 [1.16] |
 | Valencia (EMSR773) | 0.144 (0.094) | 0.706 (0.658) | 0.509 (0.352) | 6.46 (10.52) | 0.242 (h>0.50m) [0.170] | 3.09 [5.51] |
 | Emilia-R. (EMSR664) | 0.251 (0.240) | 0.475 (0.460) | 0.326 (0.281) | 3.23 (3.75) | 0.303 (h>0.50m) [0.319] | 1.49 [2.03] |
-| Crete Tzermiado (EMSR933, tier 1) | 0.221 (—) | 0.909 (—) | 0.753 (—) | 4.45 (—) | — (—) [—] | — [—] |
+| Crete Tzermiado (EMSR933, tier 1) | 0.221 (—) | 0.909 (—) | 0.753 (—) | 4.45 (—) | 0.365 (h>0.50m) [—] | 2.28 [—] |
 
 ## Threshold sweep (v1.4, enhanced): CSI at 0.05 / 0.10 / 0.25 / 0.50 m; fuzzy r = 0..3; one-sided r = 1
 
 | Event | 0.05 | 0.10 | 0.25 | 0.50 | r=0 | r=1 | r=2 | r=3 | model-oriented r=1 | obs-oriented r=1 | truth buffer −20 / 0 / +20 m | time-matched (to latest acq) |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Pineios (EMSR692) | 0.445 | 0.495 | 0.531 | 0.495 | 0.495 | 0.461 | 0.460 | 0.480 | 0.536 | 0.392 | — / — / — | — |
-| Mandra (EMSR257) | 0.141 | 0.157 | 0.159 | 0.143 | 0.157 | 0.208 | 0.257 | 0.305 | 0.221 | 0.126 | — / — / — | 0.157 |
-| Strymonas (EMSR122) | 0.329 | 0.334 | 0.356 | 0.435 | 0.334 | 0.410 | 0.460 | 0.499 | 0.413 | 0.293 | — / — / — | 0.334 |
-| Valencia (EMSR773) | 0.114 | 0.144 | 0.191 | 0.242 | 0.144 | 0.111 | 0.114 | 0.127 | 0.166 | 0.090 | — / — / — | — |
-| Emilia-R. (EMSR664) | 0.227 | 0.251 | 0.285 | 0.303 | 0.251 | 0.330 | 0.413 | 0.486 | 0.358 | 0.202 | — / — / — | — |
-| Crete Tzermiado (EMSR933, tier 1) | pending | | | | | | | | | | | |
+| Pineios (EMSR692) | 0.445 | 0.495 | 0.531 | 0.495 | 0.495 | 0.461 | 0.460 | 0.480 | 0.536 | 0.392 | 0.482 / 0.495 / 0.503 | 0.495 |
+| Mandra (EMSR257) | 0.141 | 0.157 | 0.159 | 0.143 | 0.157 | 0.208 | 0.257 | 0.305 | 0.221 | 0.126 | 0.086 / 0.157 / 0.194 | 0.157 |
+| Strymonas (EMSR122) | 0.329 | 0.334 | 0.356 | 0.435 | 0.334 | 0.410 | 0.460 | 0.499 | 0.413 | 0.293 | 0.307 / 0.334 / 0.348 | 0.334 |
+| Valencia (EMSR773) | 0.114 | 0.144 | 0.191 | 0.242 | 0.144 | 0.111 | 0.114 | 0.127 | 0.166 | 0.090 | 0.135 / 0.144 / 0.149 | 0.144 |
+| Emilia-R. (EMSR664) | 0.227 | 0.251 | 0.285 | 0.303 | 0.251 | 0.330 | 0.413 | 0.486 | 0.358 | 0.202 | 0.222 / 0.251 / 0.268 | 0.251 |
+| Crete Tzermiado (EMSR933, tier 1) | 0.159 | 0.221 | 0.303 | 0.365 | 0.221 | 0.195 | 0.190 | 0.194 | 0.340 | 0.115 | union: 0.044 / 0.074 / 0.087 | union: 0.074 |

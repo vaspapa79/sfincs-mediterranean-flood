@@ -1,6 +1,6 @@
 {
-  "utc": "2026-10-19T22:09:43Z",
-  "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\configs\\crete_canonical_r2on.yaml",
+  "utc": "2026-10-20T04:00:08Z",
+  "config": "reproduction\\v14_rerun\\configs\\crete_canonical_r2on.yaml",
   "event": "crete",
   "bbox": [
     23.4,
@@ -384,5 +384,5 @@
     "factor": 1.0138616406260257,
     "target_mm": 447.8
   },
-  "series_csv": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\phase4\\rain\\crete_canonical_r2on_v14_series.csv"
+  "series_csv": "reproduction\\v14_rerun\\phase4\\rain\\crete_canonical_r2on_v14_series.csv"
 }

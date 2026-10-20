@@ -57,7 +57,7 @@ def tier1(v, token="AOI03"):
     return None
 
 
-def block(v, aoi_token=None):
+def block(v, aoi_token=None, tiers=None):
     if v is None:
         return None
     if aoi_token:
@@ -65,7 +65,16 @@ def block(v, aoi_token=None):
         if not a:
             return None
         s, f1 = a["strict"], a["fuzzy_r1"]
-        return {"strict": s, "fuzzy_r1": f1, "eval_km2": a["active_km2"], "obs_km2": a["ems_wet_km2_strict"], "per_aoi": True, "sweep": None, "csi_star": None}
+        out = {"strict": s, "fuzzy_r1": f1, "eval_km2": a["active_km2"], "obs_km2": a["ems_wet_km2_strict"], "per_aoi": True, "sweep": None, "csi_star": None}
+        t = (tiers or {}).get("aois", {}).get(aoi_token[-2:]) if tiers else None
+        if t and t.get("strict_threshold_sweep"):            # crete_tier_scores.py: the tier-1 sweep, CSI*, fuzzy r = 0..3 on the AOI universe
+            sw = t["strict_threshold_sweep"]
+            out["sweep"] = {k: {m: sw[k][m] for m in ("tp", "fp", "fn", "tn", "csi", "hr", "far", "bias", "gss")} for k in THR if k in sw}
+            out["csi_star"] = t["csi_star"]
+            out["fuzzy"] = {r: t["fuzzy_at_h_gt_0p10m"][f"r={r}"]["csi"] for r in (0, 1, 2, 3)}
+            out["fuzzy_model_oriented_r1"] = t["fuzzy_model_oriented_r1"]["csi"]; out["fuzzy_obs_oriented_r1"] = t["fuzzy_obs_oriented_r1"]["csi"]
+            out["tiers_source"] = "phase5 tiers json"
+        return out
     s = strict(v)
     th, cs, bs = csi_star(v)
     return {"strict": s, "fuzzy_r1": fz(v), "eval_km2": v["validation"]["evaluation_area_km2"], "obs_km2": v["validation"]["observed_wet_km2_strict"],
@@ -91,7 +100,7 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--repo", required=True, type=Path)
     a = ap.parse_args()
-    R = a.repo / "reproduction" / "v14_rerun"; res = R / "results"; P4 = R / "phase4"
+    R = a.repo / "reproduction" / "v14_rerun"; res = R / "results"; P4 = R / "phase4"; P5 = R / "phase5"
     now = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     out = {"utc": now, "generator": "reproduction/v14_rerun/scripts/cross_event_v14.py", "events": {}}
     for label, enh, base, held in EVENTS:
@@ -105,7 +114,7 @@ def main() -> int:
                 if ver != "v14" and run == "strymonas_enhanced_postD6":
                     src = "strymonas_enhanced"                    # v1.3 columns of the canonical Strymonas live under the Phase-1 name
                 p = res / f"{src}{suffix}"
-                b = block(J(p), tok)
+                b = block(J(p), tok, J(P5 / f"{run}_tiers.json") if tok else None)
                 if b:
                     b["skill"] = skill(b["strict"]); e[f"{tag}_{ver}"] = b; e["sources"][f"{tag}_{ver}"] = str(p.relative_to(a.repo))
             rec = J(res / f"{run}_record.json")
@@ -179,13 +188,14 @@ def main() -> int:
           "| Event | 0.05 | 0.10 | 0.25 | 0.50 | r=0 | r=1 | r=2 | r=3 | model-oriented r=1 | obs-oriented r=1 | truth buffer −20 / 0 / +20 m | time-matched (to latest acq) |", "|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
     for enh, e in out["events"].items():
         v = e.get("enhanced_v14")
-        if not v or not v.get("sweep"):
+        if not v or not v.get("sweep") or not v.get("fuzzy"):
             L.append(f"| {e['label']} | pending | | | | | | | | | | | |"); continue
         sw, fzz = v["sweep"], v["fuzzy"]
         tb = e.get("enhanced_truth_buffer") or {}
         tmd = e.get("enhanced_time_matched") or {}
+        pre = "union: " if v.get("per_aoi") else ""          # the buffer / time-matched diagnostics run on the AOI union; Crete's headline block is per-AOI
         L.append(f"| {e['label']} | " + " | ".join(f(sw[k]['csi']) for k in THR) + " | " + " | ".join(f(fzz[r]) for r in (0, 1, 2, 3)) +
-                 f" | {f(v['fuzzy_model_oriented_r1'])} | {f(v['fuzzy_obs_oriented_r1'])} | {f(tb.get('-20'))} / {f(tb.get('0'))} / {f(tb.get('20'))} | {f(tmd.get('to_latest'))} |")
+                 f" | {f(v['fuzzy_model_oriented_r1'])} | {f(v['fuzzy_obs_oriented_r1'])} | {pre}{f(tb.get('-20'))} / {f(tb.get('0'))} / {f(tb.get('20'))} | {pre}{f(tmd.get('to_latest'))} |")
     (P4 / "cross_event_v14.md").write_text("\n".join(L) + "\n", encoding="utf-8")
     print("\n".join(L))
     return 0

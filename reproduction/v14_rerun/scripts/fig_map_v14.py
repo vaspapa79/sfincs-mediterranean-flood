@@ -49,8 +49,14 @@ def main() -> int:
     ems_dir = cfg.paths["data_dir"] / "ems_polygons"
     obs = V._select_obs_shps(ems_dir, include_del_product=bool(cfg.ems.get("include_del_product", False)))
     aois = V._list_shps(ems_dir, ["*area_of_interest.shp", "*area_of_interest_a.shp", "*areaOfInterestA*.shp"])
-    ems_wet = V._rasterise_polys_to_grid(obs, s["x"], s["y"], cfg.epsg, s["dx"], s["dy"])
-    aoi_m = V._rasterise_polys_to_grid(aois, s["x"], s["y"], cfg.epsg, s["dx"], s["dy"]) if aois else np.ones_like(ems_wet)
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from truth_cache import cache_key, cached_bool          # the EMS rasters are model-independent: shared with phase4/time_matched/_cache
+    cache_dir = a.out.parent.parent / "time_matched" / "_cache"
+
+    def rast(shps, tag):
+        return cached_bool(cache_dir, cache_key(cfg.event_slug, s, shps, tag), lambda: V._rasterise_polys_to_grid(list(shps), s["x"], s["y"], cfg.epsg, s["dx"], s["dy"]))
+    ems_wet = rast(obs, "truth_union")
+    aoi_m = rast(aois, "aoi_all") if aois else np.ones_like(ems_wet)
     active = s["msk"] > 0
     zsmax = s["ds"]["zsmax"].max(dim="timemax").values
     hmax = np.where(np.isnan(zsmax), 0.0, np.maximum(zsmax - s["zb"], 0))
@@ -62,7 +68,7 @@ def main() -> int:
     # ---- data behind the figure: per-AOI contingency on the v1.4 universe
     rows = []
     for shp in aois:
-        am = V._rasterise_polys_to_grid([shp], s["x"], s["y"], cfg.epsg, s["dx"], s["dy"]) & universe
+        am = rast([shp], "aoi") & universe
         c = V._contingency_full(wet, ems_wet, am)
         rows.append({"aoi_file": shp.name, "universe_km2": round(am.sum() * A, 2), "obs_km2": round((ems_wet & am).sum() * A, 3), "model_km2": round((wet & am).sum() * A, 3),
                      "tp_km2": round(c["tp"] * A, 3), "fp_km2": round(c["fp"] * A, 3), "fn_km2": round(c["fn"] * A, 3), "csi": c["csi"], "hr": c["hr"], "far": c["far"], "bias": c["bias"]})

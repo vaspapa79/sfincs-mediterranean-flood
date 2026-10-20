@@ -1,0 +1,4 @@
+EMSR257_01MANDRA_02GRADING_MAP_v2                acq 2017-11-20T09:41 Pleiades-1A-1B     CSI full 0.126 -> time-matched 0.126  HR 0.764 -> 0.764  B 5.85 -> 5.85
+EMSR257_02NEAPERAMOS_02GRADING_MAP_v2            acq 2017-11-20T09:41 Pleiades-1A-1B     CSI full 0.183 -> time-matched 0.183  HR 0.668 -> 0.668  B 3.31 -> 3.31
+EMSR257_03LAKKAKALOGIROU_02GRADING_MAP_v1        acq 2017-11-20T09:41 Pleiades-1A-1B     CSI full 0.179 -> time-matched 0.179  HR 0.798 -> 0.798  B 4.25 -> 4.25
+union: full 0.157; to earliest acq 0.157; to latest acq 0.157

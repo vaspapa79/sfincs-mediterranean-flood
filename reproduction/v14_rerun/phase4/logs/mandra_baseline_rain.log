@@ -1,0 +1,4 @@
+model_forcing  simulated  total    35.8 mm  max cell    35.8 mm  peak mean   4.40 mm/h at 2017-11-16T17:00:00  peak cell    4.4 mm/h
+model_forcing  forcing    total    35.8 mm  max cell    35.8 mm  peak mean   4.40 mm/h at 2017-11-16T17:00:00  peak cell    4.4 mm/h
+era5           simulated  total    38.7 mm  max cell    41.5 mm  peak mean   3.85 mm/h at 2017-11-16T18:00:00  peak cell    4.4 mm/h
+era5           forcing    total    38.9 mm  max cell    41.7 mm  peak mean   3.85 mm/h at 2017-11-16T18:00:00  peak cell    4.4 mm/h

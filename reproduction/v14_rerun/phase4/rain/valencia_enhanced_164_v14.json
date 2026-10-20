@@ -1,0 +1,386 @@
+{
+  "utc": "2026-10-20T03:55:57Z",
+  "config": "reproduction\\v14_rerun\\configs\\valencia_enhanced_164.yaml",
+  "event": "valencia",
+  "bbox": [
+    -0.9,
+    39.05,
+    0.05,
+    39.75
+  ],
+  "rain_source": "imerg_half_hourly",
+  "r2": {
+    "enabled": true,
+    "target_mm": 164.0,
+    "watershed_bbox": "-0.75,39.33,-0.3,39.55",
+    "event_start": "2024-10-29 00:00",
+    "event_end": "2024-10-30 00:00"
+  },
+  "windows": {
+    "simulated": [
+      "2024-10-27T00:00:00",
+      "2024-11-01T00:00:00"
+    ],
+    "forcing": [
+      "2024-10-24T00:00:00",
+      "2024-11-01T00:00:00"
+    ],
+    "event": [
+      "2024-10-29T00:00:00",
+      "2024-10-30T00:30:00"
+    ]
+  },
+  "sources": {
+    "model_forcing": {
+      "file": "D:\\ELKAK\\implementation\\v14\\valencia_enhanced_164\\model\\precip_2d.nc",
+      "present": true,
+      "units": "mm/h",
+      "time_first_last": [
+        "2024-10-27T00:00",
+        "2024-11-01T00:00"
+      ],
+      "file_attrs": {
+        "sfincs_corner_alignment": "1",
+        "x_shift_m": "-4873.7910513607785",
+        "y_shift_m": "4873.7910513607785"
+      },
+      "bbox_cells": 81,
+      "grid_cells": 182,
+      "by_window_whole_grid": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 11.089118003845215,
+          "domain_mean_peak_time": "2024-10-29T05:00:00",
+          "cell_peak_mm_h": 71.67574310302734,
+          "n_steps": 240,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 97.39701843261719,
+          "max_cell_total_mm": 264.374267578125,
+          "n_cells": 182
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 11.089118003845215,
+          "domain_mean_peak_time": "2024-10-29T05:00:00",
+          "cell_peak_mm_h": 71.67574310302734,
+          "n_steps": 240,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 97.39701843261719,
+          "max_cell_total_mm": 264.374267578125,
+          "n_cells": 182
+        },
+        "event": {
+          "domain_mean_peak_mm_h": 11.089118003845215,
+          "domain_mean_peak_time": "2024-10-29T05:00:00",
+          "cell_peak_mm_h": 71.67574310302734,
+          "n_steps": 49,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 83.14016723632812,
+          "max_cell_total_mm": 262.31927490234375,
+          "n_cells": 182
+        }
+      },
+      "by_window": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 12.534123420715332,
+          "domain_mean_peak_time": "2024-10-29T05:00:00",
+          "cell_peak_mm_h": 71.67574310302734,
+          "n_steps": 240,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 100.81294250488281,
+          "max_cell_total_mm": 259.08551025390625,
+          "n_cells": 81
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 12.534123420715332,
+          "domain_mean_peak_time": "2024-10-29T05:00:00",
+          "cell_peak_mm_h": 71.67574310302734,
+          "n_steps": 240,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 100.81294250488281,
+          "max_cell_total_mm": 259.08551025390625,
+          "n_cells": 81
+        },
+        "event": {
+          "domain_mean_peak_mm_h": 12.534123420715332,
+          "domain_mean_peak_time": "2024-10-29T05:00:00",
+          "cell_peak_mm_h": 71.67574310302734,
+          "n_steps": 49,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 88.56227111816406,
+          "max_cell_total_mm": 257.8055419921875,
+          "n_cells": 81
+        }
+      }
+    },
+    "imerg_raw": {
+      "file": "D:\\ELKAK\\implementation\\v14\\valencia_enhanced_164\\data\\imerg_valencia.raw.nc",
+      "present": true,
+      "units": "mm/h",
+      "time_first_last": [
+        "2024-10-24T00:00",
+        "2024-11-01T00:00"
+      ],
+      "file_attrs": {
+        "source": "GPM IMERG Final V07 half-hourly"
+      },
+      "bbox_cells": 80,
+      "by_window_file_extent": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 4.8424553871154785,
+          "domain_mean_peak_time": "2024-10-29T05:00:00",
+          "cell_peak_mm_h": 36.91999816894531,
+          "n_steps": 240,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 59.35336685180664,
+          "max_cell_total_mm": 137.17498779296875,
+          "n_cells": 224
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 4.8424553871154785,
+          "domain_mean_peak_time": "2024-10-29T05:00:00",
+          "cell_peak_mm_h": 39.09000015258789,
+          "n_steps": 384,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 78.63411712646484,
+          "max_cell_total_mm": 151.10496520996094,
+          "n_cells": 224
+        },
+        "event": {
+          "domain_mean_peak_mm_h": 4.8424553871154785,
+          "domain_mean_peak_time": "2024-10-29T05:00:00",
+          "cell_peak_mm_h": 36.91999816894531,
+          "n_steps": 49,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 42.381778717041016,
+          "max_cell_total_mm": 135.1199951171875,
+          "n_cells": 224
+        }
+      },
+      "file_extent_cells": 224,
+      "by_window": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 6.369999885559082,
+          "domain_mean_peak_time": "2024-10-29T05:00:00",
+          "cell_peak_mm_h": 36.91999816894531,
+          "n_steps": 240,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 61.555320739746094,
+          "max_cell_total_mm": 134.0749969482422,
+          "n_cells": 80
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 6.369999885559082,
+          "domain_mean_peak_time": "2024-10-29T05:00:00",
+          "cell_peak_mm_h": 36.91999816894531,
+          "n_steps": 384,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 78.58174896240234,
+          "max_cell_total_mm": 146.19500732421875,
+          "n_cells": 80
+        },
+        "event": {
+          "domain_mean_peak_mm_h": 6.369999885559082,
+          "domain_mean_peak_time": "2024-10-29T05:00:00",
+          "cell_peak_mm_h": 36.91999816894531,
+          "n_steps": 49,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 50.38962936401367,
+          "max_cell_total_mm": 132.7949981689453,
+          "n_cells": 80
+        }
+      },
+      "watershed_event_window": {
+        "domain_mean_peak_mm_h": 11.285333633422852,
+        "domain_mean_peak_time": "2024-10-29T16:00:00",
+        "cell_peak_mm_h": 35.05999755859375,
+        "n_steps": 49,
+        "step_h": 0.5,
+        "domain_mean_total_mm": 84.47599029541016,
+        "max_cell_total_mm": 132.7949981689453,
+        "n_cells": 15,
+        "watershed_bbox": [
+          -0.75,
+          39.33,
+          -0.3,
+          39.55
+        ]
+      }
+    },
+    "imerg": {
+      "file": "D:\\ELKAK\\implementation\\v14\\valencia_enhanced_164\\data\\imerg_valencia.nc",
+      "present": true,
+      "units": "mm/h",
+      "time_first_last": [
+        "2024-10-24T00:00",
+        "2024-11-01T00:00"
+      ],
+      "file_attrs": {
+        "source": "GPM IMERG Final V07 half-hourly"
+      },
+      "bbox_cells": 80,
+      "by_window_file_extent": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 9.401045799255371,
+          "domain_mean_peak_time": "2024-10-29T05:00:00",
+          "cell_peak_mm_h": 71.67574310302734,
+          "n_steps": 240,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 99.2507095336914,
+          "max_cell_total_mm": 264.374267578125,
+          "n_cells": 224
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 9.401045799255371,
+          "domain_mean_peak_time": "2024-10-29T05:00:00",
+          "cell_peak_mm_h": 71.67574310302734,
+          "n_steps": 384,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 118.53145599365234,
+          "max_cell_total_mm": 278.30426025390625,
+          "n_cells": 224
+        },
+        "event": {
+          "domain_mean_peak_mm_h": 9.401045799255371,
+          "domain_mean_peak_time": "2024-10-29T05:00:00",
+          "cell_peak_mm_h": 71.67574310302734,
+          "n_steps": 49,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 82.2790756225586,
+          "max_cell_total_mm": 262.31927490234375,
+          "n_cells": 224
+        }
+      },
+      "file_extent_cells": 224,
+      "by_window": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 12.366589546203613,
+          "domain_mean_peak_time": "2024-10-29T05:00:00",
+          "cell_peak_mm_h": 71.67574310302734,
+          "n_steps": 240,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 108.9910888671875,
+          "max_cell_total_mm": 259.08551025390625,
+          "n_cells": 80
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 12.366589546203613,
+          "domain_mean_peak_time": "2024-10-29T05:00:00",
+          "cell_peak_mm_h": 71.67574310302734,
+          "n_steps": 384,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 126.01751708984375,
+          "max_cell_total_mm": 268.33551025390625,
+          "n_cells": 80
+        },
+        "event": {
+          "domain_mean_peak_mm_h": 12.366589546203613,
+          "domain_mean_peak_time": "2024-10-29T05:00:00",
+          "cell_peak_mm_h": 71.67574310302734,
+          "n_steps": 49,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 97.82542419433594,
+          "max_cell_total_mm": 257.8055419921875,
+          "n_cells": 80
+        }
+      },
+      "watershed_event_window": {
+        "domain_mean_peak_mm_h": 21.90911865234375,
+        "domain_mean_peak_time": "2024-10-29T16:00:00",
+        "cell_peak_mm_h": 68.06477355957031,
+        "n_steps": 49,
+        "step_h": 0.5,
+        "domain_mean_total_mm": 164.0,
+        "max_cell_total_mm": 257.8055419921875,
+        "n_cells": 15,
+        "watershed_bbox": [
+          -0.75,
+          39.33,
+          -0.3,
+          39.55
+        ]
+      }
+    },
+    "era5": {
+      "file": "D:\\ELKAK\\implementation\\v14\\valencia_enhanced_164\\data\\era5_valencia.nc",
+      "present": true,
+      "units": "mm/h",
+      "time_first_last": [
+        "2024-10-01T00:00",
+        "2024-11-30T23:00"
+      ],
+      "file_attrs": {},
+      "bbox_cells": 9,
+      "by_window_file_extent": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 4.262215614318848,
+          "domain_mean_peak_time": "2024-10-29T07:00:00",
+          "cell_peak_mm_h": 10.471794128417969,
+          "n_steps": 120,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 83.59195709228516,
+          "max_cell_total_mm": 137.01837158203125,
+          "n_cells": 42
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 4.262215614318848,
+          "domain_mean_peak_time": "2024-10-29T07:00:00",
+          "cell_peak_mm_h": 10.471794128417969,
+          "n_steps": 192,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 102.31797790527344,
+          "max_cell_total_mm": 167.51290893554688,
+          "n_cells": 42
+        },
+        "event": {
+          "domain_mean_peak_mm_h": 4.262215614318848,
+          "domain_mean_peak_time": "2024-10-29T07:00:00",
+          "cell_peak_mm_h": 10.471794128417969,
+          "n_steps": 25,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 44.92214584350586,
+          "max_cell_total_mm": 109.31968688964844,
+          "n_cells": 42
+        }
+      },
+      "file_extent_cells": 42,
+      "by_window": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 7.18681001663208,
+          "domain_mean_peak_time": "2024-10-29T07:00:00",
+          "cell_peak_mm_h": 10.471794128417969,
+          "n_steps": 120,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 109.97078704833984,
+          "max_cell_total_mm": 137.01837158203125,
+          "n_cells": 9
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 7.18681001663208,
+          "domain_mean_peak_time": "2024-10-29T07:00:00",
+          "cell_peak_mm_h": 10.471794128417969,
+          "n_steps": 192,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 134.73666381835938,
+          "max_cell_total_mm": 164.18988037109375,
+          "n_cells": 9
+        },
+        "event": {
+          "domain_mean_peak_mm_h": 7.18681001663208,
+          "domain_mean_peak_time": "2024-10-29T07:00:00",
+          "cell_peak_mm_h": 10.471794128417969,
+          "n_steps": 25,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 64.079345703125,
+          "max_cell_total_mm": 100.95378112792969,
+          "n_cells": 9
+        }
+      }
+    }
+  },
+  "r2_realised": {
+    "raw_watershed_mean_mm": 84.47599029541016,
+    "corrected_watershed_mean_mm": 164.0,
+    "factor": 1.9413800232053702,
+    "target_mm": 164.0
+  },
+  "series_csv": "reproduction\\v14_rerun\\phase4\\rain\\valencia_enhanced_164_v14_series.csv"
+}

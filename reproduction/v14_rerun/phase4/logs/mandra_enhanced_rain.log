@@ -1,0 +1,13 @@
+model_forcing  simulated  total   261.5 mm  max cell   334.4 mm  peak mean  32.23 mm/h at 2017-11-15T04:30:00  peak cell   82.6 mm/h
+model_forcing  forcing    total   261.5 mm  max cell   334.4 mm  peak mean  32.23 mm/h at 2017-11-15T04:30:00  peak cell   82.6 mm/h
+model_forcing  event      total   137.7 mm  max cell   223.9 mm  peak mean  32.23 mm/h at 2017-11-15T04:30:00  peak cell   82.6 mm/h
+imerg_raw      simulated  total   138.1 mm  max cell   160.5 mm  peak mean  19.98 mm/h at 2017-11-16T20:00:00  peak cell   26.2 mm/h
+imerg_raw      forcing    total   138.5 mm  max cell   161.4 mm  peak mean  19.98 mm/h at 2017-11-16T20:00:00  peak cell   26.2 mm/h
+imerg_raw      event      total    21.1 mm  max cell    38.0 mm  peak mean   3.68 mm/h at 2017-11-15T04:30:00  peak cell   10.9 mm/h
+imerg          simulated  total   297.6 mm  max cell   412.8 mm  peak mean  31.45 mm/h at 2017-11-15T04:30:00  peak cell   93.3 mm/h
+imerg          forcing    total   298.0 mm  max cell   412.9 mm  peak mean  31.45 mm/h at 2017-11-15T04:30:00  peak cell   93.3 mm/h
+imerg          event      total   180.6 mm  max cell   324.7 mm  peak mean  31.45 mm/h at 2017-11-15T04:30:00  peak cell   93.3 mm/h
+era5           simulated  total    38.7 mm  max cell    41.5 mm  peak mean   3.85 mm/h at 2017-11-16T18:00:00  peak cell    4.4 mm/h
+era5           forcing    total    38.9 mm  max cell    41.7 mm  peak mean   3.85 mm/h at 2017-11-16T18:00:00  peak cell    4.4 mm/h
+era5           event      total     8.2 mm  max cell     9.9 mm  peak mean   0.60 mm/h at 2017-11-14T18:00:00  peak cell    0.7 mm/h
+R2 realised: {'raw_watershed_mean_mm': 23.388748168945312, 'corrected_watershed_mean_mm': 199.99996948242188, 'factor': 8.55111902688209, 'target_mm': 200.0}

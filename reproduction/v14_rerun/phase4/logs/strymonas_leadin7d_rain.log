@@ -1,0 +1,6 @@
+model_forcing  simulated  total    52.7 mm  max cell    77.7 mm  peak mean   4.99 mm/h at 2015-03-27T14:30:00  peak cell   23.8 mm/h
+model_forcing  forcing    total    52.7 mm  max cell    77.7 mm  peak mean   4.99 mm/h at 2015-03-27T14:30:00  peak cell   23.8 mm/h
+imerg          simulated  total    54.3 mm  max cell    77.7 mm  peak mean   5.20 mm/h at 2015-03-27T14:30:00  peak cell   23.8 mm/h
+imerg          forcing    total    54.3 mm  max cell    77.7 mm  peak mean   5.20 mm/h at 2015-03-27T14:30:00  peak cell   23.8 mm/h
+era5           simulated  total    30.3 mm  max cell    44.0 mm  peak mean   1.40 mm/h at 2015-03-27T23:00:00  peak cell    3.2 mm/h
+era5           forcing    total    30.3 mm  max cell    44.0 mm  peak mean   1.40 mm/h at 2015-03-27T23:00:00  peak cell    3.2 mm/h

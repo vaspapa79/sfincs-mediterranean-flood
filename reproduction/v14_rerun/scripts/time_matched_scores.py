@@ -193,6 +193,12 @@ def main() -> int:
     obs_shps = _select_obs_shps(ems_dir, include_del_product=bool(cfg.ems.get("include_del_product", False)))
     aoi_pats = ["*area_of_interest.shp", "*area_of_interest_a.shp", "*areaOfInterestA*.shp"]
     aoi_all = _list_shps(ems_dir, aoi_pats)
+    sys.path.insert(0, str(Path(__file__).resolve().parent))      # python -I: the script directory is not on sys.path
+    from truth_cache import cache_key, cached_bool
+    cache_dir = a.out_json.parent / "_cache"
+
+    def rast(shps, tag):
+        return cached_bool(cache_dir, cache_key(cfg.event_slug, s, shps, tag), lambda: _rasterise_polys_to_grid(list(shps), s["x"], s["y"], cfg.epsg, s["dx"], s["dy"]))
     active = s["msk"] > 0
     if excl is not None:
         active = active & ~excl
@@ -214,14 +220,14 @@ def main() -> int:
     products = []
     acq_times = []
     for shp, meta in zip(obs_shps, metas):
-        truth = _rasterise_polys_to_grid([shp], s["x"], s["y"], cfg.epsg, s["dx"], s["dy"])
+        truth = rast([shp], "product")
         # universe = the AOI polygon of this product's folder (fallback: any AOI file sharing the AOI token, else the whole active mask)
         pdir = shp.parent
         aoi_here = _list_shps(pdir, aoi_pats)
         if not aoi_here:
             m = re.search(r"(AOI\d+|\d{2}[A-Z]+)", shp.name)
             aoi_here = [p for p in aoi_all if m and m.group(1) in p.name]
-        universe = active & (_rasterise_polys_to_grid(aoi_here, s["x"], s["y"], cfg.epsg, s["dx"], s["dy"]) if aoi_here else np.ones_like(active))
+        universe = active & (rast(aoi_here, "aoi") if aoi_here else np.ones_like(active))
         row = {**{k: (v.isoformat() if isinstance(v, dt.datetime) else v) for k, v in meta.items()}, "obs_shp": shp.name,
                "universe_km2": float(universe.sum() * A), "obs_km2": float((truth & universe).sum() * A), "aoi_files": [p.name for p in aoi_here],
                "full_window": score(h_full, truth, universe)}
@@ -236,8 +242,8 @@ def main() -> int:
             acq_times.append(t_acq if not meta["date_only"] else t_acq + dt.timedelta(days=1) - dt.timedelta(seconds=1))
         products.append(row)
     # union over all products (the canonical truth), hmax up to the earliest and the latest acquisition
-    aoi_universe = active & (_rasterise_polys_to_grid(aoi_all, s["x"], s["y"], cfg.epsg, s["dx"], s["dy"]) if aoi_all else np.ones_like(active))
-    truth_all = _rasterise_polys_to_grid(obs_shps, s["x"], s["y"], cfg.epsg, s["dx"], s["dy"])
+    aoi_universe = active & (rast(aoi_all, "aoi_all") if aoi_all else np.ones_like(active))
+    truth_all = rast(obs_shps, "truth_union")
     union = {"universe_km2": float(aoi_universe.sum() * A), "obs_km2": float((truth_all & aoi_universe).sum() * A),
              "full_window": score(h_full, truth_all, aoi_universe)}
     if acq_times:
@@ -253,8 +259,7 @@ def main() -> int:
         w0, w1 = (dt.datetime.fromisoformat(x) for x in a.window.split(","))
         hw = running_hmax(ds, zb, w1, t_from=w0)
         out["window"] = {"t0": w0.isoformat(), "t1": w1.isoformat(), "union": score(hw, truth_all, aoi_universe),
-                         "products": {p["product"]: score(hw, _rasterise_polys_to_grid([shp], s["x"], s["y"], cfg.epsg, s["dx"], s["dy"]), aoi_universe)
-                                      for p, shp in zip(products, obs_shps)}}
+                         "products": {p["product"]: score(hw, rast([shp], "product"), aoi_universe) for p, shp in zip(products, obs_shps)}}
     a.out_json.parent.mkdir(parents=True, exist_ok=True)
     a.out_json.write_text(json.dumps(out, indent=2, default=str), encoding="utf-8")
     for p in products:

@@ -1,0 +1,6 @@
+validating: EMSR933 Crete (v2)  (slug=crete)
+  evaluation-mask exclusion: D:\ELKAK\sfincs-mediterranean-floods\.worktrees\emsr933-crete\reproduction\v14_rerun\masks\crete_exclusion.tif (2233808 cells flagged on the grid)
+  strict@0.10m:  CSI=0.093  HR=0.872  FAR=0.906  BIAS=9.23  GSS=0.078
+  fuzzy r=1:     CSI=0.080  HR=0.917  FAR=0.919  GSS=0.048
+  best CSI:      0.152 at h>0.50 m
+  wrote: D:\ELKAK\sfincs-mediterranean-floods\.worktrees\emsr933-crete\reproduction\v14_rerun\results\crete_sens_anchor_224_v14_newmask.json

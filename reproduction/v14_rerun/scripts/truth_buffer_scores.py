@@ -93,12 +93,13 @@ def load_geoms(shp_paths, target_epsg):
     return geoms
 
 
-def buffer_sweep(model_wet, truth_geoms, universe, s, buffers_m=(-20.0, 0.0, 20.0)) -> dict:
-    """One fine rasterisation, then morph per buffer (the published procedure)."""
+def buffer_sweep(model_wet, truth_geoms, universe, s, buffers_m=(-20.0, 0.0, 20.0), fine=None) -> dict:
+    """One fine rasterisation (or the cached one passed as `fine`), then morph per buffer (the published procedure)."""
     sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "validation"))
     from validate_event_v2 import _contingency_full
     refine = refine_for(float(s["dx"])); fine_cell = float(s["dx"]) / refine
-    fine = rasterise_fine(truth_geoms, s, refine)
+    if fine is None:
+        fine = rasterise_fine(truth_geoms, s, refine)
     out = {}
     for b in buffers_m:
         k = int(round(abs(b) / fine_cell)) * (1 if b > 0 else -1) if b else 0
@@ -140,14 +141,23 @@ def main() -> int:
     zsmax = s["ds"]["zsmax"].max(dim="timemax").values
     hmax = np.where(np.isnan(zsmax), 0.0, np.maximum(zsmax - s["zb"], 0))
     model_wet = hmax > a.threshold
-    geoms = load_geoms(obs, cfg.epsg)
-    buffers = tuple(float(x) for x in a.buffers.split(","))
-    sweep = buffer_sweep(model_wet, geoms, universe, s, buffers)
-    plain = _rasterise_polys_to_grid(obs, s["x"], s["y"], cfg.epsg, s["dx"], s["dy"])
-    same = bool(np.array_equal(plain, rasterise_geoms(geoms, s, 0.0)))
+    sys.path.insert(0, str(Path(__file__).resolve().parent))      # python -I: the script directory is not on sys.path
+    from truth_cache import cache_key, cached_bool
+    cache_dir = a.out_json.parent / "_cache"
     refine = refine_for(float(s["dx"]))
+    geoms_holder = {}
+
+    def geoms():
+        if "g" not in geoms_holder:
+            geoms_holder["g"] = load_geoms(obs, cfg.epsg)
+        return geoms_holder["g"]
+    fine = cached_bool(cache_dir, cache_key(cfg.event_slug, s, obs, f"fine{refine}"), lambda: rasterise_fine(geoms(), s, refine))
+    plain = cached_bool(cache_dir, cache_key(cfg.event_slug, s, obs, "plain_validator"), lambda: _rasterise_polys_to_grid(obs, s["x"], s["y"], cfg.epsg, s["dx"], s["dy"]))
+    buffers = tuple(float(x) for x in a.buffers.split(","))
+    sweep = buffer_sweep(model_wet, None, universe, s, buffers, fine=fine)
+    same = bool(np.array_equal(plain, block_any(fine, 1) if refine == 1 else cached_bool(cache_dir, cache_key(cfg.event_slug, s, obs, "plain_fine1"), lambda: rasterise_fine(geoms(), s, 1))))
     out = {"utc": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), "config": str(a.config), "event": cfg.event_slug, "threshold_m": a.threshold,
-           "exclusion_tif": (str(a.exclusion_tif) if a.exclusion_tif else None), "buffers_m": list(buffers), "n_obs_shps": len(obs), "n_polygons": len(geoms),
+           "exclusion_tif": (str(a.exclusion_tif) if a.exclusion_tif else None), "buffers_m": list(buffers), "n_obs_shps": len(obs), "n_polygons": (len(geoms_holder["g"]) if "g" in geoms_holder else None), "truth_cache": str(cache_dir),
            "method": f"raster-domain buffer as validation/truth_uncertainty.py: refine {refine} (fine cell {float(s['dx']) / refine:.2f} m), square structuring element, block-any to the model grid",
            "zero_buffer_equals_validator_rasterisation": same, "universe_km2": float(universe.sum() * s["cell_area_km2"]), "sweep": sweep,
            "csi_range": [min(v["csi"] for v in sweep.values()), max(v["csi"] for v in sweep.values())]}

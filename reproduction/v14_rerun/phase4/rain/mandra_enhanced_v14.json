@@ -1,5 +1,5 @@
 {
-  "utc": "2026-10-19T14:25:32Z",
+  "utc": "2026-10-20T03:49:22Z",
   "config": "reproduction\\v14_rerun\\configs\\mandra_enhanced.yaml",
   "event": "mandra",
   "bbox": [
@@ -44,7 +44,9 @@
         "x_shift_m": "-5003.8817363849375",
         "y_shift_m": "5003.881736384705"
       },
-      "by_window": {
+      "bbox_cells": 9,
+      "grid_cells": 48,
+      "by_window_whole_grid": {
         "simulated": {
           "domain_mean_peak_mm_h": 17.839773178100586,
           "domain_mean_peak_time": "2017-11-15T02:30:00",
@@ -75,6 +77,38 @@
           "max_cell_total_mm": 357.1802673339844,
           "n_cells": 48
         }
+      },
+      "by_window": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 32.22822189331055,
+          "domain_mean_peak_time": "2017-11-15T04:30:00",
+          "cell_peak_mm_h": 82.60381317138672,
+          "n_steps": 240,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 261.5447998046875,
+          "max_cell_total_mm": 334.40338134765625,
+          "n_cells": 9
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 32.22822189331055,
+          "domain_mean_peak_time": "2017-11-15T04:30:00",
+          "cell_peak_mm_h": 82.60381317138672,
+          "n_steps": 240,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 261.5447998046875,
+          "max_cell_total_mm": 334.40338134765625,
+          "n_cells": 9
+        },
+        "event": {
+          "domain_mean_peak_mm_h": 32.22822189331055,
+          "domain_mean_peak_time": "2017-11-15T04:30:00",
+          "cell_peak_mm_h": 82.60381317138672,
+          "n_steps": 96,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 137.69204711914062,
+          "max_cell_total_mm": 223.86831665039062,
+          "n_cells": 9
+        }
       }
     },
     "imerg_raw": {
@@ -89,6 +123,39 @@
         "source": "GPM IMERG Final V07 half-hourly"
       },
       "bbox_cells": 9,
+      "by_window_file_extent": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 14.813878059387207,
+          "domain_mean_peak_time": "2017-11-16T20:00:00",
+          "cell_peak_mm_h": 36.099998474121094,
+          "n_steps": 240,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 116.8449935913086,
+          "max_cell_total_mm": 160.54498291015625,
+          "n_cells": 49
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 14.813878059387207,
+          "domain_mean_peak_time": "2017-11-16T20:00:00",
+          "cell_peak_mm_h": 36.099998474121094,
+          "n_steps": 288,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 117.83531951904297,
+          "max_cell_total_mm": 161.38499450683594,
+          "n_cells": 49
+        },
+        "event": {
+          "domain_mean_peak_mm_h": 1.8436733484268188,
+          "domain_mean_peak_time": "2017-11-15T03:00:00",
+          "cell_peak_mm_h": 12.779999732971191,
+          "n_steps": 96,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 14.621939659118652,
+          "max_cell_total_mm": 41.769989013671875,
+          "n_cells": 49
+        }
+      },
+      "file_extent_cells": 49,
       "by_window": {
         "simulated": {
           "domain_mean_peak_mm_h": 19.9777774810791,
@@ -150,6 +217,39 @@
         "source": "GPM IMERG Final V07 half-hourly"
       },
       "bbox_cells": 9,
+      "by_window_file_extent": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 15.765473365783691,
+          "domain_mean_peak_time": "2017-11-15T03:00:00",
+          "cell_peak_mm_h": 109.28330993652344,
+          "n_steps": 240,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 227.25697326660156,
+          "max_cell_total_mm": 427.25531005859375,
+          "n_cells": 49
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 15.765473365783691,
+          "domain_mean_peak_time": "2017-11-15T03:00:00",
+          "cell_peak_mm_h": 109.28330993652344,
+          "n_steps": 288,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 228.24728393554688,
+          "max_cell_total_mm": 427.53533935546875,
+          "n_cells": 49
+        },
+        "event": {
+          "domain_mean_peak_mm_h": 15.765473365783691,
+          "domain_mean_peak_time": "2017-11-15T03:00:00",
+          "cell_peak_mm_h": 109.28330993652344,
+          "n_steps": 96,
+          "step_h": 0.5,
+          "domain_mean_total_mm": 125.03394317626953,
+          "max_cell_total_mm": 357.1802673339844,
+          "n_cells": 49
+        }
+      },
+      "file_extent_cells": 49,
       "by_window": {
         "simulated": {
           "domain_mean_peak_mm_h": 31.449119567871094,
@@ -209,6 +309,39 @@
       ],
       "file_attrs": {},
       "bbox_cells": 2,
+      "by_window_file_extent": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 4.132185935974121,
+          "domain_mean_peak_time": "2017-11-16T16:00:00",
+          "cell_peak_mm_h": 5.912735939025879,
+          "n_steps": 120,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 40.68074035644531,
+          "max_cell_total_mm": 49.95552444458008,
+          "n_cells": 9
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 4.132185935974121,
+          "domain_mean_peak_time": "2017-11-16T16:00:00",
+          "cell_peak_mm_h": 5.912735939025879,
+          "n_steps": 144,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 40.839569091796875,
+          "max_cell_total_mm": 50.15167999267578,
+          "n_cells": 9
+        },
+        "event": {
+          "domain_mean_peak_mm_h": 0.6959565877914429,
+          "domain_mean_peak_time": "2017-11-15T06:00:00",
+          "cell_peak_mm_h": 1.6105931997299194,
+          "n_steps": 48,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 8.952760696411133,
+          "max_cell_total_mm": 15.75290584564209,
+          "n_cells": 9
+        }
+      },
+      "file_extent_cells": 9,
       "by_window": {
         "simulated": {
           "domain_mean_peak_mm_h": 3.847618579864502,

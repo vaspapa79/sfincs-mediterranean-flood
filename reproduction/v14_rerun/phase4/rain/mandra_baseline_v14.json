@@ -1,6 +1,6 @@
 {
-  "utc": "2026-10-19T17:54:55Z",
-  "config": "reproduction\\v14_rerun\\configs\\mandra_baseline.yaml",
+  "utc": "2026-10-20T03:03:12Z",
+  "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\configs\\mandra_baseline.yaml",
   "event": "mandra",
   "bbox": [
     23.3,
@@ -152,5 +152,5 @@
       }
     }
   },
-  "series_csv": "reproduction\\v14_rerun\\phase4\\rain\\mandra_baseline_v14_series.csv"
+  "series_csv": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\phase4\\rain\\mandra_baseline_v14_series.csv"
 }

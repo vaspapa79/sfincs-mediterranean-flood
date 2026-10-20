@@ -1,0 +1,6 @@
+EMSR773_AOI01_DEL_MONIT01_v1                     acq 2024-11-03T01:51 ICEYE              CSI full 0.084 -> time-matched 0.084  HR 0.987 -> 0.987  B 11.76 -> 11.76
+EMSR773_AOI01_DEL_MONIT02_v1                     acq 2024-11-05T10:52 Sentinel-2         CSI full 0.132 -> time-matched 0.132  HR 0.943 -> 0.943  B 7.10 -> 7.10
+EMSR773_AOI01_DEL_MONIT03_v1                     acq 2024-11-06T06:10 Sentinel-1         CSI full 0.064 -> time-matched 0.064  HR 0.990 -> 0.990  B 15.49 -> 15.49
+EMSR773_AOI01_DEL_MONIT04_v1                     acq 2024-11-08T05:51 COSMO-SkyMed       CSI full 0.067 -> time-matched 0.067  HR 0.974 -> 0.974  B 14.42 -> 14.42
+EMSR773_AOI06_DEL_MONIT01_v1                     acq 2024-11-08T10:28 SPOT-6-7           CSI full nan -> time-matched nan  HR nan -> nan  B nan -> nan
+union: full 0.144; to earliest acq 0.144; to latest acq 0.144

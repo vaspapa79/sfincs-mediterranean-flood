@@ -1,0 +1,13 @@
+model_forcing  simulated  total    56.9 mm  max cell   240.3 mm  peak mean   2.35 mm/h at 2026-10-01T04:00:00  peak cell   23.6 mm/h
+model_forcing  forcing    total    56.9 mm  max cell   240.3 mm  peak mean   2.35 mm/h at 2026-10-01T04:00:00  peak cell   23.6 mm/h
+model_forcing  event      total    55.6 mm  max cell   237.9 mm  peak mean   2.35 mm/h at 2026-10-01T04:00:00  peak cell   23.6 mm/h
+imerg_raw      simulated  total   121.9 mm  max cell   470.7 mm  peak mean   5.26 mm/h at 2026-10-01T04:00:00  peak cell   46.6 mm/h
+imerg_raw      forcing    total   169.8 mm  max cell   511.3 mm  peak mean   5.29 mm/h at 2026-09-26T19:00:00  peak cell   46.6 mm/h
+imerg_raw      event      total   120.4 mm  max cell   469.0 mm  peak mean   5.26 mm/h at 2026-10-01T04:00:00  peak cell   46.6 mm/h
+imerg          simulated  total    62.6 mm  max cell   240.3 mm  peak mean   2.67 mm/h at 2026-10-01T04:00:00  peak cell   23.6 mm/h
+imerg          forcing    total   110.5 mm  max cell   289.3 mm  peak mean   5.29 mm/h at 2026-09-26T19:00:00  peak cell   31.8 mm/h
+imerg          event      total    61.1 mm  max cell   237.9 mm  peak mean   2.67 mm/h at 2026-10-01T04:00:00  peak cell   23.6 mm/h
+era5           simulated  total    81.5 mm  max cell   258.3 mm  peak mean   1.45 mm/h at 2026-10-01T12:00:00  peak cell    5.9 mm/h
+era5           forcing    total   105.6 mm  max cell   316.0 mm  peak mean   1.45 mm/h at 2026-10-01T12:00:00  peak cell    7.5 mm/h
+era5           event      total    77.0 mm  max cell   245.9 mm  peak mean   1.45 mm/h at 2026-10-01T12:00:00  peak cell    5.9 mm/h
+R2 realised: {'raw_watershed_mean_mm': 441.67755126953125, 'corrected_watershed_mean_mm': 224.00003051757812, 'factor': 0.5071573818359706, 'target_mm': 224.0}

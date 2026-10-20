@@ -38,6 +38,8 @@ def main() -> int:
             ax.axvspan(pd.Timestamp(t0), pd.Timestamp(t1), color="#fde8cf", zorder=0, label="R2 event window")
         if name == "simulated":
             ax.axvline(pd.Timestamp(t0), color="k", lw=0.6, ls="--"); ax.axvline(pd.Timestamp(t1), color="k", lw=0.6, ls="--")
+    f0, f1 = (pd.Timestamp(w["forcing"][0]), pd.Timestamp(w["forcing"][1])) if "forcing" in w else (df.index.min(), df.index.max())
+    ax.set_xlim(f0 - pd.Timedelta(hours=6), f1 + pd.Timedelta(hours=6))      # the forcing window (tref → tstop); the ERA5 file itself spans a month
     ax.set_ylabel("domain-mean rain rate (mm h⁻¹)"); ax.set_title(a.title or f"{rj['event']}: domain-mean precipitation, harness v1.4 forcing files")
     ax.legend(fontsize=6.5, frameon=False); fig.autofmt_xdate(); fig.tight_layout()
     a.out.parent.mkdir(parents=True, exist_ok=True); fig.savefig(a.out); plt.close(fig)

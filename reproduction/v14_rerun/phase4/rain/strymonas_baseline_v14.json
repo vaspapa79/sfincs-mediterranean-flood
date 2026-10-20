@@ -1,0 +1,156 @@
+{
+  "utc": "2026-10-20T03:09:51Z",
+  "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\configs\\strymonas_baseline.yaml",
+  "event": "strymonas",
+  "bbox": [
+    22.8,
+    40.6,
+    24.0,
+    41.4
+  ],
+  "rain_source": "era5_hourly",
+  "r2": {
+    "enabled": false,
+    "target_mm": 200.0,
+    "watershed_bbox": null,
+    "event_start": null,
+    "event_end": null
+  },
+  "windows": {
+    "simulated": [
+      "2015-03-28T00:00:00",
+      "2015-04-04T00:00:00"
+    ],
+    "forcing": [
+      "2015-03-27T00:00:00",
+      "2015-04-04T00:00:00"
+    ]
+  },
+  "sources": {
+    "model_forcing": {
+      "file": "D:\\ELKAK\\implementation\\v14\\strymonas_baseline\\model\\precip_2d.nc",
+      "present": true,
+      "units": "mm/h",
+      "time_first_last": [
+        "2015-03-28T00:00",
+        "2015-04-04T00:00"
+      ],
+      "file_attrs": {
+        "sfincs_corner_alignment": "1",
+        "x_shift_m": "-11771.815471329726",
+        "y_shift_m": "11771.815471329726"
+      },
+      "bbox_cells": 16,
+      "grid_cells": 36,
+      "by_window_whole_grid": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 0.8149669766426086,
+          "domain_mean_peak_time": "2015-03-28T00:00:00",
+          "cell_peak_mm_h": 2.8212759494781494,
+          "n_steps": 168,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 8.975528717041016,
+          "max_cell_total_mm": 20.601852416992188,
+          "n_cells": 36
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 0.8149669766426086,
+          "domain_mean_peak_time": "2015-03-28T00:00:00",
+          "cell_peak_mm_h": 2.8212759494781494,
+          "n_steps": 168,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 8.975528717041016,
+          "max_cell_total_mm": 20.601852416992188,
+          "n_cells": 36
+        }
+      },
+      "by_window": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 1.076139211654663,
+          "domain_mean_peak_time": "2015-03-28T13:00:00",
+          "cell_peak_mm_h": 2.2203283309936523,
+          "n_steps": 168,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 10.250065803527832,
+          "max_cell_total_mm": 20.601852416992188,
+          "n_cells": 16
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 1.076139211654663,
+          "domain_mean_peak_time": "2015-03-28T13:00:00",
+          "cell_peak_mm_h": 2.2203283309936523,
+          "n_steps": 168,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 10.250065803527832,
+          "max_cell_total_mm": 20.601852416992188,
+          "n_cells": 16
+        }
+      }
+    },
+    "imerg_raw": {
+      "file": "D:\\ELKAK\\implementation\\v14\\strymonas_baseline\\data\\imerg_strymonas.raw.nc",
+      "present": false
+    },
+    "imerg": {
+      "file": "D:\\ELKAK\\implementation\\v14\\strymonas_baseline\\data\\imerg_strymonas.nc",
+      "present": false
+    },
+    "era5": {
+      "file": "D:\\ELKAK\\implementation\\v14\\strymonas_baseline\\data\\era5_strymonas.nc",
+      "present": true,
+      "units": "mm/h",
+      "time_first_last": [
+        "2015-03-01T00:00",
+        "2015-04-30T23:00"
+      ],
+      "file_attrs": {},
+      "bbox_cells": 20,
+      "by_window_file_extent": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 0.9763503074645996,
+          "domain_mean_peak_time": "2015-03-28T00:00:00",
+          "cell_peak_mm_h": 3.209266424179077,
+          "n_steps": 168,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 10.169751167297363,
+          "max_cell_total_mm": 22.281009674072266,
+          "n_cells": 35
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 1.2596620321273804,
+          "domain_mean_peak_time": "2015-03-27T00:00:00",
+          "cell_peak_mm_h": 3.209266424179077,
+          "n_steps": 192,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 29.453317642211914,
+          "max_cell_total_mm": 49.19023895263672,
+          "n_cells": 35
+        }
+      },
+      "file_extent_cells": 35,
+      "by_window": {
+        "simulated": {
+          "domain_mean_peak_mm_h": 1.3711307048797607,
+          "domain_mean_peak_time": "2015-03-28T00:00:00",
+          "cell_peak_mm_h": 3.209266424179077,
+          "n_steps": 168,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 10.562810897827148,
+          "max_cell_total_mm": 18.543363571166992,
+          "n_cells": 20
+        },
+        "forcing": {
+          "domain_mean_peak_mm_h": 1.397931456565857,
+          "domain_mean_peak_time": "2015-03-27T23:00:00",
+          "cell_peak_mm_h": 3.209266424179077,
+          "n_steps": 192,
+          "step_h": 1.0,
+          "domain_mean_total_mm": 30.271907806396484,
+          "max_cell_total_mm": 44.02519226074219,
+          "n_cells": 20
+        }
+      }
+    }
+  },
+  "series_csv": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\phase4\\rain\\strymonas_baseline_v14_series.csv"
+}

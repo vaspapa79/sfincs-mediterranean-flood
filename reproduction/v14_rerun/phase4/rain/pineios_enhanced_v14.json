@@ -1,6 +1,6 @@
 {
-  "utc": "2026-10-19T20:57:47Z",
-  "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\configs\\pineios_enhanced.yaml",
+  "utc": "2026-10-20T03:47:36Z",
+  "config": "reproduction\\v14_rerun\\configs\\pineios_enhanced.yaml",
   "event": "pineios",
   "bbox": [
     21.84,
@@ -382,5 +382,5 @@
     "factor": 2.7246318155286042,
     "target_mm": 400.0
   },
-  "series_csv": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\phase4\\rain\\pineios_enhanced_v14_series.csv"
+  "series_csv": "reproduction\\v14_rerun\\phase4\\rain\\pineios_enhanced_v14_series.csv"
 }

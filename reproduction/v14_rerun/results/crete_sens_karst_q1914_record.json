@@ -1,0 +1,125 @@
+{
+  "run": "crete_sens_karst_q1914",
+  "event": "crete",
+  "kind": "enhanced",
+  "phase": 5,
+  "group": "sens_c",
+  "label": "sensitivity (c): karst bracket, constant infiltration qinf = 1.914 mm/h (0.513 x 447.8 mm / 120 h, Steiakakis 2018)",
+  "c2_row": null,
+  "manifest_row": null,
+  "work": "D:\\ELKAK\\implementation\\v14\\crete_sens_karst_q1914",
+  "published_model": null,
+  "published_wallclock_s": null,
+  "published_text": null,
+  "published_note": null,
+  "compare_to": "crete_canonical_r2on",
+  "start_utc": "2026-10-20T03:06:20Z",
+  "steps": [
+    {
+      "step": 6,
+      "start_utc": "2026-10-20T03:06:20Z",
+      "end_utc": "2026-10-20T03:07:07Z",
+      "wall_s": 47.1,
+      "exit": 0
+    },
+    {
+      "step": 7,
+      "start_utc": "2026-10-20T03:07:07Z",
+      "end_utc": "2026-10-20T03:07:34Z",
+      "wall_s": 27.0,
+      "exit": 0
+    },
+    {
+      "step": 8,
+      "start_utc": "2026-10-20T03:07:34Z",
+      "end_utc": "2026-10-20T03:07:40Z",
+      "wall_s": 5.5,
+      "exit": 0
+    },
+    {
+      "step": 9,
+      "start_utc": "2026-10-20T03:07:40Z",
+      "end_utc": "2026-10-20T03:07:53Z",
+      "wall_s": 13.1,
+      "exit": 0
+    },
+    {
+      "step": 10,
+      "start_utc": "2026-10-20T03:07:53Z",
+      "end_utc": "2026-10-20T03:26:32Z",
+      "wall_s": 1119.0,
+      "exit": 0
+    },
+    {
+      "step": 11,
+      "start_utc": "2026-10-20T03:26:32Z",
+      "end_utc": "2026-10-20T05:10:33Z",
+      "wall_s": 6240.7,
+      "exit": 0
+    }
+  ],
+  "config": "reproduction\\v14_rerun\\configs\\crete_sens_karst_q1914.yaml",
+  "config_note": {
+    "derived_from": "skill/examples/emsr933_crete_enhanced_R2on.yaml",
+    "changes": [
+      "harness_version: v1.4",
+      "paths.work_dir/deliverable_dir/zip_dir -> D:\\ELKAK\\implementation\\v14\\crete_sens_karst_q1914"
+    ]
+  },
+  "seed": {
+    "from": "D:\\ELKAK\\implementation\\emsr933_crete\\data",
+    "junctions": {
+      "copdem30": "created",
+      "esa_worldcover": "created",
+      "ems_polygons": "created",
+      "era5_extracted": "created"
+    },
+    "copied": [
+      "imerg_crete.nc -> imerg_crete.nc",
+      "era5_crete.nc -> era5_crete.nc"
+    ],
+    "skipped": []
+  },
+  "coastal_prep": {
+    "harness_version": "v1.4",
+    "n_active_before": 3067497,
+    "n_dep_le_0": 2222469,
+    "n_open_sea": 2222416,
+    "open_sea_km2": 22224.16,
+    "n_inland_dep_le_0": 53,
+    "n_ring": 14646,
+    "ring_length_km": 1464.6,
+    "n_exclude": 2207770,
+    "n_active_after_expected": 859727,
+    "connectivity": {
+      "open_sea": 4,
+      "ring_adjacency": 8
+    },
+    "zsini": -9999,
+    "exclude_mask": "D:/ELKAK/implementation/v14/crete_sens_karst_q1914/open_sea_exclude.geojson",
+    "open_sea_mask_tif": "D:/ELKAK/implementation/v14/crete_sens_karst_q1914/open_sea_mask.tif",
+    "n_exclude_polygons": 4
+  },
+  "exclusion": {
+    "reused": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\masks\\crete_exclusion.tif",
+    "open_sea_identical_to_first_build": true,
+    "symmetric_difference_cells": 0
+  },
+  "inp_patch": {
+    "qinf": "replaced"
+  },
+  "rescoring_v13_skipped": "no published output survives for this configuration",
+  "sfincs_total_time_s": 6236.934,
+  "validation_v14": {
+    "exit": 0,
+    "wall_s": 4.7,
+    "json": "results/crete_sens_karst_q1914_v14_newmask.json"
+  },
+  "rescoring_v13": {},
+  "quicklook": {
+    "exit": 0,
+    "png": "quicklook/crete_sens_karst_q1914_v14_hmax.png",
+    "err": ""
+  },
+  "end_utc": "2026-10-20T05:10:42Z"
+}

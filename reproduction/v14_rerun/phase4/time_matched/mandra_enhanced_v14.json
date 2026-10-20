@@ -1,10 +1,10 @@
 {
-  "utc": "2026-10-19T14:08:52Z",
-  "config": "reproduction\\v14_rerun\\configs\\mandra_enhanced.yaml",
+  "utc": "2026-10-20T02:56:51Z",
+  "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\configs\\mandra_enhanced.yaml",
   "model_dir": "D:\\ELKAK\\implementation\\v14\\mandra_enhanced\\model",
   "event": "mandra",
   "threshold_m": 0.1,
-  "exclusion_tif": "reproduction\\v14_rerun\\masks\\mandra_exclusion.tif",
+  "exclusion_tif": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\masks\\mandra_exclusion.tif",
   "simulated_window": [
     "2017-11-13 00:00:00",
     "2017-11-18 00:00:00"

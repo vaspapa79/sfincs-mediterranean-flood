@@ -1,22 +1,16 @@
 {
-  "utc_start": "2026-10-19T21:56:15Z",
+  "utc_start": "2026-10-20T05:10:59Z",
   "runs": {
-    "crete_baseline": {
+    "crete_sens_karst_q1914": {
       "tiers": {
         "exit": 0,
-        "wall_s": 64.6
-      }
-    },
-    "crete_canonical_r2on": {
-      "tiers": {
-        "exit": 0,
-        "wall_s": 80.1
+        "wall_s": 3.0
       }
     }
   },
   "rain_vs_noa": {
     "exit": 0,
-    "wall_s": 48.8
+    "wall_s": 2.1
   },
-  "utc_end": "2026-10-19T21:59:29Z"
+  "utc_end": "2026-10-20T05:11:04Z"
 }
