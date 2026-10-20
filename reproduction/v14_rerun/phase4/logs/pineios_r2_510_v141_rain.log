@@ -1,0 +1,13 @@
+model_forcing  simulated  total   536.9 mm  max cell   760.1 mm  peak mean  22.42 mm/h at 2023-09-05T01:30:00  peak cell   68.2 mm/h
+model_forcing  forcing    total   536.9 mm  max cell   760.1 mm  peak mean  22.42 mm/h at 2023-09-05T01:30:00  peak cell   68.2 mm/h
+model_forcing  event      total   535.6 mm  max cell   760.0 mm  peak mean  22.42 mm/h at 2023-09-05T01:30:00  peak cell   68.2 mm/h
+imerg_raw      simulated  total   147.3 mm  max cell   218.9 mm  peak mean   5.60 mm/h at 2023-09-05T01:30:00  peak cell   19.6 mm/h
+imerg_raw      forcing    total   148.7 mm  max cell   219.2 mm  peak mean   5.60 mm/h at 2023-09-05T01:30:00  peak cell   19.6 mm/h
+imerg_raw      event      total   146.1 mm  max cell   218.8 mm  peak mean   5.60 mm/h at 2023-09-05T01:30:00  peak cell   19.6 mm/h
+imerg          simulated  total   508.8 mm  max cell   760.1 mm  peak mean  19.47 mm/h at 2023-09-05T01:30:00  peak cell   68.2 mm/h
+imerg          forcing    total   510.2 mm  max cell   760.4 mm  peak mean  19.47 mm/h at 2023-09-05T01:30:00  peak cell   68.2 mm/h
+imerg          event      total   507.6 mm  max cell   760.0 mm  peak mean  19.47 mm/h at 2023-09-05T01:30:00  peak cell   68.2 mm/h
+era5           simulated  total   301.4 mm  max cell   537.1 mm  peak mean   7.23 mm/h at 2023-09-05T08:00:00  peak cell   15.6 mm/h
+era5           forcing    total   301.8 mm  max cell   537.7 mm  peak mean   7.23 mm/h at 2023-09-05T08:00:00  peak cell   15.6 mm/h
+era5           event      total   301.2 mm  max cell   536.7 mm  peak mean   7.23 mm/h at 2023-09-05T08:00:00  peak cell   15.6 mm/h
+R2 realised: {'raw_watershed_mean_mm': 146.808837890625, 'corrected_watershed_mean_mm': 509.99993896484375, 'factor': 3.47390488401524, 'target_mm': 510.0}

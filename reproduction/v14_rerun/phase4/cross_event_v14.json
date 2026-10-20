@@ -1,10 +1,13 @@
 {
-  "utc": "2026-10-20T05:11:47Z",
+  "utc": "2026-10-20T11:35:22Z",
   "generator": "reproduction/v14_rerun/scripts/cross_event_v14.py",
+  "harness_label": "v1.4",
+  "enhanced_overrides": {},
   "events": {
     "pineios_enhanced": {
       "label": "Pineios (EMSR692)",
       "enhanced_run": "pineios_enhanced",
+      "enhanced_base_run": "pineios_enhanced",
       "baseline_run": "pineios_baseline_gridmatched",
       "held_out": false,
       "scored_block": "AOI union",
@@ -748,6 +751,7 @@
     "mandra_enhanced": {
       "label": "Mandra (EMSR257)",
       "enhanced_run": "mandra_enhanced",
+      "enhanced_base_run": "mandra_enhanced",
       "baseline_run": "mandra_baseline",
       "held_out": false,
       "scored_block": "AOI union",
@@ -1491,6 +1495,7 @@
     "strymonas_enhanced_postD6": {
       "label": "Strymonas (EMSR122)",
       "enhanced_run": "strymonas_enhanced_postD6",
+      "enhanced_base_run": "strymonas_enhanced_postD6",
       "baseline_run": "strymonas_baseline",
       "held_out": false,
       "scored_block": "AOI union",
@@ -2234,6 +2239,7 @@
     "valencia_enhanced_164": {
       "label": "Valencia (EMSR773)",
       "enhanced_run": "valencia_enhanced_164",
+      "enhanced_base_run": "valencia_enhanced_164",
       "baseline_run": null,
       "held_out": true,
       "scored_block": "AOI union",
@@ -2603,6 +2609,7 @@
     "emilia_enhanced_8aoi": {
       "label": "Emilia-R. (EMSR664)",
       "enhanced_run": "emilia_enhanced_8aoi",
+      "enhanced_base_run": "emilia_enhanced_8aoi",
       "baseline_run": null,
       "held_out": true,
       "scored_block": "AOI union",
@@ -2972,6 +2979,7 @@
     "crete_canonical_r2on": {
       "label": "Crete Tzermiado (EMSR933, tier 1)",
       "enhanced_run": "crete_canonical_r2on",
+      "enhanced_base_run": "crete_canonical_r2on",
       "baseline_run": "crete_baseline",
       "held_out": true,
       "scored_block": "per-AOI Tzermiado (tier 1)",

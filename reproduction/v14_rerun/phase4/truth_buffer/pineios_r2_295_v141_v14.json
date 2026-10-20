@@ -1,0 +1,75 @@
+{
+  "utc": "2026-10-20T09:36:14Z",
+  "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\configs\\pineios_r2_295_v141.yaml",
+  "event": "pineios",
+  "threshold_m": 0.1,
+  "exclusion_tif": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\masks\\pineios_exclusion.tif",
+  "buffers_m": [
+    -20.0,
+    0.0,
+    20.0
+  ],
+  "n_obs_shps": 24,
+  "n_polygons": null,
+  "truth_cache": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\phase4\\truth_buffer\\_cache",
+  "method": "raster-domain buffer as validation/truth_uncertainty.py: refine 8 (fine cell 18.75 m), square structuring element, block-any to the model grid",
+  "zero_buffer_equals_validator_rasterisation": true,
+  "universe_km2": 4506.6825,
+  "sweep": {
+    "-20": {
+      "tp": 56682,
+      "fp": 50874,
+      "fn": 7686,
+      "tn": 85055,
+      "csi": 0.49185192898422453,
+      "hr": 0.8805928411633109,
+      "far": 0.4730001115697869,
+      "f1": 0.6593843791442731,
+      "f2": 0.7764061934974851,
+      "bias": 1.6709545115585385,
+      "gss": 0.2741471141227887,
+      "hss": 0.43032254452270313,
+      "acc": 0.7076341632675477,
+      "truth_km2": 1448.28,
+      "fine_cells_morphed": -1
+    },
+    "0": {
+      "tp": 58521,
+      "fp": 49035,
+      "fn": 8485,
+      "tn": 84256,
+      "csi": 0.504313130703803,
+      "hr": 0.8733695489956124,
+      "far": 0.4559020417271003,
+      "f1": 0.67048956817635,
+      "f2": 0.7790750306193088,
+      "bias": 1.6051696862967495,
+      "gss": 0.2815383539661432,
+      "hss": 0.43937561930133395,
+      "acc": 0.7128264527177142,
+      "truth_km2": 1507.635,
+      "fine_cells_morphed": 0
+    },
+    "20": {
+      "tp": 59730,
+      "fp": 47826,
+      "fn": 9213,
+      "tn": 83528,
+      "csi": 0.5115227500449606,
+      "hr": 0.8663678691092642,
+      "far": 0.44466138569675334,
+      "f1": 0.6768310302041372,
+      "f2": 0.7790977961432507,
+      "bias": 1.5600713633001175,
+      "gss": 0.2847577876805879,
+      "hss": 0.4432863383450195,
+      "acc": 0.7152278865884162,
+      "truth_km2": 1551.2175,
+      "fine_cells_morphed": 1
+    }
+  },
+  "csi_range": [
+    0.49185192898422453,
+    0.5115227500449606
+  ]
+}

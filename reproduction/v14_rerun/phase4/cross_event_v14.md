@@ -1,4 +1,4 @@
-# Cross-event tables under harness v1.4 (new evaluation mask), v1.3 as published beside — generated 2026-10-20T05:11:47Z
+# Cross-event tables under harness v1.4 (new evaluation mask), v1.3 as published beside — generated 2026-10-20T11:35:22Z
 
 Every number below is read from the JSON named in `cross_event_v14.json` → `events.<run>.sources`. Scores at h > 0.10 m unless stated; new mask = AOI ∩ active minus (WorldCover 80 ∪ v1.4 open sea), both sides. Crete = the Tzermiado per-AOI block (tier 1); no union score.
 

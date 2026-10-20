@@ -1,0 +1,211 @@
+{
+  "run": "pineios_enhanced_v141_d8titarisios",
+  "event": "pineios",
+  "kind": "enhanced",
+  "phase": 6,
+  "group": "d8",
+  "label": "D8 diagnostic (never canonical): Titarisios GloFAS sampling point moved to the Titarisios' last cell (22.24, 39.71), one-cell window; injection point and everything else as the v1.4.1 canonical",
+  "c2_row": null,
+  "manifest_row": null,
+  "work": "D:\\ELKAK\\implementation\\v14\\pineios_enhanced_v141_d8titarisios",
+  "published_model": null,
+  "published_wallclock_s": null,
+  "published_text": null,
+  "published_note": null,
+  "compare_to": "pineios_enhanced_v141",
+  "harness_tag": "v1.4.1",
+  "base_run": "pineios_enhanced",
+  "git_head": "0252da6559239e4fcaef9e16ce132d94773bb68a",
+  "start_utc": "2026-10-20T10:53:52Z",
+  "steps": [
+    {
+      "step": 6,
+      "start_utc": "2026-10-20T10:53:52Z",
+      "end_utc": "2026-10-20T10:53:55Z",
+      "wall_s": 3.4,
+      "exit": 0
+    },
+    {
+      "step": 7,
+      "start_utc": "2026-10-20T10:53:55Z",
+      "end_utc": "2026-10-20T10:53:57Z",
+      "wall_s": 2.1,
+      "exit": 0
+    },
+    {
+      "step": 8,
+      "start_utc": "2026-10-20T10:53:57Z",
+      "end_utc": "2026-10-20T10:53:58Z",
+      "wall_s": 0.4,
+      "exit": 0
+    },
+    {
+      "step": 9,
+      "start_utc": "2026-10-20T10:53:58Z",
+      "end_utc": "2026-10-20T10:53:59Z",
+      "wall_s": 1.6,
+      "exit": 0
+    },
+    {
+      "step": 10,
+      "start_utc": "2026-10-20T10:53:59Z",
+      "end_utc": "2026-10-20T10:55:32Z",
+      "wall_s": 93.1,
+      "exit": 0
+    },
+    {
+      "step": 11,
+      "start_utc": "2026-10-20T10:55:32Z",
+      "end_utc": "2026-10-20T11:27:37Z",
+      "wall_s": 1924.4,
+      "exit": 0
+    }
+  ],
+  "config": "reproduction\\v14_rerun\\configs\\pineios_enhanced_v141_d8titarisios.yaml",
+  "config_note": {
+    "derived_from": "skill/examples/emsr692_pineios_enhanced.yaml",
+    "changes": [
+      "harness_version: v1.4",
+      "paths.work_dir/deliverable_dir/zip_dir -> D:\\ELKAK\\implementation\\v14\\pineios_enhanced_v141_d8titarisios",
+      "overrides: {\"upstream_q\": {\"src_points\": [{\"name\": \"pineios_trikala\", \"lon\": 21.77, \"lat\": 39.56, \"src_lon\": 21.86, \"src_lat\": 39.56}, {\"name\": \"pineios_kalambaka\", \"lon\": 21.63, \"lat\": 39.7, \"src_lon\": 21.86, \"src_lat\": 39.7}, {\"name\": \"titarisios\", \"lon\": 22.24, \"lat\": 39.71, \"window_deg\": 0.05, \"src_lon\": 22.42, \"src_lat\": 39.71}, {\"name\": \"enipeas\", \"lon\": 22.39, \"lat\": 39.3, \"src_lon\": 22.39, \"src_lat\": 39.33}]}}"
+    ]
+  },
+  "seed": {
+    "from": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\data",
+    "junctions": {
+      "copdem30": "exists",
+      "esa_worldcover": "exists",
+      "ems_polygons": "exists",
+      "era5_extracted": "exists"
+    },
+    "copied": [],
+    "skipped": [
+      "glofas_pineios.nc",
+      "imerg_pineios.nc",
+      "imerg_pineios.raw.nc",
+      "era5_pineios.nc"
+    ]
+  },
+  "coastal_prep": {
+    "harness_version": "v1.4",
+    "n_active_before": 262465,
+    "n_dep_le_0": 39499,
+    "n_open_sea": 39490,
+    "open_sea_km2": 888.52,
+    "n_inland_dep_le_0": 9,
+    "n_ring": 728,
+    "ring_length_km": 109.2,
+    "n_exclude": 38762,
+    "n_active_after_expected": 223703,
+    "connectivity": {
+      "open_sea": 4,
+      "ring_adjacency": 8
+    },
+    "zsini": -9999,
+    "exclude_mask": "D:/ELKAK/implementation/v14/pineios_enhanced_v141_d8titarisios/open_sea_exclude.geojson",
+    "open_sea_mask_tif": "D:/ELKAK/implementation/v14/pineios_enhanced_v141_d8titarisios/open_sea_mask.tif",
+    "n_exclude_polygons": 3
+  },
+  "exclusion": {
+    "reused": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\masks\\pineios_exclusion.tif",
+    "open_sea_identical_to_first_build": true,
+    "symmetric_difference_cells": 0
+  },
+  "rescoring_v13_skipped": "no published output survives for this configuration",
+  "sfincs_total_time_s": 1922.775,
+  "q_outlet_cells": {
+    "window_half_deg": 0.1,
+    "latitude_order": "ascending",
+    "glofas_time": [
+      "2023-08-27T00:00:00",
+      "2023-09-11T00:00:00"
+    ],
+    "points": [
+      {
+        "id": 1,
+        "name": "pineios_trikala",
+        "named_lonlat": [
+          21.77,
+          39.56
+        ],
+        "window_half_deg": 0.1,
+        "cell_lonlat": [
+          21.84,
+          39.51
+        ],
+        "window_cells": 4,
+        "cell_mean_m3s": 71.092,
+        "cell_peak_m3s": 371.39,
+        "column_peak_m3s": 371.39,
+        "column_mean_m3s": 72.729
+      },
+      {
+        "id": 2,
+        "name": "pineios_kalambaka",
+        "named_lonlat": [
+          21.63,
+          39.7
+        ],
+        "window_half_deg": 0.1,
+        "cell_lonlat": [
+          21.64,
+          39.61
+        ],
+        "window_cells": 2,
+        "cell_mean_m3s": 0.612,
+        "cell_peak_m3s": 2.1,
+        "column_peak_m3s": 2.1,
+        "column_mean_m3s": 0.612
+      },
+      {
+        "id": 3,
+        "name": "titarisios",
+        "named_lonlat": [
+          22.24,
+          39.71
+        ],
+        "window_half_deg": 0.05,
+        "cell_lonlat": [
+          22.24,
+          39.71
+        ],
+        "window_cells": 1,
+        "cell_mean_m3s": 16.498,
+        "cell_peak_m3s": 42.85,
+        "column_peak_m3s": 42.85,
+        "column_mean_m3s": 16.454
+      },
+      {
+        "id": 4,
+        "name": "enipeas",
+        "named_lonlat": [
+          22.39,
+          39.3
+        ],
+        "window_half_deg": 0.1,
+        "cell_lonlat": [
+          22.34,
+          39.31
+        ],
+        "window_cells": 4,
+        "cell_mean_m3s": 33.245,
+        "cell_peak_m3s": 118.4,
+        "column_peak_m3s": 118.4,
+        "column_mean_m3s": 33.377
+      }
+    ],
+    "duplicate_cells": []
+  },
+  "validation_v14": {
+    "exit": 0,
+    "wall_s": 103.4,
+    "json": "results/pineios_enhanced_v141_d8titarisios_v14_newmask.json"
+  },
+  "rescoring_v13": {},
+  "quicklook": {
+    "exit": 0,
+    "png": "quicklook/pineios_enhanced_v141_d8titarisios_v14_hmax.png",
+    "err": ""
+  },
+  "end_utc": "2026-10-20T11:31:10Z"
+}

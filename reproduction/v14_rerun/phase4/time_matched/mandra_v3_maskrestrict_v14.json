@@ -1,0 +1,223 @@
+{
+  "utc": "2026-10-20T09:33:59Z",
+  "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\configs\\mandra_v3_maskrestrict.yaml",
+  "model_dir": "D:\\ELKAK\\implementation\\v14\\mandra_v3_maskrestrict\\model",
+  "event": "mandra",
+  "threshold_m": 0.1,
+  "exclusion_tif": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\masks\\mandra_exclusion.tif",
+  "simulated_window": [
+    "2017-11-13 00:00:00",
+    "2017-11-18 00:00:00"
+  ],
+  "n_products": 3,
+  "products": [
+    {
+      "product": "EMSR257_01MANDRA_02GRADING_MAP_v2",
+      "sensor": "Pleiades-1A-1B",
+      "resolution": "0.5 m",
+      "acq_utc": "2017-11-20T09:41:00",
+      "date_only": false,
+      "n_post_images": 1,
+      "all_post": [
+        [
+          "Pleiades-1A-1B",
+          "2017-11-20T09:41:00"
+        ]
+      ],
+      "source": "source layer",
+      "obs_shp": "EMSR257_01MANDRA_GRA_v2_observed_event_a.shp",
+      "universe_km2": 38.0,
+      "obs_km2": 2.7375000000000003,
+      "aoi_files": [
+        "EMSR257_01MANDRA_GRA_v2_area_of_interest_a.shp"
+      ],
+      "full_window": {
+        "tp": 750,
+        "fp": 9876,
+        "fn": 345,
+        "tn": 4229,
+        "csi": 0.06836204539239814,
+        "hr": 0.684931506849315,
+        "far": 0.9294184076792772,
+        "f1": 0.1279754287176862,
+        "f2": 0.2499000399840064,
+        "bias": 9.704109589041096,
+        "gss": -0.0015179495748329423,
+        "hss": -0.003040514497354411,
+        "acc": 0.3275657894736842
+      },
+      "time_matched": {
+        "tp": 750,
+        "fp": 9876,
+        "fn": 345,
+        "tn": 4229,
+        "csi": 0.06836204539239814,
+        "hr": 0.684931506849315,
+        "far": 0.9294184076792772,
+        "f1": 0.1279754287176862,
+        "f2": 0.2499000399840064,
+        "bias": 9.704109589041096,
+        "gss": -0.0015179495748329423,
+        "hss": -0.003040514497354411,
+        "acc": 0.3275657894736842
+      },
+      "time_matched_at": "2017-11-20T09:41:00"
+    },
+    {
+      "product": "EMSR257_02NEAPERAMOS_02GRADING_MAP_v2",
+      "sensor": "Pleiades-1A-1B",
+      "resolution": "0.5 m",
+      "acq_utc": "2017-11-20T09:41:00",
+      "date_only": false,
+      "n_post_images": 1,
+      "all_post": [
+        [
+          "Pleiades-1A-1B",
+          "2017-11-20T09:41:00"
+        ]
+      ],
+      "source": "source layer",
+      "obs_shp": "EMSR257_02NEAPERAMOS_GRA_v2_observed_event_a.shp",
+      "universe_km2": 23.3325,
+      "obs_km2": 2.4225,
+      "aoi_files": [
+        "EMSR257_02NEAPERAMOS_GRA_v2_area_of_interest_a.shp"
+      ],
+      "full_window": {
+        "tp": 748,
+        "fp": 6289,
+        "fn": 221,
+        "tn": 2075,
+        "csi": 0.10305869385505649,
+        "hr": 0.7719298245614035,
+        "far": 0.8937047037089669,
+        "f1": 0.1868598551086685,
+        "f2": 0.3427105287272061,
+        "bias": 7.262125902992776,
+        "gss": 0.002663014405057806,
+        "hss": 0.00531188318866624,
+        "acc": 0.30247508839601417
+      },
+      "time_matched": {
+        "tp": 748,
+        "fp": 6289,
+        "fn": 221,
+        "tn": 2075,
+        "csi": 0.10305869385505649,
+        "hr": 0.7719298245614035,
+        "far": 0.8937047037089669,
+        "f1": 0.1868598551086685,
+        "f2": 0.3427105287272061,
+        "bias": 7.262125902992776,
+        "gss": 0.002663014405057806,
+        "hss": 0.00531188318866624,
+        "acc": 0.30247508839601417
+      },
+      "time_matched_at": "2017-11-20T09:41:00"
+    },
+    {
+      "product": "EMSR257_03LAKKAKALOGIROU_02GRADING_MAP_v1",
+      "sensor": "Pleiades-1A-1B",
+      "resolution": "0.5 m",
+      "acq_utc": "2017-11-20T09:41:00",
+      "date_only": false,
+      "n_post_images": 1,
+      "all_post": [
+        [
+          "Pleiades-1A-1B",
+          "2017-11-20T09:41:00"
+        ]
+      ],
+      "source": "source layer",
+      "obs_shp": "EMSR257_03LAKKAKALOGIROU_GRA_v1_observed_event_a.shp",
+      "universe_km2": 30.622500000000002,
+      "obs_km2": 4.3500000000000005,
+      "aoi_files": [
+        "EMSR257_03LAKKAKALOGIROU_GRA_v1_area_of_interest_a.shp"
+      ],
+      "full_window": {
+        "tp": 1259,
+        "fp": 7516,
+        "fn": 481,
+        "tn": 2993,
+        "csi": 0.13601987899740708,
+        "hr": 0.7235632183908046,
+        "far": 0.8565242165242165,
+        "f1": 0.23946742748454589,
+        "f2": 0.40006355258976806,
+        "bias": 5.043103448275862,
+        "gss": 0.0015594102367177138,
+        "hss": 0.0031139645252779616,
+        "acc": 0.34713037799004
+      },
+      "time_matched": {
+        "tp": 1259,
+        "fp": 7516,
+        "fn": 481,
+        "tn": 2993,
+        "csi": 0.13601987899740708,
+        "hr": 0.7235632183908046,
+        "far": 0.8565242165242165,
+        "f1": 0.23946742748454589,
+        "f2": 0.40006355258976806,
+        "bias": 5.043103448275862,
+        "gss": 0.0015594102367177138,
+        "hss": 0.0031139645252779616,
+        "acc": 0.34713037799004
+      },
+      "time_matched_at": "2017-11-20T09:41:00"
+    }
+  ],
+  "union": {
+    "universe_km2": 86.9425,
+    "obs_km2": 8.82,
+    "full_window": {
+      "tp": 2537,
+      "fp": 22222,
+      "fn": 991,
+      "tn": 9027,
+      "csi": 0.0985242718446602,
+      "hr": 0.7191043083900227,
+      "far": 0.8975322105093098,
+      "f1": 0.17937568494361367,
+      "f2": 0.32633582876694706,
+      "bias": 7.017857142857143,
+      "gss": 0.0010882735828594721,
+      "hss": 0.0021741810619049337,
+      "acc": 0.3325186186272536
+    },
+    "earliest_acq_utc": "2017-11-20T09:41:00",
+    "latest_acq_utc": "2017-11-20T09:41:00",
+    "hmax_to_earliest": {
+      "tp": 2537,
+      "fp": 22222,
+      "fn": 991,
+      "tn": 9027,
+      "csi": 0.0985242718446602,
+      "hr": 0.7191043083900227,
+      "far": 0.8975322105093098,
+      "f1": 0.17937568494361367,
+      "f2": 0.32633582876694706,
+      "bias": 7.017857142857143,
+      "gss": 0.0010882735828594721,
+      "hss": 0.0021741810619049337,
+      "acc": 0.3325186186272536
+    },
+    "hmax_to_latest": {
+      "tp": 2537,
+      "fp": 22222,
+      "fn": 991,
+      "tn": 9027,
+      "csi": 0.0985242718446602,
+      "hr": 0.7191043083900227,
+      "far": 0.8975322105093098,
+      "f1": 0.17937568494361367,
+      "f2": 0.32633582876694706,
+      "bias": 7.017857142857143,
+      "gss": 0.0010882735828594721,
+      "hss": 0.0021741810619049337,
+      "acc": 0.3325186186272536
+    }
+  },
+  "method": "hmax(t) = max(hourly zs <= t, daily zsmax blocks complete by t) - zb; truth = the product's polygons; universe = AOI \u2229 active minus exclusion"
+}

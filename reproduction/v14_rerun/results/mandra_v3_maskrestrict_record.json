@@ -1,0 +1,91 @@
+{
+  "run": "mandra_v3_maskrestrict",
+  "event": "mandra",
+  "kind": "enhanced",
+  "phase": 6,
+  "group": "row16",
+  "manifest_row": 16,
+  "base_run": "mandra_enhanced",
+  "harness_tag": "v1.4.1",
+  "label": "MANIFEST row 16: Mandra v3 post-hoc mask restriction (published 213 km\u00b2 edit applied to the v1.4 canonical build; index file kept)",
+  "published_model": "D:\\ELKAK\\implementation\\mandra_sfincs_v3\\model",
+  "published_text": {
+    "source": "NHESS supplement R5, S2 'Mandra: post-hoc mask restriction (a counter-example)' and Table S2 Mandra v3 row",
+    "active_km2": 213,
+    "csi": 0.083,
+    "hr": 0.775,
+    "bias": 9.08
+  },
+  "published_wallclock_s": 1906.7,
+  "work": "D:\\ELKAK\\implementation\\v14\\mandra_v3_maskrestrict",
+  "git_head": "eb661162b2e82ea01ac0c04f8c91442fd2b0c08a",
+  "start_utc": "2026-10-20T09:09:00Z",
+  "steps": [
+    {
+      "step": "sfincs",
+      "start_utc": "2026-10-20T09:09:05Z",
+      "end_utc": "2026-10-20T09:33:02Z",
+      "wall_s": 1436.5,
+      "exit": 0
+    }
+  ],
+  "mask_edit": {
+    "published_v3_deactivated_cells": 76992,
+    "v14_active_before": 117667,
+    "v14_active_after": 69660,
+    "v14_boundary_cells_before": 3253,
+    "v14_boundary_cells_after": 1141,
+    "v14_cells_deactivated_here": 48007,
+    "active_km2_before": 294.1675000000001,
+    "active_km2_after": 174.15000000000003,
+    "published_v3_active_km2": 213.35750000000004,
+    "index_file": "kept (v1.4 sfincs.ind)"
+  },
+  "config": "reproduction\\v14_rerun\\configs\\mandra_v3_maskrestrict.yaml",
+  "sfincs_total_time_s": 1435.642,
+  "validation_v14": {
+    "exit": 0,
+    "wall_s": 2.9,
+    "json": "results/mandra_v3_maskrestrict_v14_newmask.json"
+  },
+  "rescoring_v13": {
+    "v13_publishedmask": {
+      "exit": 0,
+      "wall_s": 3.0,
+      "json": "results/mandra_v3_maskrestrict_v13_publishedmask.json",
+      "published_work": "D:\\ELKAK\\implementation\\mandra_sfincs_v3"
+    },
+    "v13_newmask": {
+      "exit": 0,
+      "wall_s": 2.9,
+      "json": "results/mandra_v3_maskrestrict_v13_newmask.json",
+      "published_work": "D:\\ELKAK\\implementation\\mandra_sfincs_v3"
+    }
+  },
+  "published_record_check": {
+    "published_text": {
+      "source": "NHESS supplement R5, S2 'Mandra: post-hoc mask restriction (a counter-example)' and Table S2 Mandra v3 row",
+      "active_km2": 213,
+      "csi": 0.083,
+      "hr": 0.775,
+      "bias": 9.08
+    },
+    "rescored_published_mask": {
+      "tp": 2787,
+      "fp": 29847,
+      "fn": 808,
+      "csi": 0.08333831708629867,
+      "hr": 0.7752433936022253,
+      "far": 0.9145982717411288,
+      "bias": 9.077607788595271
+    },
+    "csi_matches_text_3dp": true,
+    "hr_matches_text_3dp": true
+  },
+  "quicklook": {
+    "exit": 0,
+    "png": "quicklook/mandra_v3_maskrestrict_v14_hmax.png",
+    "err": ""
+  },
+  "end_utc": "2026-10-20T09:33:15Z"
+}

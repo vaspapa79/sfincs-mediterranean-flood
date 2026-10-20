@@ -1,0 +1,222 @@
+{
+  "run": "pineios_cn_on_v141",
+  "event": "pineios",
+  "kind": "enhanced",
+  "phase": 6,
+  "group": "v141",
+  "label": "v1.4.1 (D7 sampler fix) re-run of pineios_cn_on: \u00a74.1.2 (ii) / \u00a76.2: Pineios CN-on (HSG-B, AMC-II)",
+  "c2_row": 6,
+  "manifest_row": 18,
+  "work": "D:\\ELKAK\\implementation\\v14\\pineios_cn_on_v141",
+  "published_model": null,
+  "published_wallclock_s": null,
+  "published_text": {
+    "source": "NHESS manuscript R5 \u00a74.1.2 (ii): collapsed the flood to ~38 km2 (against 1519 km2 observed)",
+    "modelled_wet_km2": 38,
+    "observed_km2": 1519
+  },
+  "published_note": null,
+  "compare_to": null,
+  "harness_tag": "v1.4.1",
+  "base_run": "pineios_cn_on",
+  "git_head": "0252da6559239e4fcaef9e16ce132d94773bb68a",
+  "start_utc": "2026-10-20T09:35:21Z",
+  "steps": [
+    {
+      "step": 6,
+      "start_utc": "2026-10-20T09:35:21Z",
+      "end_utc": "2026-10-20T09:35:24Z",
+      "wall_s": 3.1,
+      "exit": 0
+    },
+    {
+      "step": 7,
+      "start_utc": "2026-10-20T09:35:24Z",
+      "end_utc": "2026-10-20T09:35:27Z",
+      "wall_s": 2.5,
+      "exit": 0
+    },
+    {
+      "step": 8,
+      "start_utc": "2026-10-20T09:35:27Z",
+      "end_utc": "2026-10-20T09:35:34Z",
+      "wall_s": 7.0,
+      "exit": 0
+    },
+    {
+      "step": 9,
+      "start_utc": "2026-10-20T09:35:34Z",
+      "end_utc": "2026-10-20T09:35:36Z",
+      "wall_s": 2.0,
+      "exit": 0
+    },
+    {
+      "step": 10,
+      "start_utc": "2026-10-20T09:35:36Z",
+      "end_utc": "2026-10-20T09:36:46Z",
+      "wall_s": 70.8,
+      "exit": 0
+    },
+    {
+      "step": 11,
+      "start_utc": "2026-10-20T09:36:46Z",
+      "end_utc": "2026-10-20T10:13:51Z",
+      "wall_s": 2225.0,
+      "exit": 0
+    }
+  ],
+  "config": "reproduction\\v14_rerun\\configs\\pineios_cn_on_v141.yaml",
+  "config_note": {
+    "derived_from": "skill/examples/emsr692_pineios_enhanced.yaml",
+    "changes": [
+      "harness_version: v1.4",
+      "paths.work_dir/deliverable_dir/zip_dir -> D:\\ELKAK\\implementation\\v14\\pineios_cn_on_v141",
+      "overrides: {\"infiltration\": {\"enabled\": true}}"
+    ]
+  },
+  "d6_rendered": true,
+  "seed": {
+    "from": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\data",
+    "junctions": {
+      "copdem30": "exists",
+      "esa_worldcover": "exists",
+      "ems_polygons": "exists",
+      "era5_extracted": "exists"
+    },
+    "copied": [],
+    "skipped": [
+      "glofas_pineios.nc",
+      "imerg_pineios.nc",
+      "imerg_pineios.raw.nc",
+      "era5_pineios.nc"
+    ]
+  },
+  "coastal_prep": {
+    "harness_version": "v1.4",
+    "n_active_before": 262465,
+    "n_dep_le_0": 39499,
+    "n_open_sea": 39490,
+    "open_sea_km2": 888.52,
+    "n_inland_dep_le_0": 9,
+    "n_ring": 728,
+    "ring_length_km": 109.2,
+    "n_exclude": 38762,
+    "n_active_after_expected": 223703,
+    "connectivity": {
+      "open_sea": 4,
+      "ring_adjacency": 8
+    },
+    "zsini": -9999,
+    "exclude_mask": "D:/ELKAK/implementation/v14/pineios_cn_on_v141/open_sea_exclude.geojson",
+    "open_sea_mask_tif": "D:/ELKAK/implementation/v14/pineios_cn_on_v141/open_sea_mask.tif",
+    "n_exclude_polygons": 3
+  },
+  "exclusion": {
+    "reused": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\masks\\pineios_exclusion.tif",
+    "open_sea_identical_to_first_build": true,
+    "symmetric_difference_cells": 0
+  },
+  "rescoring_v13_skipped": "no published output survives for this configuration",
+  "sfincs_total_time_s": 2222.802,
+  "q_outlet_cells": {
+    "window_half_deg": 0.1,
+    "latitude_order": "ascending",
+    "glofas_time": [
+      "2023-08-27T00:00:00",
+      "2023-09-11T00:00:00"
+    ],
+    "points": [
+      {
+        "id": 1,
+        "name": "pineios_trikala",
+        "named_lonlat": [
+          21.77,
+          39.56
+        ],
+        "window_half_deg": 0.1,
+        "cell_lonlat": [
+          21.84,
+          39.51
+        ],
+        "window_cells": 4,
+        "cell_mean_m3s": 71.092,
+        "cell_peak_m3s": 371.39,
+        "column_peak_m3s": 371.39,
+        "column_mean_m3s": 72.729
+      },
+      {
+        "id": 2,
+        "name": "pineios_kalambaka",
+        "named_lonlat": [
+          21.63,
+          39.7
+        ],
+        "window_half_deg": 0.1,
+        "cell_lonlat": [
+          21.64,
+          39.61
+        ],
+        "window_cells": 2,
+        "cell_mean_m3s": 0.612,
+        "cell_peak_m3s": 2.1,
+        "column_peak_m3s": 2.1,
+        "column_mean_m3s": 0.612
+      },
+      {
+        "id": 3,
+        "name": "titarisios",
+        "named_lonlat": [
+          22.42,
+          39.71
+        ],
+        "window_half_deg": 0.1,
+        "cell_lonlat": [
+          22.44,
+          39.81
+        ],
+        "window_cells": 6,
+        "cell_mean_m3s": 302.473,
+        "cell_peak_m3s": 1128.8,
+        "column_peak_m3s": 1128.8,
+        "column_mean_m3s": 305.405
+      },
+      {
+        "id": 4,
+        "name": "enipeas",
+        "named_lonlat": [
+          22.39,
+          39.3
+        ],
+        "window_half_deg": 0.1,
+        "cell_lonlat": [
+          22.34,
+          39.31
+        ],
+        "window_cells": 4,
+        "cell_mean_m3s": 33.245,
+        "cell_peak_m3s": 118.4,
+        "column_peak_m3s": 118.4,
+        "column_mean_m3s": 33.377
+      }
+    ],
+    "duplicate_cells": []
+  },
+  "cn_realised": {
+    "raster_clip_mean_cn": 76.9,
+    "active_mean_cn": 73.2,
+    "msk1_mean_cn": 73.1,
+    "active_S_mm_mean": 95.1
+  },
+  "validation_v14": {
+    "exit": 0,
+    "wall_s": 104.2,
+    "json": "results/pineios_cn_on_v141_v14_newmask.json"
+  },
+  "rescoring_v13": {},
+  "quicklook": {
+    "exit": 0,
+    "png": "quicklook/pineios_cn_on_v141_v14_hmax.png",
+    "err": ""
+  },
+  "end_utc": "2026-10-20T10:17:31Z"
+}
