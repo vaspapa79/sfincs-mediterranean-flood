@@ -1,0 +1,5862 @@
+{
+  "utc": "2026-10-20T08:30:59Z",
+  "window_half_deg": 0.1,
+  "lowest_zb_window_cells": 10,
+  "runs": [
+    {
+      "run": "pineios_enhanced",
+      "note": "v1.4 pipeline run",
+      "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\configs\\pineios_enhanced.yaml",
+      "model": "D:\\ELKAK\\implementation\\v14\\pineios_enhanced\\model",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\pineios_enhanced\\data\\glofas_pineios_clean.nc",
+      "glofas_latitude_order": "ascending",
+      "glofas_domain_mean_m3s": 11.589,
+      "glofas_time": [
+        "2023-08-27",
+        "2023-09-11"
+      ],
+      "n_dis_rows": 361,
+      "n_dis_cols": 4,
+      "pipeline_dis_kept_as": null,
+      "points": [
+        {
+          "name": "pineios_trikala",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 371.39,
+            "nearest cell @ named point, step-filled": 9.07,
+            "nearest cell @ named point, hourly linear": 9.07,
+            "nearest cell @ injection point, hourly linear (audit rebuild)": 1.38,
+            "nearest cell @ injection point, step-filled": 1.38
+          },
+          "named_lonlat": [
+            21.77,
+            39.56
+          ],
+          "injection_lonlat": [
+            21.86,
+            39.56
+          ],
+          "written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "written_is": "FALLBACK constant = domain mean 11.589",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              21.74,
+              39.61
+            ],
+            "daily_peak_m3s": 9.07,
+            "daily_mean_m3s": 2.93
+          },
+          "nearest_injection": {
+            "cell": [
+              21.84,
+              39.61
+            ],
+            "daily_peak_m3s": 1.38,
+            "daily_mean_m3s": 0.33
+          },
+          "window_max": {
+            "cell": [
+              21.84,
+              39.51
+            ],
+            "n_cells": 4,
+            "daily_peak_m3s": 371.39,
+            "daily_mean_m3s": 71.09
+          },
+          "src_xy": [
+            573878.87,
+            4379276.52
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            0.0,
+            0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 97.76842498779297,
+            "lowest_zb_m": 94.5,
+            "lowest_offset_cells": [
+              2,
+              10
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "pineios_kalambaka",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 2.1,
+            "nearest cell @ named point, step-filled": 0.52,
+            "nearest cell @ named point, hourly linear": 0.52,
+            "nearest cell @ injection point, hourly linear (audit rebuild)": 0.4,
+            "nearest cell @ injection point, step-filled": 0.4
+          },
+          "named_lonlat": [
+            21.63,
+            39.7
+          ],
+          "injection_lonlat": [
+            21.86,
+            39.7
+          ],
+          "written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "written_is": "FALLBACK constant = domain mean 11.589",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              21.64,
+              39.71
+            ],
+            "daily_peak_m3s": 0.52,
+            "daily_mean_m3s": 0.17
+          },
+          "nearest_injection": {
+            "cell": [
+              21.84,
+              39.71
+            ],
+            "daily_peak_m3s": 0.4,
+            "daily_mean_m3s": 0.09
+          },
+          "window_max": {
+            "cell": [
+              21.64,
+              39.61
+            ],
+            "n_cells": 2,
+            "daily_peak_m3s": 2.1,
+            "daily_mean_m3s": 0.61
+          },
+          "src_xy": [
+            573730.1,
+            4394814.49
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            0.0,
+            0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": null,
+            "lowest_zb_m": 362.1,
+            "lowest_offset_cells": [
+              9,
+              5
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": null
+        },
+        {
+          "name": "titarisios",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 1128.8,
+            "nearest cell @ named point, step-filled": 24.41,
+            "nearest cell @ named point, hourly linear": 24.41
+          },
+          "named_lonlat": [
+            22.42,
+            39.71
+          ],
+          "injection_lonlat": [
+            22.42,
+            39.71
+          ],
+          "written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "written_is": "FALLBACK constant = domain mean 11.589",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              22.44,
+              39.71
+            ],
+            "daily_peak_m3s": 24.41,
+            "daily_mean_m3s": 3.66
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              22.44,
+              39.81
+            ],
+            "n_cells": 6,
+            "daily_peak_m3s": 1128.8,
+            "daily_mean_m3s": 302.47
+          },
+          "src_xy": [
+            621724.29,
+            4396534.68
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            -0.0,
+            -0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 64.54530334472656,
+            "lowest_zb_m": 61.23,
+            "lowest_offset_cells": [
+              -10,
+              0
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "enipeas",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 118.4,
+            "nearest cell @ named point, step-filled": 118.4,
+            "nearest cell @ named point, hourly linear": 118.4,
+            "nearest cell @ injection point, hourly linear (audit rebuild)": 118.4,
+            "nearest cell @ injection point, step-filled": 118.4
+          },
+          "named_lonlat": [
+            22.39,
+            39.3
+          ],
+          "injection_lonlat": [
+            22.39,
+            39.33
+          ],
+          "written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "written_is": "FALLBACK constant = domain mean 11.589",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              22.34,
+              39.31
+            ],
+            "daily_peak_m3s": 118.4,
+            "daily_mean_m3s": 33.25
+          },
+          "nearest_injection": {
+            "cell": [
+              22.34,
+              39.31
+            ],
+            "daily_peak_m3s": 118.4,
+            "daily_mean_m3s": 33.25
+          },
+          "window_max": {
+            "cell": [
+              22.34,
+              39.31
+            ],
+            "n_cells": 4,
+            "daily_peak_m3s": 118.4,
+            "daily_mean_m3s": 33.25
+          },
+          "src_xy": [
+            619803.78,
+            4354319.21
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            0.0,
+            -0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 136.2526092529297,
+            "lowest_zb_m": 129.81,
+            "lowest_offset_cells": [
+              -3,
+              -10
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        }
+      ]
+    },
+    {
+      "run": "pineios_r2_220",
+      "note": "v1.4 pipeline run",
+      "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\configs\\pineios_r2_220.yaml",
+      "model": "D:\\ELKAK\\implementation\\v14\\pineios_r2_220\\model",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\pineios_r2_220\\data\\glofas_pineios_clean.nc",
+      "glofas_latitude_order": "ascending",
+      "glofas_domain_mean_m3s": 11.589,
+      "glofas_time": [
+        "2023-08-27",
+        "2023-09-11"
+      ],
+      "n_dis_rows": 361,
+      "n_dis_cols": 4,
+      "pipeline_dis_kept_as": null,
+      "points": [
+        {
+          "name": "pineios_trikala",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 371.39,
+            "nearest cell @ named point, step-filled": 9.07,
+            "nearest cell @ named point, hourly linear": 9.07,
+            "nearest cell @ injection point, hourly linear (audit rebuild)": 1.38,
+            "nearest cell @ injection point, step-filled": 1.38
+          },
+          "named_lonlat": [
+            21.77,
+            39.56
+          ],
+          "injection_lonlat": [
+            21.86,
+            39.56
+          ],
+          "written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "written_is": "FALLBACK constant = domain mean 11.589",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              21.74,
+              39.61
+            ],
+            "daily_peak_m3s": 9.07,
+            "daily_mean_m3s": 2.93
+          },
+          "nearest_injection": {
+            "cell": [
+              21.84,
+              39.61
+            ],
+            "daily_peak_m3s": 1.38,
+            "daily_mean_m3s": 0.33
+          },
+          "window_max": {
+            "cell": [
+              21.84,
+              39.51
+            ],
+            "n_cells": 4,
+            "daily_peak_m3s": 371.39,
+            "daily_mean_m3s": 71.09
+          },
+          "src_xy": [
+            573878.87,
+            4379276.52
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            0.0,
+            0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 97.76842498779297,
+            "lowest_zb_m": 94.5,
+            "lowest_offset_cells": [
+              2,
+              10
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "pineios_kalambaka",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 2.1,
+            "nearest cell @ named point, step-filled": 0.52,
+            "nearest cell @ named point, hourly linear": 0.52,
+            "nearest cell @ injection point, hourly linear (audit rebuild)": 0.4,
+            "nearest cell @ injection point, step-filled": 0.4
+          },
+          "named_lonlat": [
+            21.63,
+            39.7
+          ],
+          "injection_lonlat": [
+            21.86,
+            39.7
+          ],
+          "written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "written_is": "FALLBACK constant = domain mean 11.589",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              21.64,
+              39.71
+            ],
+            "daily_peak_m3s": 0.52,
+            "daily_mean_m3s": 0.17
+          },
+          "nearest_injection": {
+            "cell": [
+              21.84,
+              39.71
+            ],
+            "daily_peak_m3s": 0.4,
+            "daily_mean_m3s": 0.09
+          },
+          "window_max": {
+            "cell": [
+              21.64,
+              39.61
+            ],
+            "n_cells": 2,
+            "daily_peak_m3s": 2.1,
+            "daily_mean_m3s": 0.61
+          },
+          "src_xy": [
+            573730.1,
+            4394814.49
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            0.0,
+            0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": null,
+            "lowest_zb_m": 362.1,
+            "lowest_offset_cells": [
+              9,
+              5
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": null
+        },
+        {
+          "name": "titarisios",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 1128.8,
+            "nearest cell @ named point, step-filled": 24.41,
+            "nearest cell @ named point, hourly linear": 24.41
+          },
+          "named_lonlat": [
+            22.42,
+            39.71
+          ],
+          "injection_lonlat": [
+            22.42,
+            39.71
+          ],
+          "written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "written_is": "FALLBACK constant = domain mean 11.589",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              22.44,
+              39.71
+            ],
+            "daily_peak_m3s": 24.41,
+            "daily_mean_m3s": 3.66
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              22.44,
+              39.81
+            ],
+            "n_cells": 6,
+            "daily_peak_m3s": 1128.8,
+            "daily_mean_m3s": 302.47
+          },
+          "src_xy": [
+            621724.29,
+            4396534.68
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            -0.0,
+            -0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 64.54530334472656,
+            "lowest_zb_m": 61.23,
+            "lowest_offset_cells": [
+              -10,
+              0
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "enipeas",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 118.4,
+            "nearest cell @ named point, step-filled": 118.4,
+            "nearest cell @ named point, hourly linear": 118.4,
+            "nearest cell @ injection point, hourly linear (audit rebuild)": 118.4,
+            "nearest cell @ injection point, step-filled": 118.4
+          },
+          "named_lonlat": [
+            22.39,
+            39.3
+          ],
+          "injection_lonlat": [
+            22.39,
+            39.33
+          ],
+          "written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "written_is": "FALLBACK constant = domain mean 11.589",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              22.34,
+              39.31
+            ],
+            "daily_peak_m3s": 118.4,
+            "daily_mean_m3s": 33.25
+          },
+          "nearest_injection": {
+            "cell": [
+              22.34,
+              39.31
+            ],
+            "daily_peak_m3s": 118.4,
+            "daily_mean_m3s": 33.25
+          },
+          "window_max": {
+            "cell": [
+              22.34,
+              39.31
+            ],
+            "n_cells": 4,
+            "daily_peak_m3s": 118.4,
+            "daily_mean_m3s": 33.25
+          },
+          "src_xy": [
+            619803.78,
+            4354319.21
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            0.0,
+            -0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 136.2526092529297,
+            "lowest_zb_m": 129.81,
+            "lowest_offset_cells": [
+              -3,
+              -10
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        }
+      ]
+    },
+    {
+      "run": "pineios_r2_295",
+      "note": "v1.4 pipeline run",
+      "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\configs\\pineios_r2_295.yaml",
+      "model": "D:\\ELKAK\\implementation\\v14\\pineios_r2_295\\model",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\pineios_r2_295\\data\\glofas_pineios_clean.nc",
+      "glofas_latitude_order": "ascending",
+      "glofas_domain_mean_m3s": 11.589,
+      "glofas_time": [
+        "2023-08-27",
+        "2023-09-11"
+      ],
+      "n_dis_rows": 361,
+      "n_dis_cols": 4,
+      "pipeline_dis_kept_as": null,
+      "points": [
+        {
+          "name": "pineios_trikala",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 371.39,
+            "nearest cell @ named point, step-filled": 9.07,
+            "nearest cell @ named point, hourly linear": 9.07,
+            "nearest cell @ injection point, hourly linear (audit rebuild)": 1.38,
+            "nearest cell @ injection point, step-filled": 1.38
+          },
+          "named_lonlat": [
+            21.77,
+            39.56
+          ],
+          "injection_lonlat": [
+            21.86,
+            39.56
+          ],
+          "written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "written_is": "FALLBACK constant = domain mean 11.589",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              21.74,
+              39.61
+            ],
+            "daily_peak_m3s": 9.07,
+            "daily_mean_m3s": 2.93
+          },
+          "nearest_injection": {
+            "cell": [
+              21.84,
+              39.61
+            ],
+            "daily_peak_m3s": 1.38,
+            "daily_mean_m3s": 0.33
+          },
+          "window_max": {
+            "cell": [
+              21.84,
+              39.51
+            ],
+            "n_cells": 4,
+            "daily_peak_m3s": 371.39,
+            "daily_mean_m3s": 71.09
+          },
+          "src_xy": [
+            573878.87,
+            4379276.52
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            0.0,
+            0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 97.76842498779297,
+            "lowest_zb_m": 94.5,
+            "lowest_offset_cells": [
+              2,
+              10
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "pineios_kalambaka",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 2.1,
+            "nearest cell @ named point, step-filled": 0.52,
+            "nearest cell @ named point, hourly linear": 0.52,
+            "nearest cell @ injection point, hourly linear (audit rebuild)": 0.4,
+            "nearest cell @ injection point, step-filled": 0.4
+          },
+          "named_lonlat": [
+            21.63,
+            39.7
+          ],
+          "injection_lonlat": [
+            21.86,
+            39.7
+          ],
+          "written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "written_is": "FALLBACK constant = domain mean 11.589",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              21.64,
+              39.71
+            ],
+            "daily_peak_m3s": 0.52,
+            "daily_mean_m3s": 0.17
+          },
+          "nearest_injection": {
+            "cell": [
+              21.84,
+              39.71
+            ],
+            "daily_peak_m3s": 0.4,
+            "daily_mean_m3s": 0.09
+          },
+          "window_max": {
+            "cell": [
+              21.64,
+              39.61
+            ],
+            "n_cells": 2,
+            "daily_peak_m3s": 2.1,
+            "daily_mean_m3s": 0.61
+          },
+          "src_xy": [
+            573730.1,
+            4394814.49
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            0.0,
+            0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": null,
+            "lowest_zb_m": 362.1,
+            "lowest_offset_cells": [
+              9,
+              5
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": null
+        },
+        {
+          "name": "titarisios",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 1128.8,
+            "nearest cell @ named point, step-filled": 24.41,
+            "nearest cell @ named point, hourly linear": 24.41
+          },
+          "named_lonlat": [
+            22.42,
+            39.71
+          ],
+          "injection_lonlat": [
+            22.42,
+            39.71
+          ],
+          "written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "written_is": "FALLBACK constant = domain mean 11.589",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              22.44,
+              39.71
+            ],
+            "daily_peak_m3s": 24.41,
+            "daily_mean_m3s": 3.66
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              22.44,
+              39.81
+            ],
+            "n_cells": 6,
+            "daily_peak_m3s": 1128.8,
+            "daily_mean_m3s": 302.47
+          },
+          "src_xy": [
+            621724.29,
+            4396534.68
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            -0.0,
+            -0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 64.54530334472656,
+            "lowest_zb_m": 61.23,
+            "lowest_offset_cells": [
+              -10,
+              0
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "enipeas",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 118.4,
+            "nearest cell @ named point, step-filled": 118.4,
+            "nearest cell @ named point, hourly linear": 118.4,
+            "nearest cell @ injection point, hourly linear (audit rebuild)": 118.4,
+            "nearest cell @ injection point, step-filled": 118.4
+          },
+          "named_lonlat": [
+            22.39,
+            39.3
+          ],
+          "injection_lonlat": [
+            22.39,
+            39.33
+          ],
+          "written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "written_is": "FALLBACK constant = domain mean 11.589",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              22.34,
+              39.31
+            ],
+            "daily_peak_m3s": 118.4,
+            "daily_mean_m3s": 33.25
+          },
+          "nearest_injection": {
+            "cell": [
+              22.34,
+              39.31
+            ],
+            "daily_peak_m3s": 118.4,
+            "daily_mean_m3s": 33.25
+          },
+          "window_max": {
+            "cell": [
+              22.34,
+              39.31
+            ],
+            "n_cells": 4,
+            "daily_peak_m3s": 118.4,
+            "daily_mean_m3s": 33.25
+          },
+          "src_xy": [
+            619803.78,
+            4354319.21
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            0.0,
+            -0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 136.2526092529297,
+            "lowest_zb_m": 129.81,
+            "lowest_offset_cells": [
+              -3,
+              -10
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        }
+      ]
+    },
+    {
+      "run": "pineios_r2_510",
+      "note": "v1.4 pipeline run",
+      "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\configs\\pineios_r2_510.yaml",
+      "model": "D:\\ELKAK\\implementation\\v14\\pineios_r2_510\\model",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\pineios_r2_510\\data\\glofas_pineios_clean.nc",
+      "glofas_latitude_order": "ascending",
+      "glofas_domain_mean_m3s": 11.589,
+      "glofas_time": [
+        "2023-08-27",
+        "2023-09-11"
+      ],
+      "n_dis_rows": 361,
+      "n_dis_cols": 4,
+      "pipeline_dis_kept_as": null,
+      "points": [
+        {
+          "name": "pineios_trikala",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 371.39,
+            "nearest cell @ named point, step-filled": 9.07,
+            "nearest cell @ named point, hourly linear": 9.07,
+            "nearest cell @ injection point, hourly linear (audit rebuild)": 1.38,
+            "nearest cell @ injection point, step-filled": 1.38
+          },
+          "named_lonlat": [
+            21.77,
+            39.56
+          ],
+          "injection_lonlat": [
+            21.86,
+            39.56
+          ],
+          "written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "written_is": "FALLBACK constant = domain mean 11.589",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              21.74,
+              39.61
+            ],
+            "daily_peak_m3s": 9.07,
+            "daily_mean_m3s": 2.93
+          },
+          "nearest_injection": {
+            "cell": [
+              21.84,
+              39.61
+            ],
+            "daily_peak_m3s": 1.38,
+            "daily_mean_m3s": 0.33
+          },
+          "window_max": {
+            "cell": [
+              21.84,
+              39.51
+            ],
+            "n_cells": 4,
+            "daily_peak_m3s": 371.39,
+            "daily_mean_m3s": 71.09
+          },
+          "src_xy": [
+            573878.87,
+            4379276.52
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            0.0,
+            0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 97.76842498779297,
+            "lowest_zb_m": 94.5,
+            "lowest_offset_cells": [
+              2,
+              10
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "pineios_kalambaka",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 2.1,
+            "nearest cell @ named point, step-filled": 0.52,
+            "nearest cell @ named point, hourly linear": 0.52,
+            "nearest cell @ injection point, hourly linear (audit rebuild)": 0.4,
+            "nearest cell @ injection point, step-filled": 0.4
+          },
+          "named_lonlat": [
+            21.63,
+            39.7
+          ],
+          "injection_lonlat": [
+            21.86,
+            39.7
+          ],
+          "written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "written_is": "FALLBACK constant = domain mean 11.589",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              21.64,
+              39.71
+            ],
+            "daily_peak_m3s": 0.52,
+            "daily_mean_m3s": 0.17
+          },
+          "nearest_injection": {
+            "cell": [
+              21.84,
+              39.71
+            ],
+            "daily_peak_m3s": 0.4,
+            "daily_mean_m3s": 0.09
+          },
+          "window_max": {
+            "cell": [
+              21.64,
+              39.61
+            ],
+            "n_cells": 2,
+            "daily_peak_m3s": 2.1,
+            "daily_mean_m3s": 0.61
+          },
+          "src_xy": [
+            573730.1,
+            4394814.49
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            0.0,
+            0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": null,
+            "lowest_zb_m": 362.1,
+            "lowest_offset_cells": [
+              9,
+              5
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": null
+        },
+        {
+          "name": "titarisios",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 1128.8,
+            "nearest cell @ named point, step-filled": 24.41,
+            "nearest cell @ named point, hourly linear": 24.41
+          },
+          "named_lonlat": [
+            22.42,
+            39.71
+          ],
+          "injection_lonlat": [
+            22.42,
+            39.71
+          ],
+          "written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "written_is": "FALLBACK constant = domain mean 11.589",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              22.44,
+              39.71
+            ],
+            "daily_peak_m3s": 24.41,
+            "daily_mean_m3s": 3.66
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              22.44,
+              39.81
+            ],
+            "n_cells": 6,
+            "daily_peak_m3s": 1128.8,
+            "daily_mean_m3s": 302.47
+          },
+          "src_xy": [
+            621724.29,
+            4396534.68
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            -0.0,
+            -0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 64.54530334472656,
+            "lowest_zb_m": 61.23,
+            "lowest_offset_cells": [
+              -10,
+              0
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "enipeas",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 118.4,
+            "nearest cell @ named point, step-filled": 118.4,
+            "nearest cell @ named point, hourly linear": 118.4,
+            "nearest cell @ injection point, hourly linear (audit rebuild)": 118.4,
+            "nearest cell @ injection point, step-filled": 118.4
+          },
+          "named_lonlat": [
+            22.39,
+            39.3
+          ],
+          "injection_lonlat": [
+            22.39,
+            39.33
+          ],
+          "written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "written_is": "FALLBACK constant = domain mean 11.589",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              22.34,
+              39.31
+            ],
+            "daily_peak_m3s": 118.4,
+            "daily_mean_m3s": 33.25
+          },
+          "nearest_injection": {
+            "cell": [
+              22.34,
+              39.31
+            ],
+            "daily_peak_m3s": 118.4,
+            "daily_mean_m3s": 33.25
+          },
+          "window_max": {
+            "cell": [
+              22.34,
+              39.31
+            ],
+            "n_cells": 4,
+            "daily_peak_m3s": 118.4,
+            "daily_mean_m3s": 33.25
+          },
+          "src_xy": [
+            619803.78,
+            4354319.21
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            0.0,
+            -0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 136.2526092529297,
+            "lowest_zb_m": 129.81,
+            "lowest_offset_cells": [
+              -3,
+              -10
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        }
+      ]
+    },
+    {
+      "run": "pineios_cn_on",
+      "note": "v1.4 pipeline run",
+      "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\configs\\pineios_cn_on.yaml",
+      "model": "D:\\ELKAK\\implementation\\v14\\pineios_cn_on\\model",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\pineios_cn_on\\data\\glofas_pineios_clean.nc",
+      "glofas_latitude_order": "ascending",
+      "glofas_domain_mean_m3s": 11.589,
+      "glofas_time": [
+        "2023-08-27",
+        "2023-09-11"
+      ],
+      "n_dis_rows": 361,
+      "n_dis_cols": 4,
+      "pipeline_dis_kept_as": null,
+      "points": [
+        {
+          "name": "pineios_trikala",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 371.39,
+            "nearest cell @ named point, step-filled": 9.07,
+            "nearest cell @ named point, hourly linear": 9.07,
+            "nearest cell @ injection point, hourly linear (audit rebuild)": 1.38,
+            "nearest cell @ injection point, step-filled": 1.38
+          },
+          "named_lonlat": [
+            21.77,
+            39.56
+          ],
+          "injection_lonlat": [
+            21.86,
+            39.56
+          ],
+          "written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "written_is": "FALLBACK constant = domain mean 11.589",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              21.74,
+              39.61
+            ],
+            "daily_peak_m3s": 9.07,
+            "daily_mean_m3s": 2.93
+          },
+          "nearest_injection": {
+            "cell": [
+              21.84,
+              39.61
+            ],
+            "daily_peak_m3s": 1.38,
+            "daily_mean_m3s": 0.33
+          },
+          "window_max": {
+            "cell": [
+              21.84,
+              39.51
+            ],
+            "n_cells": 4,
+            "daily_peak_m3s": 371.39,
+            "daily_mean_m3s": 71.09
+          },
+          "src_xy": [
+            573878.87,
+            4379276.52
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            0.0,
+            0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 97.76842498779297,
+            "lowest_zb_m": 94.5,
+            "lowest_offset_cells": [
+              2,
+              10
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "pineios_kalambaka",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 2.1,
+            "nearest cell @ named point, step-filled": 0.52,
+            "nearest cell @ named point, hourly linear": 0.52,
+            "nearest cell @ injection point, hourly linear (audit rebuild)": 0.4,
+            "nearest cell @ injection point, step-filled": 0.4
+          },
+          "named_lonlat": [
+            21.63,
+            39.7
+          ],
+          "injection_lonlat": [
+            21.86,
+            39.7
+          ],
+          "written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "written_is": "FALLBACK constant = domain mean 11.589",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              21.64,
+              39.71
+            ],
+            "daily_peak_m3s": 0.52,
+            "daily_mean_m3s": 0.17
+          },
+          "nearest_injection": {
+            "cell": [
+              21.84,
+              39.71
+            ],
+            "daily_peak_m3s": 0.4,
+            "daily_mean_m3s": 0.09
+          },
+          "window_max": {
+            "cell": [
+              21.64,
+              39.61
+            ],
+            "n_cells": 2,
+            "daily_peak_m3s": 2.1,
+            "daily_mean_m3s": 0.61
+          },
+          "src_xy": [
+            573730.1,
+            4394814.49
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            0.0,
+            0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": null,
+            "lowest_zb_m": 362.1,
+            "lowest_offset_cells": [
+              9,
+              5
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": null
+        },
+        {
+          "name": "titarisios",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 1128.8,
+            "nearest cell @ named point, step-filled": 24.41,
+            "nearest cell @ named point, hourly linear": 24.41
+          },
+          "named_lonlat": [
+            22.42,
+            39.71
+          ],
+          "injection_lonlat": [
+            22.42,
+            39.71
+          ],
+          "written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "written_is": "FALLBACK constant = domain mean 11.589",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              22.44,
+              39.71
+            ],
+            "daily_peak_m3s": 24.41,
+            "daily_mean_m3s": 3.66
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              22.44,
+              39.81
+            ],
+            "n_cells": 6,
+            "daily_peak_m3s": 1128.8,
+            "daily_mean_m3s": 302.47
+          },
+          "src_xy": [
+            621724.29,
+            4396534.68
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            -0.0,
+            -0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 64.54530334472656,
+            "lowest_zb_m": 61.23,
+            "lowest_offset_cells": [
+              -10,
+              0
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "enipeas",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 118.4,
+            "nearest cell @ named point, step-filled": 118.4,
+            "nearest cell @ named point, hourly linear": 118.4,
+            "nearest cell @ injection point, hourly linear (audit rebuild)": 118.4,
+            "nearest cell @ injection point, step-filled": 118.4
+          },
+          "named_lonlat": [
+            22.39,
+            39.3
+          ],
+          "injection_lonlat": [
+            22.39,
+            39.33
+          ],
+          "written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "written_is": "FALLBACK constant = domain mean 11.589",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              22.34,
+              39.31
+            ],
+            "daily_peak_m3s": 118.4,
+            "daily_mean_m3s": 33.25
+          },
+          "nearest_injection": {
+            "cell": [
+              22.34,
+              39.31
+            ],
+            "daily_peak_m3s": 118.4,
+            "daily_mean_m3s": 33.25
+          },
+          "window_max": {
+            "cell": [
+              22.34,
+              39.31
+            ],
+            "n_cells": 4,
+            "daily_peak_m3s": 118.4,
+            "daily_mean_m3s": 33.25
+          },
+          "src_xy": [
+            619803.78,
+            4354319.21
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            0.0,
+            -0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 136.2526092529297,
+            "lowest_zb_m": 129.81,
+            "lowest_offset_cells": [
+              -3,
+              -10
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        }
+      ]
+    },
+    {
+      "run": "pineios_raw_imerg",
+      "note": "v1.4 pipeline run",
+      "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\configs\\pineios_raw_imerg.yaml",
+      "model": "D:\\ELKAK\\implementation\\v14\\pineios_raw_imerg\\model",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\pineios_raw_imerg\\data\\glofas_pineios_clean.nc",
+      "glofas_latitude_order": "ascending",
+      "glofas_domain_mean_m3s": 11.589,
+      "glofas_time": [
+        "2023-08-27",
+        "2023-09-11"
+      ],
+      "n_dis_rows": 361,
+      "n_dis_cols": 4,
+      "pipeline_dis_kept_as": null,
+      "points": [
+        {
+          "name": "pineios_trikala",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 371.39,
+            "nearest cell @ named point, step-filled": 9.07,
+            "nearest cell @ named point, hourly linear": 9.07,
+            "nearest cell @ injection point, hourly linear (audit rebuild)": 1.38,
+            "nearest cell @ injection point, step-filled": 1.38
+          },
+          "named_lonlat": [
+            21.77,
+            39.56
+          ],
+          "injection_lonlat": [
+            21.86,
+            39.56
+          ],
+          "written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "written_is": "FALLBACK constant = domain mean 11.589",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              21.74,
+              39.61
+            ],
+            "daily_peak_m3s": 9.07,
+            "daily_mean_m3s": 2.93
+          },
+          "nearest_injection": {
+            "cell": [
+              21.84,
+              39.61
+            ],
+            "daily_peak_m3s": 1.38,
+            "daily_mean_m3s": 0.33
+          },
+          "window_max": {
+            "cell": [
+              21.84,
+              39.51
+            ],
+            "n_cells": 4,
+            "daily_peak_m3s": 371.39,
+            "daily_mean_m3s": 71.09
+          },
+          "src_xy": [
+            573878.87,
+            4379276.52
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            0.0,
+            0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 97.76842498779297,
+            "lowest_zb_m": 94.5,
+            "lowest_offset_cells": [
+              2,
+              10
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "pineios_kalambaka",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 2.1,
+            "nearest cell @ named point, step-filled": 0.52,
+            "nearest cell @ named point, hourly linear": 0.52,
+            "nearest cell @ injection point, hourly linear (audit rebuild)": 0.4,
+            "nearest cell @ injection point, step-filled": 0.4
+          },
+          "named_lonlat": [
+            21.63,
+            39.7
+          ],
+          "injection_lonlat": [
+            21.86,
+            39.7
+          ],
+          "written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "written_is": "FALLBACK constant = domain mean 11.589",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              21.64,
+              39.71
+            ],
+            "daily_peak_m3s": 0.52,
+            "daily_mean_m3s": 0.17
+          },
+          "nearest_injection": {
+            "cell": [
+              21.84,
+              39.71
+            ],
+            "daily_peak_m3s": 0.4,
+            "daily_mean_m3s": 0.09
+          },
+          "window_max": {
+            "cell": [
+              21.64,
+              39.61
+            ],
+            "n_cells": 2,
+            "daily_peak_m3s": 2.1,
+            "daily_mean_m3s": 0.61
+          },
+          "src_xy": [
+            573730.1,
+            4394814.49
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            0.0,
+            0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": null,
+            "lowest_zb_m": 362.1,
+            "lowest_offset_cells": [
+              9,
+              5
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": null
+        },
+        {
+          "name": "titarisios",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 1128.8,
+            "nearest cell @ named point, step-filled": 24.41,
+            "nearest cell @ named point, hourly linear": 24.41
+          },
+          "named_lonlat": [
+            22.42,
+            39.71
+          ],
+          "injection_lonlat": [
+            22.42,
+            39.71
+          ],
+          "written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "written_is": "FALLBACK constant = domain mean 11.589",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              22.44,
+              39.71
+            ],
+            "daily_peak_m3s": 24.41,
+            "daily_mean_m3s": 3.66
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              22.44,
+              39.81
+            ],
+            "n_cells": 6,
+            "daily_peak_m3s": 1128.8,
+            "daily_mean_m3s": 302.47
+          },
+          "src_xy": [
+            621724.29,
+            4396534.68
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            -0.0,
+            -0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 64.54530334472656,
+            "lowest_zb_m": 61.23,
+            "lowest_offset_cells": [
+              -10,
+              0
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "enipeas",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 118.4,
+            "nearest cell @ named point, step-filled": 118.4,
+            "nearest cell @ named point, hourly linear": 118.4,
+            "nearest cell @ injection point, hourly linear (audit rebuild)": 118.4,
+            "nearest cell @ injection point, step-filled": 118.4
+          },
+          "named_lonlat": [
+            22.39,
+            39.3
+          ],
+          "injection_lonlat": [
+            22.39,
+            39.33
+          ],
+          "written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "written_is": "FALLBACK constant = domain mean 11.589",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              22.34,
+              39.31
+            ],
+            "daily_peak_m3s": 118.4,
+            "daily_mean_m3s": 33.25
+          },
+          "nearest_injection": {
+            "cell": [
+              22.34,
+              39.31
+            ],
+            "daily_peak_m3s": 118.4,
+            "daily_mean_m3s": 33.25
+          },
+          "window_max": {
+            "cell": [
+              22.34,
+              39.31
+            ],
+            "n_cells": 4,
+            "daily_peak_m3s": 118.4,
+            "daily_mean_m3s": 33.25
+          },
+          "src_xy": [
+            619803.78,
+            4354319.21
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            0.0,
+            -0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 136.2526092529297,
+            "lowest_zb_m": 129.81,
+            "lowest_offset_cells": [
+              -3,
+              -10
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        }
+      ]
+    },
+    {
+      "run": "pineios_timevarying_q",
+      "note": "v1.4 pipeline run",
+      "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\configs\\pineios_timevarying_q.yaml",
+      "model": "D:\\ELKAK\\implementation\\v14\\pineios_timevarying_q\\model",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\pineios_timevarying_q\\data\\glofas_pineios_clean.nc",
+      "glofas_latitude_order": "ascending",
+      "glofas_domain_mean_m3s": 11.589,
+      "glofas_time": [
+        "2023-08-27",
+        "2023-09-11"
+      ],
+      "n_dis_rows": 361,
+      "n_dis_cols": 4,
+      "pipeline_dis_kept_as": "D:\\ELKAK\\implementation\\v14\\pineios_timevarying_q\\model\\sfincs.dis.pipeline",
+      "points": [
+        {
+          "name": "pineios_trikala",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 371.39,
+            "nearest cell @ named point, step-filled": 9.07,
+            "nearest cell @ named point, hourly linear": 9.07,
+            "nearest cell @ injection point, hourly linear (audit rebuild)": 1.38,
+            "nearest cell @ injection point, step-filled": 1.38
+          },
+          "named_lonlat": [
+            21.77,
+            39.56
+          ],
+          "injection_lonlat": [
+            21.86,
+            39.56
+          ],
+          "written": {
+            "min": 0.03,
+            "max": 1.38,
+            "mean": 0.319,
+            "constant": false
+          },
+          "written_is": "nearest cell @ injection point, hourly linear (audit rebuild)",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              21.74,
+              39.61
+            ],
+            "daily_peak_m3s": 9.07,
+            "daily_mean_m3s": 2.93
+          },
+          "nearest_injection": {
+            "cell": [
+              21.84,
+              39.61
+            ],
+            "daily_peak_m3s": 1.38,
+            "daily_mean_m3s": 0.33
+          },
+          "window_max": {
+            "cell": [
+              21.84,
+              39.51
+            ],
+            "n_cells": 4,
+            "daily_peak_m3s": 371.39,
+            "daily_mean_m3s": 71.09
+          },
+          "pipeline_file_written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "src_xy": [
+            575357.0,
+            4379040.0
+          ],
+          "src_equals_injection_point": false,
+          "src_shift_from_injection_m": [
+            1478.1,
+            -236.5
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 94.49980163574219,
+            "lowest_zb_m": 93.7,
+            "lowest_offset_cells": [
+              3,
+              10
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "pineios_kalambaka",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 2.1,
+            "nearest cell @ named point, step-filled": 0.52,
+            "nearest cell @ named point, hourly linear": 0.52,
+            "nearest cell @ injection point, hourly linear (audit rebuild)": 0.4,
+            "nearest cell @ injection point, step-filled": 0.4
+          },
+          "named_lonlat": [
+            21.63,
+            39.7
+          ],
+          "injection_lonlat": [
+            21.86,
+            39.7
+          ],
+          "written": {
+            "min": 0.02,
+            "max": 0.4,
+            "mean": 0.088,
+            "constant": false
+          },
+          "written_is": "nearest cell @ injection point, hourly linear (audit rebuild)",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              21.64,
+              39.71
+            ],
+            "daily_peak_m3s": 0.52,
+            "daily_mean_m3s": 0.17
+          },
+          "nearest_injection": {
+            "cell": [
+              21.84,
+              39.71
+            ],
+            "daily_peak_m3s": 0.4,
+            "daily_mean_m3s": 0.09
+          },
+          "window_max": {
+            "cell": [
+              21.64,
+              39.61
+            ],
+            "n_cells": 2,
+            "daily_peak_m3s": 2.1,
+            "daily_mean_m3s": 0.61
+          },
+          "pipeline_file_written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "src_xy": [
+            574457.0,
+            4393440.0
+          ],
+          "src_equals_injection_point": false,
+          "src_shift_from_injection_m": [
+            726.9,
+            -1374.5
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 362.1038818359375,
+            "lowest_zb_m": 287.4,
+            "lowest_offset_cells": [
+              10,
+              9
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "titarisios",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 1128.8,
+            "nearest cell @ named point, step-filled": 24.41,
+            "nearest cell @ named point, hourly linear": 24.41
+          },
+          "named_lonlat": [
+            22.42,
+            39.71
+          ],
+          "injection_lonlat": [
+            22.42,
+            39.71
+          ],
+          "written": {
+            "min": 0.25,
+            "max": 24.41,
+            "mean": 3.783,
+            "constant": false
+          },
+          "written_is": "nearest cell @ named point, hourly linear",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              22.44,
+              39.71
+            ],
+            "daily_peak_m3s": 24.41,
+            "daily_mean_m3s": 3.66
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              22.44,
+              39.81
+            ],
+            "n_cells": 6,
+            "daily_peak_m3s": 1128.8,
+            "daily_mean_m3s": 302.47
+          },
+          "pipeline_file_written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "src_xy": [
+            621707.0,
+            4398090.0
+          ],
+          "src_equals_injection_point": false,
+          "src_shift_from_injection_m": [
+            -17.3,
+            1555.3
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 61.23219680786133,
+            "lowest_zb_m": 59.76,
+            "lowest_offset_cells": [
+              -10,
+              7
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "enipeas",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 118.4,
+            "nearest cell @ named point, step-filled": 118.4,
+            "nearest cell @ named point, hourly linear": 118.4,
+            "nearest cell @ injection point, hourly linear (audit rebuild)": 118.4,
+            "nearest cell @ injection point, step-filled": 118.4
+          },
+          "named_lonlat": [
+            22.39,
+            39.3
+          ],
+          "injection_lonlat": [
+            22.39,
+            39.33
+          ],
+          "written": {
+            "min": 0.33,
+            "max": 118.4,
+            "mean": 33.459,
+            "constant": false
+          },
+          "written_is": "nearest cell @ named point, hourly linear",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              22.34,
+              39.31
+            ],
+            "daily_peak_m3s": 118.4,
+            "daily_mean_m3s": 33.25
+          },
+          "nearest_injection": {
+            "cell": [
+              22.34,
+              39.31
+            ],
+            "daily_peak_m3s": 118.4,
+            "daily_mean_m3s": 33.25
+          },
+          "window_max": {
+            "cell": [
+              22.34,
+              39.31
+            ],
+            "n_cells": 4,
+            "daily_peak_m3s": 118.4,
+            "daily_mean_m3s": 33.25
+          },
+          "pipeline_file_written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "src_xy": [
+            618257.0,
+            4354740.0
+          ],
+          "src_equals_injection_point": false,
+          "src_shift_from_injection_m": [
+            -1546.8,
+            420.8
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 129.8122100830078,
+            "lowest_zb_m": 126.55,
+            "lowest_offset_cells": [
+              -10,
+              -10
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        }
+      ]
+    },
+    {
+      "run": "pineios_qinf5",
+      "note": "v1.4 pipeline run",
+      "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\configs\\pineios_qinf5.yaml",
+      "model": "D:\\ELKAK\\implementation\\v14\\pineios_qinf5\\model",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\pineios_qinf5\\data\\glofas_pineios_clean.nc",
+      "glofas_latitude_order": "ascending",
+      "glofas_domain_mean_m3s": 11.589,
+      "glofas_time": [
+        "2023-08-27",
+        "2023-09-11"
+      ],
+      "n_dis_rows": 361,
+      "n_dis_cols": 4,
+      "pipeline_dis_kept_as": "D:\\ELKAK\\implementation\\v14\\pineios_qinf5\\model\\sfincs.dis.pipeline",
+      "points": [
+        {
+          "name": "pineios_trikala",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 371.39,
+            "nearest cell @ named point, step-filled": 9.07,
+            "nearest cell @ named point, hourly linear": 9.07,
+            "nearest cell @ injection point, hourly linear (audit rebuild)": 1.38,
+            "nearest cell @ injection point, step-filled": 1.38
+          },
+          "named_lonlat": [
+            21.77,
+            39.56
+          ],
+          "injection_lonlat": [
+            21.86,
+            39.56
+          ],
+          "written": {
+            "min": 0.03,
+            "max": 1.38,
+            "mean": 0.319,
+            "constant": false
+          },
+          "written_is": "nearest cell @ injection point, hourly linear (audit rebuild)",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              21.74,
+              39.61
+            ],
+            "daily_peak_m3s": 9.07,
+            "daily_mean_m3s": 2.93
+          },
+          "nearest_injection": {
+            "cell": [
+              21.84,
+              39.61
+            ],
+            "daily_peak_m3s": 1.38,
+            "daily_mean_m3s": 0.33
+          },
+          "window_max": {
+            "cell": [
+              21.84,
+              39.51
+            ],
+            "n_cells": 4,
+            "daily_peak_m3s": 371.39,
+            "daily_mean_m3s": 71.09
+          },
+          "pipeline_file_written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "src_xy": [
+            575357.0,
+            4379040.0
+          ],
+          "src_equals_injection_point": false,
+          "src_shift_from_injection_m": [
+            1478.1,
+            -236.5
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 94.49980163574219,
+            "lowest_zb_m": 93.7,
+            "lowest_offset_cells": [
+              3,
+              10
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "pineios_kalambaka",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 2.1,
+            "nearest cell @ named point, step-filled": 0.52,
+            "nearest cell @ named point, hourly linear": 0.52,
+            "nearest cell @ injection point, hourly linear (audit rebuild)": 0.4,
+            "nearest cell @ injection point, step-filled": 0.4
+          },
+          "named_lonlat": [
+            21.63,
+            39.7
+          ],
+          "injection_lonlat": [
+            21.86,
+            39.7
+          ],
+          "written": {
+            "min": 0.02,
+            "max": 0.4,
+            "mean": 0.088,
+            "constant": false
+          },
+          "written_is": "nearest cell @ injection point, hourly linear (audit rebuild)",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              21.64,
+              39.71
+            ],
+            "daily_peak_m3s": 0.52,
+            "daily_mean_m3s": 0.17
+          },
+          "nearest_injection": {
+            "cell": [
+              21.84,
+              39.71
+            ],
+            "daily_peak_m3s": 0.4,
+            "daily_mean_m3s": 0.09
+          },
+          "window_max": {
+            "cell": [
+              21.64,
+              39.61
+            ],
+            "n_cells": 2,
+            "daily_peak_m3s": 2.1,
+            "daily_mean_m3s": 0.61
+          },
+          "pipeline_file_written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "src_xy": [
+            574457.0,
+            4393440.0
+          ],
+          "src_equals_injection_point": false,
+          "src_shift_from_injection_m": [
+            726.9,
+            -1374.5
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 362.1038818359375,
+            "lowest_zb_m": 287.4,
+            "lowest_offset_cells": [
+              10,
+              9
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "titarisios",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 1128.8,
+            "nearest cell @ named point, step-filled": 24.41,
+            "nearest cell @ named point, hourly linear": 24.41
+          },
+          "named_lonlat": [
+            22.42,
+            39.71
+          ],
+          "injection_lonlat": [
+            22.42,
+            39.71
+          ],
+          "written": {
+            "min": 0.25,
+            "max": 24.41,
+            "mean": 3.783,
+            "constant": false
+          },
+          "written_is": "nearest cell @ named point, hourly linear",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              22.44,
+              39.71
+            ],
+            "daily_peak_m3s": 24.41,
+            "daily_mean_m3s": 3.66
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              22.44,
+              39.81
+            ],
+            "n_cells": 6,
+            "daily_peak_m3s": 1128.8,
+            "daily_mean_m3s": 302.47
+          },
+          "pipeline_file_written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "src_xy": [
+            621707.0,
+            4398090.0
+          ],
+          "src_equals_injection_point": false,
+          "src_shift_from_injection_m": [
+            -17.3,
+            1555.3
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 61.23219680786133,
+            "lowest_zb_m": 59.76,
+            "lowest_offset_cells": [
+              -10,
+              7
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "enipeas",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 118.4,
+            "nearest cell @ named point, step-filled": 118.4,
+            "nearest cell @ named point, hourly linear": 118.4,
+            "nearest cell @ injection point, hourly linear (audit rebuild)": 118.4,
+            "nearest cell @ injection point, step-filled": 118.4
+          },
+          "named_lonlat": [
+            22.39,
+            39.3
+          ],
+          "injection_lonlat": [
+            22.39,
+            39.33
+          ],
+          "written": {
+            "min": 0.33,
+            "max": 118.4,
+            "mean": 33.459,
+            "constant": false
+          },
+          "written_is": "nearest cell @ named point, hourly linear",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              22.34,
+              39.31
+            ],
+            "daily_peak_m3s": 118.4,
+            "daily_mean_m3s": 33.25
+          },
+          "nearest_injection": {
+            "cell": [
+              22.34,
+              39.31
+            ],
+            "daily_peak_m3s": 118.4,
+            "daily_mean_m3s": 33.25
+          },
+          "window_max": {
+            "cell": [
+              22.34,
+              39.31
+            ],
+            "n_cells": 4,
+            "daily_peak_m3s": 118.4,
+            "daily_mean_m3s": 33.25
+          },
+          "pipeline_file_written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "src_xy": [
+            618257.0,
+            4354740.0
+          ],
+          "src_equals_injection_point": false,
+          "src_shift_from_injection_m": [
+            -1546.8,
+            420.8
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 129.8122100830078,
+            "lowest_zb_m": 126.55,
+            "lowest_offset_cells": [
+              -10,
+              -10
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        }
+      ]
+    },
+    {
+      "run": "strymonas_enhanced",
+      "note": "v1.4 pipeline run",
+      "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\configs\\strymonas_enhanced.yaml",
+      "model": "D:\\ELKAK\\implementation\\v14\\strymonas_enhanced\\model",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\strymonas_enhanced\\data\\glofas_strymonas_clean.nc",
+      "glofas_latitude_order": "descending",
+      "glofas_domain_mean_m3s": 18.352,
+      "glofas_time": [
+        "2015-03-02",
+        "2015-05-01"
+      ],
+      "n_dis_rows": 337,
+      "n_dis_cols": 2,
+      "pipeline_dis_kept_as": null,
+      "points": [
+        {
+          "name": "kerkini_outlet",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 640.34,
+            "nearest cell @ named point, step-filled": 635.59,
+            "nearest cell @ named point, hourly linear": 635.59
+          },
+          "named_lonlat": [
+            23.3991,
+            41.0289
+          ],
+          "injection_lonlat": [
+            23.3991,
+            41.0289
+          ],
+          "written": {
+            "min": 130.97,
+            "max": 640.34,
+            "mean": 303.083,
+            "constant": false
+          },
+          "written_is": "window-max series, step-filled (the sampler, order-agnostic)",
+          "literal_slice_cells": 16,
+          "nearest_named": {
+            "cell": [
+              23.375,
+              41.025
+            ],
+            "daily_peak_m3s": 635.59,
+            "daily_mean_m3s": 212.57
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              23.475,
+              40.975
+            ],
+            "n_cells": 16,
+            "daily_peak_m3s": 640.34,
+            "daily_mean_m3s": 215.85
+          },
+          "src_xy": [
+            701688.08,
+            4544737.97
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            -0.0,
+            -0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 13.864411354064941,
+            "lowest_zb_m": 13.45,
+            "lowest_offset_cells": [
+              2,
+              0
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "angitis",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 96.81,
+            "nearest cell @ named point, step-filled": 88.31,
+            "nearest cell @ named point, hourly linear": 88.31
+          },
+          "named_lonlat": [
+            23.92,
+            41.0
+          ],
+          "injection_lonlat": [
+            23.92,
+            41.0
+          ],
+          "written": {
+            "min": 49.34,
+            "max": 96.81,
+            "mean": 70.794,
+            "constant": false
+          },
+          "written_is": "window-max series, step-filled (the sampler, order-agnostic)",
+          "literal_slice_cells": 16,
+          "nearest_named": {
+            "cell": [
+              23.925,
+              40.975
+            ],
+            "daily_peak_m3s": 201.09,
+            "daily_mean_m3s": 63.95
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              23.825,
+              40.925
+            ],
+            "n_cells": 16,
+            "daily_peak_m3s": 211.47,
+            "daily_mean_m3s": 69.57
+          },
+          "src_xy": [
+            745591.46,
+            4542864.67
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            -0.0,
+            0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 21.048877716064453,
+            "lowest_zb_m": 15.08,
+            "lowest_offset_cells": [
+              9,
+              -10
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        }
+      ]
+    },
+    {
+      "run": "strymonas_enhanced_postD6",
+      "note": "v1.4 pipeline run",
+      "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\configs\\strymonas_enhanced_postD6.yaml",
+      "model": "D:\\ELKAK\\implementation\\v14\\strymonas_enhanced_postD6\\model",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\strymonas_enhanced_postD6\\data\\glofas_strymonas_clean.nc",
+      "glofas_latitude_order": "descending",
+      "glofas_domain_mean_m3s": 18.352,
+      "glofas_time": [
+        "2015-03-02",
+        "2015-05-01"
+      ],
+      "n_dis_rows": 337,
+      "n_dis_cols": 2,
+      "pipeline_dis_kept_as": null,
+      "points": [
+        {
+          "name": "kerkini_outlet",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 640.34,
+            "nearest cell @ named point, step-filled": 635.59,
+            "nearest cell @ named point, hourly linear": 635.59
+          },
+          "named_lonlat": [
+            23.3991,
+            41.0289
+          ],
+          "injection_lonlat": [
+            23.3991,
+            41.0289
+          ],
+          "written": {
+            "min": 130.97,
+            "max": 640.34,
+            "mean": 303.083,
+            "constant": false
+          },
+          "written_is": "window-max series, step-filled (the sampler, order-agnostic)",
+          "literal_slice_cells": 16,
+          "nearest_named": {
+            "cell": [
+              23.375,
+              41.025
+            ],
+            "daily_peak_m3s": 635.59,
+            "daily_mean_m3s": 212.57
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              23.475,
+              40.975
+            ],
+            "n_cells": 16,
+            "daily_peak_m3s": 640.34,
+            "daily_mean_m3s": 215.85
+          },
+          "src_xy": [
+            701688.08,
+            4544737.97
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            -0.0,
+            -0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 13.864411354064941,
+            "lowest_zb_m": 13.45,
+            "lowest_offset_cells": [
+              2,
+              0
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "angitis",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 96.81,
+            "nearest cell @ named point, step-filled": 88.31,
+            "nearest cell @ named point, hourly linear": 88.31
+          },
+          "named_lonlat": [
+            23.92,
+            41.0
+          ],
+          "injection_lonlat": [
+            23.92,
+            41.0
+          ],
+          "written": {
+            "min": 49.34,
+            "max": 96.81,
+            "mean": 70.794,
+            "constant": false
+          },
+          "written_is": "window-max series, step-filled (the sampler, order-agnostic)",
+          "literal_slice_cells": 16,
+          "nearest_named": {
+            "cell": [
+              23.925,
+              40.975
+            ],
+            "daily_peak_m3s": 201.09,
+            "daily_mean_m3s": 63.95
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              23.825,
+              40.925
+            ],
+            "n_cells": 16,
+            "daily_peak_m3s": 211.47,
+            "daily_mean_m3s": 69.57
+          },
+          "src_xy": [
+            745591.46,
+            4542864.67
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            -0.0,
+            0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 21.048877716064453,
+            "lowest_zb_m": 15.08,
+            "lowest_offset_cells": [
+              9,
+              -10
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        }
+      ]
+    },
+    {
+      "run": "strymonas_abl_cnoff_q",
+      "note": "v1.4 pipeline run",
+      "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\configs\\strymonas_abl_cnoff_q.yaml",
+      "model": "D:\\ELKAK\\implementation\\v14\\strymonas_abl_cnoff_q\\model",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\strymonas_abl_cnoff_q\\data\\glofas_strymonas_clean.nc",
+      "glofas_latitude_order": "descending",
+      "glofas_domain_mean_m3s": 18.352,
+      "glofas_time": [
+        "2015-03-02",
+        "2015-05-01"
+      ],
+      "n_dis_rows": 337,
+      "n_dis_cols": 2,
+      "pipeline_dis_kept_as": null,
+      "points": [
+        {
+          "name": "kerkini_outlet",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 640.34,
+            "nearest cell @ named point, step-filled": 635.59,
+            "nearest cell @ named point, hourly linear": 635.59
+          },
+          "named_lonlat": [
+            23.3991,
+            41.0289
+          ],
+          "injection_lonlat": [
+            23.3991,
+            41.0289
+          ],
+          "written": {
+            "min": 130.97,
+            "max": 640.34,
+            "mean": 303.083,
+            "constant": false
+          },
+          "written_is": "window-max series, step-filled (the sampler, order-agnostic)",
+          "literal_slice_cells": 16,
+          "nearest_named": {
+            "cell": [
+              23.375,
+              41.025
+            ],
+            "daily_peak_m3s": 635.59,
+            "daily_mean_m3s": 212.57
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              23.475,
+              40.975
+            ],
+            "n_cells": 16,
+            "daily_peak_m3s": 640.34,
+            "daily_mean_m3s": 215.85
+          },
+          "src_xy": [
+            701688.08,
+            4544737.97
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            -0.0,
+            -0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 13.864411354064941,
+            "lowest_zb_m": 13.45,
+            "lowest_offset_cells": [
+              2,
+              0
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "angitis",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 96.81,
+            "nearest cell @ named point, step-filled": 88.31,
+            "nearest cell @ named point, hourly linear": 88.31
+          },
+          "named_lonlat": [
+            23.92,
+            41.0
+          ],
+          "injection_lonlat": [
+            23.92,
+            41.0
+          ],
+          "written": {
+            "min": 49.34,
+            "max": 96.81,
+            "mean": 70.794,
+            "constant": false
+          },
+          "written_is": "window-max series, step-filled (the sampler, order-agnostic)",
+          "literal_slice_cells": 16,
+          "nearest_named": {
+            "cell": [
+              23.925,
+              40.975
+            ],
+            "daily_peak_m3s": 201.09,
+            "daily_mean_m3s": 63.95
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              23.825,
+              40.925
+            ],
+            "n_cells": 16,
+            "daily_peak_m3s": 211.47,
+            "daily_mean_m3s": 69.57
+          },
+          "src_xy": [
+            745591.46,
+            4542864.67
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            -0.0,
+            0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 21.048877716064453,
+            "lowest_zb_m": 15.08,
+            "lowest_offset_cells": [
+              9,
+              -10
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        }
+      ]
+    },
+    {
+      "run": "strymonas_v1_prefix_src",
+      "note": "v1.4 pipeline run",
+      "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\configs\\strymonas_v1_prefix_src.yaml",
+      "model": "D:\\ELKAK\\implementation\\v14\\strymonas_v1_prefix_src\\model",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\strymonas_v1_prefix_src\\data\\glofas_strymonas_clean.nc",
+      "glofas_latitude_order": "descending",
+      "glofas_domain_mean_m3s": 18.352,
+      "glofas_time": [
+        "2015-03-02",
+        "2015-05-01"
+      ],
+      "n_dis_rows": 337,
+      "n_dis_cols": 2,
+      "pipeline_dis_kept_as": null,
+      "points": [
+        {
+          "name": "kerkini_outlet",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 618.5,
+            "nearest cell @ named point, step-filled": 1.34,
+            "nearest cell @ named point, hourly linear": 1.34
+          },
+          "named_lonlat": [
+            23.2,
+            41.08
+          ],
+          "injection_lonlat": [
+            23.2,
+            41.08
+          ],
+          "written": {
+            "min": 119.88,
+            "max": 618.5,
+            "mean": 290.118,
+            "constant": false
+          },
+          "written_is": "window-max series, step-filled (the sampler, order-agnostic)",
+          "literal_slice_cells": 16,
+          "nearest_named": {
+            "cell": [
+              23.175,
+              41.075
+            ],
+            "daily_peak_m3s": 2.38,
+            "daily_mean_m3s": 0.84
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              23.275,
+              41.125
+            ],
+            "n_cells": 16,
+            "daily_peak_m3s": 618.5,
+            "daily_mean_m3s": 202.83
+          },
+          "src_xy": [
+            684805.76,
+            4549969.94
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            0.0,
+            -0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 192.30787658691406,
+            "lowest_zb_m": 133.34,
+            "lowest_offset_cells": [
+              -10,
+              3
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "angitis",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 96.81,
+            "nearest cell @ named point, step-filled": 88.31,
+            "nearest cell @ named point, hourly linear": 88.31
+          },
+          "named_lonlat": [
+            23.92,
+            41.0
+          ],
+          "injection_lonlat": [
+            23.92,
+            41.0
+          ],
+          "written": {
+            "min": 49.34,
+            "max": 96.81,
+            "mean": 70.794,
+            "constant": false
+          },
+          "written_is": "window-max series, step-filled (the sampler, order-agnostic)",
+          "literal_slice_cells": 16,
+          "nearest_named": {
+            "cell": [
+              23.925,
+              40.975
+            ],
+            "daily_peak_m3s": 201.09,
+            "daily_mean_m3s": 63.95
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              23.825,
+              40.925
+            ],
+            "n_cells": 16,
+            "daily_peak_m3s": 211.47,
+            "daily_mean_m3s": 69.57
+          },
+          "src_xy": [
+            745591.46,
+            4542864.67
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            -0.0,
+            0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 21.048877716064453,
+            "lowest_zb_m": 15.08,
+            "lowest_offset_cells": [
+              9,
+              -10
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        }
+      ]
+    },
+    {
+      "run": "strymonas_leadin7d",
+      "note": "v1.4 pipeline run",
+      "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\configs\\strymonas_leadin7d.yaml",
+      "model": "D:\\ELKAK\\implementation\\v14\\strymonas_leadin7d\\model",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\strymonas_leadin7d\\data\\glofas_strymonas_clean.nc",
+      "glofas_latitude_order": "descending",
+      "glofas_domain_mean_m3s": 18.352,
+      "glofas_time": [
+        "2015-03-02",
+        "2015-05-01"
+      ],
+      "n_dis_rows": 337,
+      "n_dis_cols": 2,
+      "pipeline_dis_kept_as": null,
+      "points": [
+        {
+          "name": "kerkini_outlet",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 640.34,
+            "nearest cell @ named point, step-filled": 635.59,
+            "nearest cell @ named point, hourly linear": 635.59
+          },
+          "named_lonlat": [
+            23.3991,
+            41.0289
+          ],
+          "injection_lonlat": [
+            23.3991,
+            41.0289
+          ],
+          "written": {
+            "min": 130.97,
+            "max": 640.34,
+            "mean": 303.083,
+            "constant": false
+          },
+          "written_is": "window-max series, step-filled (the sampler, order-agnostic)",
+          "literal_slice_cells": 16,
+          "nearest_named": {
+            "cell": [
+              23.375,
+              41.025
+            ],
+            "daily_peak_m3s": 635.59,
+            "daily_mean_m3s": 212.57
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              23.475,
+              40.975
+            ],
+            "n_cells": 16,
+            "daily_peak_m3s": 640.34,
+            "daily_mean_m3s": 215.85
+          },
+          "src_xy": [
+            701688.08,
+            4544737.97
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            -0.0,
+            -0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 13.864411354064941,
+            "lowest_zb_m": 13.45,
+            "lowest_offset_cells": [
+              2,
+              0
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "angitis",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 96.81,
+            "nearest cell @ named point, step-filled": 88.31,
+            "nearest cell @ named point, hourly linear": 88.31
+          },
+          "named_lonlat": [
+            23.92,
+            41.0
+          ],
+          "injection_lonlat": [
+            23.92,
+            41.0
+          ],
+          "written": {
+            "min": 49.34,
+            "max": 96.81,
+            "mean": 70.794,
+            "constant": false
+          },
+          "written_is": "window-max series, step-filled (the sampler, order-agnostic)",
+          "literal_slice_cells": 16,
+          "nearest_named": {
+            "cell": [
+              23.925,
+              40.975
+            ],
+            "daily_peak_m3s": 201.09,
+            "daily_mean_m3s": 63.95
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              23.825,
+              40.925
+            ],
+            "n_cells": 16,
+            "daily_peak_m3s": 211.47,
+            "daily_mean_m3s": 69.57
+          },
+          "src_xy": [
+            745591.46,
+            4542864.67
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            -0.0,
+            0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 21.048877716064453,
+            "lowest_zb_m": 15.08,
+            "lowest_offset_cells": [
+              9,
+              -10
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        }
+      ]
+    },
+    {
+      "run": "valencia_enhanced_164",
+      "note": "v1.4 pipeline run",
+      "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\configs\\valencia_enhanced_164.yaml",
+      "model": "D:\\ELKAK\\implementation\\v14\\valencia_enhanced_164\\model",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\valencia_enhanced_164\\data\\glofas_valencia_clean.nc",
+      "glofas_latitude_order": "descending",
+      "glofas_domain_mean_m3s": 2.728,
+      "glofas_time": [
+        "2024-10-02",
+        "2024-12-01"
+      ],
+      "n_dis_rows": 193,
+      "n_dis_cols": 3,
+      "pipeline_dis_kept_as": null,
+      "points": [
+        {
+          "name": "magro",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 42.69,
+            "nearest cell @ named point, step-filled": 41.15,
+            "nearest cell @ named point, hourly linear": 41.15
+          },
+          "named_lonlat": [
+            -0.68,
+            39.2
+          ],
+          "injection_lonlat": [
+            -0.68,
+            39.2
+          ],
+          "written": {
+            "min": 14.13,
+            "max": 42.69,
+            "mean": 23.167,
+            "constant": false
+          },
+          "written_is": "window-max series, step-filled (the sampler, order-agnostic)",
+          "literal_slice_cells": 16,
+          "nearest_named": {
+            "cell": [
+              -0.675,
+              39.175
+            ],
+            "daily_peak_m3s": 41.15,
+            "daily_mean_m3s": 15.76
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              -0.625,
+              39.125
+            ],
+            "n_cells": 16,
+            "daily_peak_m3s": 42.69,
+            "daily_mean_m3s": 16.3
+          },
+          "src_xy": [
+            700337.21,
+            4341535.46
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            -0.0,
+            -0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": null,
+            "lowest_zb_m": 96.09,
+            "lowest_offset_cells": [
+              9,
+              -10
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": null
+        },
+        {
+          "name": "jucar",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 88.81,
+            "nearest cell @ named point, step-filled": 90.38,
+            "nearest cell @ named point, hourly linear": 90.38
+          },
+          "named_lonlat": [
+            -0.34,
+            39.16
+          ],
+          "injection_lonlat": [
+            -0.34,
+            39.16
+          ],
+          "written": {
+            "min": 23.5,
+            "max": 88.81,
+            "mean": 46.223,
+            "constant": false
+          },
+          "written_is": "window-max series, step-filled (the sampler, order-agnostic)",
+          "literal_slice_cells": 16,
+          "nearest_named": {
+            "cell": [
+              -0.325,
+              39.175
+            ],
+            "daily_peak_m3s": 90.38,
+            "daily_mean_m3s": 25.5
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              -0.275,
+              39.175
+            ],
+            "n_cells": 16,
+            "daily_peak_m3s": 88.81,
+            "daily_mean_m3s": 25.72
+          },
+          "src_xy": [
+            729831.3,
+            4337902.56
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            -0.0,
+            -0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 4.133459568023682,
+            "lowest_zb_m": 2.88,
+            "lowest_offset_cells": [
+              6,
+              10
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "turia",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 239.72,
+            "nearest cell @ named point, step-filled": 237.25,
+            "nearest cell @ named point, hourly linear": 237.25
+          },
+          "named_lonlat": [
+            -0.55,
+            39.52
+          ],
+          "injection_lonlat": [
+            -0.55,
+            39.52
+          ],
+          "written": {
+            "min": 4.45,
+            "max": 239.72,
+            "mean": 73.583,
+            "constant": false
+          },
+          "written_is": "window-max series, step-filled (the sampler, order-agnostic)",
+          "literal_slice_cells": 16,
+          "nearest_named": {
+            "cell": [
+              -0.525,
+              39.525
+            ],
+            "daily_peak_m3s": 237.25,
+            "daily_mean_m3s": 31.6
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              -0.475,
+              39.525
+            ],
+            "n_cells": 16,
+            "daily_peak_m3s": 239.72,
+            "daily_mean_m3s": 32.37
+          },
+          "src_xy": [
+            710600.54,
+            4377350.37
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            0.0,
+            0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 163.9997100830078,
+            "lowest_zb_m": 82.15,
+            "lowest_offset_cells": [
+              10,
+              4
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        }
+      ]
+    },
+    {
+      "run": "valencia_raw_imerg",
+      "note": "v1.4 pipeline run",
+      "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\configs\\valencia_raw_imerg.yaml",
+      "model": "D:\\ELKAK\\implementation\\v14\\valencia_raw_imerg\\model",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\valencia_raw_imerg\\data\\glofas_valencia_clean.nc",
+      "glofas_latitude_order": "descending",
+      "glofas_domain_mean_m3s": 2.728,
+      "glofas_time": [
+        "2024-10-02",
+        "2024-12-01"
+      ],
+      "n_dis_rows": 193,
+      "n_dis_cols": 3,
+      "pipeline_dis_kept_as": null,
+      "points": [
+        {
+          "name": "magro",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 42.69,
+            "nearest cell @ named point, step-filled": 41.15,
+            "nearest cell @ named point, hourly linear": 41.15
+          },
+          "named_lonlat": [
+            -0.68,
+            39.2
+          ],
+          "injection_lonlat": [
+            -0.68,
+            39.2
+          ],
+          "written": {
+            "min": 14.13,
+            "max": 42.69,
+            "mean": 23.167,
+            "constant": false
+          },
+          "written_is": "window-max series, step-filled (the sampler, order-agnostic)",
+          "literal_slice_cells": 16,
+          "nearest_named": {
+            "cell": [
+              -0.675,
+              39.175
+            ],
+            "daily_peak_m3s": 41.15,
+            "daily_mean_m3s": 15.76
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              -0.625,
+              39.125
+            ],
+            "n_cells": 16,
+            "daily_peak_m3s": 42.69,
+            "daily_mean_m3s": 16.3
+          },
+          "src_xy": [
+            700337.21,
+            4341535.46
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            -0.0,
+            -0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": null,
+            "lowest_zb_m": 96.09,
+            "lowest_offset_cells": [
+              9,
+              -10
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": null
+        },
+        {
+          "name": "jucar",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 88.81,
+            "nearest cell @ named point, step-filled": 90.38,
+            "nearest cell @ named point, hourly linear": 90.38
+          },
+          "named_lonlat": [
+            -0.34,
+            39.16
+          ],
+          "injection_lonlat": [
+            -0.34,
+            39.16
+          ],
+          "written": {
+            "min": 23.5,
+            "max": 88.81,
+            "mean": 46.223,
+            "constant": false
+          },
+          "written_is": "window-max series, step-filled (the sampler, order-agnostic)",
+          "literal_slice_cells": 16,
+          "nearest_named": {
+            "cell": [
+              -0.325,
+              39.175
+            ],
+            "daily_peak_m3s": 90.38,
+            "daily_mean_m3s": 25.5
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              -0.275,
+              39.175
+            ],
+            "n_cells": 16,
+            "daily_peak_m3s": 88.81,
+            "daily_mean_m3s": 25.72
+          },
+          "src_xy": [
+            729831.3,
+            4337902.56
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            -0.0,
+            -0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 4.133459568023682,
+            "lowest_zb_m": 2.88,
+            "lowest_offset_cells": [
+              6,
+              10
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "turia",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 239.72,
+            "nearest cell @ named point, step-filled": 237.25,
+            "nearest cell @ named point, hourly linear": 237.25
+          },
+          "named_lonlat": [
+            -0.55,
+            39.52
+          ],
+          "injection_lonlat": [
+            -0.55,
+            39.52
+          ],
+          "written": {
+            "min": 4.45,
+            "max": 239.72,
+            "mean": 73.583,
+            "constant": false
+          },
+          "written_is": "window-max series, step-filled (the sampler, order-agnostic)",
+          "literal_slice_cells": 16,
+          "nearest_named": {
+            "cell": [
+              -0.525,
+              39.525
+            ],
+            "daily_peak_m3s": 237.25,
+            "daily_mean_m3s": 31.6
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              -0.475,
+              39.525
+            ],
+            "n_cells": 16,
+            "daily_peak_m3s": 239.72,
+            "daily_mean_m3s": 32.37
+          },
+          "src_xy": [
+            710600.54,
+            4377350.37
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            0.0,
+            0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 163.9997100830078,
+            "lowest_zb_m": 82.15,
+            "lowest_offset_cells": [
+              10,
+              4
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        }
+      ]
+    },
+    {
+      "run": "emilia_enhanced_8aoi",
+      "note": "v1.4 pipeline run",
+      "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\configs\\emilia_enhanced_8aoi.yaml",
+      "model": "D:\\ELKAK\\implementation\\v14\\emilia_enhanced_8aoi\\model",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\emilia_enhanced_8aoi\\data\\glofas_emilia_romagna_clean.nc",
+      "glofas_latitude_order": "descending",
+      "glofas_domain_mean_m3s": 60.392,
+      "glofas_time": [
+        "2023-04-02",
+        "2023-06-01"
+      ],
+      "n_dis_rows": 529,
+      "n_dis_cols": 5,
+      "pipeline_dis_kept_as": null,
+      "points": [
+        {
+          "name": "lamone",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 188.22,
+            "nearest cell @ named point, step-filled": 71.69,
+            "nearest cell @ named point, hourly linear": 71.69
+          },
+          "named_lonlat": [
+            11.9,
+            44.24
+          ],
+          "injection_lonlat": [
+            11.9,
+            44.24
+          ],
+          "written": {
+            "min": 3.78,
+            "max": 188.22,
+            "mean": 61.509,
+            "constant": false
+          },
+          "written_is": "window-max series, step-filled (the sampler, order-agnostic)",
+          "literal_slice_cells": 16,
+          "nearest_named": {
+            "cell": [
+              11.875,
+              44.225
+            ],
+            "daily_peak_m3s": 71.69,
+            "daily_mean_m3s": 10.55
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              11.975,
+              44.325
+            ],
+            "n_cells": 16,
+            "daily_peak_m3s": 188.22,
+            "daily_mean_m3s": 29.02
+          },
+          "src_xy": [
+            731568.4,
+            4902620.03
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            -0.0,
+            0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 66.80732727050781,
+            "lowest_zb_m": 39.35,
+            "lowest_offset_cells": [
+              -6,
+              -4
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "senio",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 166.06,
+            "nearest cell @ named point, step-filled": 83.22,
+            "nearest cell @ named point, hourly linear": 83.22
+          },
+          "named_lonlat": [
+            11.83,
+            44.27
+          ],
+          "injection_lonlat": [
+            11.83,
+            44.27
+          ],
+          "written": {
+            "min": 3.31,
+            "max": 166.06,
+            "mean": 54.384,
+            "constant": false
+          },
+          "written_is": "window-max series, step-filled (the sampler, order-agnostic)",
+          "literal_slice_cells": 16,
+          "nearest_named": {
+            "cell": [
+              11.825,
+              44.275
+            ],
+            "daily_peak_m3s": 83.22,
+            "daily_mean_m3s": 13.08
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              11.925,
+              44.275
+            ],
+            "n_cells": 16,
+            "daily_peak_m3s": 166.06,
+            "daily_mean_m3s": 25.66
+          },
+          "src_xy": [
+            725863.74,
+            4905757.16
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            0.0,
+            0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 129.22434997558594,
+            "lowest_zb_m": 39.01,
+            "lowest_offset_cells": [
+              0,
+              10
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "montone",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 166.06,
+            "nearest cell @ named point, step-filled": 82.06,
+            "nearest cell @ named point, hourly linear": 82.06
+          },
+          "named_lonlat": [
+            11.98,
+            44.18
+          ],
+          "injection_lonlat": [
+            11.98,
+            44.18
+          ],
+          "written": {
+            "min": 3.31,
+            "max": 166.06,
+            "mean": 54.384,
+            "constant": false
+          },
+          "written_is": "window-max series, step-filled (the sampler, order-agnostic)",
+          "literal_slice_cells": 16,
+          "nearest_named": {
+            "cell": [
+              11.975,
+              44.175
+            ],
+            "daily_peak_m3s": 82.06,
+            "daily_mean_m3s": 12.36
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              11.925,
+              44.275
+            ],
+            "n_cells": 16,
+            "daily_peak_m3s": 166.06,
+            "daily_mean_m3s": 25.66
+          },
+          "src_xy": [
+            738198.57,
+            4896184.35
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            -0.0,
+            -0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 119.45575714111328,
+            "lowest_zb_m": 42.15,
+            "lowest_offset_cells": [
+              -10,
+              -2
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "ronco",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 171.19,
+            "nearest cell @ named point, step-filled": 8.5,
+            "nearest cell @ named point, hourly linear": 8.5
+          },
+          "named_lonlat": [
+            12.03,
+            44.13
+          ],
+          "injection_lonlat": [
+            12.03,
+            44.13
+          ],
+          "written": {
+            "min": 4.38,
+            "max": 171.19,
+            "mean": 51.852,
+            "constant": false
+          },
+          "written_is": "window-max series, step-filled (the sampler, order-agnostic)",
+          "literal_slice_cells": 16,
+          "nearest_named": {
+            "cell": [
+              12.025,
+              44.125
+            ],
+            "daily_peak_m3s": 8.5,
+            "daily_mean_m3s": 0.9
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              12.075,
+              44.225
+            ],
+            "n_cells": 16,
+            "daily_peak_m3s": 171.19,
+            "daily_mean_m3s": 25.1
+          },
+          "src_xy": [
+            742400.09,
+            4890776.79
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            0.0,
+            -0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 213.84812927246094,
+            "lowest_zb_m": 87.89,
+            "lowest_offset_cells": [
+              8,
+              9
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "savio",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 147.53,
+            "nearest cell @ named point, step-filled": 32.12,
+            "nearest cell @ named point, hourly linear": 32.12
+          },
+          "named_lonlat": [
+            12.1,
+            44.06
+          ],
+          "injection_lonlat": [
+            12.1,
+            44.06
+          ],
+          "written": {
+            "min": 4.09,
+            "max": 147.53,
+            "mean": 44.243,
+            "constant": false
+          },
+          "written_is": "window-max series, step-filled (the sampler, order-agnostic)",
+          "literal_slice_cells": 16,
+          "nearest_named": {
+            "cell": [
+              12.075,
+              44.075
+            ],
+            "daily_peak_m3s": 32.12,
+            "daily_mean_m3s": 3.93
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              12.175,
+              44.075
+            ],
+            "n_cells": 16,
+            "daily_peak_m3s": 147.53,
+            "daily_mean_m3s": 21.77
+          },
+          "src_xy": [
+            748293.28,
+            4883210.34
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            0.0,
+            0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 349.2168884277344,
+            "lowest_zb_m": 99.22,
+            "lowest_offset_cells": [
+              -8,
+              -7
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        }
+      ]
+    },
+    {
+      "run": "PUB pineios_sfincs_enhanced",
+      "note": "v1.3 canonical (MANIFEST row 5)",
+      "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\skill\\examples\\emsr692_pineios_enhanced.yaml",
+      "model": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\model",
+      "glofas_file": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\data\\glofas_pineios_clean.nc",
+      "glofas_latitude_order": "ascending",
+      "glofas_domain_mean_m3s": 11.589,
+      "glofas_time": [
+        "2023-08-27",
+        "2023-09-11"
+      ],
+      "n_dis_rows": 361,
+      "n_dis_cols": 4,
+      "pipeline_dis_kept_as": null,
+      "points": [
+        {
+          "name": "pineios_trikala",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 371.39,
+            "nearest cell @ named point, step-filled": 9.07,
+            "nearest cell @ named point, hourly linear": 9.07,
+            "nearest cell @ injection point, hourly linear (audit rebuild)": 1.38,
+            "nearest cell @ injection point, step-filled": 1.38
+          },
+          "named_lonlat": [
+            21.77,
+            39.56
+          ],
+          "injection_lonlat": [
+            21.86,
+            39.56
+          ],
+          "written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "written_is": "FALLBACK constant = domain mean 11.589",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              21.74,
+              39.61
+            ],
+            "daily_peak_m3s": 9.07,
+            "daily_mean_m3s": 2.93
+          },
+          "nearest_injection": {
+            "cell": [
+              21.84,
+              39.61
+            ],
+            "daily_peak_m3s": 1.38,
+            "daily_mean_m3s": 0.33
+          },
+          "window_max": {
+            "cell": [
+              21.84,
+              39.51
+            ],
+            "n_cells": 4,
+            "daily_peak_m3s": 371.39,
+            "daily_mean_m3s": 71.09
+          },
+          "src_xy": [
+            573878.87,
+            4379276.52
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            0.0,
+            0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 97.76842498779297,
+            "lowest_zb_m": 94.5,
+            "lowest_offset_cells": [
+              2,
+              10
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "pineios_kalambaka",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 2.1,
+            "nearest cell @ named point, step-filled": 0.52,
+            "nearest cell @ named point, hourly linear": 0.52,
+            "nearest cell @ injection point, hourly linear (audit rebuild)": 0.4,
+            "nearest cell @ injection point, step-filled": 0.4
+          },
+          "named_lonlat": [
+            21.63,
+            39.7
+          ],
+          "injection_lonlat": [
+            21.86,
+            39.7
+          ],
+          "written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "written_is": "FALLBACK constant = domain mean 11.589",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              21.64,
+              39.71
+            ],
+            "daily_peak_m3s": 0.52,
+            "daily_mean_m3s": 0.17
+          },
+          "nearest_injection": {
+            "cell": [
+              21.84,
+              39.71
+            ],
+            "daily_peak_m3s": 0.4,
+            "daily_mean_m3s": 0.09
+          },
+          "window_max": {
+            "cell": [
+              21.64,
+              39.61
+            ],
+            "n_cells": 2,
+            "daily_peak_m3s": 2.1,
+            "daily_mean_m3s": 0.61
+          },
+          "src_xy": [
+            573730.1,
+            4394814.49
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            0.0,
+            0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": null,
+            "lowest_zb_m": 362.1,
+            "lowest_offset_cells": [
+              9,
+              5
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": null
+        },
+        {
+          "name": "titarisios",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 1128.8,
+            "nearest cell @ named point, step-filled": 24.41,
+            "nearest cell @ named point, hourly linear": 24.41
+          },
+          "named_lonlat": [
+            22.42,
+            39.71
+          ],
+          "injection_lonlat": [
+            22.42,
+            39.71
+          ],
+          "written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "written_is": "FALLBACK constant = domain mean 11.589",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              22.44,
+              39.71
+            ],
+            "daily_peak_m3s": 24.41,
+            "daily_mean_m3s": 3.66
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              22.44,
+              39.81
+            ],
+            "n_cells": 6,
+            "daily_peak_m3s": 1128.8,
+            "daily_mean_m3s": 302.47
+          },
+          "src_xy": [
+            621724.29,
+            4396534.68
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            -0.0,
+            -0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 64.54530334472656,
+            "lowest_zb_m": 61.23,
+            "lowest_offset_cells": [
+              -10,
+              0
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "enipeas",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 118.4,
+            "nearest cell @ named point, step-filled": 118.4,
+            "nearest cell @ named point, hourly linear": 118.4,
+            "nearest cell @ injection point, hourly linear (audit rebuild)": 118.4,
+            "nearest cell @ injection point, step-filled": 118.4
+          },
+          "named_lonlat": [
+            22.39,
+            39.3
+          ],
+          "injection_lonlat": [
+            22.39,
+            39.33
+          ],
+          "written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "written_is": "FALLBACK constant = domain mean 11.589",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              22.34,
+              39.31
+            ],
+            "daily_peak_m3s": 118.4,
+            "daily_mean_m3s": 33.25
+          },
+          "nearest_injection": {
+            "cell": [
+              22.34,
+              39.31
+            ],
+            "daily_peak_m3s": 118.4,
+            "daily_mean_m3s": 33.25
+          },
+          "window_max": {
+            "cell": [
+              22.34,
+              39.31
+            ],
+            "n_cells": 4,
+            "daily_peak_m3s": 118.4,
+            "daily_mean_m3s": 33.25
+          },
+          "src_xy": [
+            619803.78,
+            4354319.21
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            0.0,
+            -0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 136.2526092529297,
+            "lowest_zb_m": 129.81,
+            "lowest_offset_cells": [
+              -3,
+              -10
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        }
+      ]
+    },
+    {
+      "run": "PUB pineios_sfincs_v3",
+      "note": "v1.3 time-varying-Q audit (row 14)",
+      "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\skill\\examples\\emsr692_pineios_enhanced.yaml",
+      "model": "D:\\ELKAK\\implementation\\pineios_sfincs_v3\\model",
+      "glofas_file": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\data\\glofas_pineios_clean.nc",
+      "glofas_latitude_order": "ascending",
+      "glofas_domain_mean_m3s": 11.589,
+      "glofas_time": [
+        "2023-08-27",
+        "2023-09-11"
+      ],
+      "n_dis_rows": 361,
+      "n_dis_cols": 4,
+      "pipeline_dis_kept_as": null,
+      "points": [
+        {
+          "name": "pineios_trikala",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 371.39,
+            "nearest cell @ named point, step-filled": 9.07,
+            "nearest cell @ named point, hourly linear": 9.07,
+            "nearest cell @ injection point, hourly linear (audit rebuild)": 1.38,
+            "nearest cell @ injection point, step-filled": 1.38
+          },
+          "named_lonlat": [
+            21.77,
+            39.56
+          ],
+          "injection_lonlat": [
+            21.86,
+            39.56
+          ],
+          "written": {
+            "min": 0.03,
+            "max": 1.38,
+            "mean": 0.319,
+            "constant": false
+          },
+          "written_is": "nearest cell @ injection point, hourly linear (audit rebuild)",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              21.74,
+              39.61
+            ],
+            "daily_peak_m3s": 9.07,
+            "daily_mean_m3s": 2.93
+          },
+          "nearest_injection": {
+            "cell": [
+              21.84,
+              39.61
+            ],
+            "daily_peak_m3s": 1.38,
+            "daily_mean_m3s": 0.33
+          },
+          "window_max": {
+            "cell": [
+              21.84,
+              39.51
+            ],
+            "n_cells": 4,
+            "daily_peak_m3s": 371.39,
+            "daily_mean_m3s": 71.09
+          },
+          "src_xy": [
+            574307.0,
+            4379790.0
+          ],
+          "src_equals_injection_point": false,
+          "src_shift_from_injection_m": [
+            428.1,
+            513.5
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 96.45821380615234,
+            "lowest_zb_m": 94.19,
+            "lowest_offset_cells": [
+              6,
+              9
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "pineios_kalambaka",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 2.1,
+            "nearest cell @ named point, step-filled": 0.52,
+            "nearest cell @ named point, hourly linear": 0.52,
+            "nearest cell @ injection point, hourly linear (audit rebuild)": 0.4,
+            "nearest cell @ injection point, step-filled": 0.4
+          },
+          "named_lonlat": [
+            21.63,
+            39.7
+          ],
+          "injection_lonlat": [
+            21.86,
+            39.7
+          ],
+          "written": {
+            "min": 0.02,
+            "max": 0.4,
+            "mean": 0.088,
+            "constant": false
+          },
+          "written_is": "nearest cell @ injection point, hourly linear (audit rebuild)",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              21.64,
+              39.71
+            ],
+            "daily_peak_m3s": 0.52,
+            "daily_mean_m3s": 0.17
+          },
+          "nearest_injection": {
+            "cell": [
+              21.84,
+              39.71
+            ],
+            "daily_peak_m3s": 0.4,
+            "daily_mean_m3s": 0.09
+          },
+          "window_max": {
+            "cell": [
+              21.64,
+              39.61
+            ],
+            "n_cells": 2,
+            "daily_peak_m3s": 2.1,
+            "daily_mean_m3s": 0.61
+          },
+          "src_xy": [
+            574907.0,
+            4393290.0
+          ],
+          "src_equals_injection_point": false,
+          "src_shift_from_injection_m": [
+            1176.9,
+            -1524.5
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 369.1917419433594,
+            "lowest_zb_m": 280.53,
+            "lowest_offset_cells": [
+              10,
+              5
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "titarisios",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 1128.8,
+            "nearest cell @ named point, step-filled": 24.41,
+            "nearest cell @ named point, hourly linear": 24.41
+          },
+          "named_lonlat": [
+            22.42,
+            39.71
+          ],
+          "injection_lonlat": [
+            22.42,
+            39.71
+          ],
+          "written": {
+            "min": 0.25,
+            "max": 24.41,
+            "mean": 3.783,
+            "constant": false
+          },
+          "written_is": "nearest cell @ named point, hourly linear",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              22.44,
+              39.71
+            ],
+            "daily_peak_m3s": 24.41,
+            "daily_mean_m3s": 3.66
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              22.44,
+              39.81
+            ],
+            "n_cells": 6,
+            "daily_peak_m3s": 1128.8,
+            "daily_mean_m3s": 302.47
+          },
+          "src_xy": [
+            622007.0,
+            4396740.0
+          ],
+          "src_equals_injection_point": false,
+          "src_shift_from_injection_m": [
+            282.7,
+            205.3
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 62.2825927734375,
+            "lowest_zb_m": 61.23,
+            "lowest_offset_cells": [
+              -9,
+              -2
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "enipeas",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 118.4,
+            "nearest cell @ named point, step-filled": 118.4,
+            "nearest cell @ named point, hourly linear": 118.4,
+            "nearest cell @ injection point, hourly linear (audit rebuild)": 118.4,
+            "nearest cell @ injection point, step-filled": 118.4
+          },
+          "named_lonlat": [
+            22.39,
+            39.3
+          ],
+          "injection_lonlat": [
+            22.39,
+            39.33
+          ],
+          "written": {
+            "min": 0.33,
+            "max": 118.4,
+            "mean": 33.459,
+            "constant": false
+          },
+          "written_is": "nearest cell @ named point, hourly linear",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              22.34,
+              39.31
+            ],
+            "daily_peak_m3s": 118.4,
+            "daily_mean_m3s": 33.25
+          },
+          "nearest_injection": {
+            "cell": [
+              22.34,
+              39.31
+            ],
+            "daily_peak_m3s": 118.4,
+            "daily_mean_m3s": 33.25
+          },
+          "window_max": {
+            "cell": [
+              22.34,
+              39.31
+            ],
+            "n_cells": 4,
+            "daily_peak_m3s": 118.4,
+            "daily_mean_m3s": 33.25
+          },
+          "src_xy": [
+            619307.0,
+            4354740.0
+          ],
+          "src_equals_injection_point": false,
+          "src_shift_from_injection_m": [
+            -496.8,
+            420.8
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 132.857666015625,
+            "lowest_zb_m": 128.81,
+            "lowest_offset_cells": [
+              -1,
+              -8
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        }
+      ]
+    },
+    {
+      "run": "PUB pineios_sfincs_v4",
+      "note": "v1.3 qinf 5 (row 15)",
+      "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\skill\\examples\\emsr692_pineios_enhanced.yaml",
+      "model": "D:\\ELKAK\\implementation\\pineios_sfincs_v4\\model",
+      "glofas_file": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\data\\glofas_pineios_clean.nc",
+      "glofas_latitude_order": "ascending",
+      "glofas_domain_mean_m3s": 11.589,
+      "glofas_time": [
+        "2023-08-27",
+        "2023-09-11"
+      ],
+      "n_dis_rows": 361,
+      "n_dis_cols": 4,
+      "pipeline_dis_kept_as": null,
+      "points": [
+        {
+          "name": "pineios_trikala",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 371.39,
+            "nearest cell @ named point, step-filled": 9.07,
+            "nearest cell @ named point, hourly linear": 9.07,
+            "nearest cell @ injection point, hourly linear (audit rebuild)": 1.38,
+            "nearest cell @ injection point, step-filled": 1.38
+          },
+          "named_lonlat": [
+            21.77,
+            39.56
+          ],
+          "injection_lonlat": [
+            21.86,
+            39.56
+          ],
+          "written": {
+            "min": 0.03,
+            "max": 1.38,
+            "mean": 0.319,
+            "constant": false
+          },
+          "written_is": "nearest cell @ injection point, hourly linear (audit rebuild)",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              21.74,
+              39.61
+            ],
+            "daily_peak_m3s": 9.07,
+            "daily_mean_m3s": 2.93
+          },
+          "nearest_injection": {
+            "cell": [
+              21.84,
+              39.61
+            ],
+            "daily_peak_m3s": 1.38,
+            "daily_mean_m3s": 0.33
+          },
+          "window_max": {
+            "cell": [
+              21.84,
+              39.51
+            ],
+            "n_cells": 4,
+            "daily_peak_m3s": 371.39,
+            "daily_mean_m3s": 71.09
+          },
+          "src_xy": [
+            574307.0,
+            4379790.0
+          ],
+          "src_equals_injection_point": false,
+          "src_shift_from_injection_m": [
+            428.1,
+            513.5
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 96.45821380615234,
+            "lowest_zb_m": 94.19,
+            "lowest_offset_cells": [
+              6,
+              9
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "pineios_kalambaka",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 2.1,
+            "nearest cell @ named point, step-filled": 0.52,
+            "nearest cell @ named point, hourly linear": 0.52,
+            "nearest cell @ injection point, hourly linear (audit rebuild)": 0.4,
+            "nearest cell @ injection point, step-filled": 0.4
+          },
+          "named_lonlat": [
+            21.63,
+            39.7
+          ],
+          "injection_lonlat": [
+            21.86,
+            39.7
+          ],
+          "written": {
+            "min": 0.02,
+            "max": 0.4,
+            "mean": 0.088,
+            "constant": false
+          },
+          "written_is": "nearest cell @ injection point, hourly linear (audit rebuild)",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              21.64,
+              39.71
+            ],
+            "daily_peak_m3s": 0.52,
+            "daily_mean_m3s": 0.17
+          },
+          "nearest_injection": {
+            "cell": [
+              21.84,
+              39.71
+            ],
+            "daily_peak_m3s": 0.4,
+            "daily_mean_m3s": 0.09
+          },
+          "window_max": {
+            "cell": [
+              21.64,
+              39.61
+            ],
+            "n_cells": 2,
+            "daily_peak_m3s": 2.1,
+            "daily_mean_m3s": 0.61
+          },
+          "src_xy": [
+            574907.0,
+            4393290.0
+          ],
+          "src_equals_injection_point": false,
+          "src_shift_from_injection_m": [
+            1176.9,
+            -1524.5
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 369.1917419433594,
+            "lowest_zb_m": 280.53,
+            "lowest_offset_cells": [
+              10,
+              5
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "titarisios",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 1128.8,
+            "nearest cell @ named point, step-filled": 24.41,
+            "nearest cell @ named point, hourly linear": 24.41
+          },
+          "named_lonlat": [
+            22.42,
+            39.71
+          ],
+          "injection_lonlat": [
+            22.42,
+            39.71
+          ],
+          "written": {
+            "min": 0.25,
+            "max": 24.41,
+            "mean": 3.783,
+            "constant": false
+          },
+          "written_is": "nearest cell @ named point, hourly linear",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              22.44,
+              39.71
+            ],
+            "daily_peak_m3s": 24.41,
+            "daily_mean_m3s": 3.66
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              22.44,
+              39.81
+            ],
+            "n_cells": 6,
+            "daily_peak_m3s": 1128.8,
+            "daily_mean_m3s": 302.47
+          },
+          "src_xy": [
+            622007.0,
+            4396740.0
+          ],
+          "src_equals_injection_point": false,
+          "src_shift_from_injection_m": [
+            282.7,
+            205.3
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 62.2825927734375,
+            "lowest_zb_m": 61.23,
+            "lowest_offset_cells": [
+              -9,
+              -2
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "enipeas",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 118.4,
+            "nearest cell @ named point, step-filled": 118.4,
+            "nearest cell @ named point, hourly linear": 118.4,
+            "nearest cell @ injection point, hourly linear (audit rebuild)": 118.4,
+            "nearest cell @ injection point, step-filled": 118.4
+          },
+          "named_lonlat": [
+            22.39,
+            39.3
+          ],
+          "injection_lonlat": [
+            22.39,
+            39.33
+          ],
+          "written": {
+            "min": 0.33,
+            "max": 118.4,
+            "mean": 33.459,
+            "constant": false
+          },
+          "written_is": "nearest cell @ named point, hourly linear",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              22.34,
+              39.31
+            ],
+            "daily_peak_m3s": 118.4,
+            "daily_mean_m3s": 33.25
+          },
+          "nearest_injection": {
+            "cell": [
+              22.34,
+              39.31
+            ],
+            "daily_peak_m3s": 118.4,
+            "daily_mean_m3s": 33.25
+          },
+          "window_max": {
+            "cell": [
+              22.34,
+              39.31
+            ],
+            "n_cells": 4,
+            "daily_peak_m3s": 118.4,
+            "daily_mean_m3s": 33.25
+          },
+          "src_xy": [
+            619307.0,
+            4354740.0
+          ],
+          "src_equals_injection_point": false,
+          "src_shift_from_injection_m": [
+            -496.8,
+            420.8
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 132.857666015625,
+            "lowest_zb_m": 128.81,
+            "lowest_offset_cells": [
+              -1,
+              -8
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        }
+      ]
+    },
+    {
+      "run": "PUB bias_sweep/pineios",
+      "note": "v1.3 R2 sweep 510 mm (row 12)",
+      "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\skill\\examples\\emsr692_pineios_enhanced.yaml",
+      "model": "D:\\ELKAK\\reproduction\\bias_sweep\\pineios\\model",
+      "glofas_file": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\data\\glofas_pineios_clean.nc",
+      "glofas_latitude_order": "ascending",
+      "glofas_domain_mean_m3s": 11.589,
+      "glofas_time": [
+        "2023-08-27",
+        "2023-09-11"
+      ],
+      "n_dis_rows": 361,
+      "n_dis_cols": 4,
+      "pipeline_dis_kept_as": null,
+      "points": [
+        {
+          "name": "pineios_trikala",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 371.39,
+            "nearest cell @ named point, step-filled": 9.07,
+            "nearest cell @ named point, hourly linear": 9.07,
+            "nearest cell @ injection point, hourly linear (audit rebuild)": 1.38,
+            "nearest cell @ injection point, step-filled": 1.38
+          },
+          "named_lonlat": [
+            21.77,
+            39.56
+          ],
+          "injection_lonlat": [
+            21.86,
+            39.56
+          ],
+          "written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "written_is": "FALLBACK constant = domain mean 11.589",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              21.74,
+              39.61
+            ],
+            "daily_peak_m3s": 9.07,
+            "daily_mean_m3s": 2.93
+          },
+          "nearest_injection": {
+            "cell": [
+              21.84,
+              39.61
+            ],
+            "daily_peak_m3s": 1.38,
+            "daily_mean_m3s": 0.33
+          },
+          "window_max": {
+            "cell": [
+              21.84,
+              39.51
+            ],
+            "n_cells": 4,
+            "daily_peak_m3s": 371.39,
+            "daily_mean_m3s": 71.09
+          },
+          "src_xy": [
+            573878.87,
+            4379276.52
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            0.0,
+            0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 97.76842498779297,
+            "lowest_zb_m": 94.5,
+            "lowest_offset_cells": [
+              2,
+              10
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "pineios_kalambaka",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 2.1,
+            "nearest cell @ named point, step-filled": 0.52,
+            "nearest cell @ named point, hourly linear": 0.52,
+            "nearest cell @ injection point, hourly linear (audit rebuild)": 0.4,
+            "nearest cell @ injection point, step-filled": 0.4
+          },
+          "named_lonlat": [
+            21.63,
+            39.7
+          ],
+          "injection_lonlat": [
+            21.86,
+            39.7
+          ],
+          "written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "written_is": "FALLBACK constant = domain mean 11.589",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              21.64,
+              39.71
+            ],
+            "daily_peak_m3s": 0.52,
+            "daily_mean_m3s": 0.17
+          },
+          "nearest_injection": {
+            "cell": [
+              21.84,
+              39.71
+            ],
+            "daily_peak_m3s": 0.4,
+            "daily_mean_m3s": 0.09
+          },
+          "window_max": {
+            "cell": [
+              21.64,
+              39.61
+            ],
+            "n_cells": 2,
+            "daily_peak_m3s": 2.1,
+            "daily_mean_m3s": 0.61
+          },
+          "src_xy": [
+            573730.1,
+            4394814.49
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            0.0,
+            0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": null,
+            "lowest_zb_m": 362.1,
+            "lowest_offset_cells": [
+              9,
+              5
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": null
+        },
+        {
+          "name": "titarisios",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 1128.8,
+            "nearest cell @ named point, step-filled": 24.41,
+            "nearest cell @ named point, hourly linear": 24.41
+          },
+          "named_lonlat": [
+            22.42,
+            39.71
+          ],
+          "injection_lonlat": [
+            22.42,
+            39.71
+          ],
+          "written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "written_is": "FALLBACK constant = domain mean 11.589",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              22.44,
+              39.71
+            ],
+            "daily_peak_m3s": 24.41,
+            "daily_mean_m3s": 3.66
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              22.44,
+              39.81
+            ],
+            "n_cells": 6,
+            "daily_peak_m3s": 1128.8,
+            "daily_mean_m3s": 302.47
+          },
+          "src_xy": [
+            621724.29,
+            4396534.68
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            -0.0,
+            -0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 64.54530334472656,
+            "lowest_zb_m": 61.23,
+            "lowest_offset_cells": [
+              -10,
+              0
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "enipeas",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 118.4,
+            "nearest cell @ named point, step-filled": 118.4,
+            "nearest cell @ named point, hourly linear": 118.4,
+            "nearest cell @ injection point, hourly linear (audit rebuild)": 118.4,
+            "nearest cell @ injection point, step-filled": 118.4
+          },
+          "named_lonlat": [
+            22.39,
+            39.3
+          ],
+          "injection_lonlat": [
+            22.39,
+            39.33
+          ],
+          "written": {
+            "min": 11.59,
+            "max": 11.59,
+            "mean": 11.59,
+            "constant": true
+          },
+          "written_is": "FALLBACK constant = domain mean 11.589",
+          "literal_slice_cells": 0,
+          "nearest_named": {
+            "cell": [
+              22.34,
+              39.31
+            ],
+            "daily_peak_m3s": 118.4,
+            "daily_mean_m3s": 33.25
+          },
+          "nearest_injection": {
+            "cell": [
+              22.34,
+              39.31
+            ],
+            "daily_peak_m3s": 118.4,
+            "daily_mean_m3s": 33.25
+          },
+          "window_max": {
+            "cell": [
+              22.34,
+              39.31
+            ],
+            "n_cells": 4,
+            "daily_peak_m3s": 118.4,
+            "daily_mean_m3s": 33.25
+          },
+          "src_xy": [
+            619803.78,
+            4354319.21
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            0.0,
+            -0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 136.2526092529297,
+            "lowest_zb_m": 129.81,
+            "lowest_offset_cells": [
+              -3,
+              -10
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        }
+      ]
+    },
+    {
+      "run": "PUB emsr122_sfincs_v3",
+      "note": "v1.3 canonical Strymonas (row 1)",
+      "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\skill\\examples\\emsr122_strymonas_enhanced.yaml",
+      "model": "D:\\ELKAK\\implementation\\emsr122_sfincs_v3\\model",
+      "glofas_file": "D:\\ELKAK\\implementation\\emsr122_sfincs_v3\\data\\glofas_strymonas_clean.nc",
+      "glofas_latitude_order": "descending",
+      "glofas_domain_mean_m3s": 18.352,
+      "glofas_time": [
+        "2015-03-02",
+        "2015-05-01"
+      ],
+      "n_dis_rows": 337,
+      "n_dis_cols": 2,
+      "pipeline_dis_kept_as": null,
+      "points": [
+        {
+          "name": "kerkini_outlet",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 640.34,
+            "nearest cell @ named point, step-filled": 635.59,
+            "nearest cell @ named point, hourly linear": 635.59
+          },
+          "named_lonlat": [
+            23.3991,
+            41.0289
+          ],
+          "injection_lonlat": [
+            23.3991,
+            41.0289
+          ],
+          "written": {
+            "min": 130.97,
+            "max": 640.34,
+            "mean": 303.083,
+            "constant": false
+          },
+          "written_is": "window-max series, step-filled (the sampler, order-agnostic)",
+          "literal_slice_cells": 16,
+          "nearest_named": {
+            "cell": [
+              23.375,
+              41.025
+            ],
+            "daily_peak_m3s": 635.59,
+            "daily_mean_m3s": 212.57
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              23.475,
+              40.975
+            ],
+            "n_cells": 16,
+            "daily_peak_m3s": 640.34,
+            "daily_mean_m3s": 215.85
+          },
+          "src_xy": [
+            701688.08,
+            4544737.97
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            -0.0,
+            -0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 13.864411354064941,
+            "lowest_zb_m": 13.45,
+            "lowest_offset_cells": [
+              2,
+              0
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "angitis",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 96.81,
+            "nearest cell @ named point, step-filled": 88.31,
+            "nearest cell @ named point, hourly linear": 88.31
+          },
+          "named_lonlat": [
+            23.92,
+            41.0
+          ],
+          "injection_lonlat": [
+            23.92,
+            41.0
+          ],
+          "written": {
+            "min": 49.34,
+            "max": 96.81,
+            "mean": 70.794,
+            "constant": false
+          },
+          "written_is": "window-max series, step-filled (the sampler, order-agnostic)",
+          "literal_slice_cells": 16,
+          "nearest_named": {
+            "cell": [
+              23.925,
+              40.975
+            ],
+            "daily_peak_m3s": 201.09,
+            "daily_mean_m3s": 63.95
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              23.825,
+              40.925
+            ],
+            "n_cells": 16,
+            "daily_peak_m3s": 211.47,
+            "daily_mean_m3s": 69.57
+          },
+          "src_xy": [
+            745591.46,
+            4542864.67
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            -0.0,
+            0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 21.048877716064453,
+            "lowest_zb_m": 15.08,
+            "lowest_offset_cells": [
+              9,
+              -10
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        }
+      ]
+    },
+    {
+      "run": "PUB emsr122_sfincs_enhanced",
+      "note": "v1.3 Strymonas v1, pre-fix src (row 13)",
+      "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\reproduction\\v14_rerun\\configs\\strymonas_v1_prefix_src.yaml",
+      "model": "D:\\ELKAK\\implementation\\emsr122_sfincs_enhanced\\model",
+      "glofas_file": "D:\\ELKAK\\implementation\\emsr122_sfincs_enhanced\\data\\glofas_strymonas_clean.nc",
+      "glofas_latitude_order": "descending",
+      "glofas_domain_mean_m3s": 18.352,
+      "glofas_time": [
+        "2015-03-02",
+        "2015-05-01"
+      ],
+      "n_dis_rows": 337,
+      "n_dis_cols": 2,
+      "pipeline_dis_kept_as": null,
+      "points": [
+        {
+          "name": "kerkini_outlet",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 618.5,
+            "nearest cell @ named point, step-filled": 1.34,
+            "nearest cell @ named point, hourly linear": 1.34
+          },
+          "named_lonlat": [
+            23.2,
+            41.08
+          ],
+          "injection_lonlat": [
+            23.2,
+            41.08
+          ],
+          "written": {
+            "min": 119.88,
+            "max": 618.5,
+            "mean": 290.118,
+            "constant": false
+          },
+          "written_is": "window-max series, step-filled (the sampler, order-agnostic)",
+          "literal_slice_cells": 16,
+          "nearest_named": {
+            "cell": [
+              23.175,
+              41.075
+            ],
+            "daily_peak_m3s": 2.38,
+            "daily_mean_m3s": 0.84
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              23.275,
+              41.125
+            ],
+            "n_cells": 16,
+            "daily_peak_m3s": 618.5,
+            "daily_mean_m3s": 202.83
+          },
+          "src_xy": [
+            684805.76,
+            4549969.94
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            0.0,
+            -0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 192.30787658691406,
+            "lowest_zb_m": 133.34,
+            "lowest_offset_cells": [
+              -10,
+              3
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "angitis",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 96.81,
+            "nearest cell @ named point, step-filled": 88.31,
+            "nearest cell @ named point, hourly linear": 88.31
+          },
+          "named_lonlat": [
+            23.92,
+            41.0
+          ],
+          "injection_lonlat": [
+            23.92,
+            41.0
+          ],
+          "written": {
+            "min": 49.34,
+            "max": 96.81,
+            "mean": 70.794,
+            "constant": false
+          },
+          "written_is": "window-max series, step-filled (the sampler, order-agnostic)",
+          "literal_slice_cells": 16,
+          "nearest_named": {
+            "cell": [
+              23.925,
+              40.975
+            ],
+            "daily_peak_m3s": 201.09,
+            "daily_mean_m3s": 63.95
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              23.825,
+              40.925
+            ],
+            "n_cells": 16,
+            "daily_peak_m3s": 211.47,
+            "daily_mean_m3s": 69.57
+          },
+          "src_xy": [
+            745591.46,
+            4542864.67
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            -0.0,
+            0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 21.048877716064453,
+            "lowest_zb_m": 15.08,
+            "lowest_offset_cells": [
+              9,
+              -10
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        }
+      ]
+    },
+    {
+      "run": "PUB emsr122_sfincs_v4",
+      "note": "v1.3 Table 12 CN off + Q (row 9)",
+      "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\skill\\examples\\emsr122_strymonas_enhanced.yaml",
+      "model": "D:\\ELKAK\\implementation\\emsr122_sfincs_v4\\model",
+      "glofas_file": "D:\\ELKAK\\implementation\\emsr122_sfincs_v3\\data\\glofas_strymonas_clean.nc",
+      "glofas_latitude_order": "descending",
+      "glofas_domain_mean_m3s": 18.352,
+      "glofas_time": [
+        "2015-03-02",
+        "2015-05-01"
+      ],
+      "n_dis_rows": 337,
+      "n_dis_cols": 2,
+      "pipeline_dis_kept_as": null,
+      "points": [
+        {
+          "name": "kerkini_outlet",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 640.34,
+            "nearest cell @ named point, step-filled": 635.59,
+            "nearest cell @ named point, hourly linear": 635.59
+          },
+          "named_lonlat": [
+            23.3991,
+            41.0289
+          ],
+          "injection_lonlat": [
+            23.3991,
+            41.0289
+          ],
+          "written": {
+            "min": 119.88,
+            "max": 618.5,
+            "mean": 290.118,
+            "constant": false
+          },
+          "written_is": "OTHER series (matches no candidate)",
+          "literal_slice_cells": 16,
+          "nearest_named": {
+            "cell": [
+              23.375,
+              41.025
+            ],
+            "daily_peak_m3s": 635.59,
+            "daily_mean_m3s": 212.57
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              23.475,
+              40.975
+            ],
+            "n_cells": 16,
+            "daily_peak_m3s": 640.34,
+            "daily_mean_m3s": 215.85
+          },
+          "src_xy": [
+            701692.0,
+            4544737.0
+          ],
+          "src_equals_injection_point": false,
+          "src_shift_from_injection_m": [
+            3.9,
+            -1.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 13.864411354064941,
+            "lowest_zb_m": 13.45,
+            "lowest_offset_cells": [
+              2,
+              0
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "angitis",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 96.81,
+            "nearest cell @ named point, step-filled": 88.31,
+            "nearest cell @ named point, hourly linear": 88.31
+          },
+          "named_lonlat": [
+            23.92,
+            41.0
+          ],
+          "injection_lonlat": [
+            23.92,
+            41.0
+          ],
+          "written": {
+            "min": 49.34,
+            "max": 96.81,
+            "mean": 70.794,
+            "constant": false
+          },
+          "written_is": "window-max series, step-filled (the sampler, order-agnostic)",
+          "literal_slice_cells": 16,
+          "nearest_named": {
+            "cell": [
+              23.925,
+              40.975
+            ],
+            "daily_peak_m3s": 201.09,
+            "daily_mean_m3s": 63.95
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              23.825,
+              40.925
+            ],
+            "n_cells": 16,
+            "daily_peak_m3s": 211.47,
+            "daily_mean_m3s": 69.57
+          },
+          "src_xy": [
+            745591.46,
+            4542864.67
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            -0.0,
+            0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 21.048877716064453,
+            "lowest_zb_m": 15.08,
+            "lowest_offset_cells": [
+              9,
+              -10
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        }
+      ]
+    },
+    {
+      "run": "PUB NHESS valencia rerun_v164",
+      "note": "v1.3 Valencia 164 mm (row 8)",
+      "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\skill\\examples\\emsr773_valencia_enhanced.yaml",
+      "model": "D:\\ELKAK\\ELKAK2\\NHESS\\R1_verification\\task_valencia_anchor\\rerun_v164\\model",
+      "glofas_file": "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\valencia_emsr773\\data\\glofas_valencia_clean.nc",
+      "glofas_latitude_order": "descending",
+      "glofas_domain_mean_m3s": 2.728,
+      "glofas_time": [
+        "2024-10-02",
+        "2024-12-01"
+      ],
+      "n_dis_rows": 193,
+      "n_dis_cols": 3,
+      "pipeline_dis_kept_as": null,
+      "points": [
+        {
+          "name": "magro",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 42.69,
+            "nearest cell @ named point, step-filled": 41.15,
+            "nearest cell @ named point, hourly linear": 41.15
+          },
+          "named_lonlat": [
+            -0.68,
+            39.2
+          ],
+          "injection_lonlat": [
+            -0.68,
+            39.2
+          ],
+          "written": {
+            "min": 14.13,
+            "max": 42.69,
+            "mean": 23.167,
+            "constant": false
+          },
+          "written_is": "window-max series, step-filled (the sampler, order-agnostic)",
+          "literal_slice_cells": 16,
+          "nearest_named": {
+            "cell": [
+              -0.675,
+              39.175
+            ],
+            "daily_peak_m3s": 41.15,
+            "daily_mean_m3s": 15.76
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              -0.625,
+              39.125
+            ],
+            "n_cells": 16,
+            "daily_peak_m3s": 42.69,
+            "daily_mean_m3s": 16.3
+          },
+          "src_xy": [
+            700337.21,
+            4341535.46
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            -0.0,
+            -0.0
+          ]
+        },
+        {
+          "name": "jucar",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 88.81,
+            "nearest cell @ named point, step-filled": 90.38,
+            "nearest cell @ named point, hourly linear": 90.38
+          },
+          "named_lonlat": [
+            -0.34,
+            39.16
+          ],
+          "injection_lonlat": [
+            -0.34,
+            39.16
+          ],
+          "written": {
+            "min": 23.5,
+            "max": 88.81,
+            "mean": 46.223,
+            "constant": false
+          },
+          "written_is": "window-max series, step-filled (the sampler, order-agnostic)",
+          "literal_slice_cells": 16,
+          "nearest_named": {
+            "cell": [
+              -0.325,
+              39.175
+            ],
+            "daily_peak_m3s": 90.38,
+            "daily_mean_m3s": 25.5
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              -0.275,
+              39.175
+            ],
+            "n_cells": 16,
+            "daily_peak_m3s": 88.81,
+            "daily_mean_m3s": 25.72
+          },
+          "src_xy": [
+            729831.3,
+            4337902.56
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            -0.0,
+            -0.0
+          ]
+        },
+        {
+          "name": "turia",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 239.72,
+            "nearest cell @ named point, step-filled": 237.25,
+            "nearest cell @ named point, hourly linear": 237.25
+          },
+          "named_lonlat": [
+            -0.55,
+            39.52
+          ],
+          "injection_lonlat": [
+            -0.55,
+            39.52
+          ],
+          "written": {
+            "min": 4.45,
+            "max": 239.72,
+            "mean": 73.583,
+            "constant": false
+          },
+          "written_is": "window-max series, step-filled (the sampler, order-agnostic)",
+          "literal_slice_cells": 16,
+          "nearest_named": {
+            "cell": [
+              -0.525,
+              39.525
+            ],
+            "daily_peak_m3s": 237.25,
+            "daily_mean_m3s": 31.6
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              -0.475,
+              39.525
+            ],
+            "n_cells": 16,
+            "daily_peak_m3s": 239.72,
+            "daily_mean_m3s": 32.37
+          },
+          "src_xy": [
+            710600.54,
+            4377350.37
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "run": "PUB NHESS emilia_emsr664",
+      "note": "v1.3 Emilia (row 7)",
+      "config": "D:\\ELKAK\\sfincs-mediterranean-floods\\.worktrees\\emsr933-crete\\skill\\examples\\emsr664_emilia_romagna_enhanced.yaml",
+      "model": "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\emilia_emsr664\\model",
+      "glofas_file": "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\emilia_emsr664\\data\\glofas_emilia_romagna_clean.nc",
+      "glofas_latitude_order": "descending",
+      "glofas_domain_mean_m3s": 60.392,
+      "glofas_time": [
+        "2023-04-02",
+        "2023-06-01"
+      ],
+      "n_dis_rows": 529,
+      "n_dis_cols": 5,
+      "pipeline_dis_kept_as": null,
+      "points": [
+        {
+          "name": "lamone",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 188.22,
+            "nearest cell @ named point, step-filled": 71.69,
+            "nearest cell @ named point, hourly linear": 71.69
+          },
+          "named_lonlat": [
+            11.9,
+            44.24
+          ],
+          "injection_lonlat": [
+            11.9,
+            44.24
+          ],
+          "written": {
+            "min": 3.78,
+            "max": 188.22,
+            "mean": 61.509,
+            "constant": false
+          },
+          "written_is": "window-max series, step-filled (the sampler, order-agnostic)",
+          "literal_slice_cells": 16,
+          "nearest_named": {
+            "cell": [
+              11.875,
+              44.225
+            ],
+            "daily_peak_m3s": 71.69,
+            "daily_mean_m3s": 10.55
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              11.975,
+              44.325
+            ],
+            "n_cells": 16,
+            "daily_peak_m3s": 188.22,
+            "daily_mean_m3s": 29.02
+          },
+          "src_xy": [
+            731568.4,
+            4902620.03
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            -0.0,
+            0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 66.80732727050781,
+            "lowest_zb_m": 39.35,
+            "lowest_offset_cells": [
+              -6,
+              -4
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "senio",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 166.06,
+            "nearest cell @ named point, step-filled": 83.22,
+            "nearest cell @ named point, hourly linear": 83.22
+          },
+          "named_lonlat": [
+            11.83,
+            44.27
+          ],
+          "injection_lonlat": [
+            11.83,
+            44.27
+          ],
+          "written": {
+            "min": 3.31,
+            "max": 166.06,
+            "mean": 54.384,
+            "constant": false
+          },
+          "written_is": "window-max series, step-filled (the sampler, order-agnostic)",
+          "literal_slice_cells": 16,
+          "nearest_named": {
+            "cell": [
+              11.825,
+              44.275
+            ],
+            "daily_peak_m3s": 83.22,
+            "daily_mean_m3s": 13.08
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              11.925,
+              44.275
+            ],
+            "n_cells": 16,
+            "daily_peak_m3s": 166.06,
+            "daily_mean_m3s": 25.66
+          },
+          "src_xy": [
+            725863.74,
+            4905757.16
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            0.0,
+            0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 129.22434997558594,
+            "lowest_zb_m": 39.01,
+            "lowest_offset_cells": [
+              0,
+              10
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "montone",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 166.06,
+            "nearest cell @ named point, step-filled": 82.06,
+            "nearest cell @ named point, hourly linear": 82.06
+          },
+          "named_lonlat": [
+            11.98,
+            44.18
+          ],
+          "injection_lonlat": [
+            11.98,
+            44.18
+          ],
+          "written": {
+            "min": 3.31,
+            "max": 166.06,
+            "mean": 54.384,
+            "constant": false
+          },
+          "written_is": "window-max series, step-filled (the sampler, order-agnostic)",
+          "literal_slice_cells": 16,
+          "nearest_named": {
+            "cell": [
+              11.975,
+              44.175
+            ],
+            "daily_peak_m3s": 82.06,
+            "daily_mean_m3s": 12.36
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              11.925,
+              44.275
+            ],
+            "n_cells": 16,
+            "daily_peak_m3s": 166.06,
+            "daily_mean_m3s": 25.66
+          },
+          "src_xy": [
+            738198.57,
+            4896184.35
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            -0.0,
+            -0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 119.45575714111328,
+            "lowest_zb_m": 42.15,
+            "lowest_offset_cells": [
+              -10,
+              -2
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "ronco",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 171.19,
+            "nearest cell @ named point, step-filled": 8.5,
+            "nearest cell @ named point, hourly linear": 8.5
+          },
+          "named_lonlat": [
+            12.03,
+            44.13
+          ],
+          "injection_lonlat": [
+            12.03,
+            44.13
+          ],
+          "written": {
+            "min": 4.38,
+            "max": 171.19,
+            "mean": 51.852,
+            "constant": false
+          },
+          "written_is": "window-max series, step-filled (the sampler, order-agnostic)",
+          "literal_slice_cells": 16,
+          "nearest_named": {
+            "cell": [
+              12.025,
+              44.125
+            ],
+            "daily_peak_m3s": 8.5,
+            "daily_mean_m3s": 0.9
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              12.075,
+              44.225
+            ],
+            "n_cells": 16,
+            "daily_peak_m3s": 171.19,
+            "daily_mean_m3s": 25.1
+          },
+          "src_xy": [
+            742400.09,
+            4890776.79
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            0.0,
+            -0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 213.84812927246094,
+            "lowest_zb_m": 87.89,
+            "lowest_offset_cells": [
+              8,
+              9
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        },
+        {
+          "name": "savio",
+          "candidate_peaks_in_simulated_window_m3s": {
+            "window-max series, step-filled (the sampler, order-agnostic)": 147.53,
+            "nearest cell @ named point, step-filled": 32.12,
+            "nearest cell @ named point, hourly linear": 32.12
+          },
+          "named_lonlat": [
+            12.1,
+            44.06
+          ],
+          "injection_lonlat": [
+            12.1,
+            44.06
+          ],
+          "written": {
+            "min": 4.09,
+            "max": 147.53,
+            "mean": 44.243,
+            "constant": false
+          },
+          "written_is": "window-max series, step-filled (the sampler, order-agnostic)",
+          "literal_slice_cells": 16,
+          "nearest_named": {
+            "cell": [
+              12.075,
+              44.075
+            ],
+            "daily_peak_m3s": 32.12,
+            "daily_mean_m3s": 3.93
+          },
+          "nearest_injection": null,
+          "window_max": {
+            "cell": [
+              12.175,
+              44.075
+            ],
+            "n_cells": 16,
+            "daily_peak_m3s": 147.53,
+            "daily_mean_m3s": 21.77
+          },
+          "src_xy": [
+            748293.28,
+            4883210.34
+          ],
+          "src_equals_injection_point": true,
+          "src_shift_from_injection_m": [
+            0.0,
+            0.0
+          ],
+          "src_vs_lowest_zb": {
+            "src_zb_m": 349.2168884277344,
+            "lowest_zb_m": 99.22,
+            "lowest_offset_cells": [
+              -8,
+              -7
+            ],
+            "on_lowest": false
+          },
+          "msk_at_src": 1
+        }
+      ]
+    }
+  ]
+}

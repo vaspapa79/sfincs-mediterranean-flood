@@ -1,0 +1,1344 @@
+{
+  "utc": "2026-10-20T08:38:24Z",
+  "sampler": "skill/scripts/prep_q_at_outlets.py (v1.4.1)",
+  "runs": [
+    {
+      "run": "strymonas_enhanced",
+      "event": "strymonas",
+      "config": "reproduction\\v14_rerun\\configs\\strymonas_enhanced.yaml",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\strymonas_enhanced\\data\\glofas_strymonas_clean.nc",
+      "latitude_order": "descending",
+      "q_outlet_csv_identical": true,
+      "q_outlet_csv_max_abs_diff": 0.0,
+      "dis_file": "D:\\ELKAK\\implementation\\v14\\strymonas_enhanced\\model\\sfincs.dis",
+      "sfincs_dis_identical": true,
+      "sfincs_dis_max_abs_diff": 0.0,
+      "v141_points": [
+        {
+          "id": 1,
+          "name": "kerkini_outlet",
+          "named_lonlat": [
+            23.3991,
+            41.0289
+          ],
+          "cell_lonlat": [
+            23.475,
+            40.975
+          ],
+          "window_cells": 16,
+          "cell_mean_m3s": 215.851,
+          "cell_peak_m3s": 640.344,
+          "column_peak_m3s": 640.344,
+          "column_mean_m3s": 303.083
+        },
+        {
+          "id": 2,
+          "name": "angitis",
+          "named_lonlat": [
+            23.92,
+            41.0
+          ],
+          "cell_lonlat": [
+            23.825,
+            40.925
+          ],
+          "window_cells": 16,
+          "cell_mean_m3s": 69.573,
+          "cell_peak_m3s": 211.469,
+          "column_peak_m3s": 96.812,
+          "column_mean_m3s": 70.793
+        }
+      ],
+      "duplicate_cells": [],
+      "v140_column_peaks": [
+        640.34,
+        96.81
+      ],
+      "v141_column_peaks": [
+        640.344,
+        96.812
+      ],
+      "v141_combined_hourly_peak_m3s": 737.16
+    },
+    {
+      "run": "strymonas_enhanced_postD6",
+      "event": "strymonas",
+      "config": "reproduction\\v14_rerun\\configs\\strymonas_enhanced_postD6.yaml",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\strymonas_enhanced_postD6\\data\\glofas_strymonas_clean.nc",
+      "latitude_order": "descending",
+      "q_outlet_csv_identical": true,
+      "q_outlet_csv_max_abs_diff": 0.0,
+      "dis_file": "D:\\ELKAK\\implementation\\v14\\strymonas_enhanced_postD6\\model\\sfincs.dis",
+      "sfincs_dis_identical": true,
+      "sfincs_dis_max_abs_diff": 0.0,
+      "v141_points": [
+        {
+          "id": 1,
+          "name": "kerkini_outlet",
+          "named_lonlat": [
+            23.3991,
+            41.0289
+          ],
+          "cell_lonlat": [
+            23.475,
+            40.975
+          ],
+          "window_cells": 16,
+          "cell_mean_m3s": 215.851,
+          "cell_peak_m3s": 640.344,
+          "column_peak_m3s": 640.344,
+          "column_mean_m3s": 303.083
+        },
+        {
+          "id": 2,
+          "name": "angitis",
+          "named_lonlat": [
+            23.92,
+            41.0
+          ],
+          "cell_lonlat": [
+            23.825,
+            40.925
+          ],
+          "window_cells": 16,
+          "cell_mean_m3s": 69.573,
+          "cell_peak_m3s": 211.469,
+          "column_peak_m3s": 96.812,
+          "column_mean_m3s": 70.793
+        }
+      ],
+      "duplicate_cells": [],
+      "v140_column_peaks": [
+        640.34,
+        96.81
+      ],
+      "v141_column_peaks": [
+        640.344,
+        96.812
+      ],
+      "v141_combined_hourly_peak_m3s": 737.16
+    },
+    {
+      "run": "strymonas_abl_cnoff_q",
+      "event": "strymonas",
+      "config": "reproduction\\v14_rerun\\configs\\strymonas_abl_cnoff_q.yaml",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\strymonas_abl_cnoff_q\\data\\glofas_strymonas_clean.nc",
+      "latitude_order": "descending",
+      "q_outlet_csv_identical": true,
+      "q_outlet_csv_max_abs_diff": 0.0,
+      "dis_file": "D:\\ELKAK\\implementation\\v14\\strymonas_abl_cnoff_q\\model\\sfincs.dis",
+      "sfincs_dis_identical": true,
+      "sfincs_dis_max_abs_diff": 0.0,
+      "v141_points": [
+        {
+          "id": 1,
+          "name": "kerkini_outlet",
+          "named_lonlat": [
+            23.3991,
+            41.0289
+          ],
+          "cell_lonlat": [
+            23.475,
+            40.975
+          ],
+          "window_cells": 16,
+          "cell_mean_m3s": 215.851,
+          "cell_peak_m3s": 640.344,
+          "column_peak_m3s": 640.344,
+          "column_mean_m3s": 303.083
+        },
+        {
+          "id": 2,
+          "name": "angitis",
+          "named_lonlat": [
+            23.92,
+            41.0
+          ],
+          "cell_lonlat": [
+            23.825,
+            40.925
+          ],
+          "window_cells": 16,
+          "cell_mean_m3s": 69.573,
+          "cell_peak_m3s": 211.469,
+          "column_peak_m3s": 96.812,
+          "column_mean_m3s": 70.793
+        }
+      ],
+      "duplicate_cells": [],
+      "v140_column_peaks": [
+        640.34,
+        96.81
+      ],
+      "v141_column_peaks": [
+        640.344,
+        96.812
+      ],
+      "v141_combined_hourly_peak_m3s": 737.16
+    },
+    {
+      "run": "strymonas_v1_prefix_src",
+      "event": "strymonas",
+      "config": "reproduction\\v14_rerun\\configs\\strymonas_v1_prefix_src.yaml",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\strymonas_v1_prefix_src\\data\\glofas_strymonas_clean.nc",
+      "latitude_order": "descending",
+      "q_outlet_csv_identical": true,
+      "q_outlet_csv_max_abs_diff": 0.0,
+      "dis_file": "D:\\ELKAK\\implementation\\v14\\strymonas_v1_prefix_src\\model\\sfincs.dis",
+      "sfincs_dis_identical": true,
+      "sfincs_dis_max_abs_diff": 0.0,
+      "v141_points": [
+        {
+          "id": 1,
+          "name": "kerkini_outlet",
+          "named_lonlat": [
+            23.2,
+            41.08
+          ],
+          "cell_lonlat": [
+            23.275,
+            41.125
+          ],
+          "window_cells": 16,
+          "cell_mean_m3s": 202.831,
+          "cell_peak_m3s": 618.5,
+          "column_peak_m3s": 618.5,
+          "column_mean_m3s": 290.12
+        },
+        {
+          "id": 2,
+          "name": "angitis",
+          "named_lonlat": [
+            23.92,
+            41.0
+          ],
+          "cell_lonlat": [
+            23.825,
+            40.925
+          ],
+          "window_cells": 16,
+          "cell_mean_m3s": 69.573,
+          "cell_peak_m3s": 211.469,
+          "column_peak_m3s": 96.812,
+          "column_mean_m3s": 70.793
+        }
+      ],
+      "duplicate_cells": [],
+      "v140_column_peaks": [
+        618.5,
+        96.81
+      ],
+      "v141_column_peaks": [
+        618.5,
+        96.812
+      ],
+      "v141_combined_hourly_peak_m3s": 715.31
+    },
+    {
+      "run": "strymonas_leadin7d",
+      "event": "strymonas",
+      "config": "reproduction\\v14_rerun\\configs\\strymonas_leadin7d.yaml",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\strymonas_leadin7d\\data\\glofas_strymonas_clean.nc",
+      "latitude_order": "descending",
+      "q_outlet_csv_identical": true,
+      "q_outlet_csv_max_abs_diff": 0.0,
+      "dis_file": "D:\\ELKAK\\implementation\\v14\\strymonas_leadin7d\\model\\sfincs.dis",
+      "sfincs_dis_identical": true,
+      "sfincs_dis_max_abs_diff": 0.0,
+      "v141_points": [
+        {
+          "id": 1,
+          "name": "kerkini_outlet",
+          "named_lonlat": [
+            23.3991,
+            41.0289
+          ],
+          "cell_lonlat": [
+            23.475,
+            40.975
+          ],
+          "window_cells": 16,
+          "cell_mean_m3s": 215.851,
+          "cell_peak_m3s": 640.344,
+          "column_peak_m3s": 640.344,
+          "column_mean_m3s": 303.083
+        },
+        {
+          "id": 2,
+          "name": "angitis",
+          "named_lonlat": [
+            23.92,
+            41.0
+          ],
+          "cell_lonlat": [
+            23.825,
+            40.925
+          ],
+          "window_cells": 16,
+          "cell_mean_m3s": 69.573,
+          "cell_peak_m3s": 211.469,
+          "column_peak_m3s": 96.812,
+          "column_mean_m3s": 70.793
+        }
+      ],
+      "duplicate_cells": [],
+      "v140_column_peaks": [
+        640.34,
+        96.81
+      ],
+      "v141_column_peaks": [
+        640.344,
+        96.812
+      ],
+      "v141_combined_hourly_peak_m3s": 737.16
+    },
+    {
+      "run": "valencia_enhanced_164",
+      "event": "valencia",
+      "config": "reproduction\\v14_rerun\\configs\\valencia_enhanced_164.yaml",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\valencia_enhanced_164\\data\\glofas_valencia_clean.nc",
+      "latitude_order": "descending",
+      "q_outlet_csv_identical": true,
+      "q_outlet_csv_max_abs_diff": 0.0,
+      "dis_file": "D:\\ELKAK\\implementation\\v14\\valencia_enhanced_164\\model\\sfincs.dis",
+      "sfincs_dis_identical": true,
+      "sfincs_dis_max_abs_diff": 0.0,
+      "v141_points": [
+        {
+          "id": 1,
+          "name": "magro",
+          "named_lonlat": [
+            -0.68,
+            39.2
+          ],
+          "cell_lonlat": [
+            -0.625,
+            39.125
+          ],
+          "window_cells": 16,
+          "cell_mean_m3s": 16.295,
+          "cell_peak_m3s": 42.688,
+          "column_peak_m3s": 42.688,
+          "column_mean_m3s": 23.165
+        },
+        {
+          "id": 2,
+          "name": "jucar",
+          "named_lonlat": [
+            -0.34,
+            39.16
+          ],
+          "cell_lonlat": [
+            -0.275,
+            39.175
+          ],
+          "window_cells": 16,
+          "cell_mean_m3s": 25.717,
+          "cell_peak_m3s": 88.809,
+          "column_peak_m3s": 88.809,
+          "column_mean_m3s": 46.222
+        },
+        {
+          "id": 3,
+          "name": "turia",
+          "named_lonlat": [
+            -0.55,
+            39.52
+          ],
+          "cell_lonlat": [
+            -0.475,
+            39.525
+          ],
+          "window_cells": 16,
+          "cell_mean_m3s": 32.369,
+          "cell_peak_m3s": 239.719,
+          "column_peak_m3s": 239.719,
+          "column_mean_m3s": 73.582
+        }
+      ],
+      "duplicate_cells": [],
+      "v140_column_peaks": [
+        42.69,
+        88.81,
+        239.72
+      ],
+      "v141_column_peaks": [
+        42.688,
+        88.809,
+        239.719
+      ],
+      "v141_combined_hourly_peak_m3s": 363.64
+    },
+    {
+      "run": "valencia_raw_imerg",
+      "event": "valencia",
+      "config": "reproduction\\v14_rerun\\configs\\valencia_raw_imerg.yaml",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\valencia_raw_imerg\\data\\glofas_valencia_clean.nc",
+      "latitude_order": "descending",
+      "q_outlet_csv_identical": true,
+      "q_outlet_csv_max_abs_diff": 0.0,
+      "dis_file": "D:\\ELKAK\\implementation\\v14\\valencia_raw_imerg\\model\\sfincs.dis",
+      "sfincs_dis_identical": true,
+      "sfincs_dis_max_abs_diff": 0.0,
+      "v141_points": [
+        {
+          "id": 1,
+          "name": "magro",
+          "named_lonlat": [
+            -0.68,
+            39.2
+          ],
+          "cell_lonlat": [
+            -0.625,
+            39.125
+          ],
+          "window_cells": 16,
+          "cell_mean_m3s": 16.295,
+          "cell_peak_m3s": 42.688,
+          "column_peak_m3s": 42.688,
+          "column_mean_m3s": 23.165
+        },
+        {
+          "id": 2,
+          "name": "jucar",
+          "named_lonlat": [
+            -0.34,
+            39.16
+          ],
+          "cell_lonlat": [
+            -0.275,
+            39.175
+          ],
+          "window_cells": 16,
+          "cell_mean_m3s": 25.717,
+          "cell_peak_m3s": 88.809,
+          "column_peak_m3s": 88.809,
+          "column_mean_m3s": 46.222
+        },
+        {
+          "id": 3,
+          "name": "turia",
+          "named_lonlat": [
+            -0.55,
+            39.52
+          ],
+          "cell_lonlat": [
+            -0.475,
+            39.525
+          ],
+          "window_cells": 16,
+          "cell_mean_m3s": 32.369,
+          "cell_peak_m3s": 239.719,
+          "column_peak_m3s": 239.719,
+          "column_mean_m3s": 73.582
+        }
+      ],
+      "duplicate_cells": [],
+      "v140_column_peaks": [
+        42.69,
+        88.81,
+        239.72
+      ],
+      "v141_column_peaks": [
+        42.688,
+        88.809,
+        239.719
+      ],
+      "v141_combined_hourly_peak_m3s": 363.64
+    },
+    {
+      "run": "emilia_enhanced_8aoi",
+      "event": "emilia_romagna",
+      "config": "reproduction\\v14_rerun\\configs\\emilia_enhanced_8aoi.yaml",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\emilia_enhanced_8aoi\\data\\glofas_emilia_romagna_clean.nc",
+      "latitude_order": "descending",
+      "q_outlet_csv_identical": true,
+      "q_outlet_csv_max_abs_diff": 0.0,
+      "dis_file": "D:\\ELKAK\\implementation\\v14\\emilia_enhanced_8aoi\\model\\sfincs.dis",
+      "sfincs_dis_identical": true,
+      "sfincs_dis_max_abs_diff": 0.0,
+      "v141_points": [
+        {
+          "id": 1,
+          "name": "lamone",
+          "named_lonlat": [
+            11.9,
+            44.24
+          ],
+          "cell_lonlat": [
+            11.975,
+            44.325
+          ],
+          "window_cells": 16,
+          "cell_mean_m3s": 29.017,
+          "cell_peak_m3s": 188.219,
+          "column_peak_m3s": 188.219,
+          "column_mean_m3s": 61.509
+        },
+        {
+          "id": 2,
+          "name": "senio",
+          "named_lonlat": [
+            11.83,
+            44.27
+          ],
+          "cell_lonlat": [
+            11.925,
+            44.275
+          ],
+          "window_cells": 16,
+          "cell_mean_m3s": 25.664,
+          "cell_peak_m3s": 166.062,
+          "column_peak_m3s": 166.062,
+          "column_mean_m3s": 54.384
+        },
+        {
+          "id": 3,
+          "name": "montone",
+          "named_lonlat": [
+            11.98,
+            44.18
+          ],
+          "cell_lonlat": [
+            11.925,
+            44.275
+          ],
+          "window_cells": 16,
+          "cell_mean_m3s": 25.664,
+          "cell_peak_m3s": 166.062,
+          "column_peak_m3s": 166.062,
+          "column_mean_m3s": 54.384
+        },
+        {
+          "id": 4,
+          "name": "ronco",
+          "named_lonlat": [
+            12.03,
+            44.13
+          ],
+          "cell_lonlat": [
+            12.075,
+            44.225
+          ],
+          "window_cells": 16,
+          "cell_mean_m3s": 25.099,
+          "cell_peak_m3s": 171.188,
+          "column_peak_m3s": 171.188,
+          "column_mean_m3s": 51.851
+        },
+        {
+          "id": 5,
+          "name": "savio",
+          "named_lonlat": [
+            12.1,
+            44.06
+          ],
+          "cell_lonlat": [
+            12.175,
+            44.075
+          ],
+          "window_cells": 16,
+          "cell_mean_m3s": 21.766,
+          "cell_peak_m3s": 147.531,
+          "column_peak_m3s": 147.531,
+          "column_mean_m3s": 44.243
+        }
+      ],
+      "duplicate_cells": [
+        {
+          "cell_lonlat": [
+            11.925,
+            44.275
+          ],
+          "points": [
+            "senio",
+            "montone"
+          ]
+        }
+      ],
+      "v140_column_peaks": [
+        188.22,
+        166.06,
+        166.06,
+        171.19,
+        147.53
+      ],
+      "v141_column_peaks": [
+        188.219,
+        166.062,
+        166.062,
+        171.188,
+        147.531
+      ],
+      "v141_combined_hourly_peak_m3s": 838.44
+    },
+    {
+      "run": "pineios_enhanced",
+      "event": "pineios",
+      "config": "reproduction\\v14_rerun\\configs\\pineios_enhanced.yaml",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\pineios_enhanced\\data\\glofas_pineios_clean.nc",
+      "latitude_order": "ascending",
+      "q_outlet_csv_identical": false,
+      "q_outlet_csv_max_abs_diff": 1117.2108278274536,
+      "dis_file": "D:\\ELKAK\\implementation\\v14\\pineios_enhanced\\model\\sfincs.dis",
+      "sfincs_dis_identical": false,
+      "sfincs_dis_max_abs_diff": 1117.21,
+      "v141_points": [
+        {
+          "id": 1,
+          "name": "pineios_trikala",
+          "named_lonlat": [
+            21.77,
+            39.56
+          ],
+          "cell_lonlat": [
+            21.84,
+            39.51
+          ],
+          "window_cells": 4,
+          "cell_mean_m3s": 71.092,
+          "cell_peak_m3s": 371.39,
+          "column_peak_m3s": 371.39,
+          "column_mean_m3s": 72.729
+        },
+        {
+          "id": 2,
+          "name": "pineios_kalambaka",
+          "named_lonlat": [
+            21.63,
+            39.7
+          ],
+          "cell_lonlat": [
+            21.64,
+            39.61
+          ],
+          "window_cells": 2,
+          "cell_mean_m3s": 0.612,
+          "cell_peak_m3s": 2.1,
+          "column_peak_m3s": 2.1,
+          "column_mean_m3s": 0.612
+        },
+        {
+          "id": 3,
+          "name": "titarisios",
+          "named_lonlat": [
+            22.42,
+            39.71
+          ],
+          "cell_lonlat": [
+            22.44,
+            39.81
+          ],
+          "window_cells": 6,
+          "cell_mean_m3s": 302.473,
+          "cell_peak_m3s": 1128.8,
+          "column_peak_m3s": 1128.8,
+          "column_mean_m3s": 305.405
+        },
+        {
+          "id": 4,
+          "name": "enipeas",
+          "named_lonlat": [
+            22.39,
+            39.3
+          ],
+          "cell_lonlat": [
+            22.34,
+            39.31
+          ],
+          "window_cells": 4,
+          "cell_mean_m3s": 33.245,
+          "cell_peak_m3s": 118.4,
+          "column_peak_m3s": 118.4,
+          "column_mean_m3s": 33.377
+        }
+      ],
+      "duplicate_cells": [],
+      "v140_column_peaks": [
+        11.59,
+        11.59,
+        11.59,
+        11.59
+      ],
+      "v141_column_peaks": [
+        371.39,
+        2.1,
+        1128.8,
+        118.4
+      ],
+      "v141_combined_hourly_peak_m3s": 1620.66
+    },
+    {
+      "run": "pineios_r2_220",
+      "event": "pineios",
+      "config": "reproduction\\v14_rerun\\configs\\pineios_r2_220.yaml",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\pineios_r2_220\\data\\glofas_pineios_clean.nc",
+      "latitude_order": "ascending",
+      "q_outlet_csv_identical": false,
+      "q_outlet_csv_max_abs_diff": 1117.2108278274536,
+      "dis_file": "D:\\ELKAK\\implementation\\v14\\pineios_r2_220\\model\\sfincs.dis",
+      "sfincs_dis_identical": false,
+      "sfincs_dis_max_abs_diff": 1117.21,
+      "v141_points": [
+        {
+          "id": 1,
+          "name": "pineios_trikala",
+          "named_lonlat": [
+            21.77,
+            39.56
+          ],
+          "cell_lonlat": [
+            21.84,
+            39.51
+          ],
+          "window_cells": 4,
+          "cell_mean_m3s": 71.092,
+          "cell_peak_m3s": 371.39,
+          "column_peak_m3s": 371.39,
+          "column_mean_m3s": 72.729
+        },
+        {
+          "id": 2,
+          "name": "pineios_kalambaka",
+          "named_lonlat": [
+            21.63,
+            39.7
+          ],
+          "cell_lonlat": [
+            21.64,
+            39.61
+          ],
+          "window_cells": 2,
+          "cell_mean_m3s": 0.612,
+          "cell_peak_m3s": 2.1,
+          "column_peak_m3s": 2.1,
+          "column_mean_m3s": 0.612
+        },
+        {
+          "id": 3,
+          "name": "titarisios",
+          "named_lonlat": [
+            22.42,
+            39.71
+          ],
+          "cell_lonlat": [
+            22.44,
+            39.81
+          ],
+          "window_cells": 6,
+          "cell_mean_m3s": 302.473,
+          "cell_peak_m3s": 1128.8,
+          "column_peak_m3s": 1128.8,
+          "column_mean_m3s": 305.405
+        },
+        {
+          "id": 4,
+          "name": "enipeas",
+          "named_lonlat": [
+            22.39,
+            39.3
+          ],
+          "cell_lonlat": [
+            22.34,
+            39.31
+          ],
+          "window_cells": 4,
+          "cell_mean_m3s": 33.245,
+          "cell_peak_m3s": 118.4,
+          "column_peak_m3s": 118.4,
+          "column_mean_m3s": 33.377
+        }
+      ],
+      "duplicate_cells": [],
+      "v140_column_peaks": [
+        11.59,
+        11.59,
+        11.59,
+        11.59
+      ],
+      "v141_column_peaks": [
+        371.39,
+        2.1,
+        1128.8,
+        118.4
+      ],
+      "v141_combined_hourly_peak_m3s": 1620.66
+    },
+    {
+      "run": "pineios_r2_295",
+      "event": "pineios",
+      "config": "reproduction\\v14_rerun\\configs\\pineios_r2_295.yaml",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\pineios_r2_295\\data\\glofas_pineios_clean.nc",
+      "latitude_order": "ascending",
+      "q_outlet_csv_identical": false,
+      "q_outlet_csv_max_abs_diff": 1117.2108278274536,
+      "dis_file": "D:\\ELKAK\\implementation\\v14\\pineios_r2_295\\model\\sfincs.dis",
+      "sfincs_dis_identical": false,
+      "sfincs_dis_max_abs_diff": 1117.21,
+      "v141_points": [
+        {
+          "id": 1,
+          "name": "pineios_trikala",
+          "named_lonlat": [
+            21.77,
+            39.56
+          ],
+          "cell_lonlat": [
+            21.84,
+            39.51
+          ],
+          "window_cells": 4,
+          "cell_mean_m3s": 71.092,
+          "cell_peak_m3s": 371.39,
+          "column_peak_m3s": 371.39,
+          "column_mean_m3s": 72.729
+        },
+        {
+          "id": 2,
+          "name": "pineios_kalambaka",
+          "named_lonlat": [
+            21.63,
+            39.7
+          ],
+          "cell_lonlat": [
+            21.64,
+            39.61
+          ],
+          "window_cells": 2,
+          "cell_mean_m3s": 0.612,
+          "cell_peak_m3s": 2.1,
+          "column_peak_m3s": 2.1,
+          "column_mean_m3s": 0.612
+        },
+        {
+          "id": 3,
+          "name": "titarisios",
+          "named_lonlat": [
+            22.42,
+            39.71
+          ],
+          "cell_lonlat": [
+            22.44,
+            39.81
+          ],
+          "window_cells": 6,
+          "cell_mean_m3s": 302.473,
+          "cell_peak_m3s": 1128.8,
+          "column_peak_m3s": 1128.8,
+          "column_mean_m3s": 305.405
+        },
+        {
+          "id": 4,
+          "name": "enipeas",
+          "named_lonlat": [
+            22.39,
+            39.3
+          ],
+          "cell_lonlat": [
+            22.34,
+            39.31
+          ],
+          "window_cells": 4,
+          "cell_mean_m3s": 33.245,
+          "cell_peak_m3s": 118.4,
+          "column_peak_m3s": 118.4,
+          "column_mean_m3s": 33.377
+        }
+      ],
+      "duplicate_cells": [],
+      "v140_column_peaks": [
+        11.59,
+        11.59,
+        11.59,
+        11.59
+      ],
+      "v141_column_peaks": [
+        371.39,
+        2.1,
+        1128.8,
+        118.4
+      ],
+      "v141_combined_hourly_peak_m3s": 1620.66
+    },
+    {
+      "run": "pineios_r2_510",
+      "event": "pineios",
+      "config": "reproduction\\v14_rerun\\configs\\pineios_r2_510.yaml",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\pineios_r2_510\\data\\glofas_pineios_clean.nc",
+      "latitude_order": "ascending",
+      "q_outlet_csv_identical": false,
+      "q_outlet_csv_max_abs_diff": 1117.2108278274536,
+      "dis_file": "D:\\ELKAK\\implementation\\v14\\pineios_r2_510\\model\\sfincs.dis",
+      "sfincs_dis_identical": false,
+      "sfincs_dis_max_abs_diff": 1117.21,
+      "v141_points": [
+        {
+          "id": 1,
+          "name": "pineios_trikala",
+          "named_lonlat": [
+            21.77,
+            39.56
+          ],
+          "cell_lonlat": [
+            21.84,
+            39.51
+          ],
+          "window_cells": 4,
+          "cell_mean_m3s": 71.092,
+          "cell_peak_m3s": 371.39,
+          "column_peak_m3s": 371.39,
+          "column_mean_m3s": 72.729
+        },
+        {
+          "id": 2,
+          "name": "pineios_kalambaka",
+          "named_lonlat": [
+            21.63,
+            39.7
+          ],
+          "cell_lonlat": [
+            21.64,
+            39.61
+          ],
+          "window_cells": 2,
+          "cell_mean_m3s": 0.612,
+          "cell_peak_m3s": 2.1,
+          "column_peak_m3s": 2.1,
+          "column_mean_m3s": 0.612
+        },
+        {
+          "id": 3,
+          "name": "titarisios",
+          "named_lonlat": [
+            22.42,
+            39.71
+          ],
+          "cell_lonlat": [
+            22.44,
+            39.81
+          ],
+          "window_cells": 6,
+          "cell_mean_m3s": 302.473,
+          "cell_peak_m3s": 1128.8,
+          "column_peak_m3s": 1128.8,
+          "column_mean_m3s": 305.405
+        },
+        {
+          "id": 4,
+          "name": "enipeas",
+          "named_lonlat": [
+            22.39,
+            39.3
+          ],
+          "cell_lonlat": [
+            22.34,
+            39.31
+          ],
+          "window_cells": 4,
+          "cell_mean_m3s": 33.245,
+          "cell_peak_m3s": 118.4,
+          "column_peak_m3s": 118.4,
+          "column_mean_m3s": 33.377
+        }
+      ],
+      "duplicate_cells": [],
+      "v140_column_peaks": [
+        11.59,
+        11.59,
+        11.59,
+        11.59
+      ],
+      "v141_column_peaks": [
+        371.39,
+        2.1,
+        1128.8,
+        118.4
+      ],
+      "v141_combined_hourly_peak_m3s": 1620.66
+    },
+    {
+      "run": "pineios_cn_on",
+      "event": "pineios",
+      "config": "reproduction\\v14_rerun\\configs\\pineios_cn_on.yaml",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\pineios_cn_on\\data\\glofas_pineios_clean.nc",
+      "latitude_order": "ascending",
+      "q_outlet_csv_identical": false,
+      "q_outlet_csv_max_abs_diff": 1117.2108278274536,
+      "dis_file": "D:\\ELKAK\\implementation\\v14\\pineios_cn_on\\model\\sfincs.dis",
+      "sfincs_dis_identical": false,
+      "sfincs_dis_max_abs_diff": 1117.21,
+      "v141_points": [
+        {
+          "id": 1,
+          "name": "pineios_trikala",
+          "named_lonlat": [
+            21.77,
+            39.56
+          ],
+          "cell_lonlat": [
+            21.84,
+            39.51
+          ],
+          "window_cells": 4,
+          "cell_mean_m3s": 71.092,
+          "cell_peak_m3s": 371.39,
+          "column_peak_m3s": 371.39,
+          "column_mean_m3s": 72.729
+        },
+        {
+          "id": 2,
+          "name": "pineios_kalambaka",
+          "named_lonlat": [
+            21.63,
+            39.7
+          ],
+          "cell_lonlat": [
+            21.64,
+            39.61
+          ],
+          "window_cells": 2,
+          "cell_mean_m3s": 0.612,
+          "cell_peak_m3s": 2.1,
+          "column_peak_m3s": 2.1,
+          "column_mean_m3s": 0.612
+        },
+        {
+          "id": 3,
+          "name": "titarisios",
+          "named_lonlat": [
+            22.42,
+            39.71
+          ],
+          "cell_lonlat": [
+            22.44,
+            39.81
+          ],
+          "window_cells": 6,
+          "cell_mean_m3s": 302.473,
+          "cell_peak_m3s": 1128.8,
+          "column_peak_m3s": 1128.8,
+          "column_mean_m3s": 305.405
+        },
+        {
+          "id": 4,
+          "name": "enipeas",
+          "named_lonlat": [
+            22.39,
+            39.3
+          ],
+          "cell_lonlat": [
+            22.34,
+            39.31
+          ],
+          "window_cells": 4,
+          "cell_mean_m3s": 33.245,
+          "cell_peak_m3s": 118.4,
+          "column_peak_m3s": 118.4,
+          "column_mean_m3s": 33.377
+        }
+      ],
+      "duplicate_cells": [],
+      "v140_column_peaks": [
+        11.59,
+        11.59,
+        11.59,
+        11.59
+      ],
+      "v141_column_peaks": [
+        371.39,
+        2.1,
+        1128.8,
+        118.4
+      ],
+      "v141_combined_hourly_peak_m3s": 1620.66
+    },
+    {
+      "run": "pineios_raw_imerg",
+      "event": "pineios",
+      "config": "reproduction\\v14_rerun\\configs\\pineios_raw_imerg.yaml",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\pineios_raw_imerg\\data\\glofas_pineios_clean.nc",
+      "latitude_order": "ascending",
+      "q_outlet_csv_identical": false,
+      "q_outlet_csv_max_abs_diff": 1117.2108278274536,
+      "dis_file": "D:\\ELKAK\\implementation\\v14\\pineios_raw_imerg\\model\\sfincs.dis",
+      "sfincs_dis_identical": false,
+      "sfincs_dis_max_abs_diff": 1117.21,
+      "v141_points": [
+        {
+          "id": 1,
+          "name": "pineios_trikala",
+          "named_lonlat": [
+            21.77,
+            39.56
+          ],
+          "cell_lonlat": [
+            21.84,
+            39.51
+          ],
+          "window_cells": 4,
+          "cell_mean_m3s": 71.092,
+          "cell_peak_m3s": 371.39,
+          "column_peak_m3s": 371.39,
+          "column_mean_m3s": 72.729
+        },
+        {
+          "id": 2,
+          "name": "pineios_kalambaka",
+          "named_lonlat": [
+            21.63,
+            39.7
+          ],
+          "cell_lonlat": [
+            21.64,
+            39.61
+          ],
+          "window_cells": 2,
+          "cell_mean_m3s": 0.612,
+          "cell_peak_m3s": 2.1,
+          "column_peak_m3s": 2.1,
+          "column_mean_m3s": 0.612
+        },
+        {
+          "id": 3,
+          "name": "titarisios",
+          "named_lonlat": [
+            22.42,
+            39.71
+          ],
+          "cell_lonlat": [
+            22.44,
+            39.81
+          ],
+          "window_cells": 6,
+          "cell_mean_m3s": 302.473,
+          "cell_peak_m3s": 1128.8,
+          "column_peak_m3s": 1128.8,
+          "column_mean_m3s": 305.405
+        },
+        {
+          "id": 4,
+          "name": "enipeas",
+          "named_lonlat": [
+            22.39,
+            39.3
+          ],
+          "cell_lonlat": [
+            22.34,
+            39.31
+          ],
+          "window_cells": 4,
+          "cell_mean_m3s": 33.245,
+          "cell_peak_m3s": 118.4,
+          "column_peak_m3s": 118.4,
+          "column_mean_m3s": 33.377
+        }
+      ],
+      "duplicate_cells": [],
+      "v140_column_peaks": [
+        11.59,
+        11.59,
+        11.59,
+        11.59
+      ],
+      "v141_column_peaks": [
+        371.39,
+        2.1,
+        1128.8,
+        118.4
+      ],
+      "v141_combined_hourly_peak_m3s": 1620.66
+    },
+    {
+      "run": "pineios_qinf5",
+      "event": "pineios",
+      "config": "reproduction\\v14_rerun\\configs\\pineios_qinf5.yaml",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\pineios_qinf5\\data\\glofas_pineios_clean.nc",
+      "latitude_order": "ascending",
+      "q_outlet_csv_identical": false,
+      "q_outlet_csv_max_abs_diff": 1117.2108278274536,
+      "dis_file": "D:\\ELKAK\\implementation\\v14\\pineios_qinf5\\model\\sfincs.dis.pipeline",
+      "sfincs_dis_identical": false,
+      "sfincs_dis_max_abs_diff": 1117.21,
+      "v141_points": [
+        {
+          "id": 1,
+          "name": "pineios_trikala",
+          "named_lonlat": [
+            21.77,
+            39.56
+          ],
+          "cell_lonlat": [
+            21.84,
+            39.51
+          ],
+          "window_cells": 4,
+          "cell_mean_m3s": 71.092,
+          "cell_peak_m3s": 371.39,
+          "column_peak_m3s": 371.39,
+          "column_mean_m3s": 72.729
+        },
+        {
+          "id": 2,
+          "name": "pineios_kalambaka",
+          "named_lonlat": [
+            21.63,
+            39.7
+          ],
+          "cell_lonlat": [
+            21.64,
+            39.61
+          ],
+          "window_cells": 2,
+          "cell_mean_m3s": 0.612,
+          "cell_peak_m3s": 2.1,
+          "column_peak_m3s": 2.1,
+          "column_mean_m3s": 0.612
+        },
+        {
+          "id": 3,
+          "name": "titarisios",
+          "named_lonlat": [
+            22.42,
+            39.71
+          ],
+          "cell_lonlat": [
+            22.44,
+            39.81
+          ],
+          "window_cells": 6,
+          "cell_mean_m3s": 302.473,
+          "cell_peak_m3s": 1128.8,
+          "column_peak_m3s": 1128.8,
+          "column_mean_m3s": 305.405
+        },
+        {
+          "id": 4,
+          "name": "enipeas",
+          "named_lonlat": [
+            22.39,
+            39.3
+          ],
+          "cell_lonlat": [
+            22.34,
+            39.31
+          ],
+          "window_cells": 4,
+          "cell_mean_m3s": 33.245,
+          "cell_peak_m3s": 118.4,
+          "column_peak_m3s": 118.4,
+          "column_mean_m3s": 33.377
+        }
+      ],
+      "duplicate_cells": [],
+      "v140_column_peaks": [
+        11.59,
+        11.59,
+        11.59,
+        11.59
+      ],
+      "v141_column_peaks": [
+        371.39,
+        2.1,
+        1128.8,
+        118.4
+      ],
+      "v141_combined_hourly_peak_m3s": 1620.66
+    },
+    {
+      "run": "pineios_timevarying_q",
+      "event": "pineios",
+      "config": "reproduction\\v14_rerun\\configs\\pineios_timevarying_q.yaml",
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\pineios_timevarying_q\\data\\glofas_pineios_clean.nc",
+      "latitude_order": "ascending",
+      "q_outlet_csv_identical": false,
+      "q_outlet_csv_max_abs_diff": 1117.2108278274536,
+      "dis_file": "D:\\ELKAK\\implementation\\v14\\pineios_timevarying_q\\model\\sfincs.dis.pipeline",
+      "sfincs_dis_identical": false,
+      "sfincs_dis_max_abs_diff": 1117.21,
+      "v141_points": [
+        {
+          "id": 1,
+          "name": "pineios_trikala",
+          "named_lonlat": [
+            21.77,
+            39.56
+          ],
+          "cell_lonlat": [
+            21.84,
+            39.51
+          ],
+          "window_cells": 4,
+          "cell_mean_m3s": 71.092,
+          "cell_peak_m3s": 371.39,
+          "column_peak_m3s": 371.39,
+          "column_mean_m3s": 72.729
+        },
+        {
+          "id": 2,
+          "name": "pineios_kalambaka",
+          "named_lonlat": [
+            21.63,
+            39.7
+          ],
+          "cell_lonlat": [
+            21.64,
+            39.61
+          ],
+          "window_cells": 2,
+          "cell_mean_m3s": 0.612,
+          "cell_peak_m3s": 2.1,
+          "column_peak_m3s": 2.1,
+          "column_mean_m3s": 0.612
+        },
+        {
+          "id": 3,
+          "name": "titarisios",
+          "named_lonlat": [
+            22.42,
+            39.71
+          ],
+          "cell_lonlat": [
+            22.44,
+            39.81
+          ],
+          "window_cells": 6,
+          "cell_mean_m3s": 302.473,
+          "cell_peak_m3s": 1128.8,
+          "column_peak_m3s": 1128.8,
+          "column_mean_m3s": 305.405
+        },
+        {
+          "id": 4,
+          "name": "enipeas",
+          "named_lonlat": [
+            22.39,
+            39.3
+          ],
+          "cell_lonlat": [
+            22.34,
+            39.31
+          ],
+          "window_cells": 4,
+          "cell_mean_m3s": 33.245,
+          "cell_peak_m3s": 118.4,
+          "column_peak_m3s": 118.4,
+          "column_mean_m3s": 33.377
+        }
+      ],
+      "duplicate_cells": [],
+      "v140_column_peaks": [
+        11.59,
+        11.59,
+        11.59,
+        11.59
+      ],
+      "v141_column_peaks": [
+        371.39,
+        2.1,
+        1128.8,
+        118.4
+      ],
+      "v141_combined_hourly_peak_m3s": 1620.66
+    }
+  ]
+}
