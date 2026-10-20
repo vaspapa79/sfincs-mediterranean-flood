@@ -20,11 +20,15 @@ CANONICAL = ["pineios_enhanced", "pineios_baseline_gridmatched", "mandra_enhance
              "valencia_enhanced_164", "emilia_enhanced_8aoi", "crete_baseline", "crete_canonical_r2on"]
 SENSITIVITY = ["strymonas_leadin7d", "pineios_timevarying_q", "pineios_qinf5", "pineios_raw_imerg", "valencia_raw_imerg", "crete_sens_r2off",
                "crete_sens_anchor_224", "crete_sens_anchor_336", "crete_sens_anchor_582", "crete_sens_karst_q1914"]
+# CODE-14 (2026-10-20): harness v1.4.1 re-runs of the D7-affected Pineios runs (+ the labelled D8 diagnostic) and MANIFEST row 16
+V141 = ["pineios_enhanced_v141", "pineios_r2_220_v141", "pineios_r2_295_v141", "pineios_r2_510_v141", "pineios_cn_on_v141", "pineios_raw_imerg_v141",
+        "pineios_qinf5_v141", "pineios_enhanced_v141_d8titarisios", "mandra_v3_maskrestrict"]
 CRETE_CLUSTERS = ["Lefka_Ori=23.75,35.15,24.25,35.55", "Psiloritis=24.60,35.05,25.05,35.40", "Dikti_Lasithi=25.30,34.95,25.80,35.30"]
 TITLES = {"pineios_enhanced": "Pineios (EMSR692) enhanced", "pineios_baseline_gridmatched": "Pineios grid-matched baseline", "mandra_enhanced": "Mandra (EMSR257) enhanced",
           "mandra_baseline": "Mandra baseline", "strymonas_enhanced_postD6": "Strymonas (EMSR122) enhanced v3 (D6)", "strymonas_baseline": "Strymonas baseline",
           "valencia_enhanced_164": "Valencia (EMSR773) R2 164 mm", "emilia_enhanced_8aoi": "Emilia-Romagna (EMSR664) 8-AOI", "crete_baseline": "Crete (EMSR933) baseline",
-          "crete_canonical_r2on": "Crete (EMSR933) canonical R2 on"}
+          "crete_canonical_r2on": "Crete (EMSR933) canonical R2 on", "pineios_enhanced_v141": "Pineios (EMSR692) enhanced, harness v1.4.1 (D7 fix)",
+          "pineios_enhanced_v141_d8titarisios": "Pineios (EMSR692) v1.4.1, D8 diagnostic (Titarisios cell)", "mandra_v3_maskrestrict": "Mandra (EMSR257) v3 mask restriction on the v1.4 build"}
 WINDOWS = {"strymonas_leadin7d": "canonical=2015-03-28T00:00,2015-04-04T00:00"}
 
 
@@ -48,7 +52,7 @@ def main() -> int:
     P4 = R / "phase4"
     for d in ("truth_buffer", "time_matched", "rain", "figures", "logs"):
         (P4 / d).mkdir(parents=True, exist_ok=True)
-    sel = [x for x in a.runs.split(",") if x] or (CANONICAL + SENSITIVITY)
+    sel = [x for x in a.runs.split(",") if x] or (CANONICAL + SENSITIVITY + V141)
     manifest = {"utc_start": utc(), "runs": {}}
 
     def run(cmd, logname):
@@ -90,7 +94,7 @@ def main() -> int:
                 m["map_island"] = run([py, "-I", str(S / "fig_map_v14.py"), "--repo", str(repo), "--config", str(cfg), "--exclusion-tif", str(excl),
                                        "--out", str(P4 / "figures" / f"map_{name}_island_v14.png"), "--title", TITLES.get(name, name) + " — island, harness v1.4"], f"{name}_map_island")
         series = P4 / "rain" / f"{name}_v14_series.csv"
-        if series.exists() and name in ("pineios_enhanced", "mandra_enhanced", "strymonas_enhanced_postD6", "valencia_enhanced_164", "emilia_enhanced_8aoi", "crete_canonical_r2on"):
+        if series.exists() and name in ("pineios_enhanced", "mandra_enhanced", "strymonas_enhanced_postD6", "valencia_enhanced_164", "emilia_enhanced_8aoi", "crete_canonical_r2on", "pineios_enhanced_v141"):
             m["rain_fig"] = run([py, "-I", str(S / "fig_rain_v14.py"), "--series", str(series), "--json", str(rj), "--out", str(P4 / "figures" / f"rain_{name}_v14.png"),
                                  "--title", TITLES.get(name, name) + ": domain-mean precipitation (v1.4 forcing files)"], f"{name}_rain_fig")
         manifest["runs"][name] = m

@@ -99,19 +99,28 @@ def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     ap = argparse.ArgumentParser()
     ap.add_argument("--repo", required=True, type=Path)
+    ap.add_argument("--enhanced-override", action="append", default=[], help="base_run=alternate_run, e.g. pineios_enhanced=pineios_enhanced_v141 (v1.3 columns stay with the base run)")
+    ap.add_argument("--out-tag", default="", help="suffix of the output files, e.g. _v141 -> cross_event_v14_v141.{json,md}")
+    ap.add_argument("--harness-label", default="v1.4", help="column label of the re-run harness, e.g. v1.4.1")
     a = ap.parse_args()
+    OV = dict(x.split("=", 1) for x in a.enhanced_override)
     R = a.repo / "reproduction" / "v14_rerun"; res = R / "results"; P4 = R / "phase4"; P5 = R / "phase5"
     now = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-    out = {"utc": now, "generator": "reproduction/v14_rerun/scripts/cross_event_v14.py", "events": {}}
-    for label, enh, base, held in EVENTS:
+    out = {"utc": now, "generator": "reproduction/v14_rerun/scripts/cross_event_v14.py", "harness_label": a.harness_label, "enhanced_overrides": OV, "events": {}}
+    for label, enh0, base, held in EVENTS:
+        enh = OV.get(enh0, enh0)                                   # CODE-14: v1.4.1 re-run in place of the v1.4.0 run (same v1.3 columns)
+        if enh != enh0:
+            label = f"{label} [{a.harness_label}: {enh}]"
         tok = "AOI03" if enh.startswith("crete") else None
-        e = {"label": label, "enhanced_run": enh, "baseline_run": base, "held_out": held, "scored_block": ("per-AOI Tzermiado (tier 1)" if tok else "AOI union"), "sources": {}}
+        e = {"label": label, "enhanced_run": enh, "enhanced_base_run": enh0, "baseline_run": base, "held_out": held, "scored_block": ("per-AOI Tzermiado (tier 1)" if tok else "AOI union"), "sources": {}}
         for tag, run in (("enhanced", enh), ("baseline", base)):
             if not run:
                 continue
             for ver, suffix in (("v14", "_v14_newmask.json"), ("v13_published", "_v13_publishedmask.json"), ("v13_newmask", "_v13_newmask.json")):
                 src = run
-                if ver != "v14" and run == "strymonas_enhanced_postD6":
+                if ver != "v14" and run == enh and enh != enh0:
+                    src = enh0                                        # the v1.3 re-scoring of the same published output lives under the base run
+                if ver != "v14" and src == "strymonas_enhanced_postD6":
                     src = "strymonas_enhanced"                    # v1.3 columns of the canonical Strymonas live under the Phase-1 name
                 p = res / f"{src}{suffix}"
                 b = block(J(p), tok, J(P5 / f"{run}_tiers.json") if tok else None)
@@ -140,10 +149,10 @@ def main() -> int:
             e["delta_v13_published"] = {k: s1[k] - s0[k] for k in ("csi", "hr", "far", "bias", "gss")}
         out["events"][enh] = e
     P4.mkdir(parents=True, exist_ok=True)
-    (P4 / "cross_event_v14.json").write_text(json.dumps(out, indent=2, default=str), encoding="utf-8")
+    (P4 / f"cross_event_v14{a.out_tag}.json").write_text(json.dumps(out, indent=2, default=str), encoding="utf-8")
     # ---- markdown
-    L = [f"# Cross-event tables under harness v1.4 (new evaluation mask), v1.3 as published beside — generated {now}", "",
-         "Every number below is read from the JSON named in `cross_event_v14.json` → `events.<run>.sources`. Scores at h > 0.10 m unless stated; "
+    L = [f"# Cross-event tables under harness {a.harness_label} (new evaluation mask), v1.3 as published beside — generated {now}" + (f"; enhanced-run overrides {OV}" if OV else ""), "",
+         f"Every number below is read from the JSON named in `cross_event_v14{a.out_tag}.json` → `events.<run>.sources`. Scores at h > 0.10 m unless stated; "
          "new mask = AOI ∩ active minus (WorldCover 80 ∪ v1.4 open sea), both sides. Crete = the Tzermiado per-AOI block (tier 1); no union score.", "",
          "## Table 9 equivalent — strict and fuzzy (r = 1) skill, enhanced runs", "",
          "| Event | CSI v1.3 publ. | CSI v1.4 | HR v1.3 | HR v1.4 | FAR v1.3 | FAR v1.4 | B v1.3 | B v1.4 | GSS v1.4 | fuzzy r=1 CSI v1.3 | fuzzy r=1 CSI v1.4 | eval km² v1.4 | obs km² v1.4 |", "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
@@ -196,7 +205,7 @@ def main() -> int:
         pre = "union: " if v.get("per_aoi") else ""          # the buffer / time-matched diagnostics run on the AOI union; Crete's headline block is per-AOI
         L.append(f"| {e['label']} | " + " | ".join(f(sw[k]['csi']) for k in THR) + " | " + " | ".join(f(fzz[r]) for r in (0, 1, 2, 3)) +
                  f" | {f(v['fuzzy_model_oriented_r1'])} | {f(v['fuzzy_obs_oriented_r1'])} | {pre}{f(tb.get('-20'))} / {f(tb.get('0'))} / {f(tb.get('20'))} | {pre}{f(tmd.get('to_latest'))} |")
-    (P4 / "cross_event_v14.md").write_text("\n".join(L) + "\n", encoding="utf-8")
+    (P4 / f"cross_event_v14{a.out_tag}.md").write_text("\n".join(L) + "\n", encoding="utf-8")
     print("\n".join(L))
     return 0
 

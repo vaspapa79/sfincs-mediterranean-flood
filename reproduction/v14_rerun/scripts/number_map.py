@@ -27,11 +27,13 @@ def J(p: Path):
 class Src:
     """Lazy access to the v1.4 records with provenance strings."""
 
-    def __init__(self, repo: Path):
+    def __init__(self, repo: Path, alt: dict | None = None):
         self.R = repo / "reproduction" / "v14_rerun"; self.res = self.R / "results"; self.P4 = self.R / "phase4"
         self.cache = {}
+        self.alt = alt or {}          # CODE-14: base run -> v1.4.1 re-run; every accessor follows it
 
     def v14(self, run):
+        run = self.alt.get(run, run)
         p = self.res / f"{run}_v14_newmask.json"
         if p not in self.cache:
             self.cache[p] = J(p)
@@ -79,21 +81,26 @@ class Src:
         return (s["tp"] + s["fp"]) * A, src + " (TP+FP) x cell area"
 
     def record(self, run):
+        run = self.alt.get(run, run)
         return J(self.res / f"{run}_record.json"), f"results/{run}_record.json"
 
     def rain(self, run):
+        run = self.alt.get(run, run)
         p = self.P4 / "rain" / f"{run}_v14.json"
         return J(p), f"phase4/rain/{run}_v14.json"
 
     def buffer(self, run):
+        run = self.alt.get(run, run)
         p = self.P4 / "truth_buffer" / f"{run}_v14.json"
         return J(p), f"phase4/truth_buffer/{run}_v14.json"
 
     def rebuild_q(self, run):
+        run = self.alt.get(run, run)
         p = self.res / f"{run}_rebuild_q.json"
         return J(p), f"results/{run}_rebuild_q.json"
 
     def map_csv(self, run):
+        run = self.alt.get(run, run)
         p = self.P4 / "figures" / f"map_{run}_v14.csv"
         if not p.exists():
             return None, f"phase4/figures/map_{run}_v14.csv"
@@ -133,6 +140,23 @@ def main() -> int:
     man = J(a.r5_dir / "manuscript_R5_tables.json"); sup = J(a.r5_dir / "supplement_R5_tables.json")
     text = (a.r5_dir / "manuscript_R5.txt").read_text(encoding="utf-8").splitlines()
     stext = (a.r5_dir / "supplement_R5.txt").read_text(encoding="utf-8").splitlines()
+    E = build_entries(S, man, sup, text, stext)
+    alt = v141_map(S.res)
+    E1 = build_entries(Src(a.repo, alt), man, sup, text, stext) if alt else None
+    write_map(a, E, E1, alt)
+    return 0
+
+
+def v141_map(res: Path) -> dict:
+    """base run -> <base>_v141 for every v1.4.1 record with a v1.4 validation JSON (CODE-14 C)."""
+    out = {}
+    for p in sorted(res.glob("*_v141_v14_newmask.json")):
+        run = p.name[: -len("_v14_newmask.json")]
+        out[run[: -len("_v141")]] = run
+    return out
+
+
+def build_entries(S, man, sup, text, stext):
     E = []   # entries: (location, old, new, source, note)
 
     def add(loc, old, new, src, note=""):
@@ -223,11 +247,33 @@ def main() -> int:
             add(f"Table S1 row {o[0]}", " | ".join(o[1:]), (f"mean CN (active) {cn} | wet {wk:.2f} km² | TP(01MANDRA) {aoi['strict']['tp'] if aoi else 'pending'} | CSI {s['csi']:.3f} | HR {s['hr']:.3f} | FAR {s['far']:.3f}" if s else "pending"), src,
                 "relabel the row with the realised mean CN; HSG-A rows recreated with the pervious classes at CN 15 / 58, HSG-D with a TR-55 HSG-D lookup (configs/*.yaml)")
     t = table(sup, "Table S2")
-    for ev, v1, v3 in (("Mandra", "mandra_enhanced", None), ("Strymonas", "strymonas_v1_prefix_src", "strymonas_enhanced_postD6"), ("Pineios", "pineios_enhanced", "pineios_timevarying_q")):
-        s1, src1 = S.strict(v1); s3, src3 = (S.strict(v3) if v3 else (None, "not recreated (Mandra v3 mask restriction: MANIFEST row 16, not in the Phase-3 list)"))
+    for ev, v1, v3 in (("Mandra", "mandra_enhanced", "mandra_v3_maskrestrict"), ("Strymonas", "strymonas_v1_prefix_src", "strymonas_enhanced_postD6"), ("Pineios", "pineios_enhanced", "pineios_timevarying_q")):
+        s1, src1 = S.strict(v1); s3, src3 = (S.strict(v3) if v3 else (None, ""))
+        if ev == "Mandra" and s3 is None:
+            src3 = "pending (scripts/mandra_v3_maskrestrict_v14.py, MANIFEST row 16)"
         add(f"Table S2 {ev} v1 / v3 / Δ", "see supplement", (f"v1 {s1['csi']:.3f}/{s1['hr']:.3f}/{s1['far']:.3f}/{s1['bias']:.2f}/{s1['gss']:.3f}" if s1 else "pending") + (f"; v3 {s3['csi']:.3f}/{s3['hr']:.3f}/{s3['far']:.3f}/{s3['bias']:.2f}/{s3['gss']:.3f}; ΔCSI {s3['csi'] - s1['csi']:+.3f}" if (s1 and s3) else "; v3 " + ("pending" if v3 else src3)),
             f"{src1}; {src3 if v3 else ''}", "CSI/HR/FAR/B/GSS")
-    add("Table S3 (evaluation-mask sensitivity ±1 km)", "see supplement", "not regenerated in Phase 4 (not in the Phase-4 list; the mask definition itself changed in v1.4 — regenerate on request with the new mask as the reference)", "—")
+    # ---- Table S3 (CODE-14 D): evaluation-mask sensitivity with the v1.4 mask as the reference
+    s3 = J(S.R / "code14" / "table_s3_v14.json"); ts3 = table(sup, "Table S3")
+    if s3:
+        pub_rows = {}                                     # event -> [(mask, area, CSI, HR, FAR, B)] from the parsed supplement Table S3 (continuation rows have an empty first cell)
+        cur = None
+        for r in (ts3["rows"] if ts3 else []):
+            if not r or len(r) < 7:
+                continue
+            if r[0].strip():
+                cur = r[0].split(" (")[0]
+            if cur and r[1].strip() and r[1].strip() != "Mask":
+                pub_rows.setdefault(cur, []).append(r[1:7])
+        for ev in s3["events"]:
+            short = ev["label"].split(" (")[0]
+            pr = pub_rows.get(short)
+            old_s = (" / ".join(f"{m}: area {ar} km², CSI {c}, HR {h}, B {b}" for m, ar, c, h, _fa, b in pr) if pr else "— (not in the published S3)")
+            add(f"Table S3 {short} (active / AOI-union / +1 km / −1 km)", old_s,
+                " | ".join(f"{v['name']}: area {v['area_km2']:.0f} km², CSI {v['csi']:.3f}, HR {v['hr']:.3f}, B {v['bias']:.2f}" for v in ev["variants"]),
+                f"code14/table_s3_v14.json events[{ev['run']}]", "variant 2 = the canonical v1.4 record (checked); the v1.4 exclusion is removed on both sides in every variant")
+    else:
+        add("Table S3 (evaluation-mask sensitivity ±1 km)", "see supplement", "pending (scripts/table_s3_v14.py)", "code14/table_s3_v14.json")
     # ---- sentences
     def find(pattern, lines=text, tag="manuscript"):
         hits = [i + 1 for i, ln in enumerate(lines) if re.search(pattern, ln)]
@@ -266,18 +312,32 @@ def main() -> int:
     ]
     for loc, old, new, src, where in sent:
         add(loc, old, new, src, where)
-    # ---- write
+    return E
+
+
+def write_map(a, E, E1, alt):
     now = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    v141 = E1 is not None
     L = [f"# NUMBER_MAP — NHESS R5 manuscript + supplement numbers under harness v1.4 (new evaluation mask); generated {now} by `reproduction/v14_rerun/scripts/number_map.py`", "",
          "Old = the R5 text (`NHESS_manuscript_R5_clean.docx` / `NHESS_supplement_R5_clean.docx`, extracted with `scripts/extract_docx.py`); New = the v1.4 record named in the source column "
          "(paths relative to `reproduction/v14_rerun/`). Every row whose new value differs from the old one is a manuscript change; rows marked pending wait for the named run. "
-         "Headline numbers recur in the Abstract, §4–§8 and the figure captions; the 'where' column lists the extracted-text line numbers found by regex so the rewrite can sweep every occurrence.", "",
-         "| location | old (R5) | new (v1.4) | source | note / where |", "|---|---|---|---|---|"]
-    for loc, old, new, src, note in E:
-        L.append(f"| {loc} | {old} | {new} | `{src}` | {note} |")
+         "Headline numbers recur in the Abstract, §4–§8 and the figure captions; the 'where' column lists the extracted-text line numbers found by regex so the rewrite can sweep every occurrence."
+         + (f" **v1.4.1 column (CODE-14, D7 GloFAS sampler fix):** the value from the v1.4.1 re-run where one exists ({', '.join(f'{k} → {v}' for k, v in alt.items())}); "
+            "'= v1.4.0' where the entry does not depend on a re-run run. The v1.4.1 Pineios rows use the frozen config under the fixed sampler and carry the D8 Titarisios main-stem double count (CHECKPOINT6.md) — not final until the author decides D8." if v141 else ""), "",
+         ("| location | old (R5) | new (v1.4.0) | new (v1.4.1) | source | note / where |" if v141 else "| location | old (R5) | new (v1.4) | source | note / where |"),
+         ("|---|---|---|---|---|---|" if v141 else "|---|---|---|---|---|")]
+    n_changed = 0
+    for i, (loc, old, new, src, note) in enumerate(E):
+        if v141:
+            loc1, old1, new1, src1, note1 = E1[i]
+            diff = new1 != new
+            n_changed += int(diff)
+            L.append(f"| {loc} | {old} | {new} | {new1 if diff else '= v1.4.0'} | `{src}`" + (f" → `{src1}`" if (diff and src1 != src) else "") + f" | {note} |")
+        else:
+            L.append(f"| {loc} | {old} | {new} | `{src}` | {note} |")
     out = a.out or (a.repo / "reproduction" / "v14_rerun" / "NUMBER_MAP.md")
     out.write_text("\n".join(L) + "\n", encoding="utf-8")
-    print(f"{len(E)} entries -> {out}")
+    print(f"{len(E)} entries -> {out}" + (f"; {n_changed} entries change under v1.4.1" if v141 else ""))
     print("\n".join(L[:12]))
     return 0
 

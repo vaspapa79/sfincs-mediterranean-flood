@@ -146,3 +146,4 @@ activation — idle time before CODE-10 existed, to be reported as such, not as 
 - 2026-10-20T00:24:07Z → 2026-10-20T04:25:09Z — `crete_sens_anchor_582`: hydromt build 1215.6 s, SFINCS 13014.583 s, v1.4 validation 66.9 s; sensitivity (b): anchor sweep target 582 mm.
 - 2026-10-20T03:06:20Z → 2026-10-20T05:10:42Z — `crete_sens_karst_q1914`: hydromt build 1119.0 s, SFINCS 6236.934 s, v1.4 validation 4.7 s; sensitivity (c): karst bracket, constant infiltration qinf = 1.914 mm/h (0.513 x 447.8 mm / 120 h, Steiakakis 2018).
 - 2026-10-20T05:11:49Z — Checkpoint 5b generated; records commit `70c2bfbce5b407ddbae4b33859bcd7fda9ea66f2` tagged `v1.4.0` (git tag -a). Phases 3-5 closed.
+- 2026-10-20T08:48:09Z — CODE-14 B: harness v1.4.1 D7 sampler fix committed `eb66116` (2026-10-20T08:46:57Z; 151 tests OK); A scope check in `reproduction/v14_rerun/code14/d7_scope.md`; C streams S1/S2 (eight Pineios v1.4.1 runs incl. the D8 diagnostic) launched 08:48Z.

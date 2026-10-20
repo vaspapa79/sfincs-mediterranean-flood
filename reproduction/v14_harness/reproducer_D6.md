@@ -41,3 +41,12 @@ also make the method robust if the bookkeeping flag is ever lost again.
 
 **Files available on request:** the Python generator of the case (hydromt-sfincs 1.2.2 + the SFINCS executable),
 `d6_cn_sink_check.py`, and its JSON output.
+
+**Upstream status re-checked 2026-10-20 (CODE-14 E):** the defect was reported as Deltares/SFINCS issue #253 ("rainfall not
+accounted for in combination with CN infiltration in SFINCS v2.3", D. Eilander, 2025-12-18; closed 2026-02-11 via PR #254 by
+T. Leijnse, the `storecumprcp = 1` workaround named there) and the v2.4.0 Galibier release note reads "Fixed bug with Curve Number
+infiltration if storecumprcp = 0 (default)". The river-fed magnitude above (312 Mm³ lost) and the missing `z_volume` floor in
+the 'cna'/'cnb' branch remain the only new content of this note. The meteo-grid half-cell offset (our D5) was opened upstream by
+T. Leijnse as Deltares/SFINCS issue #386 on 2026-10-19 (open, milestone 2026.02; found in the error sweep #375), so no D5
+reproducer is needed from our side; our quantified check (Pineios slice: the modelled boundary level is reproduced exactly when
+the pressure grid is sampled half a meteo cell off, `docs/AUDIT.md` IB shortfall diagnosis) could be offered as confirmation.
