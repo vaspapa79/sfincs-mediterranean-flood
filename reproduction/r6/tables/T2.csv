@@ -1,0 +1,14 @@
+quantity,Pineios (EMSR692),Mandra (EMSR257),Strymonas (EMSR122),Valencia (EMSR773),Emilia-Romagna (EMSR664),Crete (EMSR933)
+Δx (m),150,50,150,100,150,100
+subgrid pixels n_sub,4,4,4,4,4,4
+effective Δx = Δx / n_sub (m),37.5,12.5,37.5,25.0,37.5,25.0
+active cells (msk ≥ 1),223703,117667,185824,298115,229446,859727
+z ceiling z_max of the active mask (m),400,250,250,300,300,2500
+water-level boundary points,12,31,19,24,226,160
+"forcing lead-in (d, not simulated)",7,1,7,3,14,7
+simulated pre-event (d),3,2,3,2,3,3
+"simulated post-event (d, after the event day)",4,2,3,2,4,4
+simulated window tstart–tstop (d),8,5,7,5,8,8
+R2 bias window (km²),5427.8,146.0,R2 off,946.2,R2 off,234.9
+R2 anchor (mm),400.0,200.0,R2 off,164.0,R2 off,447.8
+"SFINCS wall-clock, canonical run (s)",2343,399,372,1444,1750,10946

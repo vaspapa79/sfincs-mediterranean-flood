@@ -1,0 +1,271 @@
+{
+  "utc": "2026-10-21T09:27:12Z",
+  "generator": "reproduction/v14_rerun/scripts/d1_rain_written.py",
+  "method": "written = precip_2d.nc, intended = data/imerg_<slug>.nc; totals over the model's [tstart, tstop); mean over precip_2d cells matched to the nearest IMERG cell within 0.05 deg",
+  "runs": [
+    {
+      "event": "Pineios",
+      "release": "release v1.3.0",
+      "run": "pineios_sfincs_enhanced (published)",
+      "model_dir": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\model_author_ref",
+      "precip_file": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\model_author_ref\\precip_2d.nc",
+      "intended_file": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\data\\imerg_pineios.nc",
+      "window": [
+        "2023-09-03 00:00:00",
+        "2023-09-11 00:00:00"
+      ],
+      "steps_model": 384,
+      "step_h_model": 0.5,
+      "steps_imerg": 384,
+      "step_h_imerg": 0.5,
+      "d5_shift_undone_m": [
+        0.0,
+        0.0
+      ],
+      "n_cells_model": 195,
+      "n_cells_matched": 191,
+      "written_mm": 767.1814575195312,
+      "intended_file_mm": 383.2150573730469,
+      "intended_mm": 383.2150573730469,
+      "written_over_intended": 2.0019606295707377
+    },
+    {
+      "event": "Pineios",
+      "release": "v1.4.2",
+      "run": "pineios_enhanced_v142",
+      "model_dir": "D:\\ELKAK\\implementation\\v14\\pineios_enhanced_v142\\model",
+      "precip_file": "D:\\ELKAK\\implementation\\v14\\pineios_enhanced_v142\\model\\precip_2d.nc",
+      "intended_file": "D:\\ELKAK\\implementation\\v14\\pineios_enhanced_v142\\data\\imerg_pineios.nc",
+      "window": [
+        "2023-09-03 00:00:00",
+        "2023-09-11 00:00:00"
+      ],
+      "steps_model": 384,
+      "step_h_model": 0.5,
+      "steps_imerg": 384,
+      "step_h_imerg": 0.5,
+      "d5_shift_undone_m": [
+        -4731.395468819886,
+        4731.395468819886
+      ],
+      "n_cells_model": 195,
+      "n_cells_matched": 191,
+      "written_mm": 383.59088134765625,
+      "intended_file_mm": 383.2150573730469,
+      "intended_mm": 383.2150573730469,
+      "written_over_intended": 1.000980712963592
+    },
+    {
+      "event": "Mandra",
+      "release": "release v1.3.0",
+      "run": "mandra_sfincs_enhanced (published)",
+      "model_dir": "D:\\ELKAK\\implementation\\mandra_sfincs_enhanced\\model_author_ref",
+      "precip_file": "D:\\ELKAK\\implementation\\mandra_sfincs_enhanced\\model_author_ref\\precip_2d.nc",
+      "intended_file": "D:\\ELKAK\\implementation\\mandra_sfincs_enhanced\\data\\imerg_mandra.nc",
+      "window": [
+        "2017-11-13 00:00:00",
+        "2017-11-18 00:00:00"
+      ],
+      "steps_model": 240,
+      "step_h_model": 0.5,
+      "steps_imerg": 240,
+      "step_h_imerg": 0.5,
+      "d5_shift_undone_m": [
+        0.0,
+        0.0
+      ],
+      "n_cells_model": 48,
+      "n_cells_matched": 48,
+      "written_mm": 456.2387390136719,
+      "intended_file_mm": 228.1201934814453,
+      "intended_mm": 228.1201934814453,
+      "written_over_intended": 1.9999927759608056
+    },
+    {
+      "event": "Mandra",
+      "release": "v1.4.0",
+      "run": "mandra_enhanced",
+      "model_dir": "D:\\ELKAK\\implementation\\v14\\mandra_enhanced\\model",
+      "precip_file": "D:\\ELKAK\\implementation\\v14\\mandra_enhanced\\model\\precip_2d.nc",
+      "intended_file": "D:\\ELKAK\\implementation\\v14\\mandra_enhanced\\data\\imerg_mandra.nc",
+      "window": [
+        "2017-11-13 00:00:00",
+        "2017-11-18 00:00:00"
+      ],
+      "steps_model": 240,
+      "step_h_model": 0.5,
+      "steps_imerg": 240,
+      "step_h_imerg": 0.5,
+      "d5_shift_undone_m": [
+        -5003.8817363849375,
+        5003.881736384705
+      ],
+      "n_cells_model": 48,
+      "n_cells_matched": 48,
+      "written_mm": 228.1201934814453,
+      "intended_file_mm": 228.1201934814453,
+      "intended_mm": 228.1201934814453,
+      "written_over_intended": 1.0
+    },
+    {
+      "event": "Strymonas",
+      "release": "release v1.3.0",
+      "run": "emsr122_sfincs_v3 (published)",
+      "model_dir": "D:\\ELKAK\\implementation\\emsr122_sfincs_v3\\model",
+      "precip_file": "D:\\ELKAK\\implementation\\emsr122_sfincs_v3\\model\\precip_2d.nc",
+      "intended_file": "D:\\ELKAK\\implementation\\emsr122_sfincs_v3\\data\\imerg_strymonas.nc",
+      "window": [
+        "2015-03-28 00:00:00",
+        "2015-04-04 00:00:00"
+      ],
+      "steps_model": 336,
+      "step_h_model": 0.5,
+      "steps_imerg": 336,
+      "step_h_imerg": 0.5,
+      "d5_shift_undone_m": [
+        0.0,
+        0.0
+      ],
+      "n_cells_model": 210,
+      "n_cells_matched": 199,
+      "written_mm": 13.614873886108398,
+      "intended_file_mm": 6.893668174743652,
+      "intended_mm": 6.893668174743652,
+      "written_over_intended": 1.9749824826192306
+    },
+    {
+      "event": "Strymonas",
+      "release": "v1.4.2",
+      "run": "strymonas_enhanced_postD6_v142",
+      "model_dir": "D:\\ELKAK\\implementation\\v14\\strymonas_enhanced_postD6_v142\\model",
+      "precip_file": "D:\\ELKAK\\implementation\\v14\\strymonas_enhanced_postD6_v142\\model\\precip_2d.nc",
+      "intended_file": "D:\\ELKAK\\implementation\\v14\\strymonas_enhanced_postD6_v142\\data\\imerg_strymonas.nc",
+      "window": [
+        "2015-03-28 00:00:00",
+        "2015-04-04 00:00:00"
+      ],
+      "steps_model": 336,
+      "step_h_model": 0.5,
+      "steps_imerg": 336,
+      "step_h_imerg": 0.5,
+      "d5_shift_undone_m": [
+        -4735.977736158529,
+        4735.977736159228
+      ],
+      "n_cells_model": 210,
+      "n_cells_matched": 199,
+      "written_mm": 6.883718013763428,
+      "intended_file_mm": 6.893668174743652,
+      "intended_mm": 6.893668174743652,
+      "written_over_intended": 0.9985566231608479
+    },
+    {
+      "event": "Valencia",
+      "release": "release v1.3.0",
+      "run": "rerun_v164 (published)",
+      "model_dir": "D:\\ELKAK\\ELKAK2\\NHESS\\R1_verification\\task_valencia_anchor\\rerun_v164\\model",
+      "precip_file": "D:\\ELKAK\\ELKAK2\\NHESS\\R1_verification\\task_valencia_anchor\\rerun_v164\\model\\precip_2d.nc",
+      "intended_file": "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\valencia_emsr773\\data\\imerg_valencia.nc",
+      "window": [
+        "2024-10-27 00:00:00",
+        "2024-11-01 00:00:00"
+      ],
+      "steps_model": 240,
+      "step_h_model": 0.5,
+      "steps_imerg": 240,
+      "step_h_imerg": 0.5,
+      "d5_shift_undone_m": [
+        0.0,
+        0.0
+      ],
+      "n_cells_model": 182,
+      "n_cells_matched": 182,
+      "written_mm": 195.30262756347656,
+      "intended_file_mm": 193.57843017578125,
+      "intended_scale": {
+        "value": 0.4685714285714286,
+        "from": "reproduction/emsr933/f5/F5_d.json runs[valencia_164_rerun].targets_mm run_target_164 / old_target_350"
+      },
+      "intended_mm": 90.70532156808036,
+      "written_over_intended": 2.15315512019754
+    },
+    {
+      "event": "Valencia",
+      "release": "v1.4.2",
+      "run": "valencia_enhanced_164_v142",
+      "model_dir": "D:\\ELKAK\\implementation\\v14\\valencia_enhanced_164_v142\\model",
+      "precip_file": "D:\\ELKAK\\implementation\\v14\\valencia_enhanced_164_v142\\model\\precip_2d.nc",
+      "intended_file": "D:\\ELKAK\\implementation\\v14\\valencia_enhanced_164_v142\\data\\imerg_valencia.nc",
+      "window": [
+        "2024-10-27 00:00:00",
+        "2024-11-01 00:00:00"
+      ],
+      "steps_model": 240,
+      "step_h_model": 0.5,
+      "steps_imerg": 240,
+      "step_h_imerg": 0.5,
+      "d5_shift_undone_m": [
+        -4873.7910513607785,
+        4873.7910513607785
+      ],
+      "n_cells_model": 182,
+      "n_cells_matched": 182,
+      "written_mm": 97.39701080322266,
+      "intended_file_mm": 98.94734954833984,
+      "intended_mm": 98.94734954833984,
+      "written_over_intended": 0.9843316799065973
+    },
+    {
+      "event": "Emilia-R.",
+      "release": "release v1.3.0",
+      "run": "emilia_emsr664 (published)",
+      "model_dir": "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\emilia_emsr664\\model",
+      "precip_file": "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\emilia_emsr664\\model\\precip_2d.nc",
+      "intended_file": "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\emilia_emsr664\\data\\imerg_emilia_romagna.nc",
+      "window": [
+        "2023-05-14 00:00:00",
+        "2023-05-22 00:00:00"
+      ],
+      "steps_model": 384,
+      "step_h_model": 0.5,
+      "steps_imerg": 384,
+      "step_h_imerg": 0.5,
+      "d5_shift_undone_m": [
+        0.0,
+        0.0
+      ],
+      "n_cells_model": 225,
+      "n_cells_matched": 225,
+      "written_mm": 202.1770782470703,
+      "intended_file_mm": 101.73551940917969,
+      "intended_mm": 101.73551940917969,
+      "written_over_intended": 1.9872811326977675
+    },
+    {
+      "event": "Emilia-R.",
+      "release": "v1.4.2",
+      "run": "emilia_enhanced_8aoi_v142",
+      "model_dir": "D:\\ELKAK\\implementation\\v14\\emilia_enhanced_8aoi_v142\\model",
+      "precip_file": "D:\\ELKAK\\implementation\\v14\\emilia_enhanced_8aoi_v142\\model\\precip_2d.nc",
+      "intended_file": "D:\\ELKAK\\implementation\\v14\\emilia_enhanced_8aoi_v142\\data\\imerg_emilia_romagna.nc",
+      "window": [
+        "2023-05-14 00:00:00",
+        "2023-05-22 00:00:00"
+      ],
+      "steps_model": 384,
+      "step_h_model": 0.5,
+      "steps_imerg": 384,
+      "step_h_imerg": 0.5,
+      "d5_shift_undone_m": [
+        -4567.993537791073,
+        4567.993537791073
+      ],
+      "n_cells_model": 225,
+      "n_cells_matched": 225,
+      "written_mm": 101.36164093017578,
+      "intended_file_mm": 101.73551940917969,
+      "intended_mm": 101.73551940917969,
+      "written_over_intended": 0.9963249956241913
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+event,run,injected sources,injected Mm³,rain Mm³,active km²,injected / rain %,combined peak m³/s
+pineios,pineios_enhanced_v142,3,149.6,2237.1,5033.3,6.7,532.6
+strymonas,strymonas_enhanced_postD6_v142,2,311.9,23.9,4181.0,1303.2,737.2
+valencia,valencia_enhanced_164_v142,3,78.6,313.1,2981.2,25.1,347.2
+emilia,emilia_enhanced_8aoi_v142,5,247.9,669.8,5162.5,37.0,698.9

@@ -1,0 +1,93 @@
+{
+  "figure": "F4",
+  "column": "two-column",
+  "script": "reproduction/r6/scripts/r6_figures.py",
+  "sources": [
+    "reproduction/v14_rerun/configs/pineios_enhanced_v142.yaml",
+    "reproduction/v14_rerun/phase4/rain/pineios_enhanced_v142_v14.json",
+    "reproduction/v14_rerun/phase4/rain/pineios_enhanced_v142_v14_series.csv",
+    "D:/ELKAK/implementation/v14/pineios_enhanced_v142/data/imerg_pineios.raw.nc",
+    "D:/ELKAK/implementation/v14/pineios_enhanced_v142/data/imerg_pineios.nc",
+    "D:/ELKAK/implementation/v14/pineios_enhanced_v142/data/era5_pineios.nc",
+    "reproduction/v14_rerun/configs/mandra_enhanced.yaml",
+    "reproduction/v14_rerun/phase4/rain/mandra_enhanced_v14.json",
+    "reproduction/v14_rerun/phase4/rain/mandra_enhanced_v14_series.csv",
+    "D:/ELKAK/implementation/v14/mandra_enhanced/data/imerg_mandra.raw.nc",
+    "D:/ELKAK/implementation/v14/mandra_enhanced/data/imerg_mandra.nc",
+    "D:/ELKAK/implementation/v14/mandra_enhanced/data/era5_mandra.nc",
+    "D:/ELKAK/manuscript/paper_submission_v5/_make_pineios_rain.py",
+    "D:/ELKAK/manuscript/paper_submission_v5/_make_mandra_rain.py"
+  ],
+  "notes": "design kept from the R5 rainfall figures (manuscript/paper_submission_v5/_make_{pineios,mandra}_rain.py: ERA5 red, bias-corrected IMERG blue, raw IMERG light-blue dashed, totals and peaks in the legend); data = model-bbox mean over the forcing window (tref..tstop) from phase4/rain; shaded = R2 event window; every value asserted against the rain JSON",
+  "layout_problems": [],
+  "texts_drawn": [
+    "(a)",
+    "(b)",
+    "0",
+    "02 Sep",
+    "04 Sep",
+    "06 Sep",
+    "08 Sep",
+    "10",
+    "10 Sep",
+    "12 Nov",
+    "13 Nov",
+    "14 Nov",
+    "15",
+    "15 Nov",
+    "16 Nov",
+    "17 Nov",
+    "18 Nov",
+    "20",
+    "25",
+    "27 Aug",
+    "29 Aug",
+    "30",
+    "31 Aug",
+    "40",
+    "5",
+    "50",
+    "ERA5 (hourly, 0.25\u00b0): total 301.8 mm, peak 7.23 mm h$^{-1}$",
+    "ERA5 (hourly, 0.25\u00b0): total 38.9 mm, peak 3.85 mm h$^{-1}$",
+    "Mandra (EMSR257)",
+    "Pineios (EMSR692)",
+    "R2 window: watershed-box mean 146.8 \u2192 400.0 mm (\u00d72.72)",
+    "R2 window: watershed-box mean 23.4 \u2192 200.0 mm (\u00d78.55)",
+    "bias-corrected IMERG (30-min, 0.1\u00b0): total 298.0 mm, peak 31.45 mm h$^{-1}$",
+    "bias-corrected IMERG (30-min, 0.1\u00b0): total 400.7 mm, peak 15.27 mm h$^{-1}$",
+    "domain-mean precipitation (mm h$^{-1}$)",
+    "raw IMERG (30-min, 0.1\u00b0): total 138.5 mm, peak 19.98 mm h$^{-1}$",
+    "raw IMERG (30-min, 0.1\u00b0): total 148.7 mm, peak 5.60 mm h$^{-1}$",
+    "time (UTC), 2017",
+    "time (UTC), 2023"
+  ],
+  "files": [
+    {
+      "file": "F4.tiff",
+      "px": [
+        4110,
+        3330
+      ],
+      "dpi": 600,
+      "width_mm": 174.0,
+      "height_mm": 141.0,
+      "format": "TIFF, RGB 8-bit, LZW",
+      "tiff_writer": "pil",
+      "bytes": 1193866,
+      "generated_utc": "2026-10-21T10:07:12Z"
+    },
+    {
+      "file": "F4_preview.png",
+      "px": [
+        2055,
+        1665
+      ],
+      "dpi": 300,
+      "width_mm": 174.0,
+      "height_mm": 141.0,
+      "format": "PNG preview (reduced)",
+      "bytes": 529369,
+      "generated_utc": "2026-10-21T10:07:13Z"
+    }
+  ]
+}

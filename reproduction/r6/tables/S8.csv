@@ -1,0 +1,9 @@
+AOI,name,tier,status,universe km²,observed km²,modelled km² (h_max > 0.10 m),CSI,HR,B
+AOI01,Kastelli,2,km² only,255.2,1.8,69.5,—,—,—
+AOI02,Irakleio,3,excluded: no product released,—,—,—,—,—,—
+AOI03,Tzermiado,1,scored,176.9,11.3,50.1,0.221,0.988,4.45
+AOI04,Agios Ioannis,2,km² only,57.6,0.4,9.6,—,—,—
+AOI05,Anogeia,3,excluded: no product released,—,—,—,—,—,—
+AOI06,Agios Nikolaos,2,km² only,110.8,0.2,20.5,—,—,—
+AOI07,Omalos,2,km² only,258.6,0.7,26.4,—,—,—
+AOI08,Monastiraki,3,excluded: no product released,—,—,—,—,—,—

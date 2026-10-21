@@ -1,0 +1,8 @@
+run,label (run record),CSI,HR,FAR,B,GSS,CSI* (threshold),modelled km²,R2 factor
+crete_baseline,"Stage 2 baseline: ERA5(T) rain-on-grid, no wind/IB, R2 off",0.343,0.788,0.622,2.08,0.303,0.343 (h>0.10m),23.5,R2 off
+crete_canonical_r2on,"Stage 3 canonical: IMERG Late, R2 on (anchor 447.8 mm Tzermiado, factor computed at run time), wind/IB, R3/R4 off",0.221,0.988,0.778,4.45,0.169,0.365 (h>0.50m),50.1,×1.014
+crete_sens_r2off,sensitivity (a): R2 off — raw IMERG Late,0.222,0.988,0.777,4.44,0.169,0.366 (h>0.50m),50.0,R2 off
+crete_sens_anchor_224,sensitivity (b): anchor sweep target 224 mm,0.265,0.972,0.733,3.64,0.215,0.376 (h>0.50m),41.0,×0.507
+crete_sens_anchor_336,sensitivity (b): anchor sweep target 336 mm,0.241,0.985,0.758,4.08,0.189,0.385 (h>0.50m),45.9,×0.761
+crete_sens_anchor_582,sensitivity (b): anchor sweep target 582 mm,0.206,0.990,0.793,4.79,0.152,0.345 (h>0.50m),54.0,×1.318
+crete_sens_karst_q1914,"sensitivity (c): karst bracket, constant infiltration qinf = 1.914 mm/h (0.513 x 447.8 mm / 120 h, Steiakakis 2018)",0.228,0.988,0.771,4.31,0.176,0.377 (h>0.50m),48.5,×1.014

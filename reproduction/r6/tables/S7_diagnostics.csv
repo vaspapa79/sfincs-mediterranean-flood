@@ -1,0 +1,6 @@
+event,run of record,share of release v1.3.0 false alarms on the excluded cells (WorldCover 80 ∪ open sea),rain written / intended (D1): release v1.3.0 → run of record,D6 sink share: release v1.3.0 → run of record
+Pineios (EMSR692),pineios_enhanced_v142,0.076 (123.7 of 1635.6 km²),2.002 → 1.001 (v1.4.2),CN off
+Mandra (EMSR257),mandra_enhanced,0.347 (22.6 of 65.1 km²),2.000 → 1.000 (v1.4.0),CN off
+Strymonas (EMSR122),strymonas_enhanced_postD6_v142,0.014 (1.2 of 81.9 km²),1.975 → 0.999 (v1.4.2),0.408 → 0.000
+Valencia (EMSR773),valencia_enhanced_164_v142,0.253 (483.1 of 1909.7 km²),2.153 → 0.984 (v1.4.2),CN off
+Emilia-Romagna (EMSR664),emilia_enhanced_8aoi_v142,0.026 (42.9 of 1676.9 km²),1.987 → 0.996 (v1.4.2),CN off

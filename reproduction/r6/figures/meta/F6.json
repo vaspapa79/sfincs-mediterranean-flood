@@ -1,0 +1,69 @@
+{
+  "figure": "F6",
+  "column": "two-column",
+  "script": "reproduction/r6/scripts/r6_figures.py",
+  "sources": [
+    "reproduction/v14_rerun/configs/strymonas_enhanced_postD6_v142.yaml",
+    "D:/ELKAK/implementation/v14/strymonas_enhanced_postD6_v142/model/sfincs_map.nc",
+    "reproduction/v14_rerun/masks/strymonas_exclusion.tif",
+    "D:/ELKAK/implementation/v14/strymonas_enhanced_postD6_v142/data/ems_polygons",
+    "reproduction/v14_rerun/results/strymonas_enhanced_postD6_v142_v14_newmask.json"
+  ],
+  "notes": "run strymonas_enhanced_postD6_v142; content of phase4/figures/map_strymonas_enhanced_postD6_v142_v14.png (fig_map_v14.py) re-rendered at the export size; no score printed",
+  "layout_problems": [],
+  "texts_drawn": [
+    "0.0",
+    "0.5",
+    "1.0",
+    "1.5",
+    "2.0",
+    "2.5",
+    "3.0",
+    "4500",
+    "4520",
+    "4540",
+    "4560",
+    "4580",
+    "660",
+    "680",
+    "700",
+    "720",
+    "740",
+    "EMS areas of interest",
+    "EMS observed flood",
+    "Easting (km, UTM 34N)",
+    "Maximum depth $\\it{h}_{\\rm max}$ (m)",
+    "Northing (km, UTM 34N)",
+    "active cell, $\\it{h}_{\\rm max}$ \u2264 0.10 m",
+    "removed by the v1.4 evaluation mask"
+  ],
+  "files": [
+    {
+      "file": "F6.tiff",
+      "px": [
+        4110,
+        3414
+      ],
+      "dpi": 600,
+      "width_mm": 174.0,
+      "height_mm": 144.54,
+      "format": "TIFF, RGB 8-bit, LZW",
+      "tiff_writer": "pil",
+      "bytes": 1059860,
+      "generated_utc": "2026-10-21T10:07:21Z"
+    },
+    {
+      "file": "F6_preview.png",
+      "px": [
+        2055,
+        1707
+      ],
+      "dpi": 300,
+      "width_mm": 174.0,
+      "height_mm": 144.54,
+      "format": "PNG preview (reduced)",
+      "bytes": 435254,
+      "generated_utc": "2026-10-21T10:07:22Z"
+    }
+  ]
+}

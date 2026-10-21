@@ -1,0 +1,33 @@
+group,configuration,run,CSI,HR,FAR,B,GSS,modelled wet km²,R2 factor,release v1.3.0 CSI,notes
+Pineios,R2 anchor 220 mm,pineios_r2_220_v142,0.507,0.835,0.437,1.48,0.294,2236.5,×1.499,0.475,
+Pineios,R2 anchor 295 mm,pineios_r2_295_v142,0.503,0.870,0.456,1.60,0.280,2410.5,×2.009,0.466,
+Pineios,R2 anchor 400 mm (canonical),pineios_enhanced_v142,0.496,0.901,0.475,1.72,0.263,2589.5,×2.725,0.456,injected 149.6 Mm³ = 6.7 % of rain
+Pineios,R2 anchor 510 mm,pineios_r2_510_v142,0.487,0.921,0.492,1.81,0.245,2731.7,×3.474,0.446,
+Pineios,raw IMERG (R2 off),pineios_raw_imerg_v142,0.507,0.782,0.410,1.33,0.308,1999.3,R2 off,—,
+Pineios,SCS-CN on,pineios_cn_on_v142,0.507,0.885,0.458,1.63,0.282,2460.7,×2.725,—,mean CN (active cells) 73.2
+Pineios,constant infiltration qinf = 5 mm/h,pineios_qinf5_v142,0.476,0.823,0.469,1.55,0.252,2336.8,×2.725,0.456,
+Pineios,repeat of the canonical configuration (determinism check),pineios_timevarying_q_v142,0.496,0.901,0.475,1.72,0.263,2589.5,×2.725,0.456,
+Pineios,"inflow bracket: v1.4.0 canonical (constant inflow, D7)",pineios_enhanced,0.495,0.898,0.476,1.71,0.262,2584.5,×2.725,0.456,injected 32.0 Mm³ = 1.4 % of rain
+Pineios,"inflow bracket: v1.4.1 canonical (main-stem inflow at the Titarisios point, D8)",pineios_enhanced_v141,0.496,0.903,0.476,1.72,0.263,2595.9,×2.725,0.456,injected 515.8 Mm³ = 23.1 % of rain
+Mandra,R2 anchor 95 mm,mandra_r2_95,0.162,0.628,0.821,3.50,0.078,30.9,×4.062,0.104,
+Mandra,R2 anchor 140 mm,mandra_r2_140,0.159,0.690,0.829,4.04,0.071,35.7,×5.986,0.106,
+Mandra,R2 anchor 200 mm (canonical),mandra_enhanced,0.157,0.760,0.835,4.61,0.067,40.7,×8.551,0.106,
+Mandra,R2 anchor 255 mm,mandra_r2_255,0.157,0.812,0.838,5.00,0.065,44.1,×10.903,0.104,
+Mandra,HSG-A AMC-II (CN = 15 test) — pervious classes CN 15,mandra_cn_a15,0.109,0.257,0.840,1.61,0.043,14.2,×8.551,0.031 (R5 Table S1),mean CN (active cells) 33.7; TP at 01MANDRA 475
+Mandra,HSG-A AMC-II (CN = 58 test) — pervious classes CN 58,mandra_cn_a58,0.158,0.645,0.827,3.73,0.072,32.9,×8.551,0.031 (R5 Table S1),mean CN (active cells) 66.0; TP at 01MANDRA 770
+Mandra,HSG-B AMC-II (default lookup),mandra_cn_b_default,0.158,0.699,0.831,4.13,0.070,36.4,×8.551,0.031 (R5 Table S1),mean CN (active cells) 75.0; TP at 01MANDRA 801
+Mandra,"HSG-D AMC-III (post-fire, saturated) — TR-55 HSG-D lookup, AMC III",mandra_cn_d_amc3,0.156,0.753,0.835,4.57,0.067,40.3,×8.551,0.010 (R5 Table S1),mean CN (active cells) 93.0; TP at 01MANDRA 834
+Mandra,"Manning test, built-up n 0.012 -> 0.080 at the HSG-D AMC-III configuration",mandra_cn_d_amc3_manning080,0.153,0.812,0.841,5.11,0.061,45.1,×8.551,—,mean CN (active cells) 93.0
+Strymonas,"baseline (ERA5, no Q)",strymonas_baseline,0.207,0.410,0.706,1.39,0.155,145.1,R2 off,0.204,
+Strymonas,CN on + Q (canonical),strymonas_enhanced_postD6_v142,0.334,0.921,0.656,2.68,0.272,279.5,R2 off,0.182,
+Strymonas,CN off + Q,strymonas_abl_cnoff_q_v142,0.295,0.936,0.699,3.11,0.229,324.3,R2 off,0.239,
+Strymonas,CN on + Q off,strymonas_abl_qoff_cn,0.011,0.011,0.495,0.02,0.009,2.4,R2 off,0.016,
+Strymonas,v1 source (pre-fix Kerkini point),strymonas_v1_prefix_src_v142,0.325,0.911,0.664,2.71,0.263,282.9,R2 off,0.170,
+Strymonas,lead-in simulated: 10 d pre-event (canonical 3 d),strymonas_leadin7d_v142,0.255,0.959,0.742,3.72,0.185,387.4,R2 off,—,
+Valencia,raw IMERG (R2 off),valencia_raw_imerg_v142,0.163,0.864,0.832,5.16,0.100,1009.6,R2 off,0.105,
+Crete (tier 1),R2 off (raw IMERG Late),crete_sens_r2off,0.222,0.988,0.777,4.44,0.169,50.0,R2 off,—,
+Crete (tier 1),R2 anchor 224 mm,crete_sens_anchor_224,0.265,0.972,0.733,3.64,0.215,41.0,×0.507,—,
+Crete (tier 1),R2 anchor 336 mm,crete_sens_anchor_336,0.241,0.985,0.758,4.08,0.189,45.9,×0.761,—,
+Crete (tier 1),R2 anchor 447.8 mm (canonical),crete_canonical_r2on,0.221,0.988,0.778,4.45,0.169,50.1,×1.014,—,
+Crete (tier 1),R2 anchor 582 mm,crete_sens_anchor_582,0.206,0.990,0.793,4.79,0.152,54.0,×1.318,—,
+Crete (tier 1),karst bracket: constant infiltration qinf = 1.914 mm/h,crete_sens_karst_q1914,0.228,0.988,0.771,4.31,0.176,48.5,×1.014,—,

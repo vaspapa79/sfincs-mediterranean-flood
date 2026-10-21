@@ -1,0 +1,72 @@
+{
+  "figure": "F3",
+  "column": "two-column",
+  "script": "reproduction/r6/scripts/r6_figures.py",
+  "sources": [
+    "reproduction/v14_rerun/configs/pineios_enhanced_v142.yaml",
+    "D:/ELKAK/implementation/v14/pineios_enhanced_v142/model/sfincs_map.nc",
+    "reproduction/v14_rerun/masks/pineios_exclusion.tif",
+    "D:/ELKAK/implementation/v14/pineios_enhanced_v142/data/ems_polygons",
+    "reproduction/v14_rerun/results/pineios_enhanced_v142_v14_newmask.json"
+  ],
+  "notes": "run pineios_enhanced_v142; content of phase4/figures/map_pineios_enhanced_v142_v14.png (fig_map_v14.py) re-rendered at the export size; no score printed",
+  "layout_problems": [],
+  "texts_drawn": [
+    "0.0",
+    "0.5",
+    "1.0",
+    "1.5",
+    "2.0",
+    "2.5",
+    "3.0",
+    "4360",
+    "4370",
+    "4380",
+    "4390",
+    "4400",
+    "4410",
+    "4420",
+    "4430",
+    "580",
+    "600",
+    "620",
+    "640",
+    "660",
+    "EMS areas of interest",
+    "EMS observed flood",
+    "Easting (km, UTM 34N)",
+    "Maximum depth $\\it{h}_{\\rm max}$ (m)",
+    "Northing (km, UTM 34N)",
+    "active cell, $\\it{h}_{\\rm max}$ \u2264 0.10 m",
+    "removed by the v1.4 evaluation mask"
+  ],
+  "files": [
+    {
+      "file": "F3.tiff",
+      "px": [
+        4110,
+        3157
+      ],
+      "dpi": 600,
+      "width_mm": 174.0,
+      "height_mm": 133.65,
+      "format": "TIFF, RGB 8-bit, LZW",
+      "tiff_writer": "pil",
+      "bytes": 3838472,
+      "generated_utc": "2026-10-21T10:07:09Z"
+    },
+    {
+      "file": "F3_preview.png",
+      "px": [
+        2055,
+        1578
+      ],
+      "dpi": 300,
+      "width_mm": 174.0,
+      "height_mm": 133.65,
+      "format": "PNG preview (reduced)",
+      "bytes": 1857779,
+      "generated_utc": "2026-10-21T10:07:10Z"
+    }
+  ]
+}

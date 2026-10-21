@@ -1,0 +1,73 @@
+{
+  "figure": "F8",
+  "column": "two-column",
+  "script": "reproduction/r6/scripts/r6_figures.py",
+  "sources": [
+    "reproduction/v14_rerun/configs/emilia_enhanced_8aoi_v142.yaml",
+    "D:/ELKAK/implementation/v14/emilia_enhanced_8aoi_v142/model/sfincs_map.nc",
+    "reproduction/v14_rerun/masks/emilia_exclusion.tif",
+    "D:/ELKAK/implementation/v14/emilia_enhanced_8aoi_v142/data/ems_polygons",
+    "reproduction/v14_rerun/results/emilia_enhanced_8aoi_v142_v14_newmask.json"
+  ],
+  "notes": "run emilia_enhanced_8aoi_v142; content of phase4/figures/map_emilia_enhanced_8aoi_v142_v14.png (fig_map_v14.py) re-rendered at the export size; no score printed",
+  "layout_problems": [],
+  "texts_drawn": [
+    "0.0",
+    "0.5",
+    "1.0",
+    "1.5",
+    "2.0",
+    "2.5",
+    "3.0",
+    "4880",
+    "4890",
+    "4900",
+    "4910",
+    "4920",
+    "4930",
+    "4940",
+    "4950",
+    "4960",
+    "700",
+    "720",
+    "740",
+    "760",
+    "780",
+    "EMS areas of interest",
+    "EMS observed flood",
+    "Easting (km, UTM 32N)",
+    "Maximum depth $\\it{h}_{\\rm max}$ (m)",
+    "Northing (km, UTM 32N)",
+    "active cell, $\\it{h}_{\\rm max}$ \u2264 0.10 m",
+    "removed by the v1.4 evaluation mask"
+  ],
+  "files": [
+    {
+      "file": "F8.tiff",
+      "px": [
+        4110,
+        3396
+      ],
+      "dpi": 600,
+      "width_mm": 174.0,
+      "height_mm": 143.79,
+      "format": "TIFF, RGB 8-bit, LZW",
+      "tiff_writer": "pil",
+      "bytes": 4306658,
+      "generated_utc": "2026-10-21T10:07:32Z"
+    },
+    {
+      "file": "F8_preview.png",
+      "px": [
+        1712,
+        1415
+      ],
+      "dpi": 250,
+      "width_mm": 174.0,
+      "height_mm": 143.79,
+      "format": "PNG preview (reduced)",
+      "bytes": 1784304,
+      "generated_utc": "2026-10-21T10:07:33Z"
+    }
+  ]
+}
