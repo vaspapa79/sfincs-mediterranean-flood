@@ -1,3 +1,9 @@
+# STATUS (2026-10-21, CODE-17): CANONICAL. GO-C (19 Oct 2026, reproduction/emsr933/rule_ledger.md §8 item 1) chose R2 ON,
+# so this file is the canonical EMSR933 enhanced configuration; its run of record is `crete_canonical_r2on`
+# (reproduction/v14_rerun/configs/crete_canonical_r2on.yaml). GAP-1 and GAP-2 were decided at GO-C (§8 item 2) at the
+# values below. The header text that follows is the Stage-1 text of 2026-10-09, kept as written; its "NOT canonical
+# unless ..." and "provisional" remarks describe the state before GO-C. No key or value of this file changed.
+#
 # EMSR933 Crete, 30 Sep – 5 Oct 2026 — ENHANCED, R2 ALTERNATIVE (gauge-anchored IMERG). LABELLED VARIANT.
 #
 # Identical to emsr933_crete_enhanced.yaml except R2. This file encodes the second a-priori reading of

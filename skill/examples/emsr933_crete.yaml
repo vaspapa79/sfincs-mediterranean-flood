@@ -1,3 +1,8 @@
+# STATUS (2026-10-21, CODE-17): baseline of record `crete_baseline` (reproduction/v14_rerun/configs/crete_baseline.yaml;
+# GO-C, 19 Oct 2026, reproduction/emsr933/rule_ledger.md §8 item 4). GAP-1 and GAP-2 were decided at GO-C (§8 item 2) at
+# the values below. The header text that follows is the Stage-1 text of 2026-10-09, kept as written; its "await the
+# author decision" remarks and the `notes:` entry on GAP-1/GAP-2 describe the state before GO-C. No key or value changed.
+#
 # EMSR933 Crete, 30 Sep – 5 Oct 2026 — BASELINE (ERA5 rain-on-grid, no enhanced forcing).
 #
 # Third held-out event of the frozen rule R and the first PROSPECTIVE one: rule frozen 2026-07-15,

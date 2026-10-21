@@ -26,8 +26,8 @@ authors:
     affiliation: "Information Technologies Institute, Centre for Research and Technology Hellas (CERTH), Thessaloniki, Greece"
 license: MIT
 repository-code: "https://github.com/vaspapa79/sfincs-mediterranean-flood"
-version: "1.3.0"
-date-released: 2026-07-22
+version: "1.4.2"
+date-released: 2026-10-21
 keywords:
   - flood inundation modelling
   - SFINCS

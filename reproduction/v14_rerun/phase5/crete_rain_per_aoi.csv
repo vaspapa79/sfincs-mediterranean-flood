@@ -1,0 +1,9 @@
+aoi,name,tier,aoi_land_km2,catchment_km2,stage1_uparea_sum_at_outlets_km2,imerg_raw_mm_anchor_mean,imerg_raw_mm_anchor_max,imerg_raw_mm_simulated_mean,imerg_raw_mm_anchor_aoi_mean,imerg_raw_mm_n_grid_cells,imerg_r2_mm_anchor_mean,imerg_r2_mm_anchor_max,imerg_r2_mm_simulated_mean,imerg_r2_mm_anchor_aoi_mean,imerg_r2_mm_n_grid_cells,era5_mm_anchor_mean,era5_mm_anchor_max,era5_mm_simulated_mean,era5_mm_anchor_aoi_mean,era5_mm_n_grid_cells,noa_stations_inside
+01,Kastelli,2,254.52,445.2,478.1,310.7,441.7,313.0,268.0,8,315.0,447.8,317.3,271.7,8,66.8,118.5,74.5,75.0,5,potamoi 442.0 mm (5 d); tzermiado 447.8 mm (5 d)
+02,Irakleio,3,138.7,361.1,36.3,242.8,357.0,247.2,169.0,6,246.1,361.9,250.6,171.4,6,118.3,118.5,128.4,118.5,2,
+03,Tzermiado,1,176.15,208.9,231.7,386.9,441.7,390.1,388.5,6,392.3,447.8,395.5,393.9,6,51.1,79.1,58.2,51.1,4,potamoi 442.0 mm (5 d); tzermiado 447.8 mm (5 d)
+04,Agios Ioannis,2,58.25,82.7,26.5,361.7,385.8,362.5,367.1,6,366.7,391.2,367.5,372.2,6,7.7,7.7,8.1,7.7,1,
+05,Anogeia,3,168.31,265.7,269.9,328.9,449.3,338.8,295.6,6,333.4,455.5,343.3,299.7,6,126.2,208.1,136.3,125.6,2,anogeia 681.8 mm (5 d)
+06,Agios Nikolaos,2,111.74,179.3,164.1,219.0,441.7,221.0,185.4,6,222.0,447.8,224.1,188.0,6,36.6,37.0,43.3,36.4,2,
+07,Omalos,2,259.72,334.2,76.5,190.9,240.1,194.5,197.9,8,193.5,243.4,197.1,200.7,8,119.9,171.9,124.4,114.9,2,samaria 867.2 mm (5 d); samariagorge 632.0 mm (5 d)
+08,Monastiraki,3,52.39,85.8,27.8,297.2,385.8,298.1,311.5,5,301.3,391.2,302.2,315.9,5,8.0,20.1,8.5,8.0,2,
