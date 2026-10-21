@@ -1,0 +1,696 @@
+{
+  "utc": "2026-10-21T09:15:21Z",
+  "generator": "reproduction/v14_rerun/scripts/d9_residuals.py",
+  "ledger": "code15/source_points_v142.json",
+  "ledger_utc": "2026-10-20T12:42:30Z",
+  "scope": "code15/d8_scope.json",
+  "method": {
+    "search_km": 15.0,
+    "channel_fraction_of_footprint_max_d8": 0.5,
+    "footprint_half_width_deg": 0.025,
+    "larger_river_ratio": 2.0,
+    "d8": "source_snap.dem_uparea_on_grid (Copernicus DEM tiles of the run on the model grid, 10 km pad) \u2014 the build-time snap's grid",
+    "river_cells": "glofas_network.river_cells of the d8_scope RIVER_REFS reference cell(s)"
+  },
+  "items": [
+    {
+      "id": "D9-1",
+      "event": "pineios",
+      "run": "pineios_enhanced_v142",
+      "point": "pineios_trikala",
+      "named_river": "Pineios",
+      "kind": "injection",
+      "ledger_point": {
+        "name": "pineios_trikala",
+        "lon": 21.77,
+        "lat": 39.56,
+        "src_lon": 21.86,
+        "src_lat": 39.56
+      },
+      "snapped_injection_cell": {
+        "row_col": [
+          345,
+          18
+        ],
+        "xy": [
+          574457.0,
+          4380090.0
+        ],
+        "zb_m": 95.79,
+        "d8_uparea_km2": 1.91,
+        "snap_distance_m": 998,
+        "source": "D:\\ELKAK\\implementation\\v14\\pineios_enhanced_v142\\model/sfincs_src_snap.json"
+      },
+      "offset_from_yaml_point_km": 3.36,
+      "nearest_named_river_channel_cell": {
+        "offset_km": 3.76,
+        "row_col": [
+          367,
+          30
+        ],
+        "lonlat": [
+          21.88739,
+          39.53739
+        ],
+        "zb_m": 94.05,
+        "msk": 1,
+        "d8_uparea_km2": 152.48,
+        "footprint_of_glofas_cell": [
+          21.875,
+          39.525
+        ],
+        "n_channel_cells": 193
+      },
+      "offset_km": 3.76,
+      "footprints_used": [
+        {
+          "glofas_cell": [
+            21.825,
+            39.525
+          ],
+          "glofas_uparea_km2": 2049.2,
+          "footprint_cells": 333,
+          "max_d8_uparea_km2": 131.76,
+          "channel_cells": 9
+        },
+        {
+          "glofas_cell": [
+            21.875,
+            39.525
+          ],
+          "glofas_uparea_km2": 2073.0,
+          "footprint_cells": 1073,
+          "max_d8_uparea_km2": 154.98,
+          "channel_cells": 39
+        },
+        {
+          "glofas_cell": [
+            21.925,
+            39.525
+          ],
+          "glofas_uparea_km2": 2096.9,
+          "footprint_cells": 1051,
+          "max_d8_uparea_km2": 886.88,
+          "channel_cells": 41
+        },
+        {
+          "glofas_cell": [
+            21.975,
+            39.525
+          ],
+          "glofas_uparea_km2": 2120.8,
+          "footprint_cells": 1058,
+          "max_d8_uparea_km2": 914.94,
+          "channel_cells": 22
+        },
+        {
+          "glofas_cell": [
+            22.025,
+            39.525
+          ],
+          "glofas_uparea_km2": 2335.8,
+          "footprint_cells": 1073,
+          "max_d8_uparea_km2": 576.34,
+          "channel_cells": 45
+        },
+        {
+          "glofas_cell": [
+            22.025,
+            39.575
+          ],
+          "glofas_uparea_km2": 2859.8,
+          "footprint_cells": 1041,
+          "max_d8_uparea_km2": 2809.89,
+          "channel_cells": 37
+        }
+      ],
+      "sampled_cell": {
+        "file_coord": [
+          21.84,
+          39.51
+        ],
+        "network_cell": [
+          21.875,
+          39.525
+        ],
+        "uparea_km2": 2073.0,
+        "peak_file_m3s": 371.39
+      }
+    },
+    {
+      "id": "D9-2",
+      "event": "pineios",
+      "run": "pineios_enhanced_v142",
+      "point": "titarisios",
+      "named_river": "Titarisios",
+      "kind": "injection",
+      "ledger_point": {
+        "name": "titarisios",
+        "lon": 22.24,
+        "lat": 39.71,
+        "window_deg": 0.05,
+        "src_lon": 22.42,
+        "src_lat": 39.71
+      },
+      "snapped_injection_cell": {
+        "row_col": [
+          233,
+          335
+        ],
+        "xy": [
+          622007.0,
+          4396890.0
+        ],
+        "zb_m": 61.69,
+        "d8_uparea_km2": 4.88,
+        "snap_distance_m": 454,
+        "source": "D:\\ELKAK\\implementation\\v14\\pineios_enhanced_v142\\model/sfincs_src_snap.json"
+      },
+      "offset_from_yaml_point_km": 10.77,
+      "nearest_named_river_channel_cell": {
+        "offset_km": 10.95,
+        "row_col": [
+          216,
+          264
+        ],
+        "lonlat": [
+          22.29958,
+          39.73759
+        ],
+        "zb_m": 82.51,
+        "msk": 1,
+        "d8_uparea_km2": 1632.26,
+        "footprint_of_glofas_cell": [
+          22.275,
+          39.725
+        ],
+        "n_channel_cells": 35
+      },
+      "offset_km": 10.95,
+      "footprints_used": [
+        {
+          "glofas_cell": [
+            22.275,
+            39.725
+          ],
+          "glofas_uparea_km2": 1685.0,
+          "footprint_cells": 1068,
+          "max_d8_uparea_km2": 1632.26,
+          "channel_cells": 35
+        },
+        {
+          "glofas_cell": [
+            22.325,
+            39.775
+          ],
+          "glofas_uparea_km2": 1780.1,
+          "footprint_cells": 1066,
+          "max_d8_uparea_km2": 6220.62,
+          "skipped": "D8 maximum > 2.0 x the GloFAS upstream area: a larger river crosses the footprint"
+        }
+      ],
+      "sampled_cell": {
+        "file_coord": [
+          22.44,
+          39.81
+        ],
+        "network_cell": [
+          22.475,
+          39.825
+        ],
+        "uparea_km2": 8993.1,
+        "peak_file_m3s": 1128.8
+      }
+    },
+    {
+      "id": "D9-3",
+      "event": "emilia",
+      "run": "emilia_enhanced_8aoi_v142",
+      "point": "ronco",
+      "named_river": "Ronco",
+      "kind": "injection",
+      "ledger_point": {
+        "name": "ronco",
+        "lon": 12.03,
+        "lat": 44.13
+      },
+      "snapped_injection_cell": {
+        "row_col": [
+          465,
+          374
+        ],
+        "xy": [
+          742195.0,
+          4891583.0
+        ],
+        "zb_m": 101.38,
+        "d8_uparea_km2": 6.32,
+        "snap_distance_m": 832,
+        "source": "D:\\ELKAK\\implementation\\v14\\emilia_enhanced_8aoi_v142\\model/sfincs_src_snap.json"
+      },
+      "offset_from_yaml_point_km": 2.63,
+      "nearest_named_river_channel_cell": {
+        "offset_km": 3.03,
+        "row_col": [
+          468,
+          394
+        ],
+        "lonlat": [
+          12.06505,
+          44.13227
+        ],
+        "zb_m": 44.98,
+        "msk": 1,
+        "d8_uparea_km2": 145.82,
+        "footprint_of_glofas_cell": [
+          12.075,
+          44.125
+        ],
+        "n_channel_cells": 186
+      },
+      "offset_km": 3.03,
+      "footprints_used": [
+        {
+          "glofas_cell": [
+            11.925,
+            44.025
+          ],
+          "glofas_uparea_km2": 334.7,
+          "footprint_cells": 988,
+          "max_d8_uparea_km2": 31.72,
+          "channel_cells": 9
+        },
+        {
+          "glofas_cell": [
+            11.975,
+            44.025
+          ],
+          "glofas_uparea_km2": 357.0,
+          "footprint_cells": 989,
+          "max_d8_uparea_km2": 30.06,
+          "channel_cells": 22
+        },
+        {
+          "glofas_cell": [
+            12.025,
+            44.075
+          ],
+          "glofas_uparea_km2": 379.2,
+          "footprint_cells": 989,
+          "max_d8_uparea_km2": 59.67,
+          "channel_cells": 34
+        },
+        {
+          "glofas_cell": [
+            12.075,
+            44.125
+          ],
+          "glofas_uparea_km2": 512.8,
+          "footprint_cells": 993,
+          "max_d8_uparea_km2": 165.94,
+          "channel_cells": 44
+        },
+        {
+          "glofas_cell": [
+            12.075,
+            44.175
+          ],
+          "glofas_uparea_km2": 601.7,
+          "footprint_cells": 986,
+          "max_d8_uparea_km2": 205.13,
+          "channel_cells": 40
+        },
+        {
+          "glofas_cell": [
+            12.075,
+            44.225
+          ],
+          "glofas_uparea_km2": 623.9,
+          "footprint_cells": 989,
+          "max_d8_uparea_km2": 241.72,
+          "channel_cells": 37
+        }
+      ],
+      "sampled_cell": {
+        "file_coord": [
+          12.075,
+          44.225
+        ],
+        "network_cell": [
+          12.075,
+          44.225
+        ],
+        "uparea_km2": 623.9,
+        "peak_file_m3s": 171.188
+      }
+    },
+    {
+      "id": "D9-4",
+      "event": "emilia",
+      "run": "emilia_enhanced_8aoi_v142",
+      "point": "montone",
+      "named_river": "Montone",
+      "kind": "injection",
+      "ledger_point": {
+        "name": "montone",
+        "lon": 11.98,
+        "lat": 44.18,
+        "window_deg": 0.05
+      },
+      "snapped_injection_cell": {
+        "row_col": [
+          430,
+          343
+        ],
+        "xy": [
+          737545.0,
+          4896833.0
+        ],
+        "zb_m": 62.98,
+        "d8_uparea_km2": 0.5,
+        "snap_distance_m": 921,
+        "source": "D:\\ELKAK\\implementation\\v14\\emilia_enhanced_8aoi_v142\\model/sfincs_src_snap.json"
+      },
+      "offset_from_yaml_point_km": 1.4,
+      "nearest_named_river_channel_cell": {
+        "offset_km": 0.6,
+        "row_col": [
+          430,
+          339
+        ],
+        "lonlat": [
+          11.96463,
+          44.18624
+        ],
+        "zb_m": 52.0,
+        "msk": 1,
+        "d8_uparea_km2": 175.46,
+        "footprint_of_glofas_cell": [
+          11.975,
+          44.175
+        ],
+        "n_channel_cells": 176
+      },
+      "offset_km": 0.6,
+      "footprints_used": [
+        {
+          "glofas_cell": [
+            11.875,
+            44.125
+          ],
+          "glofas_uparea_km2": 245.0,
+          "footprint_cells": 988,
+          "max_d8_uparea_km2": 120.64,
+          "channel_cells": 31
+        },
+        {
+          "glofas_cell": [
+            11.925,
+            44.125
+          ],
+          "glofas_uparea_km2": 267.2,
+          "footprint_cells": 991,
+          "max_d8_uparea_km2": 155.9,
+          "channel_cells": 18
+        },
+        {
+          "glofas_cell": [
+            11.925,
+            44.175
+          ],
+          "glofas_uparea_km2": 289.5,
+          "footprint_cells": 987,
+          "max_d8_uparea_km2": 162.63,
+          "channel_cells": 17
+        },
+        {
+          "glofas_cell": [
+            11.975,
+            44.175
+          ],
+          "glofas_uparea_km2": 311.7,
+          "footprint_cells": 986,
+          "max_d8_uparea_km2": 183.53,
+          "channel_cells": 32
+        },
+        {
+          "glofas_cell": [
+            12.025,
+            44.225
+          ],
+          "glofas_uparea_km2": 467.4,
+          "footprint_cells": 984,
+          "max_d8_uparea_km2": 318.87,
+          "channel_cells": 40
+        },
+        {
+          "glofas_cell": [
+            12.025,
+            44.275
+          ],
+          "glofas_uparea_km2": 489.6,
+          "footprint_cells": 986,
+          "max_d8_uparea_km2": 343.82,
+          "channel_cells": 38
+        }
+      ],
+      "sampled_cell": {
+        "file_coord": [
+          11.925,
+          44.275
+        ],
+        "network_cell": [
+          11.925,
+          44.275
+        ],
+        "uparea_km2": 600.2,
+        "peak_file_m3s": 166.062
+      }
+    },
+    {
+      "id": "D9-5",
+      "event": "valencia",
+      "run": "valencia_enhanced_164_v142",
+      "point": "jucar",
+      "named_river": "Jucar",
+      "kind": "sampling at the mouth reach (Magro nested)",
+      "ledger_point": {
+        "name": "jucar",
+        "lon": -0.34,
+        "lat": 39.16
+      },
+      "snapped_injection_cell": {
+        "row_col": [
+          668,
+          508
+        ],
+        "xy": [
+          730765.0,
+          4337674.0
+        ],
+        "zb_m": 2.95,
+        "d8_uparea_km2": 2183.77,
+        "snap_distance_m": 961,
+        "source": "D:\\ELKAK\\implementation\\v14\\valencia_enhanced_164_v142\\model/sfincs_src_snap.json"
+      },
+      "offset_from_yaml_point_km": 0.57,
+      "nearest_named_river_channel_cell": {
+        "offset_km": 0.0,
+        "row_col": [
+          668,
+          508
+        ],
+        "lonlat": [
+          -0.32928,
+          39.1577
+        ],
+        "zb_m": 2.95,
+        "msk": 1,
+        "d8_uparea_km2": 2183.77,
+        "footprint_of_glofas_cell": [
+          -0.325,
+          39.175
+        ],
+        "n_channel_cells": 204
+      },
+      "offset_km": 0.0,
+      "footprints_used": [
+        {
+          "glofas_cell": [
+            -0.475,
+            39.125
+          ],
+          "glofas_uparea_km2": 19486.3,
+          "footprint_cells": 2408,
+          "max_d8_uparea_km2": 1060.48,
+          "channel_cells": 35
+        },
+        {
+          "glofas_cell": [
+            -0.425,
+            39.125
+          ],
+          "glofas_uparea_km2": 19582.4,
+          "footprint_cells": 2398,
+          "max_d8_uparea_km2": 154.02,
+          "channel_cells": 13
+        },
+        {
+          "glofas_cell": [
+            -0.425,
+            39.175
+          ],
+          "glofas_uparea_km2": 21350.2,
+          "footprint_cells": 2402,
+          "max_d8_uparea_km2": 2134.62,
+          "channel_cells": 59
+        },
+        {
+          "glofas_cell": [
+            -0.375,
+            39.225
+          ],
+          "glofas_uparea_km2": 21374.1,
+          "footprint_cells": 2391,
+          "max_d8_uparea_km2": 2135.05,
+          "channel_cells": 8
+        },
+        {
+          "glofas_cell": [
+            -0.325,
+            39.175
+          ],
+          "glofas_uparea_km2": 21398.1,
+          "footprint_cells": 2400,
+          "max_d8_uparea_km2": 2192.84,
+          "channel_cells": 42
+        },
+        {
+          "glofas_cell": [
+            -0.275,
+            39.175
+          ],
+          "glofas_uparea_km2": 21422.1,
+          "footprint_cells": 2395,
+          "max_d8_uparea_km2": 10.26,
+          "channel_cells": 47
+        }
+      ],
+      "sampled_cell": {
+        "file_coord": [
+          -0.275,
+          39.175
+        ],
+        "network_cell": [
+          -0.275,
+          39.175
+        ],
+        "uparea_km2": 21422.1,
+        "peak_file_m3s": 88.809
+      }
+    },
+    {
+      "id": "D9-6",
+      "event": "pineios",
+      "run": "pineios_enhanced_v142",
+      "point": "pineios_kalambaka",
+      "named_river": "Pineios",
+      "kind": "sampled only (inject: false)",
+      "ledger_point": {
+        "name": "pineios_kalambaka",
+        "lon": 21.63,
+        "lat": 39.7,
+        "src_lon": 21.86,
+        "src_lat": 39.7,
+        "inject": false
+      },
+      "unsnapped_injection_point": {
+        "lonlat": [
+          21.86,
+          39.7
+        ],
+        "xy": [
+          573730.1,
+          4394814.49
+        ],
+        "zb_m": null,
+        "msk": null,
+        "d8_uparea_km2": 0.02,
+        "note": "inject: false \u2014 not written to sfincs.src; zb/msk None = outside the model's active grid (gis rasters are NaN there)"
+      },
+      "offset_from_yaml_point_km": null,
+      "nearest_named_river_channel_cell": null,
+      "offset_km": null,
+      "footprints_used": [],
+      "sampled_cell": {
+        "file_coord": [
+          21.64,
+          39.61
+        ],
+        "network_cell": [
+          21.675,
+          39.625
+        ],
+        "uparea_km2": 23.8,
+        "peak_file_m3s": 2.1
+      }
+    },
+    {
+      "id": "D9-7",
+      "event": "pineios",
+      "run": null,
+      "point": null,
+      "named_river": null,
+      "kind": "lattice offset of the frozen Open-Meteo file",
+      "lattice_lon_offset_deg": 0.05,
+      "at_lat": 39.66,
+      "offset_km": 4.29,
+      "lattice_shift_test": {
+        "n_river_points": 32,
+        "n_dry_points": 60,
+        "shifts": {
+          "rows+0_cols+0": {
+            "river_points_on_small_cells": 12,
+            "dry_points_on_river_cells": 7
+          },
+          "rows+0_cols+1": {
+            "river_points_on_small_cells": 0,
+            "dry_points_on_river_cells": 0
+          },
+          "rows+0_cols-1": {
+            "river_points_on_small_cells": 19,
+            "dry_points_on_river_cells": 8
+          },
+          "rows+1_cols+0": {
+            "river_points_on_small_cells": 19,
+            "dry_points_on_river_cells": 12
+          },
+          "rows-1_cols+0": {
+            "river_points_on_small_cells": 19,
+            "dry_points_on_river_cells": 10
+          }
+        },
+        "best_shift": "rows+0_cols+1"
+      },
+      "glofas_file": "D:\\ELKAK\\implementation\\v14\\pineios_enhanced_v141\\data\\glofas_pineios_clean.nc",
+      "glofas_extent": {
+        "lon": [
+          21.639999389648438,
+          23.139999389648438
+        ],
+        "lat": [
+          39.11000061035156,
+          40.209999084472656
+        ]
+      }
+    }
+  ],
+  "nested_injected_cells_from_ledger": {
+    "pineios": [],
+    "strymonas": [],
+    "valencia": [
+      "magro \u2282 jucar"
+    ],
+    "emilia": []
+  }
+}

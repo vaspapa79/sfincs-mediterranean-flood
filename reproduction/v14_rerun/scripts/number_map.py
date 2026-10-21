@@ -259,7 +259,9 @@ def build_entries(S, man, sup, text, stext):
         s1, src1 = S.strict(v1); s3, src3 = (S.strict(v3) if v3 else (None, ""))
         if ev == "Mandra" and s3 is None:
             src3 = "pending (scripts/mandra_v3_maskrestrict_v14.py, MANIFEST row 16)"
-        add(f"Table S2 {ev} v1 / v3 / Δ", "see supplement", (f"v1 {s1['csi']:.3f}/{s1['hr']:.3f}/{s1['far']:.3f}/{s1['bias']:.2f}/{s1['gss']:.3f}" if s1 else "pending") + (f"; v3 {s3['csi']:.3f}/{s3['hr']:.3f}/{s3['far']:.3f}/{s3['bias']:.2f}/{s3['gss']:.3f}; ΔCSI {s3['csi'] - s1['csi']:+.3f}" if (s1 and s3) else "; v3 " + ("pending" if v3 else src3)),
+        # CODE-16 (author's decision 2026-10-21): pineios_timevarying_q_v142 has the canonical configuration -> 'repeat of the canonical configuration (determinism check)'
+        v3lab = "v3 = repeat of the canonical configuration (determinism check)" if (ev == "Pineios" and S.alt.get(v3) == f"{v3}_v142") else "v3"
+        add(f"Table S2 {ev} v1 / v3 / Δ", "see supplement", (f"v1 {s1['csi']:.3f}/{s1['hr']:.3f}/{s1['far']:.3f}/{s1['bias']:.2f}/{s1['gss']:.3f}" if s1 else "pending") + (f"; {v3lab} {s3['csi']:.3f}/{s3['hr']:.3f}/{s3['far']:.3f}/{s3['bias']:.2f}/{s3['gss']:.3f}; ΔCSI {s3['csi'] - s1['csi']:+.3f}" if (s1 and s3) else "; v3 " + ("pending" if v3 else src3)),
             f"{src1}; {src3 if v3 else ''}", "CSI/HR/FAR/B/GSS")
     # ---- Table S3 (CODE-14 D): evaluation-mask sensitivity with the v1.4 mask as the reference
     s3 = J(S.R / "code14" / "table_s3_v14.json"); ts3 = table(sup, "Table S3")
@@ -293,14 +295,40 @@ def build_entries(S, man, sup, text, stext):
     cn_on, cn_src = S.wet_km2("pineios_cn_on"); raw_p, raw_src = S.wet_km2("pineios_raw_imerg"); raw_v, raw_vsrc = S.strict("valencia_raw_imerg"); qi, qisrc = S.strict("pineios_qinf5")
     tvq, tvqsrc = S.strict("pineios_timevarying_q")
     mp, mpsrc = S.map_csv("strymonas_enhanced_postD6"); peak_s = next((r for r in (mp or []) if r["aoi_file"] == "WHOLE_ACTIVE_DOMAIN"), None)
+    # CODE-16 (author's decision 2026-10-21): the pending §4.1.1 entry is resolved by replacement in the v1.4.2 column — the v1.4.2 injected
+    # peaks and volume (code15/d_volumes_v142.json) plus the inflow bracket of the release history (v1.4.0 canonical: D7 constant at four
+    # points, code14/d7_scope.json; v1.4.1 canonical: the main stem at the Titarisios point; volumes code16/d_volumes_code16.json)
+    v142 = S.alt.get("pineios_enhanced") == "pineios_enhanced_v142"
+    res411, res411_src = None, None
+    if v142:
+        repo = S.R.parents[1]
+        dv = J(S.R / "code15" / "d_volumes_v142.json"); dv16 = J(S.R / "code16" / "d_volumes_code16.json"); d7 = J(S.R / "code14" / "d7_scope.json")
+        c140 = Src(repo).strict("pineios_enhanced")[0]; c141 = Src(repo, {"pineios_enhanced": "pineios_enhanced_v141"}).strict("pineios_enhanced")[0]
+        if dv and dv16 and d7 and c140 and c141 and tvq:
+            pv = dv["runs"]["pineios_enhanced_v142"]; inj = pv["injected"]; pk = {c["name"]: c["peak_m3s"] for c in inj["sources"]}
+            r0 = next(r for r in d7["runs"] if r["run"] == "pineios_enhanced")
+            v140 = dv16["runs"]["pineios_enhanced"]; v141 = dv16["runs"]["pineios_enhanced_v141"]
+            q141 = next(c["peak_m3s"] for c in v141["injected"]["sources"] if c["name"] == "titarisios")
+            res411 = (f"resolved by replacement (author's decision, CODE-16): v1.4.2 injected peaks Trikala {pk['pineios_trikala']:.1f}, Titarisios {pk['titarisios']:.1f}, Enipeas {pk['enipeas']:.1f} m³/s "
+                      f"(combined {inj['combined_peak_m3s']:.1f} m³/s); injected {inj['total_volume_m3'] / 1e6:.1f} Mm³ = {100 * pv['injected_over_rain']:.1f} % of {pv['rain_on_active_domain']['rain_volume_m3'] / 1e6:.0f} Mm³ rain on the active domain; "
+                      f"inflow bracket from the release history: v1.4.0 canonical, constant {r0['glofas_domain_mean_m3s']:.3f} m³/s at {len(r0['points'])} points ({v140['injected']['total_volume_m3'] / 1e6:.1f} Mm³ = {100 * v140['injected_over_rain']:.1f} % of rain): CSI {c140['csi']:.3f}; "
+                      f"v1.4.1 canonical, main stem at the Titarisios point (peak {q141:.1f} m³/s; {v141['injected']['total_volume_m3'] / 1e6:.1f} Mm³ = {100 * v141['injected_over_rain']:.1f} % of rain): CSI {c141['csi']:.3f}; "
+                      f"pineios_timevarying_q_v142 is a repeat of the canonical configuration (determinism check), CSI {tvq['csi']:.3f}")
+            res411_src = ("code15/d_volumes_v142.json runs[pineios_enhanced_v142]; code14/d7_scope.json runs[pineios_enhanced]; code16/d_volumes_code16.json runs[pineios_enhanced, pineios_enhanced_v141]; "
+                          "results/pineios_enhanced_v14_newmask.json; results/pineios_enhanced_v141_v14_newmask.json; " + tvqsrc)
+    canon_q, canon_qsrc = S.strict("pineios_enhanced")
     sent = [
         ("§4.1.2 (ii) / §6.2: 'collapsed the flood to ~38 km²' (Pineios CN-on)", "~38 km²", f"{cn_on:.1f} km² wet in the evaluation mask" if cn_on is not None else "pending", cn_src, find(r"38 km")),
         ("§5: 'raw IMERG recovers only 141 mm and bounds the flood below 40 km²'", "141 mm; < 40 km²", (f"raw IMERG bbox mean {rp['sources']['imerg_raw']['by_window']['simulated']['domain_mean_total_mm']:.0f} mm (file extent {rp['sources']['imerg_raw']['by_window_file_extent']['simulated']['domain_mean_total_mm']:.0f} mm) over the simulated window; " if rp and rp['sources'].get('imerg_raw', {}).get('by_window_file_extent') else "rain pending; ") + (f"flood {raw_p:.1f} km²" if raw_p is not None else "flood pending"), f"{rps}; {raw_src}", find(r"141 mm")),
         ("§4.1.2 / Fig. 4 caption: 'ERA5 331 mm domain-mean', '×2.73', 'post-correction 380 mm'", "331 mm; ×2.73; 380 mm", (f"ERA5 bbox mean {rp['sources']['era5']['by_window']['simulated']['domain_mean_total_mm']:.0f} mm; factor ×{rp['r2_realised']['factor']:.2f}; corrected IMERG bbox mean {rp['sources']['imerg']['by_window']['simulated']['domain_mean_total_mm']:.0f} mm; model forcing {rp['sources']['model_forcing']['by_window']['simulated']['domain_mean_total_mm']:.0f} mm" if rp else "pending"), rps, find(r"331 mm")),
         ("Fig. 6 caption / §3: Mandra '118 / 228 / 46 mm', 'raw watershed-mean ~23 mm', 'peak ~1.9 mm h⁻¹', '×8.55'", "118 / 228 / 46 mm; ~23 mm; 1.9 mm/h; ×8.55", (f"forcing-window bbox means raw {rm['sources']['imerg_raw']['by_window']['forcing']['domain_mean_total_mm']:.0f} / corrected {rm['sources']['imerg']['by_window']['forcing']['domain_mean_total_mm']:.0f} / ERA5 {rm['sources']['era5']['by_window']['forcing']['domain_mean_total_mm']:.0f} mm (file extent {rm['sources']['imerg_raw']['by_window_file_extent']['forcing']['domain_mean_total_mm']:.0f} / {rm['sources']['imerg']['by_window_file_extent']['forcing']['domain_mean_total_mm']:.0f} / {rm['sources']['era5']['by_window_file_extent']['forcing']['domain_mean_total_mm']:.0f}); raw watershed mean {rm['r2_realised']['raw_watershed_mean_mm']:.1f} mm; raw event-window peak {rm['sources']['imerg_raw']['by_window']['event']['domain_mean_peak_mm_h']:.1f} mm/h; factor ×{rm['r2_realised']['factor']:.2f}" if rm and rm['sources'].get('imerg_raw', {}).get('by_window_file_extent') else "pending"), rms, find(r"118 / 228 / 46")),
         ("§3 / §6: 'ERA5 ~4 mm h⁻¹ against >30 mm h⁻¹' (Mandra peak hour)", "~4 vs >30 mm/h", (f"ERA5 bbox-mean peak {rm['sources']['era5']['by_window']['forcing']['domain_mean_peak_mm_h']:.1f} mm/h; corrected IMERG bbox-mean peak {rm['sources']['imerg']['by_window']['event']['domain_mean_peak_mm_h']:.1f} mm/h (the >30 is the NOA gauge/radar value, unchanged)" if rm else "pending"), rms, find(r"4 mm h")),
-        ("§4.1.1 / §5.2 / S2: 'peak 118 m³ s⁻¹ at Enipeas', '~135 m³ s⁻¹ coincident', time-varying audit", "118; ~135", (f"nearest-cell peaks " + ", ".join(f"{x['name']} {x['daily_peak_m3s']:.1f}" for x in q['sources']) + f"; combined hourly peak {q['combined_hourly_peak_m3s']:.1f} m³/s; pipeline file constant {q['pipeline_dis_constant_value']:.2f} m³/s (D7)" if q else "pending") + (f"; CSI time-varying {tvq['csi']:.3f}" if tvq else ""), f"{qsrc}; {tvqsrc}", find(r"118 m")),
-        ("§5.2: 'qinf = 5 mm h⁻¹ leaves the canonical CSI unchanged (0.456)'", "0.456 unchanged", (f"qinf 5 on the time-varying build: CSI {qi['csi']:.3f} (time-varying without qinf {tvq['csi']:.3f})" if qi and tvq else "pending"), qisrc, find(r"qinf = 5")),
+        ("§4.1.1 / §5.2 / S2: 'peak 118 m³ s⁻¹ at Enipeas', '~135 m³ s⁻¹ coincident', time-varying audit", "118; ~135",
+         (res411 if v142 and res411 else (f"nearest-cell peaks " + ", ".join(f"{x['name']} {x['daily_peak_m3s']:.1f}" for x in q['sources']) + f"; combined hourly peak {q['combined_hourly_peak_m3s']:.1f} m³/s; pipeline file constant {q['pipeline_dis_constant_value']:.2f} m³/s (D7)" if q else "pending") + (f"; CSI time-varying {tvq['csi']:.3f}" if tvq else "")),
+         (res411_src if v142 and res411 else f"{qsrc}; {tvqsrc}"), find(r"118 m")),
+        ("§5.2: 'qinf = 5 mm h⁻¹ leaves the canonical CSI unchanged (0.456)'", "0.456 unchanged",
+         ((f"qinf 5 on the canonical configuration: CSI {qi['csi']:.3f} (canonical {canon_q['csi']:.3f}; its repeat, the determinism check, {tvq['csi']:.3f})" if (qi and tvq and canon_q) else "pending") if v142 else
+          (f"qinf 5 on the time-varying build: CSI {qi['csi']:.3f} (time-varying without qinf {tvq['csi']:.3f})" if qi and tvq else "pending")), (f"{qisrc}; {canon_qsrc}" if v142 else qisrc), find(r"qinf = 5")),
         ("§4.4.2 / §5.3 / S3.1: 'raw-IMERG run scores CSI = 0.105' (Valencia)", "0.105", (f"{raw_v['csi']:.3f} (HR {raw_v['hr']:.3f}, FAR {raw_v['far']:.3f}, B {raw_v['bias']:.2f})" if raw_v else "pending"), raw_vsrc, find(r"0\.105")),
         ("§7: truth-polygon uncertainty '±0.012 / ±0.003 / ±0.041' (Pineios / Strymonas / Mandra, ±20 m)", "±0.012 / ±0.003 / ±0.041",
          "; ".join(f"{ev} CSI {b['sweep']['-20']['csi']:.3f}–{b['sweep']['20']['csi']:.3f} (0 m {b['sweep']['0']['csi']:.3f})" if b else f"{ev} pending" for ev, (b, _) in bufs.items()), "phase4/truth_buffer/*_v14.json", find(r"±0\.012|± 0\.012")),
@@ -334,7 +362,9 @@ def write_map(a, E, E1, alt, E2=None, alt2=None):
          + (f" **v1.4.1 column (CODE-14, D7 GloFAS sampler fix):** the value from the v1.4.1 re-run where one exists ({', '.join(f'{k} → {v}' for k, v in alt.items())}); "
             "'= v1.4.0' where the entry does not depend on a re-run run. The v1.4.1 Pineios rows use the frozen config under the fixed sampler and carry the D8 Titarisios main-stem double count (CHECKPOINT6.md) — not final until the author decides D8." if v141 else "")
          + (f" **v1.4.2 column (CODE-15, D8 source-point resolution — the number freeze):** the value from the v1.4.2 re-run where one exists ({', '.join(f'{k} → {v}' for k, v in alt2.items())}); "
-            "'= v1.4.1' where the entry does not depend on a re-run run (the v1.4.1 column itself falls back to v1.4.0 where no v1.4.1 re-run exists)." if v142 else ""), "",
+            "'= v1.4.1' where the entry does not depend on a re-run run (the v1.4.1 column itself falls back to v1.4.0 where no v1.4.1 re-run exists). "
+            "**CODE-16 (author's decision, 2026-10-21):** the §4.1.1 entry ('peak 118 / ~135') is resolved by replacement with the v1.4.2 injected peaks and volume and the inflow bracket of the release history; "
+            "`pineios_timevarying_q_v142` has the canonical configuration and is labelled 'repeat of the canonical configuration (determinism check)', not an independent time-varying audit." if v142 else ""), "",
          ("| location | old (R5) | new (v1.4.0) | new (v1.4.1) | new (v1.4.2) | source | note / where |" if v142 else
           "| location | old (R5) | new (v1.4.0) | new (v1.4.1) | source | note / where |" if v141 else "| location | old (R5) | new (v1.4) | source | note / where |"),
          ("|---|---|---|---|---|---|---|" if v142 else "|---|---|---|---|---|---|" if v141 else "|---|---|---|---|---|")]

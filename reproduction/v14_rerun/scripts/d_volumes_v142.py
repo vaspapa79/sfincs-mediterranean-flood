@@ -59,7 +59,7 @@ def rain_volume(precip_nc: Path, model_x, model_y, active: np.ndarray, dx: float
             "max_cell_depth_mm": float(depth_mm.max())}
 
 
-def injected(model: Path, tref, t0, t1) -> dict:
+def injected(model: Path, tref, t0, t1, fallback_names: list | None = None) -> dict:
     """Peak and volume per injected source over [t0, t1] from sfincs.dis (SFINCS interpolates linearly between the listed times)."""
     import pandas as pd
     dis = np.loadtxt(model / "sfincs.dis"); dis = dis[None, :] if dis.ndim == 1 else dis
@@ -67,7 +67,8 @@ def injected(model: Path, tref, t0, t1) -> dict:
     sel = (times >= pd.Timestamp(t0)) & (times <= pd.Timestamp(t1))
     tsec = dis[sel, 0]; q = dis[sel, 1:]
     snap = json.loads((model / "sfincs_src_snap.json").read_text(encoding="utf-8")) if (model / "sfincs_src_snap.json").exists() else None
-    names = [p["name"] for p in snap["points"] if p["injected"]] if snap else [f"src{i + 1}" for i in range(q.shape[1])]
+    # builds before v1.4.2 have no snap record: their sfincs.src lists every YAML point in config order (CODE-16)
+    names = [p["name"] for p in snap["points"] if p["injected"]] if snap else (list(fallback_names) if fallback_names and len(fallback_names) == q.shape[1] else [f"src{i + 1}" for i in range(q.shape[1])])
     cols = []
     for j in range(q.shape[1]):
         vol = float(np.trapezoid(q[:, j], tsec))
@@ -83,6 +84,7 @@ def main() -> int:
     ap.add_argument("--repo", required=True, type=Path)
     ap.add_argument("--runs", default=",".join(DEFAULT_RUNS))
     ap.add_argument("--out-dir", type=Path, default=None)
+    ap.add_argument("--out-stem", default="d_volumes_v142", help="CODE-16: output file stem (default keeps the CODE-15 name)")
     a = ap.parse_args()
     repo = a.repo.resolve()
     out_dir = a.out_dir or (repo / "reproduction" / "v14_rerun" / "code15")
@@ -102,7 +104,7 @@ def main() -> int:
         active = s["msk"] > 0
         dx = float(s["dx"])
         rec = json.loads((R / "results" / f"{run}_record.json").read_text(encoding="utf-8")) if (R / "results" / f"{run}_record.json").exists() else {}
-        inj = injected(model, cfg.tref, cfg.tstart, cfg.tstop)
+        inj = injected(model, cfg.tref, cfg.tstart, cfg.tstop, [p["name"] for p in (cfg.upstream_q or {}).get("src_points", [])])
         sampled = (rec.get("q_outlet_cells") or {}).get("points") or (json.loads((cfg.paths["data_dir"] / "q_outlet_cells.json").read_text(encoding="utf-8"))["points"] if (cfg.paths["data_dir"] / "q_outlet_cells.json").exists() else [])
         rain = rain_volume(model / "precip_2d.nc", s["x"], s["y"], active, dx, cfg.tstart, cfg.tstop)
         zsmax = s["ds"]["zsmax"].max(dim="timemax").values
@@ -149,11 +151,11 @@ def main() -> int:
                    f"Total injected / proxy: {100 * r['modelled_volume_inside_observed_extent_m3']:.0f} % (modelled), {100 * r['nominal_0.5m_m3']:.0f} % (0.5 m), {100 * r['nominal_1.0m_m3']:.0f} % (1.0 m).", ""]
         print(f"{run}: injected {inj['total_volume_m3'] / 1e6:.2f} Mm3 (peaks {[round(c['peak_m3s'], 1) for c in inj['sources']]}), rain {rain['rain_volume_m3'] / 1e6:.1f} Mm3 -> {100 * ev['injected_over_rain']:.1f} %")
     out_dir.mkdir(parents=True, exist_ok=True)
-    (out_dir / "d_volumes_v142.json").write_text(json.dumps(out, indent=2, default=str), encoding="utf-8")
-    (out_dir / "d_volumes_v142.md").write_text(f"# Injected discharge vs rain / observed-flood volumes, harness v1.4.2 (CODE-15 D) — generated {out['utc']} by `reproduction/v14_rerun/scripts/d_volumes_v142.py`\n\n"
+    (out_dir / f"{a.out_stem}.json").write_text(json.dumps(out, indent=2, default=str), encoding="utf-8")
+    (out_dir / f"{a.out_stem}.md").write_text(f"# Injected discharge vs rain / observed-flood volumes, harness v1.4.2 (CODE-15 D) — generated {out['utc']} by `reproduction/v14_rerun/scripts/d_volumes_v142.py`\n\n"
                                                "Volumes over the simulated window (tstart..tstop); injected = trapezoid integral of the sfincs.dis columns SFINCS read; rain = netampr rates integrated per forcing cell and weighted by the "
                                                "active model area each forcing cell covers.\n\n" + "\n".join(md), encoding="utf-8")
-    print("wrote", out_dir / "d_volumes_v142.json")
+    print("wrote", out_dir / f"{a.out_stem}.json")
     return 0
 
 
