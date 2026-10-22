@@ -9,7 +9,7 @@
     "D:/ELKAK/implementation/v14/mandra_enhanced/data/ems_polygons",
     "reproduction/v14_rerun/results/mandra_enhanced_v14_newmask.json"
   ],
-  "notes": "run mandra_enhanced; content of phase4/figures/map_mandra_enhanced_v14.png (fig_map_v14.py) re-rendered at the export size; no score printed; legend names the white (inactive) cells (CODE-19 B3)",
+  "notes": "run mandra_enhanced; content of phase4/figures/map_mandra_enhanced_v14.png (fig_map_v14.py) re-rendered at the export size; no score printed; legend names the white (inactive) cells (CODE-19 B3); the exclusion mask is drawn above the depth layer, hiding the modelled water inside excluded cells (CODE-19 B4 for F7, CODE-20 A2 for the other maps)",
   "layout_problems": [],
   "texts_drawn": [
     "0.0",
@@ -51,8 +51,8 @@
       "height_mm": 169.72,
       "format": "TIFF, RGB 8-bit, LZW",
       "tiff_writer": "pil",
-      "bytes": 1993008,
-      "generated_utc": "2026-10-22T12:57:38Z"
+      "bytes": 1987740,
+      "generated_utc": "2026-10-22T20:51:12Z"
     },
     {
       "file": "F5_preview.png",
@@ -64,8 +64,8 @@
       "width_mm": 174.0,
       "height_mm": 169.72,
       "format": "PNG preview (reduced)",
-      "bytes": 1039482,
-      "generated_utc": "2026-10-22T12:57:39Z"
+      "bytes": 1038582,
+      "generated_utc": "2026-10-22T20:51:12Z"
     }
   ]
 }

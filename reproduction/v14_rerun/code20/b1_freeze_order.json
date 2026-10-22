@@ -1,0 +1,111 @@
+{
+ "utc": "2026-10-22T20:51:50Z",
+ "generator": "reproduction/v14_rerun/scripts/code20_b1_freeze_order.py",
+ "manuscript_sentence_section_3_4": "The rule was committed on 15 July 2026, before either held-out configuration was written",
+ "freeze_evidence_md": {
+  "file": "docs/FREEZE_EVIDENCE.md",
+  "sha256": "2d56396c768cb484e59049ac27f83ef390b81568429ed18d55ab6d44da88eab7",
+  "author_date_as_written": "2026-07-15 14:33:54 +03:00",
+  "author_date_utc": "2026-07-15T11:33:54Z",
+  "held_out_table_local_plus0300": {
+   "EMSR773 Valencia": {
+    "config_written_local": "2026-07-15 15:17",
+    "first_execution_local": "2026-07-15 16:10",
+    "first_score_local": "2026-07-15 21:00"
+   },
+   "EMSR664 Emilia-Romagna": {
+    "config_written_local": "2026-07-15 15:17",
+    "first_execution_local": "2026-07-15 16:30",
+    "first_score_local": "2026-07-15 16:50"
+   }
+  },
+  "note": "the file states every time in local time +03:00"
+ },
+ "private_repository": {
+  "path": "D:\\ELKAK\\ELKAK2\\NHESS",
+  "present": true,
+  "bfd005a": {
+   "hash": "bfd005a6f65074662086f30e45ee7869022fc1f6",
+   "author_date": "2026-07-15 14:33:54 +0300",
+   "author_date_utc": "2026-07-15T11:33:54Z",
+   "committer_date": "2026-07-15 14:33:54 +0300",
+   "committer_date_utc": "2026-07-15T11:33:54Z",
+   "subject": "NHESS manuscript: frozen-rule framework, five events (3 dev + 2 held-out)"
+  },
+  "49da0d1": {
+   "hash": "49da0d1d59665128b9f4f44d0ea6e5b53b2b89f7",
+   "author_date": "2026-07-15 17:00:54 +0300",
+   "author_date_utc": "2026-07-15T14:00:54Z",
+   "committer_date": "2026-07-15 17:00:54 +0300",
+   "committer_date_utc": "2026-07-15T14:00:54Z",
+   "subject": "Held-out runs executed: real Valencia + Emilia-Romagna SFINCS results",
+   "valencia_metrics_generated_utc": "2026-07-15T13:13:03Z",
+   "valencia_metrics_csi_h_gt_0p10": null,
+   "metrics_files": {
+    "runs/emilia_emsr664/metrics.json": "2026-07-15T13:50:26Z",
+    "runs/valencia_emsr773/metrics.json": "2026-07-15T13:13:03Z"
+   }
+  },
+  "5447768": {
+   "hash": "5447768c9c8efeb1fe50a1bd502990c3802f7d51",
+   "author_date": "2026-07-15 21:09:15 +0300",
+   "author_date_utc": "2026-07-15T18:09:15Z",
+   "committer_date": "2026-07-15 21:09:15 +0300",
+   "committer_date_utc": "2026-07-15T18:09:15Z",
+   "subject": "Enhancement Tiers 1-3: R2-bias-corrected Valencia + bias-insensitive scores",
+   "valencia_metrics_generated_utc": "2026-07-15T18:00:02Z",
+   "valencia_metrics_csi_h_gt_0p10": null
+  },
+  "valencia_run_dir_mtimes_utc": {
+   "valencia_emsr773_enhanced.yaml": "2026-07-15T12:17:17Z",
+   "run.log": "2026-07-15T13:10:13Z",
+   "sfincs_build.yml": "2026-07-15T17:29:18Z",
+   "run_bias.log": "2026-07-15T17:59:48Z",
+   "metrics.json": "2026-07-15T18:00:02Z"
+  },
+  "pending_figures_in_rule_commit": [
+   "fig_emilia_pending.png",
+   "fig_valencia_pending.png"
+  ]
+ },
+ "code19_ledger": {
+  "file": "reproduction/v14_rerun/code19/lookups.json",
+  "sha256": "913d9b3b31467fae692a02c638d95075d9f93a02f6e0e2368589d92384892ab4",
+  "first_valencia_metrics_utc": "2026-07-15T13:13:03Z",
+  "first_valencia_state": "raw IMERG (no anchor)",
+  "metrics_350mm_utc": "2026-07-15T18:00:02Z"
+ },
+ "orders": {
+  "rule_commit_vs_first_valencia_metrics": {
+   "commit_utc": "2026-07-15T11:33:54Z",
+   "metrics_utc": "2026-07-15T13:13:03Z",
+   "first": "commit",
+   "lead_s": 5949,
+   "lead_hms": "1 h 39 min 09 s"
+  },
+  "rule_commit_vs_350mm_metrics": {
+   "commit_utc": "2026-07-15T11:33:54Z",
+   "metrics_utc": "2026-07-15T18:00:02Z",
+   "first": "commit",
+   "lead_s": 23168,
+   "lead_hms": "6 h 26 min 08 s"
+  },
+  "rule_commit_vs_valencia_config_mtime": {
+   "commit_utc": "2026-07-15T11:33:54Z",
+   "metrics_utc": "2026-07-15T12:17:17Z",
+   "first": "commit",
+   "lead_s": 2603,
+   "lead_hms": "0 h 43 min 23 s"
+  },
+  "rule_commit_vs_valencia_run_log_mtime": {
+   "commit_utc": "2026-07-15T11:33:54Z",
+   "metrics_utc": "2026-07-15T13:10:13Z",
+   "first": "commit",
+   "lead_s": 5779,
+   "lead_hms": "1 h 36 min 19 s"
+  }
+ },
+ "verdict": "The rule commit bfd005a (2026-07-15T11:33:54Z) precedes the first Valencia metrics (2026-07-15T13:13:03Z) by 1 h 39 min 09 s and the 350 mm metrics (2026-07-15T18:00:02Z) by 6 h 26 min 08 s; the section 3.4 sentence stands, no replacement needed.",
+ "proposed_replacement": null,
+ "freeze_evidence_discrepancy": "docs/FREEZE_EVIDENCE.md gives the first Valencia score as 2026-07-15 21:00 local (+03:00; = 2026-07-15T18:00:00Z), which is the 350 mm run (2026-07-15T18:00:02Z); the raw-IMERG run was scored at 2026-07-15T13:13:03Z (= 2026-07-15 16:13 local), after the first execution the file lists (2026-07-15 16:10 local). Reported, not edited."
+}

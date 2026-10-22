@@ -75,9 +75,17 @@ def check_file(entry, column):
     return errs, {"w": w, "h": h, "bytes": nbytes}
 
 
+def allowed_texts() -> dict:
+    """Figure texts exempt from the forbidden patterns: the F10 v3 benchmark legend entries name their sources, as the CODE-20 A1
+    brief words them (Bernhofen et al. 2018 band; Sadana et al. 2026 lines); nothing else is exempt."""
+    import r6_figures as F
+    return {"F10": {F.F10_BAND[0]} | {d["label"] for d in F.F10_LINES}}
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     pats, names = forbidden_patterns()
+    allowed = allowed_texts()
     rows, notes, problems = [], [], []
     for f in FIGS:
         mp = C.META_DIR / f"{f}.json"
@@ -88,6 +96,8 @@ def main() -> int:
         if m.get("layout_problems"):
             problems += [f"{f}: layout: {x}" for x in m["layout_problems"]]
         for t in m.get("texts_drawn", []):
+            if t in allowed.get(f, set()):
+                continue                                       # CODE-20 A1: the F10 benchmark legend names its sources
             for pt in pats:
                 if pt.search(t):
                     problems.append(f"{f}: forbidden text {t!r} (pattern {pt.pattern!r})")

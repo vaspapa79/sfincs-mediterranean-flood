@@ -9,7 +9,7 @@
     "D:/ELKAK/implementation/v14/strymonas_enhanced_postD6_v142/data/ems_polygons",
     "reproduction/v14_rerun/results/strymonas_enhanced_postD6_v142_v14_newmask.json"
   ],
-  "notes": "run strymonas_enhanced_postD6_v142; content of phase4/figures/map_strymonas_enhanced_postD6_v142_v14.png (fig_map_v14.py) re-rendered at the export size; no score printed; legend names the white (inactive) cells (CODE-19 B3)",
+  "notes": "run strymonas_enhanced_postD6_v142; content of phase4/figures/map_strymonas_enhanced_postD6_v142_v14.png (fig_map_v14.py) re-rendered at the export size; no score printed; legend names the white (inactive) cells (CODE-19 B3); the exclusion mask is drawn above the depth layer, hiding the modelled water inside excluded cells (CODE-19 B4 for F7, CODE-20 A2 for the other maps)",
   "layout_problems": [],
   "texts_drawn": [
     "0.0",
@@ -50,8 +50,8 @@
       "height_mm": 147.54,
       "format": "TIFF, RGB 8-bit, LZW",
       "tiff_writer": "pil",
-      "bytes": 1095980,
-      "generated_utc": "2026-10-22T12:57:41Z"
+      "bytes": 1080410,
+      "generated_utc": "2026-10-22T20:51:14Z"
     },
     {
       "file": "F6_preview.png",
@@ -63,8 +63,8 @@
       "width_mm": 174.0,
       "height_mm": 147.54,
       "format": "PNG preview (reduced)",
-      "bytes": 458520,
-      "generated_utc": "2026-10-22T12:57:41Z"
+      "bytes": 457720,
+      "generated_utc": "2026-10-22T20:51:15Z"
     }
   ]
 }

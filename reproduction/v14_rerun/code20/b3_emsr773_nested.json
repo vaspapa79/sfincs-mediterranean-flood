@@ -1,0 +1,886 @@
+{
+ "utc": "2026-10-22T20:50:11Z",
+ "generator": "reproduction/v14_rerun/scripts/code20_b3_emsr773_nested.py",
+ "scope": "geometry only (polygon areas and overlaps in EPSG:32630); no model output read, nothing re-scored",
+ "inputs": {
+  "ems_api_snapshot": {
+   "file": "reproduction/v14_rerun/code19/ems_api_snapshot_EMSR773_20261022T124016Z.json",
+   "sha256": "5041c86b0fe6fec6e14dfd279eaad055292686bfba10402447aceb23a6f9c730"
+  },
+  "a4_record": {
+   "file": "reproduction/v14_rerun/code19/a4_emsr773_aois.json",
+   "sha256": "438861b10182e8034ca4da7e8825cec1afae7b266ad70684c530bed8a1958cf5"
+  }
+ },
+ "aoi01": {
+  "name": "Valencia province",
+  "extent_km2": 11411.2
+ },
+ "counts": {
+  "aois_total": 36,
+  "nested_in_aoi01_by_extent": 32,
+  "nested_and_in_model_domain": 23,
+  "nested_with_del_product": [
+   "AOI02 Plana de Utiel",
+   "AOI03 Horta Sud",
+   "AOI04 Algemesi",
+   "AOI11 Yatova"
+  ],
+  "nested_with_del_product_in_domain": [
+   "AOI03 Horta Sud",
+   "AOI04 Algemesi",
+   "AOI11 Yatova"
+  ],
+  "nested_with_del_product_outside_domain": [
+   "AOI02 Plana de Utiel"
+  ]
+ },
+ "aois": [
+  {
+   "number": 2,
+   "name": "Plana de Utiel",
+   "extent_km2": 288.2,
+   "inside_aoi01_fraction": 1.0,
+   "nested": true,
+   "active_cells_in_domain": 0,
+   "product_types": [
+    "DEL"
+   ],
+   "del_products": [
+    {
+     "id": 1237,
+     "version": 2,
+     "status": "F",
+     "delivery": "2024-11-06T09:05:47.836900",
+     "monitoring_number": 0,
+     "images": [
+      [
+       "GeoEye-1",
+       "2024-10-31T10:22:00"
+      ],
+      [
+       "GeoEye-1",
+       "2024-10-31T10:22:00"
+      ]
+     ],
+     "stats_ha": {
+      "Flood trace": 70.3,
+      "Flooded area": 56.3
+     },
+     "download": "https://rapidmapping.emergency.copernicus.eu/backend/EMSR773/AOI02/DEL_PRODUCT/EMSR773_AOI02_DEL_PRODUCT_v2.zip"
+    }
+   ]
+  },
+  {
+   "number": 3,
+   "name": "Horta Sud",
+   "extent_km2": 278.7,
+   "inside_aoi01_fraction": 1.0,
+   "nested": true,
+   "active_cells_in_domain": 27872,
+   "product_types": [
+    "GRA",
+    "DEL"
+   ],
+   "del_products": [
+    {
+     "id": 1235,
+     "version": 1,
+     "status": "F",
+     "delivery": "2024-11-02T02:43:07.823834",
+     "monitoring_number": 0,
+     "images": [
+      [
+       "WorldView-2",
+       "2024-10-31T10:22:00"
+      ],
+      [
+       "GeoEye-1",
+       "2024-10-31T10:22:00"
+      ]
+     ],
+     "stats_ha": {
+      "Flood trace": 2323.1,
+      "Flooded area": 84.3
+     },
+     "download": "https://rapidmapping.emergency.copernicus.eu/backend/EMSR773/AOI03/DEL_PRODUCT/EMSR773_AOI03_DEL_PRODUCT_v1.zip"
+    }
+   ]
+  },
+  {
+   "number": 4,
+   "name": "Algemesi",
+   "extent_km2": 231.7,
+   "inside_aoi01_fraction": 1.0,
+   "nested": true,
+   "active_cells_in_domain": 23163,
+   "product_types": [
+    "DEL"
+   ],
+   "del_products": [
+    {
+     "id": 1238,
+     "version": 1,
+     "status": "F",
+     "delivery": "2024-10-31T19:18:00.565475",
+     "monitoring_number": 0,
+     "images": [
+      [
+       "GeoEye-1",
+       "2024-10-31T10:22:00"
+      ]
+     ],
+     "stats_ha": {
+      "Flood trace": 603.4,
+      "Flooded area": 568.8
+     },
+     "download": "https://rapidmapping.emergency.copernicus.eu/backend/EMSR773/AOI04/DEL_PRODUCT/EMSR773_AOI04_DEL_PRODUCT_v1.zip"
+    }
+   ]
+  },
+  {
+   "number": 5,
+   "name": "Letur",
+   "extent_km2": 27.4,
+   "inside_aoi01_fraction": 0.0,
+   "nested": false,
+   "active_cells_in_domain": 0,
+   "product_types": [
+    "GRA"
+   ],
+   "del_products": []
+  },
+  {
+   "number": 6,
+   "name": "Castellon province",
+   "extent_km2": 5398.5,
+   "inside_aoi01_fraction": 0.0,
+   "nested": false,
+   "active_cells_in_domain": 0,
+   "product_types": [
+    "DEL",
+    "DEL"
+   ],
+   "del_products": [
+    {
+     "id": 1251,
+     "version": 1,
+     "status": "N",
+     "delivery": "2024-11-02T13:48:00",
+     "monitoring_number": 0,
+     "images": [
+      [
+       "TerraSAR-X",
+       "2024-11-02T06:13:00"
+      ]
+     ],
+     "stats_ha": {},
+     "download": ""
+    },
+    {
+     "id": 1256,
+     "version": 1,
+     "status": "F",
+     "delivery": "2024-11-08T22:00:30.496128",
+     "monitoring_number": 1,
+     "images": [
+      [
+       "SPOT-6-7",
+       "2024-11-08T10:28:00"
+      ]
+     ],
+     "stats_ha": {
+      "Flood trace": 102.5,
+      "Flooded area*": 50.5,
+      "Maximum flood extent**": 50.5
+     },
+     "download": "https://rapidmapping.emergency.copernicus.eu/backend/EMSR773/AOI06/DEL_MONIT01/EMSR773_AOI06_DEL_MONIT01_v1.zip"
+    }
+   ]
+  },
+  {
+   "number": 7,
+   "name": "Fuenterrobles",
+   "extent_km2": 7.1,
+   "inside_aoi01_fraction": 1.0,
+   "nested": true,
+   "active_cells_in_domain": 0,
+   "product_types": [
+    "GRA"
+   ],
+   "del_products": []
+  },
+  {
+   "number": 8,
+   "name": "Caudete de las Fuentes",
+   "extent_km2": 6.7,
+   "inside_aoi01_fraction": 1.0,
+   "nested": true,
+   "active_cells_in_domain": 0,
+   "product_types": [
+    "GRA"
+   ],
+   "del_products": []
+  },
+  {
+   "number": 9,
+   "name": "Chera",
+   "extent_km2": 5.5,
+   "inside_aoi01_fraction": 1.0,
+   "nested": true,
+   "active_cells_in_domain": 0,
+   "product_types": [
+    "GRA"
+   ],
+   "del_products": []
+  },
+  {
+   "number": 10,
+   "name": "Cheste",
+   "extent_km2": 62.8,
+   "inside_aoi01_fraction": 1.0,
+   "nested": true,
+   "active_cells_in_domain": 5489,
+   "product_types": [
+    "GRA"
+   ],
+   "del_products": []
+  },
+  {
+   "number": 11,
+   "name": "Yatova",
+   "extent_km2": 6.1,
+   "inside_aoi01_fraction": 1.0,
+   "nested": true,
+   "active_cells_in_domain": 9,
+   "product_types": [
+    "GRA",
+    "DEL"
+   ],
+   "del_products": [
+    {
+     "id": 1317,
+     "version": 1,
+     "status": "F",
+     "delivery": "2024-11-19T00:35:48.312599",
+     "monitoring_number": 0,
+     "images": [
+      [
+       "Plane Imagery",
+       "2024-11-11T10:00:00"
+      ]
+     ],
+     "stats_ha": {
+      "Flood trace": 1.0
+     },
+     "download": "https://rapidmapping.emergency.copernicus.eu/backend/EMSR773/AOI11/DEL_PRODUCT/EMSR773_AOI11_DEL_PRODUCT_v1.zip"
+    }
+   ]
+  },
+  {
+   "number": 12,
+   "name": "Godelleta",
+   "extent_km2": 13.6,
+   "inside_aoi01_fraction": 1.0,
+   "nested": true,
+   "active_cells_in_domain": 896,
+   "product_types": [
+    "GRA"
+   ],
+   "del_products": []
+  },
+  {
+   "number": 13,
+   "name": "Monserrat",
+   "extent_km2": 16.7,
+   "inside_aoi01_fraction": 1.0,
+   "nested": true,
+   "active_cells_in_domain": 1672,
+   "product_types": [
+    "GRA"
+   ],
+   "del_products": []
+  },
+  {
+   "number": 14,
+   "name": "Alcudia",
+   "extent_km2": 10.7,
+   "inside_aoi01_fraction": 1.0,
+   "nested": true,
+   "active_cells_in_domain": 1066,
+   "product_types": [
+    "GRA",
+    "GRA"
+   ],
+   "del_products": []
+  },
+  {
+   "number": 15,
+   "name": "Alhaurin de la Torre",
+   "extent_km2": 72.9,
+   "inside_aoi01_fraction": 0.0,
+   "nested": false,
+   "active_cells_in_domain": 0,
+   "product_types": [
+    "GRA"
+   ],
+   "del_products": []
+  },
+  {
+   "number": 16,
+   "name": "Benicull de Xuquer",
+   "extent_km2": 21.2,
+   "inside_aoi01_fraction": 1.0,
+   "nested": true,
+   "active_cells_in_domain": 2115,
+   "product_types": [
+    "GRA"
+   ],
+   "del_products": []
+  },
+  {
+   "number": 17,
+   "name": "Alzira",
+   "extent_km2": 37.7,
+   "inside_aoi01_fraction": 1.0,
+   "nested": true,
+   "active_cells_in_domain": 3773,
+   "product_types": [
+    "GRA"
+   ],
+   "del_products": []
+  },
+  {
+   "number": 18,
+   "name": "Alginet",
+   "extent_km2": 21.4,
+   "inside_aoi01_fraction": 1.0,
+   "nested": true,
+   "active_cells_in_domain": 2134,
+   "product_types": [
+    "GRA"
+   ],
+   "del_products": []
+  },
+  {
+   "number": 19,
+   "name": "Llombai",
+   "extent_km2": 5.4,
+   "inside_aoi01_fraction": 1.0,
+   "nested": true,
+   "active_cells_in_domain": 545,
+   "product_types": [
+    "GRA"
+   ],
+   "del_products": []
+  },
+  {
+   "number": 20,
+   "name": "Montroi",
+   "extent_km2": 5.3,
+   "inside_aoi01_fraction": 1.0,
+   "nested": true,
+   "active_cells_in_domain": 537,
+   "product_types": [
+    "GRA"
+   ],
+   "del_products": []
+  },
+  {
+   "number": 21,
+   "name": "Turis",
+   "extent_km2": 7.9,
+   "inside_aoi01_fraction": 1.0,
+   "nested": true,
+   "active_cells_in_domain": 782,
+   "product_types": [
+    "GRA"
+   ],
+   "del_products": []
+  },
+  {
+   "number": 22,
+   "name": "Bunol",
+   "extent_km2": 9.7,
+   "inside_aoi01_fraction": 1.0,
+   "nested": true,
+   "active_cells_in_domain": 42,
+   "product_types": [
+    "GRA"
+   ],
+   "del_products": []
+  },
+  {
+   "number": 23,
+   "name": "Favara",
+   "extent_km2": 1.9,
+   "inside_aoi01_fraction": 1.0,
+   "nested": true,
+   "active_cells_in_domain": 188,
+   "product_types": [
+    "GRA"
+   ],
+   "del_products": []
+  },
+  {
+   "number": 24,
+   "name": "Cullera",
+   "extent_km2": 12.9,
+   "inside_aoi01_fraction": 1.0,
+   "nested": true,
+   "active_cells_in_domain": 1296,
+   "product_types": [
+    "GRA"
+   ],
+   "del_products": []
+  },
+  {
+   "number": 25,
+   "name": "Sueca",
+   "extent_km2": 13.7,
+   "inside_aoi01_fraction": 1.0,
+   "nested": true,
+   "active_cells_in_domain": 1365,
+   "product_types": [
+    "GRA"
+   ],
+   "del_products": []
+  },
+  {
+   "number": 26,
+   "name": "Siete Aguas",
+   "extent_km2": 2.2,
+   "inside_aoi01_fraction": 1.0,
+   "nested": true,
+   "active_cells_in_domain": 0,
+   "product_types": [
+    "GRA"
+   ],
+   "del_products": []
+  },
+  {
+   "number": 27,
+   "name": "Requena",
+   "extent_km2": 23.6,
+   "inside_aoi01_fraction": 1.0,
+   "nested": true,
+   "active_cells_in_domain": 0,
+   "product_types": [
+    "GRA"
+   ],
+   "del_products": []
+  },
+  {
+   "number": 28,
+   "name": "Pedralba",
+   "extent_km2": 3.1,
+   "inside_aoi01_fraction": 1.0,
+   "nested": true,
+   "active_cells_in_domain": 314,
+   "product_types": [
+    "GRA"
+   ],
+   "del_products": []
+  },
+  {
+   "number": 29,
+   "name": "El Mas del Moro",
+   "extent_km2": 5.6,
+   "inside_aoi01_fraction": 1.0,
+   "nested": true,
+   "active_cells_in_domain": 554,
+   "product_types": [
+    "GRA"
+   ],
+   "del_products": []
+  },
+  {
+   "number": 30,
+   "name": "Valencia Sud",
+   "extent_km2": 27.1,
+   "inside_aoi01_fraction": 1.0,
+   "nested": true,
+   "active_cells_in_domain": 2697,
+   "product_types": [
+    "GRA"
+   ],
+   "del_products": []
+  },
+  {
+   "number": 31,
+   "name": "Cases Del Riu",
+   "extent_km2": 7.6,
+   "inside_aoi01_fraction": 1.0,
+   "nested": true,
+   "active_cells_in_domain": 754,
+   "product_types": [
+    "GRA"
+   ],
+   "del_products": []
+  },
+  {
+   "number": 32,
+   "name": "Campo Arcis",
+   "extent_km2": 7.5,
+   "inside_aoi01_fraction": 1.0,
+   "nested": true,
+   "active_cells_in_domain": 0,
+   "product_types": [
+    "GRA"
+   ],
+   "del_products": []
+  },
+  {
+   "number": 33,
+   "name": "Sot de Chera",
+   "extent_km2": 0.6,
+   "inside_aoi01_fraction": 1.0,
+   "nested": true,
+   "active_cells_in_domain": 0,
+   "product_types": [
+    "GRA"
+   ],
+   "del_products": []
+  },
+  {
+   "number": 34,
+   "name": "Camporrobles",
+   "extent_km2": 2.7,
+   "inside_aoi01_fraction": 1.0,
+   "nested": true,
+   "active_cells_in_domain": 0,
+   "product_types": [
+    "GRA"
+   ],
+   "del_products": []
+  },
+  {
+   "number": 35,
+   "name": "Alcasser",
+   "extent_km2": 4.0,
+   "inside_aoi01_fraction": 1.0,
+   "nested": true,
+   "active_cells_in_domain": 405,
+   "product_types": [
+    "GRA"
+   ],
+   "del_products": []
+  },
+  {
+   "number": 36,
+   "name": "Paterna",
+   "extent_km2": 23.8,
+   "inside_aoi01_fraction": 1.0,
+   "nested": true,
+   "active_cells_in_domain": 2381,
+   "product_types": [
+    "GRA"
+   ],
+   "del_products": []
+  }
+ ],
+ "monit01_crosscheck": {
+  "cached_shapefile": "D:/ELKAK/implementation/v14/valencia_enhanced_164_v142/data/ems_polygons/EMSR773_AOI01_DEL_MONIT01_v1/EMSR773_AOI01_DEL_MONIT01_observedEventA_v1.shp",
+  "features": 795,
+  "union_km2": 78.315,
+  "geojson_union_km2": 78.315,
+  "identical_to_3dp": true
+ },
+ "layers": {
+  "AOI03 DEL_PRODUCT (Horta Sud)": {
+   "present": true,
+   "aoi": 3,
+   "url": "https://rapidmapping-viewer.s3.eu-west-1.amazonaws.com/EMSR773/AOI03/DEL_PRODUCT/EMSR773_AOI03_DEL_PRODUCT_observedEventA_v1.json",
+   "file": "EMSR773_AOI03_DEL_PRODUCT_observedEventA_v1.json",
+   "sha256": "7d2cea68cfe0b6e420f33e7ca1ba6ce4fd6a417fa14d14629edc9b2e374184c1",
+   "bytes": 4682560,
+   "fetched_utc": "2026-10-22T20:41:38Z",
+   "crs_of_file": "EPSG:32630",
+   "by_notation": {
+    "Flood trace": {
+     "features": 311,
+     "km2": 23.231
+    },
+    "Flooded area": {
+     "features": 306,
+     "km2": 0.843
+    },
+    "all": {
+     "features": 617,
+     "km2": 24.074
+    }
+   },
+   "attribute_values": {
+    "event_type": [
+     "5-Flood"
+    ],
+    "obj_desc": [
+     "Riverine flood"
+    ],
+    "det_method": [
+     "Photo-interpretation",
+     "Semi-automatic extraction"
+    ],
+    "notation": [
+     "Flood trace",
+     "Flooded area"
+    ]
+   }
+  },
+  "AOI04 DEL_PRODUCT (Algemesi)": {
+   "present": true,
+   "aoi": 4,
+   "url": "https://rapidmapping-viewer.s3.eu-west-1.amazonaws.com/EMSR773/AOI04/DEL_PRODUCT/EMSR773_AOI04_DEL_PRODUCT_observedEventA_v1.json",
+   "file": "EMSR773_AOI04_DEL_PRODUCT_observedEventA_v1.json",
+   "sha256": "2cb26e55f57a7d4209bfa4b6dda3174e4034564c16907d344da05b07c658c61e",
+   "bytes": 3509418,
+   "fetched_utc": "2026-10-22T20:41:39Z",
+   "crs_of_file": "EPSG:32630",
+   "by_notation": {
+    "Flood trace": {
+     "features": 106,
+     "km2": 6.034
+    },
+    "Flooded area": {
+     "features": 197,
+     "km2": 5.688
+    },
+    "all": {
+     "features": 303,
+     "km2": 11.721
+    }
+   },
+   "attribute_values": {
+    "event_type": [
+     "5-Flood"
+    ],
+    "obj_desc": [
+     "Flash flood"
+    ],
+    "det_method": [
+     "Photo-interpretation",
+     "Semi-automatic extraction"
+    ],
+    "notation": [
+     "Flood trace",
+     "Flooded area"
+    ]
+   }
+  },
+  "AOI11 DEL_PRODUCT (Yatova)": {
+   "present": true,
+   "aoi": 11,
+   "url": "https://rapidmapping-viewer.s3.eu-west-1.amazonaws.com/EMSR773/AOI11/DEL_PRODUCT/EMSR773_AOI11_DEL_PRODUCT_observedEventA_v1.json",
+   "file": "EMSR773_AOI11_DEL_PRODUCT_observedEventA_v1.json",
+   "sha256": "f43212125988d202c3c50c28b80073b9838b87e6909319580741812c18d19e27",
+   "bytes": 10669,
+   "fetched_utc": "2026-10-22T20:41:40Z",
+   "crs_of_file": "EPSG:32630",
+   "by_notation": {
+    "Flood trace": {
+     "features": 2,
+     "km2": 0.01
+    },
+    "all": {
+     "features": 2,
+     "km2": 0.01
+    }
+   },
+   "attribute_values": {
+    "event_type": [
+     "5-Flood"
+    ],
+    "obj_desc": [
+     "Flash flood"
+    ],
+    "det_method": [
+     "Photo-interpretation"
+    ],
+    "notation": [
+     "Flood trace"
+    ]
+   }
+  },
+  "AOI01 DEL_PRODUCT": {
+   "present": true,
+   "aoi": 1,
+   "url": "https://rapidmapping-viewer.s3.eu-west-1.amazonaws.com/EMSR773/AOI01/DEL_PRODUCT/EMSR773_AOI01_DEL_PRODUCT_observedEventA_v1.json",
+   "file": "EMSR773_AOI01_DEL_PRODUCT_observedEventA_v1.json",
+   "sha256": "fe759aa0499432dc0d5e1c0d8f19fed8eeac85fc4c531bd7eb73cfe9fcf00f96",
+   "bytes": 7051037,
+   "fetched_utc": "2026-10-22T20:41:41Z",
+   "crs_of_file": "EPSG:32630",
+   "by_notation": {
+    "Flood trace": {
+     "features": 371,
+     "km2": 374.735
+    },
+    "Flooded area": {
+     "features": 1117,
+     "km2": 156.334
+    },
+    "all": {
+     "features": 1488,
+     "km2": 531.069
+    }
+   },
+   "attribute_values": {
+    "event_type": [
+     "5-Flood"
+    ],
+    "obj_desc": [
+     "Flash flood"
+    ],
+    "det_method": [
+     "Semi-automatic extraction"
+    ],
+    "notation": [
+     "Flood trace",
+     "Flooded area"
+    ]
+   }
+  },
+  "AOI01 DEL_MONIT01 (truth used)": {
+   "present": true,
+   "aoi": 1,
+   "url": "https://rapidmapping-viewer.s3.eu-west-1.amazonaws.com/EMSR773/AOI01/DEL_MONIT01/EMSR773_AOI01_DEL_MONIT01_observedEventA_v1.json",
+   "file": "EMSR773_AOI01_DEL_MONIT01_observedEventA_v1.json",
+   "sha256": "ac7b22d51989e33e2c08dd133e30af720a9ec8ac6e0b3064e69cb8b361718813",
+   "bytes": 20419663,
+   "fetched_utc": "2026-10-22T20:41:44Z",
+   "crs_of_file": "EPSG:32630",
+   "by_notation": {
+    "Flooded area": {
+     "features": 795,
+     "km2": 78.315
+    },
+    "all": {
+     "features": 795,
+     "km2": 78.315
+    }
+   },
+   "attribute_values": {
+    "event_type": [
+     "5-Flood"
+    ],
+    "obj_desc": [
+     "Flash flood"
+    ],
+    "det_method": [
+     "Semi-automatic extraction"
+    ],
+    "notation": [
+     "Flooded area"
+    ]
+   }
+  }
+ },
+ "coverage": {
+  "AOI03 DEL_PRODUCT (Horta Sud)": {
+   "aoi": "AOI03 Horta Sud",
+   "extent_km2": 278.7,
+   "observed_km2": {
+    "Flood trace": 23.231,
+    "Flooded area": 0.843,
+    "all": 24.074
+   },
+   "api_stats_ha": {
+    "Flood trace": 2323.1,
+    "Flooded area": 84.3
+   },
+   "covered_by": {
+    "AOI01 DEL_PRODUCT": {
+     "fraction_of_product_all_inside_aoi01_delineation": 0.5655,
+     "fraction_of_product_flooded_area_inside_aoi01_delineation": 0.735,
+     "aoi01_observed_km2_inside_this_extent": 67.4,
+     "fraction_of_aoi01_observed_inside_extent_covered_by_product": 0.202,
+     "intersection_km2": 13.613
+    },
+    "AOI01 DEL_MONIT01 (truth used)": {
+     "fraction_of_product_all_inside_aoi01_delineation": 0.0087,
+     "fraction_of_product_flooded_area_inside_aoi01_delineation": 0.1381,
+     "aoi01_observed_km2_inside_this_extent": 3.967,
+     "fraction_of_aoi01_observed_inside_extent_covered_by_product": 0.053,
+     "intersection_km2": 0.21
+    },
+    "union of both AOI01 delineations": {
+     "fraction_of_product_all_inside_aoi01_delineation": 0.5655,
+     "fraction_of_product_flooded_area_inside_aoi01_delineation": 0.7352,
+     "aoi01_observed_km2_inside_this_extent": 67.402,
+     "fraction_of_aoi01_observed_inside_extent_covered_by_product": 0.202,
+     "intersection_km2": 13.613
+    }
+   }
+  },
+  "AOI04 DEL_PRODUCT (Algemesi)": {
+   "aoi": "AOI04 Algemesi",
+   "extent_km2": 231.7,
+   "observed_km2": {
+    "Flood trace": 6.034,
+    "Flooded area": 5.688,
+    "all": 11.721
+   },
+   "api_stats_ha": {
+    "Flood trace": 603.4,
+    "Flooded area": 568.8
+   },
+   "covered_by": {
+    "AOI01 DEL_PRODUCT": {
+     "fraction_of_product_all_inside_aoi01_delineation": 0.9267,
+     "fraction_of_product_flooded_area_inside_aoi01_delineation": 0.9793,
+     "aoi01_observed_km2_inside_this_extent": 93.143,
+     "fraction_of_aoi01_observed_inside_extent_covered_by_product": 0.1166,
+     "intersection_km2": 10.862
+    },
+    "AOI01 DEL_MONIT01 (truth used)": {
+     "fraction_of_product_all_inside_aoi01_delineation": 0.0912,
+     "fraction_of_product_flooded_area_inside_aoi01_delineation": 0.1691,
+     "aoi01_observed_km2_inside_this_extent": 1.418,
+     "fraction_of_aoi01_observed_inside_extent_covered_by_product": 0.754,
+     "intersection_km2": 1.069
+    },
+    "union of both AOI01 delineations": {
+     "fraction_of_product_all_inside_aoi01_delineation": 0.9267,
+     "fraction_of_product_flooded_area_inside_aoi01_delineation": 0.9793,
+     "aoi01_observed_km2_inside_this_extent": 93.146,
+     "fraction_of_aoi01_observed_inside_extent_covered_by_product": 0.1166,
+     "intersection_km2": 10.862
+    }
+   }
+  },
+  "AOI11 DEL_PRODUCT (Yatova)": {
+   "aoi": "AOI11 Yatova",
+   "extent_km2": 6.1,
+   "observed_km2": {
+    "Flood trace": 0.01,
+    "all": 0.01
+   },
+   "api_stats_ha": {
+    "Flood trace": 1.0
+   },
+   "covered_by": {
+    "AOI01 DEL_PRODUCT": {
+     "fraction_of_product_all_inside_aoi01_delineation": 0.0,
+     "fraction_of_product_flooded_area_inside_aoi01_delineation": null,
+     "aoi01_observed_km2_inside_this_extent": 0.0,
+     "fraction_of_aoi01_observed_inside_extent_covered_by_product": 0.0,
+     "intersection_km2": 0.0
+    },
+    "AOI01 DEL_MONIT01 (truth used)": {
+     "fraction_of_product_all_inside_aoi01_delineation": 0.0,
+     "fraction_of_product_flooded_area_inside_aoi01_delineation": null,
+     "aoi01_observed_km2_inside_this_extent": 0.0,
+     "fraction_of_aoi01_observed_inside_extent_covered_by_product": 0.0,
+     "intersection_km2": 0.0
+    },
+    "union of both AOI01 delineations": {
+     "fraction_of_product_all_inside_aoi01_delineation": 0.0,
+     "fraction_of_product_flooded_area_inside_aoi01_delineation": null,
+     "aoi01_observed_km2_inside_this_extent": 0.0,
+     "fraction_of_aoi01_observed_inside_extent_covered_by_product": 0.0,
+     "intersection_km2": 0.0
+    }
+   }
+  }
+ }
+}

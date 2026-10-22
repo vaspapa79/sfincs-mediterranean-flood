@@ -188,7 +188,17 @@ def draw_layers(ax, F, aoi_layers=None, lw_obs=0.5, excl_on_top=False):
 
 EXCL_LABEL = "excluded from the evaluation universe (permanent water, open sea)"   # CODE-17 A4 wording
 INACTIVE_LABEL = "inactive (above the elevation ceiling or open sea)"              # CODE-19 B3: the white cells
-EXCL_ON_TOP = {"F7": True}   # CODE-19 B4: the Albufera lagoon is outside the universe; F7 hides the modelled water in excluded cells
+# CODE-19 B4 (F7: the Albufera lagoon is outside the universe) extended to every map by CODE-20 A2: the exclusion mask is drawn
+# above the depth layer, so the modelled water inside excluded cells (permanent water, open sea) is hidden on F3, F5-F9
+EXCL_ON_TOP = {f: True for f in ("F3", "F5", "F6", "F7", "F8", "F9")}
+
+# F10 benchmark constants (CODE-20 A1); the quotes behind every number and the previous (wrong) bands are recorded in
+# reproduction/v14_rerun/code20/f10_benchmarks.json, which fig10 asserts against these constants
+F10_BAND = ("global models vs MODIS extents, Bernhofen et al. (2018)", 0.45, 0.70)        # average CSI range, their p. 5
+F10_LINES = [{"label": "SFINCS, GloFAS forcing, ≥ 1000 km² / < 50 km² (Sadana et al. 2026)", "values": (0.42, 0.29), "ls": ":"},
+             {"label": "SFINCS, observed discharge (Sadana et al. 2026)", "values": (0.67,), "ls": "--"}]
+F10_YLIM = (0.0, 0.8)
+F10_RECORD = V14 / "code20" / "f10_benchmarks.json"
 
 
 def map_legend_handles(aoi_handles=None, two_line_excl=False):
@@ -238,7 +248,7 @@ def fig_map(name, event, excl_on_top=False):
     C.export(fig, name, dpi=C.DPI_COMBINATION, width_mm=W, script=SCRIPT, sources=sources,
              notes=f"run {F.run}; content of phase4/figures/map_{F.run}_v14.png (fig_map_v14.py) re-rendered at the export size; "
                    f"no score printed; legend names the white (inactive) cells (CODE-19 B3)"
-                   + ("; the exclusion mask is drawn above the depth layer, hiding the modelled water inside excluded cells (CODE-19 B4)" if excl_on_top else ""))
+                   + ("; the exclusion mask is drawn above the depth layer, hiding the modelled water inside excluded cells (CODE-19 B4 for F7, CODE-20 A2 for the other maps)" if excl_on_top else ""))
     plt.close(fig)
 
 
@@ -379,7 +389,7 @@ def fig9(name="F9"):
     t3_style = dict(color="0.35", lw=0.9, ls=(0, (1.0, 1.4)))
     utm = utm_label(F.cfg.epsg)
     for ax, e, lw_obs in ((axA, ov, 0.5), (axB, zb, 0.7)):
-        im = draw_layers(ax, F, aoi_layers=layers, lw_obs=lw_obs)
+        im = draw_layers(ax, F, aoi_layers=layers, lw_obs=lw_obs, excl_on_top=EXCL_ON_TOP["F9"])
         for _, poly in t3.values():
             xs, ys = poly.exterior.xy
             ax.plot(xs, ys, zorder=5, **t3_style)
@@ -416,7 +426,8 @@ def fig9(name="F9"):
              notes=f"run {F.run}; (a) island overview with all eight EMSR933 AOIs, (b) AOI03 Tzermiado zoom; tier 1 (AOI03) solid, "
                    f"tier 2 dashed, tier 3 (no product released; extents from the EMS API snapshot) grey dotted; AOI labels placed "
                    f"clear of every box line; tier-1 contingency asserted against the tiers JSON; no metric printed, no all-AOI "
-                   f"union score computed")
+                   f"union score computed"
+                   + ("; the exclusion mask is drawn above the depth layer, hiding the modelled water inside excluded cells (CODE-20 A2)" if EXCL_ON_TOP["F9"] else ""))
     plt.close(fig)
 
 
@@ -585,12 +596,17 @@ def _split_label(lab):
 
 
 def fig10(name="F10"):
-    """Cross-event skill of the six runs of record: strict CSI, fuzzy CSI (r = 1) and CSI* at the best depth threshold, over the
-    literature benchmark bands. Run of record only (CODE-17 A1): no earlier-release series, no version label in the legend."""
+    """Cross-event skill of the six runs of record: strict CSI, fuzzy CSI (r = 1) and CSI* at the best depth threshold, against
+    the published benchmarks of CODE-20 A1 (Bernhofen et al. 2018 average CSI range as the band; Sadana et al. 2026 same-solver
+    means as reference lines). Run of record only (CODE-17 A1): no earlier-release series, no version label in the legend."""
     from matplotlib.lines import Line2D
     from matplotlib.patches import Patch
-    import fig_skill_sweeps_v14 as FS
     matplotlib, plt = mpl_setup()
+    bench = jload(F10_RECORD)["constants"]            # the constants are asserted against the record that holds their quotes
+    need((bench["band"]["label"], bench["band"]["lo"], bench["band"]["hi"]) == F10_BAND, "F10_BAND != code20/f10_benchmarks.json")
+    need([(d["label"], tuple(d["values"]), d["ls"]) for d in bench["lines"]] == [(d["label"], d["values"], d["ls"]) for d in F10_LINES],
+         "F10_LINES != code20/f10_benchmarks.json")
+    need(tuple(bench["ylim"]) == F10_YLIM, "F10_YLIM != code20/f10_benchmarks.json")
     ce_path = P4 / "cross_event_v14_v142.json"
     ce = jload(ce_path)
     runs = list(ce["events"])
@@ -614,16 +630,18 @@ def fig10(name="F10"):
         nm, code = _split_label(e["label"])
         rows.append({"tick": f"{nm}\n({code})", "s14": v["strict"]["csi"], "f14": v["fuzzy_r1"]["csi"], "cs": (v.get("csi_star") or {}).get("csi")})
     W = C.WIDTH_2COL_MM
-    L, RM, T, AH, B = 14.0, 3.0, 3.0, 58.0, 23.0
+    L, RM, T, AH, B = 14.0, 3.0, 3.0, 58.0, 28.0      # bottom: x labels + 3-row legend (six entries, two columns)
     H = T + AH + B
     fig = C.fig_mm(plt, W, H)
     ax = C.ax_mm(fig, L, B, W - L - RM, AH)
-    band_labels = []
-    for lab, lo, hi, col in FS.BANDS:                 # literature constants of fig_skill_sweeps_v14.py; citations go to the caption
-        generic = lab.split(" (")[0] + " range"
-        ax.axhspan(lo, hi, color=col, zorder=0, lw=0)
-        band_labels.append(Patch(facecolor=col, edgecolor="none", label=generic))
-    # no benchmark-median line (CODE-19 B1)
+    band_col = "#dddddd"
+    ax.axhspan(F10_BAND[1], F10_BAND[2], color=band_col, zorder=0, lw=0)
+    bench_handles = [Patch(facecolor=band_col, edgecolor="none", label=F10_BAND[0])]
+    for d in F10_LINES:                               # same-solver reference means; one legend entry per source line style
+        for v in d["values"]:
+            ax.axhline(v, color="0.25", ls=d["ls"], lw=0.9, zorder=1)
+        bench_handles.append(Line2D([], [], color="0.25", ls=d["ls"], lw=0.9, label=d["label"]))
+    # no benchmark-median line (CODE-19 B1); no Hocini band (CODE-20 A1)
     off = {"s14": -0.2, "f14": 0.0, "cs": 0.2}
     sty = {"s14": dict(marker="o", color=C.OI["blue"], mfc=C.OI["blue"]),
            "f14": dict(marker="s", color=C.OI["green"], mfc=C.OI["green"]),
@@ -637,21 +655,25 @@ def fig10(name="F10"):
         handles[k] = ln
     ax.set_xticks(range(len(rows))); ax.set_xticklabels([r["tick"] for r in rows])
     ax.set_xlim(-0.6, len(rows) - 0.4)
-    top = max([r[k] for r in rows for k in ("s14", "f14", "cs") if r[k] is not None] + [hi for _, _, hi, _ in FS.BANDS])
-    ax.set_ylim(0, math.ceil((top + 0.04) * 10) / 10)
+    top = max([r[k] for r in rows for k in ("s14", "f14", "cs") if r[k] is not None] + [F10_BAND[2]] + [v for d in F10_LINES for v in d["values"]])
+    need(top <= F10_YLIM[1], f"a value ({top}) exceeds the fixed F10 axis {F10_YLIM}")
+    ax.set_ylim(*F10_YLIM)                          # fixed 0-0.8 (CODE-20 A1)
     ax.set_ylabel("CSI")                            # CODE-19 B1 (CSI* is read at other thresholds)
     ax.tick_params(axis="x", length=0, pad=3)
     for sp in ("top", "right"):
         ax.spines[sp].set_visible(False)
-    order = [handles["s14"], handles["f14"], handles["cs"], band_labels[0], band_labels[1]]
-    fig.legend(handles=order, loc="lower left", bbox_to_anchor=(L / W, 1.0 / H), ncol=3, frameon=False, borderaxespad=0.0)
+    order = [handles["s14"], handles["f14"], handles["cs"]] + bench_handles
+    fig.legend(handles=order, loc="lower left", bbox_to_anchor=(L / W, 1.0 / H), ncol=2, frameon=False, borderaxespad=0.0)
     C.export(fig, name, dpi=C.DPI_COMBINATION, width_mm=W, script=SCRIPT,
-             sources=[ce_path, P5 / "crete_canonical_r2on_tiers.json", V14 / "scripts" / "fig_skill_sweeps_v14.py"],
+             sources=[ce_path, P5 / "crete_canonical_r2on_tiers.json", F10_RECORD],
              notes=f"run-of-record markers only (strict CSI, fuzzy r = 1 CSI, CSI* at the best threshold) of phase4/figures/"
                    f"fig10_skill_v14_v142.png; no earlier-release series, no version label (release history: S7/S10); Crete = "
-                   "tier-1 AOI03 block (asserted against the tiers JSON); benchmark bands = the literature constants of "
-                   "fig_skill_sweeps_v14.py, labelled without author names (citations belong in the caption); no benchmark-median "
-                   "line and y label 'CSI' (CODE-19 B1)")
+                   "tier-1 AOI03 block (asserted against the tiers JSON); benchmarks (CODE-20 A1, v3): grey band = Bernhofen et al. "
+                   f"(2018) average CSI range {F10_BAND[1]:.2f}-{F10_BAND[2]:.2f}, dotted lines = Sadana et al. (2026) same-solver means "
+                   f"{F10_LINES[0]['values'][0]:.2f} (upstream area >= 1000 km2) / {F10_LINES[0]['values'][1]:.2f} (< 50 km2) under GloFAS "
+                   f"forcing, dashed = {F10_LINES[1]['values'][0]:.2f} with observed discharge; the Hocini band is dropped; y axis fixed "
+                   f"{F10_YLIM[0]:.0f}-{F10_YLIM[1]:.1f}; constants asserted against code20/f10_benchmarks.json (quotes); no "
+                   "benchmark-median line and y label 'CSI' (CODE-19 B1)")
     plt.close(fig)
 
 

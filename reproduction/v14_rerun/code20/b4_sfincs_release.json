@@ -1,0 +1,71 @@
+{
+ "utc": "2026-10-22T20:52:12Z",
+ "generator": "reproduction/v14_rerun/scripts/code20_b4_sfincs_release.py",
+ "github_api": {
+  "url": "https://api.github.com/repos/Deltares/SFINCS/releases?per_page=30",
+  "fetched_utc": "2026-10-22T20:37:50Z",
+  "snapshot": "reproduction/v14_rerun/code20/github_releases_Deltares_SFINCS_20261022T203750Z.json",
+  "sha256": "ed2434cd44b82e6b9b22e0f3a05436e6fa1308150edd007281f6f28607fb266d"
+ },
+ "release": {
+  "tag": "v2.3.0_mt_Faber_release",
+  "name": "SFINCS v2.3.0 mt Faber Release 2025.02",
+  "published_at": "2025-11-19T14:43:54Z",
+  "created_at": "2025-11-18T13:50:39Z",
+  "prerelease": false,
+  "html_url": "https://github.com/Deltares/SFINCS/releases/tag/v2.3.0_mt_Faber_release",
+  "n_assets": 0,
+  "assets": [],
+  "assets_dated": []
+ },
+ "release_body_distribution_lines": [
+  "This contains open access to the source code from Github: https://github.com/Deltares/SFINCS/releases/tag/v2.3.0_mt_Faber_release.",
+  "As pre-compiled Windows executable:",
+  "https://download.deltares.nl/en/sfincs/",
+  "As Docker container:",
+  "docker pull deltares/sfincs-cpu:sfincs-v2.3.0-mt-Faber-Release",
+  "* Issue with IG wave field results in SnapWave solver in Docker CPU version, the Windows version performs correctly"
+ ],
+ "tag_ref": {
+  "ref": "refs/tags/v2.3.0_mt_Faber_release",
+  "object_sha": "e829fd2e1554b3b1d3b36b8e721e5071a673161a",
+  "object_type": "commit"
+ },
+ "tag_commit": {
+  "sha": "e829fd2e1554b3b1d3b36b8e721e5071a673161a",
+  "author_date": "2025-11-18T13:50:39Z",
+  "committer_date": "2025-11-18T13:50:39Z",
+  "message_first_line": "- More cleanup"
+ },
+ "pre_releases_of_v2_3_0": [
+  {
+   "tag": "v2.3.0_mt_Faber_Pre_Release_12_11_2025",
+   "name": "SFINCS v2.3.0 mt Faber Pre-Release 12-11-2025",
+   "published_at": "2025-11-12T13:18:50Z",
+   "created_at": "2025-11-12T13:09:03Z",
+   "prerelease": true,
+   "html_url": "https://github.com/Deltares/SFINCS/releases/tag/v2.3.0_mt_Faber_Pre_Release_12_11_2025",
+   "n_assets": 0,
+   "assets": [],
+   "assets_dated": []
+  }
+ ],
+ "deltares_download_page": {
+  "url": "https://download.deltares.nl/en/sfincs/",
+  "bytes": 92599,
+  "sha256": "9eea63bcf88f2f29431a173f872912514e536a411bbc4070de3904771c841c3c",
+  "version_or_release_strings_in_html": [],
+  "note": "the page is script-rendered; a plain fetch carries no version or build-date text"
+ },
+ "binary_as_run": {
+  "source": "reproduction/v14_rerun/code19/a3_hardware.json",
+  "sha256": "8c90c391ab9b135802d0f50c91076b754c625dc93d1d738e91e4c5356ea5430d",
+  "sfincs_log_version_lines": [
+   "config_sfincs_exe = D:/ELKAK/implementation/SFINCS_bin/SFINCS_v2.3.0_mt_Faber_release_exe/sfincs.exe",
+   "sfincs_build_date = 2025-11-18",
+   "sfincs_build_revision = $Rev: v2.3.0 mt. Faber Release"
+  ]
+ },
+ "answer": "GitHub release 'SFINCS v2.3.0 mt Faber Release 2025.02' (tag v2.3.0_mt_Faber_release), published 2025-11-19T14:43:54Z, created 2025-11-18T13:50:39Z; 0 attached assets (no executable dated 2025-11-18 is attached on GitHub); the release text points to download.deltares.nl for the pre-compiled Windows executable and to Docker; the tag commit e829fd2 is dated 2025-11-18T13:50:39Z, the same day as the binary's own 'Build-Date 2025-11-18' in every sfincs.log.",
+ "proposed_section_3_1_wording": "SFINCS v2.3.0 (mt Faber Release 2025.02, published 19 November 2025; Windows executable built 18 November 2025)"
+}

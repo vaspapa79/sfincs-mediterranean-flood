@@ -9,7 +9,7 @@
     "D:/ELKAK/implementation/v14/pineios_enhanced_v142/data/ems_polygons",
     "reproduction/v14_rerun/results/pineios_enhanced_v142_v14_newmask.json"
   ],
-  "notes": "run pineios_enhanced_v142; content of phase4/figures/map_pineios_enhanced_v142_v14.png (fig_map_v14.py) re-rendered at the export size; no score printed; legend names the white (inactive) cells (CODE-19 B3)",
+  "notes": "run pineios_enhanced_v142; content of phase4/figures/map_pineios_enhanced_v142_v14.png (fig_map_v14.py) re-rendered at the export size; no score printed; legend names the white (inactive) cells (CODE-19 B3); the exclusion mask is drawn above the depth layer, hiding the modelled water inside excluded cells (CODE-19 B4 for F7, CODE-20 A2 for the other maps)",
   "layout_problems": [],
   "texts_drawn": [
     "0.0",
@@ -53,8 +53,8 @@
       "height_mm": 136.65,
       "format": "TIFF, RGB 8-bit, LZW",
       "tiff_writer": "pil",
-      "bytes": 3882850,
-      "generated_utc": "2026-10-22T12:57:35Z"
+      "bytes": 3886188,
+      "generated_utc": "2026-10-22T20:51:09Z"
     },
     {
       "file": "F3_preview.png",
@@ -66,8 +66,8 @@
       "width_mm": 174.0,
       "height_mm": 136.65,
       "format": "PNG preview (reduced)",
-      "bytes": 1880124,
-      "generated_utc": "2026-10-22T12:57:36Z"
+      "bytes": 1889213,
+      "generated_utc": "2026-10-22T20:51:09Z"
     }
   ]
 }

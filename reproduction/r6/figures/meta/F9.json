@@ -10,7 +10,7 @@
     "reproduction/v14_rerun/phase5/crete_canonical_r2on_tiers.json",
     "reproduction/emsr933/ems_api_snapshot_20261019T133437Z.json"
   ],
-  "notes": "run crete_canonical_r2on; (a) island overview with all eight EMSR933 AOIs, (b) AOI03 Tzermiado zoom; tier 1 (AOI03) solid, tier 2 dashed, tier 3 (no product released; extents from the EMS API snapshot) grey dotted; AOI labels placed clear of every box line; tier-1 contingency asserted against the tiers JSON; no metric printed, no all-AOI union score computed",
+  "notes": "run crete_canonical_r2on; (a) island overview with all eight EMSR933 AOIs, (b) AOI03 Tzermiado zoom; tier 1 (AOI03) solid, tier 2 dashed, tier 3 (no product released; extents from the EMS API snapshot) grey dotted; AOI labels placed clear of every box line; tier-1 contingency asserted against the tiers JSON; no metric printed, no all-AOI union score computed; the exclusion mask is drawn above the depth layer, hiding the modelled water inside excluded cells (CODE-20 A2)",
   "layout_problems": [],
   "texts_drawn": [
     "(a)",
@@ -78,8 +78,8 @@
       "height_mm": 168.91,
       "format": "TIFF, RGB 8-bit, LZW",
       "tiff_writer": "pil",
-      "bytes": 2201980,
-      "generated_utc": "2026-10-22T13:00:48Z"
+      "bytes": 2198580,
+      "generated_utc": "2026-10-22T20:51:26Z"
     },
     {
       "file": "F9_preview.png",
@@ -91,8 +91,8 @@
       "width_mm": 174.0,
       "height_mm": 168.91,
       "format": "PNG preview (reduced)",
-      "bytes": 1462323,
-      "generated_utc": "2026-10-22T13:00:48Z"
+      "bytes": 1462307,
+      "generated_utc": "2026-10-22T20:51:27Z"
     }
   ]
 }

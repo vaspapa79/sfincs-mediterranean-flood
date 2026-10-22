@@ -1,0 +1,230 @@
+{
+ "utc": "2026-10-22T20:50:09Z",
+ "generator": "reproduction/v14_rerun/scripts/code20_lookups.py",
+ "constants": {
+  "band": {
+   "label": "global models vs MODIS extents, Bernhofen et al. (2018)",
+   "lo": 0.45,
+   "hi": 0.7,
+   "colour": "#dddddd"
+  },
+  "lines": [
+   {
+    "label": "SFINCS, GloFAS forcing, ≥ 1000 km² / < 50 km² (Sadana et al. 2026)",
+    "values": [
+     0.42,
+     0.29
+    ],
+    "ls": ":"
+   },
+   {
+    "label": "SFINCS, observed discharge (Sadana et al. 2026)",
+    "values": [
+     0.67
+    ],
+    "ls": "--"
+   }
+  ],
+  "ylim": [
+   0.0,
+   0.8
+  ]
+ },
+ "sources": {
+  "bernhofen2018": {
+   "from_code19_record": {
+    "file": "reproduction/v14_rerun/code19/lookups.json",
+    "sha256": "913d9b3b31467fae692a02c638d95075d9f93a02f6e0e2368589d92384892ab4"
+   },
+   "crossref": {
+    "doi": "10.1088/1748-9326/aae014",
+    "title": "A first collective validation of global fluvial flood models for major floods in Nigeria and Mozambique",
+    "container": "Environmental Research Letters",
+    "volume": "13",
+    "issue": "10",
+    "page": "104007",
+    "article_number": null,
+    "issued": [
+     [
+      2018,
+      10,
+      1
+     ]
+    ],
+    "type": "journal-article",
+    "authors": [
+     "Bernhofen, Mark V",
+     "Whyman, Charlie",
+     "Trigg, Mark A",
+     "Sleigh, P Andrew",
+     "Smith, Andrew M",
+     "Sampson, Christopher C",
+     "Yamazaki, Dai",
+     "Ward, Philip J",
+     "Rudari, Roberto",
+     "Pappenberger, Florian",
+     "Dottori, Francesco",
+     "Salamon, Peter",
+     "Winsemius, Hessel C"
+    ],
+    "publisher": "IOP Publishing",
+    "crossref_file_sha256": "b7c99817c14133009b9375aaafad526546395b074f0768ab45a8712a6d9433c9",
+    "retrieved_utc": "2026-10-22T12:11:30Z",
+    "abstract_present": false
+   },
+   "document": {
+    "file": "C:\\Users\\dvalsamis\\.claude\\projects\\D--ELKAK\\9345177c-48a6-4380-9f01-2779f44e774f\\tool-results\\webfetch-1792671298269-dnx2li.pdf",
+    "sha256": "0d48f1f059b493974ef041c2352e4b2f31df69a2a0c7db7f0e2132ee4e004369",
+    "bytes": 2336316,
+    "url": "https://iopscience.iop.org/article/10.1088/1748-9326/aae014/pdf",
+    "retrieved_utc": "2026-10-22T12:14:58Z",
+    "note": ""
+   },
+   "printed_page_rule": "ERL article number 104007; PDF page n = article page n-1 (page 1 of the PDF is the IOP cover sheet)",
+   "quotes": {
+    "abstract": {
+     "pdf_page": 2,
+     "printed_page": "article p. 1 (abstract)",
+     "quote": "The critical success index of individual models across the three regions ranges from 0.45 to 0.7 and the percentage of flood captured ranges from 52% to 97%.",
+     "found": true
+    },
+    "results": {
+     "pdf_page": 6,
+     "printed_page": "article p. 5",
+     "quote": "The average CSI of the GFMs range from 0.45 (GLOFRIS) to 0.70 (JRC) for a 25 year flow.",
+     "found": true
+    },
+    "literature_context": {
+     "pdf_page": 6,
+     "printed_page": "article p. 5",
+     "quote": "CSI scores from other flood validation literature, in different validation regions, range from 0.3 to 0.9",
+     "found": true
+    },
+    "conclusions": {
+     "pdf_page": 10,
+     "printed_page": "article p. 9",
+     "quote": "with average CSI scores ranging from 0.45 to 0.7.",
+     "found": true
+    },
+    "median": {
+     "found": false,
+     "note": "no median CSI is stated anywhere in the text"
+    },
+    "modis": {
+     "pdf_page": 5,
+     "printed_page": 4,
+     "quote": "The DFO uses Moderate Resolution Image Spectroradiometer (MODIS) imagery to capture flood events globally, and stores them online in an open-access archive.",
+     "found": true
+    },
+    "modis_fig3": {
+     "pdf_page": 8,
+     "printed_page": 7,
+     "quote": "Overlap of individual global flood model extent for return period flows of 25 and 100 years and MODIS observed flood extent for Lokoja, Idah, and Chemba",
+     "found": true
+    }
+   },
+   "text_dump_sha256": "29c0bb59daadf441ff6448d5c2f7c7d95ba6ee871b94d36e3eceb98edc199d9f"
+  },
+  "sadana2026": {
+   "doi": "10.5194/hess-30-5491-2026",
+   "bib_key": "sadana2026validation",
+   "bib_entry_present": true,
+   "bib_pages": "5491–5519",
+   "document": {
+    "url": "https://hess.copernicus.org/articles/30/5491/2026/hess-30-5491-2026.pdf",
+    "file": "hess-30-5491-2026.pdf",
+    "sha256": "3e19a228bda38140155d05390f514d8597bf6c10d4446dc0ad7ed22000914cf9",
+    "bytes": 5497418,
+    "pdf_pages": 29,
+    "retrieved_utc": "2026-10-22T20:37:48Z",
+    "text_dump_sha256": "95fb7f890e42e867f6919f6bdd0bccb19b7b5a78848ab3b93669edf54645ab91"
+   },
+   "printed_page_rule": "printed page = 5490 + PDF page",
+   "quotes": {
+    "abstract_glofas_means": {
+     "pdf_page": 1,
+     "printed_page": 5491,
+     "quote": "global mean CSI of 0.42 for basins with large upstream area ( > 1000 km2) and a CSI of 0.29 for basins with small upstream area (< 50 km2)",
+     "found": true
+    },
+    "results_glofas_means": {
+     "pdf_page": 10,
+     "printed_page": 5500,
+     "quote": "the average CSI rose from 0.29 in the basins with a small upstream area (< 50 km2) to 0.42 in the basins with a large upstream area (≥1000 km2)",
+     "found": true
+    },
+    "table3_large": {
+     "pdf_page": 11,
+     "printed_page": 5501,
+     "quote": "≥1000 km2 (n = 8834) 0.62 0.41 0.42 1.22",
+     "found": true
+    },
+    "table3_small": {
+     "pdf_page": 11,
+     "printed_page": 5501,
+     "quote": "< 50 km2 (n = 5304) 0.42 0.46 0.29 0.61",
+     "found": true
+    },
+    "glofas_forcing": {
+     "pdf_page": 5,
+     "printed_page": 5495,
+     "quote": "The primary global dataset was GloFAS (Grimaldi et al., 2022), which provided long-term global coverage discharge data suitable for simulating floods at a global scale.",
+     "found": true
+    },
+    "observed_discharge_results": {
+     "pdf_page": 15,
+     "printed_page": 5505,
+     "quote": "achieving an average CSI of 0.67 compared to the average global mean of 0.39 (Table 2)",
+     "found": true
+    },
+    "observed_discharge_discussion": {
+     "pdf_page": 17,
+     "printed_page": 5507,
+     "quote": "when SFINCS was forced with observed USGS discharges, the average CSI was 0.67 (HR = 0.86; FAR = 0.21)",
+     "found": true
+    },
+    "abstract_observed": {
+     "pdf_page": 1,
+     "printed_page": 5491,
+     "quote": "the CSI improved from 0.39 to 0.67",
+     "found": true
+    },
+    "global_mean": {
+     "pdf_page": 19,
+     "printed_page": 5509,
+     "quote": "with a mean CSI of 0.39 using GloFAS modelled discharges as input forcing",
+     "found": true
+    },
+    "events": {
+     "pdf_page": 19,
+     "printed_page": 5509,
+     "quote": "simulating 499 riverine floods globally",
+     "found": true
+    }
+   },
+   "reading": "0.42 / 0.29 are average CSI by basin upstream-area class (Table 3; GloFAS discharge forcing; 499 events); 0.67 is the average CSI of ten US events forced with observed USGS discharge (Table 2 / Sect. 3.7); the global mean with GloFAS forcing is 0.39 (not drawn)."
+  }
+ },
+ "previous_f10_v2": {
+  "fig_skill_sweeps_v14.BANDS": [
+   [
+    "global multi-model (Bernhofen et al. 2018)",
+    0.1,
+    0.36,
+    "#dddddd"
+   ],
+   [
+    "calibrated single-event (Hocini et al. 2021)",
+    0.42,
+    0.62,
+    "#c8ddf0"
+   ]
+  ],
+  "fig_skill_sweeps_v14.WING_MEDIAN": 0.4,
+  "manuscript_claim_section_4_7_as_recorded_by_code19": "section 4.7: 'Bernhofen et al. (2018) report CSI 0.10–0.36 (median about 0.22) across six global models'; F10 band constant 0.10–0.36 (fig_skill_sweeps_v14.py BANDS)",
+  "note": "fig_skill_sweeps_v14.py (phase-4 figure of the v1.4.2 freeze) is left unchanged; F10 v3 no longer reads it",
+  "fig10_caption_R6b_tracked": "Fig. 10 Strict CSI (circles), one-cell fuzzy CSI (squares) and CSI at the best depth threshold (triangles) of the six events against published ranges: the global multi-model range [grey; Bernhofen et al. (2018)] and the calibrated single-event range [blue; Hocini et al. (2021)].",
+  "manuscript_txt_sha256": "c56e1831aa9e59e7c07b95c94219f7d774e341ec4f87cd0b467d95307844173b"
+ },
+ "quotes_missing": []
+}

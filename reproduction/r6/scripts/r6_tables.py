@@ -405,6 +405,17 @@ def aoi_tokens(ctx: Ctx, run: str) -> list:
     return toks
 
 
+S2_HEADER = ["event", "run", "AOI", "AOI file (product)", "active km²", "observed km²", "modelled km² (h_max > 0.10 m)", "TP", "CSI", "HR", "FAR", "fuzzy r=1 CSI"]
+S2_DIGEST_HEADER = ["AOI", "observed km²", "modelled km² (h_max > 0.10 m)", "CSI", "HR", "FAR", "fuzzy r=1 CSI"]
+
+
+def s2_baseline_digest(header: list, rows: list, run: str = "strymonas_baseline") -> list:
+    """CODE-20 B2: the per-area rows of one run (default the Strymonas ERA5 baseline) reduced to the digest columns of the
+    supplement's S2 digest; every cell is the S2 cell itself (no re-formatting)."""
+    i = {h: k for k, h in enumerate(header)}
+    return [[r[i[c]] for c in S2_DIGEST_HEADER] for r in rows if r[i["run"]] == run]
+
+
 def tab_s2(ctx: Ctx, W: Writer):
     W.begin(); rows = []
     plan = [("Pineios (EMSR692)", ["pineios_enhanced_v142"]), ("Mandra (EMSR257)", ["mandra_enhanced"]),
@@ -433,11 +444,14 @@ def tab_s2(ctx: Ctx, W: Writer):
         else:
             rows.append(["Crete (EMSR933)", "crete_canonical_r2on", f"AOI{code} {a['name']} (tier 2: km² only)", "; ".join(a["aoi_files"]), f1(a["universe_km2"]), f1(a["observed_km2"]),
                          f1(a["modelled_km2_h_gt_0p10"]), NA, NA, NA, NA, NA])
-    W.emit("S2", "Per-AOI skill", ["event", "run", "AOI", "AOI file (product)", "active km²", "observed km²", "modelled km² (h_max > 0.10 m)", "TP", "CSI", "HR", "FAR", "fuzzy r=1 CSI"], rows,
+    W.emit("S2", "Per-AOI skill", S2_HEADER, rows,
            ["Source: `results/<run>_v14_newmask.json` validation.per_aoi_canonical_and_r1 (each AOI scored on its own polygon ∩ the v1.4 universe). An AOI with several product versions is reported "
             "with the first AOI file of the validator's list, as in the R5 per-AOI tables; AOIs are listed from the event's AOI files, and one whose polygon holds no active cell is marked. "
             "Modelled km² = (TP + FP) × cell area inside the AOI universe. Crete AOI names from the EMS API snapshot of 2026-10-19T13:34:37Z. "
-            "Crete: `phase5/crete_canonical_r2on_tiers.json` (tier 1 scored; tier 2 observed vs modelled km² at h_max > 0.10 m only; tier 3 no product)."])
+            "Crete: `phase5/crete_canonical_r2on_tiers.json` (tier 1 scored; tier 2 observed vs modelled km² at h_max > 0.10 m only; tier 3 no product)."],
+           extra=[("S2_baseline_digest", "Strymonas ERA5-baseline per-area rows in the digest columns (CODE-20 B2)", S2_DIGEST_HEADER, s2_baseline_digest(S2_HEADER, rows),
+                   ["The rows of this table for run `strymonas_baseline` (01STRYMONAS, 02BALTOTOPI, 03ACHINOS, 04MAVROTHALASSA), reduced to the columns of the supplement's S2 digest; "
+                    "cells identical to the rows above."])])
 
 
 def tab_s3(ctx: Ctx, W: Writer):
