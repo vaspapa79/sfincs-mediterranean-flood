@@ -9,6 +9,7 @@ Text files are scanned line by line; PNG files through their text chunks (tEXt /
 as not scanned. This script and its report contain the patterns by construction and are excluded from the scan.
 Output: reproduction/r6/ANONYMITY_REPORT.md (+ anonymity_hits.json beside it).
 Usage: python -I anonymity_grep.py --repo <worktree> [--tag v1.4.2] [--records reproduction/r6,reproduction/v14_rerun/code16,...]
+       python -I anonymity_grep.py --repo <worktree> --tree <unpacked archive dir> [--out-stem ANONYMITY_REPORT_review_archive]
 """
 from __future__ import annotations
 
@@ -109,14 +110,93 @@ def scan_text(path: str, text: str, where: str, hits: list):
                 hits.append({"class": cls, "file": path, "line": ln_no, "match": m.group(0)[:80], "context": ctx_s[:160], "where": where})
 
 
+def scan_file_bytes(rel: str, data: bytes, where: str, hits: list, counts: dict, not_scanned: list):
+    """Route one file by kind: PNG text chunks, TIFF text tags, text line by line; other binaries are listed, not scanned."""
+    low = rel.lower()
+    if low.endswith(".png"):
+        for t in png_text(data):
+            scan_text(rel, t, where + " (PNG metadata)", hits)
+        counts["png"] += 1
+    elif low.endswith((".tif", ".tiff")):
+        for t in tiff_text(data):
+            scan_text(rel, t, where + " (TIFF tags)", hits)
+        counts["tiff"] += 1
+    elif b"\x00" in data[:8192]:
+        not_scanned.append((rel, where))
+        counts["binary"] += 1
+    else:
+        scan_text(rel, data.decode("utf-8", errors="replace"), where, hits)
+        counts["text"] += 1
+
+
+def scan_tree(root, only=None):
+    """CODE-17 C4: every file under a plain directory (e.g. the unpacked review archive), or only the given relative paths.
+    Returns (hits, counts); counts["not_scanned"] lists the binaries that were only listed."""
+    root = Path(root)
+    hits, not_scanned = [], []
+    counts = {"text": 0, "png": 0, "tiff": 0, "binary": 0}
+    rels = sorted(only) if only is not None else sorted(p.relative_to(root).as_posix() for p in root.rglob("*") if p.is_file())
+    for rel in rels:
+        scan_file_bytes(rel, (root / rel).read_bytes(), "archive", hits, counts, not_scanned)
+    counts["not_scanned"] = not_scanned
+    return hits, counts
+
+
+CITED_WORK_FILES = re.compile(r"(^|/)(refs(_datacite)?\.bib|refs_crossref_raw\.json|REFERENCES_REPORT\.md)$")
+
+
+def tree_report(hits: list, counts: dict, out_md: Path, out_json: Path, label: str):
+    """Report of a --tree scan: hits by class, split into cited-work metadata (left untouched by design) and everything else."""
+    now = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    by_cls = {}
+    for h in hits:
+        by_cls.setdefault(h["class"], []).append(h)
+    cited = [h for h in hits if CITED_WORK_FILES.search(h["file"])]
+    outside = [h for h in hits if not CITED_WORK_FILES.search(h["file"])]
+    L = [f"# Anonymity scan of `{label}` (CODE-17 C4)", "",
+         f"Generated {now} by `reproduction/r6/scripts/anonymity_grep.py --tree`. Files scanned: {counts['text']} text, {counts['png']} PNG "
+         f"(text chunks), {counts['tiff']} TIFF (text tags); {counts['binary']} other binaries listed only. Same classes and patterns as the dry run.", "",
+         f"**Hits outside cited-work metadata: {len(outside)}.** Hits inside cited-work metadata (refs.bib, refs_datacite.bib, "
+         f"REFERENCES_REPORT.md, refs_crossref_raw.json — other authors' records, left untouched by design): {len(cited)}.", "",
+         "| class | hits | outside cited-work metadata | files |", "|---|---|---|---|"]
+    for cls, _rx, _s in CLASSES:
+        hs = by_cls.get(cls, [])
+        o = [h for h in hs if not CITED_WORK_FILES.search(h["file"])]
+        L.append(f"| {cls} | {len(hs)} | {len(o)} | {len({h['file'] for h in hs})} |")
+    if outside:
+        L += ["", "## Hits outside cited-work metadata", "", "| class | file | line | match | context |", "|---|---|---|---|---|"]
+        L += [f"| {h['class']} | `{h['file']}` | {h['line']} | `{h['match']}` | {h['context']} |" for h in outside[:300]]
+    if cited:
+        byf = {}
+        for h in cited:
+            byf.setdefault(h["file"], []).append(h)
+        L += ["", "## Hits inside cited-work metadata (by file)", ""] + [f"- `{f}`: {len(v)} ({', '.join(sorted({h['class'] for h in v}))})" for f, v in sorted(byf.items())]
+    L += ["", "## Not scanned (binary)", ""] + ([f"- `{f}`" for f, _w in counts["not_scanned"]] or ["none"])
+    out_md.write_text("\n".join(L) + "\n", encoding="utf-8")
+    out_json.write_text(json.dumps({"utc": now, "label": label, "counts": {k: v for k, v in counts.items() if k != "not_scanned"},
+                                    "n_not_scanned": len(counts["not_scanned"]), "hits_outside_cited_work": len(outside),
+                                    "hits_in_cited_work": len(cited), "by_class": {c: len(by_cls.get(c, [])) for c, _r, _s in CLASSES},
+                                    "hits": hits}, indent=1, ensure_ascii=False), encoding="utf-8")
+    return len(outside), len(cited)
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     ap = argparse.ArgumentParser()
     ap.add_argument("--repo", required=True, type=Path)
     ap.add_argument("--tag", default="v1.4.2")
     ap.add_argument("--records", default="reproduction/r6,reproduction/v14_rerun/code16,reproduction/v14_rerun/scripts,reproduction/v14_rerun/NUMBER_MAP.md,docs/AUDIT.md,reproduction/emsr933")
+    ap.add_argument("--tree", type=Path, default=None, help="scan this directory (e.g. the unpacked review archive) instead of the tag tree")
+    ap.add_argument("--out-stem", default="ANONYMITY_REPORT_review_archive", help="--tree mode: report name under reproduction/r6/")
     a = ap.parse_args()
     repo = a.repo.resolve()
+    if a.tree:
+        hits, counts = scan_tree(a.tree)
+        out_dir = repo / "reproduction" / "r6"
+        n_out, n_cited = tree_report(hits, counts, out_dir / f"{a.out_stem}.md", out_dir / f"{a.out_stem}.json", str(a.tree))
+        print(f"{len(hits)} hits ({n_out} outside cited-work metadata, {n_cited} inside) in {counts['text']} text / {counts['png']} PNG / "
+              f"{counts['tiff']} TIFF files; report {a.out_stem}.md")
+        return 0
     tag_commit = git(repo, "rev-parse", "--short", f"{a.tag}^{{commit}}").strip()
     files_tag = [f for f in git(repo, "ls-tree", "-r", "--name-only", a.tag).splitlines() if f and f not in EXCLUDE]
     changed = set(git(repo, "diff", "--name-only", a.tag).splitlines()) | set(git(repo, "ls-files", "--others", "--exclude-standard").splitlines())

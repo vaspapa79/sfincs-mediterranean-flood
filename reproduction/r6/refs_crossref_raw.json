@@ -1,11 +1,11 @@
 {
- "generated_utc": "2026-10-21T09:44:45Z",
- "run_started_utc": "2026-10-21T09:44:44Z",
+ "generated_utc": "2026-10-22T08:02:57Z",
+ "run_started_utc": "2026-10-22T08:02:55Z",
  "script": "reproduction/r6/scripts/build_refs.py",
  "user_agent": "r6-refs-check/1.0",
  "min_interval_s": 0.6,
- "network_requests_this_run": 2,
- "cache_hits_this_run": 124,
+ "network_requests_this_run": 4,
+ "cache_hits_this_run": 121,
  "note": "entries[].lookups hold the raw Crossref/DataCite responses of each R5 reference (request URL, fetched_utc, HTTP status, body); 'requests' holds the item-level responses (Crossref searches, DataCite, NASA CMR, CDS catalogue, GitHub) and, for web pages, SHA-256 + extracted text only.",
  "inputs": {
   "manuscript": {
@@ -28541,12 +28541,12 @@
    "text_identical": true,
    "lookups": [
     {
-     "cache_key": "https://api.crossref.org/works/10.5194/egusphere-2025-4387",
-     "url": "https://api.crossref.org/works/10.5194/egusphere-2025-4387",
-     "fetched_utc": "2026-10-21T09:28:45Z",
+     "cache_key": "https://api.crossref.org/works/10.5194/hess-30-5491-2026",
+     "url": "https://api.crossref.org/works/10.5194/hess-30-5491-2026",
+     "fetched_utc": "2026-10-22T08:02:55Z",
      "http_status": 200,
      "content_type": "application/json",
-     "final_url": "https://api.crossref.org/works/10.5194/egusphere-2025-4387",
+     "final_url": "https://api.crossref.org/works/10.5194/hess-30-5491-2026",
      "body": {
       "status": "ok",
       "message-type": "work",
@@ -28560,34 +28560,25 @@
           12
          ]
         ],
-        "date-time": "2026-09-12T22:09:21Z",
-        "timestamp": 1789250961445,
+        "date-time": "2026-09-12T11:05:29Z",
+        "timestamp": 1789211129994,
         "version": "build-2803163510"
        },
-       "posted": {
-        "date-parts": [
-         [
-          2025,
-          11,
-          6
-         ]
-        ]
-       },
-       "group-title": "Global hydrology/Modelling approaches",
-       "reference-count": 0,
+       "reference-count": 86,
        "publisher": "Copernicus GmbH",
+       "issue": "17",
        "license": [
         {
          "start": {
           "date-parts": [
            [
-            2025,
-            11,
-            6
+            2026,
+            9,
+            1
            ]
           ],
-          "date-time": "2025-11-06T00:00:00Z",
-          "timestamp": 1762387200000
+          "date-time": "2026-09-01T00:00:00Z",
+          "timestamp": 1788220800000
          },
          "content-version": "vor",
          "delay-in-days": 0,
@@ -28644,27 +28635,31 @@
         "domain": [],
         "crossmark-restriction": false
        },
-       "short-container-title": [],
-       "abstract": "<jats:p>Abstract. We evaluate the performance of the Super-Fast INundation of CoastS (SFINCS) hydrodynamic model for simulating riverine floods, combined with a fully automated open-source data preprocessing pipeline. To do this, we assessed the simulated extent of 499 historic flood events against the satellite derived flood extents using the Critical Success Index (CSI) as a performance metric. We utilised simulated discharges from the Global Flood Awareness System (GloFAS) hydrological model and found that SFINCS performance improved with upstream basin size, with a global mean CSI of 0.42 for basins with large upstream area (&gt;1,000 km²) and a CSI of 0.29 for basins with small upstream area (&lt;50 km²). Our results illustrate the importance of accurate discharge data input to flood hazard simulations. When the (globally simulated) GloFAS data replaced with observed discharge data for ten events in the US, the CSI improved from 0.39 to 0.67. These results suggest that global hydrological model performance limits the accuracy of the flood hazard simulations. Our findings also showed a significant improvement in the CSI (from 0.37 to 0.57) when changing to a higher-resolution elevation input by contrasting a ~1 m digital elevation model (DEM; 3DEP) with our default ~30 m global DEM (FABDEM) in six U.S. events. Sensitivity analysis of bathymetric calculations revealed a systematic underestimation of the default 2-year return period estimated by GloFAS discharge, likely driven by underrepresentation of annual block maxima, which resulted in underestimated channel dimensions. All of these factors resulted in a loss of detail, which impacted model performance, especially in smaller headwater rivers. We recommend to improve the estimation of bathymetry, for instance by employing the \"gradually varying solver\" method or using data from the SWOT mission. Furthermore, incorporating additional validation data which ideally includes flood depth measurements can largely enhance our understanding of the model performance.</jats:p>",
-       "DOI": "10.5194/egusphere-2025-4387",
-       "type": "posted-content",
+       "short-container-title": [
+        "Hydrol. Earth Syst. Sci."
+       ],
+       "abstract": "<jats:p>\n                    We evaluate the performance of the Super-Fast INundation of CoastS (SFINCS) hydrodynamic model for simulating riverine floods, combined with a fully automated open-source data preprocessing pipeline. To do this, we assessed the simulated extent of 499 historic flood events against the satellite derived flood extents using the Critical Success Index (CSI) as a performance metric. We utilised simulated discharges from the Global Flood Awareness System (GloFAS) hydrological model and found that SFINCS performance improved with upstream basin size, with a global mean CSI of 0.42 for basins with large upstream area (&gt;1000 km\n                    <jats:sup>2</jats:sup>\n                    ) and a CSI of 0.29 for basins with small upstream area (&lt;50 km\n                    <jats:sup>2</jats:sup>\n                    ). Our results illustrate the importance of accurate discharge data input to flood hazard simulations. When the (globally simulated) GloFAS data is replaced with observed discharge data for ten events in the US, the CSI improved from 0.39 to 0.67. These results suggest that global hydrological model performance limits the accuracy of the flood hazard simulations. Our findings also showed a significant improvement in the CSI (from 0.37 to 0.57) when changing to a higher-resolution elevation input by contrasting a ∼1 m digital elevation model (DEM; 3DEP) with our default ∼30 m global DEM (FABDEM) in six US events. Sensitivity analysis of bathymetric calculations revealed a systematic underestimation of the default 2-year return period estimated by GloFAS discharge, likely driven by underrepresentation of annual block maxima, which resulted in underestimated channel dimensions. All of these factors resulted in a loss of detail, which impacted model performance, especially in smaller headwater rivers. We recommend to improve the estimation of bathymetry, for instance by employing the “gradually varying solver” method or using data from the SWOT mission. Furthermore, incorporating additional validation data which ideally includes flood depth measurements can largely enhance our understanding of the model performance.\n                  </jats:p>",
+       "DOI": "10.5194/hess-30-5491-2026",
+       "type": "journal-article",
        "created": {
         "date-parts": [
          [
-          2025,
-          11,
-          6
+          2026,
+          9,
+          1
          ]
         ],
-        "date-time": "2025-11-06T07:13:22Z",
-        "timestamp": 1762413202000
+        "date-time": "2026-09-01T06:34:57Z",
+        "timestamp": 1788244497000
        },
+       "page": "5491-5519",
        "source": "Crossref",
-       "is-referenced-by-count": 1,
+       "is-referenced-by-count": 0,
        "title": [
-        "Validation of the Open-Source Hydrodynamic Model SFINCS on Historical River Floods at the Global Scale"
+        "Validation of the open-source hydrodynamic model SFINCS on historical river floods at the global scale"
        ],
        "prefix": "10.5194",
+       "volume": "30",
        "author": [
         {
          "ORCID": "https://orcid.org/0009-0001-2016-1552",
@@ -28672,11 +28667,26 @@
          "given": "Tarun",
          "family": "Sadana",
          "sequence": "first",
-         "affiliation": [],
+         "affiliation": [
+          {
+           "id": [
+            {
+             "id": "https://ror.org/008xxew50",
+             "id-type": "ROR",
+             "asserted-by": "publisher"
+            }
+           ],
+           "name": "Vrije Universiteit Amsterdam (Amsterdam, Netherlands)"
+          }
+         ],
          "role": [
           {
            "vocabulary": "crossref",
            "role": "author"
+          },
+          {
+           "role": "corresponding-author",
+           "vocabulary": "crossref"
           }
          ]
         },
@@ -28749,7 +28759,7 @@
         {
          "ORCID": "https://orcid.org/0009-0009-5623-6200",
          "authenticated-orcid": false,
-         "given": "Veerle",
+         "given": "Veerle C.",
          "family": "Bril",
          "sequence": "additional",
          "affiliation": [],
@@ -28776,23 +28786,560 @@
         }
        ],
        "member": "3145",
-       "container-title": [],
-       "original-title": [],
-       "deposited": {
+       "published-online": {
         "date-parts": [
          [
           2026,
           9,
           1
          ]
+        ]
+       },
+       "reference": [
+        {
+         "key": "ref1",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Abrams, M., Crippen, R., and Fujisada, H.: ASTER Global Digital Elevation Model (GDEM) and ASTER Global Water Body Dataset (ASTWBD), Remote Sens.-Basel, 12, 1156, 10.3390/rs12071156, 2020.",
+         "DOI": "10.3390/rs12071156"
+        },
+        {
+         "key": "ref2",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Alfieri, L., Burek, P., Dutra, E., Krzeminski, B., Muraro, D., Thielen, J., and Pappenberger, F.: GloFAS – global ensemble streamflow forecasting and flood early warning, Hydrol. Earth Syst. Sci., 17, 1161–1175, 10.5194/hess-17-1161-2013, 2013.",
+         "DOI": "10.5194/hess-17-1161-2013"
+        },
+        {
+         "key": "ref3",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Allen, G. H. and Pavelsky, T. M.: Global River Widths from Landsat (GRWL) Database, Zenodo [data set], 10.5281/zenodo.1297434, 2018.",
+         "DOI": "10.5281/zenodo.1297434",
+         "type": "dataset"
+        },
+        {
+         "key": "ref4",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Altenau, E. H., Pavelsky, T. M., Durand, M. T., Yang, X., De Moraes Frasson, R. P., and Bendezu, L.: The Surface Water and Ocean Topography (SWOT) Mission River Database (SWORD): a global river network for satellite data products, Water Resour. Res., 57, e2021WR030054, 10.1029/2021WR030054, 2021.",
+         "DOI": "10.1029/2021WR030054"
+        },
+        {
+         "key": "ref5",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Andreadis, K. M., Schumann, G. J., and Pavelsky, T.: A simple global river bankfull width and depth database, Water Resour. Res., 49, 7164–7168, 10.1002/wrcr.20440, 2013.",
+         "DOI": "10.1002/wrcr.20440"
+        },
+        {
+         "key": "ref6",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Apel, H., Benisch, J., Helm, B., Vorogushyn, S., and Merz, B.: Fast urban inundation simulation with RIM2D for flood risk assessment and forecasting, Front. Water, 6, 1310182, 10.3389/frwa.2024.1310182, 2024.",
+         "DOI": "10.3389/frwa.2024.1310182"
+        },
+        {
+         "key": "ref7",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Bates, P.: Fundamental limits to flood inundation modelling, Nat. Water, 1, 566–567, 10.1038/s44221-023-00106-4, 2023.",
+         "DOI": "10.1038/s44221-023-00106-4"
+        },
+        {
+         "key": "ref8",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Bates, P. D., Horritt, M. S., and Fewtrell, T. J.: A simple inertial formulation of the shallow water equations for efficient two-dimensional flood inundation modelling, J. Hydrol., 387, 33–45, 10.1016/j.jhydrol.2010.03.027, 2010.",
+         "DOI": "10.1016/j.jhydrol.2010.03.027"
+        },
+        {
+         "key": "ref9",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Baugh, C., Colonese, J., D'Angelo, C., Dottori, F., Neal, J., Prudhomme, C., and Salamon, P.: Global river flood hazard maps, European Commission, Joint Res. Centre [data set], 10.2905/JRC.VD32YWG, 2024.",
+         "DOI": "10.2905/JRC.VD32YWG",
+         "type": "dataset"
+        },
+        {
+         "key": "ref10",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Beck, H. E., Zimmermann, N. E., McVicar, T. R., Vergopolan, N., Berg, A., and Wood, E. F.: Present and future Köppen-Geiger climate classification maps at 1-km resolution, Sci. Data, 5, 180214, 10.1038/sdata.2018.214, 2018.",
+         "DOI": "10.1038/sdata.2018.214"
+        },
+        {
+         "key": "ref11",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Benito, I., Aerts, J. C. J. H., Eilander, D., Ward, P. J., and Muis, S.: Stochastic coastal flood risk modelling for the east coast of Africa, npj Nat. Hazards, 1, 10, 10.1038/s44304-024-00010-1, 2024.",
+         "DOI": "10.1038/s44304-024-00010-1"
+        },
+        {
+         "key": "ref12",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Bernhofen, M. V., Whyman, C., Trigg, M. A., Sleigh, P. A., Smith, A. M., Sampson, C. C., Yamazaki, D., Ward, P. J., Rudari, R., Pappenberger, F., Dottori, F., Salamon, P., and Winsemius, H. C.: A first collective validation of global fluvial flood models for major floods in Nigeria and Mozambique, Environ. Res. Lett., 13, 104007, 10.1088/1748-9326/aae014, 2018.",
+         "DOI": "10.1088/1748-9326/aae014"
+        },
+        {
+         "key": "ref13",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Bril, V. C., De Bruijn, J., De Moel, H., Sadana, T., Busker, T., Botzen, W. J. W., and Aerts, J. C. J. H.: Assessing the effectiveness of nature-based solutions and building-level flood risk reduction measures: an open-source coupled model, Water Resour. Res., 62, e2025WR041436, 10.1029/2025WR041436, 2026.",
+         "DOI": "10.1029/2025WR041436"
+        },
+        {
+         "key": "ref14",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Burek, P., Satoh, Y., Kahil, T., Tang, T., Greve, P., Smilovic, M., Guillaumot, L., Zhao, F., and Wada, Y.: Development of the Community Water Model (CWatM v1.04) – a high-resolution hydrological model for global and regional assessment of integrated water resources management, Geosci. Model Dev., 13, 3267–3298, 10.5194/gmd-13-3267-2020, 2020.",
+         "DOI": "10.5194/gmd-13-3267-2020"
+        },
+        {
+         "key": "ref15",
+         "unstructured": "Cloud to Street, Microsoft, and Radiant Earth Foundation: Global Flood Database v1 (2000–2018), Google Earth Engine [data set], https://developers.google.com/earth-engine/datasets/catalog/GLOBAL_FLOOD_DB_MODIS_EVENTS_V1 (last access: 30 July 2026), 2022.",
+         "type": "dataset"
+        },
+        {
+         "key": "ref16",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Copernicus DEM: Copernicus Global Digital Elevation Model, ESA [data set], 10.5270/esa-c5d3d65, 2022.",
+         "DOI": "10.5270/esa-c5d3d65",
+         "type": "dataset"
+        },
+        {
+         "key": "ref17",
+         "doi-asserted-by": "publisher",
+         "unstructured": "de Bruijn, J. A., Smilovic, M., Burek, P., Guillaumot, L., Wada, Y., and Aerts, J. C. J. H.: GEB v0.1: a large-scale agent-based socio-hydrological model – simulating 10 million individual farming households in a fully distributed hydrological model, Geosci. Model Dev., 16, 2437–2454, 10.5194/gmd-16-2437-2023, 2023.",
+         "DOI": "10.5194/gmd-16-2437-2023"
+        },
+        {
+         "key": "ref18",
+         "unstructured": "Deltares: D-Flow Flexible Mesh: Computational Cores and User Interface, User Manual, Deltares, https://www.deltares.nl/en/software/delft3d-flexible-mesh-suite/ (last access: 16 January 2025), 2022.",
+         "type": "web-resource"
+        },
+        {
+         "key": "ref19",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Dey, S., Saksena, S., and Merwade, V.: Assessing the effect of different bathymetric models on hydraulic simulation of rivers in data sparse regions, J. Hydrol., 575, 838–851, 10.1016/j.jhydrol.2019.05.085, 2019.",
+         "DOI": "10.1016/j.jhydrol.2019.05.085"
+        },
+        {
+         "key": "ref20",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Dey, S., Saksena, S., Winter, D., Merwade, V., and McMillan, S.: Incorporating network scale river bathymetry to improve characterization of fluvial processes in flood modeling, Water Resour. Res., 58, e2020WR029521, 10.1029/2020WR029521, 2022.",
+         "DOI": "10.1029/2020WR029521"
+        },
+        {
+         "key": "ref21",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Dottori, F., Salamon, P., Bianchi, A., Alfieri, L., Hirpa, F. A., and Feyen, L.: Development and evaluation of a framework for global flood hazard mapping, Adv. Water Resour., 94, 87–102, 10.1016/j.advwatres.2016.05.002, 2016.",
+         "DOI": "10.1016/j.advwatres.2016.05.002"
+        },
+        {
+         "key": "ref22",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Dottori, F., Alfieri, L., Bianchi, A., Skoien, J., and Salamon, P.: A new dataset of river flood hazard maps for Europe and the Mediterranean Basin, Earth Syst. Sci. Data, 14, 1549–1569, 10.5194/essd-14-1549-2022, 2022.",
+         "DOI": "10.5194/essd-14-1549-2022"
+        },
+        {
+         "key": "ref23",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Edwards, P. J., Watson, E. A., and Wood, F.: Toward a better understanding of recurrence intervals, bankfull, and their importance, J. Contemp. Water Res. Educ., 10.1111/j.1936-704X.2019.03300.x, 2019.",
+         "DOI": "10.1111/j.1936-704X.2019.03300.x"
+        },
+        {
+         "key": "ref24",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Eilander, D., Boisgontier, H., Bouaziz, L. J. E., Buitink, J., Couasnon, A., Dalmijn, B., Hegnauer, M., De Jong, T., Loos, S., Marth, I., and Van Verseveld, W.: HydroMT: automated and reproducible model building and analysis, J. Open Source Softw., 8, 4897, 10.21105/joss.04897, 2023a.",
+         "DOI": "10.21105/joss.04897"
+        },
+        {
+         "key": "ref25",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Eilander, D., Couasnon, A., Leijnse, T., Ikeuchi, H., Yamazaki, D., Muis, S., Dullaart, J., Haag, A., Winsemius, H. C., and Ward, P. J.: A globally applicable framework for compound flood hazard modeling, Nat. Hazards Earth Syst. Sci., 23, 823–846, 10.5194/nhess-23-823-2023, 2023b.",
+         "DOI": "10.5194/nhess-23-823-2023"
+        },
+        {
+         "key": "ref26",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Fleischmann, A., Collischonn, W., Paiva, R., and Tucci, C. E.: Modeling the role of reservoirs versus floodplains on large-scale river hydrodynamics, Nat. Hazards, 99, 1075–1104, 10.1007/s11069-019-03797-9, 2019.",
+         "DOI": "10.1007/s11069-019-03797-9"
+        },
+        {
+         "key": "ref27",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Grimaldi, S., Schumann, G. J.-P., Shokri, A., Walker, J. P., and Pauwels, V. R. N.: Challenges, opportunities, and pitfalls for global coupled hydrologic-hydraulic modeling of floods, Water Resour. Res., 55, 10.1029/2018WR024289, 2019.",
+         "DOI": "10.1029/2018WR024289"
+        },
+        {
+         "key": "ref28",
+         "unstructured": "Grimaldi, S., Salamon, P., Disperati, J., Zsoter, E., Russo, C., Ramos, A., Carton De Wiart, C., Barnard, C., Hansford, E., Gomes, G., and Prudhomme, C.: GloFAS v4.0 hydrological reanalysis, European Commission, Joint Research Centre, JRC131349, https://publications.jrc.ec.europa.eu/repository/handle/JRC131349 (last access: 30 July 2026), 2022.",
+         "type": "web-resource"
+        },
+        {
+         "key": "ref29",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Guo, K., Guan, M., and Yu, D.: Urban surface water flood modelling – a comprehensive review of current models and future challenges, Hydrol. Earth Syst. Sci., 25, 2843–2860, 10.5194/hess-25-2843-2021, 2021.",
+         "DOI": "10.5194/hess-25-2843-2021"
+        },
+        {
+         "key": "ref30",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Hall, C. A., Saia, S. M., Popp, A. L., Dogulu, N., Schymanski, S. J., Drost, N., van Emmerik, T., and Hut, R.: A hydrologist's guide to open science, Hydrol. Earth Syst. Sci., 26, 647–664, 10.5194/hess-26-647-2022, 2022.",
+         "DOI": "10.5194/hess-26-647-2022"
+        },
+        {
+         "key": "ref31",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Harrigan, S., Zsoter, E., Alfieri, L., Prudhomme, C., Salamon, P., Wetterhall, F., Barnard, C., Cloke, H., and Pappenberger, F.: GloFAS-ERA5 operational global river discharge reanalysis 1979–present, Earth Syst. Sci. Data, 12, 2043–2060, 10.5194/essd-12-2043-2020, 2020.",
+         "DOI": "10.5194/essd-12-2043-2020"
+        },
+        {
+         "key": "ref32",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Hawker, L., Rougier, J., Neal, J. C., Bates, P. D., Archer, L., and Yamazaki, D.: Implications of simulating global digital elevation models for flood inundation studies, Water Resour. Res., 54, 7910–7928, 10.1029/2018WR023279, 2018.",
+         "DOI": "10.1029/2018WR023279"
+        },
+        {
+         "key": "ref33",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Hawker, L., Uhe, P., Paulo, L., Sosa, J., Savage, J., Sampson, C., and Neal, J.: A 30 m global map of elevation with forests and buildings removed, Environ. Res. Lett., 17, 024016, 10.1088/1748-9326/ac4d4f, 2022.",
+         "DOI": "10.1088/1748-9326/ac4d4f"
+        },
+        {
+         "key": "ref34",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Hawker, L., Neal, J., Savage, J., Kirkpatrick, T., Lord, R., Zylberberg, Y., Groeger, A., Thuy, T. D., Fox, S., Agyemang, F., and Nam, P. K.: Assessing LISFLOOD-FP with the next-generation digital elevation model FABDEM using household survey and remote sensing data in the Central Highlands of Vietnam, Nat. Hazards Earth Syst. Sci., 24, 539–566, 10.5194/nhess-24-539-2024, 2024.",
+         "DOI": "10.5194/nhess-24-539-2024"
+        },
+        {
+         "key": "ref35",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Hoch, J. M. and Trigg, M. A.: Advancing global flood hazard simulations by improving comparability, benchmarking, and integration of global flood models, Environ. Res. Lett., 14, 034001, 10.1088/1748-9326/aaf3d3, 2019.",
+         "DOI": "10.1088/1748-9326/aaf3d3"
+        },
+        {
+         "key": "ref36",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Jiang, W., Yu, J., Wang, Q., and Yue, Q.: Understanding the effects of digital elevation model resolution and building treatment for urban flood modelling, J. Hydrol. Reg. Stud., 44, 101122, 10.1016/j.ejrh.2022.101122, 2022.",
+         "DOI": "10.1016/j.ejrh.2022.101122"
+        },
+        {
+         "key": "ref37",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Kim, D. E., Gourbesville, P., and Liong, S. Y.: Overcoming data scarcity in flood hazard assessment using remote sensing and artificial neural network, Smart Water, 4, 2, 10.1186/s40713-018-0014-5, 2019.",
+         "DOI": "10.1186/s40713-018-0014-5"
+        },
+        {
+         "key": "ref38",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Landwehr, T., Dasgupta, A., and Waske, B.: Towards robust validation strategies for EO flood maps, Remote Sens. Environ., 315, 114439, 10.1016/j.rse.2024.114439, 2024.",
+         "DOI": "10.1016/j.rse.2024.114439"
+        },
+        {
+         "key": "ref39",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Larnier, K., Monnier, J., Garambois, P. A., and Verley, J.: River discharge and bathymetry estimation from SWOT altimetry measurements, Inverse Probl. Sci. En., 29, 759–789, 10.1080/17415977.2020.1803858, 2020.",
+         "DOI": "10.1080/17415977.2020.1803858"
+        },
+        {
+         "key": "ref40",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Leijnse, T., Van Ormondt, M., Nederhoff, K., and Van Dongeren, A.: Modeling compound flooding in coastal systems using a computationally efficient reduced-physics solver: including fluvial, pluvial, tidal, wind- and wave-driven processes, Coast. Eng., 163, 103796, 10.1016/j.coastaleng.2020.103796, 2021.",
+         "DOI": "10.1016/j.coastaleng.2020.103796"
+        },
+        {
+         "key": "ref41",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Leopold, L. B. and Maddock, T.: The hydraulic geometry of stream channels and some physiographic implications, Professional Paper 252, U. S. Geol. Surv., Washington, D. C., 57 pp., 10.3133/pp252, 1953.",
+         "DOI": "10.3133/pp252"
+        },
+        {
+         "key": "ref42",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Lin, P., Pan, M., Beck, H. E., Yang, Y., Yamazaki, D., Frasson, R., David, C. H., Durand, M., Pavelsky, T. M., Allen, G. H., Gleason, C. J., and Wood, E. F.: Global reconstruction of naturalized river flows at 2.94 million reaches, Water Resour. Res., 55, 6499–6516, 10.1029/2019WR025287, 2019.",
+         "DOI": "10.1029/2019WR025287"
+        },
+        {
+         "key": "ref43",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Masafu, C. and Williams, R.: Satellite video remote sensing for flood model validation, Water Resour. Res., 60, e2023WR034545, 10.1029/2023WR034545, 2024.",
+         "DOI": "10.1029/2023WR034545"
+        },
+        {
+         "key": "ref44",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Merz, B., Blöschl, G., Vorogushyn, S., Dottori, F., Aerts, J. C. J. H., Bates, P., Bertola, M., Kemter, M., Kreibich, H., Lall, U., and Macdonald, E.: Causes, impacts and changes of extreme river floods, Nat. Rev. Earth Environ., 2, 592–609, 10.1038/s43017-021-00195-3, 2021.",
+         "DOI": "10.1038/s43017-021-00195-3"
+        },
+        {
+         "key": "ref45",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Mester, B., Willner, S. N., Frieler, K., and Schewe, J.: Evaluation of river flood extent simulated with multiple global hydrological models and climate forcings, Environ. Res. Lett., 16, 094010, 10.1088/1748-9326/ac188d, 2021.",
+         "DOI": "10.1088/1748-9326/ac188d"
+        },
+        {
+         "key": "ref46",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Mölder, F., Jablonski, K. P., Letcher, B., Hall, M. B., Tomkins-Tinch, C. H., Sochat, V., Forster, J., Lee, S., Twardziok, S. O., Kanitz, A., Wilm, A., Holtgrewe, M., Nahnsen, S., and Köster, J.: Sustainable data analysis with Snakemake, Zenodo [code], 10.5281/zenodo.4063463, 2020.",
+         "DOI": "10.5281/zenodo.4063463",
+         "type": "software"
+        },
+        {
+         "key": "ref47",
+         "unstructured": "National Weather Service: Winter storm summary for January 5, 2005 to January 6, 2005 event, https://www.weather.gov/phi/01052005wss (last access: 16 January 2025), 2005a.",
+         "type": "web-resource"
+        },
+        {
+         "key": "ref48",
+         "unstructured": "National Weather Service: January 5–6, 2005 Ice Storm and Flooding, https://www.weather.gov/iln/20050105 (last access: 16 January 2025), 2005b.",
+         "type": "web-resource"
+        },
+        {
+         "key": "ref49",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Neal, J., Schumann, G., and Bates, P.: A subgrid channel model for simulating river hydraulics and floodplain inundation over large and data sparse areas, Water Resour. Res., 48, W11506, 10.1029/2012WR012514, 2012.",
+         "DOI": "10.1029/2012WR012514"
+        },
+        {
+         "key": "ref50",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Neal, J., Hawker, L., Savage, J., Durand, M., Bates, P., and Sampson, C.: Estimating river channel bathymetry in large scale flood inundation models, Water Resour. Res., 57, e2020WR028301, 10.1029/2020WR028301, 2021.",
+         "DOI": "10.1029/2020WR028301"
+        },
+        {
+         "key": "ref51",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Nederhoff, K., Crosby, S. C., Van Arendonk, N. R., Grossman, E. E., Tehranirad, B., Leijnse, T., Klessens, W., and Barnard, P. L.: Dynamic modeling of coastal compound flooding hazards due to tides, extratropical storms, waves, and sea-level rise: a case study in the Salish Sea, Washington (USA), Water-Sui., 16, 346, 10.3390/w16020346, 2024.",
+         "DOI": "10.3390/w16020346"
+        },
+        {
+         "key": "ref52",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Nevo, S., Morin, E., Gerzi Rosenthal, A., Metzger, A., Barshai, C., Weitzner, D., Voloshin, D., Kratzert, F., Elidan, G., Dror, G., Begelman, G., Nearing, G., Shalev, G., Noga, H., Shavitt, I., Yuklea, L., Royz, M., Giladi, N., Peled Levi, N., Reich, O., Gilon, O., Maor, R., Timnat, S., Shechter, T., Anisimov, V., Gigi, Y., Levin, Y., Moshe, Z., Ben-Haim, Z., Hassidim, A., and Matias, Y.: Flood forecasting with machine learning models in an operational framework, Hydrol. Earth Syst. Sci., 26, 4013–4032, 10.5194/hess-26-4013-2022, 2022.",
+         "DOI": "10.5194/hess-26-4013-2022"
+        },
+        {
+         "key": "ref53",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Pekel, J.-F., Cottam, A., Gorelick, N., and Belward, A. S.: High-resolution mapping of global surface water and its long-term changes, Nature, 540, 418–422, 10.1038/nature20584, 2016.",
+         "DOI": "10.1038/nature20584"
+        },
+        {
+         "key": "ref54",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Rad, A. M., Johnson, J. M., Ghahremani, Z., Coll, J., and Frazier, N.: Enhancing river channel dimension estimation: a machine learning approach leveraging the national water model, hydrographic networks, and landscape characteristics, J. Geophys. Res.-Mach. Learn. Comput., 1, e2024JH000173, 10.1029/2024JH000173, 2024.",
+         "DOI": "10.1029/2024JH000173"
+        },
+        {
+         "key": "ref55",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Reshma, R., Devi, N. N., and Kuiry, S. N.: Real-time urban flood modeling: exploring the sub-grid approach for accurate simulation and hazard analysis, Nat. Hazards, 120, 9609–9647, 10.1007/s11069-024-06579-0, 2024.",
+         "DOI": "10.1007/s11069-024-06579-0"
+        },
+        {
+         "key": "ref56",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Risling, A., Lindersson, S., and Brandimarte, L.: A comparison of global flood models using Sentinel-1 and a change detection approach, Nat. Hazards, 120, 11133–11152, 10.1007/s11069-024-06629-7, 2024.",
+         "DOI": "10.1007/s11069-024-06629-7"
+        },
+        {
+         "key": "ref57",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Roy, N. G. and Sinha, R.: Linking hydrology and sediment dynamics of large alluvial rivers to landscape diversity in the Ganga dispersal system, India, Earth Surf. Proc. Land., 42, 1078–1091, 10.1002/esp.4074, 2016.",
+         "DOI": "10.1002/esp.4074"
+        },
+        {
+         "key": "ref58",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Sadana, T.: Validation of the Open-Source Hydrodynamic Model SFINCS on Historical River Floods at the Global Scale (Version 1.0), Zenodo [data set], 10.5281/zenodo.16759100, 2025.",
+         "DOI": "10.5281/zenodo.16759100",
+         "type": "dataset"
+        },
+        {
+         "key": "ref59",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Salamon, P., McCormick, N., Reimer, C., Clarke, T., Bauer-Marschallinger, B., Wagner, W., Martinis, S., Chow, C., Böhnke, C., Matgen, P., Chini, M., Hostache, R., Molini, L., Fiori, E., and Walli, A.: The new, systematic global flood monitoring product of the Copernicus Emergency Management Service, in: 2021 IEEE International Geoscience and Remote Sensing Symposium (IGARSS), Brussels, Belgium, 11–16 July 2021, 1053–1056, 10.1109/IGARSS47720.2021.9554214, 2021.",
+         "DOI": "10.1109/IGARSS47720.2021.9554214"
+        },
+        {
+         "key": "ref60",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Salinas, J. L., Laaha, G., Rogger, M., Parajka, J., Viglione, A., Sivapalan, M., and Blöschl, G.: Comparative assessment of predictions in ungauged basins – Part 2: Flood and low flow studies, Hydrol. Earth Syst. Sci., 17, 2637–2652, 10.5194/hess-17-2637-2013, 2013.",
+         "DOI": "10.5194/hess-17-2637-2013"
+        },
+        {
+         "key": "ref61",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Sampson, C., Smith, A., Bates, P., Neal, J., Alfieri, L., and Freer, J. E.: A high-resolution global flood hazard model, Water Resour. Res., 51, 7358–7381, 10.1002/2015WR016954, 2015.",
+         "DOI": "10.1002/2015WR016954"
+        },
+        {
+         "key": "ref62",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Scussolini, P., Aerts, J. C. J. H., Jongman, B., Bouwer, L. M., Winsemius, H. C., de Moel, H., and Ward, P. J.: FLOPROS: an evolving global database of flood protection standards, Nat. Hazards Earth Syst. Sci., 16, 1049–1061, 10.5194/nhess-16-1049-2016, 2016.",
+         "DOI": "10.5194/nhess-16-1049-2016"
+        },
+        {
+         "key": "ref63",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Shaw, J., Kesserwani, G., Neal, J., Bates, P., and Sharifian, M. K.: LISFLOOD-FP 8.0: the new discontinuous Galerkin shallow-water solver for multi-core CPUs and GPUs, Geosci. Model Dev., 14, 3577–3602, 10.5194/gmd-14-3577-2021, 2021.",
+         "DOI": "10.5194/gmd-14-3577-2021"
+        },
+        {
+         "key": "ref64",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Smith, A., Sampson, C., and Bates, P.: Regional flood frequency analysis at the global scale, Water Resour. Res., 51, 539–553, 10.1002/2014WR015814, 2014.",
+         "DOI": "10.1002/2014WR015814"
+        },
+        {
+         "key": "ref65",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Stephens, E., Schumann, G., and Bates, P.: Problems with binary pattern measures for flood model evaluation, Hydrol. Process., 28, 4928–4937, 10.1002/hyp.9979, 2014.",
+         "DOI": "10.1002/hyp.9979"
+        },
+        {
+         "key": "ref66",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Tellman, B., Sullivan, J. A., Kuhn, C., Kettner, A. J., Doyle, C. S., Brakenridge, G. R., Erickson, T. A., and Slayback, D. A.: Satellite imaging reveals increased proportion of population exposed to floods, Nature, 596, 80–86, 10.1038/s41586-021-03695-w, 2021.",
+         "DOI": "10.1038/s41586-021-03695-w"
+        },
+        {
+         "key": "ref67",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Teng, J., Jakeman, A. J., Vaze, J., Croke, B. F. W., Dutta, D., and Kim, S.: Flood inundation modelling: a review of methods, recent advances and uncertainty analysis, Environ. Modell. Softw., 90, 201–216, 10.1016/j.envsoft.2017.01.006, 2017.",
+         "DOI": "10.1016/j.envsoft.2017.01.006"
+        },
+        {
+         "key": "ref68",
+         "unstructured": "USGS: 3D Elevation Program (3DEP) 1-meter Digital Elevation Model, U. S. Geological Survey [data set], https://www.usgs.gov/3d-elevation-program/about-3dep-products-services (last access: 16 January 2025), 2015.",
+         "type": "dataset"
+        },
+        {
+         "key": "ref69",
+         "unstructured": "USGS: What is the vertical accuracy of 3D Elevation Program (3DEP) DEMs?, U. S. Geological Survey, https://www.usgs.gov/faqs/what-vertical-accuracy-3d-elevation-program-3dep-dems (last access: 28 July 2025), 2022.",
+         "type": "web-resource"
+        },
+        {
+         "key": "ref70",
+         "unstructured": "USGS: USGS current water data for the nation, U. S. Geological Survey [data set], https://waterdata.usgs.gov/nwis/rt (last access: 16 January 2025), 2023.",
+         "type": "dataset"
+        },
+        {
+         "key": "ref71",
+         "doi-asserted-by": "publisher",
+         "unstructured": "van Ormondt, M., Leijnse, T., de Goede, R., Nederhoff, K., and van Dongeren, A.: Subgrid corrections for the linear inertial equations of a compound flood model – a case study using SFINCS 2.1.1 Dollerup release, Geosci. Model Dev., 18, 843–861, 10.5194/gmd-18-843-2025, 2025.",
+         "DOI": "10.5194/gmd-18-843-2025"
+        },
+        {
+         "key": "ref72",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Wade, J., David, C. H., Altenau, E., Collins, E., Oubanas, H., Coss, S., Cerbelaud, A., Tom, M., Durand, M., and Pavelsky, T.: MERIT-SWORD: Bidirectional Translations Between MERIT-Basins and the SWOT River Database (SWORD) (Version v0.4), Zenodo [data set], 10.5281/zenodo.14675925, 2025.",
+         "DOI": "10.5281/zenodo.14675925",
+         "type": "dataset"
+        },
+        {
+         "key": "ref73",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Wagner, W., Bauer-Marschallinger, B., Roth, F., Raiger-Stachl, T., Reimer, C., McCormick, N., Matgen, P., Chini, M., Li, Y., Martinis, S., Wieland, M., Kraft, F., Festa, D., Hassaan, M., Tupas, M. E., Zhao, J., Seewald, M., Riffler, M., Molini, L., Kidd, R., Briese, C., and Salamon, P.: The fully-automatic Sentinel-1 Global Flood Monitoring service: scientific challenges and future directions, Remote Sens. Environ., 333, 115108, 10.1016/j.rse.2025.115108, 2026.",
+         "DOI": "10.1016/j.rse.2025.115108"
+        },
+        {
+         "key": "ref74",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Ward, P. J., Jongman, B., Sperna Weiland, F., Bouwman, A., van Beek, R., Bierkens, M. F. P., Ligtvoet, W., and Winsemius, H. C.: Assessing flood risk at the global scale: model setup, results, and sensitivity, Environ. Res. Lett., 8, 044019, 10.1088/1748-9326/8/4/044019, 2013.",
+         "DOI": "10.1088/1748-9326/8/4/044019"
+        },
+        {
+         "key": "ref75",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Wilkerson, G.: Improved bankfull discharge prediction using 2-year recurrence-period discharge, J. Am. Water Resour. As., 10.1111/j.1752-1688.2007.00151.x, 2008.",
+         "DOI": "10.1111/j.1752-1688.2007.00151.x"
+        },
+        {
+         "key": "ref76",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Wing, O., Quinn, N., Bates, P., Neal, J., Smith, A., Sampson, C., Coxon, G., Yamazaki, D., Sutanudjaja, E. H., and Alfieri, L.: Toward global stochastic river flood modeling, Water Resour. Res., 56, e2020WR027692, 10.1029/2020WR027692, 2020.",
+         "DOI": "10.1029/2020WR027692"
+        },
+        {
+         "key": "ref77",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Wing, O. E. J., Bates, P. D., Sampson, C. C., Smith, A. M., Johnson, K. A., and Erickson, T. A.: Validation of a 30 m resolution flood hazard model of the conterminous United States, Water Resour. Res., 53, 7968–7986, 10.1002/2017WR020917, 2017.",
+         "DOI": "10.1002/2017WR020917"
+        },
+        {
+         "key": "ref78",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Wing, O. E. J., Bates, P. D., Neal, J. C., Sampson, C. C., Smith, A. M., Quinn, N., Shustikova, I., Domeneghetti, A., Gilles, D. W., Goska, R., and Krajewski, W. F.: A new automated method for improved flood defense representation in large-scale hydraulic models, Water Resour. Res., 55, 11007–11034, 10.1029/2019WR025957, 2019.",
+         "DOI": "10.1029/2019WR025957"
+        },
+        {
+         "key": "ref79",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Wing, O. E. J., Smith, A. M., Marston, M. L., Porter, J. R., Amodeo, M. F., Sampson, C. C., and Bates, P. D.: Simulating historical flood events at the continental scale: observational validation of a large-scale hydrodynamic model, Nat. Hazards Earth Syst. Sci., 21, 559–575, 10.5194/nhess-21-559-2021, 2021.",
+         "DOI": "10.5194/nhess-21-559-2021"
+        },
+        {
+         "key": "ref80",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Wing, O. E. J., Bates, P. D., Quinn, N. D., Savage, J. T. S., Uhe, P. F., Cooper, A., Collings, T. P., Addor, N., Lord, N. S., Hatchard, S., Hoch, J. M., Bates, J., Probyn, I., Himsworth, S., Rodríguez González, J., Brine, M. P., Wilkinson, H., Sampson, C. C., Smith, A. M., Neal, J. C., and Haigh, I. D.: A 30 m global flood inundation model for any climate scenario, Water Resour. Res., 60, e2023WR036460, 10.1029/2023WR036460, 2024.",
+         "DOI": "10.1029/2023WR036460"
+        },
+        {
+         "key": "ref81",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Winsemius, H. C., Aerts, J. C. J. H., Van Beek, L. P. H., Bierkens, M. F. P., Bouwman, A., Jongman, B., Kwadijk, J. C. J., Ligtvoet, W., Lucas, P. L., Van Vuuren, D. P., and Ward, P. J.: Global drivers of future river flood risk, Nat. Clim. Change, 6, 381–385, 10.1038/nclimate2893, 2015.",
+         "DOI": "10.1038/nclimate2893"
+        },
+        {
+         "key": "ref82",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Yamazaki, D., Kanae, S., Kim, H., and Oki, T.: A physically based description of floodplain inundation dynamics in a global river routing model, Water Resour. Res., 47, W04501, 10.1029/2010WR009726, 2011.",
+         "DOI": "10.1029/2010WR009726"
+        },
+        {
+         "key": "ref83",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Zanaga, D., Van De Kerchove, R., Daems, D., De Keersmaecker, W., Brockmann, C., Kirches, G., Wevers, J., Cartus, O., Santoro, M., Fritz, S., Lesiv, M., Herold, M., Tsendbazar, N.-E., Xu, P., Ramoino, F., and Arino, O.: ESA WorldCover 10 m 2021 v200, Zenodo [data set], 10.5281/zenodo.7254221, 2022.",
+         "DOI": "10.5281/zenodo.7254221",
+         "type": "dataset"
+        },
+        {
+         "key": "ref84",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Zarrabi, R., McDermott, R., Erfani, S. M. H., and Cohen, S.: Bankfull and mean-flow channel geometry estimation through machine learning algorithms across the CONtiguous United States (CONUS), Water Resour. Res., 61, e2024WR037997, 10.1029/2024WR037997, 2025.",
+         "DOI": "10.1029/2024WR037997"
+        },
+        {
+         "key": "ref85",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Zeiger, S. J. and Hubbart, J. A.: Measuring and modeling event-based environmental flows: an assessment of HEC-RAS 2D rain-on-grid simulations, J. Environ. Manage., 285, 112125, 10.1016/j.jenvman.2021.112125, 2021.",
+         "DOI": "10.1016/j.jenvman.2021.112125"
+        },
+        {
+         "key": "ref86",
+         "doi-asserted-by": "publisher",
+         "unstructured": "Zhou, X., Revel, M., Modi, P., Shiozawa, T., and Yamazaki, D.: Correction of river bathymetry parameters using the stage–discharge rating curve, Water Resour. Res., 58, e2021WR031226, 10.1029/2021WR031226, 2022.",
+         "DOI": "10.1029/2021WR031226"
+        }
+       ],
+       "container-title": [
+        "Hydrology and Earth System Sciences"
+       ],
+       "original-title": [],
+       "language": "en",
+       "link": [
+        {
+         "URL": "https://hess.copernicus.org/articles/30/5491/2026/hess-30-5491-2026.pdf",
+         "content-type": "unspecified",
+         "content-version": "vor",
+         "intended-application": "similarity-checking"
+        }
+       ],
+       "deposited": {
+        "date-parts": [
+         [
+          2026,
+          9,
+          12
+         ]
         ],
-        "date-time": "2026-09-01T06:34:58Z",
-        "timestamp": 1788244498000
+        "date-time": "2026-09-12T10:11:13Z",
+        "timestamp": 1789207873000
        },
        "score": 1,
        "resource": {
         "primary": {
-         "URL": "https://egusphere.copernicus.org/preprints/2025/egusphere-2025-4387/"
+         "URL": "https://hess.copernicus.org/articles/30/5491/2026/"
         }
        },
        "subtitle": [],
@@ -28800,24 +29347,29 @@
        "issued": {
         "date-parts": [
          [
-          2025,
-          11,
-          6
+          2026,
+          9,
+          1
          ]
         ]
        },
-       "references-count": 0,
-       "URL": "https://doi.org/10.5194/egusphere-2025-4387",
+       "references-count": 86,
+       "journal-issue": {
+        "issue": "17",
+        "published-online": {
+         "date-parts": [
+          [
+           2026
+          ]
+         ]
+        }
+       },
+       "URL": "https://doi.org/10.5194/hess-30-5491-2026",
        "relation": {
-        "has-comment": [
+        "has-preprint": [
          {
           "id-type": "doi",
-          "id": "10.5194/egusphere-2025-4387-AC1",
-          "asserted-by": "subject"
-         },
-         {
-          "id-type": "doi",
-          "id": "10.5194/egusphere-2025-4387-AC2",
+          "id": "10.5194/egusphere-2025-4387",
           "asserted-by": "subject"
          }
         ],
@@ -28829,51 +29381,102 @@
          },
          {
           "id-type": "doi",
-          "id": "10.5194/egusphere-2025-4387-RC2",
-          "asserted-by": "subject"
-         }
-        ],
-        "is-preprint-of": [
-         {
-          "id-type": "doi",
-          "id": "10.5194/hess-30-5491-2026",
+          "id": "10.5194/egusphere-2025-4387-AC1",
           "asserted-by": "subject"
          },
          {
           "id-type": "doi",
-          "id": "10.5194/hess-30-5491-2026",
+          "id": "10.5194/egusphere-2025-4387-RC2",
+          "asserted-by": "subject"
+         },
+         {
+          "id-type": "doi",
+          "id": "10.5194/egusphere-2025-4387-AC2",
+          "asserted-by": "subject"
+         },
+         {
+          "id-type": "doi",
+          "id": "10.5194/egusphere-2025-4387-AC2",
           "asserted-by": "object"
+         },
+         {
+          "id-type": "doi",
+          "id": "10.5194/egusphere-2025-4387-RC1",
+          "asserted-by": "object"
+         },
+         {
+          "id-type": "doi",
+          "id": "10.5194/egusphere-2025-4387-AC1",
+          "asserted-by": "object"
+         },
+         {
+          "id-type": "doi",
+          "id": "10.5194/egusphere-2025-4387-RC2",
+          "asserted-by": "object"
+         }
+        ],
+        "is-part-of": [
+         {
+          "id-type": "doi",
+          "id": "10.5281/zenodo.16759100",
+          "asserted-by": "subject"
+         },
+         {
+          "id-type": "doi",
+          "id": "10.5281/zenodo.14675925",
+          "asserted-by": "subject"
          }
         ]
        },
+       "ISSN": [
+        "1607-7938"
+       ],
+       "issn-type": [
+        {
+         "value": "1607-7938",
+         "type": "electronic"
+        }
+       ],
        "subject": [],
        "published": {
         "date-parts": [
          [
-          2025,
-          11,
-          6
+          2026,
+          9,
+          1
          ]
         ]
-       },
-       "subtype": "preprint"
+       }
       }
      }
     },
     {
-     "cache_key": "https://api.crossref.org/works/10.5194/egusphere-2025-4387/transform/application/x-bibtex",
-     "url": "https://api.crossref.org/works/10.5194/egusphere-2025-4387/transform/application/x-bibtex",
-     "fetched_utc": "2026-10-21T09:28:46Z",
+     "cache_key": "https://api.crossref.org/works/10.5194/hess-30-5491-2026/transform/application/x-bibtex",
+     "url": "https://api.crossref.org/works/10.5194/hess-30-5491-2026/transform/application/x-bibtex",
+     "fetched_utc": "2026-10-22T08:02:56Z",
      "http_status": 200,
      "content_type": null,
-     "final_url": "https://api.crossref.org/works/10.5194/egusphere-2025-4387/transform/application/x-bibtex",
-     "body_text": " @article{Sadana_2025, title={Validation of the Open-Source Hydrodynamic Model SFINCS on Historical River Floods at the Global Scale}, url={http://dx.doi.org/10.5194/egusphere-2025-4387}, DOI={10.5194/egusphere-2025-4387}, publisher={Copernicus GmbH}, author={Sadana, Tarun and Aerts, Jeroen C. J. H. and Eilander, Dirk and Merz, Bruno and de Moel, Hans and Busker, Tim and Bril, Veerle and de Bruijn, Jens}, year={2025}, month=Nov }\n"
+     "final_url": "https://api.crossref.org/works/10.5194/hess-30-5491-2026/transform/application/x-bibtex",
+     "body_text": " @article{Sadana_2026, title={Validation of the open-source hydrodynamic model SFINCS on historical river floods at the global scale}, volume={30}, ISSN={1607-7938}, url={http://dx.doi.org/10.5194/hess-30-5491-2026}, DOI={10.5194/hess-30-5491-2026}, number={17}, journal={Hydrology and Earth System Sciences}, publisher={Copernicus GmbH}, author={Sadana, Tarun and Aerts, Jeroen C. J. H. and Eilander, Dirk and Merz, Bruno and de Moel, Hans and Busker, Tim and Bril, Veerle C. and de Bruijn, Jens}, year={2026}, month=Sept, pages={5491–5519} }\n"
     }
    ],
+   "replaced_doi": "10.5194/egusphere-2025-4387",
+   "replacement_reason": "published version (Hydrol. Earth Syst. Sci. 30, 2026) replaces the EGUsphere preprint",
+   "parsed_effective": {
+    "authors": "Sadana, T., Aerts, J. C. J. H., Eilander, D., Merz, B., de Moel, H., Busker, T., Bril, V., and de Bruijn, J.",
+    "first_author": "Sadana",
+    "year": 2025,
+    "doi": "10.5194/hess-30-5491-2026",
+    "pre_url": "Validation of the open-source hydrodynamic model SFINCS on historical river floods at the global scale, EGUsphere [preprint]",
+    "parts": [
+     "Validation of the open-source hydrodynamic model SFINCS on historical river floods at the global scale",
+     "EGUsphere [preprint]"
+    ]
+   },
    "crossref": {
-    "DOI": "10.5194/egusphere-2025-4387",
-    "type": "posted-content",
-    "title": "Validation of the Open-Source Hydrodynamic Model SFINCS on Historical River Floods at the Global Scale",
+    "DOI": "10.5194/hess-30-5491-2026",
+    "type": "journal-article",
+    "title": "Validation of the open-source hydrodynamic model SFINCS on historical river floods at the global scale",
     "subtitle": "",
     "authors": [
      "Sadana, Tarun",
@@ -28882,18 +29485,19 @@
      "Merz, Bruno",
      "de Moel, Hans",
      "Busker, Tim",
-     "Bril, Veerle",
+     "Bril, Veerle C.",
      "de Bruijn, Jens"
     ],
     "editors": [],
-    "container_title": null,
-    "volume": null,
-    "issue": null,
-    "page": null,
+    "container_title": "Hydrology and Earth System Sciences",
+    "volume": "30",
+    "issue": "17",
+    "page": "5491-5519",
     "article_number": null,
     "publisher": "Copernicus GmbH",
     "years": {
-     "issued": 2025
+     "published-online": 2026,
+     "issued": 2026
     },
     "license": [
      "https://creativecommons.org/licenses/by/4.0/"
@@ -28902,7 +29506,7 @@
    "assessment": {
     "title_sim": 1.0,
     "r5_title": "Validation of the open-source hydrodynamic model SFINCS on historical river floods at the global scale",
-    "crossref_title": "Validation of the Open-Source Hydrodynamic Model SFINCS on Historical River Floods at the Global Scale",
+    "crossref_title": "Validation of the open-source hydrodynamic model SFINCS on historical river floods at the global scale",
     "title_ok": true,
     "r5_first_author": "Sadana",
     "crossref_first_author": "Sadana",
@@ -28910,20 +29514,19 @@
     "author_how": "exact",
     "r5_year": 2025,
     "crossref_years": {
-     "issued": 2025
+     "published-online": 2026,
+     "issued": 2026
     },
-    "year_fields_matched": [
-     "issued"
-    ],
-    "year_ok": true,
+    "year_fields_matched": [],
+    "year_ok": false,
     "notes": [
      "volume/pages not compared (R5 tail: “EGUsphere [preprint]”)"
     ]
    },
-   "doi_crossref": "10.5194/egusphere-2025-4387",
-   "status": "verified",
-   "detail": "title 1.000; 1st author Sadana; year 2025 = issued; note: volume/pages not compared (R5 tail: “EGUsphere [preprint]”)",
-   "bib_key": "sadana2025validation"
+   "doi_crossref": "10.5194/hess-30-5491-2026",
+   "status": "replaced",
+   "detail": "R5 cites 10.5194/egusphere-2025-4387; published version (Hydrol. Earth Syst. Sci. 30, 2026) replaces the EGUsphere preprint; Crossref record of the replacement: title 1.000; 1st author Sadana; YEAR differs: R5 2025 vs Crossref online 2026, issued 2026; note: volume/pages not compared (R5 tail: “EGUsphere [preprint]”)",
+   "bib_key": "sadana2026validation"
   },
   {
    "n": 35,
@@ -38581,17 +39184,10 @@
        ]
       }
      }
-    },
-    {
-     "cache_key": "https://api.crossref.org/works/10.1016/s0967-0637%2800%2900024-8/transform/application/x-bibtex",
-     "url": "https://api.crossref.org/works/10.1016/s0967-0637%2800%2900024-8/transform/application/x-bibtex",
-     "fetched_utc": "2026-10-21T09:28:58Z",
-     "http_status": 200,
-     "content_type": null,
-     "final_url": "https://api.crossref.org/works/10.1016/s0967-0637%2800%2900024-8/transform/application/x-bibtex",
-     "body_text": " @article{Tsimplis_2000, title={Estimation of the transports through the Strait of Gibraltar}, volume={47}, ISSN={0967-0637}, url={http://dx.doi.org/10.1016/s0967-0637(00)00024-8}, DOI={10.1016/s0967-0637(00)00024-8}, number={12}, journal={Deep Sea Research Part I: Oceanographic Research Papers}, publisher={Elsevier BV}, author={Tsimplis, M.N. and Bryden, H.L.}, year={2000}, month=Dec, pages={2219–2242} }\n"
     }
    ],
+   "drop_bib": true,
+   "drop_reason": "dropped: replaced by Tsimplis, Proctor & Flather (1995), item (1)",
    "crossref": {
     "DOI": "10.1016/s0967-0637(00)00024-8",
     "type": "journal-article",
@@ -38639,9 +39235,9 @@
     "notes": []
    },
    "doi_crossref": "10.1016/s0967-0637(00)00024-8",
-   "status": "verified",
-   "detail": "title 1.000; 1st author Tsimplis; year 2000 = print/issued",
-   "bib_key": "tsimplis2000estimation"
+   "status": "dropped",
+   "detail": "dropped: replaced by Tsimplis, Proctor & Flather (1995), item (1); Crossref record of the R5 entry: title 1.000; 1st author Tsimplis; year 2000 = print/issued",
+   "bib_key": null
   },
   {
    "n": 45,
@@ -44028,7 +44624,7 @@
      "https://www.elsevier.com/legal/tdmrep-license"
     ]
    },
-   "tsimplis_bryden_2000_status": "verified",
+   "tsimplis_bryden_2000_status": "dropped",
    "tsimplis_bryden_2000_url": "https://api.crossref.org/works/10.1016/S0967-0637%2800%2900024-8",
    "citing_lines": [
     {
@@ -45367,24 +45963,24 @@
    "mdpi_fulltext_check": [
     {
      "url": "https://www.mdpi.com/2076-3263/8/1/19",
-     "fetched_utc": "2026-10-21T09:44:44Z",
+     "fetched_utc": "2026-10-22T08:02:56Z",
      "http_status": 403,
      "content_type": "text/html",
      "bytes": 398,
-     "sha256": "e4dcde5a7665d6ec814b6607ee85252400737b85ebf664c31f41268a64053b42",
+     "sha256": "5626681f2e6a4df0b09deb3fce32a73607117776b1b40f83e57377cebcfdb84b",
      "extract": null,
-     "body_head": "<HTML><HEAD>\n<TITLE>Access Denied</TITLE>\n</HEAD><BODY>\n<H1>Access Denied</H1>\n \nYou don't have permission to access \"http&#58;&#47;&#47;www&#46;mdpi&#46;com&#47;2076&#45;3263&#47;8&#47;1&#47;19\" on this server.<P>\nReference&#32;&#35;18&#46;37451502&#46;1792575884&#46;3e71c219\n<P>https&#58;&#47;&#47",
+     "body_head": "<HTML><HEAD>\n<TITLE>Access Denied</TITLE>\n</HEAD><BODY>\n<H1>Access Denied</H1>\n \nYou don't have permission to access \"http&#58;&#47;&#47;www&#46;mdpi&#46;com&#47;2076&#45;3263&#47;8&#47;1&#47;19\" on this server.<P>\nReference&#32;&#35;18&#46;37451502&#46;1792656177&#46;46bd8f7d\n<P>https&#58;&#47;&#47",
      "error": null
     },
     {
      "url": "https://www.mdpi.com/2076-3263/8/1/19/pdf",
-     "fetched_utc": "2026-10-21T09:44:45Z",
+     "fetched_utc": "2026-10-22T08:02:57Z",
      "http_status": 403,
      "content_type": "text/html",
      "bytes": 406,
-     "sha256": "cb407effdf6b7fa2c8ab098904a8f1b4033440427559be2f671bffe63070992f",
+     "sha256": "7a5cd55c5064637a2747cfe00c36d4ac2ec69aceb1230b9291f4a3f541f874c5",
      "extract": null,
-     "body_head": "<HTML><HEAD>\n<TITLE>Access Denied</TITLE>\n</HEAD><BODY>\n<H1>Access Denied</H1>\n \nYou don't have permission to access \"http&#58;&#47;&#47;www&#46;mdpi&#46;com&#47;2076&#45;3263&#47;8&#47;1&#47;19&#47;pdf\" on this server.<P>\nReference&#32;&#35;18&#46;cf451502&#46;1792575885&#46;490cdc21\n<P>https&#58;&",
+     "body_head": "<HTML><HEAD>\n<TITLE>Access Denied</TITLE>\n</HEAD><BODY>\n<H1>Access Denied</H1>\n \nYou don't have permission to access \"http&#58;&#47;&#47;www&#46;mdpi&#46;com&#47;2076&#45;3263&#47;8&#47;1&#47;19&#47;pdf\" on this server.<P>\nReference&#32;&#35;18&#46;cf451502&#46;1792656177&#46;539aa1c5\n<P>https&#58;&",
      "error": null
     }
    ]
@@ -46182,14 +46778,17 @@
   },
   {
    "role": "R5 #34",
-   "doi": "10.5194/egusphere-2025-4387",
-   "key": "sadana2025validation",
-   "transform_url": "https://api.crossref.org/works/10.5194/egusphere-2025-4387/transform/application/x-bibtex",
-   "fetched_utc": "2026-10-21T09:28:46Z",
+   "doi": "10.5194/hess-30-5491-2026",
+   "key": "sadana2026validation",
+   "transform_url": "https://api.crossref.org/works/10.5194/hess-30-5491-2026/transform/application/x-bibtex",
+   "fetched_utc": "2026-10-22T08:02:56Z",
    "http_status": 200,
-   "bib": "@article{sadana2025validation, title={Validation of the Open-Source Hydrodynamic Model SFINCS on Historical River Floods at the Global Scale}, url={http://dx.doi.org/10.5194/egusphere-2025-4387}, DOI={10.5194/egusphere-2025-4387}, publisher={Copernicus GmbH}, author={Sadana, Tarun and Aerts, Jeroen C. J. H. and Eilander, Dirk and Merz, Bruno and de Moel, Hans and Busker, Tim and Bril, Veerle and de Bruijn, Jens}, year={2025}, month=Nov }",
-   "bib_year": 2025,
-   "comments": []
+   "bib": "@article{sadana2026validation, title={Validation of the open-source hydrodynamic model SFINCS on historical river floods at the global scale}, volume={30}, ISSN={1607-7938}, url={http://dx.doi.org/10.5194/hess-30-5491-2026}, DOI={10.5194/hess-30-5491-2026}, number={17}, journal={Hydrology and Earth System Sciences}, publisher={Copernicus GmbH}, author={Sadana, Tarun and Aerts, Jeroen C. J. H. and Eilander, Dirk and Merz, Bruno and de Moel, Hans and Busker, Tim and Bril, Veerle C. and de Bruijn, Jens}, year={2026}, month=Sept, pages={5491–5519} }",
+   "bib_year": 2026,
+   "comments": [
+    "% REPLACED (decision 21 Oct 2026): R5 cites 10.5194/egusphere-2025-4387 (published version (Hydrol. Earth Syst. Sci. 30, 2026) replaces the EGUsphere preprint)",
+    "% NOTE: the Crossref BibTeX year is 2026; the R5 year is 2025 (Crossref online 2026, issued 2026)"
+   ]
   },
   {
    "role": "R5 #35",
@@ -46291,17 +46890,6 @@
    "comments": []
   },
   {
-   "role": "R5 #44",
-   "doi": "10.1016/s0967-0637(00)00024-8",
-   "key": "tsimplis2000estimation",
-   "transform_url": "https://api.crossref.org/works/10.1016/s0967-0637%2800%2900024-8/transform/application/x-bibtex",
-   "fetched_utc": "2026-10-21T09:28:58Z",
-   "http_status": 200,
-   "bib": "@article{tsimplis2000estimation, title={Estimation of the transports through the Strait of Gibraltar}, volume={47}, ISSN={0967-0637}, url={http://dx.doi.org/10.1016/s0967-0637(00)00024-8}, DOI={10.1016/s0967-0637(00)00024-8}, number={12}, journal={Deep Sea Research Part I: Oceanographic Research Papers}, publisher={Elsevier BV}, author={Tsimplis, M.N. and Bryden, H.L.}, year={2000}, month=Dec, pages={2219–2242} }",
-   "bib_year": 2000,
-   "comments": []
-  },
-  {
    "role": "R5 #45",
    "doi": "10.5194/gmd-18-843-2025",
    "key": "vanormondt2025subgrid",
@@ -46357,7 +46945,7 @@
    "bib": "@article{tsimplis1995twodimensional, title={A two‐dimensional tidal model for the Mediterranean Sea}, volume={100}, ISSN={0148-0227}, url={http://dx.doi.org/10.1029/95jc01671}, DOI={10.1029/95jc01671}, number={C8}, journal={Journal of Geophysical Research: Oceans}, publisher={American Geophysical Union (AGU)}, author={Tsimplis, M. N. and Proctor, R. and Flather, R. A.}, year={1995}, month=Aug, pages={16223–16239} }",
    "bib_year": 1995,
    "comments": [
-    "% proposed replacement for the tide citation (item 1)"
+    "% replaces the tide citation Tsimplis & Bryden (2000) (item 1; decision 21 Oct 2026)"
    ]
   }
  ],
@@ -56825,27 +57413,27 @@
   },
   "https://www.mdpi.com/2076-3263/8/1/19": {
    "url": "https://www.mdpi.com/2076-3263/8/1/19",
-   "fetched_utc": "2026-10-21T09:44:44Z",
+   "fetched_utc": "2026-10-22T08:02:56Z",
    "http_status": 403,
    "content_type": "text/html",
    "final_url": "https://www.mdpi.com/2076-3263/8/1/19",
    "bytes": 398,
-   "sha256": "e4dcde5a7665d6ec814b6607ee85252400737b85ebf664c31f41268a64053b42",
+   "sha256": "5626681f2e6a4df0b09deb3fce32a73607117776b1b40f83e57377cebcfdb84b",
    "stored": "extract only (byte copy not kept in the repository)",
-   "body_head": "<HTML><HEAD>\n<TITLE>Access Denied</TITLE>\n</HEAD><BODY>\n<H1>Access Denied</H1>\n \nYou don't have permission to access \"http&#58;&#47;&#47;www&#46;mdpi&#46;com&#47;2076&#45;3263&#47;8&#47;1&#47;19\" on this server.<P>\nReference&#32;&#35;18&#46;37451502&#46;1792575884&#46;3e71c219\n<P>https&#58;&#47;&#47",
-   "local_copy": "mdpi_www_mdpi_com_2076_3263_8_1_19_2026-10-21T094444Z"
+   "body_head": "<HTML><HEAD>\n<TITLE>Access Denied</TITLE>\n</HEAD><BODY>\n<H1>Access Denied</H1>\n \nYou don't have permission to access \"http&#58;&#47;&#47;www&#46;mdpi&#46;com&#47;2076&#45;3263&#47;8&#47;1&#47;19\" on this server.<P>\nReference&#32;&#35;18&#46;37451502&#46;1792656177&#46;46bd8f7d\n<P>https&#58;&#47;&#47",
+   "local_copy": "mdpi_www_mdpi_com_2076_3263_8_1_19_2026-10-22T080256Z"
   },
   "https://www.mdpi.com/2076-3263/8/1/19/pdf": {
    "url": "https://www.mdpi.com/2076-3263/8/1/19/pdf",
-   "fetched_utc": "2026-10-21T09:44:45Z",
+   "fetched_utc": "2026-10-22T08:02:57Z",
    "http_status": 403,
    "content_type": "text/html",
    "final_url": "https://www.mdpi.com/2076-3263/8/1/19/pdf",
    "bytes": 406,
-   "sha256": "cb407effdf6b7fa2c8ab098904a8f1b4033440427559be2f671bffe63070992f",
+   "sha256": "7a5cd55c5064637a2747cfe00c36d4ac2ec69aceb1230b9291f4a3f541f874c5",
    "stored": "extract only (byte copy not kept in the repository)",
-   "body_head": "<HTML><HEAD>\n<TITLE>Access Denied</TITLE>\n</HEAD><BODY>\n<H1>Access Denied</H1>\n \nYou don't have permission to access \"http&#58;&#47;&#47;www&#46;mdpi&#46;com&#47;2076&#45;3263&#47;8&#47;1&#47;19&#47;pdf\" on this server.<P>\nReference&#32;&#35;18&#46;cf451502&#46;1792575885&#46;490cdc21\n<P>https&#58;&",
-   "local_copy": "mdpi_www_mdpi_com_2076_3263_8_1_19_pdf_2026-10-21T094445Z"
+   "body_head": "<HTML><HEAD>\n<TITLE>Access Denied</TITLE>\n</HEAD><BODY>\n<H1>Access Denied</H1>\n \nYou don't have permission to access \"http&#58;&#47;&#47;www&#46;mdpi&#46;com&#47;2076&#45;3263&#47;8&#47;1&#47;19&#47;pdf\" on this server.<P>\nReference&#32;&#35;18&#46;cf451502&#46;1792656177&#46;539aa1c5\n<P>https&#58;&",
+   "local_copy": "mdpi_www_mdpi_com_2076_3263_8_1_19_pdf_2026-10-22T080257Z"
   },
   "https://cmr.earthdata.nasa.gov/search/collections.umm_json?short_name=GPM_3IMERGHHL&version=07": {
    "url": "https://cmr.earthdata.nasa.gov/search/collections.umm_json?short_name=GPM_3IMERGHHL&version=07",
@@ -57319,7 +57907,7 @@
     "qa_documentation_content": "| Criterion | Verification method | Result |  | Comments |\n| -- | -- | -- | -- | -- |\n| 4.1.1 Documentation must include a general overview of the reanalysis products, their primary use, and a characterization of the models and observing systems used for the products | The Overview and Documentation are checked for the required information | Criterion fully met | ![Criterion fully met](/assets/qa_pass.svg) | Documentation includes a detailed description of the [models and observing system](https://confluence.ecmwf.int/display/CKB/ERA5%3A+data+documentation#ERA5:datadocumentation-TheIFSanddataassimilation) used for the products. Examples on the use of data are provided. |\n| 4.1.2 Documentation must include a detailed description of all data records contained in the dataset, their data processing levels, spatial coverage and resolution, temporal coverage and resolution, and data update frequencies | The Documentation is checked for the required information | Criterion fully met | ![Criterion fully met](/assets/qa_pass.svg) | All information is available under Documentation, see e.g. [Parameter listings](https://confluence.ecmwf.int/display/CKB/ERA5%3A+data+documentation#ERA5:datadocumentation-Parameterlistings). |\n| 4.1.3 Documentation must refer to data provenance, data licenses, digital object identifiers (doi), key references | The Documentation is checked for the required information | Criterion fully met | ![Criterion fully met](/assets/qa_pass.svg) | Provenance: model cycle used (IFS Cycle 41r2), assimilation system description; Licences: Copernicus free and open licence, formalised in ECMWF’s Product Distribution Rules (latest version: July 2024, [PDF link](https://www.ecmwf.int/sites/default/files/2023-07/ECMWF_Product_Distribution_Rules.pdf); permanent access via ECMWF [Official Documents](https://www.ecmwf.int/en/about/who-we-are/official-documents)); DOIs: persistent DOI available under Documentation; Key references: provided in the documentation, e.g. Hersbach et al., 2020, [The ERA5 global reanalysis](https://doi.org/10.1002/qj.3803); key references are also available under Quality. |"
    },
    "local_copy": "cds_layout_2026-10-21T092916Z",
-   "extract_recomputed_from_local_copy_utc": "2026-10-21T09:44:45Z"
+   "extract_recomputed_from_local_copy_utc": "2026-10-22T08:02:57Z"
   },
   "https://confluence.ecmwf.int/display/CKB/ERA5%3A+data+documentation": {
    "url": "https://confluence.ecmwf.int/display/CKB/ERA5%3A+data+documentation",
@@ -57373,7 +57961,7 @@
     ]
    },
    "local_copy": "ecmwf_era5_doc_2026-10-21T092916Z",
-   "extract_recomputed_from_local_copy_utc": "2026-10-21T09:44:45Z"
+   "extract_recomputed_from_local_copy_utc": "2026-10-22T08:02:57Z"
   },
   "https://api.datacite.org/dois/10.24381/cds.adbb2d47": {
    "url": "https://api.datacite.org/dois/10.24381/cds.adbb2d47",
@@ -67255,7 +67843,7 @@
     "mentions_open_licence": false
    },
    "local_copy": "meteo_terms_2026-10-21T092923Z",
-   "extract_recomputed_from_local_copy_utc": "2026-10-21T09:44:45Z"
+   "extract_recomputed_from_local_copy_utc": "2026-10-22T08:02:57Z"
   },
   "https://www.meteo.gr/index-en.cfm": {
    "url": "https://www.meteo.gr/index-en.cfm",
@@ -67279,7 +67867,7 @@
     ]
    },
    "local_copy": "meteo_index_en_2026-10-21T092924Z",
-   "extract_recomputed_from_local_copy_utc": "2026-10-21T09:44:45Z"
+   "extract_recomputed_from_local_copy_utc": "2026-10-22T08:02:57Z"
   }
  }
 }

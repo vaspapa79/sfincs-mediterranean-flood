@@ -3,23 +3,29 @@ Pineios (EMSR692),pineios_enhanced_v142,Active mask (no AOI),4956.3,0.469,0.901,
 Pineios (EMSR692),pineios_enhanced_v142,AOI-union (v1.4 reference),4506.7,0.496,0.901,1.72
 Pineios (EMSR692),pineios_enhanced_v142,AOI-union + 1 km,4575.4,0.491,0.901,1.73
 Pineios (EMSR692),pineios_enhanced_v142,AOI-union − 1 km,4414.2,0.500,0.901,1.70
+Pineios (EMSR692),pineios_enhanced_v142,"AOI-union, truth burned by cell centre (re-scoring sensitivity, no SFINCS run)",4506.7,0.439,0.918,2.01
 Mandra (EMSR257),mandra_enhanced,Active mask (no AOI),280.4,0.070,0.760,10.60
 Mandra (EMSR257),mandra_enhanced,AOI-union (v1.4 reference),86.9,0.157,0.760,4.61
 Mandra (EMSR257),mandra_enhanced,AOI-union + 1 km,121.5,0.123,0.760,5.92
 Mandra (EMSR257),mandra_enhanced,AOI-union − 1 km,48.5,0.198,0.770,3.65
+Mandra (EMSR257),mandra_enhanced,"AOI-union, truth burned by cell centre (re-scoring sensitivity, no SFINCS run)",86.9,0.093,0.798,8.43
 Strymonas (EMSR122),strymonas_enhanced_postD6_v142,Active mask (no AOI),3984.7,0.318,0.921,2.82
 Strymonas (EMSR122),strymonas_enhanced_postD6_v142,AOI-union (v1.4 reference),1196.2,0.334,0.921,2.68
 Strymonas (EMSR122),strymonas_enhanced_postD6_v142,AOI-union + 1 km,1279.3,0.332,0.921,2.70
 Strymonas (EMSR122),strymonas_enhanced_postD6_v142,AOI-union − 1 km,1109.4,0.336,0.922,2.66
+Strymonas (EMSR122),strymonas_enhanced_postD6_v142,"AOI-union, truth burned by cell centre (re-scoring sensitivity, no SFINCS run)",1196.2,0.237,0.967,4.04
 Valencia (EMSR773),valencia_enhanced_164_v142,Active mask (no AOI),2915.4,0.139,0.939,6.70
 Valencia (EMSR773),valencia_enhanced_164_v142,AOI-union (v1.4 reference),2709.5,0.144,0.939,6.46
 Valencia (EMSR773),valencia_enhanced_164_v142,AOI-union + 1 km,2723.0,0.144,0.939,6.48
 Valencia (EMSR773),valencia_enhanced_164_v142,AOI-union − 1 km,2691.9,0.145,0.939,6.43
+Valencia (EMSR773),valencia_enhanced_164_v142,"AOI-union, truth burned by cell centre (re-scoring sensitivity, no SFINCS run)",2709.5,0.123,0.952,7.66
 Emilia-R. (EMSR664),emilia_enhanced_8aoi_v142,Active mask (no AOI),5007.0,0.177,0.852,4.67
 Emilia-R. (EMSR664),emilia_enhanced_8aoi_v142,AOI-union (v1.4 reference),3148.0,0.253,0.852,3.22
 Emilia-R. (EMSR664),emilia_enhanced_8aoi_v142,AOI-union + 1 km,3435.5,0.239,0.852,3.41
 Emilia-R. (EMSR664),emilia_enhanced_8aoi_v142,AOI-union − 1 km,2823.0,0.260,0.861,3.17
+Emilia-Romagna (EMSR664),emilia_enhanced_8aoi_v142,"AOI-union, truth burned by cell centre (re-scoring sensitivity, no SFINCS run)",3148.0,0.154,0.897,5.73
 Crete (EMSR933),crete_canonical_r2on,Active mask (no AOI),not defined,—,—,—
 Crete (EMSR933),crete_canonical_r2on,AOI03 (tier-1 universe),176.9,0.221,0.988,4.45
 Crete (EMSR933),crete_canonical_r2on,AOI03 + 1 km,236.5,0.188,0.988,5.26
 Crete (EMSR933),crete_canonical_r2on,AOI03 − 1 km,125.6,0.263,0.994,3.77
+"Crete (EMSR933), Tzermiado tier 1",crete_canonical_r2on,"AOI03 (tier-1 universe), truth burned by cell centre (re-scoring sensitivity, no SFINCS run)",176.9,0.086,1.000,11.58

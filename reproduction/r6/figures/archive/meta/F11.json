@@ -1,0 +1,83 @@
+{
+  "figure": "F11",
+  "column": "two-column",
+  "script": "reproduction/r6/scripts/r6_figures.py",
+  "sources": [
+    "reproduction/v14_rerun/results/pineios_enhanced_v142_v14_newmask.json",
+    "reproduction/v14_rerun/results/pineios_enhanced_v13_publishedmask.json",
+    "reproduction/v14_rerun/results/mandra_enhanced_v14_newmask.json",
+    "reproduction/v14_rerun/results/mandra_enhanced_v13_publishedmask.json",
+    "reproduction/v14_rerun/results/pineios_enhanced_v142_record.json",
+    "reproduction/v14_rerun/code16/d1_rain_written.json",
+    "reproduction/v14_rerun/configs/mandra_enhanced.yaml",
+    "reproduction/v14_rerun/phase4/cross_event_v14_v142.json"
+  ],
+  "notes": "content of phase4/figures/fig11_sweeps_v14_v142.png; series labels v1.4.2 (Pineios run of record), v1.4.0 (Mandra run of record) and 'release v1.3.0' read from code16/d1_rain_written.json; integer radius ticks",
+  "layout_problems": [],
+  "texts_drawn": [
+    "(a)",
+    "(b)",
+    "0",
+    "0.0",
+    "0.05",
+    "0.10",
+    "0.2",
+    "0.25",
+    "0.3",
+    "0.4",
+    "0.5",
+    "0.50",
+    "0.6",
+    "0.7",
+    "0.8",
+    "0.9",
+    "1",
+    "1.0",
+    "2",
+    "3",
+    "CSI, release v1.3.0",
+    "CSI, v1.4.0",
+    "CSI, v1.4.2",
+    "F2, release v1.3.0",
+    "F2, v1.4.0",
+    "FAR, release v1.3.0",
+    "FAR, v1.4.2",
+    "HR, release v1.3.0",
+    "HR, v1.4.0",
+    "HR, v1.4.2",
+    "Mandra (EMSR257): fuzzy-tolerance sweep",
+    "Pineios (EMSR692): depth-threshold sweep",
+    "depth threshold: $\\it{h}_{\\rm max}$ > x (m)",
+    "neighbourhood radius r (cells of 50 m)",
+    "score"
+  ],
+  "files": [
+    {
+      "file": "F11.tiff",
+      "px": [
+        4110,
+        2031
+      ],
+      "dpi": 600,
+      "width_mm": 174.0,
+      "height_mm": 86.0,
+      "format": "TIFF, RGB 8-bit, LZW",
+      "tiff_writer": "pil",
+      "bytes": 617970,
+      "generated_utc": "2026-10-21T10:07:51Z"
+    },
+    {
+      "file": "F11_preview.png",
+      "px": [
+        2055,
+        1016
+      ],
+      "dpi": 300,
+      "width_mm": 174.0,
+      "height_mm": 86.0,
+      "format": "PNG preview (reduced)",
+      "bytes": 360379,
+      "generated_utc": "2026-10-21T10:07:52Z"
+    }
+  ]
+}

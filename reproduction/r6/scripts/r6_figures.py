@@ -8,14 +8,15 @@ only; rasters it does not hold are cached under r6/figures/_cache).
   F1data  model-domain boxes + EMS AOI centroids of the six canonical runs -> figures/data/F1_inputs.json
           (drawn by r6_fig1_overview.py in the cartopy env)
   F3 F5 F6 F7 F8  maximum-inundation maps, content of phase4/figures/map_<run>_v14.png (fig_map_v14.py): h_max > 0.10 m by
-          depth, EMS observed flood (red), EMS AOIs (dashed), cells removed by the v1.4 evaluation mask (grey); no score printed
+          depth, EMS observed flood (red), EMS AOIs (dashed), cells excluded from the evaluation universe (grey); no score printed
   F4      Pineios / Mandra domain-mean rainfall, ERA5 / raw IMERG / bias-corrected IMERG, in the design of the R5 figures
           (manuscript/paper_submission_v5/_make_{pineios,mandra}_rain.py), data = phase4/rain/<run>_v14{.json,_series.csv};
           every total / peak / watershed-box value printed is read from the rain JSON and asserted against the series CSV,
           the configuration and the IMERG files (the run fails otherwise)
   F9      Crete (crete_canonical_r2on): (a) island overview, (b) AOI03 Tzermiado zoom (tier 1, rule_ledger.md section 8 item 3);
           no metric printed, no all-AOI union score computed
-  F10 F11 cross-event skill / sweeps, content of fig_skill_sweeps_v14.py (--in-tag _v142 --pineios-run pineios_enhanced_v142)
+  F10 F11 cross-event skill / sweeps, content of fig_skill_sweeps_v14.py (--in-tag _v142 --pineios-run pineios_enhanced_v142),
+          run of record only (CODE-17 A1/A2: release history is reported in the tables, not in the main-text figures)
 
 Usage (sfincs-viz env):  python -I r6_figures.py [--fig all | --fig F3 --fig F9 ...]
 then (cartopy env):       python -I r6_fig1_overview.py ;  and  python -I r6_fig_manifest.py
@@ -178,11 +179,16 @@ def draw_layers(ax, F, aoi_layers=None, lw_obs=0.5):
     return im
 
 
-def map_legend_handles(aoi_handles=None):
+EXCL_LABEL = "excluded from the evaluation universe (permanent water, open sea)"   # CODE-17 A4 wording
+
+
+def map_legend_handles(aoi_handles=None, two_line_excl=False):
+    """Legend entries of the maps; two_line_excl breaks the exclusion entry for a single-column legend (F9)."""
     from matplotlib.lines import Line2D
     from matplotlib.patches import Patch
+    excl = EXCL_LABEL.replace(" (", "\n(") if two_line_excl else EXCL_LABEL
     h = [Patch(facecolor=BASE_GREY, edgecolor="0.55", linewidth=0.4, label=f"active cell, {HMAX} ≤ {THRESHOLD:.2f} m"),
-         Patch(facecolor=EXCL_GREY, edgecolor="none", label="removed by the v1.4 evaluation mask"),
+         Patch(facecolor=EXCL_GREY, edgecolor="none", label=excl),
          Line2D([], [], color=OBS_RED, lw=0.9, label="EMS observed flood")]
     h += aoi_handles if aoi_handles is not None else [Line2D([], [], color="k", lw=0.8, ls="--", label="EMS areas of interest")]
     return h
@@ -391,7 +397,7 @@ def fig9(name="F9"):
              Line2D([], [], color="k", lw=0.8, ls="--", label="EMS AOI, tier 2 (area only)"),
              Line2D([], [], label="EMS AOI, tier 3 (no product released)", **t3_style),
              Line2D([], [], color=C.OI["blue"], lw=0.9, label="extent of panel (b)")]
-    fig.legend(handles=map_legend_handles(aoi_h), loc="lower left", bbox_to_anchor=(cx / W, B / H), ncol=1, frameon=False,
+    fig.legend(handles=map_legend_handles(aoi_h, two_line_excl=True), loc="lower left", bbox_to_anchor=(cx / W, B / H), ncol=1, frameon=False,
                borderaxespad=0.0, handlelength=2.2)
     sources = [F.cfg_path, F.model_nc, F.excl_tif, F.ems_dir, tiers_path, SNAPSHOT]
     C.export(fig, name, dpi=C.DPI_COMBINATION, width_mm=W, script=SCRIPT, sources=sources,
@@ -510,15 +516,19 @@ def fig4(name="F4"):
     from matplotlib.patches import Patch
     matplotlib, plt = mpl_setup()
     W = C.WIDTH_2COL_MM
-    L, RM, T, PH, GAP, B = 14.0, 8.0, 6.0, 54.0, 17.0, 10.0
-    H = T + PH + GAP + PH + B
+    # per panel, from the bottom: legend block (LEG, outside the plot area), tick labels + x label (XL), the axes (PH); the panel
+    # letter sits in the GAP above each axes. The legend no longer overlaps the shaded R2 window (CODE-17 figure check).
+    L, RM, T, PH, XL, LEG, GAP, B = 14.0, 8.0, 6.0, 54.0, 9.0, 20.0, 9.0, 2.0
+    BLOCK = PH + XL + LEG
+    H = T + BLOCK + GAP + BLOCK + B
     fig = C.fig_mm(plt, W, H)
     style = {"era5": ("ERA5", "#dc2626", "-", 1.0), "imerg": ("bias-corrected IMERG", "#1d4ed8", "-", 0.8),
              "imerg_raw": ("raw IMERG", "#60a5fa", "--", 0.8)}        # R5 design (_make_pineios_rain.py / _make_mandra_rain.py)
     sources = []
     for i, (letter, event) in enumerate((("a", "pineios"), ("b", "mandra"))):
         Rn = rain_checked(RUNS[event])
-        ax = C.ax_mm(fig, L, B + (1 - i) * (PH + GAP), W - L - RM, PH)
+        bottom = B + (1 - i) * (BLOCK + GAP) + XL + LEG
+        ax = C.ax_mm(fig, L, bottom, W - L - RM, PH)
         ax.axvspan(*Rn.ev, color="#fde8cf", lw=0, zorder=0)
         for key in ("era5", "imerg", "imerg_raw"):
             lab, col, ls, lw = style[key]
@@ -530,9 +540,10 @@ def fig4(name="F4"):
         h, l = ax.get_legend_handles_labels()
         h.append(Patch(facecolor="#fde8cf", edgecolor="none"))
         l.append(f"R2 window: watershed-box mean {Rn.raw_ws:.1f} → {Rn.cor_ws:.1f} mm (×{Rn.factor:.2f})")
-        ax.legend(h, l, loc="upper left", frameon=True, framealpha=0.92, edgecolor="0.8", fancybox=False, borderpad=0.4)
+        fig.legend(h, l, loc="upper left", bbox_to_anchor=(L / W, (bottom - XL) / H), ncol=1, frameon=False, borderaxespad=0.0,
+                   handlelength=2.2)
         ymax = max(v[1] for v in Rn.totals.values())
-        ax.set_ylim(-0.02 * ymax, 1.9 * ymax)                    # head-room: the legend sits above the highest peak
+        ax.set_ylim(-0.02 * ymax, 1.12 * ymax)
         pad = pd.Timedelta(hours=6)                               # the axis ends 6 h beyond the edge ticks (no label at the frame)
         ax.set_xlim(Rn.forcing[0] - pad, Rn.forcing[1] + pad)
         span_d = (Rn.forcing[1] - Rn.forcing[0]).days
@@ -547,25 +558,14 @@ def fig4(name="F4"):
     sources += [q for q in R5_RAIN_SCRIPTS if q.exists()]
     C.export(fig, name, dpi=C.DPI_COMBINATION, width_mm=W, script=SCRIPT, sources=sources,
              notes="design kept from the R5 rainfall figures (manuscript/paper_submission_v5/_make_{pineios,mandra}_rain.py: "
-                   "ERA5 red, bias-corrected IMERG blue, raw IMERG light-blue dashed, totals and peaks in the legend); data = "
+                   "ERA5 red, bias-corrected IMERG blue, raw IMERG light-blue dashed, totals and peaks in the legend, which sits "
+                   "below each panel so that it overlaps neither the curves nor the shaded window); data = "
                    "model-bbox mean over the forcing window (tref..tstop) from phase4/rain; shaded = R2 event window; every value "
                    "asserted against the rain JSON")
     plt.close(fig)
 
 
 # =================================================================================================== F10 / F11
-RELEASES_JSON = V14 / "code16" / "d1_rain_written.json"     # release label of every run of record + the earlier release
-
-
-def release_labels():
-    """(label of the earlier release, {run of record: release label}) from the code-16 close-out record: the earlier-release
-    series are labelled 'release v1.3.0', never 'published' (close-out labelling rule)."""
-    rows = jload(RELEASES_JSON)["runs"]
-    old = sorted({r["release"] for r in rows if r["run"].endswith("(published)")})
-    need(len(old) == 1 and old[0].startswith("release "), f"earlier-release label not unique: {old}")
-    return old[0], {r["run"]: r["release"] for r in rows if not r["run"].endswith("(published)")}
-
-
 def _split_label(lab):
     lab = lab.split(" [")[0]
     m = re.match(r"(.+?) \((.+)\)$", lab)
@@ -573,21 +573,21 @@ def _split_label(lab):
 
 
 def fig10(name="F10"):
+    """Cross-event skill of the six runs of record: strict CSI, fuzzy CSI (r = 1) and CSI* at the best depth threshold, over the
+    literature benchmark bands. Run of record only (CODE-17 A1): no earlier-release series, no version label in the legend."""
     from matplotlib.lines import Line2D
     from matplotlib.patches import Patch
     import fig_skill_sweeps_v14 as FS
     matplotlib, plt = mpl_setup()
     ce_path = P4 / "cross_event_v14_v142.json"
     ce = jload(ce_path)
-    HL = ce["harness_label"]
-    REL13, _ = release_labels()
     runs = list(ce["events"])
     need(runs == [RUNS[e] for e in ORDER], f"cross-event runs {runs} != canonical runs of record")
-    # values: the enhanced_v14 / enhanced_v13_published blocks (as fig_skill_sweeps_v14.py); cross-checks against the sources
+    # values: the enhanced_v14 blocks (as fig_skill_sweeps_v14.py); cross-checks against the sources
     rows = []
     for run in runs:
         e = ce["events"][run]
-        v, p = e["enhanced_v14"], e.get("enhanced_v13_published")
+        v = e["enhanced_v14"]
         if run == RUNS["crete"]:
             tiers_path = P5 / f"{run}_tiers.json"
             t03 = jload(tiers_path)["aois"]["03"]
@@ -598,14 +598,11 @@ def fig10(name="F10"):
         else:
             srcj = jload(REPO / e["sources"]["enhanced_v14"].replace("\\", "/"))["validation"]
             need(v["strict"]["csi"] == srcj["strict_threshold_sweep"][thr_key()]["csi"], f"{run}: strict CSI != source record")
-            if p:
-                pj = jload(REPO / e["sources"]["enhanced_v13_published"].replace("\\", "/"))["validation"]
-                need(p["strict"]["csi"] == pj["strict_threshold_sweep"][thr_key()]["csi"], f"{run}: v1.3 strict CSI != source")
+            need(v["fuzzy_r1"]["csi"] == srcj["fuzzy_at_h_gt_0p10m"]["r=1"]["csi"], f"{run}: fuzzy r=1 CSI != source record")
         nm, code = _split_label(e["label"])
-        rows.append({"tick": f"{nm}\n({code})", "s14": v["strict"]["csi"], "f14": v["fuzzy_r1"]["csi"], "cs": (v.get("csi_star") or {}).get("csi"),
-                     "s13": p["strict"]["csi"] if p else None, "f13": p["fuzzy_r1"]["csi"] if p else None})
+        rows.append({"tick": f"{nm}\n({code})", "s14": v["strict"]["csi"], "f14": v["fuzzy_r1"]["csi"], "cs": (v.get("csi_star") or {}).get("csi")})
     W = C.WIDTH_2COL_MM
-    L, RM, T, AH, B = 14.0, 3.0, 3.0, 58.0, 27.0
+    L, RM, T, AH, B = 14.0, 3.0, 3.0, 58.0, 23.0
     H = T + AH + B
     fig = C.fig_mm(plt, W, H)
     ax = C.ax_mm(fig, L, B, W - L - RM, AH)
@@ -616,54 +613,54 @@ def fig10(name="F10"):
         band_labels.append(Patch(facecolor=col, edgecolor="none", label=generic))
     ax.axhline(FS.WING_MEDIAN, color="0.45", ls=":", lw=1.0, zorder=1)
     med = Line2D([], [], color="0.45", ls=":", lw=1.0, label="benchmark median")
-    off = {"s13": -0.26, "s14": -0.13, "f13": 0.0, "f14": 0.13, "cs": 0.26}
-    sty = {"s14": dict(marker="o", color=C.OI["blue"], mfc=C.OI["blue"]), "s13": dict(marker="o", color=C.OI["blue"], mfc="white"),
-           "f14": dict(marker="s", color=C.OI["green"], mfc=C.OI["green"]), "f13": dict(marker="s", color=C.OI["green"], mfc="white"),
+    off = {"s14": -0.2, "f14": 0.0, "cs": 0.2}
+    sty = {"s14": dict(marker="o", color=C.OI["blue"], mfc=C.OI["blue"]),
+           "f14": dict(marker="s", color=C.OI["green"], mfc=C.OI["green"]),
            "cs": dict(marker="^", color=C.OI["vermillion"], mfc=C.OI["vermillion"])}
-    labels = {"s14": f"strict CSI, {HL}", "s13": f"strict CSI, {REL13}", "f14": f"fuzzy CSI (r = 1), {HL}",
-              "f13": f"fuzzy CSI (r = 1), {REL13}", "cs": f"CSI* (best depth threshold), {HL}"}
+    labels = {"s14": "strict CSI", "f14": "fuzzy CSI (r = 1)", "cs": "CSI* (best depth threshold)"}
     handles = {}
-    for k in ("s13", "s14", "f13", "f14", "cs"):
+    for k in ("s14", "f14", "cs"):
         xs = [i + off[k] for i, r in enumerate(rows) if r[k] is not None]
         ys = [r[k] for r in rows if r[k] is not None]
-        (ln,) = ax.plot(xs, ys, ls="none", ms=4.8, mew=0.9, zorder=4, label=labels[k], **sty[k])
+        (ln,) = ax.plot(xs, ys, ls="none", ms=5.0, mew=0.9, zorder=4, label=labels[k], **sty[k])
         handles[k] = ln
     ax.set_xticks(range(len(rows))); ax.set_xticklabels([r["tick"] for r in rows])
     ax.set_xlim(-0.6, len(rows) - 0.4)
-    top = max([r[k] for r in rows for k in ("s14", "f14", "cs", "s13", "f13") if r[k] is not None] + [hi for _, _, hi, _ in FS.BANDS])
+    top = max([r[k] for r in rows for k in ("s14", "f14", "cs") if r[k] is not None] + [hi for _, _, hi, _ in FS.BANDS])
     ax.set_ylim(0, math.ceil((top + 0.04) * 10) / 10)
     ax.set_ylabel(f"CSI ({HMAX} > {THRESHOLD:.2f} m)")
     ax.tick_params(axis="x", length=0, pad=3)
-    for s in ("top", "right"):
-        ax.spines[s].set_visible(False)
-    order = [handles["s14"], handles["s13"], band_labels[0], handles["f14"], handles["f13"], band_labels[1], handles["cs"], med]
+    for sp in ("top", "right"):
+        ax.spines[sp].set_visible(False)
+    order = [handles["s14"], handles["f14"], handles["cs"], band_labels[0], band_labels[1], med]
     fig.legend(handles=order, loc="lower left", bbox_to_anchor=(L / W, 1.0 / H), ncol=3, frameon=False, borderaxespad=0.0)
     C.export(fig, name, dpi=C.DPI_COMBINATION, width_mm=W, script=SCRIPT,
-             sources=[ce_path, P5 / "crete_canonical_r2on_tiers.json", RELEASES_JSON, V14 / "scripts" / "fig_skill_sweeps_v14.py"],
-             notes=f"content of phase4/figures/fig10_skill_v14_v142.png; harness label {HL} from the cross-event JSON, earlier-release "
-                   f"label '{REL13}' from code16/d1_rain_written.json; Crete = "
+             sources=[ce_path, P5 / "crete_canonical_r2on_tiers.json", V14 / "scripts" / "fig_skill_sweeps_v14.py"],
+             notes=f"run-of-record markers only (strict CSI, fuzzy r = 1 CSI, CSI* at the best threshold) of phase4/figures/"
+                   f"fig10_skill_v14_v142.png; no earlier-release series, no version label (release history: S7/S10); Crete = "
                    "tier-1 AOI03 block (asserted against the tiers JSON); benchmark bands = the literature constants of "
                    "fig_skill_sweeps_v14.py, labelled without author names (citations belong in the caption)")
     plt.close(fig)
 
 
 def fig11(name="F11"):
+    """(a) Pineios CSI / HR / FAR against the depth threshold, (b) Mandra CSI / HR / F2 against the fuzzy radius; the runs of
+    record only (CODE-17 A2): no earlier-release series, legend entries are the score names."""
     matplotlib, plt = mpl_setup()
     ce = jload(P4 / "cross_event_v14_v142.json")
     pin_run, man_run = RUNS["pineios"], RUNS["mandra"]
-    srcs = {"pin14": RES / f"{pin_run}_v14_newmask.json", "pin13": RES / "pineios_enhanced_v13_publishedmask.json",
-            "man14": RES / f"{man_run}_v14_newmask.json", "man13": RES / "mandra_enhanced_v13_publishedmask.json"}
+    srcs = {"pin": RES / f"{pin_run}_v14_newmask.json", "man": RES / f"{man_run}_v14_newmask.json"}
     J = {k: jload(v)["validation"] for k, v in srcs.items()}
-    # release labels of the two runs of record and of the earlier release, read from the code-16 close-out record
-    REL13, rel = release_labels()
-    HLp, HLm = rel[pin_run], rel[man_run]
-    need(HLp == ce["harness_label"] == jload(RES / f"{pin_run}_record.json")["harness_tag"], f"Pineios label {HLp} inconsistent")
+    need(ce["harness_label"] == jload(RES / f"{pin_run}_record.json")["harness_tag"], "Pineios harness label inconsistent with its record")
+    for k, run in (("pin", pin_run), ("man", man_run)):
+        need(J[k]["strict_threshold_sweep"][thr_key()]["csi"] == ce["events"][run]["enhanced_v14"]["strict"]["csi"],
+             f"{run}: strict CSI of the record != cross-event JSON")
     man_cfg, man_cfg_path = load_cfg(man_run)
     res_m = int(man_cfg.grid["res"])
-    thr = [(k, float(re.match(r"h>([\d.]+)m", k).group(1))) for k in J["pin14"]["strict_threshold_sweep"]]
+    thr = [(k, float(re.match(r"h>([\d.]+)m", k).group(1))) for k in J["pin"]["strict_threshold_sweep"]]
     thr.sort(key=lambda kv: kv[1])
     W = C.WIDTH_2COL_MM
-    L, GAPX, RM, T, AH, B = 13.0, 15.0, 3.0, 6.0, 56.0, 24.0
+    L, GAPX, RM, T, AH, B = 13.0, 15.0, 3.0, 6.0, 56.0, 20.0
     AW = (W - L - GAPX - RM) / 2
     H = T + AH + B
     fig = C.fig_mm(plt, W, H)
@@ -671,22 +668,19 @@ def fig11(name="F11"):
     a2 = C.ax_mm(fig, L + AW + GAPX, B, AW, AH)
     met = {"csi": ("CSI", C.OI["blue"], "o"), "hr": ("HR", C.OI["green"], "s"), "far": ("FAR", C.OI["vermillion"], "^"),
            "f2": ("F2", C.OI["purple"], "D")}
-    def draw(ax, xs, getter, metrics, pairs):
+
+    def draw(ax, xs, getter, metrics, key):
         hs = []
-        for tag, key, ls, filled in pairs:
-            for m in metrics:
-                lab, col, mk = met[m]
-                (ln,) = ax.plot(xs, [getter(J[key], x)[m] for x in xs], ls, color=col, marker=mk, ms=3.6, mew=0.8, lw=1.0,
-                                mfc=col if filled else "white", label=f"{lab}, {tag}")
-                hs.append(ln)
+        for m in metrics:
+            lab, col, mk = met[m]
+            (ln,) = ax.plot(xs, [getter(J[key], x)[m] for x in xs], "-", color=col, marker=mk, ms=3.8, mew=0.8, lw=1.0, mfc=col, label=lab)
+            hs.append(ln)
         return hs
     xs_a = [t for _, t in thr]
     key_of = {t: k for k, t in thr}
-    ha = draw(a1, xs_a, lambda v, t: v["strict_threshold_sweep"][key_of[t]], ("csi", "hr", "far"),
-              ((HLp, "pin14", "-", True), (REL13, "pin13", "--", False)))
-    rs = sorted(int(k.split("=")[1]) for k in J["man14"]["fuzzy_at_h_gt_0p10m"])
-    hb = draw(a2, rs, lambda v, r: v["fuzzy_at_h_gt_0p10m"][f"r={r}"], ("csi", "hr", "f2"),
-              ((HLm, "man14", "-", True), (REL13, "man13", "--", False)))
+    ha = draw(a1, xs_a, lambda v, t: v["strict_threshold_sweep"][key_of[t]], ("csi", "hr", "far"), "pin")
+    rs = sorted(int(k.split("=")[1]) for k in J["man"]["fuzzy_at_h_gt_0p10m"])
+    hb = draw(a2, rs, lambda v, r: v["fuzzy_at_h_gt_0p10m"][f"r={r}"], ("csi", "hr", "f2"), "man")
     a1.set_xticks(xs_a); a1.set_xticklabels([f"{t:.2f}" for t in xs_a])
     a1.set_xlabel(f"depth threshold: {HMAX} > x (m)")
     a2.set_xticks(rs); a2.set_xlabel(f"neighbourhood radius r (cells of {res_m} m)")
@@ -695,18 +689,19 @@ def fig11(name="F11"):
         lo = min(min(l.get_ydata()) for l in ax.get_lines())
         ax.set_ylim(math.floor((lo - 0.03) * 10) / 10, 1.02)
         ax.grid(True, alpha=0.3, lw=0.4)
-        for s in ("top", "right"):
-            ax.spines[s].set_visible(False)
+        for sp in ("top", "right"):
+            ax.spines[sp].set_visible(False)
     pe_, pm_ = _split_label(ce["events"][pin_run]["label"]), _split_label(ce["events"][man_run]["label"])
     C.panel_letter(a1, "a", text=f"{pe_[0]} ({pe_[1]}): depth-threshold sweep")
     C.panel_letter(a2, "b", text=f"{pm_[0]} ({pm_[1]}): fuzzy-tolerance sweep")
     for ax, hs in ((a1, ha), (a2, hb)):
         pos = ax.get_position()
-        fig.legend(handles=hs, loc="lower left", bbox_to_anchor=(pos.x0, 1.0 / H), ncol=2, frameon=False, borderaxespad=0.0)
-    C.export(fig, name, dpi=C.DPI_COMBINATION, width_mm=W, script=SCRIPT, sources=[*srcs.values(), RES / f"{pin_run}_record.json",
-             RELEASES_JSON, man_cfg_path, P4 / "cross_event_v14_v142.json"],
-             notes=f"content of phase4/figures/fig11_sweeps_v14_v142.png; series labels {HLp} (Pineios run of record), {HLm} "
-                   f"(Mandra run of record) and '{REL13}' read from code16/d1_rain_written.json; integer radius ticks")
+        fig.legend(handles=hs, loc="lower left", bbox_to_anchor=(pos.x0, 1.0 / H), ncol=3, frameon=False, borderaxespad=0.0)
+    C.export(fig, name, dpi=C.DPI_COMBINATION, width_mm=W, script=SCRIPT,
+             sources=[*srcs.values(), RES / f"{pin_run}_record.json", man_cfg_path, P4 / "cross_event_v14_v142.json"],
+             notes=f"runs of record only ({pin_run}, {man_run}): content of phase4/figures/fig11_sweeps_v14_v142.png without the "
+                   "earlier-release series; legend = score names (CSI, HR, FAR / F2; F2 = 5 TP / (5 TP + 4 FN + FP) as recorded "
+                   "by the validator); integer radius ticks")
     plt.close(fig)
 
 

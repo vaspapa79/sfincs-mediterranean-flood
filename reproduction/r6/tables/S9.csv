@@ -8,7 +8,7 @@ CODE-10 issued (first API snapshot 2026-10-09T12:47:20Z),2026-10-09T12:35:48Z,ti
 "rule applied: rule ledger + YAMLs (Stage 1, no run)",2026-10-09T14:15Z,timing.md Stage 1 end
 "rule decisions recorded (ledger §8, before any Crete run)",2026-10-19T09:12:53Z,rule_ledger.md §8 heading
 harness audit start (CODE-12),2026-10-12T09:35:27Z,"timing.md row 'CODE-12 (harness v1.4 code + tests, re-r…'"
-harness audit end (before the Crete runs),2026-10-19T13:1xZ,timing.md row 'GO-D6 + Phase 2 (D6 code/tests/provenanc…' (as recorded)
+harness audit end (before the Crete runs),2026-10-20T16:32:00Z,"timing.md row 'CODE-15 (D8 source-point resolution, v1.…' (as recorded)"
 ERA5T available through the last simulated day (2026-10-05),2026-10-12T09:01:29Z,timing.md data-latency probe (first probe with ERA5 last requestable day ≥ that day)
 run crete_baseline: start → end (SFINCS s),2026-10-19T13:54:38Z → 2026-10-19T16:44:39Z (8371 s),results/crete_baseline_record.json
 run crete_canonical_r2on: start → end (SFINCS s),2026-10-19T16:44:39Z → 2026-10-19T20:21:12Z (10946 s),results/crete_canonical_r2on_record.json

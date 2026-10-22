@@ -1,0 +1,36 @@
+{
+  "pineios_enhanced_v142": {
+    "n_selected": 24,
+    "n_matched_only_case_insensitively": 0,
+    "case_insensitive_only": []
+  },
+  "mandra_enhanced": {
+    "n_selected": 3,
+    "n_matched_only_case_insensitively": 0,
+    "case_insensitive_only": []
+  },
+  "strymonas_enhanced_postD6_v142": {
+    "n_selected": 8,
+    "n_matched_only_case_insensitively": 0,
+    "case_insensitive_only": []
+  },
+  "valencia_enhanced_164_v142": {
+    "n_selected": 5,
+    "n_matched_only_case_insensitively": 0,
+    "case_insensitive_only": []
+  },
+  "emilia_enhanced_8aoi_v142": {
+    "n_selected": 13,
+    "n_matched_only_case_insensitively": 3,
+    "case_insensitive_only": [
+      "EMSR664_AOI01_DEL_MONIT01_previousObservedEventA_v1.shp",
+      "EMSR664_AOI01_DEL_MONIT02_previousObservedEventA_v2.shp",
+      "EMSR664_AOI01_DEL_MONIT03_previousObservedEventA_v1.shp"
+    ]
+  },
+  "crete_canonical_r2on": {
+    "n_selected": 6,
+    "n_matched_only_case_insensitively": 0,
+    "case_insensitive_only": []
+  }
+}

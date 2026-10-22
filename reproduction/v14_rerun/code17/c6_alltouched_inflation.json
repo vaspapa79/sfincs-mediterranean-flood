@@ -1,0 +1,525 @@
+{
+  "utc": "2026-10-22T07:59:00Z",
+  "script": "reproduction/v14_rerun/scripts/c6_alltouched_inflation.py",
+  "definition": "inflation = observed-wet cells burned any-touched / burned by cell centre - 1, inside the universe; strict_h_gt_0p10.centre = labelled re-scoring sensitivity (no SFINCS run): the run of record's h_max > 0.10 m against the truth burned by cell centre on the same grid and universe",
+  "release_figures_checked": "manuscript release text: +18 % (Pineios), +52 % (Strymonas), +82 % (Mandra), release evaluation mask",
+  "events": [
+    {
+      "event": "pineios",
+      "run": "pineios_enhanced_v142",
+      "config": "reproduction/v14_rerun/configs/pineios_enhanced_v142.yaml",
+      "model_dir": "D:\\ELKAK\\implementation\\v14\\pineios_enhanced_v142\\model",
+      "exclusion_tif": "reproduction/v14_rerun/masks/pineios_exclusion.tif",
+      "cell_m": [
+        150.0,
+        150.0
+      ],
+      "n_obs_files": 24,
+      "n_aoi_files": 24,
+      "obs_packages": [
+        "EMSR692_AOI01_DEL_MONIT01_v3",
+        "EMSR692_AOI01_DEL_MONIT02_v4",
+        "EMSR692_AOI01_DEL_MONIT03_v3",
+        "EMSR692_AOI02_DEL_MONIT01_v3",
+        "EMSR692_AOI02_DEL_MONIT02_v2",
+        "EMSR692_AOI02_DEL_MONIT03_v3",
+        "EMSR692_AOI02_DEL_MONIT04_v2",
+        "EMSR692_AOI02_DEL_MONIT05_v2",
+        "EMSR692_AOI03_DEL_MONIT01_v3",
+        "EMSR692_AOI03_DEL_MONIT02_v2",
+        "EMSR692_AOI03_DEL_MONIT03_v2",
+        "EMSR692_AOI03_DEL_MONIT04_v2",
+        "EMSR692_AOI03_DEL_MONIT05_v2",
+        "EMSR692_AOI04_DEL_MONIT01_v3",
+        "EMSR692_AOI04_DEL_MONIT02_v2",
+        "EMSR692_AOI04_DEL_MONIT03_v3",
+        "EMSR692_AOI04_DEL_MONIT04_v2",
+        "EMSR692_AOI05_DEL_MONIT01_v2",
+        "EMSR692_AOI05_DEL_MONIT02_v3",
+        "EMSR692_AOI05_DEL_MONIT03_v3",
+        "EMSR692_AOI05_DEL_MONIT04_v2",
+        "EMSR692_AOI05_DEL_MONIT05_v2",
+        "EMSR692_AOI06_DEL_MONIT01_v3",
+        "EMSR692_AOI07_DEL_MONIT01_v2"
+      ],
+      "v14_universe": {
+        "n_obs_polygons": 28895,
+        "universe_km2": 4506.682,
+        "universe_cells": 200297,
+        "cells_any_touched": 67007,
+        "cells_centre": 57233,
+        "observed_km2_any_touched": 1507.6575,
+        "observed_km2_centre": 1287.7425,
+        "observed_km2_vector_in_aois": null,
+        "inflation_pct": 17.1,
+        "any_touched_over_vector": null,
+        "strict_h_gt_0p10": {
+          "any_touched": {
+            "tp": 60367,
+            "fp": 54722,
+            "fn": 6640,
+            "tn": 78568,
+            "csi": 0.4959130527647479,
+            "hr": 0.9009058755055442,
+            "far": 0.47547550156835144,
+            "bias": 1.7175668213768711,
+            "gss": 0.26271816448941615,
+            "f2": 0.7878402681165284
+          },
+          "centre": {
+            "tp": 52532,
+            "fp": 62557,
+            "fn": 4701,
+            "tn": 80507,
+            "csi": 0.4385341013440187,
+            "hr": 0.9178620725805042,
+            "far": 0.5435532500934059,
+            "bias": 2.010885328394458,
+            "gss": 0.2260690296235767,
+            "f2": 0.7634999026222237
+          }
+        }
+      },
+      "record_checked": "results/pineios_enhanced_v142_v14_newmask.json strict h>0.10m (tp/fp/fn/tn identical)",
+      "release_universe": {
+        "model_dir": "D:\\ELKAK\\implementation\\pineios_sfincs_enhanced\\model",
+        "n_obs_polygons": 28895,
+        "universe_km2": 4642.335,
+        "universe_cells": 206326,
+        "cells_any_touched": 67504,
+        "cells_centre": 57350,
+        "observed_km2_any_touched": 1518.84,
+        "observed_km2_centre": 1290.375,
+        "observed_km2_vector_in_aois": null,
+        "inflation_pct": 17.7,
+        "any_touched_over_vector": null
+      }
+    },
+    {
+      "event": "strymonas",
+      "run": "strymonas_enhanced_postD6_v142",
+      "config": "reproduction/v14_rerun/configs/strymonas_enhanced_postD6_v142.yaml",
+      "model_dir": "D:\\ELKAK\\implementation\\v14\\strymonas_enhanced_postD6_v142\\model",
+      "exclusion_tif": "reproduction/v14_rerun/masks/strymonas_exclusion.tif",
+      "cell_m": [
+        150.0,
+        150.0
+      ],
+      "n_obs_files": 8,
+      "n_aoi_files": 16,
+      "obs_packages": [
+        "EMSR122_01STRYMONAS_DELINEATION_OVERVIEW-MONIT01_v2",
+        "EMSR122_01STRYMONAS_DELINEATION_OVERVIEW-MONIT02_v1",
+        "EMSR122_01STRYMONAS_DELINEATION_OVERVIEW-MONIT03_v1",
+        "EMSR122_02BALTOTOPI_DELINEATION_OVERVIEW-MONIT01_v1",
+        "EMSR122_03ACHINOS_DELINEATION_OVERVIEW-MONIT01_v2",
+        "EMSR122_03ACHINOS_DELINEATION_OVERVIEW-MONIT02_v1",
+        "EMSR122_04MAVROTHALASSA_DELINEATION_OVERVIEW-MONIT01_v2",
+        "EMSR122_04MAVROTHALASSA_DELINEATION_OVERVIEW-MONIT02_v1"
+      ],
+      "v14_universe": {
+        "n_obs_polygons": 3497,
+        "universe_km2": 1196.235,
+        "universe_cells": 53166,
+        "cells_any_touched": 4633,
+        "cells_centre": 3074,
+        "observed_km2_any_touched": 104.2425,
+        "observed_km2_centre": 69.165,
+        "observed_km2_vector_in_aois": null,
+        "inflation_pct": 50.7,
+        "any_touched_over_vector": null,
+        "strict_h_gt_0p10": {
+          "any_touched": {
+            "tp": 4269,
+            "fp": 8153,
+            "fn": 364,
+            "tn": 40380,
+            "csi": 0.3338808071328015,
+            "hr": 0.9214331966328513,
+            "far": 0.6563355337304781,
+            "bias": 2.6812000863371463,
+            "gss": 0.2722702296187089,
+            "f2": 0.6895716224074433
+          },
+          "centre": {
+            "tp": 2973,
+            "fp": 9449,
+            "fn": 101,
+            "tn": 40643,
+            "csi": 0.23740317815219994,
+            "hr": 0.9671437865972674,
+            "far": 0.7606665593302205,
+            "bias": 4.040988939492518,
+            "gss": 0.19100523461455737,
+            "f2": 0.6013836070879521
+          }
+        }
+      },
+      "record_checked": "results/strymonas_enhanced_postD6_v142_v14_newmask.json strict h>0.10m (tp/fp/fn/tn identical)",
+      "release_universe": {
+        "model_dir": "D:\\ELKAK\\implementation\\emsr122_sfincs_v3\\model",
+        "n_obs_polygons": 3497,
+        "universe_km2": 1222.672,
+        "universe_cells": 54341,
+        "cells_any_touched": 4737,
+        "cells_centre": 3113,
+        "observed_km2_any_touched": 106.5825,
+        "observed_km2_centre": 70.0425,
+        "observed_km2_vector_in_aois": null,
+        "inflation_pct": 52.2,
+        "any_touched_over_vector": null
+      }
+    },
+    {
+      "event": "mandra",
+      "run": "mandra_enhanced",
+      "config": "reproduction/v14_rerun/configs/mandra_enhanced.yaml",
+      "model_dir": "D:\\ELKAK\\implementation\\v14\\mandra_enhanced\\model",
+      "exclusion_tif": "reproduction/v14_rerun/masks/mandra_exclusion.tif",
+      "cell_m": [
+        50.0,
+        50.0
+      ],
+      "n_obs_files": 3,
+      "n_aoi_files": 3,
+      "obs_packages": [
+        "EMSR257_01MANDRA_02GRADING_MAP_v2",
+        "EMSR257_03LAKKAKALOGIROU_02GRADING_MAP_v1",
+        "VECTOR"
+      ],
+      "v14_universe": {
+        "n_obs_polygons": 65,
+        "universe_km2": 86.942,
+        "universe_cells": 34777,
+        "cells_any_touched": 3528,
+        "cells_centre": 1930,
+        "observed_km2_any_touched": 8.82,
+        "observed_km2_centre": 4.825,
+        "observed_km2_vector_in_aois": 4.9589,
+        "inflation_pct": 82.8,
+        "any_touched_over_vector": 1.779,
+        "strict_h_gt_0p10": {
+          "any_touched": {
+            "tp": 2682,
+            "fp": 13587,
+            "fn": 846,
+            "tn": 17662,
+            "csi": 0.15670464504820333,
+            "hr": 0.7602040816326531,
+            "far": 0.8351465978240826,
+            "bias": 4.61139455782313,
+            "gss": 0.06670533041194449,
+            "f2": 0.441394292485435
+          },
+          "centre": {
+            "tp": 1541,
+            "fp": 14728,
+            "fn": 389,
+            "tn": 18119,
+            "csi": 0.09250810421419138,
+            "hr": 0.7984455958549223,
+            "far": 0.9052799803306902,
+            "bias": 8.429533678756476,
+            "gss": 0.040502892983089143,
+            "f2": 0.3211888782358581
+          }
+        }
+      },
+      "record_checked": "results/mandra_enhanced_v14_newmask.json strict h>0.10m (tp/fp/fn/tn identical)",
+      "release_universe": {
+        "model_dir": "D:\\ELKAK\\implementation\\mandra_sfincs_enhanced\\model",
+        "n_obs_polygons": 65,
+        "universe_km2": 109.715,
+        "universe_cells": 43886,
+        "cells_any_touched": 3595,
+        "cells_centre": 1977,
+        "observed_km2_any_touched": 8.9875,
+        "observed_km2_centre": 4.9425,
+        "observed_km2_vector_in_aois": 4.9589,
+        "inflation_pct": 81.8,
+        "any_touched_over_vector": 1.812
+      }
+    },
+    {
+      "event": "valencia",
+      "run": "valencia_enhanced_164_v142",
+      "config": "reproduction/v14_rerun/configs/valencia_enhanced_164_v142.yaml",
+      "model_dir": "D:\\ELKAK\\implementation\\v14\\valencia_enhanced_164_v142\\model",
+      "exclusion_tif": "reproduction/v14_rerun/masks/valencia_exclusion.tif",
+      "cell_m": [
+        100.0,
+        100.0
+      ],
+      "n_obs_files": 5,
+      "n_aoi_files": 6,
+      "obs_packages": [
+        "EMSR773_AOI01_DEL_MONIT01_v1",
+        "EMSR773_AOI01_DEL_MONIT02_v1",
+        "EMSR773_AOI01_DEL_MONIT03_v1",
+        "EMSR773_AOI01_DEL_MONIT04_v1",
+        "EMSR773_AOI06_DEL_MONIT01_v1"
+      ],
+      "v14_universe": {
+        "n_obs_polygons": 1781,
+        "universe_km2": 2709.52,
+        "universe_cells": 270952,
+        "cells_any_touched": 19581,
+        "cells_centre": 16515,
+        "observed_km2_any_touched": 195.81,
+        "observed_km2_centre": 165.15,
+        "observed_km2_vector_in_aois": 173.5372,
+        "inflation_pct": 18.6,
+        "any_touched_over_vector": 1.128,
+        "strict_h_gt_0p10": {
+          "any_touched": {
+            "tp": 18381,
+            "fp": 108091,
+            "fn": 1200,
+            "tn": 143280,
+            "csi": 0.14397048687261108,
+            "hr": 0.9387161023441091,
+            "far": 0.8546634828262382,
+            "bias": 6.458914253613196,
+            "gss": 0.07796359227677085,
+            "f2": 0.44876364772749466
+          },
+          "centre": {
+            "tp": 15716,
+            "fp": 110756,
+            "fn": 799,
+            "tn": 143681,
+            "csi": 0.12348453300437649,
+            "hr": 0.9516197396306388,
+            "far": 0.8757353406287558,
+            "bias": 7.65800787163185,
+            "gss": 0.06697185451778516,
+            "f2": 0.40813994556749006
+          }
+        }
+      },
+      "record_checked": "results/valencia_enhanced_164_v142_v14_newmask.json strict h>0.10m (tp/fp/fn/tn identical)",
+      "release_universe": {
+        "model_dir": "D:\\ELKAK\\ELKAK2\\NHESS\\R1_verification\\task_valencia_anchor\\rerun_v164\\model",
+        "n_obs_polygons": 1781,
+        "universe_km2": 3200.37,
+        "universe_cells": 320037,
+        "cells_any_touched": 20029,
+        "cells_centre": 16648,
+        "observed_km2_any_touched": 200.29,
+        "observed_km2_centre": 166.48,
+        "observed_km2_vector_in_aois": 173.5372,
+        "inflation_pct": 20.3,
+        "any_touched_over_vector": 1.154
+      }
+    },
+    {
+      "event": "emilia",
+      "run": "emilia_enhanced_8aoi_v142",
+      "config": "reproduction/v14_rerun/configs/emilia_enhanced_8aoi_v142.yaml",
+      "model_dir": "D:\\ELKAK\\implementation\\v14\\emilia_enhanced_8aoi_v142\\model",
+      "exclusion_tif": "reproduction/v14_rerun/masks/emilia_exclusion.tif",
+      "cell_m": [
+        150.0,
+        150.0
+      ],
+      "n_obs_files": 13,
+      "n_aoi_files": 12,
+      "obs_packages": [
+        "EMSR664_AOI01_DEL_MONIT01_v1",
+        "EMSR664_AOI01_DEL_MONIT02_v2",
+        "EMSR664_AOI01_DEL_MONIT03_v1",
+        "EMSR664_AOI02_GRA_PRODUCT_v1",
+        "EMSR664_AOI03_GRA_PRODUCT_v1",
+        "EMSR664_AOI04_GRA_PRODUCT_v1",
+        "EMSR664_AOI05_GRA_PRODUCT_v2",
+        "EMSR664_AOI06_GRA_PRODUCT_v1",
+        "EMSR664_AOI07_GRA_PRODUCT_v2",
+        "EMSR664_AOI08_GRA_PRODUCT_v1"
+      ],
+      "v14_universe": {
+        "n_obs_polygons": 8356,
+        "universe_km2": 3147.952,
+        "universe_cells": 139909,
+        "cells_any_touched": 25240,
+        "cells_centre": 14167,
+        "observed_km2_any_touched": 567.9,
+        "observed_km2_centre": 318.7575,
+        "observed_km2_vector_in_aois": null,
+        "inflation_pct": 78.2,
+        "any_touched_over_vector": null,
+        "strict_h_gt_0p10": {
+          "any_touched": {
+            "tp": 21507,
+            "fp": 59690,
+            "fn": 3733,
+            "tn": 54979,
+            "csi": 0.2532320734722713,
+            "hr": 0.8520998415213946,
+            "far": 0.7351256819833245,
+            "bias": 3.216996830427892,
+            "gss": 0.09759023862430587,
+            "f2": 0.5903423969432962
+          },
+          "centre": {
+            "tp": 12703,
+            "fp": 68494,
+            "fn": 1464,
+            "tn": 57248,
+            "csi": 0.15367585681276538,
+            "hr": 0.8966612550292934,
+            "far": 0.8435533332512285,
+            "bias": 5.73141808428037,
+            "gss": 0.060198193995977776,
+            "f2": 0.46070431218946073
+          }
+        }
+      },
+      "record_checked": "results/emilia_enhanced_8aoi_v142_v14_newmask.json strict h>0.10m (tp/fp/fn/tn identical)",
+      "release_universe": {
+        "model_dir": "D:\\ELKAK\\ELKAK2\\NHESS\\runs\\emilia_emsr664\\model",
+        "n_obs_polygons": 8356,
+        "universe_km2": 3216.352,
+        "universe_cells": 142949,
+        "cells_any_touched": 26338,
+        "cells_centre": 14558,
+        "observed_km2_any_touched": 592.605,
+        "observed_km2_centre": 327.555,
+        "observed_km2_vector_in_aois": null,
+        "inflation_pct": 80.9,
+        "any_touched_over_vector": null
+      }
+    },
+    {
+      "event": "crete",
+      "run": "crete_canonical_r2on",
+      "config": "reproduction/v14_rerun/configs/crete_canonical_r2on.yaml",
+      "model_dir": "D:\\ELKAK\\implementation\\v14\\crete_canonical_r2on\\model",
+      "exclusion_tif": "reproduction/v14_rerun/masks/crete_exclusion.tif",
+      "cell_m": [
+        100.0,
+        100.0
+      ],
+      "n_obs_files": 6,
+      "n_aoi_files": 7,
+      "obs_packages": [
+        "EMSR933_AOI01_DEL_MONIT01_v1",
+        "EMSR933_AOI03_DEL_MONIT02_v1",
+        "EMSR933_AOI03_DEL_PRODUCT_v1",
+        "EMSR933_AOI04_DEL_MONIT01_v1",
+        "EMSR933_AOI06_DEL_MONIT01_v1",
+        "EMSR933_AOI07_DEL_MONIT01_v1"
+      ],
+      "aois": {
+        "01": {
+          "tier": 2,
+          "obs_files": [
+            "EMSR933_AOI01_DEL_MONIT01_observedEventA_v1.shp"
+          ],
+          "n_obs_polygons": 88,
+          "universe_km2": 255.19,
+          "universe_cells": 25519,
+          "cells_any_touched": 178,
+          "cells_centre": 22,
+          "observed_km2_any_touched": 1.78,
+          "observed_km2_centre": 0.22,
+          "observed_km2_vector_in_aois": 0.242,
+          "inflation_pct": 709.1,
+          "any_touched_over_vector": 7.356
+        },
+        "03": {
+          "tier": 1,
+          "obs_files": [
+            "EMSR933_AOI03_DEL_MONIT02_observedEventA_v1.shp",
+            "EMSR933_AOI03_DEL_PRODUCT_observedEventA_v1.shp"
+          ],
+          "n_obs_polygons": 631,
+          "universe_km2": 176.93,
+          "universe_cells": 17693,
+          "cells_any_touched": 1126,
+          "cells_centre": 433,
+          "observed_km2_any_touched": 11.26,
+          "observed_km2_centre": 4.33,
+          "observed_km2_vector_in_aois": 4.4372,
+          "inflation_pct": 160.0,
+          "any_touched_over_vector": 2.538,
+          "strict_h_gt_0p10": {
+            "any_touched": {
+              "tp": 1113,
+              "fp": 3901,
+              "fn": 13,
+              "tn": 12666,
+              "csi": 0.221404416152775,
+              "hr": 0.9884547069271759,
+              "far": 0.7780215396888711,
+              "bias": 4.452930728241563,
+              "gss": 0.16863217087656285,
+              "f2": 0.5846816558100442
+            },
+            "centre": {
+              "tp": 433,
+              "fp": 4581,
+              "fn": 0,
+              "tn": 12679,
+              "csi": 0.08635819704826486,
+              "hr": 1.0,
+              "far": 0.9136418029517351,
+              "bias": 11.579676674364896,
+              "gss": 0.06343775089078506,
+              "f2": 0.3209309220278684
+            }
+          }
+        },
+        "04": {
+          "tier": 2,
+          "obs_files": [
+            "EMSR933_AOI04_DEL_MONIT01_observedEventA_v1.shp"
+          ],
+          "n_obs_polygons": 30,
+          "universe_km2": 57.62,
+          "universe_cells": 5762,
+          "cells_any_touched": 41,
+          "cells_centre": 2,
+          "observed_km2_any_touched": 0.41,
+          "observed_km2_centre": 0.02,
+          "observed_km2_vector_in_aois": 0.0325,
+          "inflation_pct": 1950.0,
+          "any_touched_over_vector": 12.631
+        },
+        "06": {
+          "tier": 2,
+          "obs_files": [
+            "EMSR933_AOI06_DEL_MONIT01_observedEventA_v1.shp"
+          ],
+          "n_obs_polygons": 11,
+          "universe_km2": 110.77,
+          "universe_cells": 11077,
+          "cells_any_touched": 23,
+          "cells_centre": 6,
+          "observed_km2_any_touched": 0.23,
+          "observed_km2_centre": 0.06,
+          "observed_km2_vector_in_aois": 0.0592,
+          "inflation_pct": 283.3,
+          "any_touched_over_vector": 3.884
+        },
+        "07": {
+          "tier": 2,
+          "obs_files": [
+            "EMSR933_AOI07_DEL_MONIT01_observedEventA_v1.shp"
+          ],
+          "n_obs_polygons": 63,
+          "universe_km2": 258.62,
+          "universe_cells": 25862,
+          "cells_any_touched": 65,
+          "cells_centre": 2,
+          "observed_km2_any_touched": 0.65,
+          "observed_km2_centre": 0.02,
+          "observed_km2_vector_in_aois": 0.0506,
+          "inflation_pct": 3150.0,
+          "any_touched_over_vector": 12.842
+        }
+      },
+      "record_checked": "phase5/crete_canonical_r2on_tiers.json AOI03 strict h>0.10m (tp/fp/fn/tn identical)"
+    }
+  ],
+  "elapsed_s": 496.6
+}

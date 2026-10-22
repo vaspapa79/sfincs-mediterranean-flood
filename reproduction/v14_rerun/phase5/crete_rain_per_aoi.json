@@ -1,5 +1,5 @@
 {
-  "utc": "2026-10-21T13:19:10Z",
+  "utc": "2026-10-22T07:59:25Z",
   "script": "reproduction/v14_rerun/scripts/crete_rain_per_aoi.py",
   "windows_utc": {
     "anchor": [
@@ -23,7 +23,7 @@
     "dem_vrt": "D:\\ELKAK\\implementation\\emsr933_crete\\data\\copdem30\\copdem30.vrt",
     "aoi_manifest": "reproduction/emsr933/ems_snapshot_20261019T133437Z_manifest.json",
     "tiers": "reproduction/v14_rerun/phase5/crete_canonical_r2on_tiers.json",
-    "noa": "reproduction/emsr933/noa_stations/stations_daily.csv"
+    "noa": "not used (--noa-stations off)"
   },
   "time_step_h": {
     "imerg_raw_mm": 0.5,
@@ -50,7 +50,7 @@
     "decimation": 3
   },
   "catchment_definition": "AOI land cells plus the basins of the AOI outlet cells and inner pits on the Stage-1 D8 network (filled GLO-30 at ~90 m); a cell takes the total of the nearest forcing-grid cell; means area-weighted",
-  "note": "NOA station positions are rounded to 0.1 deg in the station headers, so 'inside' is indicative; NOA values from meteo.gr station summaries (attribution required: Εθνικό Αστεροσκοπείο Αθηνών / meteo.gr)",
+  "note": "NOA/meteo.gr station values are not committed and not listed here (decision of 21 Oct 2026); the R2 anchor stays in the run config",
   "aois": [
     {
       "aoi": "01",
@@ -85,23 +85,7 @@
       "era5_mm_anchor_aoi_mean": 75.0,
       "era5_mm_simulated_mean": 74.5,
       "era5_mm_simulated_max": 128.7,
-      "era5_mm_simulated_aoi_mean": 83.1,
-      "noa_stations_inside": [
-        {
-          "station": "potamoi",
-          "lat": 35.2,
-          "lon": 25.5,
-          "noa_total_mm": 442.0,
-          "n_days": 5
-        },
-        {
-          "station": "tzermiado",
-          "lat": 35.2,
-          "lon": 25.5,
-          "noa_total_mm": 447.8,
-          "n_days": 5
-        }
-      ]
+      "era5_mm_simulated_aoi_mean": 83.1
     },
     {
       "aoi": "02",
@@ -134,8 +118,7 @@
       "era5_mm_anchor_aoi_mean": 118.5,
       "era5_mm_simulated_mean": 128.4,
       "era5_mm_simulated_max": 128.7,
-      "era5_mm_simulated_aoi_mean": 128.7,
-      "noa_stations_inside": []
+      "era5_mm_simulated_aoi_mean": 128.7
     },
     {
       "aoi": "03",
@@ -168,23 +151,7 @@
       "era5_mm_anchor_aoi_mean": 51.1,
       "era5_mm_simulated_mean": 58.2,
       "era5_mm_simulated_max": 87.6,
-      "era5_mm_simulated_aoi_mean": 58.5,
-      "noa_stations_inside": [
-        {
-          "station": "potamoi",
-          "lat": 35.2,
-          "lon": 25.5,
-          "noa_total_mm": 442.0,
-          "n_days": 5
-        },
-        {
-          "station": "tzermiado",
-          "lat": 35.2,
-          "lon": 25.5,
-          "noa_total_mm": 447.8,
-          "n_days": 5
-        }
-      ]
+      "era5_mm_simulated_aoi_mean": 58.5
     },
     {
       "aoi": "04",
@@ -219,8 +186,7 @@
       "era5_mm_anchor_aoi_mean": 7.7,
       "era5_mm_simulated_mean": 8.1,
       "era5_mm_simulated_max": 8.1,
-      "era5_mm_simulated_aoi_mean": 8.1,
-      "noa_stations_inside": []
+      "era5_mm_simulated_aoi_mean": 8.1
     },
     {
       "aoi": "05",
@@ -253,16 +219,7 @@
       "era5_mm_anchor_aoi_mean": 125.6,
       "era5_mm_simulated_mean": 136.3,
       "era5_mm_simulated_max": 218.9,
-      "era5_mm_simulated_aoi_mean": 135.6,
-      "noa_stations_inside": [
-        {
-          "station": "anogeia",
-          "lat": 35.3,
-          "lon": 24.9,
-          "noa_total_mm": 681.8,
-          "n_days": 5
-        }
-      ]
+      "era5_mm_simulated_aoi_mean": 135.6
     },
     {
       "aoi": "06",
@@ -295,8 +252,7 @@
       "era5_mm_anchor_aoi_mean": 36.4,
       "era5_mm_simulated_mean": 43.3,
       "era5_mm_simulated_max": 43.7,
-      "era5_mm_simulated_aoi_mean": 43.0,
-      "noa_stations_inside": []
+      "era5_mm_simulated_aoi_mean": 43.0
     },
     {
       "aoi": "07",
@@ -329,23 +285,7 @@
       "era5_mm_anchor_aoi_mean": 114.9,
       "era5_mm_simulated_mean": 124.4,
       "era5_mm_simulated_max": 179.4,
-      "era5_mm_simulated_aoi_mean": 119.1,
-      "noa_stations_inside": [
-        {
-          "station": "samaria",
-          "lat": 35.3,
-          "lon": 23.9,
-          "noa_total_mm": 867.2,
-          "n_days": 5
-        },
-        {
-          "station": "samariagorge",
-          "lat": 35.3,
-          "lon": 24.0,
-          "noa_total_mm": 632.0,
-          "n_days": 5
-        }
-      ]
+      "era5_mm_simulated_aoi_mean": 119.1
     },
     {
       "aoi": "08",
@@ -380,9 +320,8 @@
       "era5_mm_anchor_aoi_mean": 8.0,
       "era5_mm_simulated_mean": 8.5,
       "era5_mm_simulated_max": 24.6,
-      "era5_mm_simulated_aoi_mean": 8.4,
-      "noa_stations_inside": []
+      "era5_mm_simulated_aoi_mean": 8.4
     }
   ],
-  "elapsed_s": 2.7
+  "elapsed_s": 3.2
 }

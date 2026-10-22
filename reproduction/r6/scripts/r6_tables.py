@@ -534,26 +534,68 @@ def tab_s5(ctx: Ctx, W: Writer):
                    summary, ["Source: `code16/d_volumes_code16.json` (scripts/d_volumes_v142.py --out-stem d_volumes_code16)."])])
 
 
+CENTRE_LABEL = "AOI-union, truth burned by cell centre (re-scoring sensitivity, no SFINCS run)"
+
+
+def burning_rows(ctx: Ctx, strict_ref: dict) -> tuple[dict, list]:
+    """CODE-17 B5: per run of record, the centre-point-burning row of the main S6 table (keyed by run) and the rows of the
+    S6_burning sub-table (observed-wet cells / km² any-touched vs cell centre, inflation, strict scores both ways), read from
+    code17/c6_alltouched_inflation.json; the any-touched contingency is asserted against T3's (strict_ref[run])."""
+    c6 = ctx.j(ctx.R / "code17" / "c6_alltouched_inflation.json")
+    main, sub = {}, []
+
+    def row(label, run, aoi_tag, u, scored=True):
+        st = u.get("strict_h_gt_0p10") if scored else None
+        if st:
+            at = st["any_touched"]
+            assert all(int(at[k]) == int(strict_ref[run][k]) for k in ("tp", "fp", "fn", "tn")), f"S6 burning: any-touched contingency of {run} != T3"
+            ce_ = st["centre"]
+            main[run] = [label, run, CENTRE_LABEL, f1(u["universe_km2"]), f3(ce_["csi"]), f3(ce_["hr"]), f2(ce_["bias"])]
+        sub.append([label, run + (f" {aoi_tag}" if aoi_tag else ""), f1(u["universe_km2"]), f0(u["cells_any_touched"]), f1(u["observed_km2_any_touched"]),
+                    f0(u["cells_centre"]), f1(u["observed_km2_centre"]), f1(u["inflation_pct"])] +
+                   ([f3(st["any_touched"]["csi"]), f3(st["centre"]["csi"]), f3(st["any_touched"]["hr"]), f3(st["centre"]["hr"]),
+                     f3(st["any_touched"]["far"]), f3(st["centre"]["far"]), f2(st["any_touched"]["bias"]), f2(st["centre"]["bias"])] if st else [NA] * 8))
+    labels = {key: label for key, label, _run, _b, _h in EVENTS}
+    for e in c6["events"]:
+        if e["event"] != "crete":
+            row(labels[e["event"]], e["run"], "", e["v14_universe"])
+        else:
+            for code, u in sorted(e["aois"].items()):
+                row(labels["crete"], e["run"], f"AOI{code} (tier {u['tier']})", u, scored=(u["tier"] == 1))
+    return main, sub
+
+
 def tab_s6(ctx: Ctx, W: Writer):
     W.begin(); rows = []; c = ce(ctx)
+    strict_ref = {run: c["events"][run]["enhanced_v14"]["strict"] for run in c["events"]}
+    centre_rows, burn_rows = burning_rows(ctx, strict_ref)
     t = ctx.j(ctx.R / "code14" / "table_s3_v14_v142.json")
     for ev in t["events"]:
-        run = ev["run"]; e = c["events"][run]["enhanced_v14"]["strict"]
+        run = ev["run"]; e = strict_ref[run]
         for i, v in enumerate(ev["variants"]):
             if i == 1:
                 assert all(v[k] == e[k] for k in ("tp", "fp", "fn", "tn")), f"S6 AOI-union variant of {run} does not reproduce T3"
             rows.append([ev["label"], run, v["name"], f1(v["area_km2"]), f3(v["csi"]), f3(v["hr"]), f2(v["bias"])])
+        rows.append(centre_rows[run])
     ct = ctx.j(ctx.R / "code16" / "crete_tier1_diagnostics.json")["runs"]["crete_canonical_r2on"]
-    e = c["events"]["crete_canonical_r2on"]["enhanced_v14"]["strict"]
+    e = strict_ref["crete_canonical_r2on"]
     rows.append(["Crete (EMSR933)", "crete_canonical_r2on", "Active mask (no AOI)", "not defined", NA, NA, NA])
     for i, v in enumerate(ct["universe_variants"]):
         if i == 0:
             assert all(v[k] == e[k] for k in ("tp", "fp", "fn", "tn")), "S6 Crete AOI03 variant does not reproduce T3"
         rows.append(["Crete (EMSR933)", "crete_canonical_r2on", v["name"], f1(v["area_km2"]), f3(v["csi"]), f3(v["hr"]), f2(v["bias"])])
+    rows.append(centre_rows["crete_canonical_r2on"][:2] + [centre_rows["crete_canonical_r2on"][2].replace("AOI-union", "AOI03 (tier-1 universe)")] + centre_rows["crete_canonical_r2on"][3:])
     W.emit("S6", "Evaluation-universe sensitivity", ["event", "run of record", "universe", "area km²", "CSI", "HR", "B"], rows,
            ["Source: `code14/table_s3_v14_v142.json` (scripts/table_s3_v14.py --run-suffix _v142: the canonical runs of record; active mask only / AOI union / AOI union ± 1 km, the v1.4 exclusion removed on "
             "both sides; the AOI-union row reproduces T3 exactly — checked here on the contingency counts). Crete: `code16/crete_tier1_diagnostics.json` (AOI03 = the tier-1 universe, ± 1 km); the active-mask-only "
-            "variant is not defined for Crete (truth only inside the AOIs; §8-3 scores the tier-1 block only)."])
+            "variant is not defined for Crete (truth only inside the AOIs; §8-3 scores the tier-1 block only).",
+            "Truth burned by cell centre: `code17/c6_alltouched_inflation.json` (scripts/c6_alltouched_inflation.py). The validator burns the EMS polygons with rasterio all_touched = True (a cell is observed-wet "
+            "when a polygon touches it); the sensitivity marks a cell only when its centre lies inside a polygon, on the same grid and universe (the universe itself is unchanged). A re-scoring of the run of record's "
+            "h_max > 0.10 m, no SFINCS run; the any-touched contingency reproduces T3 (asserted)."],
+           extra=[("S6_burning", "Observed-wet cells by rasterisation rule and the strict scores (h_max > 0.10 m) with each truth",
+                   ["event", "run of record", "universe km²", "observed cells, any-touched", "observed km², any-touched", "observed cells, cell centre", "observed km², cell centre", "inflation %",
+                    "CSI any-touched", "CSI centre", "HR any-touched", "HR centre", "FAR any-touched", "FAR centre", "B any-touched", "B centre"], burn_rows,
+                   ["inflation % = any-touched cells / centre cells − 1. Crete tier-2 AOIs: cells and km² only (rule_ledger.md §8 item 3: no score outside the tier-1 block)."])])
 
 
 def tab_s7(ctx: Ctx, W: Writer):
@@ -613,21 +655,12 @@ def tab_s8(ctx: Ctx, W: Writer):
         rec = ctx.res(run, "record")
         sens.append([run, rec.get("label", NA), f3(st["csi"]), f3(st["hr"]), f3(st["far"]), f2(st["bias"]), f3(st["gss"]), (f"{f3(cs.get('csi'))} ({cs.get('threshold')})" if cs else NA),
                      f1(a["modelled_km2_h_gt_0p10"]), r2_factor(ctx, run)])
-    rv = ctx.j(ctx.R / "phase5" / "crete_rain_vs_noa.json")
-    st_rows = []
-    for s in rv["stations"]:
-        noa = s.get("noa_total_mm")
-        st_rows.append([s["station"], s.get("name", NA), f0(s.get("elev_m")), f1(noa), f1(s.get("imerg_raw_mm")), f1(s.get("imerg_r2_mm")), f1(s.get("era5_mm")),
-                        f2(s["imerg_raw_mm"] / noa) if noa else NA, f2(s["era5_mm"] / noa) if noa else NA])
-    W.emit("S8", "Crete (EMSR933): tiers, sensitivities and the NOA stations", ["AOI", "name", "tier", "status", "universe km²", "observed km²", "modelled km² (h_max > 0.10 m)", "CSI", "HR", "B"], rows,
-           ["**NOA/meteo.gr values: attribution required, licence to be checked before submission.**", "",
-            "Tiers (`reproduction/emsr933/rule_ledger.md` §8 item 3, fixed before any run): `phase5/crete_canonical_r2on_tiers.json` (canonical run). Observed km² = the validator's rasterisation (all_touched)."],
+    W.emit("S8", "Crete (EMSR933): tiers and sensitivities", ["AOI", "name", "tier", "status", "universe km²", "observed km²", "modelled km² (h_max > 0.10 m)", "CSI", "HR", "B"], rows,
+           ["Tiers (`reproduction/emsr933/rule_ledger.md` §8 item 3, fixed before any run): `phase5/crete_canonical_r2on_tiers.json` (canonical run). Observed km² = the validator's rasterisation (all_touched).",
+            "The per-station comparison with the NOA/meteo.gr gauges is not reproduced here: the station values are not committed (meteo.gr terms of use; decision of 21 Oct 2026). "
+            "The R2 anchor (447.8 mm, Tzermiado, five local days 30 Sep – 4 Oct 2026) is the one station total the configuration carries."],
            extra=[("S8_sensitivities", "Crete runs on the tier-1 block (Tzermiado)", ["run", "label (run record)", "CSI", "HR", "FAR", "B", "GSS", "CSI* (threshold)", "modelled km²", "R2 factor"], sens,
-                   ["Source: `phase5/<run>_tiers.json` aois['03'] and `results/<run>_record.json`; R2 factor from `phase4/rain/<run>_v14.json`."]),
-                  ("S8_noa_stations", f"Five-day totals at the {len(rv['stations'])} NOA stations (local days {rv['local_days'][0]} – {rv['local_days'][1]}, {rv['window_utc'][0]} → {rv['window_utc'][1]} UTC)",
-                   ["station", "name", "elevation m", "NOA mm", "IMERG Late raw mm", "IMERG Late R2 mm", "ERA5T mm", "IMERG raw / NOA", "ERA5T / NOA"], st_rows,
-                   ["**NOA/meteo.gr values: attribution required, licence to be checked before submission.**", "",
-                    f"Source: `phase5/crete_rain_vs_noa.json` (generated {rv['utc']}; IMERG/ERA5T at the cell containing each station; {rv.get('note', '')})."])])
+                   ["Source: `phase5/<run>_tiers.json` aois['03'] and `results/<run>_record.json`; R2 factor from `phase4/rain/<run>_v14.json`."])])
 
 
 def git(ctx: Ctx, *args) -> str:

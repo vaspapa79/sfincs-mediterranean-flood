@@ -33,7 +33,7 @@
       "reproduction/v14_rerun/results/strymonas_enhanced_postD6_v142_record.json",
       "reproduction/v14_rerun/results/valencia_enhanced_164_v142_record.json"
     ],
-    "generated_utc": "2026-10-21T09:40:05Z"
+    "generated_utc": "2026-10-22T08:10:20Z"
   },
   {
     "table": "T3",
@@ -46,7 +46,7 @@
     "sources": [
       "reproduction/v14_rerun/phase4/cross_event_v14_v142.json"
     ],
-    "generated_utc": "2026-10-21T09:40:05Z"
+    "generated_utc": "2026-10-22T08:10:20Z"
   },
   {
     "table": "T4",
@@ -59,7 +59,7 @@
     "sources": [
       "reproduction/v14_rerun/phase4/cross_event_v14_v142.json"
     ],
-    "generated_utc": "2026-10-21T09:40:05Z"
+    "generated_utc": "2026-10-22T08:10:20Z"
   },
   {
     "table": "T5",
@@ -78,7 +78,7 @@
       "reproduction/v14_rerun/phase4/rain/emilia_enhanced_8aoi_v142_v14.json",
       "reproduction/v14_rerun/phase4/rain/valencia_enhanced_164_v142_v14.json"
     ],
-    "generated_utc": "2026-10-21T09:40:05Z"
+    "generated_utc": "2026-10-22T08:10:20Z"
   },
   {
     "table": "T6",
@@ -91,7 +91,7 @@
     "sources": [
       "reproduction/v14_rerun/phase4/cross_event_v14_v142.json"
     ],
-    "generated_utc": "2026-10-21T09:40:05Z"
+    "generated_utc": "2026-10-22T08:10:20Z"
   },
   {
     "table": "S1",
@@ -104,7 +104,7 @@
     "sources": [
       "reproduction/v14_rerun/phase4/cross_event_v14_v142.json"
     ],
-    "generated_utc": "2026-10-21T09:40:05Z"
+    "generated_utc": "2026-10-22T08:10:20Z"
   },
   {
     "table": "S2",
@@ -132,7 +132,7 @@
       "reproduction/v14_rerun/results/strymonas_v1_prefix_src_v142_v14_newmask.json",
       "reproduction/v14_rerun/results/valencia_enhanced_164_v142_v14_newmask.json"
     ],
-    "generated_utc": "2026-10-21T09:40:05Z"
+    "generated_utc": "2026-10-22T08:10:20Z"
   },
   {
     "table": "S3",
@@ -146,7 +146,7 @@
       "reproduction/v14_rerun/code16/crete_tier1_diagnostics.json",
       "reproduction/v14_rerun/phase4/cross_event_v14_v142.json"
     ],
-    "generated_utc": "2026-10-21T09:40:05Z"
+    "generated_utc": "2026-10-22T08:10:20Z"
   },
   {
     "table": "S4",
@@ -285,7 +285,7 @@
       "reproduction/v14_rerun/results/valencia_raw_imerg_v142_record.json",
       "reproduction/v14_rerun/results/valencia_raw_imerg_v142_v14_newmask.json"
     ],
-    "generated_utc": "2026-10-21T09:40:05Z"
+    "generated_utc": "2026-10-22T08:10:20Z"
   },
   {
     "table": "S5",
@@ -301,22 +301,24 @@
       "reproduction/v14_rerun/code16/d9_residuals.json",
       "reproduction/v14_rerun/code16/d_volumes_code16.json"
     ],
-    "generated_utc": "2026-10-21T09:40:05Z"
+    "generated_utc": "2026-10-22T08:10:20Z"
   },
   {
     "table": "S6",
     "title": "Evaluation-universe sensitivity",
-    "rows": 24,
+    "rows": 40,
     "files": [
       "tables/S6.md",
-      "tables/S6.csv"
+      "tables/S6.csv",
+      "tables/S6_burning.csv"
     ],
     "sources": [
       "reproduction/v14_rerun/code14/table_s3_v14_v142.json",
       "reproduction/v14_rerun/code16/crete_tier1_diagnostics.json",
+      "reproduction/v14_rerun/code17/c6_alltouched_inflation.json",
       "reproduction/v14_rerun/phase4/cross_event_v14_v142.json"
     ],
-    "generated_utc": "2026-10-21T09:40:05Z"
+    "generated_utc": "2026-10-22T08:10:20Z"
   },
   {
     "table": "S7",
@@ -351,17 +353,16 @@
       "reproduction/v14_rerun/results/valencia_enhanced_164_v13_fa_share.json",
       "reproduction/v14_rerun/results/valencia_enhanced_164_v142_record.json"
     ],
-    "generated_utc": "2026-10-21T09:40:05Z"
+    "generated_utc": "2026-10-22T08:10:20Z"
   },
   {
     "table": "S8",
-    "title": "Crete (EMSR933): tiers, sensitivities and the NOA stations",
-    "rows": 28,
+    "title": "Crete (EMSR933): tiers and sensitivities",
+    "rows": 15,
     "files": [
       "tables/S8.md",
       "tables/S8.csv",
-      "tables/S8_sensitivities.csv",
-      "tables/S8_noa_stations.csv"
+      "tables/S8_sensitivities.csv"
     ],
     "sources": [
       "reproduction/emsr933/ems_api_snapshot_20261019T133437Z.json",
@@ -379,7 +380,6 @@
       "reproduction/v14_rerun/phase4/rain/crete_sens_karst_q1914_v14.json",
       "reproduction/v14_rerun/phase5/crete_baseline_tiers.json",
       "reproduction/v14_rerun/phase5/crete_canonical_r2on_tiers.json",
-      "reproduction/v14_rerun/phase5/crete_rain_vs_noa.json",
       "reproduction/v14_rerun/phase5/crete_sens_anchor_224_tiers.json",
       "reproduction/v14_rerun/phase5/crete_sens_anchor_336_tiers.json",
       "reproduction/v14_rerun/phase5/crete_sens_anchor_582_tiers.json",
@@ -393,7 +393,7 @@
       "reproduction/v14_rerun/results/crete_sens_karst_q1914_record.json",
       "reproduction/v14_rerun/results/crete_sens_r2off_record.json"
     ],
-    "generated_utc": "2026-10-21T09:40:05Z"
+    "generated_utc": "2026-10-22T08:10:20Z"
   },
   {
     "table": "S9",
@@ -417,7 +417,7 @@
       "reproduction/v14_rerun/results/crete_sens_karst_q1914_record.json",
       "reproduction/v14_rerun/results/crete_sens_r2off_record.json"
     ],
-    "generated_utc": "2026-10-21T09:40:05Z"
+    "generated_utc": "2026-10-22T08:10:20Z"
   },
   {
     "table": "S10",
@@ -497,6 +497,6 @@
       "skill/scripts/*.py",
       "tests/test_*.py"
     ],
-    "generated_utc": "2026-10-21T09:40:06Z"
+    "generated_utc": "2026-10-22T08:10:21Z"
   }
 ]

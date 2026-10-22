@@ -1,0 +1,29 @@
+{
+  "run": "emilia_enhanced_8aoi_v142",
+  "n_truth_files_windows": 13,
+  "n_truth_files_case_sensitive": 10,
+  "aoi_files_same_case_sensitive": true,
+  "windows_13": {
+    "observed_km2": 567.9,
+    "tp": 21507,
+    "fp": 59690,
+    "fn": 3733,
+    "tn": 54979,
+    "csi": 0.2532320734722713,
+    "hr": 0.8520998415213946,
+    "far": 0.7351256819833245,
+    "bias": 3.216996830427892
+  },
+  "case_sensitive_10": {
+    "observed_km2": 461.0025,
+    "tp": 17641,
+    "fp": 63556,
+    "fn": 2848,
+    "tn": 55864,
+    "csi": 0.20989945862335654,
+    "hr": 0.8609985846063741,
+    "far": 0.7827382785078266,
+    "bias": 3.962955732344185
+  },
+  "record_csi_h_gt_0p10": null
+}

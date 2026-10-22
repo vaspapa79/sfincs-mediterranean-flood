@@ -1,6 +1,6 @@
 # R6 part E — reference check of the R5 reference lists
 
-Generated **2026-10-21T09:44:45Z** (run started 2026-10-21T09:44:44Z) by `reproduction/r6/scripts/build_refs.py`. Raw responses with request URL and UTC fetch time: `refs_crossref_raw.json`. Network requests in this run: 2; responses reused from the cache: 124 (a reused response keeps its original fetch time).
+Generated **2026-10-22T08:02:57Z** (run started 2026-10-22T08:02:55Z) by `reproduction/r6/scripts/build_refs.py`. Raw responses with request URL and UTC fetch time: `refs_crossref_raw.json`. Network requests in this run: 4; responses reused from the cache: 121 (a reused response keeps its original fetch time).
 
 ## Method
 
@@ -49,7 +49,7 @@ Generated **2026-10-21T09:44:45Z** (run started 2026-10-21T09:44:44Z) by `reprod
 | 31 | Nikolopoulos 2013, Using high-resolution satellite rainfall products to simula… | both (M381, S87) | 10.1175/JHM-D-12-09.1 | 10.1175/jhm-d-12-09.1 | **verified** | title 1.000; 1st author Nikolopoulos; year 2013 = print/online/issued |
 | 32 | Peinó 2024, Disentangling Satellite Precipitation Estimate Errors of He… | manuscript (M382) | 10.3390/rs16030457 | 10.3390/rs16030457 | **verified** | title 1.000; 1st author Peinó; year 2024 = online/issued |
 | 33 | Rombeek 2025, Torrential rainfall in Valencia, Spain, recorded by persona… | both (M383, S88) | 10.5194/hess-29-6715-2025 | 10.5194/hess-29-6715-2025 | **verified** | title 1.000; 1st author Rombeek; year 2025 = online/issued |
-| 34 | Sadana 2025, Validation of the open-source hydrodynamic model SFINCS on… | manuscript (M384) | 10.5194/egusphere-2025-4387 | 10.5194/egusphere-2025-4387 | **verified** | title 1.000; 1st author Sadana; year 2025 = issued; note: volume/pages not compared (R5 tail: “EGUsphere [preprint]”) |
+| 34 | Sadana 2025, Validation of the open-source hydrodynamic model SFINCS on… | manuscript (M384) | 10.5194/egusphere-2025-4387 | 10.5194/hess-30-5491-2026 | **replaced** | R5 cites 10.5194/egusphere-2025-4387; published version (Hydrol. Earth Syst. Sci. 30, 2026) replaces the EGUsphere preprint; Crossref record of the replacement: title 1.000; 1st author Sadana; YEAR differs: R5 2025 vs Crossref online 2026, issued 2026; note: volume/pages not compared (R5 tail: “EGUsphere [preprint]”) |
 | 35 | Sampson 2015, A high-resolution global flood hazard model | manuscript (M385) | 10.1002/2015WR016954 | 10.1002/2015wr016954 | **verified** | title 1.000; 1st author Sampson; year 2015 = print/online/issued |
 | 36 | Sanz-Ramos 2021, Interpreting the Manning Roughness Coefficient in Overland… | manuscript (M386) | 10.3390/w13233433 | 10.3390/w13233433 | **verified** | title 1.000; 1st author Sanz-Ramos; year 2021 = online/issued |
 | 37 | Schaefer 1990, The Critical Success Index as an Indicator of Warning Skill | manuscript (M387) | 10.1175/1520-0434(1990)005<0570:TCSIAA>2.0.CO;2 | 10.1175/1520-0434(1990)005<0570:tcsiaa>2.0.co;2 | **verified** | title 1.000; 1st author Schaefer; year 1990 = print/issued |
@@ -59,7 +59,7 @@ Generated **2026-10-21T09:44:45Z** (run started 2026-10-21T09:44:44Z) by `reprod
 | 41 | Soulis 2021, Soil Conservation Service Curve Number (SCS-CN) Method: Cur… | manuscript (M391) | 10.3390/w13020192 | 10.3390/w13020192 | **verified** | title 1.000; 1st author Soulis; year 2021 = online/issued |
 | 42 | Stephens 2012, The impact of uncertainty in satellite data on the assessme… | manuscript (M392) | 10.1016/j.jhydrol.2011.10.040 | 10.1016/j.jhydrol.2011.10.040 | **verified** | title 1.000; 1st author Stephens; year 2012 = print/issued; note: volume/pages not compared (R5 tail: “Journal of Hydrology 414–415:162–173”) |
 | 43 | Trigg 2016, The credibility challenge for global fluvial flood risk ana… | manuscript (M393) | 10.1088/1748-9326/11/9/094014 | 10.1088/1748-9326/11/9/094014 | **verified** | title 1.000; 1st author Trigg; year 2016 = print/online/issued |
-| 44 | Tsimplis 2000, Estimation of the transports through the Strait of Gibraltar | manuscript (M394) | 10.1016/S0967-0637(00)00024-8 | 10.1016/s0967-0637(00)00024-8 | **verified** | title 1.000; 1st author Tsimplis; year 2000 = print/issued |
+| 44 | Tsimplis 2000, Estimation of the transports through the Strait of Gibraltar | manuscript (M394) | 10.1016/S0967-0637(00)00024-8 | 10.1016/s0967-0637(00)00024-8 | **dropped** | dropped: replaced by Tsimplis, Proctor & Flather (1995), item (1); Crossref record of the R5 entry: title 1.000; 1st author Tsimplis; year 2000 = print/issued |
 | 45 | van Ormondt 2025, Subgrid corrections for the linear inertial equations of a… | manuscript (M395) | 10.5194/gmd-18-843-2025 | 10.5194/gmd-18-843-2025 | **verified** | title 1.000; 1st author van Ormondt; year 2025 = online/issued |
 | 46 | Wing 2017, Validation of a 30 m resolution flood hazard model of the c… | manuscript (M396) | 10.1002/2017WR020917 | 10.1002/2017wr020917 | **verified** | title 0.988; 1st author Wing; year 2017 = print/online/issued; note: the Crossref title contains markup tags (e.g. <scp>), as returned by Crossref |
 | 47 | Zanaga 2022, ESA WorldCover 10 m 2021 v200 | manuscript (M397) | 10.5281/zenodo.7254221 | — | **not in Crossref (DataCite DOI)** | Crossref 404; registration agency (Crossref /agency) = DataCite. DataCite record: “ESA WorldCover 10 m 2021 v200” (title sim 1.00 with R5 “ESA WorldCover 10 m 2021 v200”); 1st creator Zanaga (= R5 Zanaga); year 2022 (= R5 2022); publisher Zenodo; resourceTypeGeneral Dataset; registered 2022-10-28T11:28:22.000Z; landing URL https://zenodo.org/record/7254221 |
@@ -68,11 +68,13 @@ Generated **2026-10-21T09:44:45Z** (run started 2026-10-21T09:44:44Z) by `reprod
 
 ## Counts
 
-- **verified:** 43
+- **verified:** 41
+- **replaced:** 1 (# 34)
+- **dropped:** 1 (# 44)
 - **mismatch:** 1 (# 2)
 - **not found:** 1 (# 17)
 - **not in Crossref (DataCite DOI):** 4 (# 14, 18, 26, 47)
-- total: 49; refs.bib entries: 45 (Crossref-held R5 references + proposed additions); refs_datacite.bib entries: 6.
+- total: 49; refs.bib entries: 44 (Crossref-held R5 references + proposed additions); refs_datacite.bib entries: 6.
 - Notes (do not affect the status): #2: volume/pages not compared (R5 tail: “Water-Supply Paper 2339, U.S. Geological Survey”); #34: volume/pages not compared (R5 tail: “EGUsphere [preprint]”); #38: pages: R5 10249–10256; Crossref returns no page or article-number; #42: volume/pages not compared (R5 tail: “Journal of Hydrology 414–415:162–173”); #46: the Crossref title contains markup tags (e.g. <scp>), as returned by Crossref.
 
 ### Entries needing attention (from the table)
@@ -104,7 +106,7 @@ R5 manuscript lines citing *Tsimplis and Bryden, 2000*: line 44: “…e three G
 | DOI | 10.1016/s0967-0637(00)00024-8 | 10.1029/95jc01671 |
 | type | journal-article | journal-article |
 
-Sources: `https://api.crossref.org/works/10.1016/S0967-0637%2800%2900024-8` (table status: verified); search `https://api.crossref.org/works?query.bibliographic=Tsimplis+Proctor+Flather+1995+two-dimensional+tidal+model+Mediterranean+Sea&rows=5` fetched 2026-10-21T09:29:05Z; top hit re-read from `https://api.crossref.org/works/10.1029/95jc01671` fetched 2026-10-21T09:29:06Z. Other hits of that search: 10.1029/94gl00181 (Tsimplis, print 1994, online 2012, issued 1994, “The North Sea pole tide described through a tide‐surge nume…”); 10.1007/978-3-642-68838-6_21 (Flather, print 1983, issued 1983, “Prediction of North Sea Storm Surges Using Numerical Models…”); 10.1016/j.jmarsys.2009.04.003 (Tsimplis, print 2009, issued 2009, “Sea level variability in the Mediterranean Sea during the 1…”); 10.5194/osd-7-1703-2010 (Arabelos, issued 2010, “A new assimilation tidal model for the Mediterranean Sea”).
+Sources: `https://api.crossref.org/works/10.1016/S0967-0637%2800%2900024-8` (table status: dropped); search `https://api.crossref.org/works?query.bibliographic=Tsimplis+Proctor+Flather+1995+two-dimensional+tidal+model+Mediterranean+Sea&rows=5` fetched 2026-10-21T09:29:05Z; top hit re-read from `https://api.crossref.org/works/10.1029/95jc01671` fetched 2026-10-21T09:29:06Z. Other hits of that search: 10.1029/94gl00181 (Tsimplis, print 1994, online 2012, issued 1994, “The North Sea pole tide described through a tide‐surge nume…”); 10.1007/978-3-642-68838-6_21 (Flather, print 1983, issued 1983, “Prediction of North Sea Storm Surges Using Numerical Models…”); 10.1016/j.jmarsys.2009.04.003 (Tsimplis, print 2009, issued 2009, “Sea level variability in the Mediterranean Sea during the 1…”); 10.5194/osd-7-1703-2010 (Arabelos, issued 2010, “A new assimilation tidal model for the Mediterranean Sea”).
 
 Check of the 1995 hit: first author Tsimplis True; co-authors Proctor and Flather True; year 1995 True; title similarity to the task descriptor “a two-dimensional tidal model of the Mediterranean Sea” = 0.972 → **verified**. Added to refs.bib as `tsimplis1995twodimensional` under `% proposed replacement for the tide citation (item 1)`.
 
@@ -201,8 +203,8 @@ Check of the 1995 hit: first author Tsimplis True; co-authors Proctor and Flathe
 | 10.3997/2214-4609.202620050 | 2026 | Application of MASW for Imaging Agyia Karstic Aquifer | NSG 2026: 3rd Conference on Hydrogeophysics | Koutroubi, N.; Kritikakis, G.; Andronikidis, N.; Vavadakis, D.; Steiakakis, M.;… | aquifer, karst |
 
 **Full-text check for “51.3”** (open-access article, CC BY per Crossref; URLs taken from the Crossref record):
-- `https://www.mdpi.com/2076-3263/8/1/19` fetched 2026-10-21T09:44:44Z: HTTP 403 (text/html, 398 bytes).
-- `https://www.mdpi.com/2076-3263/8/1/19/pdf` fetched 2026-10-21T09:44:45Z: HTTP 403 (text/html, 406 bytes).
+- `https://www.mdpi.com/2076-3263/8/1/19` fetched 2026-10-22T08:02:56Z: HTTP 403 (text/html, 398 bytes).
+- `https://www.mdpi.com/2076-3263/8/1/19/pdf` fetched 2026-10-22T08:02:57Z: HTTP 403 (text/html, 406 bytes).
 
 **Answer (2): full reference + DOI verified by Crossref** — Steiakakis, Emmanouil (2018): Evaluation of Exploitable Groundwater Reserves in Karst Terrain: A Case Study from Crete, Greece. *Geosciences* 8(1), 19. https://doi.org/10.3390/geosciences8010019 — identical to the ledger's citation in title, author, year, journal, volume, issue and article number. The value 51.3 % itself was not re-read in the article text in this run (publisher responses above); it rests on the verbatim quote recorded in `karst_recharge_sources.md`. The 2011 DOI resolves in Crossref to the book chapter “Effective infiltration assessment in Kourtaliotis karstic basin (S. Crete)” (Steiakakis, E.; Monopolis, D.; Vavadakis, D.; Lambrakis, N.; “Advances in the Research of Aquatic Environment”, Springer Berlin Heidelberg, pp. 485-492, print 2011, issued 2011); it agrees with the ledger in authors (family names), book title, pages, year and differs in volume (Crossref (none) / ledger 1), publisher wording (Crossref “Springer Berlin Heidelberg” / ledger “Springer”). Whether the chapter's text contains the 51.3 % figure was not checked here (the repo records the chapter as paywalled and the number as not verified there).
 

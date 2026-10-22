@@ -16,13 +16,13 @@ import release_docs as RD  # noqa: E402
 
 class DefectLine(unittest.TestCase):
     def test_fix_commit_runs_and_guard(self):
-        d = {"defect": "D7", "symptom": "GloFAS point sampling", "runs affected": "14 of 28 release runs", "fix commit": "eb66116",
+        d = {"defect": "D0", "symptom": "GloFAS point sampling", "runs affected": "14 of 28 release runs", "fix commit": "eb66116",
              "tag": "v1.4.1", "guard": "tests: test_prep_q_sampler.py"}
-        self.assertEqual(RD.defect_line(d), "- **D7** GloFAS point sampling — runs affected: 14 of 28 release runs — fix `eb66116` — "
+        self.assertEqual(RD.defect_line(d), "- **D0** GloFAS point sampling — runs affected: 14 of 28 release runs — fix `eb66116` — "
                                             "guard: test_prep_q_sampler.py")
 
     def test_text_only_defect_has_no_fix_commit(self):
-        d = {"defect": "D3", "symptom": "tspinup = 0", "runs affected": "none (methods text only)", "fix commit": "—", "tag": "—",
+        d = {"defect": "D0", "symptom": "tspinup = 0", "runs affected": "none (methods text only)", "fix commit": "—", "tag": "—",
              "guard": "no test naming it"}
         line = RD.defect_line(d)
         self.assertIn("no code change", line)

@@ -8,13 +8,24 @@ Releases of this repository, newest first. The defect lines D1–D8 are copied f
 - `b766fa8` CODE-15 E: branch reconciliation executed (main re-pointed onto the published lineage, main checkout switched); CHECKPOINT7.md E section refreshed
 - `1667f15` code16: freeze close-out
 - `94ffb2a` code16: manuscript tables, figure export, anonymity dry run, references (CODE-16 B-E)
-- this commit: README, CHANGELOG.md, CITATION.cff 1.4.2, EMSR933 close-out (YAML status lines, per-AOI-catchment rainfall, timing rows, tag `emsr933-v1`)
+- `f3a11f4` code17: release prep — README, CHANGELOG, CITATION 1.4.2, EMSR933 close-out
+- this commit: figures F10/F11 run of record only, map legend wording, S6 any-touched / centre-point rows, refs.bib updates, NOA station files untracked, CHANGELOG D1–D9, Zenodo description draft, CODE-17 look-up records
 
 ## v1.4.2 — 2026-10-20 (tag `v1.4.2` → `0084600`)
 
 Harness v1.4.2: D8 source-point resolution (per-point GloFAS windows / cells, request area covering every window, build-time R3 snap, duplicate-cell hard error) on top of v1.4.1; v1.4.2 re-runs of every affected run; the number freeze. Records in reproduction/v14_rerun (CHECKPOINT7.md, code15/), docs/AUDIT.md
 
-- **D8** source-point resolution — runs affected: 14 of 28 release runs — fix `b15896a` — guard: test_glofas_area.py, test_prep_q_sampler.py::PineiosAuditRebuildRegression, test_prep_q_sampler.py::PineiosRealData, test_prep_q_sampler.py::StrictDuplicates, test_source_snap.py
+Defects of release v1.3.0 and their state at this release (the release that fixed each one in brackets; runs affected = release-v1.3.0 runs):
+
+- **D1** IMERG x2/-30 min — runs affected: 25 of 28 release runs — fix `513ce5a` — guard: test_harness_v14.py, test_precip_forcing_v14.py [fixed in v1.4.0]
+- **D2** inactive inverse-barometer boundary — runs affected: 25 of 28 release runs — fix `513ce5a` — guard: test_d6_cn_bookkeeping.py::RenderD6, test_harness_v14.py::WaterlevelBoundaryInjection, test_ib_boundary_v14.py [fixed in v1.4.0]
+- **D3** tspinup = 0 — runs affected: none (methods text only) — no code change — guard: no test naming it [text only]
+- **D4** coastal set-up; fixed by: open sea inactive, coastal msk=2 ring, every cell starts dry — runs affected: 27 of 28 release runs — fix `561e8a0` — guard: test_coastal_setup_v14.py, test_harness_v14.py::RenderBuildYmlV14 [fixed in v1.4.0]
+- **D5** meteo-grid alignment — runs affected: 28 of 28 release runs — fix `8ccabb0` — guard: test_d6_cn_bookkeeping.py::RenderD6, test_meteo_alignment_v14.py [fixed in v1.4.0]
+- **D6** an unbounded sink for rain and inflow — runs affected: 9 of 28 release runs — fix `4735429` — guard: test_d6_cn_bookkeeping.py [fixed in v1.4.0]
+- **D7** GloFAS point sampling — runs affected: 14 of 28 release runs — fix `eb66116` — guard: test_prep_q_sampler.py [fixed in v1.4.1]
+- **D8** source-point resolution — runs affected: 14 of 28 release runs — fix `b15896a` — guard: test_glofas_area.py, test_prep_q_sampler.py::PineiosAuditRebuildRegression, test_prep_q_sampler.py::PineiosRealData, test_prep_q_sampler.py::StrictDuplicates, test_r6_helpers.py::RunLabel, test_source_snap.py [fixed in v1.4.2]
+- **D9** source-point placements — documented, not fixed (the number freeze stands): Trikala 3.76 km from the Pineios channel; Titarisios 10.95 km from the Titarisios channel; Ronco 3.03 km from the Ronco channel; Montone 0.60 km from the Montone channel; Jucar sampled on the Jucar (0.00 km); Kalambaka: sampled only (inject: false) only, no channel distance; Pineios GloFAS lattice offset 4.29 km — record `reproduction/v14_rerun/code16/d9_residuals.json` (pineios_enhanced_v142 and the other runs of record)
 
 ## v1.4.1 — 2026-10-20 (tag `v1.4.1` → `642efaa`)
 

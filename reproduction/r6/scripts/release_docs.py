@@ -14,6 +14,8 @@ from __future__ import annotations
 import argparse
 import csv
 import datetime as dt
+import json
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -69,6 +71,28 @@ def defects(repo: Path) -> dict[str, dict]:
     return {r[key["defect"]]: {k: r[c] for k, c in key.items()} for r in rows}
 
 
+def d9_line(repo: Path) -> str:
+    """D9 (source placements, documented, not fixed — the number freeze stands) from code16/d9_residuals.json: one line with the
+    measured channel offsets of the injection points and the two bookkeeping items."""
+    rec = json.loads((repo / "reproduction/v14_rerun/code16/d9_residuals.json").read_text(encoding="utf-8"))
+    parts = []
+    for it in rec["items"]:
+        off = (it.get("nearest_named_river_channel_cell") or {}).get("offset_km")
+        if off is None:
+            off = it.get("offset_km")                     # D9-7 (lattice offset) carries it at the top level
+        name = it["point"].split("_", 1)[-1].replace("_", " ").title() if it.get("point") else it["id"]
+        if it.get("kind") == "injection" and off is not None:
+            parts.append(f"{name} {off:.2f} km from the {it['named_river']} channel")
+        elif off is not None and it["id"] != "D9-7":
+            parts.append(f"{name} sampled on the {it['named_river']} ({off:.2f} km)")
+        elif it["id"] == "D9-7":
+            parts.append(f"Pineios GloFAS lattice offset {off:.2f} km")
+        else:
+            parts.append(f"{name}: {it.get('kind', 'record')} only, no channel distance")
+    return ("- **D9** source-point placements — documented, not fixed (the number freeze stands): " + "; ".join(parts)
+            + f" — record `reproduction/v14_rerun/code16/d9_residuals.json` ({rec['items'][0]['run']} and the other runs of record)")
+
+
 def defect_line(d: dict) -> str:
     fix = f"fix `{d['fix commit']}`" if d["fix commit"] not in ("", "—") else "no code change"
     guard = d["guard"].replace("tests: ", "") if d["guard"].startswith("tests: ") else d["guard"]
@@ -89,8 +113,8 @@ def changelog(repo: Path) -> str:
     if unreleased:
         L += [f"## Unreleased (after tag `{last['name']}`; records and documentation only, harness unchanged)", ""]
         L += [f"- `{ln.split(' ', 1)[0]}` {ln.split(' ', 1)[1]}" for ln in reversed(unreleased)]
-        L += ["- this commit: README, CHANGELOG.md, CITATION.cff 1.4.2, EMSR933 close-out (YAML status lines, per-AOI-catchment "
-              "rainfall, timing rows, tag `emsr933-v1`)", ""]
+        L += ["- this commit: figures F10/F11 run of record only, map legend wording, S6 any-touched / centre-point rows, refs.bib "
+              "updates, NOA station files untracked, CHANGELOG D1–D9, Zenodo description draft, CODE-17 look-up records", ""]
     by_tag: dict[str, list[dict]] = {}
     for d in dd.values():
         by_tag.setdefault(d["tag"], []).append(d)
@@ -104,10 +128,62 @@ def changelog(repo: Path) -> str:
         rows = sorted(by_tag.get(t["name"], []), key=lambda d: d["defect"])
         if t["name"] == "v1.4.0":
             rows = sorted(rows + by_tag.get("—", []), key=lambda d: d["defect"])
-        L += [defect_line(d) for d in rows]
-        if rows:
-            L.append("")
+        if t["name"] == last["name"]:            # the current release lists every defect, D1–D9, one line each
+            L += ["Defects of release v1.3.0 and their state at this release (the release that fixed each one in brackets; "
+                  "runs affected = release-v1.3.0 runs):", ""]
+            L += [defect_line(d) + (f" [fixed in {d['tag']}]" if d["tag"] not in ("", "—") else " [text only]") for d in sorted(dd.values(), key=lambda d: d["defect"])]
+            L += [d9_line(repo), ""]
+        else:
+            L += [defect_line(d) for d in rows]
+            if rows:
+                L.append("")
     return "\n".join(L).rstrip() + "\n"
+
+
+def cff_creators(repo: Path) -> list[dict]:
+    """Creators as in CITATION.cff (family, given, affiliation, orcid), in file order — the same list as the existing Zenodo record."""
+    txt = (repo / "CITATION.cff").read_text(encoding="utf-8")
+    out = []
+    for block in re.split(r"(?m)^  - ", txt.split("\nauthors:\n", 1)[1].split("\nlicense:", 1)[0]):
+        if not block.strip():
+            continue
+        g = lambda k: (re.search(k + r":\s*\"?([^\"\n]+)\"?", block) or [None, None])[1]
+        out.append({"family": g("family-names"), "given": g("given-names"), "affiliation": g("affiliation"), "orcid": g("orcid")})
+    return out
+
+
+def zenodo_description(repo: Path) -> str:
+    """Draft Zenodo description for the new version (to paste into the record created by the GitHub release)."""
+    cff = (repo / "CITATION.cff").read_text(encoding="utf-8")
+    title = re.search(r'^title:\s*"([^"]+)"', cff, re.M).group(1)
+    version = re.search(r'^version:\s*"([^"]+)"', cff, re.M).group(1)
+    dd = defects(repo)
+    cre = cff_creators(repo)
+    L = [f"# Draft Zenodo description — version v{version}", "",
+         "Generated by `reproduction/r6/scripts/release_docs.py` from CITATION.cff and reproduction/r6/tables/S10.csv; a draft for the "
+         "record that the GitHub release creates under the concept DOI 10.5281/zenodo.20523154 (same creators as the existing record).", "",
+         f"**Title:** {title}", "", f"**Version:** v{version}  ·  **Upload type:** software  ·  **Licence:** MIT", "",
+         "**Creators (unchanged):**", ""]
+    L += [f"{i}. {c['family']}, {c['given']} — {c['affiliation']}" + (f" — ORCID {c['orcid']}" if c.get('orcid') else "") for i, c in enumerate(cre, 1)]
+    L += ["", "**Description:**", "",
+          f"Release v{version} of the configuration-driven SFINCS / HydroMT-SFINCS pipeline that hindcasts Mediterranean flood events "
+          "from public global inputs (Copernicus DEM GLO-30, ESA WorldCover, GPM IMERG, ERA5, GloFAS v4) and scores each hindcast "
+          "pixel by pixel against Copernicus EMS rapid-mapping flood polygons. Six EMS activations are covered: EMSR122 Strymonas (2015), "
+          "EMSR257 Mandra (2017), EMSR664 Emilia-Romagna (2023), EMSR692 Pineios / Storm Daniel (2023), EMSR773 Valencia (2024) and "
+          "EMSR933 Crete (2026), the last configured from the frozen a-priori activation rule before its flood extents existed.", "",
+          "The v1.4.x releases supersede every number of release v1.3.0. They fix eight defects of the earlier harness and add the "
+          "evaluation mask (WorldCover class 80 and open sea excluded from scoring):", ""]
+    L += [f"- {d['defect']}: {d['symptom']} ({d['runs affected']}; fix `{d['fix commit']}`, {d['tag']})" if d["fix commit"] not in ("", "—")
+          else f"- {d['defect']}: {d['symptom']} (methods text only)" for d in sorted(dd.values(), key=lambda d: d["defect"])]
+    L += ["- D9: source-point placement residuals are documented, not fixed (reproduction/v14_rerun/code16/d9_residuals.json).", "",
+          "Contents: the pipeline (skill/), the validators (validation/), one YAML per event and configuration, the realised configurations "
+          "and validation records of every v1.4.x run (reproduction/v14_rerun/), the Crete prospective-run record (reproduction/emsr933/), "
+          "the manuscript tables and figures generated from the records (reproduction/r6/), the audit trail (docs/AUDIT.md) and the tests. "
+          "CHANGELOG.md lists the releases; README.md explains how to reproduce one event from its YAML.", "",
+          "**Related identifiers:** is version of 10.5281/zenodo.20523154 (concept DOI); is supplement to the manuscript (to be added on acceptance); "
+          f"GitHub tag v{version} (repository-code of CITATION.cff).", "",
+          "**Keywords:** " + ", ".join(re.findall(r"^\s+-\s+(.+)$", cff.split("keywords:", 1)[1], re.M)), ""]
+    return "\n".join(L)
 
 
 def stage_rows(repo: Path) -> list[str]:
@@ -133,6 +209,9 @@ def main() -> int:
     print("\n".join(rows))
     if a.write:
         (a.repo / "CHANGELOG.md").write_text(cl, encoding="utf-8")
+        zd = a.repo / "reproduction/r6/ZENODO_DESCRIPTION_v1.4.2.md"
+        zd.write_text(zenodo_description(a.repo), encoding="utf-8")
+        print(f"wrote {zd.relative_to(a.repo)}")
         tp = a.repo / "reproduction/emsr933/timing.md"
         lines = tp.read_text(encoding="utf-8").split("\n")
         if any(r.split(" | ")[0] in lines[i] for r in rows for i in range(len(lines))):

@@ -49,6 +49,9 @@ UA = "r6-refs-check/1.0"
 MIN_INTERVAL_S = 0.6
 TITLE_SIM_MIN = 0.90
 CROSSREF = "https://api.crossref.org"
+# Decisions of 21 Oct 2026 (Checkpoint 8 accepted). Replacement DOIs are fetched from Crossref like every other entry; nothing is typed.
+REPLACE_DOI = {"10.5194/egusphere-2025-4387": ("10.5194/hess-30-5491-2026", "published version (Hydrol. Earth Syst. Sci. 30, 2026) replaces the EGUsphere preprint")}
+DROP_DOI = {"10.1016/s0967-0637(00)00024-8": "dropped: replaced by Tsimplis, Proctor & Flather (1995), item (1)"}
 DATACITE = "https://api.datacite.org"
 CMR = "https://cmr.earthdata.nasa.gov/search/collections.umm_json"
 CDS_CATALOGUE = "https://cds.climate.copernicus.eu/api/catalogue/v1/collections/reanalysis-era5-single-levels"
@@ -756,6 +759,14 @@ def main():
 
     for e in entries:
         pr = e["parsed"]
+        key_doi = (pr["doi"] or "").lower()
+        if key_doi in REPLACE_DOI:
+            new_doi, why = REPLACE_DOI[key_doi]
+            e["replaced_doi"], e["replacement_reason"] = pr["doi"], why
+            pr = dict(pr, doi=new_doi)
+            e["parsed_effective"] = pr
+        if key_doi in DROP_DOI:
+            e["drop_bib"], e["drop_reason"] = True, DROP_DOI[key_doi]
         if pr["doi"]:
             rec = F.json(f"{CROSSREF}/works/{doi_path(pr['doi'])}")
             e["lookups"].append(rec["url"])
@@ -765,9 +776,19 @@ def main():
                 e.update(crossref=cr_summary(msg), assessment=a, doi_crossref=msg.get("DOI"))
                 e["status"] = "verified" if (a["title_ok"] and a["author_ok"] and a["year_ok"]) else "mismatch"
                 e["detail"] = detail_str(a)
+                if e.get("replaced_doi"):
+                    e["status"] = "replaced" if (a["title_ok"] and a["author_ok"]) else "mismatch"
+                    e["detail"] = f"R5 cites {e['replaced_doi']}; {e['replacement_reason']}; Crossref record of the replacement: " + detail_str(a)
+                if e.get("drop_bib"):
+                    e["status"], e["detail"] = "dropped", e["drop_reason"] + "; Crossref record of the R5 entry: " + detail_str(a)
                 yk = pr["year"] if a["year_ok"] else a["crossref_years"].get("issued")
-                b = crossref_bib(msg, yk, ["% MISMATCH: " + detail_str(a)] if e["status"] == "mismatch" else [],
-                                 f"R5 #{e['n']}")
+                if e.get("drop_bib"):
+                    e["bib_key"] = None
+                    continue
+                cm = ["% MISMATCH: " + detail_str(a)] if e["status"] == "mismatch" else []
+                if e.get("replaced_doi"):
+                    cm = [f"% REPLACED (decision 21 Oct 2026): R5 cites {e['replaced_doi']} ({e['replacement_reason']})"] + cm
+                b = crossref_bib(msg, yk, cm, f"R5 #{e['n']}")
                 e["lookups"].append(b["transform_url"])
                 e["bib_key"] = b["key"]
                 if b.get("bib_year") and b["bib_year"] != pr["year"]:
@@ -879,7 +900,7 @@ def main():
         it1.update(tpf_1995=cr_summary(msg), tpf_1995_record_url=full["url"], tpf_1995_fetched_utc=full.get("fetched_utc"),
                    tpf_1995_criteria=crit)
         if crit["verified"]:
-            b = crossref_bib(msg, 1995, ["% proposed replacement for the tide citation (item 1)"], "item (1)")
+            b = crossref_bib(msg, 1995, ["% replaces the tide citation Tsimplis & Bryden (2000) (item 1; decision 21 Oct 2026)"], "item (1)")
             it1["tpf_1995_bib_key"] = b["key"]
     items["1"] = it1
 
@@ -1111,7 +1132,7 @@ def main():
 
     write_report(outdir, generated, started, m_info, s_info, entries, items, bib_entries, dc_entries, F)
     print(f"done: {len(entries)} unique references; network requests {F.n_network}, cache hits {F.n_cached}")
-    for st in ("verified", "mismatch", "not found", "not in Crossref (DataCite DOI)"):
+    for st in ("verified", "replaced", "dropped", "mismatch", "not found", "not in Crossref (DataCite DOI)"):
         print(f"  {st}: {sum(1 for e in entries if e['status'] == st)}")
 
 
@@ -1198,7 +1219,7 @@ def write_report(outdir, generated, started, m_info, s_info, entries, items, bib
     w("")
     w("## Counts")
     w("")
-    for st in ("verified", "mismatch", "not found", "not in Crossref (DataCite DOI)"):
+    for st in ("verified", "replaced", "dropped", "mismatch", "not found", "not in Crossref (DataCite DOI)"):
         lst = [str(e["n"]) for e in entries if e["status"] == st]
         w(f"- **{st}:** {len(lst)}" + (f" (# {', '.join(lst)})" if lst and st != "verified" else ""))
     w(f"- total: {len(entries)}; refs.bib entries: {sum(1 for b in bib_entries if b['bib'])} (Crossref-held R5 references "

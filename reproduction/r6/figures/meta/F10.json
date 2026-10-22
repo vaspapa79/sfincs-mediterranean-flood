@@ -5,10 +5,9 @@
   "sources": [
     "reproduction/v14_rerun/phase4/cross_event_v14_v142.json",
     "reproduction/v14_rerun/phase5/crete_canonical_r2on_tiers.json",
-    "reproduction/v14_rerun/code16/d1_rain_written.json",
     "reproduction/v14_rerun/scripts/fig_skill_sweeps_v14.py"
   ],
-  "notes": "content of phase4/figures/fig10_skill_v14_v142.png; harness label v1.4.2 from the cross-event JSON, earlier-release label 'release v1.3.0' from code16/d1_rain_written.json; Crete = tier-1 AOI03 block (asserted against the tiers JSON); benchmark bands = the literature constants of fig_skill_sweeps_v14.py, labelled without author names (citations belong in the caption)",
+  "notes": "run-of-record markers only (strict CSI, fuzzy r = 1 CSI, CSI* at the best threshold) of phase4/figures/fig10_skill_v14_v142.png; no earlier-release series, no version label (release history: S7/S10); Crete = tier-1 AOI03 block (asserted against the tiers JSON); benchmark bands = the literature constants of fig_skill_sweeps_v14.py, labelled without author names (citations belong in the caption)",
   "layout_problems": [],
   "texts_drawn": [
     "0.0",
@@ -20,7 +19,7 @@
     "0.6",
     "0.7",
     "CSI ($\\it{h}_{\\rm max}$ > 0.10 m)",
-    "CSI* (best depth threshold), v1.4.2",
+    "CSI* (best depth threshold)",
     "Crete Tzermiado\n(EMSR933, tier 1)",
     "Emilia-R.\n(EMSR664)",
     "Mandra\n(EMSR257)",
@@ -29,39 +28,37 @@
     "Valencia\n(EMSR773)",
     "benchmark median",
     "calibrated single-event range",
-    "fuzzy CSI (r = 1), release v1.3.0",
-    "fuzzy CSI (r = 1), v1.4.2",
+    "fuzzy CSI (r = 1)",
     "global multi-model range",
-    "strict CSI, release v1.3.0",
-    "strict CSI, v1.4.2"
+    "strict CSI"
   ],
   "files": [
     {
       "file": "F10.tiff",
       "px": [
         4110,
-        2078
+        1984
       ],
       "dpi": 600,
       "width_mm": 174.0,
-      "height_mm": 88.0,
+      "height_mm": 84.0,
       "format": "TIFF, RGB 8-bit, LZW",
       "tiff_writer": "pil",
-      "bytes": 450036,
-      "generated_utc": "2026-10-21T10:07:50Z"
+      "bytes": 397122,
+      "generated_utc": "2026-10-22T07:59:29Z"
     },
     {
       "file": "F10_preview.png",
       "px": [
         2055,
-        1039
+        992
       ],
       "dpi": 300,
       "width_mm": 174.0,
-      "height_mm": 88.0,
+      "height_mm": 84.0,
       "format": "PNG preview (reduced)",
-      "bytes": 197141,
-      "generated_utc": "2026-10-21T10:07:50Z"
+      "bytes": 158935,
+      "generated_utc": "2026-10-22T07:59:29Z"
     }
   ]
 }

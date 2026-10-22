@@ -121,10 +121,21 @@ def main() -> int:
     L += ["", "## Figure notes", ""]
     for f, col, n, k in notes:
         L.append(f"- **{f}** ({col}, 174 mm): {n}. Drawn texts scanned: {k}.")
+    arch = sorted((C.FIG_DIR / "archive" / "meta").glob("*.json"))
+    if arch:
+        L += ["", "## Archived figures (`figures/archive/`, not used in the manuscript)", "",
+              "| File | Pixel size (px) | Generated (UTC) | Why archived |", "|---|---|---|---|"]
+        for mp in arch:
+            m = json.loads(mp.read_text(encoding="utf-8"))
+            for e in m["files"]:
+                L.append(f"| `archive/{e['file']}` | {e['px'][0]} × {e['px'][1]} | {e['generated_utc']} | earlier export with the release v1.3.0 "
+                         "series beside the run of record; superseded by the run-of-record-only figure (CODE-17 A3) |")
     L += ["", "## Content checks (run by this script)", "",
           f"- No author name or affiliation (the {len(names)} family names listed in `CITATION.cff`), URL, DOI, repository name, person-name "
-          "citation or 'published' wording in any drawn text; earlier-release series are labelled with the release name read from "
-          "`reproduction/v14_rerun/code16/d1_rain_written.json`.",
+          "citation or 'published' wording in any drawn text. Main-text figures show the run of record only (CODE-17 A1/A2): F10/F11 "
+          "carry no earlier-release series and no version label; the previous F10/F11 with the release v1.3.0 series are kept under "
+          "`figures/archive/` and are not used in the manuscript. Map legends read 'excluded from the evaluation universe (permanent "
+          "water, open sea)' (A4).",
           "- F9 (Crete) draws no score word or number: Crete is scored on the tier-1 AOI03 block only (`rule_ledger.md` §8 item 3); "
           "the generator asserts the AOI03 contingency against `phase5/crete_canonical_r2on_tiers.json` and never computes the "
           "all-AOI union. F10 takes Crete from the tier-1 block (asserted against the tiers JSON).",

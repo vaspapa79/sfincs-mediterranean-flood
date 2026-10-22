@@ -35,7 +35,7 @@
     "Maximum depth $\\it{h}_{\\rm max}$ (m)",
     "Northing (km, UTM 34N)",
     "active cell, $\\it{h}_{\\rm max}$ \u2264 0.10 m",
-    "removed by the v1.4 evaluation mask"
+    "excluded from the evaluation universe (permanent water, open sea)"
   ],
   "files": [
     {
@@ -49,8 +49,8 @@
       "height_mm": 144.54,
       "format": "TIFF, RGB 8-bit, LZW",
       "tiff_writer": "pil",
-      "bytes": 1059860,
-      "generated_utc": "2026-10-21T10:07:21Z"
+      "bytes": 1072076,
+      "generated_utc": "2026-10-22T07:59:39Z"
     },
     {
       "file": "F6_preview.png",
@@ -62,8 +62,8 @@
       "width_mm": 174.0,
       "height_mm": 144.54,
       "format": "PNG preview (reduced)",
-      "bytes": 435254,
-      "generated_utc": "2026-10-21T10:07:22Z"
+      "bytes": 439237,
+      "generated_utc": "2026-10-22T07:59:39Z"
     }
   ]
 }

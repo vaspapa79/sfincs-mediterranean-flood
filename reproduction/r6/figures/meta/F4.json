@@ -18,7 +18,7 @@
     "D:/ELKAK/manuscript/paper_submission_v5/_make_pineios_rain.py",
     "D:/ELKAK/manuscript/paper_submission_v5/_make_mandra_rain.py"
   ],
-  "notes": "design kept from the R5 rainfall figures (manuscript/paper_submission_v5/_make_{pineios,mandra}_rain.py: ERA5 red, bias-corrected IMERG blue, raw IMERG light-blue dashed, totals and peaks in the legend); data = model-bbox mean over the forcing window (tref..tstop) from phase4/rain; shaded = R2 event window; every value asserted against the rain JSON",
+  "notes": "design kept from the R5 rainfall figures (manuscript/paper_submission_v5/_make_{pineios,mandra}_rain.py: ERA5 red, bias-corrected IMERG blue, raw IMERG light-blue dashed, totals and peaks in the legend, which sits below each panel so that it overlaps neither the curves nor the shaded window); data = model-bbox mean over the forcing window (tref..tstop) from phase4/rain; shaded = R2 event window; every value asserted against the rain JSON",
   "layout_problems": [],
   "texts_drawn": [
     "(a)",
@@ -30,23 +30,29 @@
     "08 Sep",
     "10",
     "10 Sep",
+    "12",
     "12 Nov",
     "13 Nov",
+    "14",
     "14 Nov",
     "15",
     "15 Nov",
+    "16",
     "16 Nov",
     "17 Nov",
     "18 Nov",
+    "2",
     "20",
     "25",
     "27 Aug",
     "29 Aug",
     "30",
     "31 Aug",
-    "40",
+    "35",
+    "4",
     "5",
-    "50",
+    "6",
+    "8",
     "ERA5 (hourly, 0.25\u00b0): total 301.8 mm, peak 7.23 mm h$^{-1}$",
     "ERA5 (hourly, 0.25\u00b0): total 38.9 mm, peak 3.85 mm h$^{-1}$",
     "Mandra (EMSR257)",
@@ -66,28 +72,28 @@
       "file": "F4.tiff",
       "px": [
         4110,
-        3330
+        4322
       ],
       "dpi": 600,
       "width_mm": 174.0,
-      "height_mm": 141.0,
+      "height_mm": 183.0,
       "format": "TIFF, RGB 8-bit, LZW",
       "tiff_writer": "pil",
-      "bytes": 1193866,
-      "generated_utc": "2026-10-21T10:07:12Z"
+      "bytes": 1339244,
+      "generated_utc": "2026-10-22T08:12:09Z"
     },
     {
       "file": "F4_preview.png",
       "px": [
         2055,
-        1665
+        2161
       ],
       "dpi": 300,
       "width_mm": 174.0,
-      "height_mm": 141.0,
+      "height_mm": 183.0,
       "format": "PNG preview (reduced)",
-      "bytes": 529369,
-      "generated_utc": "2026-10-21T10:07:13Z"
+      "bytes": 576569,
+      "generated_utc": "2026-10-22T08:12:09Z"
     }
   ]
 }

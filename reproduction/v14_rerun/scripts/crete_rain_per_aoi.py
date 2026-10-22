@@ -71,6 +71,8 @@ def main() -> int:
     ap.add_argument("--config", required=True, type=Path)
     ap.add_argument("--out-json", required=True, type=Path)
     ap.add_argument("--days", default="2026-09-30,2026-10-04")
+    ap.add_argument("--noa-stations", action="store_true",
+                    help="also list the NOA/meteo.gr stations inside each catchment with their totals (station values are not committed; off by default)")
     a = ap.parse_args()
     repo = a.repo
     st1 = _load(repo / "reproduction/emsr933/scripts/stage1_terrain.py", "stage1_terrain")
@@ -118,7 +120,7 @@ def main() -> int:
             ri, ci = nearest_index(lats, ys), nearest_index(lons, xs)
             totals[(k, wname)] = {"on_dem": tot[np.ix_(ri, ci)], "step_h": step_h, "n_steps": nsteps,
                                   "cell_ids": (ri[:, None] * 100000 + ci[None, :])}
-    stations = rvn.station_totals(repo / "reproduction/emsr933/noa_stations/stations_daily.csv", (d0, d1))
+    stations = rvn.station_totals(repo / "reproduction/emsr933/noa_stations/stations_daily.csv", (d0, d1)) if a.noa_stations else {}
 
     rows = []
     masks = {ao["number"]: st1.rasterize(swkt.loads(ao["extent_wkt"]), transform, shape) for ao in manifest["aois"]}
@@ -162,7 +164,8 @@ def main() -> int:
             if 0 <= r_ < shape[0] and 0 <= c_ < shape[1] and catch[r_, c_]:
                 inside.append({"station": slug, "lat": s["lat"], "lon": s["lon"], "noa_total_mm": round(s["noa_total_mm"], 1),
                                "n_days": s["n_days"]})
-        rec["noa_stations_inside"] = inside
+        if a.noa_stations:
+            rec["noa_stations_inside"] = inside
         rows.append(rec)
 
     out = {"utc": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -172,27 +175,28 @@ def main() -> int:
            "inputs": {"raw": str(a.raw), "r2": str(a.r2), "era5": str(a.era5), "config": str(a.config), "dem_vrt": str(vrt),
                       "aoi_manifest": str(manifest_path.relative_to(repo)).replace("\\", "/"),
                       "tiers": "reproduction/v14_rerun/phase5/crete_canonical_r2on_tiers.json",
-                      "noa": "reproduction/emsr933/noa_stations/stations_daily.csv"},
+                      "noa": ("reproduction/emsr933/noa_stations/stations_daily.csv" if a.noa_stations else "not used (--noa-stations off)")},
            "time_step_h": {fk: totals[(fk, "anchor")]["step_h"] for fk in fields},
            "n_steps": {f"{fk}_{w}": totals[(fk, w)]["n_steps"] for fk in fields for w in ("anchor", "simulated")},
            "grid": {"shape": list(shape), "cell_deg": [round(transform.a, 6), round(-transform.e, 6)], "decimation": st1.DECIM},
            "catchment_definition": ("AOI land cells plus the basins of the AOI outlet cells and inner pits on the Stage-1 D8 network "
                                     "(filled GLO-30 at ~90 m); a cell takes the total of the nearest forcing-grid cell; means area-weighted"),
-           "note": ("NOA station positions are rounded to 0.1 deg in the station headers, so 'inside' is indicative; NOA values from "
-                    "meteo.gr station summaries (attribution required: Εθνικό Αστεροσκοπείο Αθηνών / meteo.gr)"),
+           "note": (("NOA station positions are rounded to 0.1 deg in the station headers, so 'inside' is indicative; NOA values from "
+                     "meteo.gr station summaries (attribution required: Εθνικό Αστεροσκοπείο Αθηνών / meteo.gr)") if a.noa_stations else
+                    "NOA/meteo.gr station values are not committed and not listed here (decision of 21 Oct 2026); the R2 anchor stays in the run config"),
            "aois": rows, "elapsed_s": round((dt.datetime.now(dt.timezone.utc) - t_start).total_seconds(), 1)}
     a.out_json.parent.mkdir(parents=True, exist_ok=True)
     a.out_json.write_text(json.dumps(out, indent=2, ensure_ascii=False, default=str), encoding="utf-8")
     cols = ["aoi", "name", "tier", "aoi_land_km2", "catchment_km2", "stage1_uparea_sum_at_outlets_km2"]
     for fk in fields:
         cols += [f"{fk}_anchor_mean", f"{fk}_anchor_max", f"{fk}_simulated_mean", f"{fk}_anchor_aoi_mean", f"{fk}_n_grid_cells"]
-    cols += ["noa_stations_inside"]
+    cols += (["noa_stations_inside"] if a.noa_stations else [])
     with open(a.out_json.with_suffix(".csv"), "w", newline="", encoding="utf-8") as fh:
         w = csv.DictWriter(fh, fieldnames=cols, extrasaction="ignore")
         w.writeheader()
         for r in rows:
             w.writerow({**r, "noa_stations_inside": "; ".join(f"{s['station']} {s['noa_total_mm']} mm ({s['n_days']} d)"
-                                                              for s in r["noa_stations_inside"])})
+                                                              for s in r.get("noa_stations_inside", []))})
 
     import matplotlib
     matplotlib.use("Agg")
@@ -207,7 +211,7 @@ def main() -> int:
         ax.bar(x + i * wdt, [r[f"{fk}_anchor_mean"] for r in rows], wdt, color=c, label=f"{lab}, catchment mean")
     first = True
     for i, r in enumerate(rows):
-        for s in r["noa_stations_inside"]:
+        for s in r.get("noa_stations_inside", []):
             ax.plot(i + wdt, s["noa_total_mm"], "k^", mfc="k" if s["n_days"] == 5 else "none", ms=4,
                     label="NOA station inside the catchment (open = incomplete record)" if first else None)
             first = False
@@ -224,7 +228,7 @@ def main() -> int:
         print(f"AOI{r['aoi']} {r['name']:12s} tier {r['tier']} catchment {r['catchment_km2']:7.1f} km2 "
               f"(stage1 sum {r['stage1_uparea_sum_at_outlets_km2']}) raw {r['imerg_raw_mm_anchor_mean']:6.1f} "
               f"R2 {r['imerg_r2_mm_anchor_mean']:6.1f} ERA5 {r['era5_mm_anchor_mean']:6.1f} mm; "
-              f"NOA inside: {[(s['station'], s['noa_total_mm']) for s in r['noa_stations_inside']]}")
+              + (f"NOA inside: {[(s['station'], s['noa_total_mm']) for s in r['noa_stations_inside']]}" if a.noa_stations else ""))
     print(f"elapsed {out['elapsed_s']} s -> {a.out_json}")
     return 0
 

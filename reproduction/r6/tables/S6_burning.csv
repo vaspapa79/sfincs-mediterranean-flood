@@ -1,0 +1,11 @@
+event,run of record,universe km²,"observed cells, any-touched","observed km², any-touched","observed cells, cell centre","observed km², cell centre",inflation %,CSI any-touched,CSI centre,HR any-touched,HR centre,FAR any-touched,FAR centre,B any-touched,B centre
+Pineios (EMSR692),pineios_enhanced_v142,4506.7,67007,1507.7,57233,1287.7,17.1,0.496,0.439,0.901,0.918,0.475,0.544,1.72,2.01
+Strymonas (EMSR122),strymonas_enhanced_postD6_v142,1196.2,4633,104.2,3074,69.2,50.7,0.334,0.237,0.921,0.967,0.656,0.761,2.68,4.04
+Mandra (EMSR257),mandra_enhanced,86.9,3528,8.8,1930,4.8,82.8,0.157,0.093,0.760,0.798,0.835,0.905,4.61,8.43
+Valencia (EMSR773),valencia_enhanced_164_v142,2709.5,19581,195.8,16515,165.2,18.6,0.144,0.123,0.939,0.952,0.855,0.876,6.46,7.66
+Emilia-Romagna (EMSR664),emilia_enhanced_8aoi_v142,3148.0,25240,567.9,14167,318.8,78.2,0.253,0.154,0.852,0.897,0.735,0.844,3.22,5.73
+"Crete (EMSR933), Tzermiado tier 1",crete_canonical_r2on AOI01 (tier 2),255.2,178,1.8,22,0.2,709.1,—,—,—,—,—,—,—,—
+"Crete (EMSR933), Tzermiado tier 1",crete_canonical_r2on AOI03 (tier 1),176.9,1126,11.3,433,4.3,160.0,0.221,0.086,0.988,1.000,0.778,0.914,4.45,11.58
+"Crete (EMSR933), Tzermiado tier 1",crete_canonical_r2on AOI04 (tier 2),57.6,41,0.4,2,0.0,1950.0,—,—,—,—,—,—,—,—
+"Crete (EMSR933), Tzermiado tier 1",crete_canonical_r2on AOI06 (tier 2),110.8,23,0.2,6,0.1,283.3,—,—,—,—,—,—,—,—
+"Crete (EMSR933), Tzermiado tier 1",crete_canonical_r2on AOI07 (tier 2),258.6,65,0.7,2,0.0,3150.0,—,—,—,—,—,—,—,—
