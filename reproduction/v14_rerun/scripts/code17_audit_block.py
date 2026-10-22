@@ -86,9 +86,20 @@ def render(repo: Path) -> str:
             L.append(f"- Anonymity scan of the unpacked archive (`anonymity_grep.py --tree`, {sc['utc']}): {sc['hits_outside_cited_work']} hits outside cited-work metadata, "
                      f"{sc['hits_in_cited_work']} inside; by class: " + ", ".join(f"{k} {v}" for k, v in sc["by_class"].items() if v) + ".")
         L.append("")
-    d = lk.get("D", {})
-    if d:
-        L += ["### D — push preparation (nothing pushed)", ""] + [f"- {x}" for x in d["lines"]] + [""]
+    dj = c17 / "d4_push_plan.json"
+    if dj.exists():
+        d = json.loads(dj.read_text(encoding="utf-8"))
+        ahead_after = int(git(repo, "rev-list", "--count", "origin/main..HEAD")) + 1       # this block's commit included
+        refs = "; ".join(f"`{r['ref']}` → `{r['commit']}` ({r['action']})" for r in d["refs"])
+        L += ["### D — push preparation (nothing pushed; GO-PUSH pending)", "",
+              f"- Command: `{d['push_command']}` — refs: {refs}. `origin/main` = `{d['origin_main'][:7]}`; `main` is fast-forwarded to the commit that carries this block "
+              f"({ahead_after} commits ahead of origin/main, fast-forward: {d['fast_forward']}).",
+              f"- Tracked at HEAD ({d['utc']} check, `scripts/d4_push_plan.py`): NOA/meteo.gr station data files {d['tracked_noa_files'] or 'none'}; credential files "
+              f"{d['tracked_credential_files'] or 'none'}; credential-like content {len(d['tracked_credential_content_hits'])} hit(s).",
+              f"- History that the push would publish: {len(d['history_noa_files'])} NOA station data files were tracked from `{(d.get('history_first_commit_with_noa') or '')[:7]}` "
+              f"(2026-10-09) until the commit before this one and are reachable from tags {', '.join('`' + t + '`' for t in d.get('history_tags_containing_noa_files', []))}; "
+              f"credential files in history: {d['history_credential_files'] or 'none'}. Removing the station files from history would rewrite every commit since "
+              "6363ead, including the frozen tag v1.4.2 — an author decision before GO-PUSH.", ""]
     return "\n".join(L) + "\n"
 
 

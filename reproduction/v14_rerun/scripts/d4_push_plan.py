@@ -17,7 +17,8 @@ import subprocess
 import sys
 from pathlib import Path
 
-NOA_PATTERNS = [r"noa_stations/.*\.csv$", r"noa_stations/raw/", r"crete_rain_vs_noa\.", r"rain_vs_noa\.log$", r"S8_noa_stations\.csv$", r"stations_daily", r"published_totals", r"stations_meta"]
+NOA_PATTERNS = [r"noa_stations/.*\.(csv|txt|html|json)$", r"noa_stations/raw/", r"crete_rain_vs_noa\.(csv|json|png)$", r"rain_vs_noa\.log$",
+                r"S8_noa_stations\.csv$", r"stations_daily\.csv$", r"published_totals\.csv$", r"stations_meta\.csv$"]   # data files, not the scripts that read them
 CRED_FILES = [r"(^|/)\.cdsapirc$", r"(^|/)\.?netrc$", r"(^|/)\.env$", r"(^|/)machine\.local\.yaml$", r"(^|/)\.cdsapirc\..*", r"credentials", r"\.pem$", r"\.key$"]
 CRED_CONTENT = [(r"^\s*key\s*:\s*[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\s*$", "CDS API key line"),
                 (r"^\s*machine\s+urs\.earthdata\.nasa\.gov\b.*(login|password)", "Earthdata netrc line"),

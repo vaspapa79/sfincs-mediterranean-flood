@@ -1,0 +1,181 @@
+{
+ "utc": "2026-10-22T08:14:44Z",
+ "label": "reproduction\\r6\\review_archive\\review_archive_v1.4.2",
+ "counts": {
+  "text": 1164,
+  "png": 143,
+  "tiff": 16,
+  "binary": 0
+ },
+ "n_not_scanned": 0,
+ "hits_outside_cited_work": 15,
+ "hits_in_cited_work": 4,
+ "by_class": {
+  "author names": 0,
+  "author names (Greek)": 0,
+  "author handles / initials": 0,
+  "affiliation: CERTH": 0,
+  "affiliation: ITI": 0,
+  "e-mail addresses": 0,
+  "ORCIDs": 0,
+  "vaspapa": 0,
+  "github.com URLs": 15,
+  "Zenodo DOIs / records": 4,
+  "grant numbers": 0,
+  "ECHO": 0
+ },
+ "hits": [
+  {
+   "class": "Zenodo DOIs / records",
+   "file": "reproduction/r6/refs_datacite.bib",
+   "line": 6,
+   "match": "10.5281/zenodo.8365009",
+   "context": "te record https://api.datacite.org/dois/10.5281/zenodo.8365009 fetched 2026-10-21T09:28:21Z; resourceT",
+   "where": "archive"
+  },
+  {
+   "class": "Zenodo DOIs / records",
+   "file": "reproduction/r6/refs_datacite.bib",
+   "line": 13,
+   "match": "10.5281/zenodo.8365009",
+   "context": "doi = {10.5281/zenodo.8365009}",
+   "where": "archive"
+  },
+  {
+   "class": "Zenodo DOIs / records",
+   "file": "reproduction/r6/refs_datacite.bib",
+   "line": 34,
+   "match": "10.5281/zenodo.7254221",
+   "context": "te record https://api.datacite.org/dois/10.5281/zenodo.7254221 fetched 2026-10-21T09:29:02Z; resourceT",
+   "where": "archive"
+  },
+  {
+   "class": "Zenodo DOIs / records",
+   "file": "reproduction/r6/refs_datacite.bib",
+   "line": 41,
+   "match": "10.5281/zenodo.7254221",
+   "context": "doi = {10.5281/zenodo.7254221}",
+   "where": "archive"
+  },
+  {
+   "class": "github.com URLs",
+   "file": "reproduction/r6/scripts/build_refs.py",
+   "line": 327,
+   "match": "github.com/",
+   "context": "url = \"https://api.github.com/\" + path",
+   "where": "archive"
+  },
+  {
+   "class": "github.com URLs",
+   "file": "reproduction/r6/scripts/build_refs.py",
+   "line": 359,
+   "match": "github.com/graphql",
+   "context": "rec = {\"url\": \"https://api.github.com/graphql\", \"via\": \"gh api graphql\", \"query\": que",
+   "where": "archive"
+  },
+  {
+   "class": "github.com URLs",
+   "file": "reproduction/v14_harness/D6_CN_SINK.md",
+   "line": 102,
+   "match": "github.com/Deltares/SFINCS",
+   "context": "ream status (checked 2026-10-19 against github.com/Deltares/SFINCS; downloads in the session scratchpad)",
+   "where": "archive"
+  },
+  {
+   "class": "github.com URLs",
+   "file": "reproduction/v14_rerun/CHECKPOINT6.md",
+   "line": 164,
+   "match": "github.com/Deltares/SFINCS/issues/386",
+   "context": "Sources: [SFINCS issue #386](https://github.com/Deltares/SFINCS/issues/386) · [SFINCS issue #375](https://github.c",
+   "where": "archive"
+  },
+  {
+   "class": "github.com URLs",
+   "file": "reproduction/v14_rerun/CHECKPOINT6.md",
+   "line": 164,
+   "match": "github.com/Deltares/SFINCS/issues/375",
+   "context": "sues/386) · [SFINCS issue #375](https://github.com/Deltares/SFINCS/issues/375) · [SFINCS issue #253](https://github.c",
+   "where": "archive"
+  },
+  {
+   "class": "github.com URLs",
+   "file": "reproduction/v14_rerun/CHECKPOINT6.md",
+   "line": 164,
+   "match": "github.com/Deltares/SFINCS/issues/253",
+   "context": "sues/375) · [SFINCS issue #253](https://github.com/Deltares/SFINCS/issues/253) · [SFINCS releases](https://github.com",
+   "where": "archive"
+  },
+  {
+   "class": "github.com URLs",
+   "file": "reproduction/v14_rerun/CHECKPOINT6.md",
+   "line": 164,
+   "match": "github.com/Deltares/SFINCS/releases",
+   "context": "issues/253) · [SFINCS releases](https://github.com/Deltares/SFINCS/releases) · [SFINCS manual, forcing](https://sfi",
+   "where": "archive"
+  },
+  {
+   "class": "github.com URLs",
+   "file": "reproduction/v14_rerun/CHECKPOINT6.md",
+   "line": 164,
+   "match": "github.com/Deltares/hydromt_sfincs/releases",
+   "context": "ml) · [hydromt_sfincs releases](https://github.com/Deltares/hydromt_sfincs/releases) · [hydromt_sfincs issues (meteo search",
+   "where": "archive"
+  },
+  {
+   "class": "github.com URLs",
+   "file": "reproduction/v14_rerun/CHECKPOINT6.md",
+   "line": 164,
+   "match": "github.com/Deltares/hydromt_sfincs/issues",
+   "context": "t_sfincs issues (meteo search)](https://github.com/Deltares/hydromt_sfincs/issues?q=meteo)",
+   "where": "archive"
+  },
+  {
+   "class": "github.com URLs",
+   "file": "reproduction/v14_rerun/code14/E_d5_provenance.md",
+   "line": 13,
+   "match": "github.com/Deltares/SFINCS/issues/386",
+   "context": "Sources: [SFINCS issue #386](https://github.com/Deltares/SFINCS/issues/386) · [SFINCS issue #375](https://github.c",
+   "where": "archive"
+  },
+  {
+   "class": "github.com URLs",
+   "file": "reproduction/v14_rerun/code14/E_d5_provenance.md",
+   "line": 13,
+   "match": "github.com/Deltares/SFINCS/issues/375",
+   "context": "sues/386) · [SFINCS issue #375](https://github.com/Deltares/SFINCS/issues/375) · [SFINCS issue #253](https://github.c",
+   "where": "archive"
+  },
+  {
+   "class": "github.com URLs",
+   "file": "reproduction/v14_rerun/code14/E_d5_provenance.md",
+   "line": 13,
+   "match": "github.com/Deltares/SFINCS/issues/253",
+   "context": "sues/375) · [SFINCS issue #253](https://github.com/Deltares/SFINCS/issues/253) · [SFINCS releases](https://github.com",
+   "where": "archive"
+  },
+  {
+   "class": "github.com URLs",
+   "file": "reproduction/v14_rerun/code14/E_d5_provenance.md",
+   "line": 13,
+   "match": "github.com/Deltares/SFINCS/releases",
+   "context": "issues/253) · [SFINCS releases](https://github.com/Deltares/SFINCS/releases) · [SFINCS manual, forcing](https://sfi",
+   "where": "archive"
+  },
+  {
+   "class": "github.com URLs",
+   "file": "reproduction/v14_rerun/code14/E_d5_provenance.md",
+   "line": 13,
+   "match": "github.com/Deltares/hydromt_sfincs/releases",
+   "context": "ml) · [hydromt_sfincs releases](https://github.com/Deltares/hydromt_sfincs/releases) · [hydromt_sfincs issues (meteo search",
+   "where": "archive"
+  },
+  {
+   "class": "github.com URLs",
+   "file": "reproduction/v14_rerun/code14/E_d5_provenance.md",
+   "line": 13,
+   "match": "github.com/Deltares/hydromt_sfincs/issues",
+   "context": "t_sfincs issues (meteo search)](https://github.com/Deltares/hydromt_sfincs/issues?q=meteo)",
+   "where": "archive"
+  }
+ ]
+}

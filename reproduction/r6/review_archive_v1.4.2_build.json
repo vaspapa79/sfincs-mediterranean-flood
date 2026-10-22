@@ -1,0 +1,74 @@
+{
+  "utc": "2026-10-22T08:13:42Z",
+  "tag": "v1.4.2",
+  "tag_commit": "00846005a16e155692a83e4d15fbab975b09bf3e",
+  "head": "1e01c290e37d686fcd3777a5cbfa3efb5a0df188",
+  "files_from_tag": 1211,
+  "overlay_files": 374,
+  "excluded_files": [
+    "CITATION.cff",
+    "CLAUDE.md",
+    "reproduction/emsr933/noa_stations/.gitignore",
+    "reproduction/emsr933/noa_stations/published_totals.csv",
+    "reproduction/emsr933/noa_stations/stations_daily.csv",
+    "reproduction/emsr933/noa_stations/stations_meta.csv",
+    "reproduction/r6/scripts/anonymity_grep.py",
+    "reproduction/r6/scripts/build_review_archive.py",
+    "reproduction/v14_rerun/phase5/crete_rain_vs_noa.csv",
+    "reproduction/v14_rerun/phase5/crete_rain_vs_noa.json",
+    "reproduction/v14_rerun/phase5/crete_rain_vs_noa.png",
+    "reproduction/v14_rerun/phase5/logs/rain_vs_noa.log",
+    "tests/test_code17_release.py"
+  ],
+  "patched_tests": [
+    "tests/test_r6_helpers.py: scanner import and pattern tests removed"
+  ],
+  "text_files": 1163,
+  "binary_files": 159,
+  "files_changed": 412,
+  "substitutions": {
+    "as-run root path (author machine)": 131,
+    "account handle": 46,
+    "as-run root (author machine, bare)": 16,
+    "home path": 306,
+    "repository URL": 4,
+    "Zenodo DOI (ours)": 13,
+    "as-run root path (this machine)": 1312,
+    "family name": 28,
+    "initials": 9,
+    "grant number": 2,
+    "funder": 1,
+    "LICENSE holder": 1,
+    "conda path": 26,
+    "as-run root (this machine, bare)": 4,
+    "full name": 1,
+    "affiliation CERTH-ITI": 1
+  },
+  "cited_work_untouched": [
+    "reproduction/r6/refs.bib",
+    "reproduction/r6/refs_datacite.bib"
+  ],
+  "readme": "reproduction/r6/README_REVIEW.md",
+  "top_level": [
+    ".gitignore",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md",
+    "README_REVIEW.md",
+    "configs/",
+    "docs/",
+    "environment.yml",
+    "figures/",
+    "reports/",
+    "reproduction/",
+    "skill/",
+    "tests/",
+    "validation/"
+  ],
+  "n_files": 1323,
+  "zip": {
+    "path": "reproduction/r6/review_archive_v1.4.2.zip",
+    "bytes": 77490233,
+    "sha256": "5976777bdf4aa9490296e7fb3fb639a24264878dca07bd7b02c4f42b0f7ed3b7"
+  }
+}

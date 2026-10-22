@@ -1,0 +1,84 @@
+{
+  "utc": "2026-10-22T08:14:28Z",
+  "main": "f3a11f404ad6bc3bfa84a968a4d1fcd1ffd2acfc",
+  "origin_main": "ccd423a8c197601ad943965ee415f50b9ec53be8",
+  "fast_forward": true,
+  "ahead": 34,
+  "behind": 0,
+  "remote_refs": {
+    "HEAD": "ccd423a8c197601ad943965ee415f50b9ec53be8",
+    "refs/heads/main": "ccd423a8c197601ad943965ee415f50b9ec53be8",
+    "refs/tags/v.0.0.1": "269125c12f55bf4b0db88183f8a73145b2f2fe90",
+    "refs/tags/v1.0.0": "269125c12f55bf4b0db88183f8a73145b2f2fe90",
+    "refs/tags/v1.1.0": "29b1214365be32b047ead3e8491bb467abfbdf03",
+    "refs/tags/v1.1.0^{}": "86b7690390d522e7b9ab2d2a1a400277145cdcf5",
+    "refs/tags/v1.2.0": "bf77d4af5b6542f2e7449467846ef992850b79b6",
+    "refs/tags/v1.2.0^{}": "738fa3daf0d15403bce63638f198ae6f914d8d8a",
+    "refs/tags/v1.3.0": "1d19a5568519c0760d529c7711884d5ae9c9c0ec",
+    "refs/tags/v1.3.0^{}": "ccd423a8c197601ad943965ee415f50b9ec53be8"
+  },
+  "push_command": "git push --atomic origin main v1.4.0 v1.4.1 v1.4.2 emsr933-v1",
+  "refs": [
+    {
+      "ref": "main",
+      "kind": "branch",
+      "object": "f3a11f4",
+      "commit": "f3a11f4",
+      "on_remote": "ccd423a8c197601ad943965ee415f50b9ec53be8",
+      "action": "update"
+    },
+    {
+      "ref": "v1.4.0",
+      "kind": "annotated tag",
+      "object": "f39f215",
+      "commit": "70c2bfb",
+      "on_remote": null,
+      "action": "create"
+    },
+    {
+      "ref": "v1.4.1",
+      "kind": "annotated tag",
+      "object": "e7e2aeb",
+      "commit": "642efaa",
+      "on_remote": null,
+      "action": "create"
+    },
+    {
+      "ref": "v1.4.2",
+      "kind": "annotated tag",
+      "object": "6cc7b9e",
+      "commit": "0084600",
+      "on_remote": null,
+      "action": "create"
+    },
+    {
+      "ref": "emsr933-v1",
+      "kind": "annotated tag",
+      "object": "542ca35",
+      "commit": "f3a11f4",
+      "on_remote": null,
+      "action": "create"
+    }
+  ],
+  "tracked_noa_files": [],
+  "tracked_credential_files": [],
+  "tracked_credential_content_hits": [],
+  "history_noa_files": [
+    "reproduction/emsr933/noa_stations/published_totals.csv",
+    "reproduction/emsr933/noa_stations/stations_daily.csv",
+    "reproduction/emsr933/noa_stations/stations_meta.csv",
+    "reproduction/r6/tables/S8_noa_stations.csv",
+    "reproduction/v14_rerun/phase5/crete_rain_vs_noa.csv",
+    "reproduction/v14_rerun/phase5/crete_rain_vs_noa.json",
+    "reproduction/v14_rerun/phase5/crete_rain_vs_noa.png",
+    "reproduction/v14_rerun/phase5/logs/rain_vs_noa.log"
+  ],
+  "history_credential_files": [],
+  "history_first_commit_with_noa": "6363ead 2026-10-09T17:10:44+03:00 EMSR933 Stage 1 (cont.): R2-on anchor from NOA/meteo.gr stations, labelled R2-on YAML, basin-based polje catchments",
+  "history_tags_containing_noa_files": [
+    "emsr933-v1",
+    "v1.4.0",
+    "v1.4.1",
+    "v1.4.2"
+  ]
+}
