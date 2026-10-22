@@ -1,0 +1,51 @@
+{
+  "figure": "F2",
+  "column": "two-column",
+  "script": "reproduction/r6/scripts/r6_figures.py",
+  "sources": [
+    "docs/frozen_rule_R.md"
+  ],
+  "notes": "workflow diagram (the author's Fig. 2 re-set at the export size): the same ten boxes and nine arrows; $\\it{h}_{\\rm max}$ set in mathtext instead of 'h_max' (CODE-19 B2); box sizes follow the rendered 8-pt text; no data drawn",
+  "layout_problems": [],
+  "texts_drawn": [
+    "Copernicus DEM GLO-30\nESA WorldCover v200",
+    "Copernicus EMS\nrapid-mapping products",
+    "Event and catchment metadata\n(area, core scale, antecedent\nstate, fire history, sea cells)",
+    "Frozen rule R\n(R1\u2013R6, Box 1)",
+    "HydroMT-SFINCS build\n(sub-grid tables, mask,\ncoastal ring, forcing,\ninflow sources)",
+    "IMERG V07 (Final / Late)\nERA5 / ERA5T\nGloFAS-v4 discharge",
+    "JSON validation records\n\u2192 tables and figures",
+    "Per-event YAML\nconfiguration",
+    "SFINCS v2.3.0 runs\n(enhanced and ERA5\nbaseline) \u2192 $\\it{h}_{\\rm max}$",
+    "Validator: evaluation universe,\nstrict and fuzzy contingency,\nthreshold sweeps, SEDI, PSS"
+  ],
+  "files": [
+    {
+      "file": "F2.tiff",
+      "px": [
+        4110,
+        1889
+      ],
+      "dpi": 600,
+      "width_mm": 174.0,
+      "height_mm": 80.0,
+      "format": "TIFF, RGB 8-bit, LZW",
+      "tiff_writer": "pil",
+      "bytes": 606976,
+      "generated_utc": "2026-10-22T12:50:46Z"
+    },
+    {
+      "file": "F2_preview.png",
+      "px": [
+        2055,
+        944
+      ],
+      "dpi": 300,
+      "width_mm": 174.0,
+      "height_mm": 80.0,
+      "format": "PNG preview (reduced)",
+      "bytes": 316476,
+      "generated_utc": "2026-10-22T12:50:46Z"
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "utc": "2026-10-22T12:50:40Z",
+  "generator": "reproduction/v14_rerun/scripts/code19_a3_hardware.py",
+  "read_on_host": "ITI-1001",
+  "python_platform": "Windows-10-10.0.26200-SP0",
+  "machine_cim": {
+    "processor": {
+      "Name": "12th Gen Intel(R) Core(TM) i5-12600K",
+      "NumberOfCores": 10,
+      "NumberOfLogicalProcessors": 16,
+      "MaxClockSpeed": 3700
+    },
+    "computer": {
+      "Name": "ITI-1001",
+      "TotalPhysicalMemory": 16908730368,
+      "Manufacturer": "ASUS",
+      "Model": "System Product Name"
+    },
+    "os": {
+      "Caption": "Microsoft Windows 11 Pro",
+      "Version": "10.0.26200",
+      "OSArchitecture": "64-bit"
+    },
+    "installed_memory_bytes": 17179869184
+  },
+  "runs": [
+    {
+      "event": "pineios",
+      "run": "pineios_enhanced_v142",
+      "model_dir": "D:\\ELKAK\\implementation\\v14\\pineios_enhanced_v142\\model",
+      "sfincs_build_revision": "$Rev: v2.3.0 mt. Faber Release",
+      "sfincs_build_date": "2025-11-18",
+      "threads_used": 16,
+      "threads_available": 16,
+      "config_sfincs_exe": "D:/ELKAK/implementation/SFINCS_bin/SFINCS_v2.3.0_mt_Faber_release_exe/sfincs.exe",
+      "pipeline_log_lines": [
+        "running: C:/Users/dvalsamis/AppData/Local/anaconda3/envs/sfincs-viz/Scripts/hydromt.exe build sfincs D:\\ELKAK\\implementation\\v14\\pineios_enhanced_v142\\model -i D:\\ELKAK\\implementation\\v14\\pineios_enha"
+      ],
+      "start_utc": "2026-10-20T12:46:27Z",
+      "end_utc": "2026-10-20T13:58:49Z",
+      "sfincs_total_time_s": 2343.231,
+      "local_user_paths_in_pipeline_log": [
+        "dvalsamis"
+      ]
+    },
+    {
+      "event": "mandra",
+      "run": "mandra_enhanced",
+      "model_dir": "D:\\ELKAK\\implementation\\v14\\mandra_enhanced\\model",
+      "sfincs_build_revision": "$Rev: v2.3.0 mt. Faber Release",
+      "sfincs_build_date": "2025-11-18",
+      "threads_used": 16,
+      "threads_available": 16,
+      "config_sfincs_exe": "D:/ELKAK/implementation/SFINCS_bin/SFINCS_v2.3.0_mt_Faber_release_exe/sfincs.exe",
+      "pipeline_log_lines": [
+        "running: C:/Users/dvalsamis/AppData/Local/anaconda3/envs/sfincs-viz/Scripts/hydromt.exe build sfincs D:\\ELKAK\\implementation\\v14\\mandra_enhanced\\model -i D:\\ELKAK\\implementation\\v14\\mandra_enhanced\\sf"
+      ],
+      "start_utc": "2026-10-19T09:13:13Z",
+      "end_utc": "2026-10-19T09:20:34Z",
+      "sfincs_total_time_s": 398.702,
+      "local_user_paths_in_pipeline_log": [
+        "dvalsamis"
+      ]
+    },
+    {
+      "event": "strymonas",
+      "run": "strymonas_enhanced_postD6_v142",
+      "model_dir": "D:\\ELKAK\\implementation\\v14\\strymonas_enhanced_postD6_v142\\model",
+      "sfincs_build_revision": "$Rev: v2.3.0 mt. Faber Release",
+      "sfincs_build_date": "2025-11-18",
+      "threads_used": 16,
+      "threads_available": 16,
+      "config_sfincs_exe": "D:/ELKAK/implementation/SFINCS_bin/SFINCS_v2.3.0_mt_Faber_release_exe/sfincs.exe",
+      "pipeline_log_lines": [
+        "running: C:/Users/dvalsamis/AppData/Local/anaconda3/envs/sfincs-viz/Scripts/hydromt.exe build sfincs D:\\ELKAK\\implementation\\v14\\strymonas_enhanced_postD6_v142\\model -i D:\\ELKAK\\implementation\\v14\\str"
+      ],
+      "start_utc": "2026-10-20T14:39:31Z",
+      "end_utc": "2026-10-20T14:53:31Z",
+      "sfincs_total_time_s": 371.69,
+      "local_user_paths_in_pipeline_log": [
+        "dvalsamis"
+      ]
+    },
+    {
+      "event": "valencia",
+      "run": "valencia_enhanced_164_v142",
+      "model_dir": "D:\\ELKAK\\implementation\\v14\\valencia_enhanced_164_v142\\model",
+      "sfincs_build_revision": "$Rev: v2.3.0 mt. Faber Release",
+      "sfincs_build_date": "2025-11-18",
+      "threads_used": 16,
+      "threads_available": 16,
+      "config_sfincs_exe": "D:/ELKAK/implementation/SFINCS_bin/SFINCS_v2.3.0_mt_Faber_release_exe/sfincs.exe",
+      "pipeline_log_lines": [
+        "running: C:/Users/dvalsamis/AppData/Local/anaconda3/envs/sfincs-viz/Scripts/hydromt.exe build sfincs D:\\ELKAK\\implementation\\v14\\valencia_enhanced_164_v142\\model -i D:\\ELKAK\\implementation\\v14\\valenci"
+      ],
+      "start_utc": "2026-10-20T13:24:33Z",
+      "end_utc": "2026-10-20T13:58:45Z",
+      "sfincs_total_time_s": 1443.678,
+      "local_user_paths_in_pipeline_log": [
+        "dvalsamis"
+      ]
+    },
+    {
+      "event": "emilia",
+      "run": "emilia_enhanced_8aoi_v142",
+      "model_dir": "D:\\ELKAK\\implementation\\v14\\emilia_enhanced_8aoi_v142\\model",
+      "sfincs_build_revision": "$Rev: v2.3.0 mt. Faber Release",
+      "sfincs_build_date": "2025-11-18",
+      "threads_used": 16,
+      "threads_available": 16,
+      "config_sfincs_exe": "D:/ELKAK/implementation/SFINCS_bin/SFINCS_v2.3.0_mt_Faber_release_exe/sfincs.exe",
+      "pipeline_log_lines": [
+        "running: C:/Users/dvalsamis/AppData/Local/anaconda3/envs/sfincs-viz/Scripts/hydromt.exe build sfincs D:\\ELKAK\\implementation\\v14\\emilia_enhanced_8aoi_v142\\model -i D:\\ELKAK\\implementation\\v14\\emilia_e"
+      ],
+      "start_utc": "2026-10-20T12:46:27Z",
+      "end_utc": "2026-10-20T13:24:33Z",
+      "sfincs_total_time_s": 1750.337,
+      "local_user_paths_in_pipeline_log": [
+        "dvalsamis"
+      ]
+    },
+    {
+      "event": "crete",
+      "run": "crete_canonical_r2on",
+      "model_dir": "D:\\ELKAK\\implementation\\v14\\crete_canonical_r2on\\model",
+      "sfincs_build_revision": "$Rev: v2.3.0 mt. Faber Release",
+      "sfincs_build_date": "2025-11-18",
+      "threads_used": 16,
+      "threads_available": 16,
+      "config_sfincs_exe": "D:/ELKAK/implementation/SFINCS_bin/SFINCS_v2.3.0_mt_Faber_release_exe/sfincs.exe",
+      "pipeline_log_lines": [
+        "running: C:/Users/dvalsamis/AppData/Local/anaconda3/envs/sfincs-viz/Scripts/hydromt.exe build sfincs D:\\ELKAK\\implementation\\v14\\crete_canonical_r2on\\model -i D:\\ELKAK\\implementation\\v14\\crete_canonic"
+      ],
+      "start_utc": "2026-10-19T16:44:39Z",
+      "end_utc": "2026-10-19T20:21:12Z",
+      "sfincs_total_time_s": 10946.466,
+      "local_user_paths_in_pipeline_log": [
+        "dvalsamis"
+      ]
+    }
+  ],
+  "same_machine_evidence": {
+    "thread_lines_identical": true,
+    "build_identical": true,
+    "user_paths": [
+      "dvalsamis"
+    ],
+    "run_dirs_on_this_host": true
+  }
+}

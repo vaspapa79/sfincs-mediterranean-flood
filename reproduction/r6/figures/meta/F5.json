@@ -9,7 +9,7 @@
     "D:/ELKAK/implementation/v14/mandra_enhanced/data/ems_polygons",
     "reproduction/v14_rerun/results/mandra_enhanced_v14_newmask.json"
   ],
-  "notes": "run mandra_enhanced; content of phase4/figures/map_mandra_enhanced_v14.png (fig_map_v14.py) re-rendered at the export size; no score printed",
+  "notes": "run mandra_enhanced; content of phase4/figures/map_mandra_enhanced_v14.png (fig_map_v14.py) re-rendered at the export size; no score printed; legend names the white (inactive) cells (CODE-19 B3)",
   "layout_problems": [],
   "texts_drawn": [
     "0.0",
@@ -36,35 +36,36 @@
     "Maximum depth $\\it{h}_{\\rm max}$ (m)",
     "Northing (km, UTM 34N)",
     "active cell, $\\it{h}_{\\rm max}$ \u2264 0.10 m",
-    "excluded from the evaluation universe (permanent water, open sea)"
+    "excluded from the evaluation universe (permanent water, open sea)",
+    "inactive (above the elevation ceiling or open sea)"
   ],
   "files": [
     {
       "file": "F5.tiff",
       "px": [
         4110,
-        3938
+        4009
       ],
       "dpi": 600,
       "width_mm": 174.0,
-      "height_mm": 166.72,
+      "height_mm": 169.72,
       "format": "TIFF, RGB 8-bit, LZW",
       "tiff_writer": "pil",
-      "bytes": 1963772,
-      "generated_utc": "2026-10-22T07:59:36Z"
+      "bytes": 1993008,
+      "generated_utc": "2026-10-22T12:57:38Z"
     },
     {
       "file": "F5_preview.png",
       "px": [
         2055,
-        1969
+        2004
       ],
       "dpi": 300,
       "width_mm": 174.0,
-      "height_mm": 166.72,
+      "height_mm": 169.72,
       "format": "PNG preview (reduced)",
-      "bytes": 1012808,
-      "generated_utc": "2026-10-22T07:59:37Z"
+      "bytes": 1039482,
+      "generated_utc": "2026-10-22T12:57:39Z"
     }
   ]
 }

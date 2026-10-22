@@ -1,0 +1,128 @@
+{
+  "utc": "2026-10-22T12:53:14Z",
+  "run": "valencia_enhanced_164_v142",
+  "worldcover_vrt": "D:\\ELKAK\\implementation\\v14\\valencia_enhanced_164\\data\\esa_worldcover\\esa_worldcover_2021.vrt",
+  "wc80_cells_total": 219298,
+  "wc80_cells_record": 219298,
+  "open_sea_cells": 225179,
+  "open_sea_cells_record": 225179,
+  "centre": {
+    "lonlat": [
+      -0.335,
+      39.335
+    ],
+    "cell_row_col": [
+      329,
+      497
+    ],
+    "worldcover_class": 80,
+    "msk": 1,
+    "zb_m": 0.0,
+    "open_sea": false,
+    "excluded": true,
+    "in_aoi": true
+  },
+  "record_fp_cells": 108091,
+  "lagoon_wc80_component_incl_open_sea": {
+    "cells": 2447,
+    "km2": 24.47,
+    "bbox_cells_rows_cols": [
+      297,
+      358,
+      450,
+      516
+    ],
+    "bbox_utm": [
+      724965.0,
+      4354174.0,
+      731565.0,
+      4360274.0
+    ],
+    "msk_counts": {
+      "0": 0,
+      "1": 2447,
+      "2": 0
+    },
+    "active_cells": 2447,
+    "open_sea_cells": 0,
+    "excluded_cells": 2447,
+    "in_aoi_cells": 2447,
+    "in_universe_cells": 0,
+    "ems_observed_cells": 238,
+    "zb_m": {
+      "min": -3.835219383239746,
+      "median": 0.0,
+      "max": 0.0723940059542656
+    },
+    "hmax_active": {
+      "max_m": 4.428877830505371,
+      "mean_m": 0.5972437262535095,
+      "median_m": 0.5425875186920166,
+      "cells_gt_0p10": 2447,
+      "cells_gt_0p50": 2446
+    },
+    "wet_cells_h_gt_0p10": 2447,
+    "would_be_false_alarm_cells": 2209,
+    "would_be_share_of_record_FP_pct": 2.044
+  },
+  "lagoon_wc80_component_excl_open_sea": {
+    "cells": 2447,
+    "km2": 24.47,
+    "bbox_cells_rows_cols": [
+      297,
+      358,
+      450,
+      516
+    ],
+    "bbox_utm": [
+      724965.0,
+      4354174.0,
+      731565.0,
+      4360274.0
+    ],
+    "msk_counts": {
+      "0": 0,
+      "1": 2447,
+      "2": 0
+    },
+    "active_cells": 2447,
+    "open_sea_cells": 0,
+    "excluded_cells": 2447,
+    "in_aoi_cells": 2447,
+    "in_universe_cells": 0,
+    "ems_observed_cells": 238,
+    "zb_m": {
+      "min": -3.835219383239746,
+      "median": 0.0,
+      "max": 0.0723940059542656
+    },
+    "hmax_active": {
+      "max_m": 4.428877830505371,
+      "mean_m": 0.5972437262535095,
+      "median_m": 0.5425875186920166,
+      "cells_gt_0p10": 2447,
+      "cells_gt_0p50": 2446
+    },
+    "wet_cells_h_gt_0p10": 2447,
+    "would_be_false_alarm_cells": 2209,
+    "would_be_share_of_record_FP_pct": 2.044
+  },
+  "margin_ring_3_cells": {
+    "cells": 1062,
+    "worldcover_classes": {
+      "10": 152,
+      "20": 10,
+      "30": 37,
+      "40": 137,
+      "50": 10,
+      "60": 2,
+      "80": 47,
+      "90": 667
+    },
+    "in_universe_cells": 1015,
+    "wet_in_universe_cells": 921,
+    "false_alarm_cells": 95,
+    "share_of_record_FP_pct": 0.088
+  },
+  "verdict": "excluded from the evaluation universe (no lagoon cell inside it)"
+}

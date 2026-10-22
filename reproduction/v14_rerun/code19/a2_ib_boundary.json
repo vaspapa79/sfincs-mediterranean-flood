@@ -1,0 +1,225 @@
+{
+  "utc": "2026-10-22T12:50:40Z",
+  "generator": "reproduction/v14_rerun/scripts/code19_a2_ib_boundary.py",
+  "definition": "realised = max over the simulated window and the msk = 2 cells of zs in sfincs_map.nc (hourly output; dry cells are fill); expected = max of (pavbnd - p) / (rho g) with p = press_2d.nc sampled at the msk = 2 cells (nearest forcing node); rho 1024, g 9.81, pavbnd from sfincs.inp",
+  "rhow": 1024.0,
+  "g": 9.81,
+  "events": [
+    {
+      "event": "pineios",
+      "run": "pineios_enhanced_v142",
+      "model_dir": "D:\\ELKAK\\implementation\\v14\\pineios_enhanced_v142\\model",
+      "pavbnd_pa": 101325.0,
+      "bnd_points": 12,
+      "bzs_values_all_zero": true,
+      "msk2_cells": 716,
+      "output_steps_in_window": 193,
+      "simulated": [
+        "2023-09-03T00:00:00",
+        "2023-09-11T00:00:00"
+      ],
+      "realised_zs_max_m": 0.063,
+      "realised_zs_max_time": "2023-09-05T02:00:00",
+      "realised_zs_max_cell_xy": [
+        667907.0,
+        4351590.0
+      ],
+      "realised_time_mean_of_boundary_max_m": 0.022469898687929594,
+      "realised_max_of_boundary_mean_m": 0.055035541457325275,
+      "boundary_wet_fraction_mean": 0.1635742611514748,
+      "expected_ib_max_m": 0.0648,
+      "expected_ib_max_time": "2023-09-05T02:00:00",
+      "expected_ib_min_m": -0.0593,
+      "expected_ib_window_mean_m": -0.017,
+      "pressure_min_at_boundary_hpa": 1006.74,
+      "reference_record": {
+        "label": "Pineios EMSR692",
+        "mslp_mean_pa": 101538.2,
+        "ib_offset_at_mean_m": -0.021,
+        "ib_at_domainmean_min_m": 0.053,
+        "mslp_domainmean_min_time": "2023-09-05 03:00"
+      },
+      "realised_over_expected": 0.972
+    },
+    {
+      "event": "mandra",
+      "run": "mandra_enhanced",
+      "model_dir": "D:\\ELKAK\\implementation\\v14\\mandra_enhanced\\model",
+      "pavbnd_pa": 101325.0,
+      "bnd_points": 31,
+      "bzs_values_all_zero": true,
+      "msk2_cells": 3253,
+      "output_steps_in_window": 121,
+      "simulated": [
+        "2017-11-13T00:00:00",
+        "2017-11-18T00:00:00"
+      ],
+      "realised_zs_max_m": 0.0899,
+      "realised_zs_max_time": "2017-11-13T13:00:00",
+      "realised_zs_max_cell_xy": [
+        721122.0,
+        4213638.0
+      ],
+      "realised_time_mean_of_boundary_max_m": 0.024839877412646764,
+      "realised_max_of_boundary_mean_m": 0.014529413123853627,
+      "boundary_wet_fraction_mean": 0.7527800148877195,
+      "expected_ib_max_m": 0.0911,
+      "expected_ib_max_time": "2017-11-13T14:00:00",
+      "expected_ib_min_m": -0.0471,
+      "expected_ib_window_mean_m": 0.0034,
+      "pressure_min_at_boundary_hpa": 1004.1,
+      "reference_record": {
+        "label": "Mandra EMSR257",
+        "mslp_mean_pa": 101298.9,
+        "ib_offset_at_mean_m": 0.003,
+        "ib_at_domainmean_min_m": 0.091,
+        "mslp_domainmean_min_time": "2017-11-13 13:00"
+      },
+      "realised_over_expected": 0.987
+    },
+    {
+      "event": "strymonas",
+      "run": "strymonas_enhanced_postD6_v142",
+      "model_dir": "D:\\ELKAK\\implementation\\v14\\strymonas_enhanced_postD6_v142\\model",
+      "pavbnd_pa": 101325.0,
+      "bnd_points": 19,
+      "bzs_values_all_zero": true,
+      "msk2_cells": 802,
+      "output_steps_in_window": 169,
+      "simulated": [
+        "2015-03-28T00:00:00",
+        "2015-04-04T00:00:00"
+      ],
+      "realised_zs_max_m": 0.1162,
+      "realised_zs_max_time": "2015-03-28T03:00:00",
+      "realised_zs_max_cell_xy": [
+        737242.0,
+        4496287.0
+      ],
+      "realised_time_mean_of_boundary_max_m": 0.05157931404706289,
+      "realised_max_of_boundary_mean_m": 0.1131800123283257,
+      "boundary_wet_fraction_mean": 0.651315498236657,
+      "expected_ib_max_m": 0.1178,
+      "expected_ib_max_time": "2015-03-28T03:00:00",
+      "expected_ib_min_m": -0.0533,
+      "expected_ib_window_mean_m": 0.0435,
+      "pressure_min_at_boundary_hpa": 1001.42,
+      "reference_record": {
+        "label": "Strymonas EMSR122",
+        "mslp_mean_pa": 100902.3,
+        "ib_offset_at_mean_m": 0.042,
+        "ib_at_domainmean_min_m": 0.115,
+        "mslp_domainmean_min_time": "2015-03-28 03:00"
+      },
+      "realised_over_expected": 0.986
+    },
+    {
+      "event": "valencia",
+      "run": "valencia_enhanced_164_v142",
+      "model_dir": "D:\\ELKAK\\implementation\\v14\\valencia_enhanced_164_v142\\model",
+      "pavbnd_pa": 101325.0,
+      "bnd_points": 24,
+      "bzs_values_all_zero": true,
+      "msk2_cells": 1667,
+      "output_steps_in_window": 121,
+      "simulated": [
+        "2024-10-27T00:00:00",
+        "2024-11-01T00:00:00"
+      ],
+      "realised_zs_max_m": 0.0111,
+      "realised_zs_max_time": "2024-10-29T17:00:00",
+      "realised_zs_max_cell_xy": [
+        743765.0,
+        4324474.0
+      ],
+      "realised_time_mean_of_boundary_max_m": -0.0425550461167562,
+      "realised_max_of_boundary_mean_m": 0.004805025574709682,
+      "boundary_wet_fraction_mean": 0.13691146068307,
+      "expected_ib_max_m": 0.0133,
+      "expected_ib_max_time": "2024-10-30T01:00:00",
+      "expected_ib_min_m": -0.0854,
+      "expected_ib_window_mean_m": -0.0416,
+      "pressure_min_at_boundary_hpa": 1011.91,
+      "reference_record": {
+        "label": "Valencia EMSR773",
+        "mslp_mean_pa": 101803.2,
+        "ib_offset_at_mean_m": -0.048,
+        "ib_at_domainmean_min_m": 0.0,
+        "mslp_domainmean_min_time": "2024-10-29 17:00"
+      },
+      "realised_over_expected": 0.835
+    },
+    {
+      "event": "emilia",
+      "run": "emilia_enhanced_8aoi_v142",
+      "model_dir": "D:\\ELKAK\\implementation\\v14\\emilia_enhanced_8aoi_v142\\model",
+      "pavbnd_pa": 101325.0,
+      "bnd_points": 226,
+      "bzs_values_all_zero": true,
+      "msk2_cells": 3206,
+      "output_steps_in_window": 193,
+      "simulated": [
+        "2023-05-14T00:00:00",
+        "2023-05-22T00:00:00"
+      ],
+      "realised_zs_max_m": 0.1439,
+      "realised_zs_max_time": "2023-05-16T08:00:00",
+      "realised_zs_max_cell_xy": [
+        784645.0,
+        4886933.0
+      ],
+      "realised_time_mean_of_boundary_max_m": 0.020484383322926295,
+      "realised_max_of_boundary_mean_m": 0.12366776312768891,
+      "boundary_wet_fraction_mean": 0.6168211158481992,
+      "expected_ib_max_m": 0.1513,
+      "expected_ib_max_time": "2023-05-16T08:00:00",
+      "expected_ib_min_m": -0.0569,
+      "expected_ib_window_mean_m": 0.0163,
+      "pressure_min_at_boundary_hpa": 998.05,
+      "reference_record": {
+        "label": "Emilia-Romagna EMSR664",
+        "mslp_mean_pa": 101161.6,
+        "ib_offset_at_mean_m": 0.016,
+        "ib_at_domainmean_min_m": 0.125,
+        "mslp_domainmean_min_time": "2023-05-16 08:00"
+      },
+      "realised_over_expected": 0.951
+    },
+    {
+      "event": "crete",
+      "run": "crete_canonical_r2on",
+      "model_dir": "D:\\ELKAK\\implementation\\v14\\crete_canonical_r2on\\model",
+      "pavbnd_pa": 101325.0,
+      "bnd_points": 160,
+      "bzs_values_all_zero": true,
+      "msk2_cells": 13858,
+      "output_steps_in_window": 193,
+      "simulated": [
+        "2026-09-28T00:00:00",
+        "2026-10-06T00:00:00"
+      ],
+      "realised_zs_max_m": 0.0041,
+      "realised_zs_max_time": "2026-10-01T02:00:00",
+      "realised_zs_max_cell_xy": [
+        987093.0,
+        3916439.0
+      ],
+      "realised_time_mean_of_boundary_max_m": -0.04844716699945335,
+      "realised_max_of_boundary_mean_m": 0.0015695127654099912,
+      "boundary_wet_fraction_mean": 0.0010678256213840307,
+      "expected_ib_max_m": 0.0047,
+      "expected_ib_max_time": "2026-10-01T02:00:00",
+      "expected_ib_min_m": -0.1032,
+      "expected_ib_window_mean_m": -0.0522,
+      "pressure_min_at_boundary_hpa": 1012.78,
+      "reference_record": {
+        "label": "Crete EMSR933",
+        "mslp_mean_pa": 101845.7,
+        "ib_offset_at_mean_m": -0.052,
+        "ib_at_domainmean_min_m": -0.013,
+        "mslp_domainmean_min_time": "2026-10-01 03:00"
+      },
+      "realised_over_expected": 0.872
+    }
+  ]
+}

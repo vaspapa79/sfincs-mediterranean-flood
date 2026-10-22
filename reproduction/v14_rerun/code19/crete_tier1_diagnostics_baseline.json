@@ -1,0 +1,215 @@
+{
+  "utc": "2026-10-22T12:35:38Z",
+  "generator": "reproduction/v14_rerun/scripts/crete_tier1_diagnostics.py",
+  "rule": "rule_ledger.md \u00a78 item 3 \u2014 tier 1 = AOI03 Tzermiado, the only scored block; no all-AOI union score",
+  "threshold_m": 0.1,
+  "runs": {
+    "crete_baseline": {
+      "run": "crete_baseline",
+      "aoi_files": [
+        "EMSR933_AOI03_DEL_MONIT02_areaOfInterestA_v1.shp",
+        "EMSR933_AOI03_DEL_PRODUCT_areaOfInterestA_v1.shp",
+        "EMSR933_AOI03_GRA_PRODUCT_areaOfInterestA_v1.shp"
+      ],
+      "obs_files": [
+        "EMSR933_AOI03_DEL_MONIT02_observedEventA_v1.shp",
+        "EMSR933_AOI03_DEL_PRODUCT_observedEventA_v1.shp"
+      ],
+      "universe_km2": 176.93,
+      "observed_km2": 11.26,
+      "tiers_record": "phase5/crete_baseline_tiers.json aois[03]",
+      "universe_variants": [
+        {
+          "tp": 887,
+          "fp": 1459,
+          "fn": 239,
+          "tn": 15108,
+          "csi": 0.34313346228239844,
+          "hr": 0.7877442273534636,
+          "far": 0.6219096334185849,
+          "f1": 0.5109447004608295,
+          "f2": 0.6474452554744525,
+          "bias": 2.08348134991119,
+          "gss": 0.30286930845893756,
+          "hss": 0.464926614653588,
+          "acc": 0.9040298423105183,
+          "name": "AOI03 (tier-1 universe)",
+          "area_km2": 176.93,
+          "equals_tier1_record": true
+        },
+        {
+          "tp": 887,
+          "fp": 1819,
+          "fn": 239,
+          "tn": 20700,
+          "csi": 0.30118845500848895,
+          "hr": 0.7877442273534636,
+          "far": 0.672209903917221,
+          "f1": 0.4629436325678497,
+          "f2": 0.6151178918169209,
+          "bias": 2.403197158081705,
+          "gss": 0.269211795372797,
+          "hss": 0.42421886773235257,
+          "acc": 0.912962571368154,
+          "name": "AOI03 + 1 km",
+          "area_km2": 236.45000000000002
+        },
+        {
+          "tp": 884,
+          "fp": 1234,
+          "fn": 232,
+          "tn": 10209,
+          "csi": 0.37617021276595747,
+          "hr": 0.7921146953405018,
+          "far": 0.5826251180358829,
+          "f1": 0.546691403834261,
+          "f2": 0.6715284108173807,
+          "bias": 1.8978494623655915,
+          "gss": 0.3218593086796954,
+          "hss": 0.4869796756224779,
+          "acc": 0.883270961063779,
+          "name": "AOI03 \u2212 1 km",
+          "area_km2": 125.59
+        }
+      ],
+      "active_mask_only": "not defined for Crete (truth exists only inside the AOIs; \u00a78-3 scores the tier-1 block only)",
+      "truth_buffer": {
+        "-20": {
+          "tp": 638,
+          "fp": 1708,
+          "fn": 78,
+          "tn": 15269,
+          "csi": 0.2632013201320132,
+          "hr": 0.8910614525139665,
+          "far": 0.7280477408354646,
+          "f1": 0.41672109732201174,
+          "f2": 0.6122840690978887,
+          "bias": 3.276536312849162,
+          "gss": 0.23316772509945613,
+          "hss": 0.3781606027365836,
+          "acc": 0.8990561238908042,
+          "truth_km2": 7.16,
+          "fine_cells_morphed": -1
+        },
+        "0": {
+          "tp": 887,
+          "fp": 1459,
+          "fn": 239,
+          "tn": 15108,
+          "csi": 0.34313346228239844,
+          "hr": 0.7877442273534636,
+          "far": 0.6219096334185849,
+          "f1": 0.5109447004608295,
+          "f2": 0.6474452554744525,
+          "bias": 2.08348134991119,
+          "gss": 0.30286930845893756,
+          "hss": 0.464926614653588,
+          "acc": 0.9040298423105183,
+          "truth_km2": 11.26,
+          "fine_cells_morphed": 0
+        },
+        "20": {
+          "tp": 968,
+          "fp": 1378,
+          "fn": 352,
+          "tn": 14995,
+          "csi": 0.3587842846553002,
+          "hr": 0.7333333333333333,
+          "far": 0.587382779198636,
+          "f1": 0.5280960174577196,
+          "f2": 0.6346708628376606,
+          "bias": 1.7772727272727273,
+          "gss": 0.31430152749410073,
+          "hss": 0.4782791785890422,
+          "acc": 0.9022212174306223,
+          "truth_km2": 13.200000000000001,
+          "fine_cells_morphed": 1
+        }
+      },
+      "truth_buffer_zero_equals_tier1": true,
+      "acquisitions": [
+        {
+          "product": "EMSR933_AOI03_DEL_MONIT02_v1",
+          "sensor": "GeoEye-1",
+          "resolution": "2.0 m",
+          "acq_utc": "2026-10-08T09:02:00",
+          "date_only": false,
+          "n_post_images": 1,
+          "all_post": [
+            [
+              "GeoEye-1",
+              "2026-10-08T09:02:00"
+            ]
+          ],
+          "source": "source layer",
+          "obs_shp": "EMSR933_AOI03_DEL_MONIT02_observedEventA_v1.shp"
+        },
+        {
+          "product": "EMSR933_AOI03_DEL_PRODUCT_v1",
+          "sensor": "Sentinel-1",
+          "resolution": "20.0 m",
+          "acq_utc": "2026-10-04T16:22:00",
+          "date_only": false,
+          "n_post_images": 1,
+          "all_post": [
+            [
+              "Sentinel-1",
+              "2026-10-04T16:22:00"
+            ]
+          ],
+          "source": "source layer",
+          "obs_shp": "EMSR933_AOI03_DEL_PRODUCT_observedEventA_v1.shp"
+        }
+      ],
+      "time_matched": {
+        "full": {
+          "tp": 887,
+          "fp": 1459,
+          "fn": 239,
+          "tn": 15108,
+          "csi": 0.34313346228239844,
+          "hr": 0.7877442273534636,
+          "far": 0.6219096334185849,
+          "f1": 0.5109447004608295,
+          "f2": 0.6474452554744525,
+          "bias": 2.08348134991119,
+          "gss": 0.30286930845893756,
+          "hss": 0.464926614653588,
+          "acc": 0.9040298423105183
+        },
+        "earliest_acq_utc": "2026-10-04T16:22:00",
+        "latest_acq_utc": "2026-10-08T09:02:00",
+        "to_earliest": {
+          "tp": 886,
+          "fp": 1455,
+          "fn": 240,
+          "tn": 15112,
+          "csi": 0.3432777993025959,
+          "hr": 0.7868561278863233,
+          "far": 0.6215292609995728,
+          "f1": 0.5111047014710124,
+          "f2": 0.6471877282688093,
+          "bias": 2.0790408525754884,
+          "gss": 0.3030474765235808,
+          "hss": 0.4651365080451031,
+          "acc": 0.9041994008930085
+        },
+        "to_latest": {
+          "tp": 887,
+          "fp": 1459,
+          "fn": 239,
+          "tn": 15108,
+          "csi": 0.34313346228239844,
+          "hr": 0.7877442273534636,
+          "far": 0.6219096334185849,
+          "f1": 0.5109447004608295,
+          "f2": 0.6474452554744525,
+          "bias": 2.08348134991119,
+          "gss": 0.30286930845893756,
+          "hss": 0.464926614653588,
+          "acc": 0.9040298423105183
+        }
+      }
+    }
+  }
+}

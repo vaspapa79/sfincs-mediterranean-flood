@@ -9,7 +9,7 @@
     "D:/ELKAK/implementation/v14/valencia_enhanced_164_v142/data/ems_polygons",
     "reproduction/v14_rerun/results/valencia_enhanced_164_v142_v14_newmask.json"
   ],
-  "notes": "run valencia_enhanced_164_v142; content of phase4/figures/map_valencia_enhanced_164_v142_v14.png (fig_map_v14.py) re-rendered at the export size; no score printed",
+  "notes": "run valencia_enhanced_164_v142; content of phase4/figures/map_valencia_enhanced_164_v142_v14.png (fig_map_v14.py) re-rendered at the export size; no score printed; legend names the white (inactive) cells (CODE-19 B3); the exclusion mask is drawn above the depth layer, hiding the modelled water inside excluded cells (CODE-19 B4)",
   "layout_problems": [],
   "texts_drawn": [
     "0.0",
@@ -42,35 +42,36 @@
     "Maximum depth $\\it{h}_{\\rm max}$ (m)",
     "Northing (km, UTM 30N)",
     "active cell, $\\it{h}_{\\rm max}$ \u2264 0.10 m",
-    "excluded from the evaluation universe (permanent water, open sea)"
+    "excluded from the evaluation universe (permanent water, open sea)",
+    "inactive (above the elevation ceiling or open sea)"
   ],
   "files": [
     {
       "file": "F7.tiff",
       "px": [
         4110,
-        3627
+        3698
       ],
       "dpi": 600,
       "width_mm": 174.0,
-      "height_mm": 153.58,
+      "height_mm": 156.58,
       "format": "TIFF, RGB 8-bit, LZW",
       "tiff_writer": "pil",
-      "bytes": 3115402,
-      "generated_utc": "2026-10-22T07:59:42Z"
+      "bytes": 3120062,
+      "generated_utc": "2026-10-22T12:57:44Z"
     },
     {
       "file": "F7_preview.png",
       "px": [
         2055,
-        1814
+        1849
       ],
       "dpi": 300,
       "width_mm": 174.0,
-      "height_mm": 153.58,
+      "height_mm": 156.58,
       "format": "PNG preview (reduced)",
-      "bytes": 1846508,
-      "generated_utc": "2026-10-22T07:59:43Z"
+      "bytes": 1832730,
+      "generated_utc": "2026-10-22T12:57:44Z"
     }
   ]
 }

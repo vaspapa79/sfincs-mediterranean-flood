@@ -1,0 +1,53 @@
+{
+  "utc": "2026-10-22T12:53:14Z",
+  "maps": {
+    "F3": {
+      "event": "pineios",
+      "run": "pineios_enhanced_v142",
+      "wet_cells_in_excluded": 2102,
+      "km2": 47.3,
+      "wet_cells_total": 124218,
+      "share_of_wet_pct": 1.69
+    },
+    "F5": {
+      "event": "mandra",
+      "run": "mandra_enhanced",
+      "wet_cells_in_excluded": 331,
+      "km2": 0.83,
+      "wet_cells_total": 37736,
+      "share_of_wet_pct": 0.88
+    },
+    "F6": {
+      "event": "strymonas",
+      "run": "strymonas_enhanced_postD6_v142",
+      "wet_cells_in_excluded": 1272,
+      "km2": 28.62,
+      "wet_cells_total": 14328,
+      "share_of_wet_pct": 8.88
+    },
+    "F7": {
+      "event": "valencia",
+      "run": "valencia_enhanced_164_v142",
+      "wet_cells_in_excluded": 4271,
+      "km2": 42.71,
+      "wet_cells_total": 135417,
+      "share_of_wet_pct": 3.15
+    },
+    "F8": {
+      "event": "emilia",
+      "run": "emilia_enhanced_8aoi_v142",
+      "wet_cells_in_excluded": 5792,
+      "km2": 130.32,
+      "wet_cells_total": 123648,
+      "share_of_wet_pct": 4.68
+    },
+    "F9": {
+      "event": "crete",
+      "run": "crete_canonical_r2on",
+      "wet_cells_in_excluded": 1416,
+      "km2": 14.16,
+      "wet_cells_total": 147908,
+      "share_of_wet_pct": 0.96
+    }
+  }
+}

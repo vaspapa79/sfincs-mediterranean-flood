@@ -113,7 +113,7 @@ def main() -> int:
          "figures — maps are raster + line/text; none is pure halftone, so 300 dpi is not used). Lettering sans-serif (Arial), 8 pt "
          "(panel letters 9 pt bold), checked on the rendered 600-dpi canvas (no text < 8 pt, within 0.3 mm of the edge, or "
          "overlapping another text). Pixel size verified as width_mm / 25.4 × dpi (± 1 px). Previews: reduced PNG ≤ 2 MB.", "",
-         "F2 is not exported here (drawn by the author).", "",
+         "F2 (workflow) is drawn by `r6_figures.py` since CODE-19 B2 (the author's diagram re-set, h_max in mathtext).", "",
          "| File | Pixel size (px) | dpi | Width (mm) | Height (mm) | Size (MB) | Source (script + inputs) | Generated (UTC) | Check |",
          "|---|---|---|---|---|---|---|---|---|"]
     for r in rows:

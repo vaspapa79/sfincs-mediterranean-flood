@@ -1,0 +1,795 @@
+{
+  "utc": "2026-10-22T12:50:41Z",
+  "generator": "reproduction/v14_rerun/scripts/code19_a1_rain_leadin.py",
+  "definition": "domain mean over the active cells (msk > 0) of the nearest source cell; ERA5 end-labelled hourly accumulations (t0 < t <= t1), IMERG start-labelled half-hourly rates (t0 <= t < t1); totals = sum(rate x step); lead-in = [tstart - 7 d, tstart); simulated = [tstart, tstop); max 24 h = largest rolling 24-h total of the domain-mean series inside the covered lead-in; AMC-5d = [t - 5 d, t) before tstart and before the event day",
+  "leadin_days": 7,
+  "amc_days": 5,
+  "rule_R4_clause": [
+    "R4 SCS-CN infiltr.   := IF AMC-III (multi-day wet spell OR peak intensity",
+    "                           > HSG saturated capacity) OR fire-affected /",
+    "                           near-impervious catchment",
+    "                        THEN off    ELSE on at HSG-B, AMC-II"
+  ],
+  "events": [
+    {
+      "event": "pineios",
+      "run": "pineios_enhanced_v142",
+      "config": "reproduction/v14_rerun/configs/pineios_enhanced_v142.yaml",
+      "epsg": 32634,
+      "active_cells": 223703,
+      "tstart": "2023-09-03T00:00",
+      "tstop": "2023-09-11T00:00",
+      "event_day": "2023-09-06",
+      "r2_enabled": true,
+      "infiltration": {
+        "enabled": false,
+        "hsg": "B",
+        "amc": 2
+      },
+      "cn_realised_active_mean": null,
+      "windows": {
+        "leadin_7d": [
+          "2023-08-27T00:00",
+          "2023-09-03T00:00"
+        ],
+        "simulated": [
+          "2023-09-03T00:00",
+          "2023-09-11T00:00"
+        ],
+        "amc_5d_before_tstart": [
+          "2023-08-29T00:00",
+          "2023-09-03T00:00"
+        ],
+        "amc_5d_before_event_day": [
+          "2023-09-01T00:00",
+          "2023-09-06T00:00"
+        ]
+      },
+      "sources": {
+        "era5": {
+          "file": "D:\\ELKAK\\implementation\\v14\\pineios_enhanced_v142\\data\\era5_pineios.nc",
+          "sha256": "c23c503c27cda0262e40dc6fd8852931a438ef18e3333570668261fcdcf4d414",
+          "present": true,
+          "units": "mm/h",
+          "step_h": 1.0,
+          "labelling": "end",
+          "file_time_first_last": [
+            "2023-08-01T00:00",
+            "2023-09-30T23:00"
+          ],
+          "source_cells_weighted": 17,
+          "rain_json_bbox_simulated_total_mm": 301.3912353515625,
+          "windows": {
+            "leadin_7d": {
+              "total_mm": 0.3629013555114714,
+              "coverage_h": 168.0,
+              "window_h": 168.0,
+              "coverage_fraction": 1.0,
+              "max_nan_weight_fraction": 0.0,
+              "max_24h_total_mm": 0.17346534341455805,
+              "max_24h_start": "2023-09-01T14:00"
+            },
+            "simulated": {
+              "total_mm": 312.45211594677573,
+              "coverage_h": 192.0,
+              "window_h": 192.0,
+              "coverage_fraction": 1.0,
+              "max_nan_weight_fraction": 0.0
+            },
+            "amc_5d_before_tstart": {
+              "total_mm": 0.32606905347348447,
+              "coverage_h": 120.0,
+              "window_h": 120.0,
+              "coverage_fraction": 1.0,
+              "max_nan_weight_fraction": 0.0
+            },
+            "amc_5d_before_event_day": {
+              "total_mm": 174.20323827600868,
+              "coverage_h": 120.0,
+              "window_h": 120.0,
+              "coverage_fraction": 1.0,
+              "max_nan_weight_fraction": 0.0
+            }
+          }
+        },
+        "imerg_raw": {
+          "file": "D:\\ELKAK\\implementation\\v14\\pineios_enhanced_v142\\data\\imerg_pineios.raw.nc",
+          "sha256": "21a53e3fc9faf78bc5a5df244a4d902aee6ad472cbc1c9c7d047e6e36b9864fa",
+          "present": true,
+          "units": "mm/h",
+          "step_h": 0.5,
+          "labelling": "start",
+          "file_time_first_last": [
+            "2023-08-27T00:00",
+            "2023-09-11T00:00"
+          ],
+          "source_cells_weighted": 81,
+          "rain_json_bbox_simulated_total_mm": 147.34518432617188,
+          "windows": {
+            "leadin_7d": {
+              "total_mm": 1.5568254403123922,
+              "coverage_h": 168.0,
+              "window_h": 168.0,
+              "coverage_fraction": 1.0,
+              "max_nan_weight_fraction": 0.0,
+              "max_24h_total_mm": 1.3485281042353638,
+              "max_24h_start": "2023-08-28T10:00"
+            },
+            "simulated": {
+              "total_mm": 156.09023743761497,
+              "coverage_h": 192.0,
+              "window_h": 192.0,
+              "coverage_fraction": 1.0,
+              "max_nan_weight_fraction": 0.0
+            },
+            "amc_5d_before_tstart": {
+              "total_mm": 1.4862745545894152,
+              "coverage_h": 120.0,
+              "window_h": 120.0,
+              "coverage_fraction": 1.0,
+              "max_nan_weight_fraction": 0.0
+            },
+            "amc_5d_before_event_day": {
+              "total_mm": 103.43264390034665,
+              "coverage_h": 120.0,
+              "window_h": 120.0,
+              "coverage_fraction": 1.0,
+              "max_nan_weight_fraction": 0.0
+            }
+          },
+          "file_source_attr": "GPM IMERG Final V07 half-hourly"
+        }
+      }
+    },
+    {
+      "event": "mandra",
+      "run": "mandra_enhanced",
+      "config": "reproduction/v14_rerun/configs/mandra_enhanced.yaml",
+      "epsg": 32634,
+      "active_cells": 117667,
+      "tstart": "2017-11-13T00:00",
+      "tstop": "2017-11-18T00:00",
+      "event_day": "2017-11-15",
+      "r2_enabled": true,
+      "infiltration": {
+        "enabled": false,
+        "hsg": "B",
+        "amc": 2
+      },
+      "cn_realised_active_mean": null,
+      "windows": {
+        "leadin_7d": [
+          "2017-11-06T00:00",
+          "2017-11-13T00:00"
+        ],
+        "simulated": [
+          "2017-11-13T00:00",
+          "2017-11-18T00:00"
+        ],
+        "amc_5d_before_tstart": [
+          "2017-11-08T00:00",
+          "2017-11-13T00:00"
+        ],
+        "amc_5d_before_event_day": [
+          "2017-11-10T00:00",
+          "2017-11-15T00:00"
+        ]
+      },
+      "sources": {
+        "era5": {
+          "file": "D:\\ELKAK\\implementation\\v14\\mandra_enhanced\\data\\era5_mandra.nc",
+          "sha256": "3293b0e2072fe138abf5f56f70ab9698aa751a952af0b479b8f82e0d05e352e4",
+          "present": true,
+          "units": "mm/h",
+          "step_h": 1.0,
+          "labelling": "end",
+          "file_time_first_last": [
+            "2017-11-12T00:00",
+            "2017-11-18T23:00"
+          ],
+          "source_cells_weighted": 4,
+          "rain_json_bbox_simulated_total_mm": 38.66688537597656,
+          "windows": {
+            "leadin_7d": {
+              "total_mm": 0.32632977047306017,
+              "coverage_h": 25.0,
+              "window_h": 168.0,
+              "coverage_fraction": 0.1488,
+              "max_nan_weight_fraction": 0.0,
+              "max_24h_total_mm": 0.3263297704730601,
+              "max_24h_start": "2017-11-12T00:00"
+            },
+            "simulated": {
+              "total_mm": 38.09811592735066,
+              "coverage_h": 120.0,
+              "window_h": 120.0,
+              "coverage_fraction": 1.0,
+              "max_nan_weight_fraction": 0.0
+            },
+            "amc_5d_before_tstart": {
+              "total_mm": 0.32632977047306017,
+              "coverage_h": 25.0,
+              "window_h": 120.0,
+              "coverage_fraction": 0.2083,
+              "max_nan_weight_fraction": 0.0
+            },
+            "amc_5d_before_event_day": {
+              "total_mm": 7.336258749985195,
+              "coverage_h": 73.0,
+              "window_h": 120.0,
+              "coverage_fraction": 0.6083,
+              "max_nan_weight_fraction": 0.0
+            }
+          }
+        },
+        "imerg_raw": {
+          "file": "D:\\ELKAK\\implementation\\v14\\mandra_enhanced\\data\\imerg_mandra.raw.nc",
+          "sha256": "fc53a3e2ac6e93a94c9003ed8b1f4a7758ed6a5cce002f28c07dd37ba2dfd6ac",
+          "present": true,
+          "units": "mm/h",
+          "step_h": 0.5,
+          "labelling": "start",
+          "file_time_first_last": [
+            "2017-11-12T00:00",
+            "2017-11-18T00:00"
+          ],
+          "source_cells_weighted": 13,
+          "rain_json_bbox_simulated_total_mm": 138.1105499267578,
+          "windows": {
+            "leadin_7d": {
+              "total_mm": 0.42139643075787503,
+              "coverage_h": 24.0,
+              "window_h": 168.0,
+              "coverage_fraction": 0.1429,
+              "max_nan_weight_fraction": 0.0,
+              "max_24h_total_mm": 0.42139643075787503,
+              "max_24h_start": "2017-11-12T00:00"
+            },
+            "simulated": {
+              "total_mm": 141.04637057001244,
+              "coverage_h": 120.0,
+              "window_h": 120.0,
+              "coverage_fraction": 1.0,
+              "max_nan_weight_fraction": 0.0
+            },
+            "amc_5d_before_tstart": {
+              "total_mm": 0.42139643075787503,
+              "coverage_h": 24.0,
+              "window_h": 120.0,
+              "coverage_fraction": 0.2,
+              "max_nan_weight_fraction": 0.0
+            },
+            "amc_5d_before_event_day": {
+              "total_mm": 11.920608078447348,
+              "coverage_h": 72.0,
+              "window_h": 120.0,
+              "coverage_fraction": 0.6,
+              "max_nan_weight_fraction": 0.0
+            }
+          },
+          "file_source_attr": "GPM IMERG Final V07 half-hourly"
+        }
+      }
+    },
+    {
+      "event": "strymonas",
+      "run": "strymonas_enhanced_postD6_v142",
+      "config": "reproduction/v14_rerun/configs/strymonas_enhanced_postD6_v142.yaml",
+      "epsg": 32634,
+      "active_cells": 185824,
+      "tstart": "2015-03-28T00:00",
+      "tstop": "2015-04-04T00:00",
+      "event_day": "2015-03-31",
+      "r2_enabled": false,
+      "infiltration": {
+        "enabled": true,
+        "hsg": "B",
+        "amc": 2
+      },
+      "cn_realised_active_mean": 74.9,
+      "windows": {
+        "leadin_7d": [
+          "2015-03-21T00:00",
+          "2015-03-28T00:00"
+        ],
+        "simulated": [
+          "2015-03-28T00:00",
+          "2015-04-04T00:00"
+        ],
+        "amc_5d_before_tstart": [
+          "2015-03-23T00:00",
+          "2015-03-28T00:00"
+        ],
+        "amc_5d_before_event_day": [
+          "2015-03-26T00:00",
+          "2015-03-31T00:00"
+        ]
+      },
+      "sources": {
+        "era5": {
+          "file": "D:\\ELKAK\\implementation\\v14\\strymonas_enhanced_postD6_v142\\data\\era5_strymonas.nc",
+          "sha256": "29b6a79f541041c17d8ab73c97513d8be96f177e8f78f939c7c963b390b0f9d1",
+          "present": true,
+          "units": "mm/h",
+          "step_h": 1.0,
+          "labelling": "end",
+          "file_time_first_last": [
+            "2015-03-01T00:00",
+            "2015-04-30T23:00"
+          ],
+          "source_cells_weighted": 21,
+          "rain_json_bbox_simulated_total_mm": 10.562810897827148,
+          "windows": {
+            "leadin_7d": {
+              "total_mm": 20.95193375640448,
+              "coverage_h": 25.0,
+              "window_h": 168.0,
+              "coverage_fraction": 0.1488,
+              "max_nan_weight_fraction": 0.0,
+              "max_24h_total_mm": 19.896682914869814,
+              "max_24h_start": "2015-03-27T00:00"
+            },
+            "simulated": {
+              "total_mm": 8.473562679726792,
+              "coverage_h": 168.0,
+              "window_h": 168.0,
+              "coverage_fraction": 1.0,
+              "max_nan_weight_fraction": 0.0
+            },
+            "amc_5d_before_tstart": {
+              "total_mm": 20.95193375640448,
+              "coverage_h": 25.0,
+              "window_h": 120.0,
+              "coverage_fraction": 0.2083,
+              "max_nan_weight_fraction": 0.0
+            },
+            "amc_5d_before_event_day": {
+              "total_mm": 28.21828332163795,
+              "coverage_h": 97.0,
+              "window_h": 120.0,
+              "coverage_fraction": 0.8083,
+              "max_nan_weight_fraction": 0.0
+            }
+          }
+        },
+        "imerg_raw": {
+          "file": "D:\\ELKAK\\implementation\\v14\\strymonas_enhanced_postD6_v142\\data\\imerg_strymonas.nc",
+          "sha256": "13116caa6498ecf5fe3ed845de9ec4d769ee70b5e88e48ada189044b4f113424",
+          "present": true,
+          "units": "mm/h",
+          "step_h": 0.5,
+          "labelling": "start",
+          "file_time_first_last": [
+            "2015-03-21T00:00",
+            "2015-04-04T00:00"
+          ],
+          "source_cells_weighted": 109,
+          "rain_json_bbox_simulated_total_mm": 6.685365200042725,
+          "windows": {
+            "leadin_7d": {
+              "total_mm": 46.8575251359988,
+              "coverage_h": 168.0,
+              "window_h": 168.0,
+              "coverage_fraction": 1.0,
+              "max_nan_weight_fraction": 0.0,
+              "max_24h_total_mm": 26.15957366867493,
+              "max_24h_start": "2015-03-26T16:30"
+            },
+            "simulated": {
+              "total_mm": 6.184328456665291,
+              "coverage_h": 168.0,
+              "window_h": 168.0,
+              "coverage_fraction": 1.0,
+              "max_nan_weight_fraction": 0.0
+            },
+            "amc_5d_before_tstart": {
+              "total_mm": 46.27116768105596,
+              "coverage_h": 120.0,
+              "window_h": 120.0,
+              "coverage_fraction": 1.0,
+              "max_nan_weight_fraction": 0.0
+            },
+            "amc_5d_before_event_day": {
+              "total_mm": 41.12112613456369,
+              "coverage_h": 120.0,
+              "window_h": 120.0,
+              "coverage_fraction": 1.0,
+              "max_nan_weight_fraction": 0.0
+            }
+          },
+          "file_source_attr": "GPM IMERG Final V07 half-hourly"
+        }
+      }
+    },
+    {
+      "event": "valencia",
+      "run": "valencia_enhanced_164_v142",
+      "config": "reproduction/v14_rerun/configs/valencia_enhanced_164_v142.yaml",
+      "epsg": 32630,
+      "active_cells": 298115,
+      "tstart": "2024-10-27T00:00",
+      "tstop": "2024-11-01T00:00",
+      "event_day": "2024-10-29",
+      "r2_enabled": true,
+      "infiltration": {
+        "enabled": false,
+        "hsg": "B",
+        "amc": 2
+      },
+      "cn_realised_active_mean": null,
+      "windows": {
+        "leadin_7d": [
+          "2024-10-20T00:00",
+          "2024-10-27T00:00"
+        ],
+        "simulated": [
+          "2024-10-27T00:00",
+          "2024-11-01T00:00"
+        ],
+        "amc_5d_before_tstart": [
+          "2024-10-22T00:00",
+          "2024-10-27T00:00"
+        ],
+        "amc_5d_before_event_day": [
+          "2024-10-24T00:00",
+          "2024-10-29T00:00"
+        ]
+      },
+      "sources": {
+        "era5": {
+          "file": "D:\\ELKAK\\implementation\\v14\\valencia_enhanced_164_v142\\data\\era5_valencia.nc",
+          "sha256": "d23d13f193074452afdba2e5e60a2ef963890b0aa634ee64ad947d1c16c77c45",
+          "present": true,
+          "units": "mm/h",
+          "step_h": 1.0,
+          "labelling": "end",
+          "file_time_first_last": [
+            "2024-10-01T00:00",
+            "2024-11-30T23:00"
+          ],
+          "source_cells_weighted": 15,
+          "rain_json_bbox_simulated_total_mm": 109.97078704833984,
+          "windows": {
+            "leadin_7d": {
+              "total_mm": 24.261218837184092,
+              "coverage_h": 73.0,
+              "window_h": 168.0,
+              "coverage_fraction": 0.4345,
+              "max_nan_weight_fraction": 0.0,
+              "max_24h_total_mm": 23.806155393270025,
+              "max_24h_start": "2024-10-25T07:00"
+            },
+            "simulated": {
+              "total_mm": 107.75793491663131,
+              "coverage_h": 120.0,
+              "window_h": 120.0,
+              "coverage_fraction": 1.0,
+              "max_nan_weight_fraction": 0.0
+            },
+            "amc_5d_before_tstart": {
+              "total_mm": 24.261218837184092,
+              "coverage_h": 73.0,
+              "window_h": 120.0,
+              "coverage_fraction": 0.6083,
+              "max_nan_weight_fraction": 0.0
+            },
+            "amc_5d_before_event_day": {
+              "total_mm": 54.85702689447188,
+              "coverage_h": 120.0,
+              "window_h": 120.0,
+              "coverage_fraction": 1.0,
+              "max_nan_weight_fraction": 0.0
+            }
+          }
+        },
+        "imerg_raw": {
+          "file": "D:\\ELKAK\\implementation\\v14\\valencia_enhanced_164_v142\\data\\imerg_valencia.raw.nc",
+          "sha256": "8faee51622618d74287f728775046e7caef2b4f8bf6c384584d42049c8e8c40b",
+          "present": true,
+          "units": "mm/h",
+          "step_h": 0.5,
+          "labelling": "start",
+          "file_time_first_last": [
+            "2024-10-24T00:00",
+            "2024-11-01T00:00"
+          ],
+          "source_cells_weighted": 57,
+          "rain_json_bbox_simulated_total_mm": 61.555320739746094,
+          "windows": {
+            "leadin_7d": {
+              "total_mm": 16.583689176725805,
+              "coverage_h": 72.0,
+              "window_h": 168.0,
+              "coverage_fraction": 0.4286,
+              "max_nan_weight_fraction": 0.0,
+              "max_24h_total_mm": 16.41520250494054,
+              "max_24h_start": "2024-10-25T05:00"
+            },
+            "simulated": {
+              "total_mm": 72.58717534539876,
+              "coverage_h": 120.0,
+              "window_h": 120.0,
+              "coverage_fraction": 1.0,
+              "max_nan_weight_fraction": 0.0
+            },
+            "amc_5d_before_tstart": {
+              "total_mm": 16.583689176725805,
+              "coverage_h": 72.0,
+              "window_h": 120.0,
+              "coverage_fraction": 0.6,
+              "max_nan_weight_fraction": 0.0
+            },
+            "amc_5d_before_event_day": {
+              "total_mm": 20.76650302214246,
+              "coverage_h": 120.0,
+              "window_h": 120.0,
+              "coverage_fraction": 1.0,
+              "max_nan_weight_fraction": 0.0
+            }
+          },
+          "file_source_attr": "GPM IMERG Final V07 half-hourly"
+        }
+      }
+    },
+    {
+      "event": "emilia",
+      "run": "emilia_enhanced_8aoi_v142",
+      "config": "reproduction/v14_rerun/configs/emilia_enhanced_8aoi_v142.yaml",
+      "epsg": 32632,
+      "active_cells": 229446,
+      "tstart": "2023-05-14T00:00",
+      "tstop": "2023-05-22T00:00",
+      "event_day": "2023-05-17",
+      "r2_enabled": false,
+      "infiltration": {
+        "enabled": false,
+        "hsg": "B",
+        "amc": 3
+      },
+      "cn_realised_active_mean": null,
+      "windows": {
+        "leadin_7d": [
+          "2023-05-07T00:00",
+          "2023-05-14T00:00"
+        ],
+        "simulated": [
+          "2023-05-14T00:00",
+          "2023-05-22T00:00"
+        ],
+        "amc_5d_before_tstart": [
+          "2023-05-09T00:00",
+          "2023-05-14T00:00"
+        ],
+        "amc_5d_before_event_day": [
+          "2023-05-12T00:00",
+          "2023-05-17T00:00"
+        ]
+      },
+      "sources": {
+        "era5": {
+          "file": "D:\\ELKAK\\implementation\\v14\\emilia_enhanced_8aoi_v142\\data\\era5_emilia_romagna.nc",
+          "sha256": "8b5d146773f0b094871720feb2da5b43ddf4a3c9c1476560ef3651d1e1f0ce62",
+          "present": true,
+          "units": "mm/h",
+          "step_h": 1.0,
+          "labelling": "end",
+          "file_time_first_last": [
+            "2023-04-01T00:00",
+            "2023-05-30T23:00"
+          ],
+          "source_cells_weighted": 20,
+          "rain_json_bbox_simulated_total_mm": 118.7313232421875,
+          "windows": {
+            "leadin_7d": {
+              "total_mm": 61.42032138876637,
+              "coverage_h": 168.0,
+              "window_h": 168.0,
+              "coverage_fraction": 1.0,
+              "max_nan_weight_fraction": 0.0,
+              "max_24h_total_mm": 42.42252374208185,
+              "max_24h_start": "2023-05-10T05:00"
+            },
+            "simulated": {
+              "total_mm": 134.02688440801003,
+              "coverage_h": 192.0,
+              "window_h": 192.0,
+              "coverage_fraction": 1.0,
+              "max_nan_weight_fraction": 0.0
+            },
+            "amc_5d_before_tstart": {
+              "total_mm": 60.439350899051675,
+              "coverage_h": 120.0,
+              "window_h": 120.0,
+              "coverage_fraction": 1.0,
+              "max_nan_weight_fraction": 0.0
+            },
+            "amc_5d_before_event_day": {
+              "total_mm": 101.90035316927151,
+              "coverage_h": 120.0,
+              "window_h": 120.0,
+              "coverage_fraction": 1.0,
+              "max_nan_weight_fraction": 0.0
+            }
+          }
+        },
+        "imerg_raw": {
+          "file": "D:\\ELKAK\\implementation\\v14\\emilia_enhanced_8aoi_v142\\data\\imerg_emilia_romagna.nc",
+          "sha256": "08978dc082eea4c8c3c0b30f7ec7cae36fac5f96821219759c47d95e8487f64e",
+          "present": true,
+          "units": "mm/h",
+          "step_h": 0.5,
+          "labelling": "start",
+          "file_time_first_last": [
+            "2023-04-30T00:00",
+            "2023-05-22T00:00"
+          ],
+          "source_cells_weighted": 93,
+          "rain_json_bbox_simulated_total_mm": 118.74979400634766,
+          "windows": {
+            "leadin_7d": {
+              "total_mm": 64.5271177874158,
+              "coverage_h": 168.0,
+              "window_h": 168.0,
+              "coverage_fraction": 1.0,
+              "max_nan_weight_fraction": 0.0,
+              "max_24h_total_mm": 45.53644700685055,
+              "max_24h_start": "2023-05-09T21:30"
+            },
+            "simulated": {
+              "total_mm": 129.67457427884662,
+              "coverage_h": 192.0,
+              "window_h": 192.0,
+              "coverage_fraction": 1.0,
+              "max_nan_weight_fraction": 0.0
+            },
+            "amc_5d_before_tstart": {
+              "total_mm": 64.26196760479411,
+              "coverage_h": 120.0,
+              "window_h": 120.0,
+              "coverage_fraction": 1.0,
+              "max_nan_weight_fraction": 0.0
+            },
+            "amc_5d_before_event_day": {
+              "total_mm": 89.46532604917863,
+              "coverage_h": 120.0,
+              "window_h": 120.0,
+              "coverage_fraction": 1.0,
+              "max_nan_weight_fraction": 0.0
+            }
+          },
+          "file_source_attr": "GPM IMERG Final V07 half-hourly"
+        }
+      }
+    },
+    {
+      "event": "crete",
+      "run": "crete_canonical_r2on",
+      "config": "reproduction/v14_rerun/configs/crete_canonical_r2on.yaml",
+      "epsg": 32634,
+      "active_cells": 859727,
+      "tstart": "2026-09-28T00:00",
+      "tstop": "2026-10-06T00:00",
+      "event_day": "2026-10-01",
+      "r2_enabled": true,
+      "infiltration": {
+        "enabled": false,
+        "hsg": "B",
+        "amc": 3
+      },
+      "cn_realised_active_mean": null,
+      "windows": {
+        "leadin_7d": [
+          "2026-09-21T00:00",
+          "2026-09-28T00:00"
+        ],
+        "simulated": [
+          "2026-09-28T00:00",
+          "2026-10-06T00:00"
+        ],
+        "amc_5d_before_tstart": [
+          "2026-09-23T00:00",
+          "2026-09-28T00:00"
+        ],
+        "amc_5d_before_event_day": [
+          "2026-09-26T00:00",
+          "2026-10-01T00:00"
+        ]
+      },
+      "sources": {
+        "era5": {
+          "file": "D:\\ELKAK\\implementation\\v14\\crete_canonical_r2on\\data\\era5_crete.nc",
+          "sha256": "c9ea3e54e4702e8bd901ec5743a2fe623592f233fd66ed76a23256a18f4ca67f",
+          "present": true,
+          "units": "mm/h",
+          "step_h": 1.0,
+          "labelling": "end",
+          "file_time_first_last": [
+            "2026-09-01T00:00",
+            "2026-10-06T23:00"
+          ],
+          "source_cells_weighted": 36,
+          "rain_json_bbox_simulated_total_mm": 81.52143096923828,
+          "windows": {
+            "leadin_7d": {
+              "total_mm": 30.574434979011457,
+              "coverage_h": 168.0,
+              "window_h": 168.0,
+              "coverage_fraction": 1.0,
+              "max_nan_weight_fraction": 0.0,
+              "max_24h_total_mm": 22.00749726358513,
+              "max_24h_start": "2026-09-26T17:00"
+            },
+            "simulated": {
+              "total_mm": 97.78591330561966,
+              "coverage_h": 192.0,
+              "window_h": 192.0,
+              "coverage_fraction": 1.0,
+              "max_nan_weight_fraction": 0.0
+            },
+            "amc_5d_before_tstart": {
+              "total_mm": 29.916799986511805,
+              "coverage_h": 120.0,
+              "window_h": 120.0,
+              "coverage_fraction": 1.0,
+              "max_nan_weight_fraction": 0.0
+            },
+            "amc_5d_before_event_day": {
+              "total_mm": 44.00979576299509,
+              "coverage_h": 120.0,
+              "window_h": 120.0,
+              "coverage_fraction": 1.0,
+              "max_nan_weight_fraction": 0.0
+            }
+          }
+        },
+        "imerg_raw": {
+          "file": "D:\\ELKAK\\implementation\\v14\\crete_canonical_r2on\\data\\imerg_crete.raw.nc",
+          "sha256": "36783a074728eed590bcd527b24bafe8b66a72967864f6397da0957063f9233e",
+          "present": true,
+          "units": "mm/h",
+          "step_h": 0.5,
+          "labelling": "start",
+          "file_time_first_last": [
+            "2026-09-21T00:00",
+            "2026-10-06T00:00"
+          ],
+          "source_cells_weighted": 144,
+          "rain_json_bbox_simulated_total_mm": 121.9110107421875,
+          "windows": {
+            "leadin_7d": {
+              "total_mm": 53.896387576505205,
+              "coverage_h": 168.0,
+              "window_h": 168.0,
+              "coverage_fraction": 1.0,
+              "max_nan_weight_fraction": 0.0,
+              "max_24h_total_mm": 36.79638659289439,
+              "max_24h_start": "2026-09-26T16:00"
+            },
+            "simulated": {
+              "total_mm": 235.71219450178722,
+              "coverage_h": 192.0,
+              "window_h": 192.0,
+              "coverage_fraction": 1.0,
+              "max_nan_weight_fraction": 0.0
+            },
+            "amc_5d_before_tstart": {
+              "total_mm": 51.60431550623021,
+              "coverage_h": 120.0,
+              "window_h": 120.0,
+              "coverage_fraction": 1.0,
+              "max_nan_weight_fraction": 0.0
+            },
+            "amc_5d_before_event_day": {
+              "total_mm": 72.53621582728172,
+              "coverage_h": 120.0,
+              "window_h": 120.0,
+              "coverage_fraction": 1.0,
+              "max_nan_weight_fraction": 0.0
+            }
+          },
+          "file_source_attr": "GPM IMERG Late Run V07 half-hourly"
+        }
+      }
+    }
+  ]
+}

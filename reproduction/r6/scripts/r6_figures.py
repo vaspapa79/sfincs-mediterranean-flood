@@ -165,14 +165,21 @@ def check_union_vs_record(F):
     return src
 
 
-def draw_layers(ax, F, aoi_layers=None, lw_obs=0.5):
+def draw_layers(ax, F, aoi_layers=None, lw_obs=0.5, excl_on_top=False):
+    """Layers: active cells (light grey), cells excluded from the universe (grey), modelled depth where h_max > threshold, the EMS
+    observed flood (red) and the AOIs. excl_on_top draws the exclusion mask above the depth layer, so the modelled water inside
+    excluded cells (permanent water, open sea) is hidden (CODE-19 B4, F7: the Albufera lagoon)."""
     import numpy as np
     from matplotlib.colors import LinearSegmentedColormap, ListedColormap
     kw = dict(extent=F.ext, origin="lower", interpolation="nearest")
     ax.imshow(np.where(F.active, 1.0, np.nan), cmap=ListedColormap([BASE_GREY]), vmin=0, vmax=1, **kw)
-    ax.imshow(np.where(F.excl & F.active, 1.0, np.nan), cmap=ListedColormap([EXCL_GREY]), vmin=0, vmax=1, **kw)
+    excl_layer = np.where(F.excl & F.active, 1.0, np.nan)
+    if not excl_on_top:
+        ax.imshow(excl_layer, cmap=ListedColormap([EXCL_GREY]), vmin=0, vmax=1, **kw)
     cmap = LinearSegmentedColormap.from_list("depth", DEPTH_COLOURS)
     im = ax.imshow(np.where(F.wet, np.minimum(F.hmax, DEPTH_CAP), np.nan), cmap=cmap, vmin=0, vmax=DEPTH_CAP, **kw)
+    if excl_on_top:
+        ax.imshow(excl_layer, cmap=ListedColormap([EXCL_GREY]), vmin=0, vmax=1, **kw)
     ax.contour(F.ems_wet.astype(float), levels=[0.5], extent=F.ext, origin="lower", colors=OBS_RED, linewidths=lw_obs)
     for arr, style in (aoi_layers if aoi_layers is not None else [(F.aoi_m, dict(colors="k", linewidths=0.7, linestyles="dashed"))]):
         ax.contour(arr.astype(float), levels=[0.5], extent=F.ext, origin="lower", **style)
@@ -180,6 +187,8 @@ def draw_layers(ax, F, aoi_layers=None, lw_obs=0.5):
 
 
 EXCL_LABEL = "excluded from the evaluation universe (permanent water, open sea)"   # CODE-17 A4 wording
+INACTIVE_LABEL = "inactive (above the elevation ceiling or open sea)"              # CODE-19 B3: the white cells
+EXCL_ON_TOP = {"F7": True}   # CODE-19 B4: the Albufera lagoon is outside the universe; F7 hides the modelled water in excluded cells
 
 
 def map_legend_handles(aoi_handles=None, two_line_excl=False):
@@ -187,7 +196,9 @@ def map_legend_handles(aoi_handles=None, two_line_excl=False):
     from matplotlib.lines import Line2D
     from matplotlib.patches import Patch
     excl = EXCL_LABEL.replace(" (", "\n(") if two_line_excl else EXCL_LABEL
-    h = [Patch(facecolor=BASE_GREY, edgecolor="0.55", linewidth=0.4, label=f"active cell, {HMAX} ≤ {THRESHOLD:.2f} m"),
+    inactive = INACTIVE_LABEL.replace("elevation ceiling", "elevation\nceiling") if two_line_excl else INACTIVE_LABEL
+    h = [Patch(facecolor="white", edgecolor="0.55", linewidth=0.4, label=inactive),
+         Patch(facecolor=BASE_GREY, edgecolor="0.55", linewidth=0.4, label=f"active cell, {HMAX} ≤ {THRESHOLD:.2f} m"),
          Patch(facecolor=EXCL_GREY, edgecolor="none", label=excl),
          Line2D([], [], color=OBS_RED, lw=0.9, label="EMS observed flood")]
     h += aoi_handles if aoi_handles is not None else [Line2D([], [], color="k", lw=0.8, ls="--", label="EMS areas of interest")]
@@ -202,20 +213,20 @@ def depth_colorbar(fig, im, cax):
     return cb
 
 
-def fig_map(name, event):
+def fig_map(name, event, excl_on_top=False):
     matplotlib, plt = mpl_setup()
     F = load_run(event)
     rec_json = check_union_vs_record(F)
     ex = F.ext
     xw, yh = ex[1] - ex[0], ex[3] - ex[2]
     W = C.WIDTH_2COL_MM
-    L, RM, T, B = 15.0, 24.0, 3.0, 22.0             # left (y labels), right (colour bar), top, bottom (x labels + legend)
+    L, RM, T, B = 15.0, 24.0, 3.0, 25.0             # left (y labels), right (colour bar), top, bottom (x labels + 3-row legend)
     MW = W - L - RM
     MH = MW * yh / xw
     H = T + MH + B
     fig = C.fig_mm(plt, W, H)
     ax = C.ax_mm(fig, L, B, MW, MH)
-    im = draw_layers(ax, F)
+    im = draw_layers(ax, F, excl_on_top=excl_on_top)
     ax.set_xlim(ex[0], ex[1]); ax.set_ylim(ex[2], ex[3]); ax.set_aspect("equal")
     utm = utm_label(F.cfg.epsg)
     ax.set_xlabel(f"Easting (km, {utm})"); ax.set_ylabel(f"Northing (km, {utm})")
@@ -226,7 +237,8 @@ def fig_map(name, event):
     sources = [F.cfg_path, F.model_nc, F.excl_tif, F.ems_dir, rec_json]
     C.export(fig, name, dpi=C.DPI_COMBINATION, width_mm=W, script=SCRIPT, sources=sources,
              notes=f"run {F.run}; content of phase4/figures/map_{F.run}_v14.png (fig_map_v14.py) re-rendered at the export size; "
-                   f"no score printed")
+                   f"no score printed; legend names the white (inactive) cells (CODE-19 B3)"
+                   + ("; the exclusion mask is drawn above the depth layer, hiding the modelled water inside excluded cells (CODE-19 B4)" if excl_on_top else ""))
     plt.close(fig)
 
 
@@ -611,8 +623,7 @@ def fig10(name="F10"):
         generic = lab.split(" (")[0] + " range"
         ax.axhspan(lo, hi, color=col, zorder=0, lw=0)
         band_labels.append(Patch(facecolor=col, edgecolor="none", label=generic))
-    ax.axhline(FS.WING_MEDIAN, color="0.45", ls=":", lw=1.0, zorder=1)
-    med = Line2D([], [], color="0.45", ls=":", lw=1.0, label="benchmark median")
+    # no benchmark-median line (CODE-19 B1)
     off = {"s14": -0.2, "f14": 0.0, "cs": 0.2}
     sty = {"s14": dict(marker="o", color=C.OI["blue"], mfc=C.OI["blue"]),
            "f14": dict(marker="s", color=C.OI["green"], mfc=C.OI["green"]),
@@ -628,18 +639,19 @@ def fig10(name="F10"):
     ax.set_xlim(-0.6, len(rows) - 0.4)
     top = max([r[k] for r in rows for k in ("s14", "f14", "cs") if r[k] is not None] + [hi for _, _, hi, _ in FS.BANDS])
     ax.set_ylim(0, math.ceil((top + 0.04) * 10) / 10)
-    ax.set_ylabel(f"CSI ({HMAX} > {THRESHOLD:.2f} m)")
+    ax.set_ylabel("CSI")                            # CODE-19 B1 (CSI* is read at other thresholds)
     ax.tick_params(axis="x", length=0, pad=3)
     for sp in ("top", "right"):
         ax.spines[sp].set_visible(False)
-    order = [handles["s14"], handles["f14"], handles["cs"], band_labels[0], band_labels[1], med]
+    order = [handles["s14"], handles["f14"], handles["cs"], band_labels[0], band_labels[1]]
     fig.legend(handles=order, loc="lower left", bbox_to_anchor=(L / W, 1.0 / H), ncol=3, frameon=False, borderaxespad=0.0)
     C.export(fig, name, dpi=C.DPI_COMBINATION, width_mm=W, script=SCRIPT,
              sources=[ce_path, P5 / "crete_canonical_r2on_tiers.json", V14 / "scripts" / "fig_skill_sweeps_v14.py"],
              notes=f"run-of-record markers only (strict CSI, fuzzy r = 1 CSI, CSI* at the best threshold) of phase4/figures/"
                    f"fig10_skill_v14_v142.png; no earlier-release series, no version label (release history: S7/S10); Crete = "
                    "tier-1 AOI03 block (asserted against the tiers JSON); benchmark bands = the literature constants of "
-                   "fig_skill_sweeps_v14.py, labelled without author names (citations belong in the caption)")
+                   "fig_skill_sweeps_v14.py, labelled without author names (citations belong in the caption); no benchmark-median "
+                   "line and y label 'CSI' (CODE-19 B1)")
     plt.close(fig)
 
 
@@ -772,20 +784,89 @@ def f1_data():
 
 
 # =================================================================================================== main
+# =================================================================================================== F2 workflow
+# Boxes of the workflow figure (CODE-19 B2: drawn here so that h_max is set in mathtext); positions = centres in mm on the
+# 174-mm canvas, box sizes follow the rendered text. kind: input (grey), rule (blue), score (green) as the author's drawing.
+FIG2_H_MM = 80.0
+FIG2_BOXES = [
+    dict(id="meta", kind="input", cx=26.0, cy=70.0, text="Event and catchment metadata\n(area, core scale, antecedent\nstate, fire history, sea cells)"),
+    dict(id="static", kind="input", cx=78.0, cy=70.0, text="Copernicus DEM GLO-30\nESA WorldCover v200"),
+    dict(id="forcing", kind="input", cx=126.0, cy=70.0, text="IMERG V07 (Final / Late)\nERA5 / ERA5T\nGloFAS-v4 discharge"),
+    dict(id="rule", kind="rule", cx=18.0, cy=46.0, text="Frozen rule R\n(R1–R6, Box 1)"),
+    dict(id="yaml", kind="rule", cx=50.0, cy=46.0, text="Per-event YAML\nconfiguration"),
+    dict(id="build", kind="input", cx=96.0, cy=46.0, text="HydroMT-SFINCS build\n(sub-grid tables, mask,\ncoastal ring, forcing,\ninflow sources)"),
+    dict(id="runs", kind="input", cx=96.0, cy=22.0, text=f"SFINCS v2.3.0 runs\n(enhanced and ERA5\nbaseline) → {HMAX}"),
+    dict(id="validator", kind="score", cx=146.0, cy=24.0, text="Validator: evaluation universe,\nstrict and fuzzy contingency,\nthreshold sweeps, SEDI, PSS"),
+    dict(id="records", kind="score", cx=120.0, cy=6.0, text="JSON validation records\n→ tables and figures"),
+    dict(id="ems", kind="input", cx=157.0, cy=6.0, text="Copernicus EMS\nrapid-mapping products"),
+]
+FIG2_ARROWS = [("meta", "rule"), ("rule", "yaml"), ("yaml", "build"), ("static", "build"), ("forcing", "build"), ("build", "runs"),
+               ("runs", "validator"), ("validator", "records"), ("ems", "validator")]
+FIG2_FILL = {"input": "#f2f2f2", "rule": "#dbe8f5", "score": "#e4f2e6"}
+FIG2_PAD_MM = 2.0
+
+
+def _box_edge_point(b, other):
+    """Point on the boundary of box b (x0,x1,y0,y1 in mm) towards the centre of the other box: the arrow start/end."""
+    cx, cy = (b[0] + b[1]) / 2, (b[2] + b[3]) / 2
+    ox, oy = (other[0] + other[1]) / 2, (other[2] + other[3]) / 2
+    dx, dy = ox - cx, oy - cy
+    if abs(dx) * (b[3] - b[2]) > abs(dy) * (b[1] - b[0]):       # leaves through a vertical side
+        x = b[1] if dx > 0 else b[0]
+        return x, cy + dy * (x - cx) / dx
+    y = b[3] if dy > 0 else b[2]
+    return cx + dx * (y - cy) / dy, y
+
+
+def fig2(name="F2"):
+    """Workflow (Fig. 2): the author's diagram re-set at the export size, h_max in mathtext (CODE-19 B2)."""
+    from matplotlib.patches import FancyBboxPatch
+    matplotlib, plt = mpl_setup()
+    W, H = C.WIDTH_2COL_MM, FIG2_H_MM
+    fig = C.fig_mm(plt, W, H)
+    ax = fig.add_axes([0, 0, 1, 1]); ax.set_xlim(0, W); ax.set_ylim(0, H); ax.axis("off")
+    texts = {b["id"]: ax.text(b["cx"], b["cy"], b["text"], ha="center", va="center", fontsize=8, linespacing=1.15, zorder=3) for b in FIG2_BOXES}
+    fig.canvas.draw()
+    r = fig.canvas.get_renderer(); inv = ax.transData.inverted()
+    boxes = {}
+    for b in FIG2_BOXES:
+        bb = texts[b["id"]].get_window_extent(renderer=r)
+        (x0, y0), (x1, y1) = inv.transform([[bb.x0, bb.y0], [bb.x1, bb.y1]])
+        p = FIG2_PAD_MM
+        boxes[b["id"]] = (x0 - p, x1 + p, y0 - p, y1 + p)
+        ax.add_patch(FancyBboxPatch((x0 - p, y0 - p), (x1 - x0) + 2 * p, (y1 - y0) + 2 * p, boxstyle="round,pad=0,rounding_size=1.5",
+                                    facecolor=FIG2_FILL[b["kind"]], edgecolor="0.35", linewidth=0.7, zorder=2))
+    ids = list(boxes)
+    for i, a_ in enumerate(ids):                     # boxes inside the canvas and clear of each other
+        A = boxes[a_]
+        need(A[0] > 0.3 and A[1] < W - 0.3 and A[2] > 0.3 and A[3] < H - 0.3, f"F2: box {a_} outside the canvas {A}")
+        for b_ in ids[i + 1:]:
+            need(not _boxes_overlap(A, boxes[b_]), f"F2: boxes {a_} and {b_} overlap")
+    for src, dst in FIG2_ARROWS:
+        p0 = _box_edge_point(boxes[src], boxes[dst]); p1 = _box_edge_point(boxes[dst], boxes[src])
+        ax.annotate("", xy=p1, xytext=p0, arrowprops=dict(arrowstyle="-|>", lw=0.7, color="0.3", shrinkA=0.5, shrinkB=0.5, mutation_scale=7), zorder=1)
+    C.export(fig, name, dpi=C.DPI_COMBINATION, width_mm=W, script=SCRIPT, sources=[REPO / "docs" / "frozen_rule_R.md"],
+             notes="workflow diagram (the author's Fig. 2 re-set at the export size): the same ten boxes and nine arrows; "
+                   f"{HMAX} set in mathtext instead of 'h_max' (CODE-19 B2); box sizes follow the rendered 8-pt text; no data drawn")
+    plt.close(fig)
+
+
 def main() -> int:
     setup_env()
     ap = argparse.ArgumentParser()
-    ap.add_argument("--fig", action="append", default=[], help="F1data F3 F4 F5 F6 F7 F8 F9 F10 F11 | all (default)")
+    ap.add_argument("--fig", action="append", default=[], help="F1data F2 F3 F4 F5 F6 F7 F8 F9 F10 F11 | all (default)")
     a = ap.parse_args()
     figs = a.fig or ["all"]
     if "all" in figs:
-        figs = ["F1data", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11"]
+        figs = ["F1data", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11"]
     for f in figs:
         print(f"[{C.utc_now()}] {f}", flush=True)
         if f == "F1data":
             f1_data()
+        elif f == "F2":
+            fig2()
         elif f in MAP_FIGS:
-            fig_map(f, MAP_FIGS[f])
+            fig_map(f, MAP_FIGS[f], excl_on_top=EXCL_ON_TOP.get(f, False))
         elif f == "F4":
             fig4()
         elif f == "F9":

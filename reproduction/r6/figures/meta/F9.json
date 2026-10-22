@@ -63,7 +63,8 @@
     "Northing (km, UTM 34N)",
     "active cell, $\\it{h}_{\\rm max}$ \u2264 0.10 m",
     "excluded from the evaluation universe\n(permanent water, open sea)",
-    "extent of panel (b)"
+    "extent of panel (b)",
+    "inactive (above the elevation\nceiling or open sea)"
   ],
   "files": [
     {
@@ -77,8 +78,8 @@
       "height_mm": 168.91,
       "format": "TIFF, RGB 8-bit, LZW",
       "tiff_writer": "pil",
-      "bytes": 2171486,
-      "generated_utc": "2026-10-22T08:07:34Z"
+      "bytes": 2201980,
+      "generated_utc": "2026-10-22T13:00:48Z"
     },
     {
       "file": "F9_preview.png",
@@ -90,8 +91,8 @@
       "width_mm": 174.0,
       "height_mm": 168.91,
       "format": "PNG preview (reduced)",
-      "bytes": 1443478,
-      "generated_utc": "2026-10-22T08:07:35Z"
+      "bytes": 1462323,
+      "generated_utc": "2026-10-22T13:00:48Z"
     }
   ]
 }

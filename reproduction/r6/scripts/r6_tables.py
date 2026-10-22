@@ -1,4 +1,5 @@
-"""CODE-16 B (2026-10-21) — the manuscript tables (main text T2–T6, supplement S1–S10) from the JSON records, nothing typed.
+"""CODE-16 B (2026-10-21) — the manuscript tables (main text T2–T6, supplement S1–S11) from the JSON records, nothing typed.
+CODE-19 (2026-10-22): baseline rows in S1 and S3, the S4 lead-in label, the new S11 (Manning lookup).
 
 Every cell is read programmatically from the records listed per table in TABLES_MANIFEST.md (paths relative to the repository
 unless absolute). Unless a table says otherwise: strict scores at h_max > 0.10 m on the v1.4 evaluation universe (AOI ∩ active
@@ -13,6 +14,7 @@ from __future__ import annotations
 import argparse
 import csv
 import datetime as dt
+import hashlib
 import json
 import math
 import re
@@ -192,6 +194,47 @@ def release_v13_csi(ctx: Ctx, run: str, r5_s1: dict | None = None):
     return NA, None
 
 
+def leadin_label(w: dict, w0: dict) -> str:
+    """S4 label of the Strymonas lead-in sensitivity (CODE-19 C3): the simulated lead-in is the extra pre-event days over the
+    canonical window; both windows are read from the run configs."""
+    extra = int(w["pre_event_days"]) - int(w0["pre_event_days"])
+    return f"{extra}-day lead-in simulated ({int(w['pre_event_days'])} d before the event day; canonical {int(w0['pre_event_days'])} d)"
+
+
+# ESA WorldCover v200 legend (Zanaga et al. 2022, product user manual): class code -> name
+WORLDCOVER_CLASSES = {10: "Tree cover", 20: "Shrubland", 30: "Grassland", 40: "Cropland", 50: "Built-up", 60: "Bare / sparse vegetation",
+                      70: "Snow and ice", 80: "Permanent water bodies", 90: "Herbaceous wetland", 95: "Mangroves", 100: "Moss and lichen"}
+
+
+def manning_rows(repo: Path) -> list:
+    """(WorldCover class code, class name, Manning n) read from the pipeline's lookup `skill/manning_lookup.csv` — the file
+    `prep_inputs.py` copies into every build (CODE-19 C4). Nothing is typed: the file holds the code and n only."""
+    rows = []
+    with open(repo / "skill" / "manning_lookup.csv", encoding="utf-8", newline="") as fh:
+        for r in csv.DictReader(fh):
+            code = int(r["landuse"])
+            rows.append((code, WORLDCOVER_CLASSES.get(code, "code not in the WorldCover legend"), float(r["N"])))
+    return rows
+
+
+def baseline_label(key: str, label: str) -> str:
+    return label + (" — grid-matched ERA5 baseline" if key == "pineios" else " — ERA5T baseline" if key == "crete" else " — ERA5 baseline")
+
+
+def baseline_sweep_rows(ctx: "Ctx") -> list:
+    """S1 rows of the ERA5 (Crete: ERA5T) baselines, same columns as the enhanced rows (CODE-19 C1): events.<run>.baseline_v14.sweep
+    of the cross-event JSON (Crete = the tier-1 block, as the enhanced row)."""
+    c = ce(ctx); rows = []
+    for key, label, run, base, _h in EVENTS:
+        if base is None:
+            continue
+        sw = c["events"][run]["baseline_v14"]["sweep"]
+        for t in THRS:
+            x = sw[t]
+            rows.append([baseline_label(key, label), base, "h_max > " + t[2:-1] + " m", f0(x["tp"]), f0(x["fp"]), f0(x["fn"]), f3(x["csi"]), f3(x["hr"]), f3(x["far"]), f2(x["bias"])])
+    return rows
+
+
 # ----------------------------------------------------------------------------------------------------------------- output
 class Writer:
     def __init__(self, ctx: Ctx, out_dir: Path):
@@ -342,8 +385,12 @@ def tab_s1(ctx: Ctx, W: Writer):
         for t in THRS:
             x = sw[t]
             rows.append([label, run, "h_max > " + t[2:-1] + " m", f0(x["tp"]), f0(x["fp"]), f0(x["fn"]), f3(x["csi"]), f3(x["hr"]), f3(x["far"]), f2(x["bias"])])
-    W.emit("S1", "Threshold sweeps", ["event", "run of record", "threshold", "TP", "FP", "FN", "CSI", "HR", "FAR", "B"], rows,
-           ["Source: `phase4/cross_event_v14_v142.json` events.<run>.enhanced_v14.sweep (strict contingency per depth threshold, cells)."])
+    rows += baseline_sweep_rows(ctx)
+    W.emit("S1", "Threshold sweeps", ["event", "run", "threshold", "TP", "FP", "FN", "CSI", "HR", "FAR", "B"], rows,
+           ["Source: `phase4/cross_event_v14_v142.json` events.<run>.enhanced_v14.sweep (runs of record) and events.<run>.baseline_v14.sweep (the ERA5 "
+            "rain-on-grid baselines; Pineios grid-matched; Crete ERA5T) — strict contingency per depth threshold, cells, on the same v1.4 universe as the "
+            "enhanced run (Crete: the tier-1 block). Baseline rows added for the revision (CODE-19 C1); their fuzzy, one-sided, buffer and "
+            "time-matched scores are the baseline rows of S3."])
 
 
 def aoi_tokens(ctx: Ctx, run: str) -> list:
@@ -405,10 +452,26 @@ def tab_s3(ctx: Ctx, W: Writer):
             tb = ev["enhanced_truth_buffer"]; tm = ev["enhanced_time_matched"]
         rows.append([label, run] + [f3(e["fuzzy"][r]) for r in ("0", "1", "2", "3")] + [f3(e["fuzzy_model_oriented_r1"]), f3(e["fuzzy_obs_oriented_r1"])] +
                     [f3(tb["-20"]), f3(tb["0"]), f3(tb["20"])] + [f3(tm["full"]), f3(tm["to_earliest"]), f3(tm["to_latest"])])
-    W.emit("S3", "Fuzzy and reference uncertainty", ["event", "run of record", "fuzzy r=0", "r=1", "r=2", "r=3", "model-oriented r=1", "obs-oriented r=1", "truth −20 m", "truth 0 m", "truth +20 m",
+    # baseline rows (CODE-19 C1): fuzzy / one-sided from baseline_v14, buffer and time-matched from the baseline_* blocks; Crete baseline
+    # tier-1 diagnostics from code19/crete_tier1_diagnostics_baseline.json (the cross-event Crete baseline blocks are all-AOI union)
+    cb = ctx.j(ctx.R / "code19" / "crete_tier1_diagnostics_baseline.json", required=False)
+    for key, label, run, base, _h in EVENTS:
+        if base is None:
+            continue
+        ev = c["events"][run]; b = ev["baseline_v14"]
+        if key == "crete":
+            cbr = (cb or {}).get("runs", {}).get(base)
+            tb = {k: cbr["truth_buffer"][k]["csi"] for k in ("-20", "0", "20")} if cbr else {"-20": None, "0": None, "20": None}
+            tm = {k: cbr["time_matched"][k]["csi"] for k in ("full", "to_earliest", "to_latest")} if cbr else {"full": None, "to_earliest": None, "to_latest": None}
+        else:
+            tb = ev["baseline_truth_buffer"]; tm = ev["baseline_time_matched"]
+        rows.append([baseline_label(key, label), base] + [f3(b["fuzzy"][r]) for r in ("0", "1", "2", "3")] + [f3(b["fuzzy_model_oriented_r1"]), f3(b["fuzzy_obs_oriented_r1"])] +
+                    [f3(tb["-20"]), f3(tb["0"]), f3(tb["20"])] + [f3(tm["full"]), f3(tm["to_earliest"]), f3(tm["to_latest"])])
+    W.emit("S3", "Fuzzy and reference uncertainty", ["event", "run", "fuzzy r=0", "r=1", "r=2", "r=3", "model-oriented r=1", "obs-oriented r=1", "truth −20 m", "truth 0 m", "truth +20 m",
                                                      "time-matched: full window", "h_max to earliest acquisition", "h_max to latest acquisition"], rows,
-           ["Source: `phase4/cross_event_v14_v142.json` (fuzzy, one-sided fuzzy, enhanced_truth_buffer, enhanced_time_matched; files `phase4/truth_buffer/`, `phase4/time_matched/`). "
-            "Crete: the tier-1 block — truth buffer and time-matched from `code16/crete_tier1_diagnostics.json` (the Phase-4 Crete diagnostics were computed on the all-AOI union, which §8-3 excludes). "
+           ["Source: `phase4/cross_event_v14_v142.json` (fuzzy, one-sided fuzzy, enhanced_/baseline_truth_buffer, enhanced_/baseline_time_matched; files `phase4/truth_buffer/`, `phase4/time_matched/`). "
+            "Crete: the tier-1 block — truth buffer and time-matched from `code16/crete_tier1_diagnostics.json` (canonical) and `code19/crete_tier1_diagnostics_baseline.json` (ERA5T baseline); "
+            "the Phase-4 Crete diagnostics were computed on the all-AOI union, which §8-3 excludes. Baseline rows (ERA5 rain-on-grid; Pineios grid-matched; Crete ERA5T) added for the revision (CODE-19 C1). "
             "Fuzzy r = dilation radius in cells (both sides); one-sided: model-oriented dilates the observation, observation-oriented dilates the model."])
 
 
@@ -483,7 +546,7 @@ def tab_s4(ctx: Ctx, W: Writer):
                      ("strymonas_abl_qoff_cn", "CN on + Q off"), ("strymonas_v1_prefix_src_v142", "v1 source (pre-fix Kerkini point)")):
         rows.append(sens_row(ctx, "Strymonas", lab, run))
     w, w0 = ctx.cfg("strymonas_leadin7d_v142").window, ctx.cfg("strymonas_enhanced_postD6_v142").window
-    rows.append(sens_row(ctx, "Strymonas", f"lead-in simulated: {w['pre_event_days']} d pre-event (canonical {w0['pre_event_days']} d)", "strymonas_leadin7d_v142"))
+    rows.append(sens_row(ctx, "Strymonas", leadin_label(w, w0), "strymonas_leadin7d_v142"))   # CODE-19 C3 wording
     # Valencia
     rows.append(sens_row(ctx, "Valencia", "raw IMERG (R2 off)", "valencia_raw_imerg_v142"))
     # Crete (tier-1 block)
@@ -803,6 +866,25 @@ def tab_s10(ctx: Ctx, W: Writer):
             "line naming it in `skill/scripts/` (custom error classes only)." , f"Release runs counted ({len(bases)}): {', '.join(bases)}."])
 
 
+def tab_s11(ctx: Ctx, W: Writer):
+    """CODE-19 C4 — the Manning lookup of the pipeline (WorldCover class -> n), with the check that every canonical run used the same file."""
+    W.begin()
+    p = ctx.repo / "skill" / "manning_lookup.csv"; ctx.note("skill/manning_lookup.csv")
+    sha = hashlib.sha256(p.read_bytes()).hexdigest()
+    same, differ = [], []
+    for key, label, run, _b, _h in EVENTS:
+        q = ctx.cfg(run).paths["work_dir"] / "manning_lookup.csv"; ctx.note(q.as_posix())
+        (same if q.exists() and hashlib.sha256(q.read_bytes()).hexdigest() == sha else differ).append(run)
+    rows = [[f0(code), name, f"{n:.3f}"] for code, name, n in manning_rows(ctx.repo)]
+    g = ctx.cfg(EVENTS[0][2]).raw["grid"]
+    W.emit("S11", "Manning roughness lookup (ESA WorldCover class → n)", ["WorldCover class code", "class name", "Manning n (s m^-1/3)"], rows,
+           [f"Source: `skill/manning_lookup.csv` (SHA-256 {sha[:16]}…), the file `skill/scripts/prep_inputs.py` copies into every build; the copy in the work directory of every "
+            f"canonical run is byte-identical ({', '.join(same)})" + (f"; differs or missing for {', '.join(differ)}" if differ else "") + ". Class names: ESA WorldCover v200 legend (Zanaga et al. 2022). "
+            "The lookup file holds the class code and n only — it records no per-class source; the manuscript cites Sanz-Ramos et al. (2021), Arcement and Schneider (1989) and Engman (1986) "
+            f"collectively for the lookup, and the per-class attribution is not recorded in the repository. Grid-level defaults of the configs (used where the lookup leaves a cell unassigned): "
+            f"manning_land {g.get('manning_land', 0.04)}, manning_sea {g.get('manning_sea', 0.02)} (`skill/scripts/_common.py`)."])
+
+
 def manifest(W: Writer, out_dir: Path):
     L = ["# TABLES_MANIFEST — CODE-16 B", "", f"Generated {dt.datetime.now(dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')} by `reproduction/r6/scripts/r6_tables.py`. "
          "One row per table: files, row count, every record the generator read (paths relative to the repository unless absolute), generated-at UTC.", "",
@@ -824,7 +906,8 @@ def main() -> int:
     repo = a.repo.resolve()
     out = a.out_dir or (repo / "reproduction" / "r6")
     ctx = Ctx(repo, a.r5_dir); W = Writer(ctx, out)
-    todo = [("T2", t2), ("T3", t3), ("T4", t4), ("T5", t5), ("T6", t6), ("S1", tab_s1), ("S2", tab_s2), ("S3", tab_s3), ("S4", tab_s4), ("S5", tab_s5), ("S6", tab_s6), ("S7", tab_s7), ("S8", tab_s8), ("S9", tab_s9), ("S10", tab_s10)]
+    todo = [("T2", t2), ("T3", t3), ("T4", t4), ("T5", t5), ("T6", t6), ("S1", tab_s1), ("S2", tab_s2), ("S3", tab_s3), ("S4", tab_s4), ("S5", tab_s5), ("S6", tab_s6), ("S7", tab_s7), ("S8", tab_s8), ("S9", tab_s9), ("S10", tab_s10),
+            ("S11", tab_s11)]
     only = {x for x in a.only.split(",") if x}
     for tid, fn in todo:
         if only and tid not in only:

@@ -1,0 +1,854 @@
+{
+  "utc": "2026-10-22T13:04:35Z",
+  "generator": "reproduction/v14_rerun/scripts/code19_lookups.py",
+  "method": "quotes extracted by regex from the retrieved text (PyMuPDF text layer of the PDF / stripped HTML); printed page numbers from the PDF running heads; Crossref from saved api.crossref.org responses (no identifying parameters sent); documents that refused automated access are recorded as not retrievable",
+  "D3_rombeek2025": {
+    "crossref": {
+      "doi": "10.5194/hess-29-6715-2025",
+      "title": "Torrential rainfall in Valencia, Spain, recorded by personal weather stations preceding and during the 29 October 2024 floods",
+      "container": "Hydrology and Earth System Sciences",
+      "volume": "29",
+      "issue": "22",
+      "page": "6715-6733",
+      "article_number": null,
+      "issued": [
+        [
+          2025,
+          11,
+          26
+        ]
+      ],
+      "type": "journal-article",
+      "authors": [
+        "Rombeek, Nathalie",
+        "Hrachowitz, Markus",
+        "Uijlenhoet, Remko"
+      ],
+      "publisher": "Copernicus GmbH",
+      "crossref_file_sha256": "321c20180ff9a14b0d57a7bd63acdb68b4580944f9154a621ee8bd394493cb07",
+      "retrieved_utc": "2026-10-22T12:11:29Z",
+      "abstract_present": true
+    },
+    "document": {
+      "file": "C:\\Users\\dvalsamis\\.claude\\projects\\D--ELKAK\\9345177c-48a6-4380-9f01-2779f44e774f\\tool-results\\webfetch-1792671139582-qgaymu.pdf",
+      "sha256": "9fc5796a8a1243099401fb97271e35d1c2213b06aa250ceb437b1b68a2ff8319",
+      "bytes": 7790931,
+      "url": "https://hess.copernicus.org/articles/29/6715/2025/hess-29-6715-2025.pdf",
+      "retrieved_utc": "2026-10-22T12:12:19Z",
+      "note": ""
+    },
+    "printed_page_rule": "printed = PDF page + 6714 (running head)",
+    "quotes": {
+      "table1_caption": {
+        "pdf_page": 4,
+        "printed_page": 6718,
+        "quote": "Table 1. Area and mean discharge per unit area of the gauged catchments indicated in Fig. 1b.",
+        "found": true
+      },
+      "table1_row_ID4": {
+        "pdf_page": 4,
+        "printed_page": 6718,
+        "quote": "ID4 (Poyo) 182 NA NA NA 0 147 433",
+        "found": true
+      },
+      "table1_rows_ID1_ID3": {
+        "pdf_page": 4,
+        "printed_page": 6718,
+        "quote": "ID1 (Júcar) 21 331 1947–2018 0.12 0.85 0.03 1.33 5.66 ID2 (Magro) 706 1916–2018 0.07 1.81 0.02 3.34 NA ID3 (Turia) 6123",
+        "found": true
+      },
+      "poyo_is_gauge_ID4": {
+        "pdf_page": 13,
+        "printed_page": 6727,
+        "quote": "No historic discharge timeseries longer than three months were available for the streamflow gauge in this catchment (ID4).",
+        "found": true
+      },
+      "poyo_description": {
+        "pdf_page": 3,
+        "printed_page": 6717,
+        "quote": "In the Rambla de Poyo catchment, characterized by an ephemeral stream with impermeable lithology and an average slope of 17 %, nearly 40 flash flood events were recorded in less than 20 years (Camarasa-Belmonte, 2016).",
+        "found": true
+      },
+      "fig6_caption": {
+        "pdf_page": 9,
+        "printed_page": 6723,
+        "quote": "Figure 6. (a) Catchment-average rainfall over time (local time) based on PWS data for four catchments that were affected by torrential rainfall and or severely flooded, with the error bar indicating the uncertainty associated with kriging. Dashed line is the cumulative rainfall based on the hourly PWS data, dotted line is based on the 6 h AEMET data. Lower panel shows the catchment-average rainfall over the whole day based on (b) AEMET stations (c) PWSs and (d) AEMET and PWSs combined. The numbers in the catchments indicate the average accumulated rain. Colours in (1)–(4) in (a) correspond with the catchments indicated with the same colour in (b–d).",
+        "found": true
+      },
+      "fig6a_legend_areas_visual": {
+        "found": true,
+        "quote": "1) - 960 km²; 2) - 571 km²; 3) - 1661 km²; 4) - 316 km²",
+        "pdf_page": 9,
+        "printed_page": 6723,
+        "note": "legend of Fig. 6a read from the rendered figure (raster, not in the PDF text layer)"
+      },
+      "areas_316_1661_text": {
+        "pdf_page": 15,
+        "printed_page": 6729,
+        "quote": "catchment averages of more than 150 mmd−1 across areas between 316 and 1661 km2",
+        "found": true
+      },
+      "catchment4_164mm": {
+        "pdf_page": 9,
+        "printed_page": 6723,
+        "quote": "On the other hand, for catchment (4) a significantly higher catchment-averaged rainfall is estimated, which is more than 40 mm, namely 164 mm.",
+        "found": true
+      },
+      "catchment1_79mm": {
+        "pdf_page": 9,
+        "printed_page": 6723,
+        "quote": "The largest reduction occurs in catchment (1), with a decrease of approximately 60 mm, resulting in a catchmentaverage rainfall of 79 mm.",
+        "found": true
+      },
+      "catchment3_magro": {
+        "pdf_page": 11,
+        "printed_page": 6725,
+        "quote": "In this catchment area (1661 km2, catchment 3 in Fig. 6) 8 PWSs are located and only one AEMET station",
+        "found": true
+      },
+      "smallest_largest": {
+        "pdf_page": 8,
+        "printed_page": 6722,
+        "quote": "response times between 1 and 2 h can be expected for the smallest (176.7 km2) and largest catchment (2104 km2) in Fig. 1.",
+        "found": true
+      },
+      "turis_400mm": {
+        "pdf_page": 8,
+        "printed_page": 6722,
+        "quote": "This station reported more than 400 mm within 24 h, with most rain (around 280 mm) between 18:00–00:00, while PWSs within 10 km did not record this.",
+        "found": true
+      }
+    },
+    "reading": "Two numbering schemes: Table 1 / Fig. 1b gauge catchments ID1–ID4, where ID4 is the Poyo gauge with 182 km²; Fig. 6 rainfall catchments (1)–(4) with areas 960 / 571 / 1661 / 316 km² (legend of Fig. 6a), where (3) is named the Magro and (4) carries the 164 mm. The text never names catchment (4); it is not the 182 km² gauged Poyo catchment (316 km²).",
+    "figure_reading_visual": "read from the rendered pages (not from the text): Fig. 1b places gauge ID4 (Poyo) at about 0.60° W, 39.47° N beside Chiva, the Poyo draining east to the Albufera; Fig. 6d places the yellow catchment (4) with the '164 mm' label south of the Magro mouth around Algemesí (about 0.55–0.35° W, 39.15–39.30° N), while the red catchment (2) (571 km²; '162 mm' combined in panel d, '173 mm' AEMET-only in panel b) encloses Chiva and gauge ID4. On that reading the 164 mm belongs to the coastal catchment south of the Albufera, and the Poyo lies in catchment (2) with 162 mm (combined) — numerically 2 mm from the anchor used."
+  },
+  "D4_bernhofen2018": {
+    "crossref": {
+      "doi": "10.1088/1748-9326/aae014",
+      "title": "A first collective validation of global fluvial flood models for major floods in Nigeria and Mozambique",
+      "container": "Environmental Research Letters",
+      "volume": "13",
+      "issue": "10",
+      "page": "104007",
+      "article_number": null,
+      "issued": [
+        [
+          2018,
+          10,
+          1
+        ]
+      ],
+      "type": "journal-article",
+      "authors": [
+        "Bernhofen, Mark V",
+        "Whyman, Charlie",
+        "Trigg, Mark A",
+        "Sleigh, P Andrew",
+        "Smith, Andrew M",
+        "Sampson, Christopher C",
+        "Yamazaki, Dai",
+        "Ward, Philip J",
+        "Rudari, Roberto",
+        "Pappenberger, Florian",
+        "Dottori, Francesco",
+        "Salamon, Peter",
+        "Winsemius, Hessel C"
+      ],
+      "publisher": "IOP Publishing",
+      "crossref_file_sha256": "b7c99817c14133009b9375aaafad526546395b074f0768ab45a8712a6d9433c9",
+      "retrieved_utc": "2026-10-22T12:11:30Z",
+      "abstract_present": false
+    },
+    "document": {
+      "file": "C:\\Users\\dvalsamis\\.claude\\projects\\D--ELKAK\\9345177c-48a6-4380-9f01-2779f44e774f\\tool-results\\webfetch-1792671298269-dnx2li.pdf",
+      "sha256": "0d48f1f059b493974ef041c2352e4b2f31df69a2a0c7db7f0e2132ee4e004369",
+      "bytes": 2336316,
+      "url": "https://iopscience.iop.org/article/10.1088/1748-9326/aae014/pdf",
+      "retrieved_utc": "2026-10-22T12:14:58Z",
+      "note": ""
+    },
+    "printed_page_rule": "ERL article number 104007; PDF page n = article page n-1 (page 1 of the PDF is the IOP cover sheet)",
+    "quotes": {
+      "abstract": {
+        "pdf_page": 2,
+        "printed_page": "article p. 1 (abstract)",
+        "quote": "The critical success index of individual models across the three regions ranges from 0.45 to 0.7 and the percentage of flood captured ranges from 52% to 97%.",
+        "found": true
+      },
+      "results": {
+        "pdf_page": 6,
+        "printed_page": "article p. 5",
+        "quote": "The average CSI of the GFMs range from 0.45 (GLOFRIS) to 0.70 (JRC) for a 25 year flow.",
+        "found": true
+      },
+      "literature_context": {
+        "pdf_page": 6,
+        "printed_page": "article p. 5",
+        "quote": "CSI scores from other flood validation literature, in different validation regions, range from 0.3 to 0.9",
+        "found": true
+      },
+      "conclusions": {
+        "pdf_page": 10,
+        "printed_page": "article p. 9",
+        "quote": "with average CSI scores ranging from 0.45 to 0.7.",
+        "found": true
+      },
+      "median": {
+        "found": false,
+        "note": "no median CSI is stated anywhere in the text"
+      }
+    },
+    "manuscript_claim": "section 4.7: 'Bernhofen et al. (2018) report CSI 0.10–0.36 (median about 0.22) across six global models'; F10 band constant 0.10–0.36 (fig_skill_sweeps_v14.py BANDS)"
+  },
+  "D4_trigg2016": {
+    "crossref": {
+      "doi": "10.1088/1748-9326/11/9/094014",
+      "title": "The credibility challenge for global fluvial flood risk analysis",
+      "container": "Environmental Research Letters",
+      "volume": "11",
+      "issue": "9",
+      "page": "094014",
+      "article_number": null,
+      "issued": [
+        [
+          2016,
+          9,
+          1
+        ]
+      ],
+      "type": "journal-article",
+      "authors": [
+        "Trigg, M A",
+        "Birch, C E",
+        "Neal, J C",
+        "Bates, P D",
+        "Smith, A",
+        "Sampson, C C",
+        "Yamazaki, D",
+        "Hirabayashi, Y",
+        "Pappenberger, F",
+        "Dutra, E",
+        "Ward, P J",
+        "Winsemius, H C",
+        "Salamon, P",
+        "Dottori, F",
+        "Rudari, R",
+        "Kappes, M S",
+        "Simpson, A L",
+        "Hadzilacos, G",
+        "Fewtrell, T J"
+      ],
+      "publisher": "IOP Publishing",
+      "crossref_file_sha256": "5b8f81fb4c20dc18aac11068697bfd129dcc02e65310e60220445e91ba19cf13",
+      "retrieved_utc": "2026-10-22T12:11:30Z",
+      "abstract_present": false
+    },
+    "document": {
+      "file": "C:\\Users\\dvalsamis\\.claude\\projects\\D--ELKAK\\9345177c-48a6-4380-9f01-2779f44e774f\\tool-results\\webfetch-1792671297786-p7xc5g.pdf",
+      "sha256": "69d789b26ac3e9a589c7f1df0fca4225c5d9ef4479dba8943ce24be3a7723baa",
+      "bytes": 3926181,
+      "url": "https://iopscience.iop.org/article/10.1088/1748-9326/11/9/094014/pdf",
+      "retrieved_utc": "2026-10-22T12:14:57Z",
+      "note": ""
+    },
+    "printed_page_rule": "ERL article number 094014; PDF page n = article page n-1",
+    "quotes": {
+      "abstract": {
+        "pdf_page": 2,
+        "printed_page": "article p. 1 (abstract)",
+        "quote": "While there is around 30%–40% agreement in flood extent, our results show that even at continental scales, there are significant differences in hazard magnitude and spatial pattern between models",
+        "found": true
+      },
+      "mai_kappa": {
+        "pdf_page": 6,
+        "printed_page": "article p. 5",
+        "quote": "we find a MAI of only 0.29, and a mean Cohen’s kappa coefficient of 0.43, across all models and all return periods.",
+        "found": true
+      },
+      "csi": {
+        "found": false,
+        "note": "the article reports model-to-model agreement (model agreement index, Cohen's kappa), not a CSI against observations"
+      }
+    },
+    "manuscript_claim": "section 4.7: 'Trigg et al. (2016) 0.10–0.35'"
+  },
+  "D4_hocini2021": {
+    "crossref": {
+      "doi": "10.5194/hess-25-2979-2021",
+      "title": "Performance of automated methods for flash flood inundation mapping: a comparison of a digital terrain model (DTM) filling and two hydrodynamic methods",
+      "container": "Hydrology and Earth System Sciences",
+      "volume": "25",
+      "issue": "6",
+      "page": "2979-2995",
+      "article_number": null,
+      "issued": [
+        [
+          2021,
+          6,
+          3
+        ]
+      ],
+      "type": "journal-article",
+      "authors": [
+        "Hocini, Nabil",
+        "Payrastre, Olivier",
+        "Bourgin, François",
+        "Gaume, Eric",
+        "Davy, Philippe",
+        "Lague, Dimitri",
+        "Poinsignon, Lea",
+        "Pons, Frederic"
+      ],
+      "publisher": "Copernicus GmbH",
+      "crossref_file_sha256": "fd7f9fd081feaaf994c4c442605470d22553af651ea77451b3347dfc0418fe27",
+      "retrieved_utc": "2026-10-22T12:11:31Z",
+      "abstract_present": true
+    },
+    "document": {
+      "file": "C:\\Users\\dvalsamis\\.claude\\projects\\D--ELKAK\\9345177c-48a6-4380-9f01-2779f44e774f\\tool-results\\webfetch-1792671304199-loys0z.pdf",
+      "sha256": "6010d3cb3ca47612710ba8758e874000d890c39d09b8d561e73b249f97ae667f",
+      "bytes": 8570750,
+      "url": "https://hess.copernicus.org/articles/25/2979/2021/hess-25-2979-2021.pdf",
+      "retrieved_utc": "2026-10-22T12:15:04Z",
+      "note": ""
+    },
+    "printed_page_rule": "printed = PDF page + 2978",
+    "quotes": {
+      "abstract": {
+        "pdf_page": 1,
+        "printed_page": 2979,
+        "quote": "With these methods, a good retrieval of the inundated areas is illustrated by critical success index (CSI) median values close to 80 %, and the errors on water levels remain mostly below 80 cm for the 2D Floodos approach.",
+        "found": true
+      },
+      "section4_1": {
+        "pdf_page": 8,
+        "printed_page": 2986,
+        "quote": "Overall, similar and satisfactory results are observed for the caRtino 1D and Floodos 2D approaches, with a slight advantage for Floodos, for which the 15 % quantiles of CSI values exceed 50 % and the median CSI values are close to 80 %.",
+        "found": true
+      },
+      "la_redorte": {
+        "pdf_page": 9,
+        "printed_page": 2987,
+        "quote": "In this section, the CSI scores are, respectively, 69 % for the Floodos model, 63 % for the caRtino 1D model, and 35 % for the HAND/MS method.",
+        "found": true
+      },
+      "conclusion": {
+        "pdf_page": 14,
+        "printed_page": 2992,
+        "quote": "with median CSI values close to 80 % for the approach based on the Floodos model.",
+        "found": true
+      }
+    },
+    "manuscript_claim": "section 4.7: 'Hocini et al. (2021) 0.42–0.62 for calibrated single-event runs'; F10 band constant 0.42–0.62"
+  },
+  "D4_wing2017": {
+    "crossref": {
+      "doi": "10.1002/2017WR020917",
+      "title": "Validation of a 30 m resolution flood hazard model of the conterminous\n                    <scp>U</scp>\n                    nited\n                    <scp>S</scp>\n                    tates",
+      "container": "Water Resources Research",
+      "volume": "53",
+      "issue": "9",
+      "page": "7968-7986",
+      "article_number": null,
+      "issued": [
+        [
+          2017,
+          9
+        ]
+      ],
+      "type": "journal-article",
+      "authors": [
+        "Wing, Oliver E. J.",
+        "Bates, Paul D.",
+        "Sampson, Christopher C.",
+        "Smith, Andrew M.",
+        "Johnson, Kris A.",
+        "Erickson, Tyler A."
+      ],
+      "publisher": "American Geophysical Union (AGU)",
+      "crossref_file_sha256": "5711928f259ec856a7709dce9aea9022eea10beba67bde52ae736d59d7a54a16",
+      "retrieved_utc": "2026-10-22T12:11:32Z",
+      "abstract_present": true
+    },
+    "access": "full text not retrievable by automated access: Wiley (doi.org / onlinelibrary pdfdirect) HTTP 403 for the fetch agent and for curl; the Bristol repository PDF (research-information.bris.ac.uk/files/133466974/…) HTTP 403; only the Bristol landing-page abstract was readable",
+    "abstract_quotes": {
+      "fema": {
+        "quote": "Where the FEMA SFHAs are based on high quality local models, the continental-scale model attains a Hit Rate of 86%.",
+        "found": true
+      },
+      "usgs": {
+        "quote": "Against the higher quality USGS data the average Hit Rate reaches 92% for the 1 in 100-year flood, and 90% for all flood return periods.",
+        "found": true
+      }
+    },
+    "abstract_source": {
+      "file": "C:\\Users\\dvalsamis\\AppData\\Local\\Temp\\claude\\d--ELKAK\\9345177c-48a6-4380-9f01-2779f44e774f\\scratchpad\\code19\\html\\bristol_wing.html",
+      "sha256": "c608440183e0fddc0df1fd2fa31d75ec825eac8a9186a4055910c42ace944f3c",
+      "bytes": 71227,
+      "url": "https://research-information.bris.ac.uk/en/publications/8d9fc333-5961-421b-8c1a-ed3673d77154",
+      "retrieved_utc": "2026-10-22T12:56:55Z",
+      "note": ""
+    },
+    "csi": {
+      "found": false,
+      "note": "CSI values versus FEMA and USGS not readable (body text inaccessible); F10's former 'benchmark median' constant WING_MEDIAN = 0.40 is unverified and the line is removed (B1)"
+    }
+  },
+  "D5_schumann2016": {
+    "crossref": {
+      "doi": "10.1002/2016GL070260",
+      "title": "Rethinking flood hazard at the global scale",
+      "container": "Geophysical Research Letters",
+      "volume": "43",
+      "issue": "19",
+      "page": null,
+      "article_number": null,
+      "issued": [
+        [
+          2016,
+          10,
+          9
+        ]
+      ],
+      "type": "journal-article",
+      "authors": [
+        "Schumann, Guy J.‐P.",
+        "Stampoulis, Dimitrios",
+        "Smith, Andrew M.",
+        "Sampson, Christopher C.",
+        "Andreadis, Konstantinos M.",
+        "Neal, Jeffrey C.",
+        "Bates, Paul D."
+      ],
+      "publisher": "American Geophysical Union (AGU)",
+      "crossref_file_sha256": "13c6c90d0536ac5a0cc6d4a900affdc7b823c9076eedc2507b36d498cb1c9418",
+      "retrieved_utc": "2026-10-22T12:11:32Z",
+      "abstract_present": true
+    },
+    "publisher_page": "not retrievable: agupubs.onlinelibrary.wiley.com (doi, full, abs, pdfdirect) HTTP 403 for the fetch agent and for curl",
+    "bristol_record": {
+      "source": {
+        "file": "C:\\Users\\dvalsamis\\AppData\\Local\\Temp\\claude\\d--ELKAK\\9345177c-48a6-4380-9f01-2779f44e774f\\scratchpad\\code19\\html\\bristol_schumann.html",
+        "sha256": "c5b54164b612cbfa796371efd7feb769666a9f0587d6ff5c9f7ba938fd451504",
+        "bytes": 63256,
+        "url": "https://research-information.bris.ac.uk/en/publications/rethinking-flood-hazard-at-the-global-scale",
+        "retrieved_utc": "2026-10-22T12:52:30Z",
+        "note": ""
+      },
+      "pages_field": {
+        "quote": "Pages (from-to) 10249-10256",
+        "found": true
+      },
+      "apa_citation": {
+        "quote": "Schumann, G. J. P., Stampoulis, D., Smith, A. M., Sampson, C. C., Andreadis, K. M. , Neal, J. C. , & Bates, P. D. (2016). Rethinking flood hazard at the global scale . Geophysical Research Letters , 43 (19), 10249-10256",
+        "found": true
+      }
+    },
+    "refs_bib_action": "not added: the brief admits the range only when the publisher page shows it, and the publisher page could not be read"
+  },
+  "D6_ross2018": {
+    "crossref": {
+      "doi": "10.1038/sdata.2018.91",
+      "title": "HYSOGs250m, global gridded hydrologic soil groups for curve-number-based runoff modeling",
+      "container": "Scientific Data",
+      "volume": "5",
+      "issue": "1",
+      "page": null,
+      "article_number": "180091",
+      "issued": [
+        [
+          2018,
+          5,
+          15
+        ]
+      ],
+      "type": "journal-article",
+      "authors": [
+        "Ross, C. Wade",
+        "Prihodko, Lara",
+        "Anchang, Julius",
+        "Kumar, Sanath",
+        "Ji, Wenjie",
+        "Hanan, Niall P."
+      ],
+      "publisher": "Springer Science and Business Media LLC",
+      "crossref_file_sha256": "f1450cf1e5e160be5d763790bf38e23e2c87a87f76fba3a8b66021e90e426297",
+      "retrieved_utc": "2026-10-22T12:11:33Z",
+      "abstract_present": true
+    },
+    "refs_bib_action": "not added (pending the author's decision for section 5.4)"
+  },
+  "D1_mandra_sources": {
+    "diakakis2019": {
+      "crossref": {
+        "doi": "10.1016/j.ijdrr.2018.10.015",
+        "title": "An integrated approach of ground and aerial observations in flash flood disaster investigations. The case of the 2017 Mandra flash flood in Greece",
+        "container": "International Journal of Disaster Risk Reduction",
+        "volume": "33",
+        "issue": null,
+        "page": "290-309",
+        "article_number": null,
+        "issued": [
+          [
+            2019,
+            2
+          ]
+        ],
+        "type": "journal-article",
+        "authors": [
+          "Diakakis, M.",
+          "Andreadakis, E.",
+          "Nikolopoulos, E.I.",
+          "Spyrou, N.I.",
+          "Gogou, M.E.",
+          "Deligiannakis, G.",
+          "Katsetsiadou, N.K.",
+          "Antoniadis, Z.",
+          "Melaki, M.",
+          "Georgakopoulos, A.",
+          "Tsaprouni, K.",
+          "Kalogiros, J.",
+          "Lekkas, E."
+        ],
+        "publisher": "Elsevier BV",
+        "crossref_file_sha256": "7ad205de6d1e12f8ad19470051527bee09f19ad9cc2d4d56ef89169a19d9361a",
+        "retrieved_utc": "2026-10-22T12:11:28Z",
+        "abstract_present": false
+      },
+      "access": "paywalled (Elsevier); ScienceDirect preview HTTP 403 for the fetch agent; OpenAlex is_oa false; see CODE-17 lookups.json B3 for the publicly visible abstract values (300 mm in 13 h, 153 / 194 mm basin means, 9–10 m3/s/km2, 24 people)",
+      "catchment_areas": "not retrievable",
+      "pateras_wildfire": "not retrievable"
+    },
+    "varlas2019": {
+      "crossref": {
+        "doi": "10.3390/rs11010045",
+        "title": "A Multi-Platform Hydrometeorological Analysis of the Flash Flood Event of 15 November 2017 in Attica, Greece",
+        "container": "Remote Sensing",
+        "volume": "11",
+        "issue": "1",
+        "page": "45",
+        "article_number": null,
+        "issued": [
+          [
+            2018,
+            12,
+            28
+          ]
+        ],
+        "type": "journal-article",
+        "authors": [
+          "Varlas, George",
+          "Anagnostou, Marios",
+          "Spyrou, Christos",
+          "Papadopoulos, Anastasios",
+          "Kalogiros, John",
+          "Mentzafou, Angeliki",
+          "Michaelides, Silas",
+          "Baltas, Evangelos",
+          "Karymbalis, Efthimios",
+          "Katsafados, Petros"
+        ],
+        "publisher": "MDPI AG",
+        "crossref_file_sha256": "ad0c401716267a18922f8e83a540c10341e0bee57c8b94be556ed8fc5bbe8167",
+        "retrieved_utc": "2026-10-22T12:11:28Z",
+        "abstract_present": true
+      },
+      "access": "open access (CC BY) but mdpi.com returned HTTP 403 to the fetch agent (/htm) and to curl (/pdf); Semantic Scholar and OpenAlex list only the mdpi.com PDF as the open-access location; OpenAIRE lists no mirror",
+      "catchment_areas": "not retrievable",
+      "pateras_wildfire": "not retrievable"
+    },
+    "manuscript_text": "section 2: 'at the confluence of the Soures (about 12 km²) and Agia Aikaterini (about 7 km²) streams' — source of the areas not verified in this pass"
+  },
+  "D2_emilia_romagna_2023": {
+    "arrighi_domeneghetti_2024": {
+      "crossref": {
+        "doi": "10.5194/nhess-24-673-2024",
+        "title": "Brief communication: On the environmental impacts  of the 2023 floods in Emilia-Romagna (Italy)",
+        "container": "Natural Hazards and Earth System Sciences",
+        "volume": "24",
+        "issue": "2",
+        "page": "673-679",
+        "article_number": null,
+        "issued": [
+          [
+            2024,
+            2,
+            28
+          ]
+        ],
+        "type": "journal-article",
+        "authors": [
+          "Arrighi, Chiara",
+          "Domeneghetti, Alessio"
+        ],
+        "publisher": "Copernicus GmbH",
+        "crossref_file_sha256": "d538451658fd026608396750f7de7e0fd1c3bc08895a5be28652350d85f7367e",
+        "retrieved_utc": "2026-10-22T12:30:43Z",
+        "abstract_present": true
+      },
+      "document": {
+        "file": "C:\\Users\\dvalsamis\\AppData\\Local\\Temp\\claude\\d--ELKAK\\9345177c-48a6-4380-9f01-2779f44e774f\\scratchpad\\code19\\downloads\\arrighi2024.pdf",
+        "sha256": "a8c0df8e62a50f447f281d3703258892234de6762f864986ced05775f1486335",
+        "bytes": 2419187,
+        "url": "https://nhess.copernicus.org/articles/24/673/2024/nhess-24-673-2024.pdf",
+        "retrieved_utc": "2026-10-22T12:30:41Z",
+        "note": ""
+      },
+      "printed_page_rule": "printed = PDF page + 672",
+      "quotes": {
+        "rivers": {
+          "pdf_page": 2,
+          "printed_page": 674,
+          "quote": "23 rivers overflowed, affecting 100 municipalities, and more than 400 landslides severely damaged infrastructure",
+          "found": true
+        },
+        "levees": {
+          "pdf_page": 2,
+          "printed_page": 674,
+          "quote": "because they hit basins and rivers already affected by intense rainfall and floods (i.e. levee overtopping and failures) occurring after the 1–4 May event",
+          "found": true
+        },
+        "deaths": {
+          "pdf_page": 2,
+          "printed_page": 674,
+          "quote": "In total, the events caused more than 36 000 people to be displaced and 15 deaths (Agenzia per la sicurezza territoriale e la protezione civile, 2023).",
+          "found": true
+        }
+      }
+    },
+    "ferrari_et_al_2025": {
+      "citation": "Ferrari, A. et al.: Brief communication: Hydrological and hydraulic investigation of the extreme September 2024 flood on the Lamone River in Emilia-Romagna, Italy, Nat. Hazards Earth Syst. Sci., 25, 2473–2479, https://doi.org/10.5194/nhess-25-2473-2025, 2025",
+      "document": {
+        "file": "C:\\Users\\dvalsamis\\AppData\\Local\\Temp\\claude\\d--ELKAK\\9345177c-48a6-4380-9f01-2779f44e774f\\scratchpad\\code19\\html\\ferrari2025.html",
+        "sha256": "c92001a624810f37c6bca3e3889d7e2c931c26d65465859370b3089437a6d028",
+        "bytes": 210735,
+        "url": "https://nhess.copernicus.org/articles/25/2473/2025/",
+        "retrieved_utc": "2026-10-22T12:52:30Z",
+        "note": ""
+      },
+      "quotes": {
+        "may2023_return_period": {
+          "quote": "even the return period of May 2023 events, which was evaluated by carrying out the statistical analysis described in Sect. 2 considering the 1928–2022 observation dataset, was estimated to exceed the 500-year return period for the precipitation accumulated over 24 h (for the remaining durations the return periods were in the range 2–250 years).",
+          "found": true
+        },
+        "gauges": {
+          "quote": "the rain gauges of San Cassiano sul Lamone in the Lamone catchment (95 years of records) and Tredozio in the Marzeno catchment (43 years of records)",
+          "found": true
+        },
+        "rivers": {
+          "quote": "already suffered extensive and devastating floods in May 2023 due to the overflowing of 23 rivers (Arrighi and Domeneghetti, 2024)",
+          "found": true
+        }
+      }
+    },
+    "regione_er_press_release_2023_12_15": {
+      "title": "Post alluvione. Ecco il Rapporto della Commissione tecnico-scientifica: “In Emilia-Romagna un evento senza precedenti nella storia osservata”",
+      "organisation": "Regione Emilia-Romagna (press release on the report of the technical-scientific commission coordinated by Armando Brath; report dated Bologna, 12 December 2023)",
+      "document": {
+        "file": "C:\\Users\\dvalsamis\\AppData\\Local\\Temp\\claude\\d--ELKAK\\9345177c-48a6-4380-9f01-2779f44e774f\\scratchpad\\code19\\html\\regione_20231215.html",
+        "sha256": "d0e220b02fa8b4dc2a2ad85acdfefbeba3a5cc1caf4d577eadc1e1356ddec18a",
+        "bytes": 377750,
+        "url": "https://notizie.regione.emilia-romagna.it/comunicati/2023/dicembre/post-alluvione-ecco-il-rapporto-della-commissione-tecnico-scientifica-201cin-emilia-romagna-un-evento-senza-precedenti-nella-storia-osservata201d-la-vicepresidente-priolo-201cabbiamo-affrontato-qualcosa-di-difficilmente-immaginabile-uno-spartiacque-tra",
+        "retrieved_utc": "2026-10-22T12:52:29Z",
+        "note": ""
+      },
+      "date": {
+        "quote": "15 dicembre 2023",
+        "found": true
+      },
+      "quotes": {
+        "return_period": {
+          "quote": "“Un evento senza precedenti nella storia osservata” scrivono gli esperti, con tempi di ritorno - grandezza statistica che esprime la probabilità che un evento accada - “in alcuni casi molto superiori ai 500 anni dove le esondazioni sono state più significative ”.",
+          "found": true
+        },
+        "basins": {
+          "quote": "Parliamo soprattutto dei bacini di Senio, Lamone e Montone, con un ruolo decisivo della rete artificiale di scolo presente in pianura (reticolo di bonifica e Canale Emiliano-Romagnolo) che ha inciso sulla dinamica di propagazione delle inondazioni.",
+          "found": true
+        },
+        "rivers": {
+          "quote": "dai 23 fiumi esondati contemporaneamente, per un volume di esondazione stimato in circa 350 milioni di metri cubi",
+          "found": true
+        }
+      },
+      "report_pdf": "the commission report itself (20231212_rapporto_commissione_rer.pdf) returned HTTP 404 at the two URLs found; the press release is the citable record read"
+    },
+    "arpae_idrometeoclima_2023_special": {
+      "title": "Rapporto IdroMeteoClima Emilia-Romagna DATI 2023 — Speciale 'Alluvione in Romagna: l'evento, la gestione dell'emergenza, gli impatti'",
+      "organisation": "Arpae Emilia-Romagna (published with the news item of 20 June 2024)",
+      "document": {
+        "file": "C:\\Users\\dvalsamis\\AppData\\Local\\Temp\\claude\\d--ELKAK\\9345177c-48a6-4380-9f01-2779f44e774f\\scratchpad\\code19\\downloads\\arpae_idrometeoclima_2023.pdf",
+        "sha256": "5e0370c361219153b8780b47fce67056d9e80fb640acbf8dbeb315d8f2779d1e",
+        "bytes": 1029155,
+        "url": "https://www.arpae.it/it/notizie/speciale-alluvione-idrometeoclima-2023.pdf",
+        "retrieved_utc": "2026-10-22T12:23:54Z",
+        "note": ""
+      },
+      "printed_page_rule": "PDF page 2 = report pp. 14–15, page 3 = pp. 16–17",
+      "quotes": {
+        "numbers_box": {
+          "pdf_page": 3,
+          "printed_page": "16–17",
+          "quote": "I NUMERI DELL'ALLUVIONE • \u000717 decessi • \u000723 fiumi in esondazione • \u0007540 km2 di territorio allagato • 65.598 frane • \u0007fino a 1.000 anni tempi di ritorno dei due eventi pluviometrici (1-3 + 16-17 maggio)",
+          "found": true
+        },
+        "commission_estimate": {
+          "pdf_page": 3,
+          "printed_page": "16–17",
+          "quote": "La commissione incaricata dalla Regione Emilia-Romagna per valutare l’eccezionalità di quanto avvenuto ha stimato tempi di ritorno per i singoli eventi tra 100 e 500 anni, a seconda della località considerata, mentre per la probabilità che due eventi di tale intensità si verificassero così ravvicinati nel tempo i tempi di ritorno stimati sono superiori a 1.000 anni.",
+          "found": true
+        }
+      }
+    },
+    "arpae_event_report_16_18_may_2023": {
+      "title": "Rapporto dell'evento meteorologico dal 16 al 18 maggio 2023 (Arpae Emilia-Romagna, Struttura Idro-Meteo-Clima)",
+      "document": {
+        "file": "C:\\Users\\dvalsamis\\AppData\\Local\\Temp\\claude\\d--ELKAK\\9345177c-48a6-4380-9f01-2779f44e774f\\scratchpad\\code19\\downloads\\arpae_idro_meteo_20230516-18.pdf",
+        "sha256": "a06819fb7872ffc8102082e44397925a7c27d79812de40e90e422a600d6685b0",
+        "bytes": 10102542,
+        "url": "https://www.arpae.it/it/temi-ambientali/meteo/report-meteo/rapporti-post-evento/rapporto_idro_meteo_20230516-18.pdf",
+        "retrieved_utc": "2026-10-22T12:30:39Z",
+        "note": ""
+      },
+      "quotes": {
+        "return_periods_24h": {
+          "pdf_page": 19,
+          "printed_page": 19,
+          "quote": "si stimano per le piogge di durata 24 ore tempi di ritorno superiori ai 200 anni per i pluviometri appartenenti ai bacini di Santerno, Senio, Lamone, Montone e Ronco.",
+          "found": true
+        },
+        "return_periods_2d": {
+          "pdf_page": 19,
+          "printed_page": 19,
+          "quote": "Per le piogge di durata 2 giorni consecutivi, si stimano tempi di ritorno superiori ai 200 anni per i pluviometri appartenenti ai bacini di Santerno, Senio, Lamone, superiori ai 100 anni sui pluviometri di Sillaro e Montone.",
+          "found": true
+        },
+        "peaks": {
+          "pdf_page": 2,
+          "printed_page": 2,
+          "quote": "Su Samoggia, Idice, Quaderna, Sillaro, Santerno, Senio, Lamone, Montone, Ronco, Bevano, Savio e Rubicone, sono stati registrati livelli al colmo ancora più alti delle piene di 14 giorni prima",
+          "found": true
+        }
+      }
+    },
+    "cima_2023_05_19": {
+      "document": {
+        "file": "C:\\Users\\dvalsamis\\AppData\\Local\\Temp\\claude\\d--ELKAK\\9345177c-48a6-4380-9f01-2779f44e774f\\scratchpad\\code19\\html\\cima_20230519.html",
+        "sha256": "c55410a3fe9d338d3ae4b8203d8bc1ae675ffc0046f1c68577667f5e393adc8c",
+        "bytes": 197579,
+        "url": "https://www.cimafoundation.org/en/news/the-italian-floods-of-may-2023-a-scientific-analysis",
+        "retrieved_utc": "2026-10-22T12:52:32Z",
+        "note": ""
+      },
+      "quote": {
+        "quote": "record rainfall occurred, causing flooding and overflowing of 21 rivers in several municipalities between Romagna and the Bologna area",
+        "found": true
+      }
+    },
+    "cremonini_et_al_2024": {
+      "crossref": {
+        "doi": "10.3390/land13111800",
+        "title": "Causes and Impacts of Flood Events in Emilia-Romagna (Italy) in May 2023",
+        "container": "Land",
+        "volume": "13",
+        "issue": "11",
+        "page": "1800",
+        "article_number": null,
+        "issued": [
+          [
+            2024,
+            10,
+            31
+          ]
+        ],
+        "type": "journal-article",
+        "authors": [
+          "Cremonini, Letizia",
+          "Randi, Pierluigi",
+          "Fazzini, Massimiliano",
+          "Nardino, Marianna",
+          "Rossi, Federica",
+          "Georgiadis, Teodoro"
+        ],
+        "publisher": "MDPI AG",
+        "crossref_file_sha256": "c3e2ee5b4f18b4d83a7b882c1de3c8d548eb2a239c82f39c3b35024b0133ffa8",
+        "retrieved_utc": "2026-10-22T12:30:42Z",
+        "abstract_present": true
+      },
+      "access": "candidate peer-reviewed source for the >500-year statement (search-engine snippet names Senio, Lamone and Montone); full text not retrievable by automated access (mdpi.com, iris.cnr.it, preprints.org all HTTP 403); the Crossref abstract carries no return-period sentence — unverified"
+    },
+    "summary": {
+      "(a) >500-year return periods, Senio/Lamone/Montone": "Regione press release of 15 Dec 2023 on the commission report (quotes above); Ferrari et al. 2025 (>500-year for the 24-h rainfall at the Lamone/Marzeno gauges); ARPAE event report: >200-year for the 24-h rainfall in Santerno, Senio, Lamone, Montone, Ronco; ARPAE special: commission estimate 100–500 years per event",
+      "(b) >20 rivers": "ARPAE special '23 fiumi in esondazione'; Regione '23 fiumi esondati contemporaneamente'; Arrighi & Domeneghetti 2024 '23 rivers overflowed' with 'levee overtopping and failures'; CIMA '21 rivers'",
+      "(c) fatalities": "ARPAE special '17 decessi'; Arrighi & Domeneghetti 2024 '15 deaths' (civil-protection source, Feb 2024); no peer-reviewed source read gives 17"
+    }
+  },
+  "D7_valencia_anchor_ledger": {
+    "sources": {
+      "nhess_repo": "D:\\ELKAK\\ELKAK2\\NHESS",
+      "task_folder": "D:\\ELKAK\\ELKAK2\\NHESS\\R1_verification\\task_valencia_anchor",
+      "repo_example": "skill/examples/emsr773_valencia_enhanced.yaml",
+      "reproduction_record": "reproduction/v14_rerun/configs/valencia_enhanced_164*.yaml, results/"
+    },
+    "entries": [
+      {
+        "anchor_mm": null,
+        "state": "raw IMERG (no anchor)",
+        "when": "2026-07-15T13:13:03Z (metrics generated_utc; NHESS commit 49da0d1, 2026-07-15T17:00:54+03:00)",
+        "evidence": "ELKAK2/NHESS runs/valencia_emsr773/metrics.json at 49da0d1; YAML comment 'leave raw until that target is set'",
+        "score_computed": "yes — CSI 0.105 at h > 0.10 m (CODE-5 ledger)"
+      },
+      {
+        "anchor_mm": 350.0,
+        "state": "hand-typed areal target (bias_correct_imerg.py --target-mm 350), factor x4.14",
+        "when": "2026-07-15T18:00:02Z (metrics generated_utc; NHESS commit 5447768, 2026-07-15T21:09:15+03:00)",
+        "evidence": "runs/README.md; repository example at 1a62b2d (2026-07-16T10:21:23+03:00): #   python skill/scripts/bias_correct_imerg.py --config <this> --target-mm 350 \\",
+        "score_computed": "yes — CSI 0.082 (h > 0.10 m), 0.126 (h > 0.50 m); published in the NHESS draft; re-scored 2026-07-21T09:02:04Z (score_canon350.json)",
+        "score_known_before_next_change": true
+      },
+      {
+        "anchor_mm": 175.0,
+        "state": "midpoint of the 150–200 mm band (superseded)",
+        "when": "2026-07-21 ~08:56–09:29Z (rerun_v175/precip_2d.nc mtime 2026-07-21T08:56:07Z; score_v175.json generated 2026-07-21T09:29:34Z)",
+        "evidence": "PROVENANCE.md: 'Supersedes an earlier 175 mm midpoint guess (rerun_v175/, x2.07)'",
+        "score_computed": "yes — CSI 0.093 (h > 0.10 m), 0.165 (h > 0.50 m)",
+        "score_known_before_next_change": true
+      },
+      {
+        "anchor_mm": 164.0,
+        "state": "Rombeek et al. 2025 catchment (4) 24-h mean, taken as the Rambla de Poyo value; factor x1.94",
+        "when": "2026-07-21 (rerun_v164/precip_2d.nc mtime 2026-07-21T10:04:18Z; score_v164.json generated 2026-07-21T10:41:52Z; TARGET_SELECTION.md mtime 2026-07-21T10:43:30Z); adopted in the repository example at commit 5eff694 (2026-07-22T12:29:05+03:00)",
+        "evidence": "TARGET_SELECTION.md / PROVENANCE.md; target_mm: 164           # 24-h areal-mean (mm) — Rombeek et al. 2025, Catchment 4 = Rambla de Poyo (AEMET+PWS)",
+        "score_computed": "yes — CSI 0.094 (h > 0.10 m), 0.170 (h > 0.50 m); v1.3 release run valencia_enhanced_164; v1.4 re-runs keep 164",
+        "score_known_before_next_change": "no later change"
+      }
+    ],
+    "provenance_table_csi_h_gt_0p10": {
+      "raw": "0.105",
+      "164": "0.094",
+      "175": "0.093",
+      "350": "0.082"
+    },
+    "scoring_files": {
+      "score_canon350.json": {
+        "generated_utc": "2026-07-21T09:02:04Z",
+        "mtime_utc": "2026-07-21T09:02:04Z",
+        "sha256": "1eab62beba7c682fe15062659a20912e2a573c3fcd74d72494c7e012716dcc30"
+      },
+      "score_v175.json": {
+        "generated_utc": "2026-07-21T09:29:34Z",
+        "mtime_utc": "2026-07-21T09:29:34Z",
+        "sha256": "dc2236a1c2b9c39959ac675fec6e8a474773a9ef172291dc083df992a7ec1ca6"
+      },
+      "score_v164.json": {
+        "generated_utc": "2026-07-21T10:41:52Z",
+        "mtime_utc": "2026-07-21T10:41:52Z",
+        "sha256": "d71209c38c4105cc8b14b1b34450ee6f4801ae79b269575980cd3f520abe0218"
+      }
+    },
+    "repo_example_history": [
+      "5eff694 2026-07-22T12:29:05+03:00 Reproduce held-out numbers: Valencia 164 mm bias block, EMS grading download fix, per-AOI truth selection",
+      "1a62b2d 2026-07-16T10:21:23+03:00 Create emsr773_valencia_enhanced.yaml"
+    ],
+    "reading": "every anchor change followed a computed score of the previous value (350 scored 15 Jul; 175 scored 09:29Z and replaced by 164 at ~10:00Z the same morning; 164 scored 10:41Z and adopted). The documented motive for each change is sourcing (unsourced 350 -> literature band midpoint -> catchment-specific published value), recorded in TARGET_SELECTION.md and PROVENANCE.md; the D3 reading above questions whether the 164 mm catchment (4) is the gauged Poyo catchment."
+  }
+}

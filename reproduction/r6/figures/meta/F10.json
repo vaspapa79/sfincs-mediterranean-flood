@@ -7,7 +7,7 @@
     "reproduction/v14_rerun/phase5/crete_canonical_r2on_tiers.json",
     "reproduction/v14_rerun/scripts/fig_skill_sweeps_v14.py"
   ],
-  "notes": "run-of-record markers only (strict CSI, fuzzy r = 1 CSI, CSI* at the best threshold) of phase4/figures/fig10_skill_v14_v142.png; no earlier-release series, no version label (release history: S7/S10); Crete = tier-1 AOI03 block (asserted against the tiers JSON); benchmark bands = the literature constants of fig_skill_sweeps_v14.py, labelled without author names (citations belong in the caption)",
+  "notes": "run-of-record markers only (strict CSI, fuzzy r = 1 CSI, CSI* at the best threshold) of phase4/figures/fig10_skill_v14_v142.png; no earlier-release series, no version label (release history: S7/S10); Crete = tier-1 AOI03 block (asserted against the tiers JSON); benchmark bands = the literature constants of fig_skill_sweeps_v14.py, labelled without author names (citations belong in the caption); no benchmark-median line and y label 'CSI' (CODE-19 B1)",
   "layout_problems": [],
   "texts_drawn": [
     "0.0",
@@ -18,7 +18,7 @@
     "0.5",
     "0.6",
     "0.7",
-    "CSI ($\\it{h}_{\\rm max}$ > 0.10 m)",
+    "CSI",
     "CSI* (best depth threshold)",
     "Crete Tzermiado\n(EMSR933, tier 1)",
     "Emilia-R.\n(EMSR664)",
@@ -26,7 +26,6 @@
     "Pineios\n(EMSR692)",
     "Strymonas\n(EMSR122)",
     "Valencia\n(EMSR773)",
-    "benchmark median",
     "calibrated single-event range",
     "fuzzy CSI (r = 1)",
     "global multi-model range",
@@ -44,8 +43,8 @@
       "height_mm": 84.0,
       "format": "TIFF, RGB 8-bit, LZW",
       "tiff_writer": "pil",
-      "bytes": 397122,
-      "generated_utc": "2026-10-22T07:59:29Z"
+      "bytes": 374310,
+      "generated_utc": "2026-10-22T12:50:47Z"
     },
     {
       "file": "F10_preview.png",
@@ -57,8 +56,8 @@
       "width_mm": 174.0,
       "height_mm": 84.0,
       "format": "PNG preview (reduced)",
-      "bytes": 158935,
-      "generated_utc": "2026-10-22T07:59:29Z"
+      "bytes": 143507,
+      "generated_utc": "2026-10-22T12:50:47Z"
     }
   ]
 }

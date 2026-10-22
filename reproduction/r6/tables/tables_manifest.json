@@ -33,7 +33,7 @@
       "reproduction/v14_rerun/results/strymonas_enhanced_postD6_v142_record.json",
       "reproduction/v14_rerun/results/valencia_enhanced_164_v142_record.json"
     ],
-    "generated_utc": "2026-10-22T08:10:20Z"
+    "generated_utc": "2026-10-22T12:51:13Z"
   },
   {
     "table": "T3",
@@ -46,7 +46,7 @@
     "sources": [
       "reproduction/v14_rerun/phase4/cross_event_v14_v142.json"
     ],
-    "generated_utc": "2026-10-22T08:10:20Z"
+    "generated_utc": "2026-10-22T12:51:13Z"
   },
   {
     "table": "T4",
@@ -59,7 +59,7 @@
     "sources": [
       "reproduction/v14_rerun/phase4/cross_event_v14_v142.json"
     ],
-    "generated_utc": "2026-10-22T08:10:20Z"
+    "generated_utc": "2026-10-22T12:51:13Z"
   },
   {
     "table": "T5",
@@ -78,7 +78,7 @@
       "reproduction/v14_rerun/phase4/rain/emilia_enhanced_8aoi_v142_v14.json",
       "reproduction/v14_rerun/phase4/rain/valencia_enhanced_164_v142_v14.json"
     ],
-    "generated_utc": "2026-10-22T08:10:20Z"
+    "generated_utc": "2026-10-22T12:51:13Z"
   },
   {
     "table": "T6",
@@ -91,12 +91,12 @@
     "sources": [
       "reproduction/v14_rerun/phase4/cross_event_v14_v142.json"
     ],
-    "generated_utc": "2026-10-22T08:10:20Z"
+    "generated_utc": "2026-10-22T12:51:13Z"
   },
   {
     "table": "S1",
     "title": "Threshold sweeps",
-    "rows": 24,
+    "rows": 40,
     "files": [
       "tables/S1.md",
       "tables/S1.csv"
@@ -104,7 +104,7 @@
     "sources": [
       "reproduction/v14_rerun/phase4/cross_event_v14_v142.json"
     ],
-    "generated_utc": "2026-10-22T08:10:20Z"
+    "generated_utc": "2026-10-22T12:51:13Z"
   },
   {
     "table": "S2",
@@ -132,21 +132,22 @@
       "reproduction/v14_rerun/results/strymonas_v1_prefix_src_v142_v14_newmask.json",
       "reproduction/v14_rerun/results/valencia_enhanced_164_v142_v14_newmask.json"
     ],
-    "generated_utc": "2026-10-22T08:10:20Z"
+    "generated_utc": "2026-10-22T12:51:13Z"
   },
   {
     "table": "S3",
     "title": "Fuzzy and reference uncertainty",
-    "rows": 6,
+    "rows": 10,
     "files": [
       "tables/S3.md",
       "tables/S3.csv"
     ],
     "sources": [
       "reproduction/v14_rerun/code16/crete_tier1_diagnostics.json",
+      "reproduction/v14_rerun/code19/crete_tier1_diagnostics_baseline.json",
       "reproduction/v14_rerun/phase4/cross_event_v14_v142.json"
     ],
-    "generated_utc": "2026-10-22T08:10:20Z"
+    "generated_utc": "2026-10-22T12:51:13Z"
   },
   {
     "table": "S4",
@@ -285,7 +286,7 @@
       "reproduction/v14_rerun/results/valencia_raw_imerg_v142_record.json",
       "reproduction/v14_rerun/results/valencia_raw_imerg_v142_v14_newmask.json"
     ],
-    "generated_utc": "2026-10-22T08:10:20Z"
+    "generated_utc": "2026-10-22T12:51:14Z"
   },
   {
     "table": "S5",
@@ -301,7 +302,7 @@
       "reproduction/v14_rerun/code16/d9_residuals.json",
       "reproduction/v14_rerun/code16/d_volumes_code16.json"
     ],
-    "generated_utc": "2026-10-22T08:10:20Z"
+    "generated_utc": "2026-10-22T12:51:14Z"
   },
   {
     "table": "S6",
@@ -318,7 +319,7 @@
       "reproduction/v14_rerun/code17/c6_alltouched_inflation.json",
       "reproduction/v14_rerun/phase4/cross_event_v14_v142.json"
     ],
-    "generated_utc": "2026-10-22T08:10:20Z"
+    "generated_utc": "2026-10-22T12:51:14Z"
   },
   {
     "table": "S7",
@@ -353,7 +354,7 @@
       "reproduction/v14_rerun/results/valencia_enhanced_164_v13_fa_share.json",
       "reproduction/v14_rerun/results/valencia_enhanced_164_v142_record.json"
     ],
-    "generated_utc": "2026-10-22T08:10:20Z"
+    "generated_utc": "2026-10-22T12:51:14Z"
   },
   {
     "table": "S8",
@@ -393,7 +394,7 @@
       "reproduction/v14_rerun/results/crete_sens_karst_q1914_record.json",
       "reproduction/v14_rerun/results/crete_sens_r2off_record.json"
     ],
-    "generated_utc": "2026-10-22T08:10:20Z"
+    "generated_utc": "2026-10-22T12:51:14Z"
   },
   {
     "table": "S9",
@@ -417,7 +418,7 @@
       "reproduction/v14_rerun/results/crete_sens_karst_q1914_record.json",
       "reproduction/v14_rerun/results/crete_sens_r2off_record.json"
     ],
-    "generated_utc": "2026-10-22T08:10:20Z"
+    "generated_utc": "2026-10-22T12:51:14Z"
   },
   {
     "table": "S10",
@@ -497,6 +498,31 @@
       "skill/scripts/*.py",
       "tests/test_*.py"
     ],
-    "generated_utc": "2026-10-22T08:10:21Z"
+    "generated_utc": "2026-10-22T12:51:15Z"
+  },
+  {
+    "table": "S11",
+    "title": "Manning roughness lookup (ESA WorldCover class → n)",
+    "rows": 11,
+    "files": [
+      "tables/S11.md",
+      "tables/S11.csv"
+    ],
+    "sources": [
+      "D:/ELKAK/implementation/v14/crete_canonical_r2on/manning_lookup.csv",
+      "D:/ELKAK/implementation/v14/emilia_enhanced_8aoi_v142/manning_lookup.csv",
+      "D:/ELKAK/implementation/v14/mandra_enhanced/manning_lookup.csv",
+      "D:/ELKAK/implementation/v14/pineios_enhanced_v142/manning_lookup.csv",
+      "D:/ELKAK/implementation/v14/strymonas_enhanced_postD6_v142/manning_lookup.csv",
+      "D:/ELKAK/implementation/v14/valencia_enhanced_164_v142/manning_lookup.csv",
+      "reproduction/v14_rerun/configs/crete_canonical_r2on.yaml",
+      "reproduction/v14_rerun/configs/emilia_enhanced_8aoi_v142.yaml",
+      "reproduction/v14_rerun/configs/mandra_enhanced.yaml",
+      "reproduction/v14_rerun/configs/pineios_enhanced_v142.yaml",
+      "reproduction/v14_rerun/configs/strymonas_enhanced_postD6_v142.yaml",
+      "reproduction/v14_rerun/configs/valencia_enhanced_164_v142.yaml",
+      "skill/manning_lookup.csv"
+    ],
+    "generated_utc": "2026-10-22T12:51:15Z"
   }
 ]
