@@ -7,8 +7,9 @@ sfincs_map.nc (msk, x, y). No SFINCS run, no scoring.
 Conventions (recorded in the JSON): ERA5 hourly values are accumulations labelled at the END of the hour, so a window [t0, t1)
 takes the labels t0 < t <= t1; IMERG half-hourly rates are labelled at the START of the interval, so [t0, t1) takes t0 <= t < t1.
 Domain mean = mean over the active cells of the nearest source cell (equal-area UTM cells -> area weights on the source grid).
-Where a file does not cover the whole 7-day lead-in (Mandra: 1 d, Valencia: 3 d of IMERG), the covered part is reported with
-its coverage; nothing is downloaded.
+Where a file does not cover the whole 7-day lead-in (raw IMERG: Mandra 1 d, Valencia 3 d; ERA5: day-list downloads that hold only
+the configured download days of each month, so Mandra and Strymonas 25 h, Valencia 73 h), the covered part is reported with its
+coverage (coverage_h / window_h in the JSON); nothing is downloaded.
 
 Usage (sfincs-viz env): python -I code19_a1_rain_leadin.py --repo <worktree>
 """

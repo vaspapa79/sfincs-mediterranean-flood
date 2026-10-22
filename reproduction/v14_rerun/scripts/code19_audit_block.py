@@ -51,7 +51,9 @@ def render(repo: Path) -> str:
     st = next(e for e in a1["events"] if e["event"] == "strymonas")
     L += ["", f"Strymonas R4 as configured: infiltration {st['infiltration']}, realised mean CN (active cells) {st['cn_realised_active_mean']}. The rule's clause (docs/frozen_rule_R.md): "
           + " ".join(x.strip() for x in a1["rule_R4_clause"]) + " — the clause does not quantify 'multi-day wet spell'; the numbers above are reported for the author's reading. "
-          "Files that do not cover the 7-day lead-in (Mandra 1 d, Valencia 3 d of IMERG) are reported over the covered part; nothing was downloaded.", ""]
+          "Coverage: the ERA5 files are day-list downloads (the configured download days within each month: Strymonas and Valencia files hold 1–4 / 27–31 and 1 / 24–31 of the month), so the ERA5 "
+          "7-day lead-in is covered for 25 h (Mandra, Strymonas) or 73 h (Valencia) only; the raw IMERG files cover the full 7 d except Mandra (24 h) and Valencia (72 h). Totals are reported over the "
+          "covered part with the coverage shown; nothing was downloaded.", ""]
     # A2
     a2 = recs["a2_ib_boundary"]
     L += [f"### A2 — inverse-barometer boundary as realised {tag('a2_ib_boundary')}", "", f"Definition: {a2['definition']}.", "",
