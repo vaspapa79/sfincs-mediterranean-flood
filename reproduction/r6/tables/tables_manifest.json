@@ -33,7 +33,7 @@
       "reproduction/v14_rerun/results/strymonas_enhanced_postD6_v142_record.json",
       "reproduction/v14_rerun/results/valencia_enhanced_164_v142_record.json"
     ],
-    "generated_utc": "2026-10-22T20:52:15Z"
+    "generated_utc": "2026-10-23T08:11:10Z"
   },
   {
     "table": "T3",
@@ -46,7 +46,7 @@
     "sources": [
       "reproduction/v14_rerun/phase4/cross_event_v14_v142.json"
     ],
-    "generated_utc": "2026-10-22T20:52:15Z"
+    "generated_utc": "2026-10-23T08:11:10Z"
   },
   {
     "table": "T4",
@@ -59,7 +59,7 @@
     "sources": [
       "reproduction/v14_rerun/phase4/cross_event_v14_v142.json"
     ],
-    "generated_utc": "2026-10-22T20:52:15Z"
+    "generated_utc": "2026-10-23T08:11:10Z"
   },
   {
     "table": "T5",
@@ -78,7 +78,7 @@
       "reproduction/v14_rerun/phase4/rain/emilia_enhanced_8aoi_v142_v14.json",
       "reproduction/v14_rerun/phase4/rain/valencia_enhanced_164_v142_v14.json"
     ],
-    "generated_utc": "2026-10-22T20:52:15Z"
+    "generated_utc": "2026-10-23T08:11:10Z"
   },
   {
     "table": "T6",
@@ -91,7 +91,7 @@
     "sources": [
       "reproduction/v14_rerun/phase4/cross_event_v14_v142.json"
     ],
-    "generated_utc": "2026-10-22T20:52:15Z"
+    "generated_utc": "2026-10-23T08:11:10Z"
   },
   {
     "table": "S1",
@@ -104,7 +104,7 @@
     "sources": [
       "reproduction/v14_rerun/phase4/cross_event_v14_v142.json"
     ],
-    "generated_utc": "2026-10-22T20:52:15Z"
+    "generated_utc": "2026-10-23T08:11:10Z"
   },
   {
     "table": "S2",
@@ -133,7 +133,7 @@
       "reproduction/v14_rerun/results/strymonas_v1_prefix_src_v142_v14_newmask.json",
       "reproduction/v14_rerun/results/valencia_enhanced_164_v142_v14_newmask.json"
     ],
-    "generated_utc": "2026-10-22T20:52:16Z"
+    "generated_utc": "2026-10-23T08:11:10Z"
   },
   {
     "table": "S3",
@@ -148,7 +148,7 @@
       "reproduction/v14_rerun/code19/crete_tier1_diagnostics_baseline.json",
       "reproduction/v14_rerun/phase4/cross_event_v14_v142.json"
     ],
-    "generated_utc": "2026-10-22T20:52:16Z"
+    "generated_utc": "2026-10-23T08:11:10Z"
   },
   {
     "table": "S4",
@@ -287,7 +287,7 @@
       "reproduction/v14_rerun/results/valencia_raw_imerg_v142_record.json",
       "reproduction/v14_rerun/results/valencia_raw_imerg_v142_v14_newmask.json"
     ],
-    "generated_utc": "2026-10-22T20:52:17Z"
+    "generated_utc": "2026-10-23T08:11:11Z"
   },
   {
     "table": "S5",
@@ -303,7 +303,7 @@
       "reproduction/v14_rerun/code16/d9_residuals.json",
       "reproduction/v14_rerun/code16/d_volumes_code16.json"
     ],
-    "generated_utc": "2026-10-22T20:52:17Z"
+    "generated_utc": "2026-10-23T08:11:11Z"
   },
   {
     "table": "S6",
@@ -320,7 +320,7 @@
       "reproduction/v14_rerun/code17/c6_alltouched_inflation.json",
       "reproduction/v14_rerun/phase4/cross_event_v14_v142.json"
     ],
-    "generated_utc": "2026-10-22T20:52:17Z"
+    "generated_utc": "2026-10-23T08:11:11Z"
   },
   {
     "table": "S7",
@@ -355,7 +355,7 @@
       "reproduction/v14_rerun/results/valencia_enhanced_164_v13_fa_share.json",
       "reproduction/v14_rerun/results/valencia_enhanced_164_v142_record.json"
     ],
-    "generated_utc": "2026-10-22T20:52:17Z"
+    "generated_utc": "2026-10-23T08:11:11Z"
   },
   {
     "table": "S8",
@@ -395,7 +395,7 @@
       "reproduction/v14_rerun/results/crete_sens_karst_q1914_record.json",
       "reproduction/v14_rerun/results/crete_sens_r2off_record.json"
     ],
-    "generated_utc": "2026-10-22T20:52:17Z"
+    "generated_utc": "2026-10-23T08:11:11Z"
   },
   {
     "table": "S9",
@@ -419,7 +419,7 @@
       "reproduction/v14_rerun/results/crete_sens_karst_q1914_record.json",
       "reproduction/v14_rerun/results/crete_sens_r2off_record.json"
     ],
-    "generated_utc": "2026-10-22T20:52:17Z"
+    "generated_utc": "2026-10-23T08:11:11Z"
   },
   {
     "table": "S10",
@@ -431,6 +431,7 @@
     ],
     "sources": [
       "docs/AUDIT.md",
+      "reproduction/v14_rerun/code21/history_rewrite.json",
       "reproduction/v14_rerun/configs/emilia_enhanced_8aoi.yaml",
       "reproduction/v14_rerun/configs/mandra_baseline.yaml",
       "reproduction/v14_rerun/configs/mandra_cn_a15.yaml",
@@ -499,7 +500,7 @@
       "skill/scripts/*.py",
       "tests/test_*.py"
     ],
-    "generated_utc": "2026-10-22T20:52:19Z"
+    "generated_utc": "2026-10-23T08:11:11Z"
   },
   {
     "table": "S11",
@@ -524,6 +525,6 @@
       "reproduction/v14_rerun/configs/valencia_enhanced_164_v142.yaml",
       "skill/manning_lookup.csv"
     ],
-    "generated_utc": "2026-10-22T20:52:19Z"
+    "generated_utc": "2026-10-23T08:11:12Z"
   }
 ]

@@ -95,7 +95,11 @@ EXCLUDES = ["CITATION.cff", "CLAUDE.md", ".cdsapirc", "*.netrc", ".env", "**/.en
             "reproduction/r6/REFERENCES_REPORT.md", "reproduction/r6/figures/archive/**", "reproduction/r6/review_archive/**",
             "tests/test_code17_release.py",
             "reproduction/v14_rerun/scripts/code21_*.py", "reproduction/v14_rerun/scripts/d4_push_plan.py",   # release / push tooling (CODE-21), not review material
-            "reproduction/v14_rerun/scripts/release_docs.py"]
+            "reproduction/v14_rerun/scripts/release_docs.py",
+            # CODE-22: release metadata that the re-created v1.4.2 tag now carries — identifying by nature (creators, ORCID,
+            # concept DOI) and not review material; the review README is placed at the top level, not at its repository path
+            ".zenodo.json", "reproduction/r6/ZENODO_DESCRIPTION_v1.4.2.md", "reproduction/r6/README_REVIEW.md",
+            "reproduction/r6/scripts/release_docs.py", "reproduction/v14_rerun/scripts/code22_*.py"]
 
 
 def scrub_text(text: str):

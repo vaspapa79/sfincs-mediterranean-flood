@@ -22,18 +22,18 @@ Release v1.4.2 of the configuration-driven SFINCS / HydroMT-SFINCS pipeline that
 
 The v1.4.x releases supersede every number of release v1.3.0. They fix eight defects of the earlier harness and add the evaluation mask (WorldCover class 80 and open sea excluded from scoring):
 
-- D1: IMERG x2/-30 min (25 of 28 release runs; fix `513ce5a`, v1.4.0)
-- D2: inactive inverse-barometer boundary (25 of 28 release runs; fix `513ce5a`, v1.4.0)
+- D1: IMERG x2/-30 min (25 of 28 release runs; fix `5ca0dfa`, v1.4.0)
+- D2: inactive inverse-barometer boundary (25 of 28 release runs; fix `5ca0dfa`, v1.4.0)
 - D3: tspinup = 0 (methods text only)
-- D4: coastal set-up; fixed by: open sea inactive, coastal msk=2 ring, every cell starts dry (27 of 28 release runs; fix `561e8a0`, v1.4.0)
-- D5: meteo-grid alignment (28 of 28 release runs; fix `8ccabb0`, v1.4.0)
-- D6: an unbounded sink for rain and inflow (9 of 28 release runs; fix `4735429`, v1.4.0)
-- D7: GloFAS point sampling (14 of 28 release runs; fix `eb66116`, v1.4.1)
-- D8: source-point resolution (14 of 28 release runs; fix `b15896a`, v1.4.2)
+- D4: coastal set-up; fixed by: open sea inactive, coastal msk=2 ring, every cell starts dry (27 of 28 release runs; fix `3bf5586`, v1.4.0)
+- D5: meteo-grid alignment (28 of 28 release runs; fix `ee2b728`, v1.4.0)
+- D6: an unbounded sink for rain and inflow (9 of 28 release runs; fix `6c37b8a`, v1.4.0)
+- D7: GloFAS point sampling (14 of 28 release runs; fix `ca0f7cb`, v1.4.1)
+- D8: source-point resolution (14 of 28 release runs; fix `5cd8e90`, v1.4.2)
 - D9: source-point placement residuals are documented, not fixed (reproduction/v14_rerun/code16/d9_residuals.json).
 
-Contents: the pipeline (skill/), the validators (validation/), one YAML per event and configuration, the realised configurations and validation records of every v1.4.x run (reproduction/v14_rerun/), the Crete prospective-run record (reproduction/emsr933/), the manuscript tables and figures generated from the records (reproduction/r6/), the audit trail (docs/AUDIT.md) and the tests. CHANGELOG.md lists the releases; README.md explains how to reproduce one event from its YAML.
+Contents: the pipeline (skill/), the validators (validation/), one YAML per event and configuration, the realised configurations and validation records of every v1.4.x run (reproduction/v14_rerun/), the Crete prospective-run record (reproduction/emsr933/), the audit trail (docs/AUDIT.md), the release history (CHANGELOG.md and table S10 in reproduction/r6/tables/) and the tests, as at the v1.4.2 number freeze. The manuscript tables and figures generated from these records, and the records added after the freeze, are on the main branch of the repository (reproduction/r6/, reproduction/v14_rerun/code16/ onwards). Commit hashes quoted before 2026-10-23 refer to the history before the rewrite of that date and resolve through docs/COMMIT_MAP_2026-10-23.md. README.md explains how to reproduce one event from its YAML.
 
-**Related identifiers:** is version of 10.5281/zenodo.20523154 (concept DOI); is supplement to the manuscript (to be added on acceptance); GitHub tag v1.4.2 (repository-code of CITATION.cff).
+**Related identifiers:** is version of 10.5281/zenodo.20523154 (concept DOI); is supplement to the GitHub tree of tag v1.4.2 (repository-code of CITATION.cff); is supplement to the manuscript (to be added on acceptance).
 
 **Keywords:** flood inundation modelling, SFINCS, Mediterranean flash floods, Copernicus EMS validation, Storm Daniel, satellite precipitation, frozen a-priori activation rule, held-out validation, bias-insensitive verification (SEDI)

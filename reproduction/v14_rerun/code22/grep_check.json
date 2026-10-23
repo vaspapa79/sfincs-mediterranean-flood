@@ -1,0 +1,248 @@
+{
+ "utc": "2026-10-23T08:12:08Z",
+ "generator": "reproduction/v14_rerun/scripts/code22_grep_check.py",
+ "head": "e85c8ed",
+ "searched": "the six pre-rewrite fix commits of table S10 (D1/D2, D4, D5, D6, D7, D8), 7-character substring (full quotes count), in every tracked and every new, not ignored file of the working tree",
+ "n_fix_commits": 6,
+ "files_with_hits": 30,
+ "hits": 76,
+ "by_category": {
+  "audit trail (entries before the rewrite)": {
+   "files": 1,
+   "hits": 12,
+   "paths": [
+    "docs/AUDIT.md (12)"
+   ]
+  },
+  "commit map": {
+   "files": 1,
+   "hits": 6,
+   "paths": [
+    "docs/COMMIT_MAP_2026-10-23.md (6)"
+   ]
+  },
+  "dated record": {
+   "files": 26,
+   "hits": 45,
+   "paths": [
+    "reproduction/emsr933/rule_ledger.md (1)",
+    "reproduction/emsr933/timing.md (15)",
+    "reproduction/v14_rerun/CHECKPOINT4.md (1)",
+    "reproduction/v14_rerun/CHECKPOINT4b.md (1)",
+    "reproduction/v14_rerun/CHECKPOINT6.md (3)",
+    "reproduction/v14_rerun/CHECKPOINT7.md (2)",
+    "reproduction/v14_rerun/MANIFEST.md (3)",
+    "reproduction/v14_rerun/code14/F_branch_plan.md (1)",
+    "reproduction/v14_rerun/results/emilia_enhanced_8aoi_v142_record.json (1)",
+    "reproduction/v14_rerun/results/mandra_v3_maskrestrict_record.json (1)",
+    "reproduction/v14_rerun/results/pineios_cn_on_v142_record.json (1)",
+    "reproduction/v14_rerun/results/pineios_enhanced_v141_record.json (1)",
+    "reproduction/v14_rerun/results/pineios_enhanced_v142_record.json (1)",
+    "reproduction/v14_rerun/results/pineios_qinf5_v142_record.json (1)",
+    "reproduction/v14_rerun/results/pineios_r2_220_v142_record.json (1)",
+    "reproduction/v14_rerun/results/pineios_r2_295_v141_record.json (1)",
+    "reproduction/v14_rerun/results/pineios_r2_295_v142_record.json (1)",
+    "reproduction/v14_rerun/results/pineios_r2_510_v142_record.json (1)",
+    "reproduction/v14_rerun/results/pineios_raw_imerg_v142_record.json (1)",
+    "reproduction/v14_rerun/results/pineios_timevarying_q_v142_record.json (1)",
+    "reproduction/v14_rerun/results/strymonas_abl_cnoff_q_v142_record.json (1)",
+    "reproduction/v14_rerun/results/strymonas_enhanced_postD6_v142_record.json (1)",
+    "reproduction/v14_rerun/results/strymonas_leadin7d_v142_record.json (1)",
+    "reproduction/v14_rerun/results/strymonas_v1_prefix_src_v142_record.json (1)",
+    "reproduction/v14_rerun/results/valencia_enhanced_164_v142_record.json (1)",
+    "reproduction/v14_rerun/results/valencia_raw_imerg_v142_record.json (1)"
+   ]
+  },
+  "S10.csv pre-rewrite column (by design)": {
+   "files": 1,
+   "hits": 7,
+   "paths": [
+    "reproduction/r6/tables/S10.csv (7)"
+   ]
+  },
+  "rewrite record (source of the map)": {
+   "files": 1,
+   "hits": 6,
+   "paths": [
+    "reproduction/v14_rerun/code21/history_rewrite.json (6)"
+   ]
+  }
+ },
+ "other_hits": 0,
+ "defects_per_file": {
+  "docs/AUDIT.md": [
+   "D1/D2",
+   "D4",
+   "D5",
+   "D6",
+   "D7",
+   "D8"
+  ],
+  "docs/COMMIT_MAP_2026-10-23.md": [
+   "D1/D2",
+   "D4",
+   "D5",
+   "D6",
+   "D7",
+   "D8"
+  ],
+  "reproduction/emsr933/rule_ledger.md": [
+   "D1/D2",
+   "D4",
+   "D5"
+  ],
+  "reproduction/emsr933/timing.md": [
+   "D1/D2",
+   "D4",
+   "D5",
+   "D6",
+   "D7",
+   "D8"
+  ],
+  "reproduction/r6/tables/S10.csv": [
+   "D1/D2",
+   "D4",
+   "D5",
+   "D6",
+   "D7",
+   "D8"
+  ],
+  "reproduction/v14_rerun/CHECKPOINT4.md": [
+   "D5"
+  ],
+  "reproduction/v14_rerun/CHECKPOINT4b.md": [
+   "D6"
+  ],
+  "reproduction/v14_rerun/CHECKPOINT6.md": [
+   "D1/D2",
+   "D7"
+  ],
+  "reproduction/v14_rerun/CHECKPOINT7.md": [
+   "D8"
+  ],
+  "reproduction/v14_rerun/MANIFEST.md": [
+   "D1/D2",
+   "D4",
+   "D5",
+   "D6"
+  ],
+  "reproduction/v14_rerun/code14/F_branch_plan.md": [
+   "D1/D2",
+   "D7"
+  ],
+  "reproduction/v14_rerun/code21/history_rewrite.json": [
+   "D1/D2",
+   "D4",
+   "D5",
+   "D6",
+   "D7",
+   "D8"
+  ],
+  "reproduction/v14_rerun/results/emilia_enhanced_8aoi_v142_record.json": [
+   "D8"
+  ],
+  "reproduction/v14_rerun/results/mandra_v3_maskrestrict_record.json": [
+   "D7"
+  ],
+  "reproduction/v14_rerun/results/pineios_cn_on_v142_record.json": [
+   "D8"
+  ],
+  "reproduction/v14_rerun/results/pineios_enhanced_v141_record.json": [
+   "D7"
+  ],
+  "reproduction/v14_rerun/results/pineios_enhanced_v142_record.json": [
+   "D8"
+  ],
+  "reproduction/v14_rerun/results/pineios_qinf5_v142_record.json": [
+   "D8"
+  ],
+  "reproduction/v14_rerun/results/pineios_r2_220_v142_record.json": [
+   "D8"
+  ],
+  "reproduction/v14_rerun/results/pineios_r2_295_v141_record.json": [
+   "D7"
+  ],
+  "reproduction/v14_rerun/results/pineios_r2_295_v142_record.json": [
+   "D8"
+  ],
+  "reproduction/v14_rerun/results/pineios_r2_510_v142_record.json": [
+   "D8"
+  ],
+  "reproduction/v14_rerun/results/pineios_raw_imerg_v142_record.json": [
+   "D8"
+  ],
+  "reproduction/v14_rerun/results/pineios_timevarying_q_v142_record.json": [
+   "D8"
+  ],
+  "reproduction/v14_rerun/results/strymonas_abl_cnoff_q_v142_record.json": [
+   "D8"
+  ],
+  "reproduction/v14_rerun/results/strymonas_enhanced_postD6_v142_record.json": [
+   "D8"
+  ],
+  "reproduction/v14_rerun/results/strymonas_leadin7d_v142_record.json": [
+   "D8"
+  ],
+  "reproduction/v14_rerun/results/strymonas_v1_prefix_src_v142_record.json": [
+   "D8"
+  ],
+  "reproduction/v14_rerun/results/valencia_enhanced_164_v142_record.json": [
+   "D8"
+  ],
+  "reproduction/v14_rerun/results/valencia_raw_imerg_v142_record.json": [
+   "D8"
+  ]
+ },
+ "published_texts": [
+  {
+   "file": "CHANGELOG.md",
+   "pre_rewrite_hashes_at_HEAD": 14,
+   "pre_rewrite_hashes_now": 0
+  },
+  {
+   "file": "README.md",
+   "pre_rewrite_hashes_at_HEAD": 0,
+   "pre_rewrite_hashes_now": 0
+  },
+  {
+   "file": "reproduction/r6/README_REVIEW.md",
+   "pre_rewrite_hashes_at_HEAD": 0,
+   "pre_rewrite_hashes_now": 0
+  },
+  {
+   "file": "reproduction/r6/ZENODO_DESCRIPTION_v1.4.2.md",
+   "pre_rewrite_hashes_at_HEAD": 7,
+   "pre_rewrite_hashes_now": 0
+  },
+  {
+   "file": "reproduction/r6/tables/S10.md",
+   "pre_rewrite_hashes_at_HEAD": 7,
+   "pre_rewrite_hashes_now": 0
+  },
+  {
+   "file": "reproduction/r6/tables/S10.csv",
+   "pre_rewrite_hashes_at_HEAD": 7,
+   "pre_rewrite_hashes_now": 7
+  },
+  {
+   "file": "CITATION.cff",
+   "pre_rewrite_hashes_at_HEAD": 0,
+   "pre_rewrite_hashes_now": 0
+  },
+  {
+   "file": ".zenodo.json",
+   "pre_rewrite_hashes_at_HEAD": null,
+   "pre_rewrite_hashes_now": 0
+  },
+  {
+   "file": "reproduction/r6/scripts/release_docs.py",
+   "pre_rewrite_hashes_at_HEAD": 12,
+   "pre_rewrite_hashes_now": 0
+  },
+  {
+   "file": "tests/test_code17_helpers.py",
+   "pre_rewrite_hashes_at_HEAD": 2,
+   "pre_rewrite_hashes_now": 0
+  }
+ ]
+}

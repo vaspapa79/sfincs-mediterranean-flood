@@ -7,37 +7,60 @@
   * reproduction/emsr933/timing.md: the stage-table rows after GO-D6 (start = brief paste time from the session transcript,
     listed in STAGES; end = the UTC commit time, from git, of the commit that closed the stage) — inserted after the GO-D6 row.
 
-Usage: python -I release_docs.py --repo <worktree> [--write]
+  * reproduction/r6/ZENODO_DESCRIPTION_v<version>.md and, with --zenodo-record, .zenodo.json (CODE-22): the Zenodo metadata of
+    the release — creators copied from the existing Zenodo record (its API response), title / version / repository from
+    CITATION.cff, the description rendered from the same lines as the draft, related identifiers isVersionOf the concept DOI and
+    isSupplementTo the GitHub tree of the tag.
+
+Every rendered text passes through the commit map of the history rewrite of 2026-10-23 (commit_map.py): a pre-rewrite hash
+copied from git tag messages or records is written as its published hash.
+
+Usage: python -I release_docs.py --repo <worktree> [--write] [--zenodo-record <Zenodo API record JSON>]
 """
 from __future__ import annotations
 
 import argparse
 import csv
 import datetime as dt
+import html
 import json
 import re
 import subprocess
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import commit_map as CM  # noqa: E402
+
+CONCEPT_DOI = "10.5281/zenodo.20523154"
+# Release tags re-created on a release-metadata commit (subject "<tag> metadata: ...") whose parent is the number-freeze commit,
+# with the date of the re-created tag (CODE-22). CITATION.cff date-released carries the same date.
+RETAGGED = {"v1.4.2": "2026-10-23"}
+RELEASE_METADATA = {"v1.4.2": "Release metadata (2026-10-23, CODE-22): the commit map of the history rewrite of 2026-10-23 "
+                              "(`docs/COMMIT_MAP_2026-10-23.md`; hashes quoted before that date resolve through it), CITATION.cff "
+                              "version 1.4.2, `.zenodo.json`, and the published texts with the published hashes (this file, README.md, "
+                              "`reproduction/r6/README_REVIEW.md`, `reproduction/r6/ZENODO_DESCRIPTION_v1.4.2.md`, table S10, "
+                              "`docs/AUDIT.md`). Code, configurations and records are those of the number-freeze commit."}
+MAPPED: dict[str, list] = {}       # rendered document -> pre-rewrite hashes replaced (reported by main)
+
 # Stage rows for timing.md. start_utc = time the brief was pasted (session transcript); end = the commit that closed the
 # stage (its committer time is read from git) or, for a read-only stage, the time its report was posted (transcript).
 STAGES = [
     {"stage": "GO Phases 3–5 (Phase-3 runs, Phase-4 post-processing, Phase-5 Crete Stages 2–5) — `fix/harness-v1.4`",
-     "start_utc": "2026-10-19T13:12:37Z", "end_commit": "70c2bfb",
-     "notes": "start = GO paste; end = records commit `70c2bfb` = tag v1.4.0; includes the overnight Phase-3/5 runs (run lines below)"},
+     "start_utc": "2026-10-19T13:12:37Z", "end_commit": "1033833",
+     "notes": "start = GO paste; end = records commit `1033833` = tag v1.4.0; includes the overnight Phase-3/5 runs (run lines below)"},
     {"stage": "CODE-14 (D7 sampler fix, v1.4.1 re-runs, Table S3, MANIFEST row 16) — `fix/harness-v1.4`",
-     "start_utc": "2026-10-20T08:11:40Z", "end_commit": "642efaa",
-     "notes": "start = CODE-14 paste; fix `eb66116`; end = Checkpoint-6 commit `642efaa` = tag v1.4.1"},
+     "start_utc": "2026-10-20T08:11:40Z", "end_commit": "4b38523",
+     "notes": "start = CODE-14 paste; fix `ca0f7cb`; end = Checkpoint-6 commit `4b38523` = tag v1.4.1"},
     {"stage": "CODE-15 (D8 source-point resolution, v1.4.2 re-runs, number freeze, branch reconciliation) — `fix/harness-v1.4`",
-     "start_utc": "2026-10-20T11:49:21Z", "end_commit": "b766fa8",
-     "notes": "start = CODE-15 paste; fix `b15896a`; records `0084600` = tag v1.4.2; end = branch-reconciliation commit `b766fa8`"},
+     "start_utc": "2026-10-20T11:49:21Z", "end_commit": "4064549",
+     "notes": "start = CODE-15 paste; fix `5cd8e90`; records `779a8e0` = the v1.4.2 number-freeze commit; end = branch-reconciliation commit `4064549`"},
     {"stage": "CODE-10 close-out audit (read-only; nothing run or committed)",
      "start_utc": "2026-10-21T08:36:17Z", "end_utc": "2026-10-21T08:44:51Z",
      "notes": "start = CODE-10 brief re-pasted; end = audit report posted (six open items; closed in CODE-16/17)"},
     {"stage": "CODE-16 (number-freeze close-out, manuscript tables/figures/references, anonymity dry run) — `fix/harness-v1.4`",
-     "start_utc": "2026-10-21T08:58:27Z", "end_commit": "94ffb2a",
-     "notes": "start = CODE-16 paste; A `1667f15`; end = B–E commit `94ffb2a`; no model run"},
+     "start_utc": "2026-10-21T08:58:27Z", "end_commit": "dc62fba",
+     "notes": "start = CODE-16 paste; A `46b0e64`; end = B–E commit `dc62fba`; no model run"},
 ]
 CODE17_LINE = ("- 2026-10-21T13:01:50Z — CODE-17 received (release prep, anonymised review copy, records); A: README, CHANGELOG.md, "
                "CITATION 1.4.2, the CODE-10 leftovers (YAML status lines, per-AOI-catchment rainfall `phase5/crete_rain_per_aoi.*`, "
@@ -111,21 +134,25 @@ def changelog(repo: Path) -> str:
          "the tests); \"runs affected\" counts the release-v1.3.0 runs behind the earlier results. Tag dates, commits and "
          "summaries are read from git. Generated by `reproduction/r6/scripts/release_docs.py`.", ""]
     if unreleased:
-        L += [f"## Unreleased (after tag `{last['name']}`; records and documentation only, harness unchanged)", ""]
+        L += [f"## Unreleased (on `main` after the `{last['name']}` number freeze; records and documentation only, harness unchanged)", ""]
         L += [f"- `{ln.split(' ', 1)[0]}` {ln.split(' ', 1)[1]}" for ln in reversed(unreleased)]
-        L += ["- this commit: CODE-21 pre-push close-out — FREEZE_EVIDENCE.md first-score correction, superseded-benchmark note in "
-              "fig_skill_sweeps_v14.py, review archive rebuilt, NOA station data files removed from the history (tags re-created), "
-              "CHANGELOG and Zenodo description regenerated", ""]
+        L += [""]
     by_tag: dict[str, list[dict]] = {}
     for d in dd.values():
         by_tag.setdefault(d["tag"], []).append(d)
     for t in reversed(release):
-        head = f"## {t['name']} — {t['date']} (tag `{t['name']}` → `{t['commit']}`)"
+        if t["name"] in RETAGGED:
+            fz = freeze_commit(repo, t["name"], t["commit"])
+            head = release_heading(t["name"], RETAGGED[t["name"]], fz, commit_utc(repo, fz)[:10])
+        else:
+            head = f"## {t['name']} — {t['date']} (tag `{t['name']}` → `{t['commit']}`)"
         if t["name"] == "v1.3.0":
             head += " — superseded – see D1–D8"
         elif t["name"] < "v1.3.0" or t["name"].startswith("v."):
             head += " — superseded"
         L += [head, "", f"{t['subject']}", ""]
+        if t["name"] in RELEASE_METADATA:
+            L += [RELEASE_METADATA[t["name"]], ""]
         rows = sorted(by_tag.get(t["name"], []), key=lambda d: d["defect"])
         if t["name"] == "v1.4.0":
             rows = sorted(rows + by_tag.get("—", []), key=lambda d: d["defect"])
@@ -138,7 +165,28 @@ def changelog(repo: Path) -> str:
             L += [defect_line(d) for d in rows]
             if rows:
                 L.append("")
-    return "\n".join(L).rstrip() + "\n"
+    return published("CHANGELOG.md", "\n".join(L).rstrip() + "\n", repo)
+
+
+def published(name: str, text: str, repo: Path) -> str:
+    """The rendered text with every pre-rewrite hash replaced by its published hash (the replacements kept in MAPPED)."""
+    out, reps = CM.map_text(text, CM.load_map(repo))
+    MAPPED[name] = reps
+    return out
+
+
+def release_heading(name: str, date: str, freeze: str, freeze_date: str) -> str:
+    """Changelog heading of a release tag re-created on its release-metadata commit (CODE-22)."""
+    return f"## {name} — {date} (tag `{name}` → the release-metadata commit on top of the number-freeze commit `{freeze}` of {freeze_date})"
+
+
+def freeze_commit(repo: Path, tag_name: str, commit: str) -> str:
+    """The number-freeze commit of a re-created release tag: the parent of its release-metadata commit (subject
+    '<tag> metadata: ...'); before the tag is re-created, the tag's own commit."""
+    subject = git(repo, "log", "-1", "--format=%s", commit).strip()
+    if subject.startswith(f"{tag_name} metadata:"):
+        return git(repo, "rev-parse", "--short", f"{commit}^").strip()
+    return commit
 
 
 def cff_creators(repo: Path) -> list[dict]:
@@ -166,25 +214,90 @@ def zenodo_description(repo: Path) -> str:
          f"**Title:** {title}", "", f"**Version:** v{version}  ·  **Upload type:** software  ·  **Licence:** MIT", "",
          "**Creators (unchanged):**", ""]
     L += [f"{i}. {c['family']}, {c['given']} — {c['affiliation']}" + (f" — ORCID {c['orcid']}" if c.get('orcid') else "") for i, c in enumerate(cre, 1)]
-    L += ["", "**Description:**", "",
-          f"Release v{version} of the configuration-driven SFINCS / HydroMT-SFINCS pipeline that hindcasts Mediterranean flood events "
-          "from public global inputs (Copernicus DEM GLO-30, ESA WorldCover, GPM IMERG, ERA5, GloFAS v4) and scores each hindcast "
-          "pixel by pixel against Copernicus EMS rapid-mapping flood polygons. Six EMS activations are covered: EMSR122 Strymonas (2015), "
-          "EMSR257 Mandra (2017), EMSR664 Emilia-Romagna (2023), EMSR692 Pineios / Storm Daniel (2023), EMSR773 Valencia (2024) and "
-          "EMSR933 Crete (2026), the last configured from the frozen a-priori activation rule before its flood extents existed.", "",
-          "The v1.4.x releases supersede every number of release v1.3.0. They fix eight defects of the earlier harness and add the "
-          "evaluation mask (WorldCover class 80 and open sea excluded from scoring):", ""]
+    L += ["", "**Description:**", ""] + description_lines(repo) + [
+          "",
+          f"**Related identifiers:** is version of {CONCEPT_DOI} (concept DOI); is supplement to the GitHub tree of tag v{version} "
+          "(repository-code of CITATION.cff); is supplement to the manuscript (to be added on acceptance).", "",
+          "**Keywords:** " + ", ".join(re.findall(r"^\s+-\s+(.+)$", cff.split("keywords:", 1)[1], re.M)), ""]
+    return published("ZENODO_DESCRIPTION", "\n".join(L), repo)
+
+
+def description_lines(repo: Path) -> list[str]:
+    """The description of the release (Markdown lines), shared by the Zenodo draft and .zenodo.json. For a release tag re-created
+    on the number-freeze commit (RETAGGED) the contents sentence names what that snapshot holds."""
+    cff = (repo / "CITATION.cff").read_text(encoding="utf-8")
+    version = re.search(r'^version:\s*"([^"]+)"', cff, re.M).group(1)
+    dd = defects(repo)
+    L = [f"Release v{version} of the configuration-driven SFINCS / HydroMT-SFINCS pipeline that hindcasts Mediterranean flood events "
+         "from public global inputs (Copernicus DEM GLO-30, ESA WorldCover, GPM IMERG, ERA5, GloFAS v4) and scores each hindcast "
+         "pixel by pixel against Copernicus EMS rapid-mapping flood polygons. Six EMS activations are covered: EMSR122 Strymonas (2015), "
+         "EMSR257 Mandra (2017), EMSR664 Emilia-Romagna (2023), EMSR692 Pineios / Storm Daniel (2023), EMSR773 Valencia (2024) and "
+         "EMSR933 Crete (2026), the last configured from the frozen a-priori activation rule before its flood extents existed.", "",
+         "The v1.4.x releases supersede every number of release v1.3.0. They fix eight defects of the earlier harness and add the "
+         "evaluation mask (WorldCover class 80 and open sea excluded from scoring):", ""]
     L += [f"- {d['defect']}: {d['symptom']} ({d['runs affected']}; fix `{d['fix commit']}`, {d['tag']})" if d["fix commit"] not in ("", "—")
           else f"- {d['defect']}: {d['symptom']} (methods text only)" for d in sorted(dd.values(), key=lambda d: d["defect"])]
-    L += ["- D9: source-point placement residuals are documented, not fixed (reproduction/v14_rerun/code16/d9_residuals.json).", "",
-          "Contents: the pipeline (skill/), the validators (validation/), one YAML per event and configuration, the realised configurations "
-          "and validation records of every v1.4.x run (reproduction/v14_rerun/), the Crete prospective-run record (reproduction/emsr933/), "
-          "the manuscript tables and figures generated from the records (reproduction/r6/), the audit trail (docs/AUDIT.md) and the tests. "
-          "CHANGELOG.md lists the releases; README.md explains how to reproduce one event from its YAML.", "",
-          "**Related identifiers:** is version of 10.5281/zenodo.20523154 (concept DOI); is supplement to the manuscript (to be added on acceptance); "
-          f"GitHub tag v{version} (repository-code of CITATION.cff).", "",
-          "**Keywords:** " + ", ".join(re.findall(r"^\s+-\s+(.+)$", cff.split("keywords:", 1)[1], re.M)), ""]
-    return "\n".join(L)
+    L += ["- D9: source-point placement residuals are documented, not fixed (reproduction/v14_rerun/code16/d9_residuals.json).", ""]
+    if f"v{version}" in RETAGGED:
+        L += ["Contents: the pipeline (skill/), the validators (validation/), one YAML per event and configuration, the realised configurations "
+              "and validation records of every v1.4.x run (reproduction/v14_rerun/), the Crete prospective-run record (reproduction/emsr933/), "
+              "the audit trail (docs/AUDIT.md), the release history (CHANGELOG.md and table S10 in reproduction/r6/tables/) and the tests, as "
+              f"at the v{version} number freeze. The manuscript tables and figures generated from these records, and the records added after "
+              "the freeze, are on the main branch of the repository (reproduction/r6/, reproduction/v14_rerun/code16/ onwards). Commit hashes "
+              "quoted before 2026-10-23 refer to the history before the rewrite of that date and resolve through docs/COMMIT_MAP_2026-10-23.md. "
+              "README.md explains how to reproduce one event from its YAML."]
+    else:
+        L += ["Contents: the pipeline (skill/), the validators (validation/), one YAML per event and configuration, the realised configurations "
+              "and validation records of every v1.4.x run (reproduction/v14_rerun/), the Crete prospective-run record (reproduction/emsr933/), "
+              "the manuscript tables and figures generated from the records (reproduction/r6/), the audit trail (docs/AUDIT.md) and the tests. "
+              "CHANGELOG.md lists the releases; README.md explains how to reproduce one event from its YAML."]
+    return L
+
+
+def md_to_html(lines: list[str]) -> str:
+    """Paragraphs and '- ' bullet lists of description_lines as HTML (Zenodo descriptions are HTML); `code` and **bold** inline."""
+    def inline(s: str) -> str:
+        s = html.escape(s, quote=False)
+        s = re.sub(r"`([^`]+)`", r"<code>\1</code>", s)
+        return re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", s)
+    out, para, items = [], [], []
+
+    def flush():
+        if para:
+            out.append("<p>" + inline(" ".join(para)) + "</p>"); para.clear()
+        if items:
+            out.append("<ul>" + "".join(f"<li>{inline(i)}</li>" for i in items) + "</ul>"); items.clear()
+    for ln in lines + [""]:
+        if ln.startswith("- "):
+            if para:
+                flush()
+            items.append(ln[2:])
+        elif not ln.strip():
+            flush()
+        else:
+            if items:
+                flush()
+            para.append(ln)
+    return "".join(out)
+
+
+def zenodo_json(repo: Path, record: dict) -> dict:
+    """.zenodo.json of the release: creators (name, affiliation, ORCID) copied from the existing Zenodo record's API response,
+    title / version / repository from CITATION.cff, keywords from the record, the description of description_lines, and the two
+    related identifiers (isVersionOf the concept DOI; isSupplementTo the GitHub tree of the tag — a .zenodo.json list replaces
+    the GitHub default, so the link is written here). Zenodo uses .zenodo.json and ignores CITATION.cff when both exist."""
+    cff = (repo / "CITATION.cff").read_text(encoding="utf-8")
+    title = re.search(r'^title:\s*"([^"]+)"', cff, re.M).group(1)
+    version = re.search(r'^version:\s*"([^"]+)"', cff, re.M).group(1)
+    code = re.search(r'^repository-code:\s*"([^"]+)"', cff, re.M).group(1).rstrip("/")
+    m = record["metadata"]
+    desc, reps = CM.map_text(md_to_html(description_lines(repo)), CM.load_map(repo))
+    MAPPED[".zenodo.json"] = reps
+    return {"title": title, "version": version, "upload_type": "software", "access_right": "open", "license": "mit",
+            "creators": [{k: c[k] for k in ("name", "affiliation", "orcid") if k in c} for c in m["creators"]],
+            "description": desc, "keywords": list(m["keywords"]),
+            "related_identifiers": [{"identifier": CONCEPT_DOI, "relation": "isVersionOf", "resource_type": "software", "scheme": "doi"},
+                                    {"identifier": f"{code}/tree/v{version}", "relation": "isSupplementTo", "resource_type": "software", "scheme": "url"}]}
 
 
 def stage_rows(repo: Path) -> list[str]:
@@ -203,6 +316,7 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--repo", required=True, type=Path)
     ap.add_argument("--write", action="store_true")
+    ap.add_argument("--zenodo-record", type=Path, default=None, help="Zenodo API response of the existing version (writes .zenodo.json)")
     a = ap.parse_args()
     cl = changelog(a.repo)
     rows = stage_rows(a.repo)
@@ -213,6 +327,12 @@ def main() -> int:
         zd = a.repo / "reproduction/r6/ZENODO_DESCRIPTION_v1.4.2.md"
         zd.write_text(zenodo_description(a.repo), encoding="utf-8")
         print(f"wrote {zd.relative_to(a.repo)}")
+        if a.zenodo_record:
+            zj = zenodo_json(a.repo, json.loads(a.zenodo_record.read_text(encoding="utf-8")))
+            (a.repo / ".zenodo.json").write_text(json.dumps(zj, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+            print("wrote .zenodo.json")
+        for k, v in MAPPED.items():
+            print(f"commit map: {k}: {len(v)} pre-rewrite hash(es) replaced" + (f" ({', '.join(f'{o}->{n}' for o, n in v)})" if v else ""))
         tp = a.repo / "reproduction/emsr933/timing.md"
         lines = tp.read_text(encoding="utf-8").split("\n")
         if any(r.split(" | ")[0] in lines[i] for r in rows for i in range(len(lines))):

@@ -16,9 +16,9 @@ import release_docs as RD  # noqa: E402
 
 class DefectLine(unittest.TestCase):
     def test_fix_commit_runs_and_guard(self):
-        d = {"defect": "D0", "symptom": "GloFAS point sampling", "runs affected": "14 of 28 release runs", "fix commit": "eb66116",
+        d = {"defect": "D0", "symptom": "GloFAS point sampling", "runs affected": "14 of 28 release runs", "fix commit": "ca0f7cb",
              "tag": "v1.4.1", "guard": "tests: test_prep_q_sampler.py"}
-        self.assertEqual(RD.defect_line(d), "- **D0** GloFAS point sampling — runs affected: 14 of 28 release runs — fix `eb66116` — "
+        self.assertEqual(RD.defect_line(d), "- **D0** GloFAS point sampling — runs affected: 14 of 28 release runs — fix `ca0f7cb` — "
                                             "guard: test_prep_q_sampler.py")
 
     def test_text_only_defect_has_no_fix_commit(self):

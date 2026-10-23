@@ -243,14 +243,23 @@ class Writer:
     def begin(self):
         self.ctx.reads = set()
 
-    def emit(self, tid: str, title: str, header: list, rows: list, notes: list, extra: list | None = None):
+    def emit(self, tid: str, title: str, header: list, rows: list, notes: list, extra: list | None = None,
+             csv_extra: tuple | None = None):
+        """csv_extra = (column name, values): one more column written to the CSV only, after the last column (CODE-22: the
+        pre-rewrite fix commit of S10)."""
         now = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
         md = [f"# {tid} — {title}", "", f"Generated {now} by `reproduction/r6/scripts/r6_tables.py`; every cell read from the records listed in `reproduction/r6/TABLES_MANIFEST.md`.", ""]
         md += [n for n in notes] + [""]
         md += ["| " + " | ".join(header) + " |", "|" + "---|" * len(header)]
         md += ["| " + " | ".join(str(c).replace("|", "/") for c in r) + " |" for r in rows]
+        csv_header, csv_rows = header, rows
+        if csv_extra is not None:
+            name, values = csv_extra
+            if len(values) != len(rows):
+                raise SystemExit(f"{tid}: csv_extra has {len(values)} values for {len(rows)} rows")
+            csv_header, csv_rows = header + [name], [list(r) + [v] for r, v in zip(rows, values)]
         with open(self.out / f"{tid}.csv", "w", encoding="utf-8", newline="") as fh:
-            w = csv.writer(fh); w.writerow(header); w.writerows(rows)
+            w = csv.writer(fh); w.writerow(csv_header); w.writerows(csv_rows)
         n_rows = len(rows)
         for sub_id, sub_title, sub_header, sub_rows, sub_notes in (extra or []):
             md += ["", f"## {sub_title}", ""] + list(sub_notes) + ([""] if sub_notes else []) + ["| " + " | ".join(sub_header) + " |", "|" + "---|" * len(sub_header)]
@@ -799,7 +808,10 @@ def tab_s9(ctx: Ctx, W: Writer):
 
 
 def tab_s10(ctx: Ctx, W: Writer):
-    W.begin(); rows = []
+    W.begin(); rows = []; pre_rewrite = []
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import commit_map as CM
+    cmap = CM.load_map(ctx.repo); ctx.note(CM.RECORD.as_posix())          # CODE-22: AUDIT quotes the pre-rewrite fix commits
     audit = (ctx.repo / "docs" / "AUDIT.md").read_text(encoding="utf-8"); ctx.note("docs/AUDIT.md")
     tests = {p.name: p.read_text(encoding="utf-8") for p in sorted((ctx.repo / "tests").glob("test_*.py"))}
     skill = {p.name: p.read_text(encoding="utf-8") for p in sorted((ctx.repo / "skill" / "scripts").glob("*.py"))}
@@ -840,7 +852,9 @@ def tab_s10(ctx: Ctx, W: Writer):
         sm = sym[d].group(1).strip() if sym[d] else "not found in AUDIT.md"
         if d == "D4":
             sm = "coastal set-up; fixed by: " + sm
-        h = fix[d].group(1) if fix[d] else None
+        h_audit = fix[d].group(1) if fix[d] else None
+        h = cmap.get(h_audit, h_audit) if h_audit else None                  # the published commit of the fix
+        pre_rewrite.append(h_audit[:7] if h_audit else "—")
         short = git(ctx, "rev-parse", "--short", h) if h else "—"
         tags = git(ctx, "tag", "--contains", h).split() if h else []
         tag = next((t for t in tag_order if t in tags), "—")
@@ -877,7 +891,10 @@ def tab_s10(ctx: Ctx, W: Writer):
            ["Every cell is extracted at generation time: symptoms and fix commits by regex from `docs/AUDIT.md`, short hashes and the first tag containing the fix from git, files changed from `git show --stat`, "
             "runs affected = the release v1.3.0 runs behind R5 (run records with a manifest row) meeting the defect's condition (D1 IMERG forcing; D2 coastal_bc on; D4 open-sea cells removed by the v1.4 build; "
             "D5 every gridded-meteo run; D6 infiltration on; D7/D8 upstream_q on), guards = test classes / test functions whose name line or docstring names the defect, and error classes raised within 8 lines of a "
-            "line naming it in `skill/scripts/` (custom error classes only)." , f"Release runs counted ({len(bases)}): {', '.join(bases)}."])
+            "line naming it in `skill/scripts/` (custom error classes only)." , f"Release runs counted ({len(bases)}): {', '.join(bases)}.",
+            "Fix commits are the published hashes after the history rewrite of 2026-10-23 (`docs/AUDIT.md` quotes them as they were before it; old → new through "
+            "`docs/COMMIT_MAP_2026-10-23.md`); the CSV keeps the pre-rewrite hash in its last column."],
+           csv_extra=("pre-rewrite fix commit", pre_rewrite))
 
 
 def tab_s11(ctx: Ctx, W: Writer):
