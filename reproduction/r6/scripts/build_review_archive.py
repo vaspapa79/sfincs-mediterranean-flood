@@ -52,6 +52,9 @@ RULES = [  # (name, regex, replacement) — applied in this order to every scrub
     ("Zenodo DOI (ours)", re.compile(r"(?:https?://)?(?:dx\.)?(?:doi\.org/)?10\.5281/zenodo\.(?:" + ZID + r")\b", re.I), "[DOI withheld for review]"),
     ("Zenodo record (ours)", re.compile(r"(?:https?://)?zenodo\.org/(?:records?|doi|badge/DOI|api/records)/(?:" + ZID + r")\b[\w/.\-]*", re.I),
      "[DOI withheld for review]"),
+    # CODE-22: a Zenodo search URL that names our concept record (conceptrecid:<id>) quoted in the CODE-21 audit block
+    ("Zenodo search (ours)", re.compile(r"(?:https?://)?zenodo\.org/[\w/]*\?[\w=&:%.\-]*\b(?:" + ZID + r")\b[\w=&:%.\-]*", re.I),
+     "[Zenodo record withheld for review]"),
     ("e-mail (ours)", re.compile(r"\b[\w.+-]*(?:valsamis|vaspapa|papaioannou)[\w.+-]*@[\w-]+(?:\.[\w-]+)+\b|\b[\w.+-]+@(?:iti|certh)\.gr\b", re.I),
      "[e-mail withheld]"),
     ("ORCID (ours)", re.compile(r"(?:https?://)?(?:orcid\.org/)?(?:" + "|".join(OUR_ORCID) + r")"), "[ORCID withheld]"),
@@ -99,7 +102,10 @@ EXCLUDES = ["CITATION.cff", "CLAUDE.md", ".cdsapirc", "*.netrc", ".env", "**/.en
             # CODE-22: release metadata that the re-created v1.4.2 tag now carries — identifying by nature (creators, ORCID,
             # concept DOI) and not review material; the review README is placed at the top level, not at its repository path
             ".zenodo.json", "reproduction/r6/ZENODO_DESCRIPTION_v1.4.2.md", "reproduction/r6/README_REVIEW.md",
-            "reproduction/r6/scripts/release_docs.py", "reproduction/v14_rerun/scripts/code22_*.py"]
+            "reproduction/v14_rerun/scripts/code22_*.py",
+            # the CODE-22 release-tooling test needs git and the excluded scripts (like test_code17_release.py); release_docs.py
+            # stays in the archive because tests/test_code17_helpers.py imports it
+            "tests/test_code22_release_metadata.py"]
 
 
 def scrub_text(text: str):

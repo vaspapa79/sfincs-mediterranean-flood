@@ -126,7 +126,7 @@ class SideCommit(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             r = Path(d)
             git(r, "init", "-q")
-            git(r, "config", "user.name", "Test"); git(r, "config", "user.email", "test@example.invalid")
+            git(r, "config", "user.name", "Test"); git(r, "config", "user.email", "test@localhost")
             (r / "a.txt").write_text("a0\n"); (r / "c.txt").write_text("c0\n")
             git(r, "add", "-A"); git(r, "commit", "-q", "-m", "base")
             base = git(r, "rev-parse", "HEAD")

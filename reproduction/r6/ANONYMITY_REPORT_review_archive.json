@@ -1,8 +1,8 @@
 {
- "utc": "2026-10-23T07:37:30Z",
+ "utc": "2026-10-23T08:19:38Z",
  "label": "reproduction\\r6\\review_archive\\review_archive_v1.4.2",
  "counts": {
-  "text": 1197,
+  "text": 1200,
   "png": 144,
   "tiff": 17,
   "binary": 0
@@ -10,7 +10,7 @@
  "n_not_scanned": 0,
  "hits_outside_cited_work": 0,
  "hits_in_cited_work": 4,
- "third_party_github_urls": 174,
+ "third_party_github_urls": 176,
  "by_class": {
   "author names": 0,
   "author names (Greek)": 0,
@@ -21,7 +21,7 @@
   "ORCIDs": 0,
   "vaspapa": 0,
   "github.com URLs (ours)": 0,
-  "github.com URLs (third-party)": 174,
+  "github.com URLs (third-party)": 176,
   "Zenodo DOIs / records": 4,
   "grant numbers": 0,
   "ECHO": 0
@@ -41,6 +41,22 @@
    "line": 832,
    "match": "github.com/Deltares/SFINCS/releases/tag/v2.3.0_mt_Faber_release.",
    "context": "to the source code from Github: https://github.com/Deltares/SFINCS/releases/tag/v2.3.0_mt_Faber_release.” / “As pre-compiled Windows executable:",
+   "where": "archive"
+  },
+  {
+   "class": "github.com URLs (third-party)",
+   "file": "docs/AUDIT.md",
+   "line": 856,
+   "match": "github.com",
+   "context": "o DOIs in refs_datacite.bib); by class: github.com URLs (third-party) 174, Zenodo DOIs / r",
+   "where": "archive"
+  },
+  {
+   "class": "github.com URLs (third-party)",
+   "file": "docs/AUDIT.md",
+   "line": 856,
+   "match": "github.com",
+   "context": "4, Zenodo DOIs / records 4. Third-party github.com URLs listed, not counted: 174.",
    "where": "archive"
   },
   {

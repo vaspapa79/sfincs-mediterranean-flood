@@ -1,8 +1,8 @@
 # Anonymity scan of `reproduction\r6\review_archive\review_archive_v1.4.2` (CODE-17 C4)
 
-Generated 2026-10-23T07:37:30Z by `reproduction/r6/scripts/anonymity_grep.py --tree`. Files scanned: 1197 text, 144 PNG (text chunks), 17 TIFF (text tags); 0 other binaries listed only. Same classes and patterns as the dry run, with the github.com class split into the authors' URLs and third-party URLs (CODE-21).
+Generated 2026-10-23T08:19:38Z by `reproduction/r6/scripts/anonymity_grep.py --tree`. Files scanned: 1200 text, 144 PNG (text chunks), 17 TIFF (text tags); 0 other binaries listed only. Same classes and patterns as the dry run, with the github.com class split into the authors' URLs and third-party URLs (CODE-21).
 
-**Hits outside cited-work metadata: 0.** Hits inside cited-work metadata (refs.bib, refs_datacite.bib, REFERENCES_REPORT.md, refs_crossref_raw.json — other authors' records, left untouched by design): 4. Third-party github.com URLs (other projects' issues, releases and API host; not identifying; listed below, not counted): 174.
+**Hits outside cited-work metadata: 0.** Hits inside cited-work metadata (refs.bib, refs_datacite.bib, REFERENCES_REPORT.md, refs_crossref_raw.json — other authors' records, left untouched by design): 4. Third-party github.com URLs (other projects' issues, releases and API host; not identifying; listed below, not counted): 176.
 
 | class | hits | outside cited-work metadata | files |
 |---|---|---|---|
@@ -15,7 +15,7 @@ Generated 2026-10-23T07:37:30Z by `reproduction/r6/scripts/anonymity_grep.py --t
 | ORCIDs | 0 | 0 | 0 |
 | vaspapa | 0 | 0 | 0 |
 | github.com URLs (ours) | 0 | 0 | 0 |
-| github.com URLs (third-party) | 174 | 0 (not counted) | 8 |
+| github.com URLs (third-party) | 176 | 0 (not counted) | 8 |
 | Zenodo DOIs / records | 4 | 0 | 1 |
 | grant numbers | 0 | 0 | 0 |
 | ECHO | 0 | 0 | 0 |
@@ -26,6 +26,8 @@ Generated 2026-10-23T07:37:30Z by `reproduction/r6/scripts/anonymity_grep.py --t
 |---|---|---|
 | `docs/AUDIT.md` | 669 | `github.com` |
 | `docs/AUDIT.md` | 832 | `github.com/Deltares/SFINCS/releases/tag/v2.3.0_mt_Faber_release.` |
+| `docs/AUDIT.md` | 856 | `github.com` |
+| `docs/AUDIT.md` | 856 | `github.com` |
 | `reproduction/r6/scripts/build_refs.py` | 327 | `github.com/` |
 | `reproduction/r6/scripts/build_refs.py` | 359 | `github.com/graphql` |
 | `reproduction/v14_harness/D6_CN_SINK.md` | 102 | `github.com/Deltares/SFINCS` |

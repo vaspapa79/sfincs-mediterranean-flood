@@ -104,7 +104,9 @@ def part2(repo: Path, tests_log: Path | None) -> str:
     r6 = repo / "reproduction" / "r6"
     b = json.loads((r6 / "review_archive_v1.4.2_build.json").read_text(encoding="utf-8"))
     an = json.loads((r6 / "ANONYMITY_REPORT_review_archive.json").read_text(encoding="utf-8"))
-    t = rc["tag"]
+    t = dict(rc["tag"])
+    for k in ("old_tagger", "new_tagger"):                    # name and date only in the prose (the address is in the tag object)
+        t[k] = re.sub(r"\s*<[^>]*>", "", t[k])
     merge = git(repo, "log", "-1", "--merges", "--format=%h %s", "HEAD")
     tests = "not run"
     if tests_log and tests_log.exists():

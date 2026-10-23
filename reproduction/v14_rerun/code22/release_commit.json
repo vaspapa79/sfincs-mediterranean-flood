@@ -1,0 +1,73 @@
+{
+ "utc": "2026-10-23T08:16:10Z",
+ "generator": "reproduction/v14_rerun/scripts/code22_release_commit.py",
+ "base_freeze_commit": "779a8e052dd7c65f0dcd957a100d4700aa0b27ba",
+ "src_commit": "7e8d544e5a62590384b28efd701fdfd25d0d7ae1",
+ "files": [
+  ".zenodo.json",
+  "CHANGELOG.md",
+  "CITATION.cff",
+  "README.md",
+  "docs/AUDIT.md",
+  "docs/COMMIT_MAP_2026-10-23.md",
+  "reproduction/r6/README_REVIEW.md",
+  "reproduction/r6/ZENODO_DESCRIPTION_v1.4.2.md",
+  "reproduction/r6/tables/S10.csv",
+  "reproduction/r6/tables/S10.md"
+ ],
+ "commit": "9bc9698d39e4770964cb29afc7ce6f98be84bd84",
+ "commit_subject": "v1.4.2 metadata: commit map after the history rewrite, CITATION/.zenodo.json",
+ "commit_parent": "779a8e052dd7c65f0dcd957a100d4700aa0b27ba",
+ "diff_base_commit": [
+  ".zenodo.json",
+  "CHANGELOG.md",
+  "CITATION.cff",
+  "README.md",
+  "docs/AUDIT.md",
+  "docs/COMMIT_MAP_2026-10-23.md",
+  "reproduction/r6/README_REVIEW.md",
+  "reproduction/r6/ZENODO_DESCRIPTION_v1.4.2.md",
+  "reproduction/r6/tables/S10.csv",
+  "reproduction/r6/tables/S10.md"
+ ],
+ "diff_is_exactly_the_files": true,
+ "blobs_equal_to_src": {
+  ".zenodo.json": true,
+  "CHANGELOG.md": true,
+  "CITATION.cff": true,
+  "README.md": true,
+  "docs/AUDIT.md": true,
+  "docs/COMMIT_MAP_2026-10-23.md": true,
+  "reproduction/r6/README_REVIEW.md": true,
+  "reproduction/r6/ZENODO_DESCRIPTION_v1.4.2.md": true,
+  "reproduction/r6/tables/S10.csv": true,
+  "reproduction/r6/tables/S10.md": true
+ },
+ "diff_stat": ".zenodo.json                                 |  64 +++++\n CHANGELOG.md                                 |  73 ++++++\n CITATION.cff                                 |   4 +-\n README.md                                    | 164 ++++++++-----\n docs/AUDIT.md                                | 346 +++++++++++++++++++++++++++\n docs/COMMIT_MAP_2026-10-23.md                |  84 +++++++\n reproduction/r6/README_REVIEW.md             |  97 ++++++++\n reproduction/r6/ZENODO_DESCRIPTION_v1.4.2.md |  39 +++\n reproduction/r6/tables/S10.csv               |   9 +\n reproduction/r6/tables/S10.md                |  18 ++\n 10 files changed, 831 insertions(+), 67 deletions(-)",
+ "tag": {
+  "name": "v1.4.2",
+  "old_tag_object": "a876771988ac88589b869c69d99918f070958652",
+  "old_target": "779a8e052dd7c65f0dcd957a100d4700aa0b27ba",
+  "old_tagger": "Dimitris Valsamis <dvalsamis@iti.gr> 2026-10-20T19:30:47+03:00",
+  "backup_ref": "refs/backup/code22/tags/v1.4.2",
+  "new_tag_object": "7eec382c3607cc9e885124f38e8eca8706d23499",
+  "new_target": "9bc9698d39e4770964cb29afc7ce6f98be84bd84",
+  "new_tagger": "Dimitris Valsamis <dvalsamis@iti.gr> 2026-10-23T11:16:10+03:00",
+  "annotated": true,
+  "message_unchanged": true,
+  "message_subject": "Harness v1.4.2: D8 source-point resolution (per-point GloFAS windows / cells, request area covering every window, build-",
+  "diff_old_target_new_tag": [
+   ".zenodo.json",
+   "CHANGELOG.md",
+   "CITATION.cff",
+   "README.md",
+   "docs/AUDIT.md",
+   "docs/COMMIT_MAP_2026-10-23.md",
+   "reproduction/r6/README_REVIEW.md",
+   "reproduction/r6/ZENODO_DESCRIPTION_v1.4.2.md",
+   "reproduction/r6/tables/S10.csv",
+   "reproduction/r6/tables/S10.md"
+  ],
+  "diff_old_target_new_tag_is_exactly_the_files": true
+ }
+}
