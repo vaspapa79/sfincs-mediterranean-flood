@@ -1,0 +1,64 @@
+{
+  "title": "sfincs-mediterranean-flood: a configuration-driven, enhanced-forcing SFINCS framework reproducing five Mediterranean flood events under a frozen a-priori rule, validated against the Copernicus Emergency Management Service",
+  "version": "1.4.2",
+  "upload_type": "software",
+  "access_right": "open",
+  "license": "mit",
+  "creators": [
+    {
+      "name": "Papaioannou, Vassilios",
+      "affiliation": "Information Technologies Institute, Centre for Research and Technology Hellas (CERTH), Thessaloniki, Greece",
+      "orcid": "0000-0001-6598-7107"
+    },
+    {
+      "name": "Valsamis, Dimitrios",
+      "affiliation": "Information Technologies Institute, Centre for Research and Technology Hellas (CERTH), Thessaloniki, Greece"
+    },
+    {
+      "name": "Anagnostopoulos, Christos G. E.",
+      "affiliation": "Information Technologies Institute, Centre for Research and Technology Hellas (CERTH), Thessaloniki, Greece"
+    },
+    {
+      "name": "Moumtzidou, Anastasia",
+      "affiliation": "Information Technologies Institute, Centre for Research and Technology Hellas (CERTH), Thessaloniki, Greece"
+    },
+    {
+      "name": "Gialampoukidis, Ilias",
+      "affiliation": "Information Technologies Institute, Centre for Research and Technology Hellas (CERTH), Thessaloniki, Greece"
+    },
+    {
+      "name": "Vrochidis, Stefanos",
+      "affiliation": "Information Technologies Institute, Centre for Research and Technology Hellas (CERTH), Thessaloniki, Greece"
+    },
+    {
+      "name": "Kompatsiaris, Ioannis",
+      "affiliation": "Information Technologies Institute, Centre for Research and Technology Hellas (CERTH), Thessaloniki, Greece"
+    }
+  ],
+  "description": "<p>Release v1.4.2 of the configuration-driven SFINCS / HydroMT-SFINCS pipeline that hindcasts Mediterranean flood events from public global inputs (Copernicus DEM GLO-30, ESA WorldCover, GPM IMERG, ERA5, GloFAS v4) and scores each hindcast pixel by pixel against Copernicus EMS rapid-mapping flood polygons. Six EMS activations are covered: EMSR122 Strymonas (2015), EMSR257 Mandra (2017), EMSR664 Emilia-Romagna (2023), EMSR692 Pineios / Storm Daniel (2023), EMSR773 Valencia (2024) and EMSR933 Crete (2026), the last configured from the frozen a-priori activation rule before its flood extents existed.</p><p>The v1.4.x releases supersede every number of release v1.3.0. They fix eight defects of the earlier harness and add the evaluation mask (WorldCover class 80 and open sea excluded from scoring):</p><ul><li>D1: IMERG x2/-30 min (25 of 28 release runs; fix <code>5ca0dfa</code>, v1.4.0)</li><li>D2: inactive inverse-barometer boundary (25 of 28 release runs; fix <code>5ca0dfa</code>, v1.4.0)</li><li>D3: tspinup = 0 (methods text only)</li><li>D4: coastal set-up; fixed by: open sea inactive, coastal msk=2 ring, every cell starts dry (27 of 28 release runs; fix <code>3bf5586</code>, v1.4.0)</li><li>D5: meteo-grid alignment (28 of 28 release runs; fix <code>ee2b728</code>, v1.4.0)</li><li>D6: an unbounded sink for rain and inflow (9 of 28 release runs; fix <code>6c37b8a</code>, v1.4.0)</li><li>D7: GloFAS point sampling (14 of 28 release runs; fix <code>ca0f7cb</code>, v1.4.1)</li><li>D8: source-point resolution (14 of 28 release runs; fix <code>5cd8e90</code>, v1.4.2)</li><li>D9: source-point placement residuals are documented, not fixed (reproduction/v14_rerun/code16/d9_residuals.json).</li></ul><p>Contents: the pipeline (skill/), the validators (validation/), one YAML per event and configuration, the realised configurations and validation records of every v1.4.x run (reproduction/v14_rerun/), the Crete prospective-run record (reproduction/emsr933/), the audit trail (docs/AUDIT.md), the release history (CHANGELOG.md and table S10 in reproduction/r6/tables/) and the tests, as at the v1.4.2 number freeze. The manuscript tables and figures generated from these records, and the records added after the freeze, are on the main branch of the repository (reproduction/r6/, reproduction/v14_rerun/code16/ onwards). Commit hashes quoted before 2026-10-23 refer to the history before the rewrite of that date and resolve through docs/COMMIT_MAP_2026-10-23.md. README.md explains how to reproduce one event from its YAML.</p>",
+  "keywords": [
+    "flood inundation modelling",
+    "SFINCS",
+    "Mediterranean flash floods",
+    "Copernicus EMS validation",
+    "Storm Daniel",
+    "satellite precipitation",
+    "frozen a-priori activation rule",
+    "held-out validation",
+    "bias-insensitive verification (SEDI)"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.20523154",
+      "relation": "isVersionOf",
+      "resource_type": "software",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "https://github.com/vaspapa79/sfincs-mediterranean-flood/tree/v1.4.2",
+      "relation": "isSupplementTo",
+      "resource_type": "software",
+      "scheme": "url"
+    }
+  ]
+}

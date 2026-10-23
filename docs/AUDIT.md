@@ -585,3 +585,349 @@ Context: F5_VERIFY.md (CODE-10 Checkpoint 0/1) established three defects of the 
 - E branch reconciliation: see `reproduction/v14_rerun/code15/E_branch_done.md` (reproduced in CHECKPOINT7.md).
 - NUMBER_MAP.md: 79 entries, 37 differ under v1.4.2.
 - Tests: full suite Ran 174 tests, OK (python -m unittest discover -s tests, log D:/ELKAK/implementation/v14/_logs/unittest_full_code15_final.log).
+
+### Number freeze close-out (CODE-16) — author's decisions DvS 2026-10-21 (Papaioannou informed); generated 2026-10-21T09:15:33Z by `reproduction/v14_rerun/scripts/code16_freeze_closeout.py` from code15/source_points_v142.json (utc), results/*_v142_record.json (start_utc), code16/d9_residuals.json, code15/d_volumes_v142.json, code16/d_volumes_code16.json, code14/d7_scope.json, code15/d8_scope.json, results/{pineios_enhanced,pineios_enhanced_v141,pineios_enhanced_v142,pineios_timevarying_q_v142}_v14_newmask.json
+
+**1. Checkpoint 7 resolutions (1)–(4) accepted; the ledger `code15/source_points_v142.json` is final.** Ledger resolved **2026-10-20T12:42:30Z**; first v1.4.2 run started **2026-10-20T12:46:27Z** (`emilia_enhanced_8aoi_v142`, `pineios_enhanced_v142` — the earliest start_utc of the 15 v1.4.2 records).
+
+- (1) **pineios_kalambaka** (pineios): sampled at (21.63, 39.7, ±0.1°) → GloFAS cell (21.575, 39.725), 927.7 km², file peak 40.8 m³/s; **not injected** (inject: false). Ledger: inject: false — the extended lattice gives the Pineios at Kalambaka (928 km2), nested upstream of the Trikala cell (2073 km2, same river): injecting both would count the Kalambaka flow twice; its injection point lies on an inactive mountainside (DEM 413 m) with no Pineios channel within 1 km. Sampled and recorded (window no longer clipped, B(2)), not injected.
+- (2) **magro** (valencia): sampled at (-0.475, 39.225, ±0.02°) → GloFAS cell (-0.475, 39.225), 1647.9 km², file peak 18.7 m³/s; injected at (-0.68, 39.2). Ledger: sampling point moved to the Magro's own last cell before the Jucar (-0.475, 39.225; 1648 km2) with a one-cell window — the frozen window resolved to the Jucar below the Tous dam (17128 km2); injection point unchanged (it drains to the Magro; the build-time snap puts it on the nearest active channel cell)
+- (3) **senio** (emilia): sampled at (11.875, 44.375, ±0.02°) → GloFAS cell (11.875, 44.375), 266.4 km², file peak 62.4 m³/s; injected at (11.84865, 44.31073). Ledger: sampling point moved to the Senio's own last cell (11.875, 44.375; 266 km2) with a one-cell window — the frozen point (11.83, 44.27) lies in the Lamone valley and resolved to the Lamone at Faenza (600 km2), the cell the Montone point also took; injection moved to the Senio channel (lowest-z_b active channel cell inside the footprint of the Senio cell nearest to the old point, 11.825/44.325), because the old point drains to the Lamone (flag vi)
+- (4) **savio** (emilia): sampled at (12.1, 44.06, ±0.1°) → GloFAS cell (12.175, 44.075), 557.8 km², file peak 147.5 m³/s; injected at (12.19969, 44.09076). Ledger: sampling unchanged (the Savio south of Cesena, 558 km2); injection moved to the Savio channel (lowest-z_b active channel cell inside the footprint of the Savio cell nearest to the old point, 12.175/44.075), because the old point drains to the Ronco (flag vi)
+
+**2. D9 residual items — documented, not fixed; the number freeze stands** (`code16/d9_residuals.json`, `scripts/d9_residuals.py`; offset = distance from the snapped injection cell to the nearest model cell on the named river's channel: cells in the 0.05° footprints of the river's GloFAS v4 cells within 15 km whose D8 upstream area is ≥ 0.5 × the footprint maximum; footprints crossed by a larger river are skipped). These measured offsets supersede the rounded prose values of Checkpoint 7.
+
+| item | what | offset km | injection cell | consequence |
+|---|---|---|---|---|
+| D9-1 | Trikala injection (pineios) | 3.76 | z_b 95.79 m, D8 1.91 km² (snapped) | the Pineios inflow (injected peak 371.4 m³/s, 89.7 Mm³) enters a floodplain cell 3.76 km from the Pineios channel and reaches it overland, so part of the inundation between the two is source-location dependent. |
+| D9-2 | Titarisios injection (pineios) | 10.95 | z_b 61.69 m, D8 4.88 km² (snapped) | the Titarisios inflow (injected peak 42.9 m³/s, 16.9 Mm³) enters 10.95 km from the Titarisios channel, on ground that drains to the Pineios: the lower Titarisios carries no upstream inflow in the model. |
+| D9-3 | Ronco injection (emilia) | 3.03 | z_b 101.38 m, D8 6.32 km² (snapped) | the Ronco inflow (injected peak 171.2 m³/s, 59.1 Mm³) enters 3.03 km from the Ronco channel and reaches it overland. |
+| D9-4 | Montone injection (emilia) | 0.60 | z_b 62.98 m, D8 0.5 km² (snapped) | the Montone inflow (injected peak 131.9 m³/s, 45.5 Mm³) enters a valley-floor cell 0.60 km from the Montone channel; the channel is 1.40 km from the YAML point, outside the 1 km snap radius. |
+| D9-5 | Júcar sampling (Magro nested) (valencia) | 0.00 | z_b 2.95 m, D8 2183.77 km² (snapped) | the Júcar is sampled at its mouth reach (21422.1 km², file peak 88.8 m³/s), downstream of the Magro confluence; the Magro is injected separately (1647.9 km², 4.1 Mm³), so its flow is counted twice — bounded by 5.2 % of the Valencia injected total (78.6 Mm³). Ledger nesting: ['magro ⊂ jucar']. |
+| D9-6 | Kalambaka source (pineios) | n/a | YAML point outside the active grid (z_b n/a), DEM-D8 0.02 km²; not injected | sampled only (file peak 40.8 m³/s, 927.7 km²): its flow is contained in the Trikala series (nested); the YAML injection point lies on an inactive mountainside (DEM 413.5 m), outside the model's active grid, so no channel distance is defined. |
+| D9-7 | Pineios lattice offset (pineios) | 4.29 | — | the frozen Pineios Open-Meteo series are those of the static-map cell one 0.05° column (4.29 km at 39.66° N) east of the labelled coordinates (shift test: 0 of 32 river points on small cells and 0 of 60 dry points on river cells with the +1-column mapping, against 12 and 7 with the containing cell); the series are unchanged, only their river attribution shifts. |
+
+**3. Pending NUMBER_MAP entry.** §4.1.1 'peak 118 m³ s⁻¹ at Enipeas' / '~135 m³ s⁻¹ coincident' is **resolved by replacement**: the v1.4.2 injected peaks Trikala 371.4, Titarisios 42.9, Enipeas 118.4 m³/s (combined 532.6 m³/s); 149.6 Mm³ injected = 6.7 % of 2237 Mm³ rain on the active domain; the inflow bracket from the release history — v1.4.0 canonical, constant 11.589 m³/s at 4 points (32.0 Mm³ = 1.4 % of rain): CSI 0.495; v1.4.1 canonical, main stem at the Titarisios point (peak 1128.8 m³/s; 515.8 Mm³ = 23.1 % of rain): CSI 0.496. `pineios_timevarying_q_v142` has the canonical configuration (run config identical to the canonical's outside comments and paths: True; contingency table identical to the canonical's: True) and is relabelled everywhere **'repeat of the canonical configuration (determinism check)'** (CSI 0.496), not an independent time-varying audit. NUMBER_MAP.md regenerated: 0 entries pending.
+
+The Crete IMERG Final follow-up is declared in `reproduction/emsr933/rule_ledger.md` §9.
+
+## CODE-17 (2026-10-22T08:15:41Z) — look-ups B1–B5, review archive and push preparation (HEAD `1e01c29`; no model run)
+
+Generated by `reproduction/v14_rerun/scripts/code17_audit_block.py` from `code17/lookups.json`, `code17/c6_alltouched_inflation.json`, `code17/BOX1_as_committed.md`, the archive build record and git. Quoted values carry the file and page behind them (raw sources in the CODE-17 attachments).
+
+### B1 — when the frozen rule became public
+
+- Rule frozen in the private manuscript-build repository: commit `bfd005a6f65074662086f30e45ee7869022fc1f6` (2026-07-15 14:33:54 +03:00, author = committer date; private manuscript-build repository, no public remote (docs/FREEZE_EVIDENCE.md)); never pushed to a public remote.
+- Public copy: `docs/frozen_rule_R.md` added in `786fc50302e25fe7ce17430b4243403a168a842d` (author date 2026-07-20T15:12:30+03:00 = 2026-07-20T12:12:30Z); the file's blob `8f7586269723fdf24003b5fe44665a7e3e4778fd` is unchanged at HEAD.
+- First push of that commit to origin: 2026-07-22T08:31:35Z (GitHub repository-activity API, push refs/heads/main ecc9d5d -> a72897c by the second author's account; the local reflog of origin/main agrees ('update by push', 2026-07-22 11:31:35 +0300); c1/github_activity.json).
+- First public tag/release containing it: `v1.2.0` → `738fa3d (annotated tag bf77d4a, tagger date 2026-07-22T08:52:52Z; the activity log shows an earlier tag object bef8464 under the same name deleted on the remote at 09:01:44Z)`; GitHub release created 2026-07-22T08:52:52Z, published 2026-07-22T09:04:52Z (GitHub Releases API, c1/github_releases.json); Zenodo version 10.5281/zenodo.21487689 created 2026-07-22T09:04:56Z (publication_date 2026-07-22 (Zenodo records API, c1/zenodo_versions.json)).
+- Release v1.3.0 (the earlier manuscript's record): tag → `ccd423a (tag 1d19a55, tagger date 2026-07-22T09:38:59Z)`, GitHub release published 2026-07-22T09:43:52Z (created 09:38:59Z), Zenodo 10.5281/zenodo.21488879 created 2026-07-22T09:43:56Z (publication_date 2026-07-22; DataCite registered 2026-07-22T09:43:57Z). Concept DOI 10.5281/zenodo.20523154 registered 2026-06-03T08:12:29Z (DataCite created/registered; first version v.0.0.1 = record 20523155, GitHub release published 2026-06-03T08:12:24Z) (predates the rule).
+- Box 1 as committed: `code17/BOX1_as_committed.md` — blob: `8f7586269723fdf24003b5fe44665a7e3e4778fd` (unchanged at HEAD: yes); extracted rule block: bytes 1060–2104 of the blob, 1044 bytes, SHA-256 `e05a3836dd34cd16e9378cea50a9de9b1c431cd4435714e1b67a4beaad01f857`; extracted Box 1 caption: bytes 2105–2857, 752 bytes, SHA-256 `1361aa5115a1448b40bfd4249034729a818654a271892c5bcbb03ca1d0afbb59`
+
+### B2 — Copernicus DEM citation and the GLO-30 release used
+
+- `10.5270/ESA-c5d3d65`: registration agency Crossref (https://doi.org/ra/10.5270/ESA-c5d3d65 returns RA = Crossref) (DataCite API HTTP 404 (https://api.datacite.org/dois/10.5270/ESA-c5d3d65; 2026-10-21 and again 2026-10-22); checked 2026-10-22). Crossref record: title "Copernicus DEM", authors European Space Agency; Airbus (two organisational authors, in that order), publisher European Space Agency, issued 2022 (date-parts [[2022]]; no month), type dataset, no version field; doi.org resolves to https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM (HTTP 302 from doi.org; the CDSE COP-DEM collection page).
+- `10.60489/roda.mxyog0` (DataCite): title "Copernicus Digital Elevation Model (DEM)", creator Sinergise, publisher Registry of Open Data on AWS, publicationYear 2020, version 1.0, url https://registry.opendata.aws/copernicus-dem/ (DataCite; the registry page itself shows no DOI).
+- `10.5069/G9028PQB` (DataCite): title "Copernicus GLO-90 Digital Surface Model", creator OpenTopography, publisher OpenTopography, publicationYear 2021, url https://opentopography.org/meta/OT.032021.4326.1 (the landing page covers COP30 and COP90 under this one DOI; OpenTopography serves ESA's DGED 2023_1 release since 2024-07-23) — not the distribution used; not to be cited.
+- GLO-30 release used by every v1.4.x build (HydroMT data catalogue of each run, `data_catalog.yml`, entry `copdem30`): data_type RasterDataset, driver raster, path copdem30/copdem30.vrt, crs 4326, meta.category topography, meta.source_url https://copernicus-dem-30m.s3.amazonaws.com, meta.source_version 'GLO-30 (2021)' (identical in the data_catalog.yml of pineios_enhanced_v142, mandra_enhanced, valencia_enhanced_164_v142, crete_canonical_r2on; template skill/templates/data_catalog.yml.tmpl); the AWS collection metadata states 'Data is provided as Cloud Optimized GeoTIFFs and comes from the Copernicus DEM 2021 release' (STAC collection dem_cop_30 of the copernicus-dem-30m bucket, c2c3/C2d_aws_stac_copernicus-dem-30m-stac_dem_cop_30.json); the registry page: 'GLO-30 Public and GLO-90 are available on a free basis for the general public under the terms and conditions of the Licence'. Download: `skill/scripts/download_dem.py` from `https://copernicus-dem-30m.s3.amazonaws.com`, tiles `Copernicus_DSM_COG_10_<N>_00_<E>_00_DEM (1-degree COG tiles; e.g. Copernicus_DSM_COG_10_N34_00_E023_00_DEM.tif)`.
+- Licence notice for modified data (COP-DEM-GLO-30-F, Art. 6(b)): "produced using Copernicus WorldDEM-30 © DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved" (COP-DEM-GLO-30-F licence, Art. 6(b); ESA PDF copernicus_contributing_mission_data_access_v2_cop_dem_licenses.pdf)
+
+### B3 — Mandra event facts (Diakakis et al. 2019, doi 10.1016/j.ijdrr.2018.10.015; NOA Vilia)
+
+- Access: Full text not obtained (closed access; ScienceDirect returns a captcha page, no open copy in Pergamos, Semantic Scholar, OpenAlex, Europe PMC, CORE or the authors' sites). Read instead: the publisher's article preview (Wayback capture 2022-10-22 of the ScienceDirect abstract page): complete Abstract, complete section 1, the section outline, the Table 1 caption and the opening sentences of sections 2.1, 3.1, 4.1, 5 and 6. No printed page number is recoverable; the article runs pp. 290-309. The article's PII is S2212420918303935 (Crossref alternative-id). Files: b3/downloads/, b3/excerpts/, b3/ACCESS_LOG.tsv.
+- Rainfall: Abstract "reaching 300 mm in 13 h in the core zone of the event"; section 6 "reaching up to 300 mm in 13 h, with 153 and 194 mm of basin-average total accumulation in Agia Aikaterini and Soures catchments at the foothills of Mt. Pateras", attributed to "the high-resolution XPOL radar of NOA" (radar values). The draft's "158-300 mm in 24 h" and "24-h catchment-mean 158-200 mm, gauge totals exceeding 300 mm" are not in the source: 158, 200, '24 h' and any gauge total do not appear; the duration stated is 13 h.
+- Unit discharge: Abstract "Peak discharge was estimated, using a UAV-derived digital surface model, at two locations, corresponding to the two main tributaries and indicated an impressive hydrological response, between 9 and 10 m3/s/km2" (Table 1 "Peak discharge estimations and cross section measurement details at Sources and Agia Aikaterini torrents"). The draft's "exceeded 3 (locally > 5) m3 s-1 km-2" is not in the source and contradicts it.
+- Fatalities: Abstract "a tragic loss of 24 people, making it the most deadly flood in the country, in a period of 40 years" - "24 people died" is supported.
+- NOA Vilia gauge, > 30 mm/h: not in the source (no station name or mm/h value in the Abstract, section 1 or any preview snippet; section 2.2 'The storm event' is not in the preview, so it cannot be excluded there). No other source found documents it: the NOA 2017 annual report (p. 26) states that no rain gauges were installed in the event area ("Στην περιοχή του συμβάντος δεν υπήρχαν εγκατεστημένα βροχόμετρα"); Vilia station totals in the literature are 33.6-67.2 mm (Stamou 2018 p. 5 of the PDF: Elefsis 35, Vilia 35, Agioi Theodoroi 22 mm, citing NOA). Radar intensities: Varlas et al. 2019 (Remote Sens. 11, 45, p. 17 of the PDF) basin-average rates up to 57 mm/h (Soures) and 41 mm/h (Agia Aikaterini), 02-06 UTC. Lagouvardos et al. 2017 (GDJ 4, 4-16, online 2017-04-05) describes the station network and cannot document the event.
+- Radar agreement: Varlas et al. 2019 (p. 6, 8) compared XPOL with distant gauges over 14 Nov - 26 Dec 2017 (CR > 0.9, BR = 0.91); NOA states the radar agrees with GPM IMERG; no source compares a gauge with the radar at the storm peak.
+
+### B4 — Valencia event facts (Chiva 491 mm in 8 h; Turís 772 mm in 24 h)
+
+- Turis, AEMET station 8337X: AEMET study of 23 Dec 2024 (estudio_28_oct_4_nov_2024.pdf, PDF p. 30, Tabla 4.5): "8337X TURIS VALENCIA 184,6 620,6 720,4 771,8" (max 1 h, 6 h, 12 h; P24h) - 771.8 mm in 24 h; PDF p. 31: "710.8 mm (771.8 mm en el día civil)" (pluviometric day 08-08 vs civil day). AEMET report with data to 8 Nov 2024 (informe_episodio_dana_29_oct_2024.pdf, p. 13, Tabla 1): "8337X TURÍS 185 621 720 772".
+- Chiva, 491 mm in 8 h: only source found is AEMET's post on X of 2024-10-30 11:24 UTC (status 1851585885273301186, read through the public oEmbed endpoint): "En Chiva, de hecho, se recogieron 491 l/m² en solo ocho horas" (no station code, no time window). The AEMET study (PDF p. 30, Tabla 4.5) gives "8334B CHIVA-LA PAILLA VALENCIA -- -- -- 615,0" (24-h total 615.0 mm; sub-daily maxima not given) and on p. 29 99.4 mm between 7:30 and 9:30 and 384.0 mm between 15:30 and 20:30. Section 2's "daily totals above 490 mm at Chiva" is therefore wrong (the daily total is 615.0 mm); section 4's "about 491 mm in 8 h" matches the AEMET post.
+- Rombeek et al. 2025 (HESS 29, 6715-6737) carries neither value: p. 6715 "locally exceeding 300 mm within 24 h (Faranda et al., 2024)"; p. 6722 the Turis station "reported more than 400 mm within 24 h, with most rain (around 280 mm) between 18:00-00:00" (its AEMET series has a gap 12:00-18:00, p. 6725). Calvo-Sancho et al. 2026 (Nat. Commun. 17, 1492, abstract): "771.8 mm in 16 h in the official weather station at Turís" and 184.6 mm in 1 h.
+- Attribution for the manuscript: Turis 771.8 mm (24 h, civil day) -> AEMET 2024 study, Tabla 4.5; Chiva 491 mm in 8 h -> AEMET (2024-10-30 statement), daily 615.0 mm -> the same AEMET study; Rombeek et al. 2025 only for the catchment-average 164 mm of the R2 anchor.
+
+### B5 — any-touched versus centre-point burning of the observed polygons (`code17/c6_alltouched_inflation.json`; S6)
+
+| event (run of record) | universe km² | observed cells any-touched | km² | observed cells centre | km² | inflation | CSI / HR / FAR / B any-touched | CSI / HR / FAR / B centre (re-scoring sensitivity) |
+|---|---|---|---|---|---|---|---|---|
+| pineios (pineios_enhanced_v142) | 4506.7 | 67007 | 1507.7 | 57233 | 1287.7 | +17.1 % | 0.496 / 0.901 / 0.475 / 1.72 | 0.439 / 0.918 / 0.544 / 2.01 |
+| strymonas (strymonas_enhanced_postD6_v142) | 1196.2 | 4633 | 104.2 | 3074 | 69.2 | +50.7 % | 0.334 / 0.921 / 0.656 / 2.68 | 0.237 / 0.967 / 0.761 / 4.04 |
+| mandra (mandra_enhanced) | 86.9 | 3528 | 8.8 | 1930 | 4.8 | +82.8 % | 0.157 / 0.760 / 0.835 / 4.61 | 0.093 / 0.798 / 0.905 / 8.43 |
+| valencia (valencia_enhanced_164_v142) | 2709.5 | 19581 | 195.8 | 16515 | 165.2 | +18.6 % | 0.144 / 0.939 / 0.855 / 6.46 | 0.123 / 0.952 / 0.876 / 7.66 |
+| emilia (emilia_enhanced_8aoi_v142) | 3148.0 | 25240 | 567.9 | 14167 | 318.8 | +78.2 % | 0.253 / 0.852 / 0.735 / 3.22 | 0.154 / 0.897 / 0.844 / 5.73 |
+| crete AOI03 tier 1 (crete_canonical_r2on) | 176.9 | 1126 | 11.3 | 433 | 4.3 | +160.0 % | 0.221 / 0.988 / 0.778 / 4.45 | 0.086 / 1.000 / 0.914 / 11.58 |
+
+Crete tier-2 AOIs (area only): AOI01 178 vs 22 cells (+709 %); AOI04 41 vs 2 cells (+1950 %); AOI06 23 vs 6 cells (+283 %); AOI07 65 vs 2 cells (+3150 %).
+Method: inflation = observed-wet cells burned any-touched / burned by cell centre - 1, inside the universe; strict_h_gt_0p10.centre = labelled re-scoring sensitivity (no SFINCS run): the run of record's h_max > 0.10 m against the truth burned by cell centre on the same grid and universe. The any-touched contingency of every run reproduces its record (asserted). Release universe check: Pineios +17.7 %, Strymonas +52.2 %, Mandra +81.8 % (earlier text: +18 / +52 / +82 %).
+
+### C — anonymised review archive (local only, not uploaded)
+
+- Built 2026-10-22T08:13:42Z from `git archive v1.4.2` (`0084600`, 1211 files) + 374 overlay files from HEAD `1e01c29`; 13 files excluded (NOA station files, credentials patterns, caches, CITATION.cff, CLAUDE.md, anonymity tooling, cited-work raw metadata, archived figures); 412 of 1163 text files scrubbed (1901 substitutions); 1323 files in the archive.
+- `reproduction/r6/review_archive_v1.4.2.zip`: 77.5 MB, SHA-256 `5976777bdf4aa9490296e7fb3fb639a24264878dca07bd7b02c4f42b0f7ed3b7`.
+- Anonymity scan of the unpacked archive (`anonymity_grep.py --tree`, 2026-10-22T08:14:44Z): 15 hits outside cited-work metadata, 4 inside; by class: github.com URLs 15, Zenodo DOIs / records 4.
+
+### D — push preparation (nothing pushed; GO-PUSH pending)
+
+- Command: `git push --atomic origin main v1.4.0 v1.4.1 v1.4.2 emsr933-v1` — refs: `main` → `f3a11f4` (update); `v1.4.0` → `70c2bfb` (create); `v1.4.1` → `642efaa` (create); `v1.4.2` → `0084600` (create); `emsr933-v1` → `f3a11f4` (create). `origin/main` = `ccd423a`; `main` is fast-forwarded to the commit that carries this block (36 commits ahead of origin/main, fast-forward: True).
+- Tracked at HEAD (2026-10-22T08:14:28Z check, `scripts/d4_push_plan.py`): NOA/meteo.gr station data files none; credential files none; credential-like content 0 hit(s).
+- History that the push would publish: 8 NOA station data files were tracked from `6363ead` (2026-10-09) until the commit before this one and are reachable from tags `emsr933-v1`, `v1.4.0`, `v1.4.1`, `v1.4.2`; credential files in history: none. Removing the station files from history would rewrite every commit since 6363ead, including the frozen tag v1.4.2 — an author decision before GO-PUSH.
+
+## CODE-19 (2026-10-22T13:06:10Z) — R6b look-ups and zero-compute results (HEAD `6585d46`; no model run; number freeze v1.4.2 stands)
+
+Generated by `reproduction/v14_rerun/scripts/code19_audit_block.py` from the records under `reproduction/v14_rerun/code19/` (each cited with its SHA-256 prefix and UTC). Scripts: `code19_a1_rain_leadin.py`, `code19_a2_ib_boundary.py`, `code19_a3_hardware.py`, `code19_a4_emsr773_aois.py`, `code19_b45_map_checks.py`, `code19_lookups.py`; Crete baseline tier-1 diagnostics by `crete_tier1_diagnostics.py --runs crete_baseline` (re-scoring on the frozen output, as stated in C1).
+
+### A1 — domain-mean precipitation over the active mask `code19/a1_rain_leadin.json` (sha256 6803032a056ed1b5…, 2026-10-22T12:50:41Z)
+
+Definition: domain mean over the active cells (msk > 0) of the nearest source cell; ERA5 end-labelled hourly accumulations (t0 < t <= t1), IMERG start-labelled half-hourly rates (t0 <= t < t1); totals = sum(rate x step); lead-in = [tstart - 7 d, tstart); simulated = [tstart, tstop); max 24 h = largest rolling 24-h total of the domain-mean series inside the covered lead-in; AMC-5d = [t - 5 d, t) before tstart and before the event day.
+
+| event (run) | active cells | lead-in 7 d ERA5 / raw IMERG (mm) | lead-in coverage | simulated ERA5 / raw IMERG (mm) | max 24 h in lead-in ERA5 / IMERG (mm, start) | AMC 5 d before tstart ERA5 / IMERG | 5 d before event day ERA5 / IMERG |
+|---|---|---|---|---|---|---|---|
+| pineios (pineios_enhanced_v142) | 223703 | 0.4 / 1.6 | ERA5 100 % / IMERG 100 % | 312.5 / 156.1 | 0.2 (2023-09-01T14:00) / 1.3 (2023-08-28T10:00) | 0.3 / 1.5 | 174.2 / 103.4 |
+| mandra (mandra_enhanced) | 117667 | 0.3 / 0.4 | ERA5 15 % / IMERG 14 % | 38.1 / 141.0 | 0.3 (2017-11-12T00:00) / 0.4 (2017-11-12T00:00) | 0.3 / 0.4 | 7.3 / 11.9 |
+| strymonas (strymonas_enhanced_postD6_v142) | 185824 | 21.0 / 46.9 | ERA5 15 % / IMERG 100 % | 8.5 / 6.2 | 19.9 (2015-03-27T00:00) / 26.2 (2015-03-26T16:30) | 21.0 / 46.3 | 28.2 / 41.1 |
+| valencia (valencia_enhanced_164_v142) | 298115 | 24.3 / 16.6 | ERA5 43 % / IMERG 43 % | 107.8 / 72.6 | 23.8 (2024-10-25T07:00) / 16.4 (2024-10-25T05:00) | 24.3 / 16.6 | 54.9 / 20.8 |
+| emilia (emilia_enhanced_8aoi_v142) | 229446 | 61.4 / 64.5 | ERA5 100 % / IMERG 100 % | 134.0 / 129.7 | 42.4 (2023-05-10T05:00) / 45.5 (2023-05-09T21:30) | 60.4 / 64.3 | 101.9 / 89.5 |
+| crete (crete_canonical_r2on) | 859727 | 30.6 / 53.9 | ERA5 100 % / IMERG 100 % | 97.8 / 235.7 | 22.0 (2026-09-26T17:00) / 36.8 (2026-09-26T16:00) | 29.9 / 51.6 | 44.0 / 72.5 |
+
+Strymonas R4 as configured: infiltration {'enabled': True, 'hsg': 'B', 'amc': 2}, realised mean CN (active cells) 74.9. The rule's clause (docs/frozen_rule_R.md): R4 SCS-CN infiltr.   := IF AMC-III (multi-day wet spell OR peak intensity > HSG saturated capacity) OR fire-affected / near-impervious catchment THEN off    ELSE on at HSG-B, AMC-II — the clause does not quantify 'multi-day wet spell'; the numbers above are reported for the author's reading. Coverage: the ERA5 files are day-list downloads (the configured download days within each month: Strymonas and Valencia files hold 1–4 / 27–31 and 1 / 24–31 of the month), so the ERA5 7-day lead-in is covered for 25 h (Mandra, Strymonas) or 73 h (Valencia) only; the raw IMERG files cover the full 7 d except Mandra (24 h) and Valencia (72 h). Totals are reported over the covered part with the coverage shown; nothing was downloaded.
+
+### A2 — inverse-barometer boundary as realised `code19/a2_ib_boundary.json` (sha256 5931d9b13f8b92e3…, 2026-10-22T12:50:40Z)
+
+Definition: realised = max over the simulated window and the msk = 2 cells of zs in sfincs_map.nc (hourly output; dry cells are fill); expected = max of (pavbnd - p) / (rho g) with p = press_2d.nc sampled at the msk = 2 cells (nearest forcing node); rho 1024, g 9.81, pavbnd from sfincs.inp.
+
+| event (run) | bnd points / msk = 2 cells | realised max zs at the boundary (m, time) | expected IB max from the pressure at the boundary (m, time; p min hPa) | realised / expected | window-mean expected IB (m) | event-mean offset recorded (A2_pavbnd_reference) |
+|---|---|---|---|---|---|---|
+| pineios (pineios_enhanced_v142) | 12 / 716 | 0.063 (2023-09-05T02:00:00) | 0.065 (2023-09-05T02:00:00; 1006.74) | 0.972 | -0.017 | -0.021 |
+| mandra (mandra_enhanced) | 31 / 3253 | 0.090 (2017-11-13T13:00:00) | 0.091 (2017-11-13T14:00:00; 1004.1) | 0.987 | +0.003 | +0.003 |
+| strymonas (strymonas_enhanced_postD6_v142) | 19 / 802 | 0.116 (2015-03-28T03:00:00) | 0.118 (2015-03-28T03:00:00; 1001.42) | 0.986 | +0.043 | +0.042 |
+| valencia (valencia_enhanced_164_v142) | 24 / 1667 | 0.011 (2024-10-29T17:00:00) | 0.013 (2024-10-30T01:00:00; 1011.91) | 0.835 | -0.042 | -0.048 |
+| emilia (emilia_enhanced_8aoi_v142) | 226 / 3206 | 0.144 (2023-05-16T08:00:00) | 0.151 (2023-05-16T08:00:00; 998.05) | 0.951 | +0.016 | +0.016 |
+| crete (crete_canonical_r2on) | 160 / 13858 | 0.004 (2026-10-01T02:00:00) | 0.005 (2026-10-01T02:00:00; 1012.78) | 0.872 | -0.052 | -0.052 |
+
+Largest realised boundary rise: 0.144 m, emilia (emilia_enhanced_8aoi_v142), 2023-05-16T08:00:00; bzs files all zero: True; pavbnd 101325 Pa in every sfincs.inp.
+
+### A3 — hardware of the canonical runs `code19/a3_hardware.json` (sha256 8c90c391ab9b1358…, 2026-10-22T12:50:40Z)
+
+- Machine (read on host `ITI-1001`): 12th Gen Intel(R) Core(TM) i5-12600K, 10 physical cores / 16 logical processors, 16 GiB installed RAM (15.7 GiB usable), Microsoft Windows 11 Pro 10.0.26200 64-bit.
+- Every canonical run: sfincs.log `$Rev: v2.3.0 mt. Faber Release`, Build-Date 2025-11-18, `Using 16 of 16 available threads`; HydroMT and SFINCS invoked from `C:/Users/dvalsamis/…/sfincs-viz` on `D:/ELKAK/implementation/v14/<run>` — same machine for all six (pineios_enhanced_v142 2026-10-20T12:46:27Z→2026-10-20T13:58:49Z, mandra_enhanced 2026-10-19T09:13:13Z→2026-10-19T09:20:34Z, strymonas_enhanced_postD6_v142 2026-10-20T14:39:31Z→2026-10-20T14:53:31Z, valencia_enhanced_164_v142 2026-10-20T13:24:33Z→2026-10-20T13:58:45Z, emilia_enhanced_8aoi_v142 2026-10-20T12:46:27Z→2026-10-20T13:24:33Z, crete_canonical_r2on 2026-10-19T16:44:39Z→2026-10-19T20:21:12Z).
+- Caveat for Table 2 wall-clock times: the run windows overlap (pineios_enhanced_v142 and emilia_enhanced_8aoi_v142 both start 2026-10-20T12:46:27Z; valencia starts when emilia ends), so those timings were measured with two 16-thread runs sharing the CPU.
+- Build-Date in the log is 2025-11-18 while the records name the release `mt_Faber_release_2025.02`; the executable folder is `SFINCS_v2.3.0_mt_Faber_release_exe` (manual PDFs dated 2025-11-19) — the '2025.02' suffix is not confirmed by the binary.
+
+### A4 — EMSR773 areas of interest `code19/a4_emsr773_aois.json` (sha256 438861b10182e803…, 2026-10-22T12:40:16Z)
+
+- Activation as listed by the EMS dashboard API on 2026-10-22T12:40:16Z (snapshot `reproduction/v14_rerun/code19/ems_api_snapshot_EMSR773_20261022T124016Z.json`, sha256 5041c86b0fe6fec6…): **36 AOIs**; 24 intersect the configured lon/lat bbox, 26 the UTM grid rectangle, **24 hold at least one active cell** of valencia_enhanced_164_v142 (the two extra grid intersections, AOI26 Siete Aguas and AOI33 Sot de Chera, touch inactive corners).
+- The run's cached EMS download (the truth snapshot) holds 3 AOIs (AOI01, AOI06, AOI14); AOI06 lies outside the domain (no active cell); S2 scores AOI01 and AOI14.
+- AOIs with active cells: AOI01 Valencia province (276592 cells, 5 product(s) DEL), AOI03 Horta Sud (27872 cells, 2 product(s) DEL/GRA), AOI04 Algemesi (23163 cells, 1 product(s) DEL), AOI10 Cheste (5489 cells, 1 product(s) GRA), AOI11 Yatova (9 cells, 2 product(s) DEL/GRA), AOI12 Godelleta (896 cells, 1 product(s) GRA), AOI13 Monserrat (1672 cells, 1 product(s) GRA), AOI14 Alcudia (1066 cells, 2 product(s) GRA), AOI16 Benicull de Xuquer (2115 cells, 1 product(s) GRA), AOI17 Alzira (3773 cells, 1 product(s) GRA), AOI18 Alginet (2134 cells, 1 product(s) GRA), AOI19 Llombai (545 cells, 1 product(s) GRA), AOI20 Montroi (537 cells, 1 product(s) GRA), AOI21 Turis (782 cells, 1 product(s) GRA), AOI22 Bunol (42 cells, 1 product(s) GRA), AOI23 Favara (188 cells, 1 product(s) GRA), AOI24 Cullera (1296 cells, 1 product(s) GRA), AOI25 Sueca (1365 cells, 1 product(s) GRA), AOI28 Pedralba (314 cells, 1 product(s) GRA), AOI29 El Mas del Moro (554 cells, 1 product(s) GRA), AOI30 Valencia Sud (2697 cells, 1 product(s) GRA), AOI31 Cases Del Riu (754 cells, 1 product(s) GRA), AOI35 Alcasser (405 cells, 1 product(s) GRA), AOI36 Paterna (2381 cells, 1 product(s) GRA).
+
+### B4 — Albufera lagoon (F7) `code19/b4_albufera.json` (sha256 9d8353115b93aaa9…, 2026-10-22T12:53:14Z)
+
+- Lagoon = the 4-connected WorldCover-80 component at the lagoon centre ([-0.335, 39.335]): **2447 cells, 24.47 km²**, all msk = 1 (active, not open sea), all inside the AOI union, **all excluded from the evaluation universe** (class 80 at the cell centre; in-universe cells 0); z_b -3.8–0.1 m; modelled h_max there: max 4.43 m, median 0.54 m, 2447 cells > 0.10 m. Had they been inside, 2209 cells would be false alarms = 2.044 % of the record's 108091 FP cells (EMS maps 238 of them as flooded).
+- Margin ring (3 cells around the lagoon): 1062 cells, WorldCover classes {'10': 152, '20': 10, '30': 37, '40': 137, '50': 10, '60': 2, '80': 47, '90': 667}; 1015 inside the universe, 921 wet, 95 false alarms = 0.088 % of the record's FP.
+- Verdict: excluded from the evaluation universe (no lagoon cell inside it) → F7 re-exported with the exclusion mask above the depth layer (`r6_figures.EXCL_ON_TOP`).
+
+- Depth drawn over excluded cells in the other maps `code19/b_maps_wet_in_excluded.json` (sha256 34a171ff1a6220fe…, 2026-10-22T12:53:14Z): F3 pineios 2102 cells (47.3 km², 1.69 % of the wet cells); F5 mandra 331 cells (0.83 km², 0.88 % of the wet cells); F6 strymonas 1272 cells (28.62 km², 8.88 % of the wet cells); F7 valencia 4271 cells (42.71 km², 3.15 % of the wet cells); F8 emilia 5792 cells (130.32 km², 4.68 % of the wet cells); F9 crete 1416 cells (14.16 km², 0.96 % of the wet cells) — left as drawn (decision for the author).
+
+### B5 — Emilia-Romagna southern edge (F8) `code19/b5_emilia_south.json` (sha256 284acb5e4df93bcd…, 2026-10-22T12:53:14Z)
+
+- Rows 0–4 (y ascending, row 0 = southern boundary): **309 cells with h_max > 0.10 m** ([60, 63, 63, 60, 63] per row), **none inside an AOI**, none EMS-observed; row 0 holds 220 closed-boundary cells (msk = 1), 0 water-level cells, and **60 wet cells touch the closed boundary**; depth up to 2.63 m; z_b 33–288 m; nearest inflow source 12.3 km away.
+- 62 of the 309 cells belong to the domain-wide channel component (rows 0–578), the rest to small valley-bottom components of 10–40 cells cut by the domain edge: Apennine channels whose upstream part lies outside the domain (closed boundary, no inflow prescribed there). Model output, not a plotting artefact → no re-export.
+
+### C — supplement rows
+
+- S1: 16 baseline rows added (pineios_baseline_gridmatched, mandra_baseline, strymonas_baseline, crete_baseline × 4 thresholds) from `phase4/cross_event_v14_v142.json` baseline_v14.sweep; S3: 4 baseline rows (fuzzy r = 0–3, one-sided, buffer, time-matched); Crete baseline buffer/time-matched on the tier-1 block from `code19/crete_tier1_diagnostics_baseline.json` (sha256 0127b3a1d8bbd4c2…, 2026-10-22T12:35:38Z): buffer −20 / 0 / +20 m CSI 0.263 / 0.343 / 0.359; time-matched full / earliest / latest 0.343 / 0.343 / 0.343.
+- S2: the Strymonas baseline per-area rows 01–04 were already present (CSI 0.207/0.410, 0.124/0.357, 0.333/0.365, 0.358/0.455); unchanged.
+- S4: the Strymonas lead-in row relabelled '7-day lead-in simulated (10 d before the event day; canonical 3 d)' (from the two configs' windows).
+- S11 (new; supplement numbering S10): the Manning lookup, 11 WorldCover classes from `skill/manning_lookup.csv` (built-up 0.012; copies in all six run directories byte-identical). The file carries no per-class source.
+
+### D — sources `code19/lookups.json` (sha256 913d9b3b31467fae…, 2026-10-22T13:04:35Z)
+
+- D3 Rombeek et al. 2025 (HESS 29, 6715–6733): Table 1 (p. 6718) `ID4 (Poyo) 182 NA NA NA 0 147 433` (gauged Poyo catchment ID4 = 182 km²); Fig. 6a legend (p. 6723) `1) - 960 km²; 2) - 571 km²; 3) - 1661 km²; 4) - 316 km²`; §4.3 (p. 6723) `On the other hand, for catchment (4) a significantly higher catchment-averaged rainfall is estimated, which is more than 40 mm, namely 164 mm.`. Two numbering schemes: Table 1 / Fig. 1b gauge catchments ID1–ID4, where ID4 is the Poyo gauge with 182 km²; Fig. 6 rainfall catchments (1)–(4) with areas 960 / 571 / 1661 / 316 km² (legend of Fig. 6a), where (3) is named the Magro and (4) carries the 164 mm. The text never names catchment (4); it is not the 182 km² gauged Poyo catchment (316 km²). read from the rendered pages (not from the text): Fig. 1b places gauge ID4 (Poyo) at about 0.60° W, 39.47° N beside Chiva, the Poyo draining east to the Albufera; Fig. 6d places the yellow catchment (4) with the '164 mm' label south of the Magro mouth around Algemesí (about 0.55–0.35° W, 39.15–39.30° N), while the red catchment (2) (571 km²; '162 mm' combined in panel d, '173 mm' AEMET-only in panel b) encloses Chiva and gauge ID4. On that reading the 164 mm belongs to the coastal catchment south of the Albufera, and the Poyo lies in catchment (2) with 162 mm (combined) — numerically 2 mm from the anchor used.
+- D4 Bernhofen et al. 2018: `The critical success index of individual models across the three regions ranges from 0.45 to 0.7 and the percentage of flood captured ranges from 52% to 97%.`; results `The average CSI of the GFMs range from 0.45 (GLOFRIS) to 0.70 (JRC) for a 25 year flow.`; no median stated. Trigg et al. 2016: `we find a MAI of only 0.29, and a mean Cohen’s kappa coefficient of 0.43, across all models and all return periods.` and `While there is around 30%–40% agreement in flood extent, our results s…` (model agreement, no CSI). Hocini et al. 2021 (p. 2986): `Overall, similar and satisfactory results are observed for the caRtino 1D and Floodos 2D approaches, with a slight advantage for Floodos, for which the 15 % quantiles of CSI values exceed 50 % and the median CSI values are close to 80 %.`; La Redorte (p. 2987) 69 / 63 / 35 %. Wing et al. 2017: body not retrievable (Wiley and Bristol PDF 403); abstract: Hit Rate 86 % vs FEMA, 92 % vs USGS (100-year). **The §4.7 ranges ('Bernhofen 0.10–0.36, median ≈ 0.22', 'Trigg 0.10–0.35', 'Hocini 0.42–0.62') and the F10 band constants of fig_skill_sweeps_v14.py are not what these articles state** — reported, not changed (B1 says nothing else changes in F10).
+- D5 Schumann et al. 2016: publisher page not readable (403); Bristol record `Pages (from-to) 10249-10256` — not added to refs.bib.
+- D6 Ross et al. 2018: Crossref Scientific Data 5, article 180091 ([[2018, 5, 15]]), title 'HYSOGs250m, global gridded hydrologic soil groups for curve-number-based runoff modeling' — not added pending the author.
+- D1 Diakakis et al. 2019 / Varlas et al. 2019: neither full text retrievable by automated access (Elsevier paywall; mdpi.com 403 for fetcher and curl; no open mirror listed by OpenAlex/OpenAIRE/Semantic Scholar) — catchment areas and the Pateras wildfire not verified.
+- D2 Emilia-Romagna 2023: Regione press release of 15 Dec 2023 on the commission report (quotes above); Ferrari et al. 2025 (>500-year for the 24-h rainfall at the Lamone/Marzeno gauges); ARPAE event report: >200-year for the 24-h rainfall in Santerno, Senio, Lamone, Montone, Ronco; ARPAE special: commission estimate 100–500 years per event. Rivers: ARPAE special '23 fiumi in esondazione'; Regione '23 fiumi esondati contemporaneamente'; Arrighi & Domeneghetti 2024 '23 rivers overflowed' with 'levee overtopping and failures'; CIMA '21 rivers'. Fatalities: ARPAE special '17 decessi'; Arrighi & Domeneghetti 2024 '15 deaths' (civil-protection source, Feb 2024); no peer-reviewed source read gives 17.
+- D7 Valencia anchor ledger: raw (2026-07-15; yes — CSI 0.105 at h > 0.10 m (CODE-5 ledger)) → 350.0 (2026-07-15; yes — CSI 0.082 (h > 0.10 m), 0.126 (h > 0.50 m)) → 175.0 (2026-07-21; yes — CSI 0.093 (h > 0.10 m), 0.165 (h > 0.50 m)) → 164.0 (2026-07-21; yes — CSI 0.094 (h > 0.10 m), 0.170 (h > 0.50 m)). every anchor change followed a computed score of the previous value (350 scored 15 Jul; 175 scored 09:29Z and replaced by 164 at ~10:00Z the same morning; 164 scored 10:41Z and adopted). The documented motive for each change is sourcing (unsourced 350 -> literature band midpoint -> catchment-specific published value), recorded in TARGET_SELECTION.md and PROVENANCE.md; the D3 reading above questions whether the 164 mm catchment (4) is the gauged Poyo catchment.
+
+## CODE-20 (2026-10-22T20:58:39Z) — figure set after the benchmark correction, three records, S2 digest rows (HEAD `0f61f1f`; no model run; number freeze v1.4.2 stands)
+
+Generated by `reproduction/v14_rerun/scripts/code20_audit_block.py` from the records under `reproduction/v14_rerun/code20/` (each cited with its SHA-256 prefix and UTC). Scripts: `code20_lookups.py` (A1 quotes), `code20_b1_freeze_order.py`, `code20_b3_emsr773_nested.py`, `code20_b4_sfincs_release.py`; figures by `reproduction/r6/scripts/r6_figures.py`, tables by `r6_tables.py`. Nothing was simulated and no frozen number changed.
+
+### A1 — F10 v3 benchmark constants and their quotes `code20/f10_benchmarks.json` (sha256 e661c9d4e9b14e47…, 2026-10-22T20:50:09Z)
+
+F10 v3: `F10.tiff` (sha256 9ef6695ef515c545…, 0.4 MB); markers unchanged (strict CSI, fuzzy r = 1 CSI, CSI*); y axis fixed 0–0.8; the Hocini band is dropped; `r6_figures.fig10` asserts its constants against this record.
+
+| drawn element | constant | legend text | source | quote (printed page) |
+|---|---|---|---|---|
+| grey band | 0.45–0.70 | global models vs MODIS extents, Bernhofen et al. (2018) | Bernhofen et al. 2018, ERL 13, 104007 (doi 10.1088/1748-9326/aae014); PDF sha256 0d48f1f059b49397… | “The average CSI of the GFMs range from 0.45 (GLOFRIS) to 0.70 (JRC) for a 25 year flow.” (article p. 5); “The critical success index of individual models across the three regions ranges from 0.45 to 0.7 and the percentage of flood captured ranges from 52% to 97%.” (abstract) |
+| MODIS (band label) | — | — | same | “The DFO uses Moderate Resolution Image Spectroradiometer (MODIS) imagery to capture flood events globally, and stores them online in an open-access archive.” (PDF p. 5); Fig. 3 caption: “Overlap of individual global flood model extent for return period flows of 25 and 100 years and MODIS observed flood extent for Lokoja, Idah, and Chemba” |
+| dotted lines | 0.42 / 0.29 | SFINCS, GloFAS forcing, ≥ 1000 km² / < 50 km² (Sadana et al. 2026) | Sadana et al. 2026, HESS 30, 5491–5519 (doi 10.5194/hess-30-5491-2026; refs.bib `sadana2026validation`); PDF sha256 3e19a228bda38140… | “global mean CSI of 0.42 for basins with large upstream area ( > 1000 km2) and a CSI of 0.29 for basins with small upstream area (< 50 km2)” (p. 5491); “the average CSI rose from 0.29 in the basins with a small upstream area (< 50 km2) to 0.42 in the basins with a large upstream area (≥1000 km2)” (p. 5500); Table 3: “≥1000 km2 (n = 8834) 0.62 0.41 0.42 1.22”, “< 50 km2 (n = 5304) 0.42 0.46 0.29 0.61” (p. 5501); forcing: “The primary global dataset was GloFAS (Grimaldi et al., 2022), which provided long-term global coverage discharge data suitable for simulating floods at a global scale.” (p. 5495) |
+| dashed line | 0.67 | SFINCS, observed discharge (Sadana et al. 2026) | same | “achieving an average CSI of 0.67 compared to the average global mean of 0.39 (Table 2)” (p. 5505); “when SFINCS was forced with observed USGS discharges, the average CSI was 0.67 (HR = 0.86; FAR = 0.21)” (p. 5507) |
+| not drawn | 0.39 | — | same | “with a mean CSI of 0.39 using GloFAS modelled discharges as input forcing” (p. 5509); “simulating 499 riverine floods globally” |
+
+Reading: 0.42 / 0.29 are average CSI by basin upstream-area class (Table 3; GloFAS discharge forcing; 499 events); 0.67 is the average CSI of ten US events forced with observed USGS discharge (Table 2 / Sect. 3.7); the global mean with GloFAS forcing is 0.39 (not drawn). Previous F10 (v2) drew `fig_skill_sweeps_v14.BANDS` = [['global multi-model (Bernhofen et al. 2018)', 0.1, 0.36, '#dddddd'], ['calibrated single-event (Hocini et al. 2021)', 0.42, 0.62, '#c8ddf0']] (and, until CODE-19 B1, the median line 0.4); the phase-4 script of the v1.4.2 freeze is left unchanged and F10 v3 no longer reads it. Fig. 10 caption of the R6b tracked manuscript (to be rewritten by the author): “Fig. 10 Strict CSI (circles), one-cell fuzzy CSI (squares) and CSI at the best depth threshold (triangles) of the six events against published ranges: the global multi-model range [grey; Bernhofen et al. (2018)] and the calibrated single-event range [blue; Hocini et al. (2021)].”. The figure manifest's no-author-names rule (`r6_fig_manifest.py`) is relaxed for exactly these three legend labels (CODE-20 A1 wording).
+
+### A2 — maps F3, F5, F6, F8, F9: exclusion mask above the depth layer
+
+`r6_figures.EXCL_ON_TOP` now covers every map (CODE-19 B4 had set F7 only): `F3.tiff` (sha256 ed56f0d6d98e264e…, 3.9 MB); `F5.tiff` (sha256 a469e0cee1ef1fa3…, 2.0 MB); `F6.tiff` (sha256 642e32cecc8c08a6…, 1.1 MB); `F8.tiff` (sha256 23019e5ef605c31a…, 4.3 MB); `F9.tiff` (sha256 04f96c919a856932…, 2.2 MB); F7 unchanged from CODE-19 (`F7.tiff` (sha256 958831d65f19b96f…, 3.1 MB)). Legends unchanged; `FIGURES_MANIFEST.md` regenerated. The modelled water inside excluded cells that CODE-19 `b_maps_wet_in_excluded.json` counted (F3 47 km², F6 29, F8 130, F9 14, F5 0.8) is no longer visible; no score changes (the universe never held those cells).
+
+### A3 — map captions against the new draw order (report only; manuscript not edited)
+
+R6b tracked manuscript (text extract sha256 c56e1831aa9e59e7…):
+
+- Fig. 3 Pineios, Storm Daniel (EMSR692): modelled maximum depth (blue; grey where hmax ≤ 0.10 m) against the EMS flood extent (red) and areas of interest (dashed); dark grey cells (permanent water, open sea) are excluded from the evaluation universe.
+- Fig. 5 Mandra (EMSR257): modelled maximum depth against the EMS grading polygons (red) and areas of interest (dashed); legend as Fig. 3.
+- Fig. 6 Strymonas (EMSR122): modelled maximum depth against the EMS flood extent (red) and area of interest (dashed); Lake Kerkini and the coastal lakes are excluded from the evaluation universe (dark grey).
+- Fig. 7 Valencia (EMSR773), held-out: modelled maximum depth against the EMS flood extent (red) and area of interest (dashed); legend as Fig. 3.
+- Fig. 8 Emilia-Romagna (EMSR664), held-out: modelled maximum depth against the EMS flood extent (red) and areas of interest (dashed); legend as Fig. 3.
+- Fig. 9 Crete (EMSR933), prospective: (a) island-wide maximum depth with the eight EMS areas of interest by scoring tier; (b) the scored Tzermiado area (tier 1) against the EMS flood extent (red).
+
+Fig. 3 (“dark grey cells (permanent water, open sea) are excluded from the evaluation universe”) and Fig. 6 (“… excluded from the evaluation universe (dark grey)”) remain true and are now exact: with the mask drawn last, every excluded cell shows dark grey, whereas F3/F6/F8/F9 v2 overprinted modelled depth on part of them. Figs. 5, 7, 8 (“legend as Fig. 3”) and Fig. 9 (no grey statement; legend carries it) need no change. Optional, if the author wants the hiding stated: append to Fig. 3 “modelled water inside excluded cells is not drawn”.
+
+### B1 — order of the rule freeze and the first Valencia metrics `code20/b1_freeze_order.json` (sha256 35b00c6cb808e822…, 2026-10-22T20:51:50Z)
+
+| event | source | as recorded | UTC |
+|---|---|---|---|
+| rule commit `bfd005a` | private repository git (author = committer) | 2026-07-15 14:33:54 +0300 | **2026-07-15T11:33:54Z** |
+| Valencia configuration written | mtime of runs/valencia_emsr773/valencia_emsr773_enhanced.yaml | — | 2026-07-15T12:17:17Z |
+| first Valencia execution | mtime of run.log | — | 2026-07-15T13:10:13Z |
+| first Valencia metrics (raw IMERG) | metrics.json generated_utc at `49da0d1` | 2026-07-15T13:13:03Z | **2026-07-15T13:13:03Z** |
+| commit `49da0d1` (results) | git | 2026-07-15 17:00:54 +0300 | 2026-07-15T14:00:54Z |
+| 350 mm metrics | metrics.json generated_utc at `5447768` | 2026-07-15T18:00:02Z | 2026-07-15T18:00:02Z |
+| commit `5447768` (350 mm) | git | 2026-07-15 21:09:15 +0300 | 2026-07-15T18:09:15Z |
+| runs/emilia_emsr664/metrics.json at `49da0d1` | metrics.json generated_utc | 2026-07-15T13:50:26Z | 2026-07-15T13:50:26Z |
+| docs/FREEZE_EVIDENCE.md author date | published record (sha256 2d56396c768cb484…) | 2026-07-15 14:33:54 +03:00 | 2026-07-15T11:33:54Z |
+
+**Verdict:** The rule commit bfd005a (2026-07-15T11:33:54Z) precedes the first Valencia metrics (2026-07-15T13:13:03Z) by 1 h 39 min 09 s and the 350 mm metrics (2026-07-15T18:00:02Z) by 6 h 26 min 08 s; the section 3.4 sentence stands, no replacement needed. (commit → first metrics 1 h 39 min 09 s; commit → configuration 0 h 43 min 23 s; commit → first execution 1 h 36 min 19 s.) Manuscript sentence (§3.4): “The rule was committed on 15 July 2026, before either held-out configuration was written” — stands.
+
+Defect (report only): docs/FREEZE_EVIDENCE.md gives the first Valencia score as 2026-07-15 21:00 local (+03:00; = 2026-07-15T18:00:00Z), which is the 350 mm run (2026-07-15T18:00:02Z); the raw-IMERG run was scored at 2026-07-15T13:13:03Z (= 2026-07-15 16:13 local), after the first execution the file lists (2026-07-15 16:10 local). Reported, not edited.
+
+### B2 — S2 digest rows (Strymonas ERA5 baseline)
+
+`tables/S2_baseline_digest.csv` (sha256 85f68feee540f53e…), emitted by `r6_tables.tab_s2` as a sub-table of S2 (cells identical to the S2 rows of run `strymonas_baseline`):
+
+| AOI | observed km² | modelled km² (h_max > 0.10 m) | CSI | HR | FAR | fuzzy r=1 CSI |
+|---|---|---|---|---|---|---|
+| 01STRYMONAS | 104.2 | 145.1 | 0.207 | 0.410 | 0.706 | 0.229 |
+| 02BALTOTOPI | 8.4 | 18.7 | 0.124 | 0.357 | 0.840 | 0.228 |
+| 03ACHINOS | 42.8 | 19.6 | 0.333 | 0.365 | 0.206 | 0.569 |
+| 04MAVROTHALASSA | 33.1 | 24.1 | 0.358 | 0.455 | 0.374 | 0.513 |
+
+### B3 — EMSR773 areas nested in AOI01 and their DEL products (response letter only) `code20/b3_emsr773_nested.json` (sha256 c0d87e53399c7da7…, 2026-10-22T20:50:11Z)
+
+Scope: geometry only (polygon areas and overlaps in EPSG:32630); no model output read, nothing re-scored. Of the 36 EMSR773 AOIs, 32 lie inside the AOI01 (Valencia province) extent and 23 of those hold active cells of the model domain (the “23”). Nested AOIs with a DEL product: AOI02 Plana de Utiel, AOI03 Horta Sud, AOI04 Algemesi, AOI11 Yatova; in the domain: AOI03 Horta Sud, AOI04 Algemesi, AOI11 Yatova (outside: AOI02 Plana de Utiel). Observed-event layers read from the EMS viewer (GeoJSON, each with URL / sha256 / bytes in the record); the AOI01 DEL_MONIT01 GeoJSON reproduces the run's cached shapefile union (78.315 km² both; 795 features).
+
+| nested product (sensor, acquisition) | observed km² in the product: flooded area / flood trace / all (EMS API ha) | covered by AOI01 DEL_PRODUCT (31 Oct; S2/L8/S1): fraction of product all / flooded area; AOI01 observed inside the extent (km²), fraction of it inside the product | covered by AOI01 DEL_MONIT01 (3 Nov ICEYE; the truth used): same |
+|---|---|---|---|
+| AOI03 Horta Sud (WorldView-2 2024-10-31; GeoEye-1 2024-10-31) | 0.84 / 23.23 / 24.07 (API: flooded area 84.3 ha, flood trace 2323.1 ha) | 57 % / 74 %; 67.4 km², 20 % | 1 % / 14 %; 4.0 km², 5 % |
+| AOI04 Algemesi (GeoEye-1 2024-10-31) | 5.69 / 6.03 / 11.72 (API: flooded area 568.8 ha, flood trace 603.4 ha) | 93 % / 98 %; 93.1 km², 12 % | 9 % / 17 %; 1.4 km², 75 % |
+| AOI11 Yatova (Plane Imagery 2024-11-11) | 0.00 / 0.01 / 0.01 (API: flooded area — ha, flood trace 1.0 ha) | 0 % / —; 0.0 km², 0 % | 0 % / —; 0.0 km², 0 % |
+
+Reading: the province-level AOI01 delineation of 31 Oct covers most of the Algemesí polygons (93 % of all, 98 % of its flooded area) and roughly half of Horta Sud's (57 %; 74 % of its flooded area), but maps far more water inside each nested extent than the VHR nested products delineate (93 km² vs 11.7 at Algemesí; 67 km² vs 24.1 at Horta Sud). The AOI01 DEL_MONIT01 product of 3 Nov, the truth used in scoring, covers 9 % (Algemesí) and 1 % (Horta Sud) of the nested polygons: by 3 Nov the mapped water had largely receded. Yatova's product holds a 0.01 km² flood trace that no AOI01 delineation maps. The nested products are therefore not the same polygons as the AOI01 truth; nothing was re-scored.
+
+### B4 — Deltares release of SFINCS v2.3.0 `code20/b4_sfincs_release.json` (sha256 1ca7756aeed8ec32…, 2026-10-22T20:52:12Z)
+
+GitHub `Deltares/SFINCS` release **SFINCS v2.3.0 mt Faber Release 2025.02** (tag `v2.3.0_mt_Faber_release`), published 2025-11-19T14:43:54Z, created 2025-11-18T13:50:39Z, attached assets: 0 (assets dated 2025-11-18: 0); tag commit `e829fd2` dated 2025-11-18T13:50:39Z (“- More cleanup”). Release text: “This contains open access to the source code from Github: https://github.com/Deltares/SFINCS/releases/tag/v2.3.0_mt_Faber_release.” / “As pre-compiled Windows executable:” / “https://download.deltares.nl/en/sfincs/” / “As Docker container:”. Pre-release: SFINCS v2.3.0 mt Faber Pre-Release 12-11-2025 (2025-11-12T13:18:50Z). download.deltares.nl: the page is script-rendered; a plain fetch carries no version or build-date text. Binary as run (CODE-19 A3 record): config_sfincs_exe = D:/ELKAK/implementation/SFINCS_bin/SFINCS_v2.3.0_mt_Faber_release_exe/sfincs.exe; sfincs_build_date = 2025-11-18; sfincs_build_revision = $Rev: v2.3.0 mt. Faber Release. API snapshot `reproduction/v14_rerun/code20/github_releases_Deltares_SFINCS_20261022T203750Z.json` (sha256 ed2434cd44b82e6b…, fetched 2026-10-22T20:37:50Z).
+
+Answer: GitHub release 'SFINCS v2.3.0 mt Faber Release 2025.02' (tag v2.3.0_mt_Faber_release), published 2025-11-19T14:43:54Z, created 2025-11-18T13:50:39Z; 0 attached assets (no executable dated 2025-11-18 is attached on GitHub); the release text points to download.deltares.nl for the pre-compiled Windows executable and to Docker; the tag commit e829fd2 is dated 2025-11-18T13:50:39Z, the same day as the binary's own 'Build-Date 2025-11-18' in every sfincs.log. Proposed §3.1 wording (not applied): “SFINCS v2.3.0 (mt Faber Release 2025.02, published 19 November 2025; Windows executable built 18 November 2025)”.
+
+### Tests
+
+`tests/test_code20_revision.py` (10 tests: F10 constants, map draw order, S2 digest, freeze-order helpers, nested-product coverage, release summary); full suite run recorded in the checkpoint.
+
+## CODE-21 (2026-10-23T07:40:00Z) — pre-push close-out (HEAD `44e50f2`; no model run; number freeze v1.4.2 stands; nothing pushed)
+
+Generated by `reproduction/v14_rerun/scripts/code21_audit_block.py`. Scripts: `code21_history_rewrite_record.py`, `d4_push_plan.py`, `code21_zenodo_check.py`, `build_review_archive.py`, `anonymity_grep.py --tree`, `release_docs.py --write`.
+
+### 1 — docs/FREEZE_EVIDENCE.md first-score correction (file sha256 3f7e57cf5014a389…)
+
+The Valencia first-score cell read 2026-07-15 21:00 local, which is the 350 mm run; the raw-IMERG run was scored at 2026-07-15T13:13:03Z = 16:13 local (`code20/b1_freeze_order.json`). The old value is kept struck through in the table and a dated correction paragraph gives the UTC sequence; the freeze ordering the file claims is unchanged.
+
+### 2 — fig_skill_sweeps_v14.py superseded-benchmark note (file sha256 f82c2ba2e0374122…)
+
+Header comment added: its BANDS (0.10–0.36, 0.42–0.62) and WING_MEDIAN are superseded by `code20/f10_benchmarks.json`; the PNG it draws is a phase-4 diagnostic of the v1.4.2 freeze, not the manuscript figure; output unchanged.
+
+### 3 — review archive rebuilt (local only, not uploaded)
+
+- Built 2026-10-23T07:37:08Z from `git archive v1.4.2` (`779a8e0`, 1204 files) + 415 overlay files from HEAD `1a6a5bd` (now including `docs/FREEZE_EVIDENCE.md` and the code19 / code20 records); 10 files excluded (NOA station files, credentials patterns, caches, CITATION.cff, CLAUDE.md, anonymity tooling, cited-work raw metadata, archived figures); 421 of 1196 text files scrubbed (1962 substitutions); 1358 files in the archive.
+- `reproduction/r6/review_archive_v1.4.2.zip`: 78.6 MB, SHA-256 `2c0a3c6ef74216eeba0b88ad4017923b49ab7782deae89835abe6889c07f123b`.
+- Anonymity scan of the unpacked archive (`anonymity_grep.py --tree`, 2026-10-23T07:37:30Z): **0 hits outside cited-work metadata**, 4 inside (other authors' Zenodo DOIs in refs_datacite.bib); by class: github.com URLs (third-party) 174, Zenodo DOIs / records 4. Third-party github.com URLs listed, not counted: 174.
+
+### 4 — history rewrite: NOA/meteo.gr station data files removed `code21/history_rewrite.json` (sha256 47c64940edb25194…, 2026-10-23T07:33:08Z)
+
+Tool git-filter-repo a40bce548d2c (pip git-filter-repo 2.47.0, base conda env), git version 2.42.0.windows.2; command: `git filter-repo --force --preserve-commit-hashes --invert-paths --path reproduction/emsr933/noa_stations/published_totals.csv --path reproduction/emsr933/noa_stations/stations_daily.csv --path reproduction/emsr933/noa_stations/stations_meta.csv --path reproduction/r6/tables/S8_noa_stations.csv --path reproduction/v14_rerun/phase5/crete_rain_vs_noa.csv --path reproduction/v14_rerun/phase5/crete_rain_vs_noa.json --path reproduction/v14_rerun/phase5/crete_rain_vs_noa.png --path reproduction/v14_rerun/phase5/logs/rain_vs_noa.log --refs ccd423a..refs/heads/main ccd423a..refs/heads/fix/harness-v1.4 ccd423a..refs/heads/emsr933-crete ccd423a..refs/tags/v1.4.0 ccd423a..refs/tags/v1.4.1 ccd423a..refs/tags/v1.4.2 ccd423a..refs/tags/emsr933-v1   (in a mirror clone; refs applied with git update-ref)`. 34 of 39 commits after the published v1.3.0 (`ccd423a`) rewritten, commit messages verbatim; removed paths: `reproduction/emsr933/noa_stations/published_totals.csv`, `reproduction/emsr933/noa_stations/stations_daily.csv`, `reproduction/emsr933/noa_stations/stations_meta.csv`, `reproduction/r6/tables/S8_noa_stations.csv`, `reproduction/v14_rerun/phase5/crete_rain_vs_noa.csv`, `reproduction/v14_rerun/phase5/crete_rain_vs_noa.json`, `reproduction/v14_rerun/phase5/crete_rain_vs_noa.png`, `reproduction/v14_rerun/phase5/logs/rain_vs_noa.log`; kept (code and source notes, no station values): `reproduction/emsr933/noa_stations/.gitignore`, `reproduction/emsr933/noa_stations/sources.md`, `reproduction/v14_rerun/scripts/crete_rain_vs_noa.py`, `tests/test_crete_rain_vs_noa.py`.
+
+| ref | before | after |
+|---|---|---|
+| `refs/heads/emsr933-crete` | `69d1c58` | `7b3fc83` |
+| `refs/heads/fix/harness-v1.4` | `19e3954` | `1a6a5bd` |
+| `refs/heads/main` | `19e3954` | `1a6a5bd` |
+| `refs/tags/emsr933-v1` | `542ca35` | `22ad917` |
+| `refs/tags/v1.4.0` | `f39f215` | `3331681` |
+| `refs/tags/v1.4.1` | `e7e2aeb` | `040ebc4` |
+| `refs/tags/v1.4.2` | `6cc7b9e` | `a876771` |
+
+Tag targets (commits): `emsr933-v1` f3a11f4 → 7b15b4e; `v1.4.0` 70c2bfb → 1033833; `v1.4.1` 642efaa → 4b38523; `v1.4.2` 0084600 → 779a8e0. Earlier records that cite `0084600` (tag v1.4.2) now resolve to `779a8e0`; the tree is identical.
+
+Checks (a)–(e) — the CODE-18 brief text was not available in this session, so these are the reconstruction recorded in the JSON:
+
+- (a) no removed path reachable from main, v1.4.0, v1.4.1, v1.4.2, emsr933-v1: **PASS**
+- (b) every rewritten commit differs only by the removed paths; author / committer / dates / message identical: **PASS**
+- (c) tags annotated, tagger / date / message unchanged, re-pointed at the rewrite of the original target: **PASS**
+- (d) every commit up to v1.3.0 keeps its hash; origin/main is an ancestor of main; remote refs unchanged: **PASS**
+- (e) HEAD trees of main and fix/harness-v1.4 identical before / after; backups present (refs/backup/code21/*, verified bundle): **PASS**
+
+Backup bundle of every ref before the rewrite: `C:\Users\dvalsamis\AppData\Local\Temp\claude\d--ELKAK\9345177c-48a6-4380-9f01-2779f44e774f\scratchpad\code21\rewrite\backup_pre_rewrite_all_refs.bundle` (129.9 MB, sha256 9966372833efcbe8…, verified); the old refs also remain under `refs/backup/code21/` and the staging copies under `refs/rewritten/` (local only; delete after GO-PUSH is verified).
+
+### 5 — CHANGELOG, Zenodo description, push plan `code21/push_plan.json` (sha256 7718b8e7c60b6908…, 2026-10-23T07:39:58Z) `code21/zenodo_release_check.json` (sha256 90f8bd8395e96e22…, 2026-10-23T07:40:00Z)
+
+`CHANGELOG.md` and `reproduction/r6/ZENODO_DESCRIPTION_v1.4.2.md` regenerated by `release_docs.py --write` (tag hashes read from git after the rewrite). Creators of the existing Zenodo record 10.5281/zenodo.21488879 (version v1.3.0, concept 10.5281/zenodo.20523154) against CITATION.cff: identical (7 creators, same affiliation, ORCID only for the first). The tag tree carries CITATION.cff version 1.3.0 and no .zenodo.json: Zenodo's GitHub integration builds the new version's metadata from the release's tree (.zenodo.json, else CITATION.cff); the tag tree carries CITATION.cff version 1.3.0, so the auto-created record would state version 1.3.0 until its metadata is edited (version, description from reproduction/r6/ZENODO_DESCRIPTION_v1.4.2.md); the creators are the same either way.
+
+- Push command: `git push --atomic origin main v1.4.0 v1.4.1 v1.4.2 emsr933-v1` — refs: `main` → `44e50f2` (update); `v1.4.0` → `1033833` (create); `v1.4.1` → `4b38523` (create); `v1.4.2` → `779a8e0` (create); `emsr933-v1` → `7b15b4e` (create). `origin/main` = `ccd423a`; `main` = `44e50f2`, 40 ahead, fast-forward True.
+- Tracked at HEAD: NOA station data files none; credential files none; credential-like content hits 0. History reachable from the pushed refs: NOA data files none; credential files none.
+- GO-PUSH sequence: git -C <main checkout> push --atomic origin main v1.4.0 v1.4.1 v1.4.2 emsr933-v1 → gh release create v1.4.2 --repo vaspapa79/sfincs-mediterranean-flood --title "v1.4.2" --notes-file <the CHANGELOG v1.4.2 section>   (one release: the Zenodo webhook mints one version DOI per GitHub release) → poll https://zenodo.org/api/records?q=conceptrecid:20523154&all_versions=true until the new version appears; report its DOI URL and the release URL.
+
+## CODE-22 (2026-10-23T08:12:40Z) — the history rewrite propagated to the published texts; v1.4.2 release metadata (HEAD `e85c8ed`; no model run; number freeze v1.4.2 stands; nothing pushed)
+
+**Commit hashes quoted in the entries of this file dated before 23 October 2026 refer to the history before the rewrite of 2026-10-23 (CODE-21 item 4) and resolve through `docs/COMMIT_MAP_2026-10-23.md`. Those entries are not edited.** The same holds for the other dated records that quote them (listed under step 2).
+
+Generated by `reproduction/v14_rerun/scripts/code22_audit_block.py --part 1`. Scripts: `code22_commit_map_doc.py`, `code22_grep_check.py`, `code22_release_commit.py`, `reproduction/r6/scripts/commit_map.py` (the mapper used by `r6_tables.py` and `release_docs.py`).
+
+### 1 — commit map (`docs/COMMIT_MAP_2026-10-23.md`, sha256 83595210519c766f…)
+
+34 rewritten commits, old → new, 7-character and full hashes, from `code21/history_rewrite.json`; the eight removed paths; the reason (third-party station data); the statement that apart from the removed files every tree is byte-identical; the tag map.
+
+### 2 — published texts mapped to the published hashes; grep check `code22/grep_check.json` (sha256 e4e6b1e81fb5760a…, 2026-10-23T08:12:08Z)
+
+| file | pre-rewrite hashes before | after |
+|---|---|---|
+| `CHANGELOG.md` | 14 | 0 |
+| `README.md` | 0 | 0 |
+| `reproduction/r6/README_REVIEW.md` | 0 | 0 |
+| `reproduction/r6/ZENODO_DESCRIPTION_v1.4.2.md` | 7 | 0 |
+| `reproduction/r6/tables/S10.md` | 7 | 0 |
+| `reproduction/r6/tables/S10.csv` | 7 | 7 |
+| `CITATION.cff` | 0 | 0 |
+| `.zenodo.json` | new file | 0 |
+| `reproduction/r6/scripts/release_docs.py` | 12 | 0 |
+| `tests/test_code17_helpers.py` | 2 | 0 |
+
+Table S10 is regenerated by `r6_tables.py`: the fix-commit column carries the published hashes; the CSV keeps the pre-rewrite hash in a last column, `pre-rewrite fix commit`, which the .md does not show. `release_docs.py` maps every rendered text (the CHANGELOG copies a tag message that quotes a pre-rewrite hash), and its stage list now quotes published hashes, so it keeps working once the pre-rewrite objects are deleted.
+
+Grep of the tracked tree (and new files) for the six pre-rewrite fix commits (D1/D2, D4, D5, D6, D7, D8): 76 hits in 30 files; **0 outside the categories below**:
+
+- audit trail (entries before the rewrite): 1 files, 12 hits — docs/AUDIT.md (12)
+- commit map: 1 files, 6 hits — docs/COMMIT_MAP_2026-10-23.md (6)
+- dated record: 26 files, 45 hits — reproduction/emsr933/rule_ledger.md (1); reproduction/emsr933/timing.md (15); reproduction/v14_rerun/CHECKPOINT4.md (1); reproduction/v14_rerun/CHECKPOINT4b.md (1); reproduction/v14_rerun/CHECKPOINT6.md (3); reproduction/v14_rerun/CHECKPOINT7.md (2); … 20 more
+- S10.csv pre-rewrite column (by design): 1 files, 7 hits — reproduction/r6/tables/S10.csv (7)
+- rewrite record (source of the map): 1 files, 6 hits — reproduction/v14_rerun/code21/history_rewrite.json (6)
+
+The brief's target of no hit outside the commit map and this file is not met by design for three of these categories: the S10 CSV keeps the pre-rewrite column the brief asks for, the rewrite record is the source of the map, and the dated records are left as written, like the entries of this file: the `git_head` field of 18 run records (the commit each run was executed with), 4 checkpoints and `rule_ledger.md`, `timing.md`, `MANIFEST.md`, `F_branch_plan.md`.
+
+### 3 — release metadata
+
+- `CITATION.cff`: version 1.4.2, date-released 2026-10-23 (the date of the re-created tag).
+- `.zenodo.json` (sha256 a6f3cf98b24808d7…): title and version from CITATION.cff, upload_type software, licence mit, access open, 7 creators copied (name, affiliation, ORCID) from the API response of record 10.5281/zenodo.21488879 (`code22/zenodo_record_21488879.json`, sha256 7bdce1b99df0cdaf…), its keywords, the description rendered from the same lines as the Zenodo draft, related identifiers isVersionOf 10.5281/zenodo.20523154; isSupplementTo https://github.com/vaspapa79/sfincs-mediterranean-flood/tree/v1.4.2. Zenodo uses `.zenodo.json` and ignores CITATION.cff when both are present (Zenodo help, “Zenodo JSON file”); a related-identifier list there replaces the GitHub default, so the isSupplementTo link to the tag's tree is written explicitly.
+- Tag: `v1.4.2` is re-created (annotated, same message) on a release-metadata commit whose parent is the number-freeze commit `779a8e0` and whose tree is the freeze tree plus exactly these files, at their versions on the main line: `docs/COMMIT_MAP_2026-10-23.md`, `docs/AUDIT.md`, `CHANGELOG.md`, `README.md`, `reproduction/r6/README_REVIEW.md`, `reproduction/r6/ZENODO_DESCRIPTION_v1.4.2.md`, `reproduction/r6/tables/S10.csv`, `reproduction/r6/tables/S10.md`, `CITATION.cff`, `.zenodo.json`. That commit, the old → new tag target and `git diff --stat 779a8e0 v1.4.2` are recorded in the addendum below, appended on the main line once the tag exists.
