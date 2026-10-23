@@ -1,0 +1,192 @@
+{
+ "utc": "2026-10-23T07:36:31Z",
+ "generator": "reproduction/v14_rerun/scripts/code21_zenodo_check.py",
+ "api_files": {
+  "datacite_21488879.json": {
+   "sha256": "e9f2754d1e257e522b42364f587e2314d5abb2a3faa5ae40508def977a0a1d95",
+   "fetched_utc": "2026-10-23T07:22:41Z"
+  },
+  "datacite_concept.json": {
+   "sha256": "cc6c6cdd551ddb49cc01eb6a06cbf5770c467c31652a226196902ea4d651663d",
+   "fetched_utc": "2026-10-23T07:22:42Z"
+  },
+  "record_20523154.json": {
+   "note": "not JSON (an HTTP error page from a first attempt); ignored"
+  },
+  "record_21487689.json": {
+   "note": "not JSON (an HTTP error page from a first attempt); ignored"
+  },
+  "record_21488879.json": {
+   "sha256": "7bdce1b99df0cdaf735f7a3beeea5f88e29a09ee4e44ad5c6df2a5451a2c0a09",
+   "fetched_utc": "2026-10-23T07:22:41Z"
+  }
+ },
+ "existing_record": {
+  "doi": "10.5281/zenodo.21488879",
+  "concept_doi": "10.5281/zenodo.20523154",
+  "version": "v1.3.0",
+  "publication_date": "2026-07-22",
+  "title": "sfincs-mediterranean-flood: a configuration-driven, enhanced-forcing SFINCS framework reproducing five Mediterranean flood events under a frozen a-priori rule, validated against the Copernicus Emergency Management Service",
+  "license": "mit-license",
+  "related": [
+   [
+    "isSupplementTo",
+    "https://github.com/vaspapa79/sfincs-mediterranean-flood/tree/v1.3.0"
+   ]
+  ],
+  "creators": [
+   {
+    "name": "Papaioannou, Vassilios",
+    "affiliation": "Information Technologies Institute, Centre for Research and Technology Hellas (CERTH), Thessaloniki, Greece",
+    "orcid": "0000-0001-6598-7107"
+   },
+   {
+    "name": "Valsamis, Dimitrios",
+    "affiliation": "Information Technologies Institute, Centre for Research and Technology Hellas (CERTH), Thessaloniki, Greece",
+    "orcid": null
+   },
+   {
+    "name": "Anagnostopoulos, Christos G. E.",
+    "affiliation": "Information Technologies Institute, Centre for Research and Technology Hellas (CERTH), Thessaloniki, Greece",
+    "orcid": null
+   },
+   {
+    "name": "Moumtzidou, Anastasia",
+    "affiliation": "Information Technologies Institute, Centre for Research and Technology Hellas (CERTH), Thessaloniki, Greece",
+    "orcid": null
+   },
+   {
+    "name": "Gialampoukidis, Ilias",
+    "affiliation": "Information Technologies Institute, Centre for Research and Technology Hellas (CERTH), Thessaloniki, Greece",
+    "orcid": null
+   },
+   {
+    "name": "Vrochidis, Stefanos",
+    "affiliation": "Information Technologies Institute, Centre for Research and Technology Hellas (CERTH), Thessaloniki, Greece",
+    "orcid": null
+   },
+   {
+    "name": "Kompatsiaris, Ioannis",
+    "affiliation": "Information Technologies Institute, Centre for Research and Technology Hellas (CERTH), Thessaloniki, Greece",
+    "orcid": null
+   }
+  ],
+  "versions_of_concept": [
+   "10.5281/zenodo.20523155",
+   "10.5281/zenodo.20829572",
+   "10.5281/zenodo.21487689",
+   "10.5281/zenodo.21488879"
+  ]
+ },
+ "creators_check": {
+  "citation_cff_head_matches_zenodo_record": true,
+  "n_zenodo": 7,
+  "n_cff_head": 7,
+  "cff_head": [
+   {
+    "name": "Papaioannou, Vassilios",
+    "affiliation": "Information Technologies Institute, Centre for Research and Technology Hellas (CERTH), Thessaloniki, Greece",
+    "orcid": "0000-0001-6598-7107"
+   },
+   {
+    "name": "Valsamis, Dimitrios",
+    "affiliation": "Information Technologies Institute, Centre for Research and Technology Hellas (CERTH), Thessaloniki, Greece",
+    "orcid": null
+   },
+   {
+    "name": "Anagnostopoulos, Christos G. E.",
+    "affiliation": "Information Technologies Institute, Centre for Research and Technology Hellas (CERTH), Thessaloniki, Greece",
+    "orcid": null
+   },
+   {
+    "name": "Moumtzidou, Anastasia",
+    "affiliation": "Information Technologies Institute, Centre for Research and Technology Hellas (CERTH), Thessaloniki, Greece",
+    "orcid": null
+   },
+   {
+    "name": "Gialampoukidis, Ilias",
+    "affiliation": "Information Technologies Institute, Centre for Research and Technology Hellas (CERTH), Thessaloniki, Greece",
+    "orcid": null
+   },
+   {
+    "name": "Vrochidis, Stefanos",
+    "affiliation": "Information Technologies Institute, Centre for Research and Technology Hellas (CERTH), Thessaloniki, Greece",
+    "orcid": null
+   },
+   {
+    "name": "Kompatsiaris, Ioannis",
+    "affiliation": "Information Technologies Institute, Centre for Research and Technology Hellas (CERTH), Thessaloniki, Greece",
+    "orcid": null
+   }
+  ],
+  "cff_at_tag_same_names": true
+ },
+ "tag_tree_metadata": {
+  "tag": "v1.4.2",
+  "tag_commit": "779a8e052dd7c65f0dcd957a100d4700aa0b27ba",
+  "citation_cff_version_at_tag": "1.3.0",
+  "citation_cff_version_at_head": "1.4.2",
+  "zenodo_json_at_tag": false,
+  "zenodo_json_at_head": false,
+  "consequence": "Zenodo's GitHub integration builds the new version's metadata from the release's tree (.zenodo.json, else CITATION.cff); the tag tree carries CITATION.cff version 1.3.0, so the auto-created record would state version 1.3.0 until its metadata is edited (version, description from reproduction/r6/ZENODO_DESCRIPTION_v1.4.2.md); the creators are the same either way."
+ },
+ "push": {
+  "command": "git push --atomic origin main v1.4.0 v1.4.1 v1.4.2 emsr933-v1",
+  "main": "1a6a5bd",
+  "ahead": 39,
+  "fast_forward": true,
+  "refs": [
+   {
+    "ref": "main",
+    "kind": "branch",
+    "object": "1a6a5bd",
+    "commit": "1a6a5bd",
+    "on_remote": "ccd423a8c197601ad943965ee415f50b9ec53be8",
+    "action": "update"
+   },
+   {
+    "ref": "v1.4.0",
+    "kind": "annotated tag",
+    "object": "3331681",
+    "commit": "1033833",
+    "on_remote": null,
+    "action": "create"
+   },
+   {
+    "ref": "v1.4.1",
+    "kind": "annotated tag",
+    "object": "040ebc4",
+    "commit": "4b38523",
+    "on_remote": null,
+    "action": "create"
+   },
+   {
+    "ref": "v1.4.2",
+    "kind": "annotated tag",
+    "object": "a876771",
+    "commit": "779a8e0",
+    "on_remote": null,
+    "action": "create"
+   },
+   {
+    "ref": "emsr933-v1",
+    "kind": "annotated tag",
+    "object": "22ad917",
+    "commit": "7b15b4e",
+    "on_remote": null,
+    "action": "create"
+   }
+  ],
+  "tracked_noa_files": [],
+  "tracked_credential_files": [],
+  "history_noa_files": [],
+  "history_credential_files": []
+ },
+ "go_push_sequence": [
+  "git -C <main checkout> push --atomic origin main v1.4.0 v1.4.1 v1.4.2 emsr933-v1",
+  "gh release create v1.4.2 --repo vaspapa79/sfincs-mediterranean-flood --title \"v1.4.2\" --notes-file <the CHANGELOG v1.4.2 section>   (one release: the Zenodo webhook mints one version DOI per GitHub release)",
+  "poll https://zenodo.org/api/records?q=conceptrecid:20523154&all_versions=true until the new version appears; report its DOI URL and the release URL",
+  "then edit the new Zenodo version's metadata (version 1.4.2, description = ZENODO_DESCRIPTION_v1.4.2.md) — creators unchanged",
+  "delete the local backup refs refs/backup/code21/* and refs/rewritten/* once the push is verified (git for-each-ref refs/backup/code21 | cut -f2 | xargs -n1 git update-ref -d)"
+ ]
+}

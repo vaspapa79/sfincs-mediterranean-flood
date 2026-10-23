@@ -4,14 +4,19 @@ Releases of this repository, newest first. The defect lines D1–D8 are copied f
 
 ## Unreleased (after tag `v1.4.2`; records and documentation only, harness unchanged)
 
-- `5e9c40e` timing: v1.4.2 tag hash
-- `b766fa8` CODE-15 E: branch reconciliation executed (main re-pointed onto the published lineage, main checkout switched); CHECKPOINT7.md E section refreshed
-- `1667f15` code16: freeze close-out
-- `94ffb2a` code16: manuscript tables, figure export, anonymity dry run, references (CODE-16 B-E)
-- `f3a11f4` code17: release prep — README, CHANGELOG, CITATION 1.4.2, EMSR933 close-out
-- this commit: figures F10/F11 run of record only, map legend wording, S6 any-touched / centre-point rows, refs.bib updates, NOA station files untracked, CHANGELOG D1–D9, Zenodo description draft, CODE-17 look-up records
+- `85ecf7b` timing: v1.4.2 tag hash
+- `4064549` CODE-15 E: branch reconciliation executed (main re-pointed onto the published lineage, main checkout switched); CHECKPOINT7.md E section refreshed
+- `46b0e64` code16: freeze close-out
+- `dc62fba` code16: manuscript tables, figure export, anonymity dry run, references (CODE-16 B-E)
+- `7b15b4e` code17: release prep — README, CHANGELOG, CITATION 1.4.2, EMSR933 close-out
+- `f9e07c1` code17: figures run of record only, S6 burning rows, refs, NOA files untracked, CHANGELOG D1-D9
+- `4a7245f` code17: AUDIT block (B1-B5, review archive, push plan), archive build and scan records
+- `1cc3d4c` code19: R6b look-ups and zero-compute results (A1-A4, B1-B5, C1-C4, D1-D7)
+- `8d5d8ab` code19: AUDIT block and A1 docstring state the ERA5 day-list coverage of the lead-in (25 h Mandra/Strymonas, 73 h Valencia)
+- `1a6a5bd` code20: figure set after the benchmark correction, three records, S2 digest rows (A1-A3, B1-B4)
+- this commit: CODE-21 pre-push close-out — FREEZE_EVIDENCE.md first-score correction, superseded-benchmark note in fig_skill_sweeps_v14.py, review archive rebuilt, NOA station data files removed from the history (tags re-created), CHANGELOG and Zenodo description regenerated
 
-## v1.4.2 — 2026-10-20 (tag `v1.4.2` → `0084600`)
+## v1.4.2 — 2026-10-20 (tag `v1.4.2` → `779a8e0`)
 
 Harness v1.4.2: D8 source-point resolution (per-point GloFAS windows / cells, request area covering every window, build-time R3 snap, duplicate-cell hard error) on top of v1.4.1; v1.4.2 re-runs of every affected run; the number freeze. Records in reproduction/v14_rerun (CHECKPOINT7.md, code15/), docs/AUDIT.md
 
@@ -27,13 +32,13 @@ Defects of release v1.3.0 and their state at this release (the release that fixe
 - **D8** source-point resolution — runs affected: 14 of 28 release runs — fix `b15896a` — guard: test_glofas_area.py, test_prep_q_sampler.py::PineiosAuditRebuildRegression, test_prep_q_sampler.py::PineiosRealData, test_prep_q_sampler.py::StrictDuplicates, test_r6_helpers.py::RunLabel, test_source_snap.py [fixed in v1.4.2]
 - **D9** source-point placements — documented, not fixed (the number freeze stands): Trikala 3.76 km from the Pineios channel; Titarisios 10.95 km from the Titarisios channel; Ronco 3.03 km from the Ronco channel; Montone 0.60 km from the Montone channel; Jucar sampled on the Jucar (0.00 km); Kalambaka: sampled only (inject: false) only, no channel distance; Pineios GloFAS lattice offset 4.29 km — record `reproduction/v14_rerun/code16/d9_residuals.json` (pineios_enhanced_v142 and the other runs of record)
 
-## v1.4.1 — 2026-10-20 (tag `v1.4.1` → `642efaa`)
+## v1.4.1 — 2026-10-20 (tag `v1.4.1` → `4b38523`)
 
 Harness v1.4.1: D7 GloFAS point sampling fix (order-agnostic window, hard error instead of the domain-mean fallback) on top of v1.4.0; v1.4.1 re-runs of the affected Pineios runs, Table S3 and MANIFEST row 16 recreated, D5 upstream provenance; records in reproduction/v14_rerun (CHECKPOINT6.md, code14/), docs/AUDIT.md. Re-pointed from 1d0ba4c (stale checkpoint) before any publication.
 
 - **D7** GloFAS point sampling — runs affected: 14 of 28 release runs — fix `eb66116` — guard: test_prep_q_sampler.py
 
-## v1.4.0 — 2026-10-20 (tag `v1.4.0` → `70c2bfb`)
+## v1.4.0 — 2026-10-20 (tag `v1.4.0` → `1033833`)
 
 Harness v1.4: D1 IMERG rate/label, D2 coastal inverse barometer, D4 coastal set-up, D5 meteo-grid alignment, D6 curve-number bookkeeping (storecumprcp), WorldCover-80 + open-sea evaluation mask; all six events re-run (five published + EMSR933 Crete prospective); records under reproduction/v14_rerun and reproduction/emsr933; consolidated results in docs/AUDIT.md and reproduction/v14_rerun/CHECKPOINT5b.md
 

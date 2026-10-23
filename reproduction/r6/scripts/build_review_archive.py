@@ -82,7 +82,10 @@ OVERLAYS = ["skill/examples/*.yaml", "reproduction/v14_rerun/configs/*.yaml", "r
             "reproduction/r6/figures/*.tiff", "reproduction/r6/figures/*.png", "reproduction/r6/figures/meta/*.json",
             "reproduction/r6/figures/data/*", "reproduction/r6/TABLES_MANIFEST.md", "reproduction/r6/FIGURES_MANIFEST.md",
             "reproduction/r6/refs.bib", "reproduction/r6/refs_datacite.bib", "README.md", "CHANGELOG.md", "docs/AUDIT.md",
-            "reproduction/v14_rerun/code16/**/*", "reproduction/v14_rerun/code17/**/*", "tests/*.py"]
+            "docs/FREEZE_EVIDENCE.md",                                                   # corrected first-score time (CODE-21 item 1)
+            "reproduction/v14_rerun/code16/**/*", "reproduction/v14_rerun/code17/**/*",
+            "reproduction/v14_rerun/code19/**/*", "reproduction/v14_rerun/code20/**/*",   # CODE-19/20 records (CODE-21 item 3)
+            "tests/*.py"]
 EXCLUDES = ["CITATION.cff", "CLAUDE.md", ".cdsapirc", "*.netrc", ".env", "**/.env", "skill/machine.local.yaml",
             "reproduction/emsr933/noa_stations/*.csv", "reproduction/emsr933/noa_stations/.gitignore",
             "reproduction/v14_rerun/phase5/crete_rain_vs_noa.*", "reproduction/v14_rerun/phase5/logs/rain_vs_noa.log",
@@ -90,7 +93,9 @@ EXCLUDES = ["CITATION.cff", "CLAUDE.md", ".cdsapirc", "*.netrc", ".env", "**/.en
             "reproduction/r6/scripts/anonymity_grep.py", "reproduction/r6/scripts/build_review_archive.py", "reproduction/r6/ANONYMITY_REPORT*.md",
             "reproduction/r6/ANONYMITY_REPORT*.json", "reproduction/r6/anonymity_hits.json", "reproduction/r6/refs_crossref_raw.json",
             "reproduction/r6/REFERENCES_REPORT.md", "reproduction/r6/figures/archive/**", "reproduction/r6/review_archive/**",
-            "tests/test_code17_release.py"]
+            "tests/test_code17_release.py",
+            "reproduction/v14_rerun/scripts/code21_*.py", "reproduction/v14_rerun/scripts/d4_push_plan.py",   # release / push tooling (CODE-21), not review material
+            "reproduction/v14_rerun/scripts/release_docs.py"]
 
 
 def scrub_text(text: str):

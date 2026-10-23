@@ -113,8 +113,9 @@ def changelog(repo: Path) -> str:
     if unreleased:
         L += [f"## Unreleased (after tag `{last['name']}`; records and documentation only, harness unchanged)", ""]
         L += [f"- `{ln.split(' ', 1)[0]}` {ln.split(' ', 1)[1]}" for ln in reversed(unreleased)]
-        L += ["- this commit: figures F10/F11 run of record only, map legend wording, S6 any-touched / centre-point rows, refs.bib "
-              "updates, NOA station files untracked, CHANGELOG D1–D9, Zenodo description draft, CODE-17 look-up records", ""]
+        L += ["- this commit: CODE-21 pre-push close-out — FREEZE_EVIDENCE.md first-score correction, superseded-benchmark note in "
+              "fig_skill_sweeps_v14.py, review archive rebuilt, NOA station data files removed from the history (tags re-created), "
+              "CHANGELOG and Zenodo description regenerated", ""]
     by_tag: dict[str, list[dict]] = {}
     for d in dd.values():
         by_tag.setdefault(d["tag"], []).append(d)

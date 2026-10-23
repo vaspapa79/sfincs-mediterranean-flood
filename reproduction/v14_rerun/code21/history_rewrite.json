@@ -1,0 +1,330 @@
+{
+ "utc": "2026-10-23T07:33:08Z",
+ "generator": "reproduction/v14_rerun/scripts/code21_history_rewrite_record.py",
+ "tool": {
+  "name": "git-filter-repo",
+  "version": "a40bce548d2c (pip git-filter-repo 2.47.0, base conda env)",
+  "git": "git version 2.42.0.windows.2"
+ },
+ "command": "git filter-repo --force --preserve-commit-hashes --invert-paths --path reproduction/emsr933/noa_stations/published_totals.csv --path reproduction/emsr933/noa_stations/stations_daily.csv --path reproduction/emsr933/noa_stations/stations_meta.csv --path reproduction/r6/tables/S8_noa_stations.csv --path reproduction/v14_rerun/phase5/crete_rain_vs_noa.csv --path reproduction/v14_rerun/phase5/crete_rain_vs_noa.json --path reproduction/v14_rerun/phase5/crete_rain_vs_noa.png --path reproduction/v14_rerun/phase5/logs/rain_vs_noa.log --refs ccd423a..refs/heads/main ccd423a..refs/heads/fix/harness-v1.4 ccd423a..refs/heads/emsr933-crete ccd423a..refs/tags/v1.4.0 ccd423a..refs/tags/v1.4.1 ccd423a..refs/tags/v1.4.2 ccd423a..refs/tags/emsr933-v1   (in a mirror clone; refs applied with git update-ref)",
+ "removed_paths": [
+  "reproduction/emsr933/noa_stations/published_totals.csv",
+  "reproduction/emsr933/noa_stations/stations_daily.csv",
+  "reproduction/emsr933/noa_stations/stations_meta.csv",
+  "reproduction/r6/tables/S8_noa_stations.csv",
+  "reproduction/v14_rerun/phase5/crete_rain_vs_noa.csv",
+  "reproduction/v14_rerun/phase5/crete_rain_vs_noa.json",
+  "reproduction/v14_rerun/phase5/crete_rain_vs_noa.png",
+  "reproduction/v14_rerun/phase5/logs/rain_vs_noa.log"
+ ],
+ "kept_noa_related_paths": [
+  "reproduction/emsr933/noa_stations/.gitignore",
+  "reproduction/emsr933/noa_stations/sources.md",
+  "reproduction/v14_rerun/scripts/crete_rain_vs_noa.py",
+  "tests/test_crete_rain_vs_noa.py"
+ ],
+ "commits_mapped": 39,
+ "commits_rewritten": 34,
+ "commits_unchanged_in_range": 5,
+ "ref_map": [
+  {
+   "ref": "refs/heads/emsr933-crete",
+   "old": "69d1c580d5693e75bdaf87afa4f8aac1c27e1ede",
+   "new": "7b3fc835765306e11bd33d2d710f6167da689150"
+  },
+  {
+   "ref": "refs/heads/fix/harness-v1.4",
+   "old": "19e3954b3e007760caa14482799388c7fbdc6c5b",
+   "new": "1a6a5bd6cc6ed97ab41d7e86444b0542b88d9a0d"
+  },
+  {
+   "ref": "refs/heads/main",
+   "old": "19e3954b3e007760caa14482799388c7fbdc6c5b",
+   "new": "1a6a5bd6cc6ed97ab41d7e86444b0542b88d9a0d"
+  },
+  {
+   "ref": "refs/tags/emsr933-v1",
+   "old": "542ca355aa239e364200960262e4deba29fa9561",
+   "new": "22ad9171d2e93146130c0f1b81578237e3667291"
+  },
+  {
+   "ref": "refs/tags/v1.4.0",
+   "old": "f39f215df0bc1b44db66ad6f8fe8cd1beb242ff0",
+   "new": "3331681e4b7784f131d846f760b1d3c044899c5f"
+  },
+  {
+   "ref": "refs/tags/v1.4.1",
+   "old": "e7e2aeb0ccb877e9088f884a5a0158e9f0113c88",
+   "new": "040ebc4e2bcfd9d1fb76d9714418ef61e53ce688"
+  },
+  {
+   "ref": "refs/tags/v1.4.2",
+   "old": "6cc7b9edb2ecb28f873f7d8bdc555e6778163757",
+   "new": "a876771988ac88589b869c69d99918f070958652"
+  }
+ ],
+ "commit_map": [
+  {
+   "old": "0052b3d56e4e1bfefebe049fa6ae0fe77c5ee348",
+   "new": "bcb36f916c82700cf2a4d1cbf30f37b37074f770"
+  },
+  {
+   "old": "00846005a16e155692a83e4d15fbab975b09bf3e",
+   "new": "779a8e052dd7c65f0dcd957a100d4700aa0b27ba"
+  },
+  {
+   "old": "0252da6559239e4fcaef9e16ce132d94773bb68a",
+   "new": "1072879c30f01dab5b98db211418a7e1edef6ce9"
+  },
+  {
+   "old": "0a67dc71c23e5716383ad8789a7da830e29f08f9",
+   "new": "be83447aa9b3814a739ba1b8aec5974c658b02d4"
+  },
+  {
+   "old": "0a8131761b415df6a354e3cc8486741ff7921c9b",
+   "new": "c9b62437471ba56697d55d0bead8b822d648156a"
+  },
+  {
+   "old": "0f61f1f78741bc6e72ad55be389344694b457e1d",
+   "new": "8d5d8ab1b4b65016e84f441883f2c507b2183fc4"
+  },
+  {
+   "old": "1667f155ea78528002427847f365534dbada6c73",
+   "new": "46b0e64c3af8516191a6652860df7cf488ce0beb"
+  },
+  {
+   "old": "19e3954b3e007760caa14482799388c7fbdc6c5b",
+   "new": "1a6a5bd6cc6ed97ab41d7e86444b0542b88d9a0d"
+  },
+  {
+   "old": "1d0ba4c580bb466e957cab59026adcc36e40cd8c",
+   "new": "1d75bf894c80a0f0ba031e6ef33ee1b8e4410a76"
+  },
+  {
+   "old": "1e01c290e37d686fcd3777a5cbfa3efb5a0df188",
+   "new": "f9e07c1757776bf4aa5e562bcf8e017e54a0d384"
+  },
+  {
+   "old": "3f3c8c021f529ccd72a33b630f2bd60f52ee26bd",
+   "new": "02723bceb141827171b43b70452be07415601f79"
+  },
+  {
+   "old": "3f734c0b42a248affd8016f86fee68620eeb133e",
+   "new": "3f734c0b42a248affd8016f86fee68620eeb133e"
+  },
+  {
+   "old": "4609b922d071bc39e513941032c43d1867aca764",
+   "new": "0f2406add5925b8665588b94a6be1d3780c07027"
+  },
+  {
+   "old": "46aba38e126170d278e75dad8684751f5d681b0a",
+   "new": "46aba38e126170d278e75dad8684751f5d681b0a"
+  },
+  {
+   "old": "47354293d770c56b1ff8fc7b7fe92491da3bfeca",
+   "new": "6c37b8ad531b9bf320a9f011952e6eb2681392a8"
+  },
+  {
+   "old": "4d24b855c092edb706bfe3b2bf9a08015096c3a6",
+   "new": "c341305f83d143e79f2ba9cd6d88725534cc0ea7"
+  },
+  {
+   "old": "513ce5ab73bbf4ef41e091cf3c49c3b836f2cd8b",
+   "new": "5ca0dfac6f3b777a2329b15d9fd992043ba6a7f2"
+  },
+  {
+   "old": "561e8a03510125016ada36bb1bf30dc2ca4c085f",
+   "new": "3bf558648c186354fce5822b45fbf1997ad3c2cd"
+  },
+  {
+   "old": "5e9c40e41ea51eb83de4c7f95ca75ddcedd27f05",
+   "new": "85ecf7be24e184d42925d52b0ca711e605f3fecf"
+  },
+  {
+   "old": "6363eadad92dda83f421fd679ae499e39d6ceb3d",
+   "new": "f5586272ef55a105ded3ef456571bb32f357e4a5"
+  },
+  {
+   "old": "642efaa10b668807faf654061ce1b42a07587a37",
+   "new": "4b38523b52a82224bcddcd05463385b4e9877dcd"
+  },
+  {
+   "old": "6585d4631fab88261e3701f6309c6f3d9b1a1ba4",
+   "new": "1cc3d4c445d4dd322d091c5dfe59db68f2a17be9"
+  },
+  {
+   "old": "69d1c580d5693e75bdaf87afa4f8aac1c27e1ede",
+   "new": "7b3fc835765306e11bd33d2d710f6167da689150"
+  },
+  {
+   "old": "6a5e64bb28008420d708b7f2707ac74f5c76173d",
+   "new": "6a5e64bb28008420d708b7f2707ac74f5c76173d"
+  },
+  {
+   "old": "6abac9786a161f7c480c501b7b9c28e83fa656cd",
+   "new": "879798c7cb55b623a1c1cb5f0920b7172b0f837e"
+  },
+  {
+   "old": "70c2bfbce5b407ddbae4b33859bcd7fda9ea66f2",
+   "new": "10338337cca9a65470084635863d67001d4e6999"
+  },
+  {
+   "old": "8ccabb03f5f2164be5b52c0633aac1bfff0d73ca",
+   "new": "ee2b728d2b380c6d47fef2ac4d217ef6386667ac"
+  },
+  {
+   "old": "94ffb2a413696f9843e5d71b3070a7b2eeeded92",
+   "new": "dc62fba6b72b2d2a8387fb7aa289417247f00035"
+  },
+  {
+   "old": "9ffbb9517edbcbc347fc1157f820283ae3fae171",
+   "new": "3333cb04c44754842815966b26a4367d77b042a4"
+  },
+  {
+   "old": "b15896ac9607c4a2fc8d76be33919d78a12cde7b",
+   "new": "5cd8e90ecfc4adf4fa257cb1927d914477c475a5"
+  },
+  {
+   "old": "b766fa865755fbcfa74c58b16c897abf570a52ee",
+   "new": "406454982ba71b2c89b737d5782bce22e8f77f80"
+  },
+  {
+   "old": "bce5fef3049a9cf6af4ed340e2fdd540b085c9c9",
+   "new": "a11af44513898f882a8b0e4b520c18e4c0aabac9"
+  },
+  {
+   "old": "c6f39fad46b8a71b0172d1b19809d875f415ccd6",
+   "new": "970d82ed4b6a45f104dfaee685ae052923100c32"
+  },
+  {
+   "old": "d1752c6169fcdb912c9e7a2f3d43907008d3a028",
+   "new": "d1752c6169fcdb912c9e7a2f3d43907008d3a028"
+  },
+  {
+   "old": "d606c3257cbfd1925edd786da7bbe27d50562dde",
+   "new": "d606c3257cbfd1925edd786da7bbe27d50562dde"
+  },
+  {
+   "old": "e33eacb6184213ef0f90def423659fefcd3261b2",
+   "new": "aa6f967bee7cca1ddf90cc67c386e47ab13aee8c"
+  },
+  {
+   "old": "ea58dfa817636acd10bf4c962250d6af78dfc218",
+   "new": "4a7245fe4f1a53a7f1cb3b3df46f4d2ed662b47a"
+  },
+  {
+   "old": "eb661162b2e82ea01ac0c04f8c91442fd2b0c08a",
+   "new": "ca0f7cb8cb4dd2f6873112b923efb46f7afd43a9"
+  },
+  {
+   "old": "f3a11f404ad6bc3bfa84a968a4d1fcd1ffd2acfc",
+   "new": "7b15b4e3b438b5dd3f9720e187efe0d67bb4aadb"
+  }
+ ],
+ "checks": {
+  "a_no_removed_path_in_pushed_history": {
+   "pass": true,
+   "offending": [],
+   "noa_related_paths_still_in_history": [
+    "reproduction/emsr933/noa_stations/.gitignore",
+    "reproduction/emsr933/noa_stations/sources.md",
+    "reproduction/v14_rerun/scripts/crete_rain_vs_noa.py",
+    "tests/test_crete_rain_vs_noa.py"
+   ]
+  },
+  "b_rewritten_commits_differ_only_by_removed_paths_metadata_identical": {
+   "pass": true,
+   "tree_mismatches": [],
+   "metadata_mismatches": [],
+   "commits_checked": 34
+  },
+  "c_tags_annotated_unchanged_text_repointed": {
+   "pass": true,
+   "tags": [
+    {
+     "tag": "emsr933-v1",
+     "annotated": true,
+     "old_tag": "542ca35",
+     "new_tag": "22ad917",
+     "old_commit": "f3a11f4",
+     "new_commit": "7b15b4e",
+     "target_is_rewrite_of_original": true,
+     "tagger_date_message_unchanged": true,
+     "ref_points_at_new": true
+    },
+    {
+     "tag": "v1.4.0",
+     "annotated": true,
+     "old_tag": "f39f215",
+     "new_tag": "3331681",
+     "old_commit": "70c2bfb",
+     "new_commit": "1033833",
+     "target_is_rewrite_of_original": true,
+     "tagger_date_message_unchanged": true,
+     "ref_points_at_new": true
+    },
+    {
+     "tag": "v1.4.1",
+     "annotated": true,
+     "old_tag": "e7e2aeb",
+     "new_tag": "040ebc4",
+     "old_commit": "642efaa",
+     "new_commit": "4b38523",
+     "target_is_rewrite_of_original": true,
+     "tagger_date_message_unchanged": true,
+     "ref_points_at_new": true
+    },
+    {
+     "tag": "v1.4.2",
+     "annotated": true,
+     "old_tag": "6cc7b9e",
+     "new_tag": "a876771",
+     "old_commit": "0084600",
+     "new_commit": "779a8e0",
+     "target_is_rewrite_of_original": true,
+     "tagger_date_message_unchanged": true,
+     "ref_points_at_new": true
+    }
+   ]
+  },
+  "d_published_history_untouched": {
+   "pass": true,
+   "commits_up_to_v1_3_0": 16,
+   "all_keep_hash": true,
+   "origin_main_is_ancestor_of_main": true,
+   "v1_3_0_commit": "ccd423a8c197601ad943965ee415f50b9ec53be8",
+   "remote_refs_unchanged_since_code17_plan": true,
+   "ahead_of_origin_main": 39
+  },
+  "e_head_trees_unchanged_and_backups": {
+   "pass": true,
+   "trees": {
+    "main": {
+     "before": "6d063f04edcaa0cbe3ac8a88fce07a05de172003",
+     "after": "6d063f04edcaa0cbe3ac8a88fce07a05de172003"
+    },
+    "fix/harness-v1.4": {
+     "before": "6d063f04edcaa0cbe3ac8a88fce07a05de172003",
+     "after": "6d063f04edcaa0cbe3ac8a88fce07a05de172003"
+    }
+   },
+   "backup_refs": [
+    "refs/backup/code21/heads/emsr933-crete 69d1c580d5693e75bdaf87afa4f8aac1c27e1ede",
+    "refs/backup/code21/heads/fix/harness-v1.4 19e3954b3e007760caa14482799388c7fbdc6c5b",
+    "refs/backup/code21/heads/main 19e3954b3e007760caa14482799388c7fbdc6c5b",
+    "refs/backup/code21/tags/emsr933-v1 542ca355aa239e364200960262e4deba29fa9561",
+    "refs/backup/code21/tags/v1.4.0 f39f215df0bc1b44db66ad6f8fe8cd1beb242ff0",
+    "refs/backup/code21/tags/v1.4.1 e7e2aeb0ccb877e9088f884a5a0158e9f0113c88",
+    "refs/backup/code21/tags/v1.4.2 6cc7b9edb2ecb28f873f7d8bdc555e6778163757"
+   ],
+   "bundle": {
+    "path": "C:\\Users\\dvalsamis\\AppData\\Local\\Temp\\claude\\d--ELKAK\\9345177c-48a6-4380-9f01-2779f44e774f\\scratchpad\\code21\\rewrite\\backup_pre_rewrite_all_refs.bundle",
+    "bytes": 129856498,
+    "sha256": "9966372833efcbe8e23373b3e407a806e1f4d704b68d045ab5073d45f92d8e29",
+    "verify_ok": true
+   }
+  }
+ },
+ "all_pass": true,
+ "note": "The CODE-18 brief text was not available in this session (not in the transcript, memory or workspace documents); checks (a)-(e) above are the reconstruction used here. The branch emsr933-crete (not pushed) was rewritten too; archive/local-main-2026-06 and release/portability-fix do not reach the first commit that tracked the files and are untouched. The backup refs are local only (never pushed) and can be deleted after GO-PUSH."
+}

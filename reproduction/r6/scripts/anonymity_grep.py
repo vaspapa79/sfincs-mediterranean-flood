@@ -41,12 +41,17 @@ CLASSES = [  # (class, compiled regex, applies to accent-stripped lower-cased te
     ("e-mail addresses", re.compile(r"\b[A-Za-z0-9._%+-]*[A-Za-z][A-Za-z0-9._%+-]*@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}\b"), False),
     ("ORCIDs", re.compile(r"orcid\.org|\b\d{4}-\d{4}-\d{4}-\d{3}[\dX]\b", re.I), False),
     ("vaspapa", re.compile(r"vaspapa\w*", re.I), False),
-    ("github.com URLs", re.compile(r"github\.com[/\w.\-]*", re.I), False),
+    # CODE-21 item 3: the authors' GitHub URLs are identifying; URLs of other projects (Deltares/SFINCS issues and releases,
+    # the GitHub API host in build_refs.py) are not, and are listed under their own class without counting as a hit outside
+    # cited-work metadata
+    ("github.com URLs (ours)", re.compile(r"github\.com[/:](?:vaspapa79|dmvalsamis|sfincs-mediterranean-flood)[/\w.\-]*", re.I), False),
+    ("github.com URLs (third-party)", re.compile(r"github\.com(?![/:](?:vaspapa79|dmvalsamis|sfincs-mediterranean-flood))[/\w.\-]*", re.I), False),
     ("Zenodo DOIs / records", re.compile(r"10\.5281/zenodo\.\d+|zenodo\.org[/\w.\-]*", re.I), False),
     ("grant numbers", re.compile(r"\b101225575\b|grant agreement", re.I), False),
     ("ECHO", re.compile(r"\bECHO\b"), False),
 ]
 THIRD_PARTY = {"reproduction/r6/refs_crossref_raw.json": "third-party bibliographic metadata (Crossref/DataCite records of the cited works)"}
+THIRD_PARTY_CLASS = "github.com URLs (third-party)"
 EXCLUDE = {"reproduction/r6/scripts/anonymity_grep.py", "reproduction/r6/ANONYMITY_REPORT.md", "reproduction/r6/anonymity_hits.json"}
 
 
@@ -152,20 +157,26 @@ def tree_report(hits: list, counts: dict, out_md: Path, out_json: Path, label: s
     for h in hits:
         by_cls.setdefault(h["class"], []).append(h)
     cited = [h for h in hits if CITED_WORK_FILES.search(h["file"])]
-    outside = [h for h in hits if not CITED_WORK_FILES.search(h["file"])]
+    third = [h for h in hits if h["class"] == THIRD_PARTY_CLASS and not CITED_WORK_FILES.search(h["file"])]
+    outside = [h for h in hits if not CITED_WORK_FILES.search(h["file"]) and h["class"] != THIRD_PARTY_CLASS]
     L = [f"# Anonymity scan of `{label}` (CODE-17 C4)", "",
          f"Generated {now} by `reproduction/r6/scripts/anonymity_grep.py --tree`. Files scanned: {counts['text']} text, {counts['png']} PNG "
-         f"(text chunks), {counts['tiff']} TIFF (text tags); {counts['binary']} other binaries listed only. Same classes and patterns as the dry run.", "",
+         f"(text chunks), {counts['tiff']} TIFF (text tags); {counts['binary']} other binaries listed only. Same classes and patterns as the dry run, "
+         f"with the github.com class split into the authors' URLs and third-party URLs (CODE-21).", "",
          f"**Hits outside cited-work metadata: {len(outside)}.** Hits inside cited-work metadata (refs.bib, refs_datacite.bib, "
-         f"REFERENCES_REPORT.md, refs_crossref_raw.json — other authors' records, left untouched by design): {len(cited)}.", "",
+         f"REFERENCES_REPORT.md, refs_crossref_raw.json — other authors' records, left untouched by design): {len(cited)}. "
+         f"Third-party github.com URLs (other projects' issues, releases and API host; not identifying; listed below, not counted): {len(third)}.", "",
          "| class | hits | outside cited-work metadata | files |", "|---|---|---|---|"]
     for cls, _rx, _s in CLASSES:
         hs = by_cls.get(cls, [])
-        o = [h for h in hs if not CITED_WORK_FILES.search(h["file"])]
-        L.append(f"| {cls} | {len(hs)} | {len(o)} | {len({h['file'] for h in hs})} |")
+        o = [h for h in hs if not CITED_WORK_FILES.search(h["file"]) and cls != THIRD_PARTY_CLASS]
+        L.append(f"| {cls} | {len(hs)} | {len(o)}{' (not counted)' if cls == THIRD_PARTY_CLASS and hs else ''} | {len({h['file'] for h in hs})} |")
     if outside:
         L += ["", "## Hits outside cited-work metadata", "", "| class | file | line | match | context |", "|---|---|---|---|---|"]
         L += [f"| {h['class']} | `{h['file']}` | {h['line']} | `{h['match']}` | {h['context']} |" for h in outside[:300]]
+    if third:
+        L += ["", "## Third-party github.com URLs (listed, not counted)", "", "| file | line | match |", "|---|---|---|"]
+        L += [f"| `{h['file']}` | {h['line']} | `{h['match']}` |" for h in third[:300]]
     if cited:
         byf = {}
         for h in cited:
@@ -175,7 +186,8 @@ def tree_report(hits: list, counts: dict, out_md: Path, out_json: Path, label: s
     out_md.write_text("\n".join(L) + "\n", encoding="utf-8")
     out_json.write_text(json.dumps({"utc": now, "label": label, "counts": {k: v for k, v in counts.items() if k != "not_scanned"},
                                     "n_not_scanned": len(counts["not_scanned"]), "hits_outside_cited_work": len(outside),
-                                    "hits_in_cited_work": len(cited), "by_class": {c: len(by_cls.get(c, [])) for c, _r, _s in CLASSES},
+                                    "hits_in_cited_work": len(cited), "third_party_github_urls": len(third),
+                                    "by_class": {c: len(by_cls.get(c, [])) for c, _r, _s in CLASSES},
                                     "hits": hits}, indent=1, ensure_ascii=False), encoding="utf-8")
     return len(outside), len(cited)
 

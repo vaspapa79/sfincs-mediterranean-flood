@@ -1,6 +1,14 @@
 """Phase 4d (GO Phases 3-5, 2026-10-19) — Figure 10 and Figure 11 equivalents from the v1.4 JSON records, each PNG with the
 data behind it as CSV.
 
+SUPERSEDED BENCHMARKS (CODE-21 item 2, 2026-10-23): the BANDS constants below (0.10-0.36 "Bernhofen et al. 2018",
+0.42-0.62 "Hocini et al. 2021") and WING_MEDIAN were copied from the R5 Figure-10 caption and are not what those papers
+state; they are superseded by reproduction/v14_rerun/code20/f10_benchmarks.json (Bernhofen et al. 2018 average CSI range
+0.45-0.70; Sadana et al. 2026 same-solver means 0.42 / 0.29 under GloFAS forcing and 0.67 with observed discharge, each
+with its quote and page). The manuscript figure is F10 of reproduction/r6/scripts/r6_figures.py; the PNG this script draws
+(phase4/figures/fig10_skill_v14_v142.png) is a phase-4 diagnostic of the v1.4.2 freeze and is not used in the manuscript.
+This script's output is left unchanged on purpose.
+
   fig10_skill_v14.png / .csv   strict and fuzzy (r = 1) CSI per event (v1.4, new mask; v1.3 published as hollow markers)
                                against the benchmark bands quoted in the R5 Figure-10 caption (global multi-model 0.10-0.36,
                                Bernhofen et al. 2018; calibrated single-event 0.42-0.62, Hocini et al. 2021; Wing et al. 2017

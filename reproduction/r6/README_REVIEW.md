@@ -13,7 +13,7 @@ the runs each affected, the fix commit and the tests that guard it).
 |---|---|
 | `skill/` | the pipeline: `scripts/run_pipeline.py` and its 16 steps, one YAML per event and configuration in `examples/`, templates, the Manning lookup |
 | `validation/` | the strict and fuzzy contingency validators, the evaluation-mask builder, the cross-event aggregators |
-| `reproduction/v14_rerun/` | every v1.4.x run: realised configurations (`configs/`), validation JSON and run records (`results/`), the evaluation exclusion masks (`masks/`), diagnostics (`phase4/`, `phase5/`), the defect records (`code14/`–`code17/`), `NUMBER_MAP.md` |
+| `reproduction/v14_rerun/` | every v1.4.x run: realised configurations (`configs/`), validation JSON and run records (`results/`), the evaluation exclusion masks (`masks/`), diagnostics (`phase4/`, `phase5/`), the defect, look-up and revision records (`code14/`–`code20/`), `NUMBER_MAP.md` |
 | `reproduction/emsr933/` | the Crete prospective run: EMS snapshots, rule ledger, truth freeze, timing log |
 | `reproduction/r6/` | manuscript tables (`tables/`, `TABLES_MANIFEST.md`), figures (`figures/`, `FIGURES_MANIFEST.md`), reference list (`refs.bib`, `refs_datacite.bib`) and the generating scripts |
 | `docs/` | `AUDIT.md` (audit trail), the frozen activation rule and its freeze evidence, reproducibility and validation notes |
@@ -72,7 +72,7 @@ every run are in `reproduction/emsr933/timing.md`.
 
 ## Checking the recorded numbers without running the model
 
-- `reproduction/r6/tables/` (T2–T6, S1–S10): every cell is read from a record listed in `reproduction/r6/TABLES_MANIFEST.md`;
+- `reproduction/r6/tables/` (T2–T6, S1–S11, with the companion CSVs such as `S2_baseline_digest.csv`): every cell is read from a record listed in `reproduction/r6/TABLES_MANIFEST.md`;
   `python -I reproduction/r6/scripts/r6_tables.py --repo .` regenerates them (Table S4 also needs the earlier manuscript's
   supplement text, which is not in the archive; that table is kept as generated).
 - `reproduction/v14_rerun/NUMBER_MAP.md`: every number of the earlier release set against v1.4.x.

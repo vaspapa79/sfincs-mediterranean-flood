@@ -29,12 +29,23 @@ First artefacts of the two blind runs, from the manuscript repository's run dire
 
 | event | config written | first execution | first score |
 |---|---|---|---|
-| EMSR773 Valencia | 2026-07-15 15:17 | **2026-07-15 16:10** | 2026-07-15 21:00 |
+| EMSR773 Valencia | 2026-07-15 15:17 | **2026-07-15 16:10** | ~~2026-07-15 21:00~~ 2026-07-15 16:13 (corrected 2026-10-23, see below) |
 | EMSR664 Emilia-Romagna | 2026-07-15 15:17 | **2026-07-15 16:30** | 2026-07-15 16:50 |
 
-The freeze (`bfd005a`, 14:33:54) precedes the first held-out configuration by ~43 min and the first
-model execution by ~1 h 36 min. A follow-up commit `49da0d1` *"Held-out runs executed: real Valencia
-+ Emilia-Romagna SFINCS results"* is dated 2026-07-15 17:00:54 — after both runs, as expected.
+The freeze (`bfd005a`, 14:33:54) precedes the first held-out configuration by ~43 min, the first
+model execution by ~1 h 36 min and the first Valencia score by 1 h 39 min. A follow-up commit `49da0d1`
+*"Held-out runs executed: real Valencia + Emilia-Romagna SFINCS results"* is dated 2026-07-15 17:00:54 —
+after both runs, as expected.
+
+**Correction (2026-10-23, CODE-21 item 1; record `reproduction/v14_rerun/code20/b1_freeze_order.json`).**
+The first-score entry for Valencia originally read ~~2026-07-15 21:00~~. That time is the score of the
+later 350 mm bias-corrected run (`metrics.json` generated 2026-07-15T18:00:02Z = 21:00:02 local, commit
+`5447768`). The first Valencia score is the raw-IMERG run, `metrics.json` generated
+**2026-07-15T13:13:03Z = 16:13:03 local** (the file as committed in `49da0d1`), three minutes after the
+first execution listed above. In UTC the sequence is: rule commit 11:33:54Z → Valencia configuration
+12:17:17Z → first execution 13:10:13Z → first score 13:13:03Z → results commit 14:00:54Z → 350 mm score
+18:00:02Z. The ordering claimed by this file is unchanged; the earlier line is kept struck through rather
+than rewritten.
 
 ## Corroboration internal to the freeze commit
 
