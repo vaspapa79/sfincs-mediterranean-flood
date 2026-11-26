@@ -97,7 +97,9 @@ def _apply_machine_overrides(raw: dict) -> dict:
             for k, v in list(sect.items()):
                 if isinstance(v, str):
                     vn = v.replace("\\", "/")
-                    if vn.lower().startswith(ar.lower()):
+                    # match whole path components only: .../ELKAK must not
+                    # also match .../ELKAK_forecasting
+                    if vn.lower().startswith(ar.lower()) and vn[len(ar):len(ar) + 1] in ("", "/"):
                         sect[k] = lr + vn[len(ar):]
             if sect:
                 raw[section] = sect
