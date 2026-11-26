@@ -24,7 +24,7 @@ def main():
     out_png.parent.mkdir(parents=True, exist_ok=True)
 
     s = open_sfincs(cfg.paths["model_dir"])
-    zsmax = s["ds"]["zsmax"].isel(timemax=-1).values
+    zsmax = s["ds"]["zsmax"].max("timemax").values
     hmax = np.maximum(zsmax - s["zb"], 0)
     hmax_m = np.where((s["msk"] > 0) & (hmax > 0.05), hmax, np.nan)
 

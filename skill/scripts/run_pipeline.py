@@ -34,6 +34,10 @@ STEPS = [
     ("13", "qc_alignment.py"),
     ("14", "make_animation.py"),
     ("15", "make_mp4.py"),
+    # GeoTIFF export (peak depth / extent / velocity, + 30 m downscaled depth).
+    # Numbered 17 so existing step numbers stay valid, but runs before 16 so the
+    # GeoTIFFs (deliverable_dir/5_geotiff) are included in the deliverable zip.
+    ("17", "export_geotiff.py"),
     ("16", "package_deliverable.py"),
 ]
 
